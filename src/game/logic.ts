@@ -59,6 +59,12 @@ function wpick<T>(r: Rng, items: T[], w: (t: T) => number): T {
   return items[items.length - 1];
 }
 
+/** 入力された名前があればそれ(乱数の並びは変えない = 同じ seed なら名前以外は同じ人生) */
+function nameOf(gacha: Text, typed?: string): Text {
+  const t = (typed ?? '').trim().slice(0, 16);
+  return t ? { ja: t, en: t } : gacha;
+}
+
 function newCompany(r: Rng, size: CompanySize, year: number): Company {
   return { id: `co_${size}_${r.int(1, 999)}`, name: companyName(r, size, year), size };
 }
@@ -75,7 +81,7 @@ export function init(seed: number, options: InitOptions = {}): State {
     : peerOf && peerOf.company.size !== 'indie' ? peerOf.company : newCompany(r, entry.size, year);
   const s: State = {
     seed, year, age, startAge: age, startYear: year, era: eraOf(year), job, status: entry.indie ? 'indie' : 'employed',
-    name: personName(r), entry: entry.text, region: entry.size === 'abroad' ? { ja: '海外', en: 'abroad' } : r.pick(REGIONS),
+    name: nameOf(personName(r), options.name), entry: entry.text, region: entry.size === 'abroad' ? { ja: '海外', en: 'abroad' } : r.pick(REGIONS),
     company, companies: [{ company, year }], options: { era: options.era, year: options.year, age: options.age, seen: options.seen },
     stat: { hp: base[0], passion: base[1], skill: base[2], network: base[3], money: base[4], fame: 0 },
     flags: {}, works: [], peers: [], log: [], chronicle: [], pending: [], rng: r,

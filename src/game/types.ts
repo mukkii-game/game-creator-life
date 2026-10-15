@@ -108,6 +108,8 @@ export interface InitOptions {
   era?: Era;
   /** 同期として作る時に内部で使う */
   peerOf?: { year: number; company: Company; bot: string };
+  /** 自分の名前(空ならおまかせ = 架空の名前をガチャ) */
+  name?: string;
   /** 年表図鑑で既に触れた事件(`hs_id:ev_id`)。まだ触れていない事件が出やすくなる */
   seen?: string[];
 }
