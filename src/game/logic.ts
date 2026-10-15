@@ -407,10 +407,10 @@ function runItem(s: State, id: string, out: string[]) {
 function remember(s: State, ev: GameEvent, memory?: Text) {
   const t = ev.tag ?? [];
   const w = t.includes('peak') ? 6 : t.includes('bond') ? 5 : t.includes('warm') ? 4 : t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
-  if (!w) return;
+  if (!w && !memory) return;
   const first = (x: string, sep: RegExp) => x.split(sep)[0];
   const text = memory ? fill(s, memory) : (() => { const f = fill(s, ev.text); return { ja: first(f.ja, /。/), en: first(f.en, /\. /) }; })();
-  s.inner.highs.push({ year: s.year, age: s.age, text, w: w + s.rng.next() });
+  s.inner.highs.push({ year: s.year, age: s.age, text, w: (w || 2) + s.rng.next() });
 }
 
 function promote(s: State) {
