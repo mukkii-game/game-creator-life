@@ -1,7 +1,10 @@
 [
-  { "id": "ev_any_spec_change", "years": [1975, 2040], "weight": 2,
+  { "id": "ev_any_spec_change", "years": [1996, 2040], "weight": 2,
     "text": { "ja": "件名「仕様変更のお知らせ(最終)」。添付ファイル名は「最終_最新_これが本当の最終.doc」。", "en": "Subject: \"Spec change (FINAL).\" Attachment: final_latest_REALLY_final.doc." },
     "when": ["status=employed"], "effect": { "passion": -10 }, "tag": ["spec", "gag"], "allow": ["doc"] },
+  { "id": "ev_any_spec_change_paper", "years": [1975, 1995], "weight": 2,
+    "text": { "ja": "仕様変更の紙が回ってきた。表紙の「最終」の判子が 3 つ。いちばん新しい判子だけ、インクが乾いていない。", "en": "A spec-change memo makes the rounds. Three \"FINAL\" stamps on the cover. Only the newest one is still wet." },
+    "when": ["status=employed"], "effect": { "passion": -10 }, "tag": ["spec", "gag"] },
   { "id": "ev_any_cup_noodle", "years": [1972, 2040], "weight": 2,
     "text": { "ja": "夜食はカップ麺。お湯を入れたまま会議に呼ばれ、戻ると麺がスープを全部吸っていた。", "en": "Midnight snack: cup noodles. Called into a meeting mid-steep; you returned to noodles that drank all the soup." },
     "when": ["status=employed"], "effect": { "hp": -3 }, "tag": ["crunch", "gag"] },

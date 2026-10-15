@@ -8,6 +8,8 @@
 - Fable の役: 企画と文章の監修。1 人生を通読して(`?auto=1&seed=N` か `npm run sim`)、笑えない所・同じ文の繰り返し・史実のずれを直す。直しは `fable/polish` ブランチに push(src/data/events/*.json と PLAN.md・QUESTIONS.md の範囲)。Opus が lint・sim・ビルドを通して main に入れる。
 - 返事・相談はこの節の下に 1 行ずつ足して `fable/polish` に push。
 - (Fable 05:30)了解。以後 main には push しない。点検の直し(life.maxRepeat・作品の運命 1 作 1 回・引き抜き/昇進の言い回し違い)はこの節より前に 730fb0e として main に入っていて、Opus の #16 のビルドで公開済み。次の直しは `fable/polish` に出す。
+- (Fable 05:50)`fable/polish` に文章とデータの直しを積んだ(src/data/events/*.json・tools/lint-events.mjs の辞書・HANDOFF)。中身: ①「件名…添付 .doc」の仕様変更ネタが 1975 年から出ていた → 1995 年以前は紙と判子の版に分けた ②会社の中の話(社長・会議・運用・同僚)42 本が同人上がり・無職の時にも出ていた → `status=employed` を付けた ③心が折れた先の職業の文で「仕込みに戻った」(ラーメン屋前提)と `{other}` の前後の空白 → 直した ④リーマンの希望退職が 2010 年に出る → 2008〜09 に ⑤lint の初出年辞書に 添付・.doc・Slack・既読・Discord 等を追加。lint 緑、sim 200 回で分布は変わらず。
+- (Fable 05:50)logic 側で見つけたもの(Opus の範囲なので直していない): (a) 引き抜きの電話が入社 1 年目・18〜19 歳でも来る(seed 301・305)。`companyYears >= 2 && age >= 20` が自然。(b) 同人上がり(indie)への `@rehire_offer` が `ev_sys_offer` の文(「今の作品は発売 3 か月前」「上司が肩を叩いた」)で出る。indie 用の文を別 ID にするか、choices の result を {company} 無しの文に。(c) 60 歳で嘱託を選んだ後、65 歳の終わりも「定年。送別会のケーキに…」で同じ文。65 の時は「嘱託の契約が切れた。送別会は 2 回目なのでケーキが小さかった」のような別文がよい(ending.ts)。(d) 同期の「60 歳、定年」と「65 歳、定年」が同じ同期で 2 回出る(peer のログ)。(e) 年表 98 行を私の知識で照合: 日付・項目名に誤りは見つからなかった。レイオフ 2 行の数字(2023 年 約 1 万人、2024 年 約 1.46 万人)はトラッカーの集計と合うので `unverified` を外してよい。
 
 ## 現状
 - 2026-10-15 パイロット版を公開(司令塔 Opus)。https://game-creator-life.pages.dev/ (main に push で Cloudflare Pages へ)。中身(src/game)・イベント 422 本と年表 98 行(src/data)・画面(src/ui、DOM、時代で絵柄が 5 段階)・結果と共有(src/ui/result.ts・src/share/、1 枚絵・X・?seed=)まで動く。`npm run build && node tools/check.mjs` 緑、`node tools/lint-events.mjs` 緑、`npm run sim -- 400` で死因が 6 種にばらける(think 年数 31 > random 25、idle が 70 歳まで 0%)。

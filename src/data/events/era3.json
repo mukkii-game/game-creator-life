@@ -76,7 +76,7 @@
     "when": ["status=employed"], "effect": { "fame": 2, "hp": -3, "passion": 4 }, "tag": ["gag"] },
   { "id": "ev_era3_cg_license", "years": [1995, 2000],
     "text": { "ja": "3DCG ソフトは 1 本数百万円。社内に 1 本しか無く、触れるのは夜中の交代制だけ。", "en": "The 3D software costs millions of yen per seat. The office has one, and you get it only on the night shift rotation." },
-    "when": ["job=artist"], "effect": { "skill": 5, "hp": -4 }, "tag": ["crunch"] },
+    "when": ["status=employed", "job=artist"], "effect": { "skill": 5, "hp": -4 }, "tag": ["crunch"] },
   { "id": "ev_era3_outsource_qa", "years": [1997, 2003],
     "text": { "ja": "デバッグの外注先から報告書。不具合 1200 件、うち 400 件の内容欄は「たのしかったです」。", "en": "Report from the outsourced testers: 1,200 issues. In 400 of them, the description just says \"it was fun.\"" },
     "when": ["status=employed"], "effect": { "passion": 3, "hp": -2 }, "tag": ["gag"] },
@@ -109,7 +109,7 @@
     "when": ["status=indie"], "effect": { "passion": 7, "money": 1, "skill": 2 }, "tag": ["money", "gag"] },
   { "id": "ev_era3_sales_preorder", "years": [1995, 2003],
     "text": { "ja": "店の予約数を数えて回った。合計 3000 本。社長に報告すると「1 桁足りない」と言われ、もう 1 周した。", "en": "You toured shops counting preorders: 3,000. The boss said \"Missing a zero.\" You went around again." },
-    "when": ["job=sales"], "effect": { "network": 4, "hp": -3, "passion": -2 }, "tag": ["money", "gag"] },
+    "when": ["status=employed", "job=sales"], "effect": { "network": 4, "hp": -3, "passion": -2 }, "tag": ["money", "gag"] },
 
   { "id": "ev_era3_ch_poach", "years": [1996, 1999], "once": true, "weight": 3,
     "text": { "ja": "大手から引き抜きの話。年収 1.5 倍。今の作品は発売 3 か月前で、あなたが抜けると穴が空く。", "en": "A major studio wants to poach you at 1.5x pay. Your current game ships in three months, and leaving would leave a hole." },
@@ -161,7 +161,7 @@
   { "id": "ev_era3_mobile_payoff", "years": [2005, 2010], "weight": 0,
     "text": { "ja": "ケータイのゲームの経験者が急に引っぱりだこに。昔の小さい作品の画面写真が、今は名刺代わり。", "en": "Mobile-game veterans are suddenly in demand. Screenshots of your tiny old games now work as your business card." },
     "effect": { "money": 80, "fame": 5, "network": 6 }, "tag": ["money", "job"] },
-  { "id": "ev_era3_mobile_regret", "years": [2004, 2008], "weight": 0,
+  { "id": "ev_era3_mobile_regret", "years": [2004, 2008], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "断ったケータイの部署が、会社で一番の稼ぎ頭になった。社員食堂の窓ぎわの席も、あの部署のものだ。", "en": "The mobile team you turned down is now the company's top earner. They even get the cafeteria's window seats." },
     "effect": { "passion": -6 }, "tag": ["gag"] },
 
@@ -179,7 +179,7 @@
   { "id": "ev_era3_indie_reality", "years": [1999, 2005], "weight": 0,
     "text": { "ja": "独立して 3 年。送金は月に 3 件。うち 1 件は、毎月かならず母から届く。", "en": "Three years indie. Three payments a month. One of them, without fail, is from your mom." },
     "effect": { "passion": 4, "money": -20, "network": 3 }, "tag": ["money", "family"] },
-  { "id": "ev_era3_night_project", "years": [1999, 2005], "weight": 0,
+  { "id": "ev_era3_night_project", "years": [1999, 2005], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "夜の自作がついに完成した。同じ日、会社のマスターアップも重なり、どちらの打ち上げにも寝坊した。", "en": "Your night project is finally done—the same day as the company's master-up. You overslept both parties." },
     "effect": { "fame": 4, "passion": 5, "hp": -5 }, "tag": ["gag"] },
 
@@ -194,10 +194,10 @@
         "later": [{ "after": 2, "event": "ev_era3_merger_quiet_won" }],
         "result": { "ja": "部署の会議は 5 分で終わった。誰も何も言わなかった。", "en": "The team meeting lasted five minutes. Nobody said anything." } }
     ], "tag": ["choice", "job"] },
-  { "id": "ev_era3_merger_loud_lost", "years": [2003, 2006], "weight": 0,
+  { "id": "ev_era3_merger_loud_lost", "years": [2003, 2006], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "声の大きい部長が、もっと声の大きい役員に負けた。あなたの席は、静かな窓ぎわへ移った。", "en": "The loud manager lost to an even louder executive. Your desk was moved to a quiet window corner." },
     "effect": { "passion": -5, "fame": -2, "hp": 3 }, "tag": ["gag"] },
-  { "id": "ev_era3_merger_quiet_won", "years": [2003, 2006], "weight": 0,
+  { "id": "ev_era3_merger_quiet_won", "years": [2003, 2006], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "静かな部長の部署は、いつの間にか予算が倍になっていた。理由を聞いても、部長は静かに笑うだけ。", "en": "The quiet manager's budget had doubled at some point. Ask why, and he just smiles quietly." },
     "effect": { "money": 30, "passion": 4, "skill": 3 }, "tag": ["money"] },
 
@@ -230,10 +230,10 @@
         "later": [{ "after": 1, "event": "ev_era3_dance_lost" }],
         "result": { "ja": "最後の矢印でわざと足を滑らせた。本当に足首をひねった。", "en": "You slipped on the final arrow on purpose. You actually sprained your ankle." } }
     ], "tag": ["choice"] },
-  { "id": "ev_era3_dance_won", "years": [1999, 2002], "weight": 0,
+  { "id": "ev_era3_dance_won", "years": [1999, 2002], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "予算会議で、あなたの企画だけが 3 回差し戻された。理由の欄には「リズムが合わない」。", "en": "At the budget meeting, only your project got sent back—three times. The reason given: \"Off-rhythm.\"" },
     "effect": { "passion": -4, "fame": 2 }, "tag": ["gag"] },
-  { "id": "ev_era3_dance_lost", "years": [1999, 2002], "weight": 0,
+  { "id": "ev_era3_dance_lost", "years": [1999, 2002], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "上機嫌の部長が、あなたの企画にすんなり判を押した。ひねった足首は、まだ少し痛い。", "en": "In a great mood, the manager stamped your project right away. Your ankle still hurts a bit." },
     "effect": { "money": 10, "skill": 3, "hp": -2 }, "tag": ["gag"] },
 
@@ -267,7 +267,7 @@
     "tag": ["afterlife", "work", "gag"] },
   { "id": "ev_era3_wk_premium", "years": [1998, 2003],
     "text": { "ja": "{work} の中古価格が、なぜか定価の 3 倍になった。社員なので、あなたには 1 円も入らない。", "en": "Used copies of {work} now sell for three times retail. You were salaried, so you get exactly zero yen." },
-    "when": ["works>=1"], "effect": { "fame": 6, "passion": 2, "work": { "last": { "history": { "ja": "中古で定価の 3 倍に", "en": "Used price hit 3x retail" } } } },
+    "when": ["status=employed", "works>=1"], "effect": { "fame": 6, "passion": 2, "work": { "last": { "history": { "ja": "中古で定価の 3 倍に", "en": "Used price hit 3x retail" } } } },
     "tag": ["afterlife", "work", "money", "gag"] },
   { "id": "ev_era3_wk_board_thread", "years": [1999, 2003],
     "text": { "ja": "掲示板に {work} 専用の書き込み場所ができた。書き込みの 9 割は「2 面のあれ、何だったの」。", "en": "{work} got its own message-board thread. Ninety percent of posts: \"What was that thing on stage 2?\"" },

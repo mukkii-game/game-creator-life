@@ -75,7 +75,7 @@
     "when": ["job=qa"], "effect": { "hp": -4, "skill": 2 }, "tag": ["crunch", "gag"] },
   { "id": "ev_era2_sound_channels", "years": [1986, 1994],
     "text": { "ja": "音のチャンネルが足りない。効果音が鳴るたびに BGM のベースが消える。社長は「味だ」と言った。", "en": "Not enough sound channels. Every sound effect kills the bassline. The boss calls it \"character.\"" },
-    "when": ["job=sound"], "effect": { "skill": 3, "passion": -2 }, "tag": ["gag"] },
+    "when": ["status=employed", "job=sound"], "effect": { "skill": 3, "passion": -2 }, "tag": ["gag"] },
   { "id": "ev_era2_whistle", "years": [1986, 1994],
     "text": { "ja": "近所の子どもが、あなたの作った曲を口笛で吹いていた。題名は誰も知らない。", "en": "A neighborhood kid was whistling a tune you wrote. Nobody knows its name." },
     "when": ["job=sound", "works>=1"], "effect": { "passion": 9, "fame": 2 }, "tag": ["gag"] },
@@ -106,7 +106,7 @@
   { "id": "ev_era2_rom_prepay", "years": [1986, 1994],
     "text": { "ja": "カートリッジの製造は前払い。社長が自宅を担保に入れた、と経理がこっそり教えてくれた。", "en": "Cartridge manufacturing is paid up front. Accounting whispers that the boss mortgaged his house." },
     "when": ["status=employed", "company.size=small"], "effect": { "passion": -3, "network": 2 }, "tag": ["money"] },
-  { "id": "ev_era2_mom_lines", "years": [1988, 1989], "once": true,
+  { "id": "ev_era2_mom_lines", "years": [1988, 1989], "when": ["status=employed"], "once": true,
     "text": { "ja": "発売日の行列のニュースを見た母から電話。「あんたの会社も行列できるの?」。できない。", "en": "Mom saw the release-day lines on the news. \"Do people line up for your games too?\" They don't." },
     "effect": { "passion": -3 }, "tag": ["family", "gag"] },
   { "id": "ev_era2_drink_pyramid", "years": [1987, 1994],
@@ -130,7 +130,7 @@
         "later": [{ "after": 3, "event": "ev_era2_action_cult" }],
         "result": { "ja": "会議室を出ると、部長が無言で企画書に付箋を貼った。「RPG 要素」。", "en": "On the way out, the manager silently stuck a note on your pitch: \"RPG elements.\"" } }
     ], "tag": ["choice", "spec"] },
-  { "id": "ev_era2_rpg_flood", "years": [1989, 1994], "weight": 0,
+  { "id": "ev_era2_rpg_flood", "years": [1989, 1994], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "店の棚に、勇者が剣を掲げた箱が 40 本並んでいた。うちの作品は 39 本目だった。", "en": "Forty boxes on the shelf, every one with a hero raising a sword. Ours was number 39." },
     "effect": { "passion": -5, "fame": 2 }, "tag": ["gag"] },
   { "id": "ev_era2_action_cult", "years": [1989, 1994], "weight": 0,
@@ -148,10 +148,10 @@
         "later": [{ "after": 3, "event": "ev_era2_side_small_cover" }],
         "result": { "ja": "開発機は中古で手に入れた。前の持ち主のシールが貼ってある。", "en": "You got a secondhand dev kit. The previous owner's stickers are still on it." } }
     ], "tag": ["choice", "hardware"] },
-  { "id": "ev_era2_side_big_buried", "years": [1990, 1995], "weight": 0,
+  { "id": "ev_era2_side_big_buried", "years": [1990, 1995], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "台数の多いハードは、ソフトも多すぎた。うちの新作は店の棚の一番下、床の高さにある。", "en": "The big console has too many games. Ours sits on the bottom shelf, at floor level." },
     "effect": { "fame": -2, "passion": -4, "money": 20 }, "tag": ["gag"] },
-  { "id": "ev_era2_side_small_cover", "years": [1990, 1995], "weight": 0,
+  { "id": "ev_era2_side_small_cover", "years": [1990, 1995], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "台数の少ないハードでは、うちの新作が専門誌の表紙になった。表紙を額に入れて机に飾った。", "en": "On the smaller console, our game made the cover of its dedicated magazine. You framed it on your desk." },
     "effect": { "fame": 7, "passion": 5 }, "tag": ["gag"] },
 
@@ -166,7 +166,7 @@
         "later": [{ "after": 3, "event": "ev_era2_land_said_no" }],
         "result": { "ja": "会議室が静かになった。あなたの社員旅行はハワイではなく、留守番だった。", "en": "The room went quiet. While the others went to Hawaii, you minded the office." } }
     ], "tag": ["choice", "money"] },
-  { "id": "ev_era2_land_crash", "years": [1991, 1994], "weight": 0,
+  { "id": "ev_era2_land_crash", "years": [1991, 1994], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "買った土地が半値になった。ボーナスは図書カードになり、ハワイの写真は社長室から外された。", "en": "The land lost half its value. Bonuses became book vouchers, and the Hawaii photos came down from the boss's office." },
     "effect": { "money": -30, "passion": -6 }, "tag": ["money", "layoff"] },
   { "id": "ev_era2_land_said_no", "years": [1991, 1994], "weight": 0,
@@ -184,10 +184,10 @@
         "later": [{ "after": 4, "event": "ev_era2_dot_last" }],
         "result": { "ja": "隣の席が空いた。空いた席にもポリゴンの本が置かれた。", "en": "The desk next to you emptied. Someone left a polygon textbook on it." } }
     ], "tag": ["choice", "hardware"] },
-  { "id": "ev_era2_3d_payoff", "years": [1996, 1999], "weight": 0,
+  { "id": "ev_era2_3d_payoff", "years": [1996, 1999], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "三角形をまともに扱える人が、社内で 3 人だけに。給料が上がり、名刺に「CG」の 2 文字が増えた。", "en": "Only three people in the company can handle polygons properly. You get a raise and two new letters on your card: \"CG.\"" },
     "effect": { "money": 50, "fame": 5, "skill": 6 }, "tag": ["money"] },
-  { "id": "ev_era2_dot_last", "years": [1997, 2000], "weight": 0,
+  { "id": "ev_era2_dot_last", "years": [1997, 2000], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "社内で最後のドット絵描きになった。仕事は 3D の床に貼る 64×64 の模様だけ。床はうまく描けた。", "en": "You're the last pixel artist in the company. Your job: 64×64 floor textures for the 3D team. The floors look great." },
     "effect": { "passion": -5, "skill": 4 }, "tag": ["gag"] },
 
@@ -202,10 +202,10 @@
         "later": [{ "after": 2, "event": "ev_era2_guide_typo" }],
         "result": { "ja": "攻略本は監修なしで出ることになった。", "en": "The guide will go out with no developer checking it." } }
     ], "tag": ["choice", "money"] },
-  { "id": "ev_era2_guide_caught", "years": [1989, 1997], "weight": 0,
+  { "id": "ev_era2_guide_caught", "years": [1989, 1997], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "攻略本の後書きに名前があるのを部長が見つけた。説教は 2 時間。最後に「サインして」と本を出された。", "en": "The manager found your name in the guide's afterword. A two-hour lecture, then he held out the book: \"Sign it.\"" },
     "effect": { "passion": -3, "network": -2, "fame": 2 }, "tag": ["gag"] },
-  { "id": "ev_era2_guide_typo", "years": [1989, 1997], "weight": 0,
+  { "id": "ev_era2_guide_typo", "years": [1989, 1997], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "監修なしの攻略本の誤植で、会社に問い合わせの電話が 300 件。全部あなたの席に回された。", "en": "A typo in the unchecked guide brought 300 calls to the company. Every one was forwarded to your desk." },
     "effect": { "hp": -5, "passion": -3 }, "tag": ["gag"] },
 
@@ -220,10 +220,10 @@
         "later": [{ "after": 5, "event": "ev_era2_ot_regret" }],
         "result": { "ja": "上司が「わかってるね」と肩をたたいた。肩が凝っているのは残業のせいだ。", "en": "The boss pats your shoulder: \"You get it.\" The shoulder is stiff from overtime." } }
     ], "tag": ["choice", "money"] },
-  { "id": "ev_era2_ot_window", "years": [1989, 1999], "weight": 0,
+  { "id": "ev_era2_ot_window", "years": [1989, 1999], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "「残業代を申請した人」として、席が窓ぎわに移された。日当たりがよく、なぜか体調もよくなった。", "en": "As \"the one who claimed overtime,\" you were moved to a window seat. Lots of sunlight. You feel healthier, oddly." },
     "effect": { "passion": -3, "hp": 6 }, "tag": ["gag"] },
-  { "id": "ev_era2_ot_regret", "years": [1991, 1999], "weight": 0,
+  { "id": "ev_era2_ot_regret", "years": [1991, 1999], "when": ["status=employed"], "weight": 0,
     "text": { "ja": "申請しなかった 5 年分の残業代を計算してみた。車が 1 台買える額だった。電車で帰った。", "en": "You added up five years of unclaimed overtime. It came to the price of a car. You took the train home." },
     "effect": { "passion": -6 }, "tag": ["money", "gag"] },
 
