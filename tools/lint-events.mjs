@@ -29,7 +29,7 @@ export const PROPS = {
   '生成AI': 2022, '生成 AI': 2022, 'ChatGPT': 2022, 'AI': 2022, 'プロンプト': 2022, 'prompt': 2022,
 };
 const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other']);
-const COND = /^!?(age|year|era|job|status|works|company\.size|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
+const COND = /^!?(age|year|era|job|status|works|pos|company\.size|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
 const JOBS = ['programmer', 'planner', 'artist', 'sound', 'qa', 'sales', 'director', 'producer', 'other'];
 const STATUS = ['employed', 'indie', 'left', 'retired', 'ended'];
 const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow']);
@@ -82,15 +82,23 @@ for (const f of files) {
   try { arr = JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { err(f, `JSON が読めない: ${e.message}`); continue; }
   if (!Array.isArray(arr)) { err(f, '配列でない'); continue; }
   perFile[path.basename(f)] = { events: arr.length, choices: arr.filter((e) => e.choices).length, afterlife: arr.filter((e) => e.tag?.includes('afterlife')).length };
-  for (const ev of arr) {
-    const w = `${path.basename(f)}:${ev.id}`;
+  for (const ev of arr) checkEvent(ev, `${path.basename(f)}:${ev.id}`, true);
+}
+
+function checkEvent(ev, w, needYears, histYear) {
     events.push(ev);
     if (!/^ev_[a-z0-9_]+$/.test(ev.id || '')) err(w, 'id は ev_ + 英小文字・数字・_');
     seen(ev.id, w);
     for (const k of Object.keys(ev)) if (!EV_KEYS.has(k)) err(w, `未知の項目 ${k}`);
-    if (!Array.isArray(ev.years) || ev.years.length !== 2 || !ev.years.every(Number.isInteger) || ev.years[0] > ev.years[1] || ev.years[0] < 1970 || ev.years[1] > 2040) err(w, 'years は [from, to](1970〜2040)');
+    if (needYears && (!Array.isArray(ev.years) || ev.years.length !== 2 || !ev.years.every(Number.isInteger) || ev.years[0] > ev.years[1] || ev.years[0] < 1970 || ev.years[1] > 2040)) err(w, 'years は [from, to](1970〜2040)');
+    if (!needYears && ev.years) err(w, '事件の variant に years は書かない(事件の year / until が使われる)');
     text(w + '.text', ev.text);
-    for (const c of ev.when || []) if (!COND.test(c)) err(w, `when の語彙外: ${c}`);
+    for (const c of ev.when || []) {
+      if (!COND.test(c)) { err(w, `when の語彙外: ${c}`); continue; }
+      const m = /^!?(pos|job|status|company\.size)\s*!?=\s*([a-z0-9_-]+)$/.exec(c);
+      const VALS = { pos: ['client_lead', 'client', 'dev_lead', 'dev', 'sub', 'qa', 'indie', 'abroad', 'outside'], job: JOBS, status: STATUS, 'company.size': ['big', 'mid', 'small', 'sub', 'indie', 'abroad', 'none'] };
+      if (m && !VALS[m[1]].includes(m[2])) err(w, `when の値が無い: ${c}(${m[1]} は ${VALS[m[1]].join(' / ')})`);
+    }
     effect(w + '.effect', ev.effect);
     const strs = [ev.text?.ja, ev.text?.en];
     if (ev.choices) {
@@ -108,9 +116,39 @@ for (const f of files) {
       }
     }
     if (ev.effect?.work?.last?.history) strs.push(ev.effect.work.last.history.ja, ev.effect.work.last.history.en);
-    if (Array.isArray(ev.years)) props(w, ev.years[0], strs.filter(Boolean), ev.allow);
+    const from = needYears ? (Array.isArray(ev.years) ? ev.years[0] : 9999) : histYear;
+    props(w, from, strs.filter(Boolean), ev.allow);
     const t = ev.text?.ja || '';
     if (t.length > 90) warns.push(`${w}: 本文が長い(${t.length} 字。2 行=90 字まで)`);
+  }
+
+// 歴史の事件(src/data/hist/*.json)
+const HS_KEYS = new Set(['id', 'year', 'month', 'until', 'kind', 'weight', 'title', 'news', 'src', 'unverified', 'variants']);
+const histDir = path.join(DIR, 'hist');
+let nHist = 0, nVar = 0;
+for (const f of fs.existsSync(histDir) ? fs.readdirSync(histDir).filter((x) => x.endsWith('.json')).map((x) => path.join(histDir, x)) : []) {
+  let arr;
+  try { arr = JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { err(f, `JSON が読めない: ${e.message}`); continue; }
+  perFile['hist/' + path.basename(f)] = { hist: arr.length, variants: arr.reduce((t, h) => t + (h.variants?.length ?? 0), 0) };
+  for (const h of arr) {
+    nHist++;
+    const w = `hist/${path.basename(f)}:${h.id}`;
+    if (!/^hs_[a-z0-9_]+$/.test(h.id || '')) err(w, 'id は hs_ + 英小文字・数字・_');
+    seen(h.id, w);
+    for (const k of Object.keys(h)) if (!HS_KEYS.has(k)) err(w, `未知の項目 ${k}`);
+    if (!Number.isInteger(h.year) || h.year < 1970 || h.year > 2040) err(w, 'year');
+    if (h.until != null && (!Number.isInteger(h.until) || h.until < h.year || h.until > h.year + 5)) err(w, 'until は year〜year+5');
+    if (h.month != null && (!Number.isInteger(h.month) || h.month < 1 || h.month > 12)) err(w, 'month');
+    if (!['hardware', 'hit', 'incident', 'work', 'ai', 'future'].includes(h.kind)) err(w, `kind=${h.kind}`);
+    if (h.year >= 2027 && h.kind !== 'future') err(w, '2027 年以降は kind: "future"(架空)');
+    text(w + '.title', h.title); text(w + '.news', h.news);
+    if (!h.src || !String(h.src).trim()) err(w, 'src が無い');
+    const vs = h.variants ?? [];
+    if (vs.length < 3) err(w, 'variants は 3 個以上(立場で起きることを変える)');
+    const whens = new Set(vs.map((v) => JSON.stringify(v.when ?? [])));
+    if (whens.size < 3) err(w, 'variants の when が 3 種類以上必要(同じ事件を違う立場で)');
+    if (vs.length && (vs[vs.length - 1].when ?? []).length) warns.push(`${w}: 最後の variant に when が無い(誰にでも起きる版)と、事件を必ず受け取れる`);
+    for (const v of vs) { nVar++; checkEvent(v, `${w}/${v.id}`, false, h.year); }
   }
 }
 // later の行き先
@@ -144,7 +182,7 @@ for (const f of tlFiles) {
   }
 }
 
-console.log(JSON.stringify({ ok: errors.length === 0, events: events.length, choices: nChoice, timeline: nTl, perFile }, null, 1));
+console.log(JSON.stringify({ ok: errors.length === 0, events: events.length, choices: nChoice, timeline: nTl, hist: nHist, histVariants: nVar, perFile }, null, 1));
 for (const w of warns.slice(0, 20)) console.log('注意: ' + w);
 for (const e of errors.slice(0, 60)) console.log('NG: ' + e);
 if (errors.length > 60) console.log(`… ほか ${errors.length - 60} 件`);

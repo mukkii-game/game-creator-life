@@ -29,13 +29,22 @@ export interface GameEvent {
 export type TimelineKind = 'hardware' | 'hit' | 'incident' | 'work' | 'ai' | 'future';
 export interface TimelineEntry { id: string; year: number; month?: number; kind: TimelineKind; text: Text; use: string; src: string; unverified?: boolean }
 
+/** 歴史の事件(src/data/hist/)。同じ事件でも立場(pos)で起きることが変わる。触れた事件は年表図鑑にたまる */
+export interface Hist {
+  id: string; year: number; month?: number; until?: number; kind: TimelineKind; weight?: number;
+  title: Text; news: Text; src: string; unverified?: boolean;
+  variants: Omit<GameEvent, 'years'>[];
+}
+/** 立場。歴史の事件の受け止め方が変わる */
+export type Pos = 'client_lead' | 'client' | 'dev_lead' | 'dev' | 'sub' | 'qa' | 'indie' | 'abroad' | 'outside';
+
 export interface Stat { hp: number; passion: number; skill: number; network: number; money: number; fame: number }
 export interface Work { id: string; name: Text; year: number; platform: string; role: Role; result: WorkResult; history: { year: number; text: Text }[] }
 export interface Peer { name: string; bot: string; summary: Text }
 export type EndingId = 'end_burnout' | 'end_body' | 'end_debt' | 'end_blacklist' | 'end_retire' | 'end_pen_down' | 'end_ai_seat';
 export interface Ending { id: EndingId; age: number; year: number; cause: Text; summary: Text }
 export type LogKind = 'event' | 'timeline' | 'choice' | 'work' | 'peer';
-export interface LogLine { year: number; age: number; text: Text; kind: LogKind; tag?: string[] }
+export interface LogLine { year: number; age: number; text: Text; kind: LogKind; tag?: string[]; hist?: string }
 export interface Company { id: string; name: Text; size: CompanySize }
 
 export interface State {
@@ -47,12 +56,14 @@ export interface State {
   /** 勤めた会社の履歴(入社順。結果画面のスタッフロール用) */
   companies: { company: Company; year: number }[];
   /** init に渡した指定(?seed= で同じ人生にするには era も要る) */
-  options: { era?: Era; year?: number; age?: number };
+  options: { era?: Era; year?: number; age?: number; seen?: string[] };
   stat: Stat;
   flags: Record<string, boolean>;
   works: Work[];
   peers: Peer[];
   log: LogLine[];
+  /** この人生で触れた歴史の事件(`hs_id:ev_id`。年表図鑑に足す) */
+  chronicle: string[];
   pending: { year: number; event: string }[];
   choice?: { eventId: string; choices: Choice[]; text: Text };
   ending?: Ending;
@@ -80,6 +91,7 @@ export interface Inner {
   workTarget: number;        // afterlife のイベントが指す作品の番号(-1 = 直近)
   startJob: Job;
   prevJob: Job;
+  histDone: string[];        // この人生で起きた歴史の事件(hs_id)
 }
 
 export interface InitOptions {
@@ -91,4 +103,6 @@ export interface InitOptions {
   era?: Era;
   /** 同期として作る時に内部で使う */
   peerOf?: { year: number; company: Company; bot: string };
+  /** 年表図鑑で既に触れた事件(`hs_id:ev_id`)。まだ触れていない事件が出やすくなる */
+  seen?: string[];
 }

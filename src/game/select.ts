@@ -1,5 +1,17 @@
 // 条件 → 重み → 抽選(docs/schema §3)。描画なし・Math.random なし。
-import type { GameEvent, State } from './types';
+import type { GameEvent, State, Pos } from './types';
+
+/** 立場(歴史の事件の受け止め方が変わる) */
+export function positionOf(s: State): Pos {
+  if (s.status === 'left' || s.status === 'retired' || s.status === 'ended') return 'outside';
+  if (s.status === 'indie') return 'indie';
+  if (s.company.size === 'abroad') return 'abroad';
+  if (s.job === 'qa') return 'qa';
+  const lead = s.job === 'director' || s.job === 'producer';
+  if (s.company.size === 'big') return lead ? 'client_lead' : 'client';
+  if (s.company.size === 'sub') return 'sub';
+  return lead ? 'dev_lead' : 'dev';
+}
 import type { Rng } from '../core/rng';
 
 /** 条件の左辺の値 */
@@ -14,6 +26,7 @@ function value(s: State, key: string): string | number | boolean | undefined {
     case 'status': return s.status;
     case 'works': return s.works.length;
     case 'company.size': return s.company.size;
+    case 'pos': return positionOf(s);
   }
   return undefined;
 }

@@ -14,8 +14,11 @@ export const KNOBS: Knob[] = [
   { key: 'life.choiceEvery', label: '選択イベントの出やすさ', value: 0.45, min: 0, max: 1, step: 0.05, unit: '1 年あたり', aim: '1 年に 1 回は多すぎる。2〜3 年に 1 回くらい悩む' },
   { key: 'life.maxRepeat', label: '同じイベントは 1 人生で何回まで', value: 2, min: 1, max: 10, step: 1, unit: '回', aim: '2 回目は反復ネタとして効く。3 回目からは飽きる(通読して決めた)' },
   { key: 'life.repeatGap', label: '同じイベントが再び出るまで', value: 6, min: 0, max: 20, step: 1, unit: '年', aim: '反復ネタは効くが、毎年は飽きる' },
+  // 歴史の事件(src/data/hist/)
+  { key: 'hist.second', label: '歴史の事件が 1 年に 2 本来る確率', value: 0.35, min: 0, max: 1, step: 0.05, aim: '毎年 1 本は業界の大事件が自分に降ってくる' },
+  { key: 'hist.newBoost', label: 'まだ触れていない事件の出やすさ', value: 4, min: 1, max: 20, step: 0.5, unit: '倍', aim: '何周しても「また同じか」にならない' },
+  { key: 'hist.newPosBoost', label: '触れた事件を別の立場で受ける出やすさ', value: 1.5, min: 0.5, max: 10, step: 0.5, unit: '倍', aim: '同じ事件でも立場が違えば別の話になる(適度に混ぜる)' },
   // 業界入り
-  { key: 'gacha.lastYear', label: '業界入りの最後の年', value: 2026, min: 2000, max: 2035, step: 1, unit: '年' },
   { key: 'gacha.age18', label: '18 歳で入る割合', value: 0.3, min: 0, max: 1, step: 0.05 },
   { key: 'gacha.lateBloomer', label: '遅咲き(26〜35 歳)の割合', value: 0.2, min: 0, max: 1, step: 0.05 },
   // 毎年の変化

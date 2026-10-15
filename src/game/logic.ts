@@ -4,8 +4,10 @@
 import { Rng } from '../core/rng';
 import { tune } from '../core/tuning';
 import type { State, InitOptions, Text, Effect, GameEvent, Choice, Job, CompanySize, EndingId, Era, LogLine, Company } from './types';
-import { EVENT_BY_ID, POOL, TIMELINE_BY_YEAR } from './data';
-import { eligible, draw } from './select';
+import { EVENT_BY_ID, POOL, TIMELINE_BY_YEAR, HIST, HIST_OF } from './data';
+import { eligible, draw, positionOf } from './select';
+
+export { positionOf };
 import { personName, companyName, OTHER_JOBS, JOB_TEXT } from './names';
 import { release, tickWorks, clamp, RESULT_TEXT } from './works';
 import { makeEnding } from './ending';
@@ -18,10 +20,11 @@ export function eraOf(year: number): Era {
 }
 
 // ---- 業界入りガチャ(PLAN §4) ----
-// 重み = 1 年あたりの出やすさ。業界の大きさ(PLAN §4)より「史実を長く生きられる」方を優先して古い時代を厚くした(QUESTIONS)
-const ERA_SPAN: [number, number, number][] = [[1978, 1985, 3], [1986, 1994, 3.5], [1995, 2003, 3], [2004, 2011, 2.5], [2012, 2019, 1.5], [2020, 2035, 1]];
+// 業界入りの年: 一番早くて 1977 年(のちに世界的なデザイナーになる人が任天堂に入った年)、一番遅くて 2000 年(PlayStation 2 発売)。
+// 重み = 1 年あたりの出やすさ(全部同じ。Mukkii 指定 2026-10-15)
+const ERA_SPAN: [number, number, number][] = [[1977, 1985, 1], [1986, 1994, 1], [1995, 2000, 1]];
 function gachaYear(r: Rng, era?: Era): number {
-  const last = tune('gacha.lastYear');
+  const last = 2000;
   const spans = ERA_SPAN.map(([a, b, w]) => [a, Math.min(b, last), w] as const).filter(([a, b], i) => a <= b && (!era || `era${i + 1}` === era));
   if (!spans.length) return 1986;
   const total = spans.reduce((t, [a, b, w]) => t + w * (b - a + 1), 0);
@@ -73,13 +76,13 @@ export function init(seed: number, options: InitOptions = {}): State {
   const s: State = {
     seed, year, age, startAge: age, startYear: year, era: eraOf(year), job, status: entry.indie ? 'indie' : 'employed',
     name: personName(r), entry: entry.text, region: entry.size === 'abroad' ? { ja: '海外', en: 'abroad' } : r.pick(REGIONS),
-    company, companies: [{ company, year }], options: { era: options.era, year: options.year, age: options.age },
+    company, companies: [{ company, year }], options: { era: options.era, year: options.year, age: options.age, seen: options.seen },
     stat: { hp: base[0], passion: base[1], skill: base[2], network: base[3], money: base[4], fame: 0 },
-    flags: {}, works: [], peers: [], log: [], pending: [], rng: r,
+    flags: {}, works: [], peers: [], log: [], chronicle: [], pending: [], rng: r,
     inner: {
       used: [], seen: {}, uses: {}, queue: [], nextWorkYear: year + r.int(tune('work.everyMin'), tune('work.everyMax')), companyYears: 0, searchFails: 0,
       leftYear: 0, otherJob: null, counts: {}, lastTag: '', choicesMade: 0, peerStates: [], isPeer: !!peerOf, bot: peerOf?.bot ?? '',
-      workTarget: -1, startJob: job, prevJob: job,
+      workTarget: -1, startJob: job, prevJob: job, histDone: [],
     },
   };
   if (!peerOf) {
@@ -230,9 +233,11 @@ function beginYear(s: State, out: string[]) {
       else if (!s.inner.used.includes('ev_sys_comeback') && r.chance(tune('job.comeback') + s.stat.network / 400)) sys.push('ev_sys_comeback');
     } else if (s.year > s.inner.leftYear) sys.push('@search');
   }
+  // 歴史の事件(その年の業界の大事件が、今の立場で自分に降ってくる)
+  const hist = pickHist(s);
   // データのイベント
-  const n = r.int(tune('life.eventsMin'), tune('life.eventsMax')) - (q.length > 0 ? 1 : 0);
-  const sysChoice = sys.some((id) => EVENT_BY_ID.get(id)?.choices) || q.some((id) => EVENT_BY_ID.get(id)?.choices);
+  const n = r.int(tune('life.eventsMin'), tune('life.eventsMax')) - (q.length > 0 ? 1 : 0) - hist.length;
+  const sysChoice = [...sys, ...q, ...hist].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
   const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)));
   let picked = draw(r, pool, Math.max(1, n));
@@ -246,7 +251,34 @@ function beginYear(s: State, out: string[]) {
   // 作品の発売は真ん中あたりに
   const rel = q.indexOf('@release');
   if (rel >= 0) { q.splice(rel, 1); ids.splice(r.int(0, ids.length), 0, '@release'); }
-  s.inner.queue = [...q, ...ids, ...sys];
+  // 歴史の事件は頭に(その年の空気を最初に)
+  s.inner.queue = [...hist, ...q, ...ids, ...sys];
+}
+
+/** その年に起きる歴史の事件から、今の立場で受ける版を選ぶ。年表図鑑でまだ触れていない事件・立場ほど出やすい */
+function pickHist(s: State): string[] {
+  const seen = new Set(s.options.seen ?? []);
+  const seenHist = new Set([...seen].map((k) => k.split(':')[0]));
+  const cands: { id: string; w: number }[] = [];
+  for (const h of HIST) {
+    if (h.year > s.year) break;
+    if (s.year > (h.until ?? h.year) || s.inner.histDone.includes(h.id)) continue;
+    const v = h.variants.map((x) => EVENT_BY_ID.get(x.id)!).find((ev) => eligible(s, ev));
+    if (!v) continue;
+    const novelty = !seenHist.has(h.id) ? tune<number>('hist.newBoost') : !seen.has(`${h.id}:${v.id}`) ? tune<number>('hist.newPosBoost') : 0.5;
+    cands.push({ id: v.id, w: (h.weight ?? 1) * novelty });
+  }
+  if (!cands.length) return [];
+  const n = Math.min(cands.length, s.rng.chance(tune<number>('hist.second')) ? 2 : 1);
+  const out: string[] = [];
+  for (let i = 0; i < n; i++) {
+    const total = cands.reduce((t, c) => t + c.w, 0);
+    let x = s.rng.next() * total, k = 0;
+    for (; k < cands.length - 1; k++) { x -= cands[k].w; if (x < 0) break; }
+    out.push(cands.splice(k, 1)[0].id);
+  }
+  // 選ばれなかった事件も「この年に過ぎた」扱いにはしない(until までの年でまた候補になる)
+  return out;
 }
 
 function hasOldWork(s: State) { return s.works.some((w) => s.year - w.year >= 2); }
@@ -302,6 +334,8 @@ function runItem(s: State, id: string, out: string[]) {
     if (!old.length) return;
     s.inner.workTarget = r.pick(old)[1];
   }
+  const hs = HIST_OF.get(ev.id);
+  if (hs) { if (s.inner.histDone.includes(hs)) return; s.inner.histDone.push(hs); s.chronicle.push(`${hs}:${ev.id}`); }
   if (ev.once || ev.id.startsWith('ev_sys_')) s.inner.used.push(ev.id);
   s.inner.seen[ev.id] = s.year;
   s.inner.uses[ev.id] = (s.inner.uses[ev.id] ?? 0) + 1;
@@ -310,11 +344,12 @@ function runItem(s: State, id: string, out: string[]) {
   if (ev.id.startsWith('ev_sys_offer')) s.inner.seen.ev_sys_offer = s.year; // 言い回し違いの版も同じ 4 年の間隔に数える
   if (ev.choices) {
     s.choice = { eventId: ev.id, choices: ev.choices, text: fill(s, ev.text) };
-    log(s, s.choice.text, 'event', ev.tag);
+    log(s, s.choice.text, 'event', ev.tag); if (hs) s.log[s.log.length - 1].hist = hs;
     out.push('choice');
     return;
   }
   log(s, fill(s, ev.text), ev.tag?.includes('afterlife') ? 'work' : 'event', ev.tag);
+  if (hs) s.log[s.log.length - 1].hist = hs;
   if (ev.tag?.includes('afterlife')) out.push('work'); else out.push('event');
   apply(s, ev.effect, ev.id, out);
   schedule(s, ev.later);

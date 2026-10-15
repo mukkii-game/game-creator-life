@@ -94,3 +94,11 @@ export const OTHER_JOBS: Text[] = [
   { ja: '市役所', en: 'city hall' }, { ja: 'パン屋', en: 'bakery' }, { ja: '塾の講師', en: 'cram school' }, { ja: 'タクシー会社', en: 'taxi company' },
   { ja: '喫茶店', en: 'coffee shop' }, { ja: '温泉旅館', en: 'hot-spring inn' },
 ];
+
+/** 立場の呼び名(社員証と年表図鑑に出す) */
+export const POS_TEXT: Record<import('./types').Pos, Text> = {
+  client_lead: { ja: '発注元の責任者', en: 'publisher-side lead' }, client: { ja: '発注元(大手)', en: 'publisher staff' },
+  dev_lead: { ja: '開発会社の責任者', en: 'studio lead' }, dev: { ja: '開発会社', en: 'studio staff' },
+  sub: { ja: '下請け', en: 'subcontractor' }, qa: { ja: 'デバッガー', en: 'QA tester' },
+  indie: { ja: '独立', en: 'indie' }, abroad: { ja: '海外', en: 'overseas' }, outside: { ja: '業界の外', en: 'outside the industry' },
+};
