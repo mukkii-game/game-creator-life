@@ -1,0 +1,22 @@
+[
+  { "id": "ev_any_spec_change", "years": [1975, 2040], "weight": 2,
+    "text": { "ja": "件名「仕様変更のお知らせ(最終)」。添付ファイル名は「最終_最新_これが本当の最終.doc」。", "en": "Subject: \"Spec change (FINAL).\" Attachment: final_latest_REALLY_final.doc." },
+    "when": ["status=employed"], "effect": { "passion": -10 }, "tag": ["spec", "gag"], "allow": ["doc"] },
+  { "id": "ev_any_cup_noodle", "years": [1972, 2040], "weight": 2,
+    "text": { "ja": "夜食はカップ麺。お湯を入れたまま会議に呼ばれ、戻ると麺がスープを全部吸っていた。", "en": "Midnight snack: cup noodles. Called into a meeting mid-steep; you returned to noodles that drank all the soup." },
+    "when": ["status=employed"], "effect": { "hp": -3 }, "tag": ["crunch", "gag"] },
+  { "id": "ev_any_crunch_week", "years": [1972, 2040], "weight": 2,
+    "text": { "ja": "マスターアップ前の 1 週間、家に帰らなかった。最終日、自分の家の鍵の形を忘れていた。", "en": "A week without going home before master-up. On the last day you'd forgotten what your house key looks like." },
+    "when": ["status=employed"], "effect": { "hp": -15, "skill": 3, "passion": 3 }, "tag": ["crunch"] },
+  { "id": "ev_any_sister_call", "years": [1970, 2040], "weight": 0,
+    "text": { "ja": "10 年ぶりに妹から電話。「あの時来なかった人」として親戚の間で有名になっているらしい。", "en": "Your sister calls for the first time in ten years. You're famous among relatives as \"the one who didn't come.\"" },
+    "effect": { "passion": -5, "network": 2 }, "tag": ["family"] },
+  { "id": "ev_any_drinks_peer", "years": [1972, 2040], "weight": 1,
+    "text": { "ja": "同期の {peer} と飲み会。「お前の作ったあの面、実は俺が直したんだ」と打ち明けられた。", "en": "Drinks with {peer}. \"That stage you made? I actually fixed it,\" they confess." },
+    "effect": { "network": 5, "passion": 2 }, "tag": ["peer", "gag"] },
+  { "id": "ev_wk_streamer_digs_up", "years": [2015, 2035],
+    "text": { "ja": "{work} を配信者が「クソゲー発掘」企画で掘り起こした。再生 300 万回。あなたの名前はスタッフロールの 47 番目。", "en": "A streamer dug up {work} for a 'worst games ever' special. 3 million views. Your name is 47th in the credits." },
+    "when": ["works>=1"], "once": true, "weight": 2,
+    "effect": { "fame": 8, "passion": 5, "work": { "last": { "history": { "ja": "配信で掘り起こされて再評価", "en": "Dug up by a streamer, re-evaluated" } } } },
+    "tag": ["work", "afterlife", "gag"], "allow": ["配信者"] }
+]

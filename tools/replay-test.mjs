@@ -12,24 +12,22 @@ const sb = Array.from({ length: 5 }, () => b.int(1, 100));
 const rec = new Recorder(42); rec.push(3, 'L'); rec.push(10, 'A'); rec.push(10, 'R');
 const back = decodeRecording(rec.toString())!; const p = new Player(back);
 const replayed = [3, 10].map((f) => p.input(f));
-// 画面が 60Hz でも 120Hz でも、同じ秒数なら中身は同じになるか(FixedStep + logic)
-import { FixedStep } from '../src/core/fixedstep';
-import { TICK, init, step, encodeInput, decodeInput } from '../src/game/logic';
+// 人生の再現: 同じ seed と同じ選択の列なら、同じ人生になるか(?seed= と ?replay= の土台)
+import { init, advance, choose } from '../src/game/logic';
 import { BOTS } from '../src/game/bots';
-const cfg = { speed: 300, duration: 5, scorePer: 10, width: 480 };
-function run(hz: number) {
-  const s = init(cfg, 7), bot = BOTS.think(7), clock = new FixedStep(TICK), r = new Recorder(7);
-  for (let i = 0; i < hz * 6; i++) clock.advance(1000 / hz, () => { const inp = bot(s, cfg); r.push(s.tick, encodeInput(inp)); step(s, inp, cfg); });
-  return { s, r };
+function life(seed: number, pick: (s: any, i: number) => string) {
+  const s = init(seed); const ids: string[] = []; let i = 0;
+  for (let y = 0; y < 200 && !s.ending; y++) { advance(s); while (s.choice) { const id = pick(s, i++); ids.push(id); choose(s, id); } }
+  return { s, ids };
 }
-const r60 = run(60), r120 = run(120);
-const sameHz = r60.s.score === r120.s.score && Math.abs(r60.s.x - r120.s.x) < 1e-6 && r60.s.tick === r120.s.tick;
-// 記録を再生すると同じ結果になるか
-const pl = new Player(decodeRecording(r60.r.toString())!), s2 = init(cfg, 7);
-while (!s2.over) step(s2, decodeInput(pl.input(s2.tick)), cfg);
-const sameReplay = s2.score === r60.s.score && Math.abs(s2.x - r60.s.x) < 1e-6;
-const ok = JSON.stringify(sa) === JSON.stringify(sb) && back.seed === 42 && replayed.join('|') === 'L|AR' && sameHz && sameReplay;
-console.log(JSON.stringify({ ok, sameSequence: sa, replayed, sameHz, sameReplay, score: r60.s.score }));
+const a1 = life(7, (s) => BOTS.think(s, s.choice.choices));
+const a2 = life(7, (_s, i) => a1.ids[i]);
+const sig = (s: any) => JSON.stringify([s.ending?.cause, s.log.length, s.works.map((w: any) => w.result), s.stat]);
+const sameReplay = sig(a1.s) === sig(a2.s) && !!a1.s.ending;
+const other = life(8, (s) => BOTS.think(s, s.choice.choices));
+const differs = sig(other.s) !== sig(a1.s);
+const ok = JSON.stringify(sa) === JSON.stringify(sb) && back.seed === 42 && replayed.join('|') === 'L|AR' && sameReplay && differs;
+console.log(JSON.stringify({ ok, sameSequence: sa, replayed, sameReplay, differs, ending: a1.s.ending?.cause.ja, choices: a1.ids.length }));
 (globalThis as any).__ok = ok;
 `);
 try {

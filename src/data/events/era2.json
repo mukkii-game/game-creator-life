@@ -1,0 +1,22 @@
+[
+  { "id": "ev_era2_crunch_wedding", "years": [1986, 1994],
+    "text": { "ja": "国民的 RPG の 3 作目が発売日に行列。うちは「今週も泊まり」。土曜は妹の結婚式だ。", "en": "The nation's biggest RPG sold out with lines around the block. Our studio: \"another all-nighter week.\" Saturday is your sister's wedding." },
+    "when": ["status=employed", "age>=20"], "once": true, "weight": 3, "allow": ["RPG"],
+    "choices": [
+      { "id": "ch_wedding_go", "label": { "ja": "結婚式に行く", "en": "Go to the wedding" }, "effect": { "network": 5, "flag": { "family_first": true } },
+        "later": [{ "after": 2, "event": "ev_era2_promotion_skipped" }],
+        "result": { "ja": "式で泣いた。月曜、席にバグ票が 40 枚積まれていた。", "en": "You cried at the wedding. Monday: 40 bug tickets stacked on your desk." } },
+      { "id": "ch_wedding_skip", "label": { "ja": "会社に泊まる", "en": "Stay at the office" }, "effect": { "passion": 5, "hp": -10, "fame": 2 },
+        "later": [{ "after": 10, "event": "ev_any_sister_call" }],
+        "result": { "ja": "マスター ROM は間に合った。妹からの電話は 10 年来ない。", "en": "The master ROM shipped on time. Your sister won't call for ten years." } }
+    ], "tag": ["crunch", "family", "choice"] },
+  { "id": "ev_era2_promotion_skipped", "years": [1986, 2000], "weight": 0,
+    "text": { "ja": "昇進の名簿に名前が無かった。人事いわく「結婚式の日、いなかったので」。", "en": "Your name wasn't on the promotion list. HR: \"You weren't here the day of the wedding.\"" },
+    "effect": { "passion": -8 }, "tag": ["job"] },
+  { "id": "ev_era2_bonus_bookcard", "years": [1986, 1994],
+    "text": { "ja": "「今期はボーナスが出る」と社長。封筒を開けると図書カード 500 円分だった。", "en": "\"Bonuses this term,\" says the boss. Inside the envelope: a 500-yen book voucher." },
+    "when": ["status=employed", "company.size=small"], "effect": { "passion": -5 }, "tag": ["money", "gag"] },
+  { "id": "ev_era2_gameboy_4tone", "years": [1989, 1994],
+    "text": { "ja": "携帯機の仕事が来た。色は 4 階調。絵描きの先輩が、緑色の濃さだけで夕焼けを描いて泣いていた。", "en": "A handheld project lands. Four shades of green. A senior artist wept painting a sunset in green alone." },
+    "when": ["status=employed"], "effect": { "skill": 4, "passion": -3 }, "tag": ["hardware", "gag"] }
+]

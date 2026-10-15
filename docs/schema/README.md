@@ -4,9 +4,11 @@
 機械で検査する形は `event.schema.json`(イベント・年表)と `state.schema.json`(状態・作品・終わり)。小さな例は `examples/`。
 
 ## 1. ファイルの置き場
-- `src/data/timeline.json` … 史実の年表(`TimelineEntry[]`)。1 件 1 行。
+- `src/data/timeline*.json` … 史実の年表(`TimelineEntry[]`)。1 件 1 行。`timeline_early.json`(〜2003)と `timeline_late.json`(2004〜)に分けてよい(全部まとめて読む)。
 - `src/data/events/era1.json` … `era6.json` … イベント(`Event[]`)。時代ごとに分ける(era1=1972〜85、era2=86〜94、era3=95〜03、era4=04〜11、era5=12〜19、era6=20〜35)。
-- `src/game/types.ts` … 下の型を TypeScript に写したもの(司令塔が Step 0 で作る。schema が正本)。
+- `src/game/types.ts` … 下の型を TypeScript に写したもの(schema が正本)。
+- `src/data/events/system.json` … logic が自分で呼ぶイベント(`ev_sys_*`。入社・引き抜き・倒産・定年・AI に席 …)。`common.json` は時代をまたぐ小ネタ。
+- 命令フラグ(choice の `effect.flag` に入れると logic が実行する): `do_change_company`(転職)、`do_go_indie`(独立)、`do_return`(業界に戻る)、`do_end`(ここで終わる)。
 
 ## 2. ID と文字列の決まり
 - ID は英小文字・数字・`_`。頭に種類を付ける: `ev_`(イベント)、`ch_`(選択)、`tl_`(年表)、`wk_`(作品の後日談)、`co_`(会社)、`end_`(終わり)。

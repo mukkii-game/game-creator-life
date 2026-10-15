@@ -4,7 +4,7 @@
 
 ## 現状
 - 2026-10-15 企画の 1 手目が完了(Fable)。**PLAN.md**(全体像・ひねり・人生の流れ・選択の型・年表 48 本・画面・進め方・各パートへの依頼文)、**docs/schema/**(イベント・年表・状態の形と例 4 件)、QUESTIONS.md(仮決め 13 件)を main に置いた。
-- コードは雛形のまま(Play シーンは見本)。実装はまだ始めていない。
+- 2026-10-15 Step 0 完了(司令塔 Opus)。`src/game/`(types / data / select / works / ending / names / logic / bots)で 1 人生が最後まで回る。Phaser を外し DOM の仮画面(`src/ui/app.ts`)。`tools/lint-events.mjs`・`npm run sim`・`npm run test:replay` が本作用。B・C(文章)・D・E(画面・結果)をサブエージェントで並列中。
 - Astra(GPT-6)への依頼文は作らない(BRIEF の 2026-10-15 変更)。
 
 ## 次の一手(司令塔のセッションがやること。PLAN §9 Step 0)

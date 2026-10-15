@@ -7,7 +7,4 @@ export default defineConfig({
     __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
     __GIT_SHA__: JSON.stringify(process.env.GITHUB_SHA?.slice(0, 7) ?? 'local'),
   },
-  build: {
-    rollupOptions: { output: { manualChunks: { phaser: ['phaser'] } } },
-  },
 });

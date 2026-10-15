@@ -1,33 +1,44 @@
-// 比べるためのボット。tools/sim.mjs が全部を同じ seed で回し、結果を並べる。
-// 作品ごとに書き換える。最低限そろえる 3 種:
-//  - idle: 何もしない。これで勝てたら「何もしないで勝てる」穴(knowledge: game-design §5)
-//  - random: でたらめに押す。考えるボットとの差が小さいなら、考える意味が無い
-//  - think: 考えて動く。lagged はその指の遅れ版(反射神経だけで決まっていないかを見る)
-import { Input, State, Config, NO_INPUT, TICK } from './logic';
+// 比べるためのボット(PLAN §8)。tools/sim.mjs が全部を同じ seed で回し、死因・寿命・作品を並べる。
+// 同期 3 人もこのボットで並走する。画面の「おまかせ」= think。
+//  - idle: いつも 1 番目。これで 70 歳まで生きたら「何もしなくても生きる」穴
+//  - random: でたらめ。think との差が小さいなら、選択に意味が無い
+//  - think: 低いゲージを守る(体力・情熱・貯金のバランス)
+//  - stable: 安定志向(体力と貯金、独立しない) / dreamer: 夢追い(情熱と名声、独立する)
 import { Rng } from '../core/rng';
+import type { State, Choice, Effect } from './types';
 
-export type Bot = (s: State, cfg: Config) => Input;
+export type Bot = (s: State, choices: Choice[]) => string;
 
-/** 見本の「考えるボット」: 左右に動きながら、間隔をあけて押す(人の連打は 1 秒に 8 回くらいまで) */
-function presser(intervalSec: number): Bot {
-  const every = Math.max(1, Math.round(intervalSec / TICK));
-  return (s) => ({ dx: Math.sin(s.tick / 40) > 0 ? 1 : -1, press: s.tick % every === 0 });
-}
-
-/** 指の遅れ: lagSec 前の状態を見て決めたことを、今やる */
-function lagged(bot: Bot, lagSec: number): Bot {
-  const n = Math.max(1, Math.round(lagSec / TICK));
-  const queue: Input[] = [];
-  return (s, cfg) => {
-    queue.push(bot(s, cfg));
-    return queue.length > n ? queue.shift()! : NO_INPUT;
+type W = { hp: number; passion: number; skill: number; network: number; money: number; fame: number; indie: number; end: number };
+function scorer(w: (s: State) => W): Bot {
+  return (s, choices) => {
+    const k = w(s);
+    let best = choices[0], bestV = -Infinity;
+    for (const c of choices) {
+      const e: Effect = c.effect ?? {};
+      let v = (e.hp ?? 0) * k.hp + (e.passion ?? 0) * k.passion + (e.skill ?? 0) * k.skill + (e.network ?? 0) * k.network
+        + (e.money ?? 0) / 10 * k.money + (e.fame ?? 0) * k.fame;
+      if (e.flag?.do_go_indie) v += k.indie;
+      if (e.flag?.do_end) v += k.end;
+      if (e.flag?.do_return) v += 10;
+      if (v > bestV) { bestV = v; best = c; }
+    }
+    return best.id;
   };
 }
+/** 低いほど大事(0〜100 → 3〜0.5 倍) */
+const need = (v: number) => 0.5 + 2.5 * Math.max(0, (60 - v) / 60);
 
-// ボットの乱数はゲームの乱数(state.rng)と分ける。混ぜると、ボットを替えただけで面の中身が変わる。
-export const BOTS: Record<string, (seed: number) => Bot> = {
-  idle: () => () => NO_INPUT,
-  random: (seed) => { const r = new Rng(seed ^ 0x9e3779b9); return () => ({ dx: r.int(-1, 1), press: r.chance(0.05) }); },
-  think: () => presser(0.125),
-  'think+0.6s遅れ': () => lagged(presser(0.125), 0.6),
+const rngs = new WeakMap<State, Rng>();
+
+export const BOTS: Record<string, Bot> = {
+  idle: (_s, c) => c[0].id,
+  random: (s, c) => {
+    let r = rngs.get(s);
+    if (!r) { r = new Rng((s.seed ^ 0x9e3779b9) >>> 0); rngs.set(s, r); }
+    return r.pick(c).id;
+  },
+  think: scorer((s) => ({ hp: need(s.stat.hp), passion: need(s.stat.passion) * 1.2, skill: 0.4, network: 0.5, money: s.stat.money < 100 ? 1.5 : 0.3, fame: 0.3, indie: s.stat.money > 400 && s.stat.network > 40 ? 5 : -15, end: s.age >= 65 ? 5 : -60 })),
+  stable: scorer((s) => ({ hp: need(s.stat.hp) * 1.5, passion: need(s.stat.passion), skill: 0.2, network: 0.3, money: 1.2, fame: 0.1, indie: -30, end: s.age >= 60 ? 30 : -60 })),
+  dreamer: scorer((s) => ({ hp: need(s.stat.hp) * 0.6, passion: need(s.stat.passion) * 1.5, skill: 0.6, network: 0.3, money: 0.2, fame: 1, indie: 20, end: -60 })),
 };

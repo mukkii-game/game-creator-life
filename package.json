@@ -12,9 +12,6 @@
     "test:replay": "node tools/replay-test.mjs",
     "sim": "node tools/sim.mjs"
   },
-  "dependencies": {
-    "phaser": "^4.0.0"
-  },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "typescript": "~5.7.2",

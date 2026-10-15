@@ -1,29 +1,25 @@
-// ボットを並べて比べる(描画なし・数秒)。src/game/bots.ts の全ボットを、同じ seed の組で回す。
-// npm run sim            … 既定 20 seed
-// npm run sim -- 100     … seed の数を変える
-// 見るところ:
-//  - idle(何もしない)が良い点を取るなら「何もしないで勝てる」穴
-//  - random と think の差が小さいなら、考える意味が薄い
-//  - think と think+遅れ の差が大きいなら、反射神経で決まるゲーム(狙いどおりか確かめる)
-// 作品は logic.ts / bots.ts を書き換えるだけで、このファイルはそのまま使える。
+// ボットを並べて比べる(描画なし・数秒)。src/game/bots.ts の全ボットを、同じ seed の組で 1 人生ずつ回す。
+// npm run sim            … 既定 100 seed
+// npm run sim -- 400     … seed の数を変える
+// 見るところ(PLAN §8):
+//  - idle(いつも 1 番目)が 70 歳まで生きるなら「何もしなくても生きる」穴
+//  - random と think の差が小さいなら、選択に意味が無い
+//  - 死因の分布が 1 つに偏っていないか / 1 人生の年数・作品数・ヒット率
 import { build } from 'vite';
 import fs from 'node:fs';
-const seeds = Number(process.argv[2]) || 20;
+const seeds = Number(process.argv[2]) || 100;
 const entry = 'tools/.sim-entry.ts';
 fs.writeFileSync(entry, `
-import { init, step } from '../src/game/logic';
+import { init, runToEnd } from '../src/game/logic';
 import { BOTS } from '../src/game/bots';
-import { KNOBS } from '../src/tuning';
-const v = (k: string) => KNOBS.find((x) => x.key === k)!.value as number;
-const cfg = { speed: v('player.speed'), duration: v('game.duration'), scorePer: v('score.per'), width: 480 };
-const rows: Record<string, number[]> = {};
-for (const [name, make] of Object.entries(BOTS)) {
+const rows: Record<string, any[]> = {};
+for (const [name, bot] of Object.entries(BOTS)) {
   rows[name] = [];
   for (let seed = 1; seed <= ${seeds}; seed++) {
-    const s = init(cfg, seed); const bot = make(seed);
-    let guard = 0;
-    while (!s.over && guard++ < 60 * 60 * 30) step(s, bot(s, cfg), cfg);
-    rows[name].push(s.score);
+    const s = runToEnd(init(seed), bot);
+    rows[name].push({ years: s.age - s.startAge, endAge: s.age, start: s.startYear, works: s.works.length,
+      hits: s.works.filter((w) => w.result === 'hit' || w.result === 'legend').length, fates: s.works.filter((w) => w.history.length).length,
+      ending: s.ending?.id ?? 'none', choices: s.inner.choicesMade, lines: s.log.length, money: s.stat.money });
   }
 }
 (globalThis as any).__rows = rows;
@@ -38,14 +34,23 @@ try {
 } finally { fs.rmSync(entry, { force: true }); }
 
 const rows = globalThis.__rows;
-const stat = (a) => { const s = [...a].sort((x, y) => x - y); return { mean: +(a.reduce((p, c) => p + c, 0) / a.length).toFixed(1), min: s[0], median: s[Math.floor(s.length / 2)], max: s[s.length - 1] }; };
-const table = Object.fromEntries(Object.entries(rows).map(([k, a]) => [k, stat(a)]));
-console.log(`seed ${seeds} 個ずつ`);
+const mean = (a) => +(a.reduce((p, c) => p + c, 0) / a.length).toFixed(1);
+const table = {}, endings = {};
+for (const [k, a] of Object.entries(rows)) {
+  table[k] = { 年数: mean(a.map((r) => r.years)), 終わった歳: mean(a.map((r) => r.endAge)), '70歳まで%': Math.round(100 * a.filter((r) => r.endAge >= 70).length / a.length),
+    作品: mean(a.map((r) => r.works)), ヒット率: +(a.reduce((p, r) => p + r.hits, 0) / Math.max(1, a.reduce((p, r) => p + r.works, 0))).toFixed(2),
+    後日談のある作品: mean(a.map((r) => r.fates)), 選択: mean(a.map((r) => r.choices)), ログ行: mean(a.map((r) => r.lines)) };
+  endings[k] = {};
+  for (const r of a) endings[k][r.ending] = (endings[k][r.ending] ?? 0) + 1;
+}
+console.log(`seed ${seeds} 個ずつ(1 人生ずつ)`);
 console.table(table);
-const best = Math.max(...Object.values(table).map((r) => r.mean));
+console.log('死因の分布');
+console.table(endings);
 const warn = [];
-if (table.idle && best > 0 && table.idle.mean >= best * 0.5) warn.push('idle(何もしない)が一番の半分以上取れている');
-if (table.random && table.think && table.think.mean > 0 && table.random.mean >= table.think.mean * 0.8) warn.push('random が think の 8 割以上: 考える意味が薄い');
+if (table.idle && table.idle['70歳まで%'] >= 30) warn.push('idle(いつも 1 番目)の 3 割以上が 70 歳まで生きる');
+if (table.random && table.think && table.random.年数 >= table.think.年数 * 0.95) warn.push('random の年数が think の 95% 以上: 選択に意味が薄い');
+for (const [k, e] of Object.entries(endings)) { const top = Math.max(...Object.values(e)); if (top / seeds > 0.6) warn.push(`${k} の死因が 1 つに 6 割以上偏る`); }
 console.log(warn.length ? '要確認: ' + warn.join(' / ') : '目立つ穴なし(数字は自分の目でも見ること)');
 fs.mkdirSync('tools/out', { recursive: true });
-fs.writeFileSync('tools/out/sim.json', JSON.stringify({ seeds, table, warn }, null, 2));
+fs.writeFileSync('tools/out/sim.json', JSON.stringify({ seeds, table, endings, warn }, null, 2));
