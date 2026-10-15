@@ -325,6 +325,16 @@ function drawCause(c: CanvasRenderingContext2D, s: State, l: Lang, x: number, y:
   lines.forEach((ln, i) => c.fillText(ln, x + 30 * k, y + 50 * k + i * size * 1.22));
 }
 
+/** 最後の 1 行(「いいゲーム人生だった」)。入らなければ字を小さくし、それでも入らなければ … で切る */
+function drawEpitaph(c: CanvasRenderingContext2D, text: string, x: number, y: number, w: number, size: number, maxLines: number, align: CanvasTextAlign) {
+  c.textAlign = align; c.textBaseline = 'top'; c.fillStyle = '#fff4d6';
+  let sz = size, lines: string[] = [];
+  for (; sz >= 14; sz -= 1) { c.font = `${sz}px ${SANS}`; lines = wrap(c, text, w, 99); if (lines.length <= maxLines) break; }
+  lines = wrap(c, text, w, maxLines);
+  lines.forEach((ln, i) => c.fillText(ln, x, y + i * sz * 1.35));
+  c.textAlign = 'left';
+}
+
 function background(c: CanvasRenderingContext2D, W: number, H: number) {
   c.fillStyle = C.bg; c.fillRect(0, 0, W, H);
   c.strokeStyle = 'rgba(255,255,255,.04)'; c.lineWidth = 1;
@@ -360,10 +370,12 @@ export async function drawCard(s: State, l: Lang, kind: CardKind = 'portrait', c
     c.fillStyle = '#8e97aa'; c.font = `22px ${SANS}`;
     c.fillText(l === 'ja' ? `${s.startYear} 年 〜 ${s.ending?.year ?? s.year} 年 のゲーム開発者の一生` : `A game developer's life, ${s.startYear}–${s.ending?.year ?? s.year}`, 62, 140);
     drawBadge(c, s, l, 130, 220, 820, 380);
-    drawCause(c, s, l, 60, 640, 960, 140, k);
+    const epi = s.ending?.epitaph?.[l];
+    drawCause(c, s, l, 60, 630, 960, epi ? 124 : 140, k);
+    if (epi) drawEpitaph(c, epi, 540, 770, 960, 20, 2, 'center');
     c.fillStyle = '#ffd34d'; c.font = `24px ${DOT}`; c.textBaseline = 'alphabetic';
-    c.fillText(l === 'ja' ? `作品棚(${s.works.length} 本)` : `THE SHELF (${s.works.length})`, 60, 826);
-    drawShelf(c, s, l, 74, 846, 932, 392, 1, 11);
+    c.fillText(l === 'ja' ? `作品棚(${s.works.length} 本)` : `THE SHELF (${s.works.length})`, 60, epi ? 840 : 826);
+    drawShelf(c, s, l, 74, epi ? 856 : 846, 932, epi ? 384 : 392, 1, 11);
     drawLegend(c, l, 60, 1272, k);
     footer(c, l, W - 60, 1322, k, 'right');
   } else {
@@ -374,8 +386,12 @@ export async function drawCard(s: State, l: Lang, kind: CardKind = 'portrait', c
     drawShelf(c, s, l, 612, 262, 532, 286, 0.62, 11);
     c.fillStyle = '#ffd34d'; c.font = `${54}px ${DOT}`; c.textBaseline = 'alphabetic';
     c.fillText(l === 'ja' ? '1200万分の1' : '1 in 12,000,000', 44, 470);
-    c.fillStyle = '#cfd5e1'; c.font = `22px ${SANS}`;
-    c.fillText(l === 'ja' ? 'あなたのゲーム開発人生を 1 本、引く。' : 'Draw one game-dev life out of 12 million.', 46, 512);
+    const epi = s.ending?.epitaph?.[l];
+    if (epi) drawEpitaph(c, epi, 46, 494, 530, 17, 2, 'left');
+    else {
+      c.fillStyle = '#cfd5e1'; c.font = `22px ${SANS}`;
+      c.fillText(l === 'ja' ? 'あなたのゲーム開発人生を 1 本、引く。' : 'Draw one game-dev life out of 12 million.', 46, 512);
+    }
     drawLegend(c, l, 46, 556, k);
     footer(c, l, W - 44, 606, k, 'right');
   }

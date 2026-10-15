@@ -77,7 +77,7 @@
 /* ================= 社員証・作品棚・同期 ================= */
 .desk { flex: none; background: var(--panel); color: var(--panel-fg); border-top: 2px solid var(--line); padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: 5px; }
 .card { background: var(--card, var(--bg)); color: var(--card-fg, var(--fg)); border: 1px solid var(--line); border-radius: var(--radius); padding: 5px 8px 6px; }
-.card-head { display: flex; justify-content: space-between; gap: 6px; font-size: 11px; align-items: center; }
+.card-head { display: flex; gap: 6px; font-size: 11px; align-items: center; }
 .card-badge { padding: 0 6px; background: var(--accent); color: var(--bg); font-weight: 800; border-radius: 3px; }
 .card-co { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .card-body { display: flex; gap: 8px; align-items: center; margin: 3px 0 4px; }
@@ -167,8 +167,79 @@
 .chip { padding: 5px 9px; border: 1px solid var(--line); background: var(--panel); color: var(--panel-fg); border-radius: 99px; font-size: 12px; }
 .chip.on { background: #0ff; color: #000; border-color: #0ff; font-weight: 800; }
 .title-tools { display: flex; gap: 8px; }
+.title-name { width: 100%; max-width: 360px; }
+.name-row { display: flex; gap: 6px; }
+.name-in { flex: 1; min-width: 0; padding: 8px 10px; font: inherit; font-size: 16px; /* 16px 未満だと iOS が拡大する */ color: var(--fg); background: var(--panel); border: 2px solid var(--line); border-radius: var(--radius); user-select: text; -webkit-user-select: text; }
+.name-in:focus, .name-in.focus { outline: none; border-color: #0ff; }
+.name-in::placeholder { color: var(--muted); }
+.name-dice { flex: none; white-space: nowrap; }
 .title-help { margin: 0; font-size: 11px; color: var(--muted); }
 .title-note { margin: auto 0 0; font-size: 10px; color: var(--muted); opacity: .8; max-width: 34em; }
+
+/* ---- タイトルの年表ボタン ---- */
+.chron-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border: 2px solid #c9a24a; background: #2a2010; color: #f6e2a8; border-radius: var(--radius); font-weight: 800; font-size: 15px; }
+.chron-ic { font-size: 18px; }
+
+/* ================= 歴史の事件の吹き出し(号外・速報) ================= */
+.msg.hist { max-width: 98%; align-self: stretch; }
+.msg.hist .who-nm { font-weight: 800; }
+.hist-mark { padding: 0 6px; border-radius: 3px; font-size: 10px; font-weight: 900; letter-spacing: .04em; }
+.hist-mark.m-new { background: #f22; color: #fff; animation: blink 1s 3; }
+.hist-mark.m-pos { background: #2bd; color: #002; }
+.hist-head { display: flex; gap: 8px; align-items: flex-start; padding: 6px 10px; font-weight: 800; line-height: 1.35; font-size: 14px; }
+.hist-tag { flex: none; padding: 1px 6px; font-size: 12px; font-weight: 900; }
+.msg.hist .bubble { border-radius: 0 0 var(--radius) var(--radius); }
+.hist-pos { font-size: 11px; color: var(--muted); text-align: right; margin: 2px 4px 0; }
+/* 号外: 新聞紙 */
+.hist-paper .hist-head { background: #f3ecd9; color: #1a1a1a; border: 2px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; border-radius: var(--radius) var(--radius) 0 0;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-size: 15px; }
+.hist-paper .hist-tag { background: #c00; color: #fff; font-family: var(--font); }
+.hist-paper .bubble { background: #fbf7ea !important; color: #222 !important; border: 2px solid #1a1a1a; border-top: 0; text-shadow: none; }
+/* 速報: テレビのテロップ */
+.hist-tv .hist-head { background: linear-gradient(#1b3fb0, #0b2270); color: #fff; border-radius: var(--radius) var(--radius) 0 0; border-left: 6px solid #f22; text-shadow: 0 1px 0 #000; }
+.hist-tv .hist-tag { background: #f22; color: #fff; }
+.hist-tv .bubble { background: #10162e !important; color: #eef !important; border: 2px solid #1b3fb0; border-top: 0; }
+.gcl.look-term .hist-paper .hist-head, .gcl.look-term .hist-tv .hist-head { background: #0b2a12; color: #39ff6a; border-color: #39ff6a; font-family: var(--font); }
+.gcl.look-term .hist-paper .bubble, .gcl.look-term .hist-tv .bubble { background: transparent !important; color: #39ff6a !important; border-color: #39ff6a; }
+.card-pos { flex: none; padding: 0 6px; border: 1px solid var(--accent); color: var(--accent); border-radius: 3px; font-size: 10px; font-weight: 800; white-space: nowrap; }
+.card-co { margin-left: auto; }
+
+/* ================= 年表図鑑 ================= */
+.chr { flex: 1; min-height: 0; display: flex; flex-direction: column; background: #17130c; color: #efe6cf; }
+.chr-head { flex: none; padding: 12px 14px 8px; border-bottom: 2px solid #c9a24a; background: #241c0f; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.chr-ttl { flex: 1; min-width: 0; }
+.chr-ttl h2 { margin: 0; font-size: 20px; color: #f6e2a8; }
+.chr-rate { font-size: 13px; font-weight: 700; }
+.chr-close { flex: none; min-width: 72px; min-height: 40px; }
+.chr-bar { flex: 1 0 100%; height: 8px; background: #3a2f1a; border-radius: 99px; overflow: hidden; }
+.chr-fill { display: block; height: 100%; background: linear-gradient(90deg, #c9a24a, #ffe08a); }
+.chr-sub { flex: 1 0 100%; font-size: 11px; color: #b9ab86; }
+.chr-list { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 8px 12px 20px; user-select: text; -webkit-user-select: text; }
+.chr-empty { margin: 6px 0 10px; padding: 10px; border: 1px dashed #c9a24a; font-size: 13px; color: #d8cba6; }
+.chr-sec-h { position: sticky; top: -8px; z-index: 1; display: flex; justify-content: space-between; margin: 10px -12px 4px; padding: 5px 12px; font-size: 14px; background: #2e2412; color: #f6e2a8; border-bottom: 1px solid #5a4823; }
+.chr-sec-n { font-variant-numeric: tabular-nums; color: #c9a24a; }
+.chr-ul { list-style: none; margin: 0; padding: 0; }
+.chr-item { display: flex; gap: 10px; padding: 8px 2px; border-bottom: 1px dashed #4a3c20; }
+.chr-when { flex: none; width: 5.6em; display: flex; flex-direction: column; align-items: flex-start; font-size: 12px; line-height: 1.3; }
+.chr-ic { font-size: 20px; }
+.chr-body { flex: 1; min-width: 0; }
+.chr-top { display: flex; gap: 8px; align-items: baseline; justify-content: space-between; }
+.chr-title { font-weight: 800; font-size: 14px; line-height: 1.35; }
+.chr-pos { flex: none; font-size: 11px; padding: 0 6px; border-radius: 3px; background: #3a2f1a; color: #f6e2a8; white-space: nowrap; }
+.chr-pos.full { background: #c9a24a; color: #1a1408; font-weight: 800; }
+.chr-news { font-size: 12px; color: #c7b994; margin: 2px 0 4px; }
+.chr-var { font-size: 13px; line-height: 1.5; margin: 4px 0 0; padding: 4px 8px; background: #241c0f; border-left: 3px solid #c9a24a; }
+.chr-var-pos { display: inline-block; margin-right: 6px; font-size: 11px; font-weight: 800; color: #ffe08a; }
+.chr-item.unk { opacity: .55; }
+.chr-item.unk .chr-ic { filter: grayscale(1); }
+.chr-item.unk .chr-title { letter-spacing: .2em; color: #8c7f60; }
+.chr-foot { margin: 14px 0 0; font-size: 11px; color: #8c7f60; text-align: center; }
+
+/* テンションが上がった(high)・有名人に会った(celeb)吹き出し */
+.msg.t-high .bubble, .msg.t-celeb .bubble { box-shadow: 0 0 0 2px #ffd34d, 0 0 14px rgba(255,211,77,.45); }
+.msg.t-high .bubble::before { content: '✨ '; }
+.msg.t-celeb .bubble::before { content: '🌟 '; }
+.msg.t-high .who-nm::after { content: ' ✨'; }
 
 /* ================= ガチャの発表 ================= */
 .reveal { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 20px; background: var(--bg); }

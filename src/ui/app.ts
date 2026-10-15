@@ -15,11 +15,13 @@ import { showResult } from './result';
 import { installInput, setHandler, onTap, type Cmd } from './input';
 import { installBuildId } from './build';
 import { showTitle } from './title';
+import { showChronicle } from './chronicle';
+import { load, save, addChronicle } from '../core/save';
 import { startPlay, type PlayScreen, type Speed } from './play';
 import { h, tf, tx, setLook, lookOf, loadFonts } from './util';
 
 const DEMO_SEED = 12000000;
-const ERAS = ['era1', 'era2', 'era3', 'era4', 'era5', 'era6'];
+const ERAS = ['era1', 'era2', 'era3'];
 
 export function startApp(container: HTMLElement) {
   loadFonts();
@@ -43,6 +45,19 @@ export function startApp(container: HTMLElement) {
   expose('replay', () => recorder.toString());
   expose('score', 0);
 
+  // 年表図鑑(seen)を渡すと「まだ触れていない事件」が出やすくなる = 端末ごとに人生が変わる。
+  // URL で決まる人生(?seed= の seed・?replay=・?demo=1・?auto=1)には渡さない(同じ URL で誰でも同じ人生にするため)
+  const urlSeed = query.has('seed') ? startSeed() : -1;
+  const fixedLife = (seed: number, player: Player | null) => auto || !!player || seed === urlSeed;
+  const seenFor = (seed: number, player: Player | null): string[] | undefined => (fixedLife(seed, player) ? undefined : load().chronicle);
+
+  // 名前(タイトルで入れたもの)。自動・replay の時は渡さない。共有 URL にも入れない
+  const nameFor = (player: Player | null): string | undefined => {
+    if (auto || player) return undefined;
+    const n = load().name.trim();
+    return n ? n.slice(0, 16) : undefined;
+  };
+
   const newSeed = (): number => {
     if (firstSeed) { firstSeed = false; return demo && !query.has('seed') ? DEMO_SEED : startSeed(); }
     return ((Date.now() ^ (performance.now() * 1000)) % 2147483647) >>> 0 || 1;
@@ -54,7 +69,14 @@ export function startApp(container: HTMLElement) {
     setScene('Title');
     play = null;
     expose('score', 0);
-    const scr = showTitle(app, lastEra, (era) => begin(newSeed(), era));
+    const scr = showTitle(app, lastEra, (era) => begin(newSeed(), era), () => chronicle());
+    onCmd = scr.onCmd;
+  }
+
+  // ---- 年表図鑑 ----
+  function chronicle() {
+    setScene('Title');
+    const scr = showChronicle(app, load().chronicle, () => title());
     onCmd = scr.onCmd;
   }
 
@@ -63,13 +85,16 @@ export function startApp(container: HTMLElement) {
     lastEra = era;
     setScene('Reveal');
     // 発表に出す中身は、同じ seed・時代で作った state から読む(play でも同じ seed で init するので同じ人生になる)
-    const peek: State = init(seed, era ? { era } : {});
+    const seen = seenFor(seed, player);
+    const name = nameFor(player);
+    const peek: State = init(seed, { ...(era ? { era } : {}), ...(seen ? { seen } : {}), ...(name ? { name } : {}) });
     recorder = new Recorder(seed);
     if (era) recorder.push(-1, `era:${era}`);
     app.innerHTML = '';
     setLook(app, lookOf(peek.year));
     const ov = h('div', 'reveal');
     const lines = [
+      tx(peek.name),
       tf('revealYear', { v: peek.year }),
       tf('revealAge', { v: peek.age }),
       tx(peek.entry),
@@ -81,7 +106,7 @@ export function startApp(container: HTMLElement) {
       d.style.animationDelay = `${(auto ? 0.15 : 0.5) * i}s`;
       box.append(d);
     });
-    const who = h('div', 'reveal-name', `${tx(peek.name)} · ${tx(peek.company.name)}`);
+    const who = h('div', 'reveal-name', tx(peek.company.name));
     who.style.animationDelay = `${(auto ? 0.15 : 0.5) * lines.length}s`;
     const tap = h('div', 'reveal-tap', t('revealGo'));
     tap.style.animationDelay = `${(auto ? 0.15 : 0.5) * lines.length + 0.4}s`;
@@ -94,18 +119,18 @@ export function startApp(container: HTMLElement) {
       if (started) return;
       started = true;
       clearTimeout(tm);
-      run(seed, era, player);
+      run(seed, era, player, seen, name);
     };
     const tm = setTimeout(go, auto || player ? 1400 : 6000);
     setTimeout(() => onTap(ov, go), 300);
     onCmd = (c) => { if (c.type === 'ok' || c.type === 'pause') go(); };
   }
 
-  function run(seed: number, era: Era | '', player: Player | null) {
+  function run(seed: number, era: Era | '', player: Player | null, seen: string[] | undefined, name: string | undefined) {
     setScene('Play');
     const speed: Speed = query.auto ? 4 : demo ? 2 : player ? 4 : 1;
     play = startPlay(app, {
-      seed, era, omakase: auto, speed, recorder, player,
+      seed, era, seen, name, omakase: auto, speed, recorder, player,
       quick: auto || !!player,
       onEnd: (s) => result(s, era),
     });
@@ -118,7 +143,12 @@ export function startApp(container: HTMLElement) {
     onCmd = () => {};
     setLook(app, lookOf(s.ending?.year ?? s.year));
     app.dataset.scene = 'result';
+    // 年表図鑑に足す(どの遊び方でも、触れた事件は図鑑に残す)
+    const before = load().chronicle;
+    const { all, added } = addChronicle(s.chronicle);
+    save({ played: load().played + 1 });
     showResult(app, s, {
+      chronicle: { before, after: all, added },
       retry: () => title(),
       again: () => begin(s.seed, era),
     });

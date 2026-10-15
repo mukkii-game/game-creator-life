@@ -9,6 +9,10 @@ import { describe, action, clearActions } from '../core/probe';
 import { JOB_TEXT } from '../game/names';
 import { RESULT_TEXT, ROLE_TEXT } from '../game/works';
 import { drawCard, toBlob, ensureFont, RESULT_COLOR } from '../share/card';
+import { HIST_BY_ID } from '../game/data';
+import { chronicleCount } from './title';
+import { t } from '../core/i18n';
+import { tf } from './util';
 import { TITLE, shareText, lifeUrl, xIntentUrl, entryPhrase } from '../share/text';
 
 export interface ResultHooks {
@@ -16,6 +20,8 @@ export interface ResultHooks {
   retry: () => void;
   /** 同じ seed でもう一度 */
   again: () => void;
+  /** 年表図鑑: この人生の前・後(app.ts が保存してから渡す)と、今回はじめて入ったキー */
+  chronicle?: { before: string[]; after: string[]; added: string[] };
 }
 
 const S: Record<string, Text> = {
@@ -34,15 +40,15 @@ const S: Record<string, Text> = {
   share: { ja: '共有する', en: 'Share' },
   post: { ja: 'X にポスト', en: 'Post on X' },
   save: { ja: '画像を保存', en: 'Save image' },
-  copy: { ja: 'この人生、生きてみて', en: 'Live this life (copy link)' },
+  copy: { ja: '同じスタートで生きてみて', en: 'Try the same start (copy link)' },
   copySub: { ja: '?seed= 付きの URL をコピー', en: 'copies a ?seed= link' },
   copied: { ja: 'URL をコピーしました', en: 'Link copied' },
   copyFail: { ja: 'コピーできませんでした: ', en: 'Could not copy: ' },
   saved: { ja: '画像を保存しました(出ない時は画像を長押し)', en: 'Image saved (or long-press the image)' },
   retry: { ja: '新しい人生', en: 'New life' },
-  again: { ja: '同じ人生をもう一度', en: 'Same life again' },
+  again: { ja: '同じスタートでもう一度', en: 'Same start again' },
   og: { ja: '横長(1200×630)を保存', en: 'Save wide (1200×630)' },
-  keys: { ja: '1 新しい人生 / 2 同じ人生 / 3 X / 4 保存 / ← → 選ぶ・Enter 決定', en: '1 New / 2 Same / 3 X / 4 Save / ← → move, Enter select' },
+  keys: { ja: '1 新しい人生 / 2 同じスタート / 3 X / 4 保存 / ← → 選ぶ・Enter 決定', en: '1 New / 2 Same / 3 X / 4 Save / ← → move, Enter select' },
 };
 const T = (k: string, l: Lang) => S[k][l];
 
@@ -99,8 +105,33 @@ function buildRoll(s: State, l: Lang): HTMLElement {
   const job = JOB_TEXT[s.job] ?? JOB_TEXT.other;
   box.append(el('p', 'rs-cause', s.ending ? s.ending.cause[l] : ''));
   p(l === 'ja' ? `${s.ending?.year ?? s.year} 年 / 最後の肩書き: ${job.ja}` : `${s.ending?.year ?? s.year} / last title: ${job.en}`, 'rs-small');
+  if (s.ending?.epitaph) box.append(el('p', 'rs-epitaph', s.ending.epitaph[l]));
   box.append(el('p', 'rs-fin', T('fin', l)));
   p(T('oneOf', l), 'rs-small');
+  return box;
+}
+
+// ---------- 今回はじめて触れた歴史 ----------
+function chronicleBox(s: State, c: NonNullable<ResultHooks['chronicle']>): HTMLElement {
+  const beforeHist = new Set(c.before.map((k) => k.split(':')[0]));
+  const fresh = [...new Set(s.chronicle.map((k) => k.split(':')[0]))].filter((id) => !beforeHist.has(id) && HIST_BY_ID.has(id))
+    .sort((a, b) => HIST_BY_ID.get(a)!.year - HIST_BY_ID.get(b)!.year || (HIST_BY_ID.get(a)!.month ?? 0) - (HIST_BY_ID.get(b)!.month ?? 0));
+  const otherPos = c.added.filter((k) => beforeHist.has(k.split(':')[0])).length;
+  const all = HIST_BY_ID.size;
+  const box = el('div', 'rs-chron');
+  box.append(el('p', 'rs-chron-h', tf('rsChronNew', { n: fresh.length })));
+  box.append(el('p', 'rs-chron-n', tf('rsChronCount', { a: chronicleCount(c.before), b: chronicleCount(c.after), all })));
+  if (otherPos) box.append(el('p', 'rs-chron-n', tf('rsChronPos', { n: otherPos })));
+  if (fresh.length) {
+    const ul = el('ul', 'rs-chron-ul');
+    for (const id of fresh) {
+      const x = HIST_BY_ID.get(id)!;
+      const li = el('li');
+      li.append(el('b', '', String(x.year)), el('span', '', x.title[lang()]));
+      ul.append(li);
+    }
+    box.append(ul);
+  } else if (!s.chronicle.length) box.append(el('p', 'rs-chron-n', t('rsChronNone')));
   return box;
 }
 
@@ -191,7 +222,9 @@ export function showResult(root: HTMLElement, s: State, hooks: ResultHooks) {
     panel.append(pin);
     pin.append(el('p', 'rs-ttl rs-dot', T('head', l)));
     pin.append(el('p', 'rs-cause-big rs-dot', s.ending ? s.ending.cause[l] : ''));
+    if (s.ending?.epitaph) pin.append(el('p', 'rs-epitaph rs-epitaph-panel', s.ending.epitaph[l]));
     pin.append(el('p', 'rs-sum', s.ending ? s.ending.summary[l] : ''));
+    if (hooks.chronicle) pin.append(chronicleBox(s, hooks.chronicle));
     const img = el('img', 'rs-card');
     img.alt = s.ending ? s.ending.cause[l] : TITLE[l];
     pin.append(img);

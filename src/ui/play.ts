@@ -3,6 +3,10 @@
 // 選択(state.choice)が来たら止まってボタンを出す。終わったら(state.ending)死因を大きく出して onEnd。
 import { init, advance, choose, JOB_TEXT } from '../game/logic';
 import { BOTS } from '../game/bots';
+import { positionOf } from '../game/select';
+import { POS_TEXT } from '../game/names';
+import { HIST_BY_ID } from '../game/data';
+import { load } from '../core/save';
 import type { State, LogLine, Work, Era, Choice } from '../game/types';
 import { tune } from '../core/tuning';
 import { t, lang } from '../core/i18n';
@@ -18,6 +22,10 @@ const SPEEDS: Speed[] = [1, 2, 4, 'fast'];
 export interface PlayOptions {
   seed: number;
   era: Era | '';
+  /** 年表図鑑(init に渡す。URL で決まる人生では undefined) */
+  seen?: string[];
+  /** 自分の名前(空・undefined = おまかせ) */
+  name?: string;
   omakase: boolean;
   speed: Speed;
   recorder: Recorder;
@@ -40,6 +48,9 @@ export interface PlayScreen {
 const JOB_ICON: Record<string, string> = { programmer: '💻', planner: '📝', artist: '🎨', sound: '🎵', qa: '🐛', sales: '📞', director: '🎬', producer: '💼', other: '🌾' };
 const KIND_ICON: Record<string, string> = { event: '💬', work: '📦', peer: '👥', choice: '🙋', ask: '❓' };
 const KIND_WHO: Record<string, string> = { event: 'fromEvent', work: 'fromWork', peer: 'fromPeer', choice: 'fromChoice', ask: 'fromAsk' };
+/** 歴史の事件の見た目: テレビの速報風(tv)か新聞の号外風(paper) */
+export const HIST_ICON: Record<string, string> = { hardware: '🎮', hit: '🏆', incident: '📰', work: '💼', ai: '🤖', future: '🚀' };
+const HIST_STYLE: Record<string, 'tv' | 'paper'> = { hardware: 'tv', ai: 'tv', future: 'tv', hit: 'paper', incident: 'paper', work: 'paper' };
 
 /** 作品棚の形: カセット → CD → DL → アプリ(時代と機種で) */
 export function shapeOf(w: Work): 'cart' | 'cd' | 'dl' | 'app' {
@@ -52,7 +63,10 @@ export function shapeOf(w: Work): 'cart' | 'cd' | 'dl' | 'app' {
 const initial = (w: Work) => (tx(w.name).replace(/^[『「"“\s]+/, '').charAt(0) || '?');
 
 export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
-  const s = init(o.seed, o.era ? { era: o.era } : {});
+  const s = init(o.seed, { ...(o.era ? { era: o.era } : {}), ...(o.seen ? { seen: o.seen } : {}), ...(o.name ? { name: o.name } : {}) });
+  // 「NEW」「別の立場で」の印は、この端末の図鑑と比べる(URL で決まる人生でも印は出す。中身は変えない)
+  const known = new Set(load().chronicle);
+  const knownHist = new Set([...known].map((k) => k.split(':')[0]));
   app.innerHTML = '';
   app.dataset.scene = 'play';
   expose('scene', 'Play');
@@ -154,7 +168,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   function paintCard() {
     card.innerHTML = '';
     const head = h('div', 'card-head');
-    head.append(h('span', 'card-badge', t('idCard')), h('span', 'card-co', tx(s.company.name)));
+    head.append(h('span', 'card-badge', t('idCard')), h('span', 'card-pos', tx(POS_TEXT[positionOf(s)])), h('span', 'card-co', tx(s.company.name)));
     const body = h('div', 'card-body');
     const photo = h('div', 'card-photo', JOB_ICON[s.job] ?? '👤');
     const who = h('div', 'card-who');
@@ -243,6 +257,31 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     return msg;
   }
 
+  /** 歴史の事件の吹き出し: 見出し(news)+ 本文。図鑑で初めてなら NEW、立場違いなら「別の立場で」 */
+  function histBubble(l: LogLine, hs: string): HTMLElement | null {
+    const hd = HIST_BY_ID.get(hs);
+    if (!hd) return null;
+    const style = HIST_STYLE[hd.kind] ?? 'paper';
+    const key = s.chronicle.find((k) => k.startsWith(`${hs}:`)) ?? '';
+    const mark = !knownHist.has(hs) ? 'new' : key && !known.has(key) ? 'pos' : '';
+    const msg = h('div', `msg k-${l.kind} hist hist-${style} pop`);
+    msg.dataset.hist = hs;
+    const who = h('div', 'who');
+    who.append(h('span', 'who-ic', HIST_ICON[hd.kind] ?? '📰'), h('span', 'who-nm', t(style === 'tv' ? 'histTv' : 'histPaper')), h('span', 'who-yr', hd.month ? tf('ym', { y: l.year, m: hd.month }) : String(l.year)));
+    if (mark) who.append(h('span', `hist-mark m-${mark}`, t(mark === 'new' ? 'histNew' : 'histOtherPos')));
+    const head = h('div', 'hist-head');
+    head.append(h('span', 'hist-tag', t(style === 'tv' ? 'histTvTag' : 'histPaperTag')), h('span', 'hist-news', tx(hd.news)));
+    const pos = h('div', 'hist-pos', tf('histAsPos', { pos: tx(POS_TEXT[positionOf(s)]) }));
+    msg.append(who, head, h('div', 'bubble', tx(l.text)), pos);
+    chatInner.append(msg);
+    while (chatInner.children.length > 90) chatInner.firstElementChild?.remove();
+    requestAnimationFrame(() => { chat.scrollTop = chat.scrollHeight; });
+    tickerLines.push(`${t('histTvTag')} ${tx(hd.news)}`);
+    setTape();
+    sfx.score();
+    return msg;
+  }
+
   function showLine(l: LogLine) {
     if (l.year !== curYear || l.age !== curAge) {
       if (l.year !== curYear) { tickerLines = []; setTape(); }
@@ -253,12 +292,15 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
       setTape();
       return false; // 時間を使わない
     }
-    const m = bubble(l.kind, tx(l.text), l.year);
+    const m = (l.hist && histBubble(l, l.hist)) || bubble(l.kind, tx(l.text), l.year);
     if (l.kind === 'work') {
       m.classList.add('pop');
       if (/発売|ships/.test(l.text.ja + l.text.en) && !(l.tag ?? []).includes('afterlife')) sfx.score();
     }
     if ((l.tag ?? []).includes('afterlife')) m.classList.add('afterlife');
+    // テンションが上がった瞬間・有名人に会った瞬間は少し明るく(後味を良くする)
+    if ((l.tag ?? []).includes('high')) m.classList.add('t-high');
+    if ((l.tag ?? []).includes('celeb')) m.classList.add('t-celeb');
     paintAll();
     return true;
   }
@@ -312,9 +354,11 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     let msg: HTMLElement;
     if (last && last.querySelector('.bubble')?.textContent === tx(c.text)) {
       msg = last;
-      msg.className = 'msg k-ask pop';
-      const nm = msg.querySelector('.who-nm'); if (nm) nm.textContent = t('fromAsk');
-      const ic = msg.querySelector('.who-ic'); if (ic) ic.textContent = KIND_ICON.ask;
+      msg.className = `${msg.className.replace(/\bk-\w+/g, '').replace(/\bpop\b/g, '').trim()} k-ask pop`;
+      if (!msg.dataset.hist) {
+        const nm = msg.querySelector('.who-nm'); if (nm) nm.textContent = t('fromAsk');
+        const ic = msg.querySelector('.who-ic'); if (ic) ic.textContent = KIND_ICON.ask;
+      }
     } else {
       msg = bubble('ask', tx(c.text), curYear);
       msg.classList.add('pop');

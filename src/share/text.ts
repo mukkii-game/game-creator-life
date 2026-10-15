@@ -50,7 +50,7 @@ export function bestAfterlife(works: Work[]): { work: Work; year: number; text: 
   return best;
 }
 
-/** 共有する URL(?seed= 付き)。「この人生、生きてみて」 */
+/** 共有する URL(?seed= 付き)。「同じスタートで生きてみて」(図鑑で中身が変わるので「同じ人生」とは言わない。?seed= の人生は図鑑を使わないので誰でも同じになる) */
 export function lifeUrl(seed: number, era?: string): string {
   let base = PROD_URL;
   try {
