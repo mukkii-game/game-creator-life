@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "compact|clear",
+        "hooks": [
+          { "type": "command", "command": "echo '--- HANDOFF.md(圧縮・/clear のあとに自動で読み直し)---'; head -80 HANDOFF.md 2>/dev/null || true" }
+        ]
+      }
+    ]
+  }
+}
