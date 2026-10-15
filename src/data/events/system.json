@@ -174,7 +174,7 @@
     ],
     "weight": 0,
     "text": {
-      "ja": "朝、駅の改札で足が止まった。会社に行けない。翌月から {other} で働き始めた。",
+      "ja": "朝、駅の改札で足が止まった。会社に行けない。翌月から{other}で働き始めた。",
       "en": "One morning your feet stopped at the station gate. You couldn't go in. Next month you started working at a {other}."
     },
     "effect": {
@@ -194,7 +194,7 @@
     ],
     "weight": 0,
     "text": {
-      "ja": "昔の同僚から連絡。「人が足りない。戻ってこないか」。{other} の仕事にも慣れてきた頃だった。",
+      "ja": "昔の同僚から連絡。「人が足りない。戻ってこないか」。{other}の仕事にも慣れてきた頃だった。",
       "en": "A former coworker calls: \"We're short-handed. Come back?\" You'd just gotten used to the {other}."
     },
     "choices": [
@@ -228,7 +228,7 @@
           }
         },
         "result": {
-          "ja": "電話を切って、仕込みに戻った。",
+          "ja": "電話を切って、{other}の仕事に戻った。",
           "en": "You hang up and go back to work."
         }
       }

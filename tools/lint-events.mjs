@@ -26,6 +26,7 @@ export const PROPS = {
   'クラウド': 2010, 'cloud': 2010, 'Slack': 2014, 'Discord': 2016, 'VR': 2016,
   'リモート': 2020, '在宅勤務': 2020, 'テレワーク': 2020, 'Zoom': 2020, 'remote work': 2020, 'work from home': 2020,
   'NFT': 2021, 'メタバース': 2021, 'metaverse': 2021, 'Web3': 2021,
+  '添付': 1995, '.doc': 1995, 'Slack': 2014, '既読': 2011, 'ウィッシュリスト': 2010, 'Discord': 2015, 'クラウドファンディング': 2012, 'ストアページ': 2010,
   '生成AI': 2022, '生成 AI': 2022, 'ChatGPT': 2022, 'AI': 2022, 'プロンプト': 2022, 'prompt': 2022,
 };
 const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other']);
