@@ -393,8 +393,8 @@
      "stat.network>=40"
     ],
     "text": {
-     "ja": "飲み会の 2 次会で、隣の人とひと狩り行った。あとで知った。国民的 RPG の作曲家だった。回復は全部こちらがした。",
-     "en": "At an after-party, you go on a hunt with the person next to you. Later you learn: the composer of the nation's biggest RPG. You did all the healing."
+     "ja": "飲み会の 2 次会で、隣の人とひと狩り行った。あとで知った。『ドラゴンクエスト』の作曲家、すぎやまこういちさんだった。回復は全部こちらがした。",
+     "en": "At an after-party, you go on a hunt with the person next to you. Later you learn: Koichi Sugiyama, the Dragon Quest composer. You did all the healing."
     },
     "effect": {
      "passion": 8,
@@ -941,8 +941,8 @@
      "stat.fame>=30"
     ],
     "text": {
-     "ja": "業界の打ち上げで、のちに世界的に有名になるデザイナーと名刺を交換した。自分の名刺は、角が折れていた。",
-     "en": "At an industry party, you swap business cards with a designer who'll later be world-famous. Yours has a bent corner."
+     "ja": "業界の打ち上げで、『パズドラ』の山本大介さんと名刺を交換した。自分の名刺は、角が折れていた。",
+     "en": "At an industry party, you swap business cards with Daisuke Yamamoto of Puzzle & Dragons. Yours has a bent corner."
     },
     "effect": {
      "passion": 5,
@@ -1679,8 +1679,8 @@
      "stat.network>=50"
     ],
     "text": {
-     "ja": "海外の講演会で、エンジンを作った会社の有名な人の隣に座った。英語で言えたのは「グッド」だけだった。",
-     "en": "At a talk abroad, you sit next to a famous figure from the engine company. All you manage in English is \"Good.\""
+     "ja": "海外の講演会で、Epic Games のティム・スウィーニーさんの隣に座った。英語で言えたのは「グッド」だけだった。",
+     "en": "At a talk abroad, you sit next to Epic Games' Tim Sweeney. All you manage in English is \"Good.\""
     },
     "effect": {
      "passion": 6,
@@ -1721,8 +1721,8 @@
    "en": "Undertale is released"
   },
   "news": {
-   "ja": "ほぼ 1 人の作者が作った『Undertale』が発売され、世界的なヒットになった。",
-   "en": "Undertale, made almost entirely by one creator, is released and becomes a worldwide hit."
+   "ja": "トビー・フォックスがほぼ 1 人で作った『Undertale』が 9 月 15 日に発売され、世界的なヒットになった。",
+   "en": "Undertale, made almost entirely by Toby Fox, is released on September 15 and becomes a worldwide hit."
   },
   "src": "Undertale",
   "variants": [
@@ -1994,8 +1994,8 @@
      "stat.fame>=30"
     ],
     "text": {
-     "ja": "展示会で自分の VR デモに 2 時間待ちの行列。のちに世界的に有名になるデザイナーも並び、遊び終えて床に座りこんだ。",
-     "en": "A two-hour line for your VR demo at an expo. A designer who'll later be world-famous waits in it, plays, and sits down on the floor."
+     "ja": "展示会で自分の VR デモに 2 時間待ちの行列。『Rez』の水口哲也さんも並んでくれ、遊び終えてにっこり会釈した。",
+     "en": "A two-hour line for your VR demo at an expo. Tetsuya Mizuguchi of Rez waits in it, plays, and gives you a smiling nod."
     },
     "effect": {
      "passion": 10,
@@ -3057,8 +3057,8 @@
      "stat.fame>=30"
     ],
     "text": {
-     "ja": "自分の島に、国民的 RPG の作曲家がたまたま遊びに来た。名乗れないまま、カブだけ売った。",
-     "en": "By chance, the composer of the nation's biggest RPG visits your island. Too starstruck to introduce yourself, you just sell them turnips."
+     "ja": "自分の島に、『FF』の作曲家・植松伸夫さんがたまたま遊びに来た。名乗れないまま、カブだけ売った。",
+     "en": "By chance, Nobuo Uematsu, the Final Fantasy composer, visits your island. Too starstruck to introduce yourself, you just sell them turnips."
     },
     "effect": {
      "passion": 8,
@@ -4352,8 +4352,8 @@
      "works>=1"
     ],
     "text": {
-     "ja": "発表会で、のちに伝説と呼ばれるゲームデザイナーに「あれ遊びましたよ」と言われた。{work} のことだった。3 日眠れなかった。",
-     "en": "At the reveal, a game designer who'll be called a legend tells you, \"I played that one.\" They mean {work}. You don't sleep for three days."
+     "ja": "発表会で、桜井政博さんに「あれ遊びましたよ」と言われた。{work} のことだった。3 日眠れなかった。",
+     "en": "At the reveal, Masahiro Sakurai tells you, \"I played that one.\" They mean {work}. You don't sleep for three days."
     },
     "effect": {
      "passion": 12,
@@ -4879,8 +4879,8 @@
      "stat.fame>=40"
     ],
     "text": {
-     "ja": "討論番組に呼ばれ、国民的 RPG の作曲家の隣に座った。「人間の味方」役として、終始うなずいた。",
-     "en": "You're booked on a TV debate, seated next to the composer of the nation's biggest RPG. Playing \"the human side,\" you mostly nod."
+     "ja": "討論番組に呼ばれ、ベテランのゲーム音楽の作曲家の隣に座った。「人間の味方」役として、終始うなずいた。",
+     "en": "You're booked on a TV debate, seated next to a veteran game-music composer. Playing \"the human side,\" you mostly nod."
     },
     "effect": {
      "fame": 5,
