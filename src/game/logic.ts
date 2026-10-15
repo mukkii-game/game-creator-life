@@ -218,7 +218,7 @@ function checkEnd(s: State, out: string[]) {
     apply(s, EVENT_BY_ID.get('ev_sys_burnout')?.effect, '', out);
     s.stat.passion = 25; s.inner.queue = [];
   }
-  if (s.stat.money <= tune('job.debtLimit') && s.status !== 'employed') return end(s, 'end_debt', out);
+  if (s.stat.money <= tune('job.debtLimit') && s.status !== 'employed' && !s.flags.in_prison) return end(s, 'end_debt', out);
   if (s.inner.searchFails >= 3) return end(s, 'end_blacklist', out);
 }
 
@@ -386,6 +386,7 @@ function runItem(s: State, id: string, out: string[]) {
   s.inner.uses[ev.id] = (s.inner.uses[ev.id] ?? 0) + 1;
   count(s, ev);
   if (ev.id.startsWith('ev_sys_promote')) promote(s);
+  if (ev.id === 'ev_sys_prison_out') s.stat.money = Math.max(s.stat.money, 50); // 出所したら借金は帳消しで再起(罰金・没収は判決で済んでいる)
   if (ev.id.startsWith('ev_sys_offer')) s.inner.seen.ev_sys_offer = s.year; // 言い回し違いの版も同じ 4 年の間隔に数える
   if (ev.choices) {
     s.choice = { eventId: ev.id, choices: ev.choices, text: fill(s, ev.text) };
@@ -470,6 +471,7 @@ function peersYear(s: State, out: string[]) {
     else if (newHit && (newHit.result === 'legend' || s.rng.chance(0.4))) line = { ja: `同期の${nm}の${newHit.name.ja}が${RESULT_TEXT[newHit.result].ja}。飲み会でずっとその話をしていた。`, en: `Your peer ${en}'s ${newHit.name.en} was a ${RESULT_TEXT[newHit.result].en.toLowerCase()}. It was all they talked about at drinks.` };
     else if (p.status !== before.status && p.status === 'indie') line = { ja: `同期の${nm}が独立した。名刺の肩書きは「CEO」。社員は本人だけ。`, en: `Your peer ${en} went indie. Business card: "CEO." Staff: one.` };
     else if (p.job !== before.job && (p.job === 'director' || p.job === 'producer')) line = { ja: `同期の${nm}が${JOB_TEXT[p.job].ja}に昇進した。あなたより先に。`, en: `Your peer ${en} was promoted to ${JOB_TEXT[p.job].en}. Before you.` };
+    else if (p.status !== before.status && p.flags.in_prison) line = { ja: `同期の${nm}が塀の中へ。差し入れにゲーム雑誌を送った。付箋だらけで返ってきた。`, en: `Your peer ${en} went to prison. You sent game magazines. They came back covered in sticky notes.` };
     else if (p.status !== before.status && p.status === 'left' && p.job === 'other') line = { ja: `同期の${nm}が業界を離れ、${p.inner.otherJob?.ja ?? '別の仕事'}へ。年賀状の写真が明るくなった。`, en: `Your peer ${en} left the industry for a ${p.inner.otherJob?.en ?? 'new job'}. Their New Year card looks happier.` };
     s.peers[i].summary = peerSummary(p);
     if (line && (!said || pe)) { said = true; log(s, line, 'peer'); out.push('peer'); }
