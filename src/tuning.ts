@@ -8,7 +8,7 @@ export type Knob =
 
 export const KNOBS: Knob[] = [
   // 時間
-  { key: 'life.yearSec', label: '1 年の長さ(1 倍速)', value: 6, min: 2, max: 20, step: 0.5, unit: '秒', aim: '45 年で約 4.5 分。選択で止まる分を足して 1 人生 5〜8 分' },
+  { key: 'life.yearSec', label: '1 年の長さ(1 倍速)', value: 7.5, min: 2, max: 20, step: 0.5, unit: '秒', aim: '45 年で約 4.5 分。選択で止まる分を足して 1 人生 5〜8 分' },
   { key: 'life.eventsMin', label: '1 年のイベント数(最少)', value: 2, min: 1, max: 5, step: 1, unit: '本', aim: 'あるあるの連打。少ないと間延びする' },
   { key: 'life.eventsMax', label: '1 年のイベント数(最多)', value: 3, min: 1, max: 6, step: 1, unit: '本' },
   { key: 'life.choiceEvery', label: '選択イベントの出やすさ', value: 0.45, min: 0, max: 1, step: 0.05, unit: '1 年あたり', aim: '1 年に 1 回は多すぎる。2〜3 年に 1 回くらい悩む' },
@@ -33,7 +33,7 @@ export const KNOBS: Knob[] = [
   { key: 'year.skillMin', label: '1 年の腕の伸び(最少)', value: 2, min: 0, max: 10, step: 1, unit: '点' },
   { key: 'year.skillMax', label: '1 年の腕の伸び(最多)', value: 6, min: 0, max: 15, step: 1, unit: '点' },
   { key: 'year.salary', label: '会社員の 1 年の貯金', value: 60, min: 0, max: 300, step: 10, unit: '万円', aim: '大手は 1.5 倍、下請けは 0.5 倍' },
-  { key: 'year.indieCost', label: '独立中の 1 年の持ち出し', value: 150, min: 0, max: 500, step: 10, unit: '万円' },
+  { key: 'year.indieCost', label: '独立中の 1 年の持ち出し', value: 90, min: 0, max: 500, step: 10, unit: '万円' },
   { key: 'year.leftCost', label: '無職の 1 年の持ち出し', value: 80, min: 0, max: 300, step: 10, unit: '万円' },
   // 職と転職
   { key: 'job.offer', label: '引き抜きの誘いの確率', value: 0.07, min: 0, max: 1, step: 0.01, unit: '1 年あたり', aim: '人脈で増える。一度来たら 4 年は来ない' },
@@ -41,7 +41,7 @@ export const KNOBS: Knob[] = [
   { key: 'job.bankrupt', label: '会社が潰れる確率(中堅)', value: 0.03, min: 0, max: 0.3, step: 0.01, unit: '1 年あたり', aim: '下請け 2 倍、小さい会社 1.6 倍、大手 0.3 倍。史実の不況年は 2 倍' },
   { key: 'job.rehire', label: '再就職の基本の確率', value: 0.3, min: 0, max: 1, step: 0.05, aim: '腕と人脈で上がる。3 回落ちたら業界を去る' },
   { key: 'job.comeback', label: '心が折れた後に戻れる確率', value: 0.12, min: 0, max: 1, step: 0.01, unit: '1 年あたり', aim: '5 年以内に 1 回だけ誘いが来る。人脈で増える' },
-  { key: 'job.debtLimit', label: '廃業する借金', value: -300, min: -3000, max: 0, step: 50, unit: '万円' },
+  { key: 'job.debtLimit', label: '廃業する借金', value: -500, min: -3000, max: 0, step: 50, unit: '万円' },
   { key: 'ai.seat', label: 'AI に席を譲る確率(2027 年〜)', value: 0.04, min: 0, max: 0.5, step: 0.01, unit: '1 年あたり', aim: '2035 年に向けて 3 倍まで上がる' },
   // 作品
   { key: 'work.everyMin', label: '作品の間隔(最短)', value: 2, min: 1, max: 6, step: 1, unit: '年' },
@@ -51,6 +51,7 @@ export const KNOBS: Knob[] = [
   { key: 'work.flop', label: '爆死の確率', value: 0.35, min: 0, max: 1, step: 0.01 },
   { key: 'work.afterlife', label: '作品の後日談の出やすさ', value: 0.06, min: 0, max: 0.5, step: 0.01, unit: '1 作 1 年あたり', aim: '棚が勝手に生きている感じ。多すぎるとうるさい' },
   // 画面と音
+  { key: 'ui.lineMin', label: '1 行を読む最短の時間(1 倍速)', value: 2.4, min: 0.5, max: 6, step: 0.1, unit: '秒', aim: '目が追いつく速さ(Mukkii 2026-10-15「もう少しだけ遅く」)。2 倍速なら半分' },
   { key: 'ui.fast', label: '「一気に」の 1 年', value: 0.4, min: 0.05, max: 2, step: 0.05, unit: '秒' },
   { key: 'audio.sfx', label: '効果音の音量', value: 0.45, min: 0, max: 1, step: 0.05, unit: '倍', aim: '控えめから。AI は音を聴かずに大きめを選びがち' },
   { key: 'audio.bgm', label: 'BGM の音量', value: 0.45, min: 0, max: 1, step: 0.05, unit: '倍' },

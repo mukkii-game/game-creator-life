@@ -126,7 +126,8 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   const ring = new FocusRing();
 
   const yearMs = () => (speed === 'fast' ? tune('ui.fast') : tune('life.yearSec') / speed) * 1000;
-  const lineMs = () => Math.max(60, yearMs() / Math.max(2, batchN));
+  // 1 行の長さ: 1 年を行数で割る。ただし読み切れるように、1 行の最短(ui.lineMin 秒 ÷ 速度)を下回らない
+  const lineMs = () => Math.max(60, yearMs() / Math.max(2, batchN), speed === 'fast' ? 0 : tune('ui.lineMin') * 1000 / (speed as number));
 
   function paintBar() {
     speedBs.forEach((b, i) => b.classList.toggle('on', SPEEDS[i] === speed));

@@ -93,7 +93,7 @@ export function init(seed: number, options: InitOptions = {}): State {
       leftYear: 0, otherJob: null, counts: {}, lastTag: '', choicesMade: 0, peerStates: [], isPeer: !!peerOf, bot: peerOf?.bot ?? '',
       workTarget: -1, startJob: job, prevJob: job, histDone: [], highs: [],
       // 人生に一度の大挫折と大成功(業界に入って何年目に来るか)
-      pitAt: r.int(2, 12), peakAt: r.int(5, 24), pitDone: false, peakDone: false,
+      pitAt: r.int(2, 10), peakAt: r.int(4, 16), pitDone: false, peakDone: false,
       bondAt: r.int(3, 18), bondDone: false, nextBig: year + r.int(2, 4), prisonUntil: 0,
     },
   };
@@ -252,7 +252,7 @@ function beginYear(s: State, out: string[]) {
     }
   } else if (s.status === 'indie') {
     if (s.year >= s.inner.nextWorkYear) q.push('@release');
-    if (r.chance(0.08 + s.stat.network / 500) && s.stat.money < 100) sys.push('@rehire_offer');
+    if (r.chance(0.25 + s.stat.network / 400) && s.stat.money < 100) sys.push('@rehire_offer');
   } else if (s.status === 'left') {
     if (s.flags.in_prison) {
       if (s.year >= s.inner.prisonUntil) sys.push('ev_sys_prison_out');
@@ -349,7 +349,7 @@ function runItem(s: State, id: string, out: string[]) {
     if (s.status !== 'employed' && s.status !== 'indie') return;
     const { line, work } = release(s);
     log(s, line, 'work'); out.push('work');
-    if (work.result === 'hit' || work.result === 'legend') s.inner.highs.push({ year: s.year, age: s.age, text: { ja: `${work.name.ja}が${RESULT_TEXT[work.result].ja}になった`, en: `${work.name.en} became a ${RESULT_TEXT[work.result].en.toLowerCase()}` }, w: (work.result === 'legend' ? 4 : 1.5) + s.rng.next() });
+    if (work.result === 'hit' || work.result === 'legend') s.inner.highs.push({ year: s.year, age: s.age, text: { ja: `${work.name.ja}が${RESULT_TEXT[work.result].ja}になった`, en: `${work.name.en} became a ${RESULT_TEXT[work.result].en.toLowerCase()}` }, w: (work.result === 'legend' ? 4 : 1.5) + s.rng.next(), kind: 'work' });
     s.inner.nextWorkYear = s.year + r.int(tune('work.everyMin'), tune('work.everyMax'));
     s.flags.mega_project = false;
     return;
@@ -410,7 +410,8 @@ function remember(s: State, ev: GameEvent, memory?: Text) {
   if (!w && !memory) return;
   const first = (x: string, sep: RegExp) => x.split(sep)[0];
   const text = memory ? fill(s, memory) : (() => { const f = fill(s, ev.text); return { ja: first(f.ja, /。/), en: first(f.en, /\. /) }; })();
-  s.inner.highs.push({ year: s.year, age: s.age, text, w: (w || 2) + s.rng.next() });
+  const kind = t.includes('peak') ? 'peak' : t.includes('bond') || t.includes('celeb') ? 'celeb' : t.includes('warm') || t.includes('life') ? 'warm' : 'high';
+  s.inner.highs.push({ year: s.year, age: s.age, text, w: (w || 2) + s.rng.next(), kind });
 }
 
 function promote(s: State) {

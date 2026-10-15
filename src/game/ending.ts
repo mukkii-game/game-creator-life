@@ -29,11 +29,37 @@ function causeOf(s: State, id: EndingId): Text {
 }
 
 /** 最後の 1 行。一番テンションが上がった瞬間を思い出して「いいゲーム人生だった」 */
-function epitaphOf(s: State): Text {
+// 最後の 1 行(Mukkii: 成功しても失敗しても、最後は必ず「いいゲーム人生だった」と言って引退する余韻)
+// = 一番の思い出 + その時の気持ち(思い出の種類で変える) + 終わり方ごとのひとこと + 「いいゲーム人生だった。」
+const FEELING: Record<string, Text[]> = {
+  peak: [{ ja: 'あれは人生のてっぺんだった', en: 'that was the top of the mountain' }, { ja: 'あの日の打ち上げの味は、今でも覚えている', en: 'I still remember how the wrap party tasted that night' }],
+  celeb: [{ ja: 'あれは一生の自慢になった', en: "I've bragged about it ever since" }, { ja: '孫の代まで語り継ぐつもりだ', en: "I plan to tell it to my grandkids' grandkids" }],
+  warm: [{ ja: '思い出すと、今でも少し泣ける', en: 'it still gets me a little, thinking back' }, { ja: 'あれがあったから続けられた', en: "that's what kept me going" }],
+  work: [{ ja: 'あの時はテンションが上がった', en: 'what a rush that was' }, { ja: '売上表を、こっそり手帳に挟んでいる', en: 'I still keep the sales sheet tucked in my planner' }],
+  high: [{ ja: 'あの時はテンションが上がった', en: 'what a rush that was' }, { ja: '思い出すたびに、にやけてしまう', en: 'I still grin every time I remember it' }, { ja: '小さな話だが、自分には大事件だった', en: 'a small thing, but a big deal to me' }],
+};
+const AFTER: Partial<Record<EndingId, Text[]>> = {
+  end_debt: [{ ja: '借金は 10 年かけて返した。最後の振り込みの日、少しだけ自作を遊んだ。', en: 'It took ten years to pay off the debt. On the last payment day, I played my own game a little.' }, { ja: '借金の返済表は、今見るとハイスコア表に見える。', en: 'The repayment schedule looks like a high-score table now.' }],
+  end_burnout: [{ ja: '今でも新作が出ると、店の棚の前で少し立ち止まる。', en: 'When a new game comes out, I still stop in front of the shelf for a while.' }, { ja: '今の仕事の休憩中、つい画面の当たり判定を考えてしまう。', en: 'On breaks at my new job, I still catch myself thinking about hitboxes.' }],
+  end_body: [{ ja: '医者に止められたのは作る方だけで、遊ぶ方は止められなかった。', en: 'The doctor only stopped me making games. Nobody stopped me playing them.' }],
+  end_blacklist: [{ ja: '業界には戻らなかったが、甥っ子には一生分自慢した。', en: "I never went back to the industry, but I bragged to my nephew for a lifetime." }],
+  end_arrest: [{ ja: '出てきてからは、ゲームは全部ちゃんと買って遊んでいる。', en: "Since I got out, I've bought every game I play. Properly." }],
+  end_switch: [{ ja: '名刺の肩書きは変わっても、机の引き出しには今もコントローラが入っている。', en: 'The title on my card changed, but there is still a controller in my desk drawer.' }],
+  end_ai_seat: [{ ja: '引き継ぎ資料の最後に、AI が「ありがとうございました」と書いていた。', en: 'At the end of the handover doc, the AI had written "Thank you."' }],
+  end_retire: [{ ja: '送別会の帰り道、コンビニでゲーム雑誌を買った。', en: 'On the way home from the farewell party, I bought a game magazine.' }, { ja: '退職の日、机の寝袋を初めて持ち帰った。', en: 'On my last day, I finally took the sleeping bag home.' }],
+  end_pen_down: [{ ja: '70 年分のセーブデータは、全部ちゃんと残っている。', en: 'Seventy years of save data, all still there.' }],
+};
+function epitaphOf(s: State, id: EndingId): Text {
+  const r = s.rng;
+  const after = AFTER[id] ? r.pick(AFTER[id]!) : { ja: '', en: '' };
   const hs = s.inner.highs;
-  if (!hs.length) return { ja: '特に何も無かった。でも、いいゲーム人生だった。', en: 'Nothing special happened. Still, it was a good game life.' };
+  if (!hs.length) return { ja: `大きな事件は何も無かった。${after.ja}それでも、いいゲーム人生だった。`, en: `Nothing big ever happened. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') };
   const best = hs.reduce((a, b) => (b.w >= a.w ? b : a));
-  return { ja: `${best.year} 年、${best.age} 歳。${best.text.ja}。あの時はテンションが上がった。いいゲーム人生だった。`, en: `${best.year}, age ${best.age}: ${best.text.en.replace(/\.$/, '')}. What a rush. It was a good game life.` };
+  const f = r.pick(FEELING[best.kind ?? 'high'] ?? FEELING.high);
+  return {
+    ja: `${best.year} 年、${best.age} 歳。${best.text.ja}。${f.ja}。${after.ja}いいゲーム人生だった。`,
+    en: `${best.year}, age ${best.age}: ${best.text.en.replace(/\.$/, '')}. ${f.en[0].toUpperCase() + f.en.slice(1)}. ${after.en} It was a good game life.`.replace(/  +/g, ' '),
+  };
 }
 
 export function makeEnding(s: State, id: EndingId, custom?: Text): Ending {
@@ -49,5 +75,5 @@ export function makeEnding(s: State, id: EndingId, custom?: Text): Ending {
   const en = `Entered the industry in ${s.startYear} at ${s.startAge} as a ${job0.en} (${s.entry.en}). ` +
     (w.length ? `Worked on ${w.length} games: ${hit} hits, ${flop} flops. ` : 'Not a single game shipped. ') +
     (fates ? `${fates} of them kept living on after release. ` : '') + `${cause.en}.`;
-  return { id, age: s.age, year: s.year, cause, summary: { ja, en }, epitaph: epitaphOf(s) };
+  return { id, age: s.age, year: s.year, cause, summary: { ja, en }, epitaph: epitaphOf(s, id) };
 }
