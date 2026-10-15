@@ -7,8 +7,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "喫茶店で「インベーダーの生みの親」と隣の席に。基板の配線図を見せたら「ここ 1 本多いよ」。配線は 1 本減り、自慢話は 1 本増えた。",
-   "en": "At a coffee shop you sat next to the creator of the famous alien-invasion game. You showed him your wiring. \"One wire too many.\" One less wire, one more story to brag about."
+   "ja": "喫茶店で『スペースインベーダー』の西角友宏さんと隣の席に。基板の配線図を見せたら「ここ 1 本多いよ」。配線は 1 本減り、自慢話は 1 本増えた。",
+   "en": "At a coffee shop you sat next to Tomohiro Nishikado, creator of Space Invaders. You showed him your wiring. \"One wire too many.\" One less wire, one more story to brag about."
   },
   "effect": {
    "passion": 12,
@@ -16,8 +16,8 @@
    "network": 5
   },
   "memory": {
-   "ja": "インベーダーの生みの親に配線を 1 本直してもらった",
-   "en": "the father of the alien invaders fixed one of my wires"
+   "ja": "西角友宏さんに配線を 1 本直してもらった",
+   "en": "Tomohiro Nishikado fixed one of my wires"
   },
   "tag": [
    "bond",
@@ -32,8 +32,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "「パックマンの生みの親」の講演で質問した。「敵にも性格を」と返され、翌日から自作の敵 4 匹に名前を付けた。全員、上司の名前だった。",
-   "en": "You asked the creator of the famous maze-chomping game a question at his talk. \"Give the enemies personalities.\" Next day you named your four enemies. All after your bosses."
+   "ja": "『パックマン』の岩谷徹さんの講演で質問した。「敵にも性格を」と返され、翌日から自作の敵 4 匹に名前を付けた。全員、上司の名前だった。",
+   "en": "You asked Toru Iwatani, creator of Pac-Man, a question at his talk. \"Give the enemies personalities.\" Next day you named your four enemies. All after your bosses."
   },
   "effect": {
    "passion": 10,
@@ -41,8 +41,8 @@
    "network": 3
   },
   "memory": {
-   "ja": "パックマンの生みの親に「敵にも性格を」と教わった",
-   "en": "the maze-chomper's creator told me to give enemies personalities"
+   "ja": "岩谷徹さんに「敵にも性格を」と教わった",
+   "en": "Toru Iwatani told me to give enemies personalities"
   },
   "tag": [
    "bond",
@@ -57,8 +57,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "「携帯ゲーム機の父」に試作を見せた。「新しい部品はいらん。古い部品で遊び方を新しく」。引き出しのガラクタが急に宝の山に見えた。",
-   "en": "You showed your prototype to the father of handheld games. \"No new parts. Old parts, new ways to play.\" The junk in your drawer suddenly looked like treasure."
+   "ja": "ゲーム&ウオッチの横井軍平さんに試作を見せた。「新しい部品はいらん。古い部品で遊び方を新しく」。引き出しのガラクタが急に宝の山に見えた。",
+   "en": "You showed your prototype to Gunpei Yokoi, father of the Game & Watch. \"No new parts. Old parts, new ways to play.\" The junk in your drawer suddenly looked like treasure."
   },
   "effect": {
    "passion": 12,
@@ -66,8 +66,8 @@
    "network": 4
   },
   "memory": {
-   "ja": "携帯ゲーム機の父に「古い部品で新しく」と教わった",
-   "en": "the father of handhelds said: old parts, new play"
+   "ja": "横井軍平さんに「古い部品で新しく」と教わった",
+   "en": "Gunpei Yokoi said: old parts, new play"
   },
   "tag": [
    "bond",
@@ -78,12 +78,12 @@
   "id": "ev_lf_bond_plumber",
   "years": [
    1983,
-   2040
+   2035
   ],
   "once": true,
   "text": {
-   "ja": "展示会で「配管工の生みの親」が自社ブースに来て 3 分遊んだ。「ジャンプの終わり、もう少し」。その夜、ジャンプの終わりだけ 40 回直した。",
-   "en": "At a trade show, the plumber's creator stopped by your booth and played for three minutes. \"The end of the jump, just a bit more.\" That night you tweaked only the jump's end. Forty times."
+   "ja": "展示会でマリオの生みの親・宮本茂さんが自社ブースに来て 3 分遊んだ。「ジャンプの終わり、もう少し」。その夜、ジャンプの終わりだけ 40 回直した。",
+   "en": "At a trade show, Shigeru Miyamoto, Mario's creator, stopped by your booth and played for three minutes. \"The end of the jump, just a bit more.\" That night you tweaked only the jump's end. Forty times."
   },
   "effect": {
    "passion": 14,
@@ -91,8 +91,8 @@
    "fame": 2
   },
   "memory": {
-   "ja": "配管工の生みの親がうちのゲームのジャンプを直してくれた",
-   "en": "the plumber's creator gave notes on my jump"
+   "ja": "宮本茂さんがうちのゲームのジャンプを見てくれた",
+   "en": "Shigeru Miyamoto looked at my game's jump"
   },
   "tag": [
    "bond",
@@ -103,20 +103,20 @@
   "id": "ev_lf_bond_rpg_writer",
   "years": [
    1986,
-   2040
+   2035
   ],
   "once": true,
   "text": {
-   "ja": "「国民的 RPG の生みの親」に飲みに連れて行かれた。終電まで、黙って自分の話を聞いてくれた。気づけば 3 時間、自分だけしゃべっていた。",
-   "en": "The creator of the national RPG took you out drinking. He listened quietly until the last train. You realized you'd been the only one talking. For three hours."
+   "ja": "『ドラゴンクエスト』の堀井雄二さんに飲みに連れて行ってもらった。終電まで、黙って自分の話を聞いてくれた。気づけば 3 時間、自分だけしゃべっていた。",
+   "en": "Yuji Horii, creator of Dragon Quest, took you out for drinks. He quietly listened until the last train. You realized you'd been the only one talking for three hours."
   },
   "effect": {
    "passion": 12,
    "network": 8
   },
   "memory": {
-   "ja": "国民的 RPG の生みの親が終電まで話を聞いてくれた",
-   "en": "the father of the national RPG listened to me until the last train"
+   "ja": "堀井雄二さんが終電まで話を聞いてくれた",
+   "en": "Yuji Horii listened to me until the last train"
   },
   "tag": [
    "bond",
@@ -131,16 +131,16 @@
   ],
   "once": true,
   "text": {
-   "ja": "スタジオのエレベーターで「国民的 RPG の作曲家」と 2 人きり。「ゲームの音、好きですか」と聞かれ「はい」。人生で一番いい「はい」だった。",
-   "en": "In a studio elevator, alone with the composer of the national RPG. \"Do you like game music?\" \"Yes.\" The best \"yes\" of your life."
+   "ja": "スタジオのエレベーターで『ドラゴンクエスト』の作曲家・すぎやまこういちさんと 2 人きり。「ゲームの音、好きですか」と聞かれ「はい」。人生で一番いい「はい」だった。",
+   "en": "Alone in a studio elevator with Koichi Sugiyama, composer of Dragon Quest. \"Do you like game music?\" \"Yes.\" The best \"yes\" of your life."
   },
   "effect": {
    "passion": 12,
    "network": 4
   },
   "memory": {
-   "ja": "国民的 RPG の作曲家にエレベーターで話しかけられた",
-   "en": "the national RPG's composer spoke to me in an elevator"
+   "ja": "すぎやまこういちさんにエレベーターで話しかけられた",
+   "en": "Koichi Sugiyama spoke to me in an elevator"
   },
   "tag": [
    "bond",
@@ -155,8 +155,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "「最後のつもりで作った RPG」の生みの親に企画を相談した。「毎回、最後のつもりで」。あなたはその後 5 回「これが最後」と言い、5 回とも次を作った。",
-   "en": "You asked the creator of the RPG \"made as the final one\" for advice. \"Make every one like it's your last.\" You said \"this is my last\" five more times. Each time, you made another."
+   "ja": "『ファイナルファンタジー』の坂口博信さんに企画を相談した。「毎回、最後のつもりで」。あなたはその後 5 回「これが最後」と言い、5 回とも次を作った。",
+   "en": "You asked Hironobu Sakaguchi, creator of Final Fantasy, for advice. \"Every time, as if it's the last.\" You said \"this is my last\" five times after that, and made another every time."
   },
   "effect": {
    "passion": 14,
@@ -164,8 +164,8 @@
    "network": 5
   },
   "memory": {
-   "ja": "「毎回、最後のつもりで」と教わった",
-   "en": "a legend told me to make every game like my last"
+   "ja": "坂口博信さんに「毎回、最後のつもりで」と教わった",
+   "en": "Hironobu Sakaguchi told me: every time, as if it's the last"
   },
   "tag": [
    "bond",
@@ -180,8 +180,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "打ち上げのカラオケで「名バトル曲の作曲家」と同じ部屋に。あなたは本人の前で本人の曲を入れた。採点 68 点。本人は一番大きな拍手をくれた。",
-   "en": "Wrap-party karaoke, same room as the composer of legendary battle themes. You sang his song in front of him. Score: 68. He clapped the loudest."
+   "ja": "打ち上げのカラオケで『ファイナルファンタジー』の植松伸夫さんと同じ部屋に。あなたは本人の前で本人のバトル曲を入れた。採点 68 点。本人は一番大きな拍手をくれた。",
+   "en": "At the wrap-party karaoke, Nobuo Uematsu of Final Fantasy was in your room. You sang his own battle theme in front of him. Score: 68. He clapped the loudest."
   },
   "effect": {
    "passion": 12,
@@ -189,8 +189,8 @@
    "hp": -2
   },
   "memory": {
-   "ja": "名バトル曲の作曲家の前でその人の曲を歌った",
-   "en": "i sang a legend's battle theme in front of him"
+   "ja": "植松伸夫さんの前でその人の曲を歌った",
+   "en": "I sang Nobuo Uematsu's song in front of him"
   },
   "tag": [
    "bond",
@@ -205,15 +205,15 @@
   ],
   "once": true,
   "text": {
-   "ja": "試写会で「スパイ潜入ゲームの監督」と隣の席に。監督は上映中ずっとメモを取り、あなたは寝ていた。終映後「どうでした?」と聞かれた。",
-   "en": "At a film preview you sat next to the director of the stealth spy games. He took notes the whole time. You slept. Afterward: \"What did you think?\""
+   "ja": "試写会で『メタルギア』の小島秀夫さんと隣の席に。小島さんは上映中ずっとメモを取り、あなたは寝ていた。終映後「どうでした?」と聞かれた。",
+   "en": "At a screening you sat next to Hideo Kojima of Metal Gear. He took notes the whole film. You slept. Afterward he asked, \"What did you think?\""
   },
   "effect": {
    "network": 4
   },
   "memory": {
-   "ja": "スパイ潜入ゲームの監督と映画の話をした",
-   "en": "i talked movies with the stealth-game director"
+   "ja": "小島秀夫さんと映画の話をした",
+   "en": "I talked movies with Hideo Kojima"
   },
   "choices": [
    {
@@ -260,8 +260,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "「モンスター集めの生みの親」と虫取りの話で 1 時間盛り上がった。ゲームの話はゼロ。帰り道、なぜか企画書が 3 本書けた。",
-   "en": "You talked bug-catching for an hour with the creator of the monster-collecting games. Not a word about games. On the way home, three proposals wrote themselves."
+   "ja": "『ポケットモンスター』の田尻智さんと虫取りの話で 1 時間盛り上がった。ゲームの話はゼロ。帰り道、なぜか企画書が 3 本書けた。",
+   "en": "You and Satoshi Tajiri, creator of Pokemon, talked bug-catching for an hour. Zero game talk. On the way home you somehow wrote three proposals."
   },
   "effect": {
    "passion": 12,
@@ -269,8 +269,8 @@
    "network": 4
   },
   "memory": {
-   "ja": "モンスター集めの生みの親と虫取りの話をした",
-   "en": "i talked bug-catching with the monster-collecting legend"
+   "ja": "田尻智さんと虫取りの話をした",
+   "en": "I talked bug-catching with Satoshi Tajiri"
   },
   "tag": [
    "bond",
@@ -285,16 +285,16 @@
   ],
   "once": true,
   "text": {
-   "ja": "「シューティングの神様」に自作の弾を見てもらった。「避けられる弾は優しさ」。弾を 3 割減らしたら、テストの後輩が泣いて喜んだ。",
-   "en": "The god of shooting games looked at your bullet patterns. \"A dodgeable bullet is a kindness.\" You cut the bullets by 30%. Your junior tester wept with joy."
+   "ja": "『ゼビウス』の遠藤雅伸さんに自作の弾を見てもらった。「避けられる弾は優しさ」。弾を 3 割減らしたら、テストの後輩が泣いて喜んだ。",
+   "en": "Masanobu Endo, creator of Xevious, looked at your bullet patterns. \"A dodgeable bullet is a kindness.\" You cut them by 30%. Your junior tester wept with joy."
   },
   "effect": {
    "passion": 10,
    "skill": 6
   },
   "memory": {
-   "ja": "シューティングの神様に「避けられる弾は優しさ」と教わった",
-   "en": "the god of shooters taught me that a dodgeable bullet is kindness"
+   "ja": "遠藤雅伸さんに「避けられる弾は優しさ」と教わった",
+   "en": "Masanobu Endo: a dodgeable bullet is a kindness"
   },
   "tag": [
    "bond",
@@ -309,8 +309,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "「連射の名人」の全国キャラバンで自社ソフトの手伝いをした。名人の連射を 30 センチの距離で見た。家で真似したら 6 連射で指がつった。",
-   "en": "You helped out at the rapid-fire master's nationwide caravan. You watched his trigger finger from a foot away. At home you tried it. Six taps, then a cramp."
+   "ja": "高橋名人の全国キャラバンで自社ソフトの手伝いをした。16 連射を 30 センチの距離で見た。家で真似したら 6 連射で指がつった。",
+   "en": "You helped out at Takahashi Meijin's national caravan. You saw his 16-shots-a-second from a foot away. At home you tried it. Your finger cramped at six."
   },
   "effect": {
    "passion": 10,
@@ -318,8 +318,8 @@
    "hp": -2
   },
   "memory": {
-   "ja": "連射の名人の指を間近で見た",
-   "en": "i saw the rapid-fire master's finger up close"
+   "ja": "高橋名人の 16 連射を間近で見た",
+   "en": "I saw Takahashi Meijin's 16 shots a second up close"
   },
   "tag": [
    "bond",
@@ -334,8 +334,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "「ポリゴン格闘の父」の開発室を見学した。机にはカンフーの本が 20 冊。翌日から本屋に通い、型を真似して腰を痛めた。",
-   "en": "You toured the lab of the father of polygon fighting games. Twenty kung fu books on his desk. You started visiting bookstores, copied the stances, and threw out your back."
+   "ja": "『バーチャファイター』の鈴木裕さんの開発室を見学した。机には拳法の本がずらり。翌日から本屋に通い、型を真似して腰を痛めた。",
+   "en": "You toured Yu Suzuki's room, the man behind Virtua Fighter. His desk was lined with martial arts books. You started visiting bookstores, copied the forms, and hurt your back."
   },
   "effect": {
    "passion": 10,
@@ -343,8 +343,8 @@
    "hp": -3
   },
   "memory": {
-   "ja": "ポリゴン格闘の父の開発室を見学した",
-   "en": "i toured the lab of the polygon-fighting legend"
+   "ja": "鈴木裕さんの開発室を見学した",
+   "en": "I toured Yu Suzuki's dev room"
   },
   "tag": [
    "bond",
@@ -359,16 +359,16 @@
   ],
   "once": true,
   "text": {
-   "ja": "ゲーセンの対戦台で、相手は「対戦格闘ブームの立役者」だった。3 秒で負けた。台の向こうから顔が出て「いい待ち方ですね」。",
-   "en": "At an arcade versus cabinet, your opponent was the man behind the fighting-game boom. You lost in three seconds. His face peeked over: \"Nice defensive play.\""
+   "ja": "ゲーセンの対戦台で、相手は『ストリートファイターII』の西谷亮さんだった。3 秒で負けた。台の向こうから顔が出て「いい待ち方ですね」。",
+   "en": "At an arcade versus cabinet, your opponent was Akira Nishitani of Street Fighter II. You lost in three seconds. A face popped over the cabinet: \"Nice patience.\""
   },
   "effect": {
    "passion": 12,
    "network": 4
   },
   "memory": {
-   "ja": "対戦格闘の立役者に「いい待ち方」と褒められた",
-   "en": "the fighting-game legend praised my turtling"
+   "ja": "西谷亮さんに「いい待ち方」と褒められた",
+   "en": "Akira Nishitani praised my patience"
   },
   "tag": [
    "bond",
@@ -383,8 +383,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "「サウンドノベルの生みの親」に企画を読んでもらった。一言「文字だけで怖いですね」。それが褒め言葉だと気づいたのは 1 年後だった。",
-   "en": "The creator of the sound novel read your proposal. \"Scary with just text.\" You realized it was a compliment a year later."
+   "ja": "『弟切草』の中村光一さんに企画を読んでもらった。一言「文字だけで怖いですね」。それが褒め言葉だと気づいたのは 1 年後だった。",
+   "en": "Koichi Nakamura of Chunsoft, creator of Otogirisou, read your proposal. \"Scary with just text.\" You realized it was praise a year later."
   },
   "effect": {
    "passion": 8,
@@ -392,8 +392,8 @@
    "network": 4
   },
   "memory": {
-   "ja": "サウンドノベルの生みの親に企画を読んでもらった",
-   "en": "the sound novel's creator read my proposal"
+   "ja": "中村光一さんに企画を読んでもらった",
+   "en": "Koichi Nakamura read my proposal"
   },
   "tag": [
    "bond",
@@ -408,8 +408,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "飲み会で「サバイバルホラーの生みの親」の隣に。「ゾンビは歩くのがいい」と熱弁された。翌週、あなたの企画のゾンビは全員歩き出した。",
-   "en": "At a drinking party you sat next to the father of survival horror. \"Zombies should walk.\" The next week, every zombie in your project started walking."
+   "ja": "飲み会で『バイオハザード』の三上真司さんの隣に。「ゾンビは歩くのがいい」と熱く語られた。翌週、あなたの企画のゾンビは全員歩き出した。",
+   "en": "At a party you sat next to Shinji Mikami of Resident Evil. \"Zombies should walk.\" The next week, every zombie in your proposal started walking."
   },
   "effect": {
    "passion": 10,
@@ -417,8 +417,8 @@
    "network": 4
   },
   "memory": {
-   "ja": "サバイバルホラーの生みの親とゾンビを語った",
-   "en": "i talked zombies with the father of survival horror"
+   "ja": "三上真司さんとゾンビを語った",
+   "en": "I talked zombies with Shinji Mikami"
   },
   "tag": [
    "bond",
@@ -433,15 +433,15 @@
   ],
   "once": true,
   "text": {
-   "ja": "イベントの楽屋で「ピンクの丸いヒーローの生みの親」に会った。のどまで「弟子にしてください」が出かかっている。",
-   "en": "Backstage at an event, you met the creator of the round pink hero. \"Please take me as your apprentice\" is on the tip of your tongue."
+   "ja": "イベントの楽屋で『星のカービィ』の桜井政博さんに会った。のどまで「弟子にしてください」が出かかっている。",
+   "en": "Backstage at an event you met Masahiro Sakurai, creator of Kirby. \"Please take me as your apprentice\" is stuck in your throat."
   },
   "effect": {
    "passion": 4
   },
   "memory": {
-   "ja": "ピンクの丸いヒーローの生みの親に会った",
-   "en": "i met the creator of the round pink hero"
+   "ja": "桜井政博さんに会った",
+   "en": "I met Masahiro Sakurai"
   },
   "choices": [
    {
@@ -495,16 +495,16 @@
   ],
   "once": true,
   "text": {
-   "ja": "「ラップで進む音ゲーの生みの親」と打ち合わせ。「企画をラップで説明して」と言われた。韻は 1 つも踏めなかったが、企画は通った。",
-   "en": "Meeting with the creator of the rapping rhythm game. \"Pitch it as a rap.\" You didn't land a single rhyme. The pitch got approved anyway."
+   "ja": "『パラッパラッパー』の松浦雅也さんと打ち合わせ。「企画をラップで説明して」と言われた。韻は 1 つも踏めなかったが、企画は通った。",
+   "en": "A meeting with Masaya Matsuura of PaRappa the Rapper. \"Pitch it as a rap.\" You didn't land a single rhyme. The pitch passed."
   },
   "effect": {
    "passion": 10,
    "network": 5
   },
   "memory": {
-   "ja": "音ゲーの生みの親の前でラップをした",
-   "en": "i rapped a pitch for a rhythm-game legend"
+   "ja": "松浦雅也さんの前でラップをした",
+   "en": "I rapped in front of Masaya Matsuura"
   },
   "tag": [
    "bond",
@@ -519,16 +519,16 @@
   ],
   "once": true,
   "text": {
-   "ja": "「転がして大きくするゲームの作者」と公園で偶然会った。「すべり台もゲームになるよね」。あなたは 30 分すべり台を見つめ、通報されかけた。",
-   "en": "You ran into the creator of the roll-it-bigger game at a park. \"Even a slide could be a game.\" You stared at the slide for thirty minutes. Someone nearly called the police."
+   "ja": "『塊魂』の高橋慶太さんと公園で偶然会った。「すべり台もゲームになるよね」。あなたは 30 分すべり台を見つめ、通報されかけた。",
+   "en": "You ran into Keita Takahashi, creator of Katamari Damacy, at a park. \"Slides can be games too.\" You stared at a slide for 30 minutes and nearly got reported."
   },
   "effect": {
    "passion": 10,
    "skill": 4
   },
   "memory": {
-   "ja": "公園で「転がすゲーム」の作者と話した",
-   "en": "i met the roll-it-bigger creator in a park"
+   "ja": "公園で高橋慶太さんと話した",
+   "en": "I talked with Keita Takahashi in a park"
   },
   "tag": [
    "bond",
@@ -543,8 +543,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "「死にゲーの監督」に自作を遊んでもらった。12 回死んで一言「優しすぎる」。帰り道、敵の攻撃力を 3 倍にした。",
-   "en": "The director of the famously punishing action games played your game. Died twelve times. \"Too kind.\" On the way home, you tripled every enemy's attack."
+   "ja": "『デモンズソウル』の宮崎英高さんに自作を遊んでもらった。12 回死んで一言「優しすぎる」。帰り道、敵の攻撃力を 3 倍にした。",
+   "en": "Hidetaka Miyazaki of Demon's Souls played your game. Died 12 times. \"Too kind.\" On the way home you tripled the enemy damage."
   },
   "effect": {
    "passion": 12,
@@ -552,8 +552,8 @@
    "fame": 2
   },
   "memory": {
-   "ja": "死にゲーの監督に「優しすぎる」と言われた",
-   "en": "the punishing-games director called my game too kind"
+   "ja": "宮崎英高さんに「優しすぎる」と言われた",
+   "en": "Hidetaka Miyazaki called my game too kind"
   },
   "tag": [
    "bond",
@@ -568,16 +568,16 @@
   ],
   "once": true,
   "text": {
-   "ja": "「仮面で人前に出る監督」と飲みに行った。最後まで仮面のまま、あなたの愚痴を全部聞いてくれた。顔は知らない。でも恩人だ。",
-   "en": "You went drinking with the director who appears in public in a mask. He kept it on all night and heard out every complaint you had. You never saw his face. Still, he's your benefactor."
+   "ja": "『ニーア』のヨコオタロウさんと飲みに行った。最後までエミールのマスクのまま、あなたの愚痴を全部聞いてくれた。顔は知らない。でも恩人だ。",
+   "en": "You went drinking with Yoko Taro of NieR. He kept his Emil mask on to the end and heard all your complaints. You don't know his face. He's still your benefactor."
   },
   "effect": {
    "passion": 12,
    "network": 6
   },
   "memory": {
-   "ja": "仮面の監督が愚痴を全部聞いてくれた",
-   "en": "the masked director listened to all my complaints"
+   "ja": "ヨコオタロウさんがマスクのまま愚痴を全部聞いてくれた",
+   "en": "Yoko Taro heard all my complaints, mask on"
   },
   "tag": [
    "bond",
@@ -592,8 +592,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "「プログラマー出身の社長」が展示会で、あなたのバグの話を楽しそうに聞いた。「それ、こう直すと速いですよ」。社長にデバッグしてもらった。",
-   "en": "At a trade show, the programmer-turned-company-president happily listened to your bug story. \"Fix it this way, it's faster.\" A president debugged your code."
+   "ja": "HAL研究所の社長になった岩田聡さんが展示会で、あなたのバグの話を楽しそうに聞いた。「それ、こう直すと速いですよ」。社長にデバッグしてもらった。",
+   "en": "At a trade show, Satoru Iwata, the programmer who became HAL Laboratory's president, happily listened to your bug story. \"Fix it like this, it's faster.\" A president debugged your code."
   },
   "effect": {
    "passion": 14,
@@ -601,8 +601,8 @@
    "network": 4
   },
   "memory": {
-   "ja": "プログラマー出身の社長にバグを直してもらった",
-   "en": "a programmer-president helped me fix a bug"
+   "ja": "岩田聡さんにバグを直してもらった",
+   "en": "Satoru Iwata fixed my bug"
   },
   "tag": [
    "bond",
@@ -617,16 +617,16 @@
   ],
   "once": true,
   "text": {
-   "ja": "来日イベントで「落ち物パズルの生みの親」と握手した。3 か月練習した英語で話しかけたら、日本語で「ありがとう」と返された。",
-   "en": "At an event in Japan, you shook hands with the creator of the falling-block puzzle. You spoke the English you'd practiced for three months. He replied in Japanese: \"Arigato.\""
+   "ja": "来日イベントで『テトリス』のアレクセイ・パジトノフさんと握手した。3 か月練習した英語で話しかけたら、日本語で「ありがとう」と返された。",
+   "en": "At an event in Japan you shook hands with Alexey Pajitnov, creator of Tetris. You tried English you'd practiced for three months. He answered in Japanese: \"Arigato.\""
   },
   "effect": {
    "passion": 10,
    "network": 4
   },
   "memory": {
-   "ja": "落ち物パズルの生みの親と握手した",
-   "en": "i shook hands with the falling-block puzzle legend"
+   "ja": "アレクセイ・パジトノフさんと握手した",
+   "en": "I shook hands with Alexey Pajitnov"
   },
   "tag": [
    "bond",
@@ -641,16 +641,16 @@
   ],
   "once": true,
   "text": {
-   "ja": "来日した「アメリカのゲーム会社の創業者」のカバン持ちを 1 日だけした。ゲームの話より、ピザ屋を作る話を 2 時間聞いた。",
-   "en": "For one day you carried the bags of the founder of the American game company. Instead of games, he told you about his pizza restaurant. For two hours."
+   "ja": "来日したアタリ創業者ノーラン・ブッシュネルのカバン持ちを 1 日だけした。ゲームの話より、ピザ屋の話を 2 時間聞いた。",
+   "en": "For one day you carried the bag of Nolan Bushnell, Atari's founder, on his visit to Japan. Less game talk, two hours of pizza-restaurant talk."
   },
   "effect": {
    "passion": 10,
    "network": 6
   },
   "memory": {
-   "ja": "アメリカのゲーム会社の創業者のカバンを持った",
-   "en": "i carried the bags of an american game-company founder"
+   "ja": "ノーラン・ブッシュネルのカバンを持った",
+   "en": "I carried Nolan Bushnell's bag"
   },
   "tag": [
    "bond",
@@ -665,8 +665,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "海外の会議で「街を作るゲームの作者」と話した。「勝ち負けのないゲームもある」。負けっぱなしの人生を少しだけ肯定された気がした。",
-   "en": "At a conference abroad you spoke with the creator of the city-building game. \"Some games have no winning or losing.\" Your life of losses felt slightly validated."
+   "ja": "海外の会議で『シムシティ』のウィル・ライトさんと話した。「勝ち負けのないゲームもある」。負けっぱなしの人生を少しだけ肯定された気がした。",
+   "en": "At a conference abroad you talked with Will Wright of SimCity. \"Some games have no winning or losing.\" Your always-losing life felt a little affirmed."
   },
   "effect": {
    "passion": 10,
@@ -674,8 +674,8 @@
    "network": 4
   },
   "memory": {
-   "ja": "街を作るゲームの作者と話した",
-   "en": "i talked with the city-builder's creator"
+   "ja": "ウィル・ライトさんと話した",
+   "en": "I talked with Will Wright"
   },
   "tag": [
    "bond",
@@ -690,16 +690,16 @@
   ],
   "once": true,
   "text": {
-   "ja": "海外の開発者会議で「3D シューティングの天才プログラマー」の講演を最前列で聞いた。分かった英単語は 3 つ。ノートは 12 ページ埋まった。",
-   "en": "At a developers' conference abroad you sat front row for the genius programmer of 3D shooters. You understood three English words. You filled twelve pages of notes."
+   "ja": "海外の開発者会議で『DOOM』のジョン・カーマックの講演を最前列で聞いた。分かった英単語は 3 つ。ノートは 12 ページ埋まった。",
+   "en": "At a developer conference abroad you heard John Carmack of DOOM speak, from the front row. You understood three English words. You filled twelve pages of notes."
   },
   "effect": {
    "passion": 10,
    "skill": 6
   },
   "memory": {
-   "ja": "天才プログラマーの講演を最前列で聞いた",
-   "en": "i sat front row for a genius programmer's talk"
+   "ja": "ジョン・カーマックの講演を最前列で聞いた",
+   "en": "I heard John Carmack from the front row"
   },
   "tag": [
    "bond",
@@ -738,16 +738,16 @@
   ],
   "once": true,
   "text": {
-   "ja": "「ゲーム作りの講座動画の大御所」とイベントで 5 分話せた。「毎日作ってますか」。その日から、講座動画を見る時間を作る時間に変えた。",
-   "en": "At an event you got five minutes with the legend known for game-design lecture videos. \"Are you making something every day?\" From then on, you swapped watching his videos for making things."
+   "ja": "YouTube「桜井政博のゲーム作るには」の桜井政博さんとイベントで 5 分話せた。「毎日作ってますか」。その日から、動画を見る時間を作る時間に変えた。",
+   "en": "At an event you got five minutes with Masahiro Sakurai of \"Masahiro Sakurai on Creating Games.\" \"Are you making something every day?\" From then on, video time became making time."
   },
   "effect": {
    "passion": 12,
    "skill": 5
   },
   "memory": {
-   "ja": "講座動画の大御所に「毎日作ってますか」と聞かれた",
-   "en": "a legend asked if i was making something every day"
+   "ja": "桜井政博さんに「毎日作ってますか」と聞かれた",
+   "en": "Masahiro Sakurai asked if I make something every day"
   },
   "tag": [
    "bond",
@@ -757,21 +757,21 @@
  {
   "id": "ev_lf_bond_hunting",
   "years": [
-   2004,
+   2007,
    2040
   ],
   "once": true,
   "text": {
-   "ja": "「みんなで狩るゲームのプロデューサー」と出張の新幹線で隣に。3 時間、肉の焼き加減の話だけをした。いまでも肉はそこで焼き上げる。",
-   "en": "On a bullet train, you sat next to the producer of the multiplayer monster-hunting games. Three hours of talk about grilling meat. You still pull the meat off right at that moment."
+   "ja": "『モンスターハンター』の辻本良三さんと出張の新幹線で隣に。3 時間、肉の焼き加減の話だけをした。いまでも肉はそこで焼き上げる。",
+   "en": "On a business trip bullet train you sat next to Ryozo Tsujimoto, producer of Monster Hunter. Three hours of talk about grilling meat, only. You still take your meat off at that exact moment."
   },
   "effect": {
    "passion": 10,
    "network": 5
   },
   "memory": {
-   "ja": "狩りゲームのプロデューサーと肉の焼き加減を語った",
-   "en": "i talked grilling with the monster-hunting producer"
+   "ja": "辻本良三さんと肉の焼き加減を語った",
+   "en": "I talked meat-grilling with Ryozo Tsujimoto"
   },
   "tag": [
    "bond",
@@ -786,16 +786,16 @@
   ],
   "once": true,
   "text": {
-   "ja": "「青いハリネズミのプログラマー」と海外のホテルのロビーで話した。「速さは気持ちいい」。あなたの次の作品の主人公は、無駄に走った。",
-   "en": "In a hotel lobby abroad you talked with the programmer of the blue hedgehog. \"Speed feels good.\" The hero of your next game ran around for no reason."
+   "ja": "青いハリネズミの生みの親の 1 人と海外のホテルのロビーで話した。「速さは気持ちいい」。あなたの次の作品の主人公は、無駄に走った。",
+   "en": "In a hotel lobby abroad you talked with one of the creators of the blue hedgehog, programmer of Sonic the Hedgehog. \"Speed feels good.\" The hero of your next game ran for no reason."
   },
   "effect": {
    "passion": 10,
    "skill": 5
   },
   "memory": {
-   "ja": "青いハリネズミのプログラマーと話した",
-   "en": "i talked with the blue hedgehog's programmer"
+   "ja": "青いハリネズミの生みの親の 1 人と話した",
+   "en": "I talked with one of the creators of the blue hedgehog"
   },
   "tag": [
    "bond",
