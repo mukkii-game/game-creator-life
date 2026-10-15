@@ -51,14 +51,14 @@ export function bestAfterlife(works: Work[]): { work: Work; year: number; text: 
 }
 
 /** 共有する URL(?seed= 付き)。「この人生、生きてみて」 */
-export function lifeUrl(seed: number): string {
+export function lifeUrl(seed: number, era?: string): string {
   let base = PROD_URL;
   try {
     const h = location.hostname;
     const local = location.protocol === 'file:' || h.endsWith('itch.zone') || h.endsWith('itch.io') || h.endsWith('hwcdn.net');
     if (!local && location.origin && location.origin !== 'null') base = location.origin + location.pathname;
   } catch { /* そのまま */ }
-  return `${base}?seed=${seed}`;
+  return `${base}?seed=${seed}${era ? `&era=${era}` : ''}`;
 }
 
 /** X の字数の重み(twitter-text と同じ考え: ラテン系 1、全角 2、URL は 23)。上限 280 */

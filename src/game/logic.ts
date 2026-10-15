@@ -134,7 +134,9 @@ function apply(s: State, e: Effect | undefined, ctx: string, out: string[]) {
       if (e.work.last.history) w.history.push({ year: s.year, text: e.work.last.history });
     }
   }
-  for (const [f, v] of Object.entries(e.flag ?? {})) {
+  // 普通のフラグを先に立ててから命令(do_*)を実行する(do_end が ai_seat を読むため)
+  const flags = Object.entries(e.flag ?? {}).sort(([a], [b]) => Number(a.startsWith('do_')) - Number(b.startsWith('do_')));
+  for (const [f, v] of flags) {
     if (!f.startsWith('do_')) { s.flags[f] = v; continue; }
     if (!v) continue;
     if (f === 'do_change_company') {

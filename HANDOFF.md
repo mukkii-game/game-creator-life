@@ -3,20 +3,19 @@
 <!-- セッション終了時に AI が更新。別の AI が読んで続きを始められる内容にする。 -->
 
 ## 現状
-- 2026-10-15 企画の 1 手目が完了(Fable)。**PLAN.md**(全体像・ひねり・人生の流れ・選択の型・年表 48 本・画面・進め方・各パートへの依頼文)、**docs/schema/**(イベント・年表・状態の形と例 4 件)、QUESTIONS.md(仮決め 13 件)を main に置いた。
-- 2026-10-15 Step 0 完了(司令塔 Opus)。`src/game/`(types / data / select / works / ending / names / logic / bots)で 1 人生が最後まで回る。Phaser を外し DOM の仮画面(`src/ui/app.ts`)。`tools/lint-events.mjs`・`npm run sim`・`npm run test:replay` が本作用。B・C(文章)・D・E(画面・結果)をサブエージェントで並列中。
+- 2026-10-15 パイロット版を公開(司令塔 Opus)。https://game-creator-life.pages.dev/ (main に push で Cloudflare Pages へ)。中身(src/game)・イベント 422 本と年表 98 行(src/data)・画面(src/ui、DOM、時代で絵柄が 5 段階)・結果と共有(src/ui/result.ts・src/share/、1 枚絵・X・?seed=)まで動く。`npm run build && node tools/check.mjs` 緑、`node tools/lint-events.mjs` 緑、`npm run sim -- 400` で死因が 6 種にばらける(think 年数 31 > random 25、idle が 70 歳まで 0%)。
 - Astra(GPT-6)への依頼文は作らない(BRIEF の 2026-10-15 変更)。
 
-## 次の一手(司令塔のセッションがやること。PLAN §9 Step 0)
-1. `git pull` → docs/schema の型を `src/game/types.ts` に写す → `src/data/` に仮イベント 10 本と年表 10 行 → `tools/lint-events.mjs`(時代ロック・ja/en・効果の範囲・ID 重複・小道具の初出年)→ `src/game/logic.ts` と `src/ui/` の空の骨組みで `npm run build` が通る main を作る。
-2. PLAN §10 の依頼文を A〜E の 5 セッションに配る(作業ブランチ `part/<名前>`。main に push するのは司令塔だけ)。
-3. A + D が戻ったら merge して仮データで最後まで動く版を作り、B・C を merge、E と調整(`npm run sim -- 400`、lint、手で 5 周)→ publish.json・og.png → 公開。
+## 次の一手
+1. スマホ実機と本物のコントローラで 1 周(Playwright と偽のパッドでしか確かめていない)。Web Share の画像付き共有も実機で。
+2. 手で 5 周して笑えない所・同じ文の繰り返しを直す(データは src/data/events/*.json、lint で確認)。2036 年以降はデータが薄い。
+3. QUESTIONS.md の仮決めを Mukkii に見てもらう。中身を変えたら `node tools/og.mjs` で og.png を撮り直す。
 
 ## 既知の問題
-- `tools/check.mjs` は `window.__game.score` の増加を見る。DOM 版では「年齢」を score に出す(PLAN §9 D)。
-- `tools/sim.mjs` は雛形の logic(speed/duration)を前提にしている。パート A が本作用に書き換える。
+- `tools/check.mjs` は `window.__game.score`(= 年齢)の増加を見る。
 - ローカルで Playwright のブラウザ版が合わない時は `PW_CHROMIUM=/path/to/chrome node tools/check.mjs`。
-- Phaser が 1.6MB あり Vite が警告を出す。DOM 版にすれば依存から外せる(パート D の判断)。
+- クラウドのセッションからは pages.dev がプロキシで 403。公開後の見た目は Actions のログとローカルの dist で確かめた。
+- 同期の名前は `State.peers[].name` が日本語だけ(英語は `inner.peerStates[i].name.en` から読んでいる)。
 
 ## 全体に共有したい気づき
 <!-- 他の作品でも踏みそうな罠・効いた手だけ。この作品だけの話は「既知の問題」へ。
@@ -34,3 +33,9 @@
 - 2026-10-15 「日本版クローン」が叩かれた中身は「丸写し」より**整合性の崩れ**(昭和初期に青春 18 きっぷ、兄弟が同名、子が生まれる前に孫)。原因: 時代と無関係にイベントを引いている。修正: イベントに時代ロック(`years`)を必須にし、小道具の初出年の辞書で lint する(docs/schema §7)。確かめ方: 記事の指摘から。未確認: 自作でどれだけ防げるか(公開後に見る)。
 - 2026-10-15 元ネタの「並走する 4 人」は、雛形の bots.ts をそのまま流用すると安く作れる(同じ logic を別 seed・別 bot で回すだけ)。他の「見守る系」作品でも同じ手が使える。
 - 2026-10-15 Cloudflare Pages に初めて出す作品で deploy-cloudflare.yml が「The Pages project does not exist」で落ちる。原因: 雛形のワークフローはプロジェクトが既にある前提。修正: deploy の前に `wrangler pages project create "$PROJECT" --production-branch main || true` を足す(この repo の .github/workflows/deploy-cloudflare.yml)。確かめ方: 次の push で作成→デプロイ成功、https://<repo>.pages.dev/ が出た(ログで確認)。未確認: クラウドのセッションからは pages.dev がプロキシで 403 になり、中身を直接見られない。雛形に入れるべき。
+- 会議室: knowledge/process-patterns.md §10 / 役立った(つなぎ口を先に固定 → 4 パートをサブエージェントで同時に走らせ、ほぼ衝突なしで合流。ID の役割語・デモ固定ルート・probe もそのまま効いた)(2026-10-15)
+- 会議室: knowledge/game-design.md §6(bot で選択の意味を測る)/ 役立った(sim で「同じ小ネタが続く」「体力で一度も終わらない」「引き抜きが 11 回」を数字で見つけて直せた)
+- 2026-10-15 サブエージェントで並列に作る時、作業ブランチより「同じフォルダで触るファイルを分ける + git は司令塔だけ」が速かった。症状: 作業ブランチだと merge の手間と待ちが出る。修正: 依頼文に「触ってよいファイル」と「git 禁止」を書き、境目の関数(showResult など)を司令塔が先にスタブで置く。確かめ方: 4 パートが 15 分ほどで並行に終わり、衝突は年表の ID 重複(写しの指示ミス)だけ。未確認: 同じファイルを 2 人が触る仕事では使えない。
+- 2026-10-15 イベント抽選型のゲームは「同じ小ネタが毎年出る」が一番つまらない。修正: イベントごとに最後に出た年を持ち、N 年あけないと再抽選しない(`life.repeatGap`)。once だけでは足りない。確かめ方: 1 人生のログを通読して「マスターアップ前の 1 週間」が 7 回 → 1〜2 回に。
+- 2026-10-15 lint の小道具辞書は英語を大文字小文字無視で照合すると、steam・cloud・prompt・zoom など普通の単語で落ちる(パート B の報告)。英訳ではそれらの語を避けるか、辞書の英語を大文字の固有名だけにする。
+- 2026-10-15 canvas に Google Fonts の和文フォントで描く時、字の範囲ごとに分かれて届くので、描く前に `document.fonts.load(font, 描く文字列)` で読ませないと一部の字だけ別フォントになる(パート E の報告)。

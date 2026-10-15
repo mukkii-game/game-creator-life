@@ -53,18 +53,10 @@ function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls = '', text?: stri
   return e;
 }
 
-/** 勤めた会社。State に履歴が無いので、ログの入社・再就職の文と最後の会社から拾う(拾えない転職は抜ける) */
+/** 勤めた会社(入社順。自室・無職は除く) */
 function companiesOf(s: State): Text[] {
   const out: Text[] = [];
-  const add = (t: Text) => { if (t.ja && !out.some((o) => o.ja === t.ja)) out.push(t); };
-  for (const line of s.log) {
-    const a = line.text.ja.match(/^\d+ 年、\d+ 歳。(.+?) に入社。/), ae = line.text.en.match(/You join (.+?)\. Day one/);
-    if (a) add({ ja: a[1], en: ae ? ae[1] : a[1] });
-    const b = line.text.ja.match(/新しい会社は (.+?)。/), be = line.text.en.match(/New job at (.+?)\. Your/);
-    if (b) add({ ja: b[1], en: be ? be[1] : b[1] });
-  }
-  const last: Company = s.company;
-  if (last && last.size !== 'none') add(last.name);
+  for (const c of s.companies ?? []) if (c.company.size !== 'none' && !out.some((o) => o.ja === c.company.name.ja)) out.push(c.company.name);
   return out;
 }
 
@@ -148,7 +140,7 @@ export function showResult(root: HTMLElement, s: State, hooks: ResultHooks) {
   const retry = leave(hooks.retry), again = leave(hooks.again);
   void ensureFont(); // DOM の字も DotGothic16 にする
 
-  const url = lifeUrl(s.seed);
+  const url = lifeUrl(s.seed, s.options?.era);
   const text = shareText(s, l);
   const xUrl = xIntentUrl(text, url);
   // 1 枚絵は先に作り始める(ロールの間に間に合う)

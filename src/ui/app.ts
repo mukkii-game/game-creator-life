@@ -1,25 +1,153 @@
-// 仮の骨組み(Step 0)。パート D が本物の画面に置き換える。
-import { init, advance, choose } from '../game/logic';
-import { BOTS } from '../game/bots';
+// 画面の入口(パート D)。タイトル → 業界入りガチャの発表 → 人生(play.ts)→ 死因 → 結果(result.ts、パート E)。
+// URL: ?seed= ?lang=en ?auto=1(おまかせ・×4 で最後まで) ?demo=1(固定 seed でおまかせ) ?replay= ?debug=1
+// AI の口(core/probe): window.__game.state() / act('choose', id) / act('speed', n) / act('pause') / act('omakase', on) / act('start', era?)
+import './style.css';
+import { init, JOB_TEXT } from '../game/logic';
+import type { Era, State } from '../game/types';
 import { startSeed } from '../core/rng';
-import { lang } from '../core/i18n';
+import { query } from '../core/meta';
+import { t } from '../core/i18n';
+import { sfx } from '../core/audio';
 import { expose } from '../core/demo';
+import { describe, action } from '../core/probe';
+import { Recorder, Player, replayFromUrl } from '../core/replay';
+import { showResult } from './result';
+import { installInput, setHandler, onTap, type Cmd } from './input';
+import { installBuildId } from './build';
+import { showTitle } from './title';
+import { startPlay, type PlayScreen, type Speed } from './play';
+import { h, tf, tx, setLook, lookOf, loadFonts } from './util';
 
-export function startApp(root: HTMLElement) {
-  const s = init(startSeed());
-  const pre = document.createElement('pre');
-  pre.style.cssText = 'color:#ddd;white-space:pre-wrap;font:14px sans-serif;max-width:540px;height:100%;overflow:auto;margin:0;padding:12px;box-sizing:border-box';
-  root.append(pre);
-  expose('scene', 'Play');
-  let shown = 0;
-  const tick = () => {
-    if (s.ending) return;
-    advance(s);
-    while (s.choice) choose(s, BOTS.think(s, s.choice.choices));
-    for (; shown < s.log.length; shown++) pre.textContent += `${s.log[shown].year} (${s.log[shown].age}) ${s.log[shown].text[lang()]}\n`;
-    pre.scrollTop = pre.scrollHeight;
-    expose('score', s.age);
-    setTimeout(tick, 300);
+const DEMO_SEED = 12000000;
+const ERAS = ['era1', 'era2', 'era3', 'era4', 'era5', 'era6'];
+
+export function startApp(container: HTMLElement) {
+  loadFonts();
+  const app = h('div', 'gcl');
+  container.append(app);
+  installInput(container);
+  installBuildId();
+
+  const demo = query.get('demo') === '1';
+  const rec0 = replayFromUrl();
+  const auto = query.auto || demo;
+  let scene: 'Title' | 'Reveal' | 'Play' | 'Ending' | 'Result' = 'Title';
+  let onCmd: (c: Cmd) => void = () => {};
+  let play: PlayScreen | null = null;
+  let recorder = new Recorder(0);
+  let firstSeed = true;
+  // ?era= で時代の指定(共有 URL の ?seed= と組で同じ人生になる)
+  let lastEra: Era | '' = ERAS.includes(query.get('era') ?? '') ? (query.get('era') as Era) : '';
+
+  setHandler((c) => onCmd(c));
+  expose('replay', () => recorder.toString());
+  expose('score', 0);
+
+  const newSeed = (): number => {
+    if (firstSeed) { firstSeed = false; return demo && !query.has('seed') ? DEMO_SEED : startSeed(); }
+    return ((Date.now() ^ (performance.now() * 1000)) % 2147483647) >>> 0 || 1;
   };
-  tick();
+  const setScene = (n: typeof scene) => { scene = n; expose('scene', n === 'Reveal' ? 'Title' : n === 'Ending' ? 'Play' : n); };
+
+  // ---- タイトル ----
+  function title() {
+    setScene('Title');
+    play = null;
+    expose('score', 0);
+    const scr = showTitle(app, lastEra, (era) => begin(newSeed(), era));
+    onCmd = scr.onCmd;
+  }
+
+  // ---- 業界入りガチャの発表(笑いどころ)→ 人生 ----
+  function begin(seed: number, era: Era | '', player: Player | null = null) {
+    lastEra = era;
+    setScene('Reveal');
+    // 発表に出す中身は、同じ seed・時代で作った state から読む(play でも同じ seed で init するので同じ人生になる)
+    const peek: State = init(seed, era ? { era } : {});
+    recorder = new Recorder(seed);
+    if (era) recorder.push(-1, `era:${era}`);
+    app.innerHTML = '';
+    setLook(app, lookOf(peek.year));
+    const ov = h('div', 'reveal');
+    const lines = [
+      tf('revealYear', { v: peek.year }),
+      tf('revealAge', { v: peek.age }),
+      tx(peek.entry),
+      tx(JOB_TEXT[peek.job]),
+    ];
+    const box = h('div', 'reveal-box');
+    lines.forEach((txt, i) => {
+      const d = h('div', `reveal-line rl-${i}`, txt + (i < lines.length - 1 ? (t('yearUnit') ? '、' : ',') : (t('yearUnit') ? '。' : '.')));
+      d.style.animationDelay = `${(auto ? 0.15 : 0.5) * i}s`;
+      box.append(d);
+    });
+    const who = h('div', 'reveal-name', `${tx(peek.name)} · ${tx(peek.company.name)}`);
+    who.style.animationDelay = `${(auto ? 0.15 : 0.5) * lines.length}s`;
+    const tap = h('div', 'reveal-tap', t('revealGo'));
+    tap.style.animationDelay = `${(auto ? 0.15 : 0.5) * lines.length + 0.4}s`;
+    box.append(who, tap);
+    ov.append(box);
+    app.append(ov);
+    lines.forEach((_, i) => setTimeout(() => sfx.tap(), (auto ? 150 : 500) * i));
+    let started = false;
+    const go = () => {
+      if (started) return;
+      started = true;
+      clearTimeout(tm);
+      run(seed, era, player);
+    };
+    const tm = setTimeout(go, auto || player ? 1400 : 6000);
+    setTimeout(() => onTap(ov, go), 300);
+    onCmd = (c) => { if (c.type === 'ok' || c.type === 'pause') go(); };
+  }
+
+  function run(seed: number, era: Era | '', player: Player | null) {
+    setScene('Play');
+    const speed: Speed = query.auto ? 4 : demo ? 2 : player ? 4 : 1;
+    play = startPlay(app, {
+      seed, era, omakase: auto, speed, recorder, player,
+      quick: auto || !!player,
+      onEnd: (s) => result(s, era),
+    });
+    onCmd = play.onCmd;
+  }
+
+  function result(s: State, era: Era | '') {
+    setScene('Result');
+    play = null;
+    onCmd = () => {};
+    setLook(app, lookOf(s.ending?.year ?? s.year));
+    app.dataset.scene = 'result';
+    showResult(app, s, {
+      retry: () => title(),
+      again: () => begin(s.seed, era),
+    });
+  }
+
+  // ---- AI の口 ----
+  describe(() => {
+    if (play && scene === 'Play') return { scene, ...play.info() };
+    return { scene, eras: ['', ...ERAS], hint: scene === 'Title' ? "act('start', era?) で始める" : '' };
+  });
+  action('start', (era?: string) => {
+    if (scene !== 'Title') return `start は Title でだけ使える(今は ${scene})`;
+    if (era && !ERAS.includes(era)) return `era は ${ERAS.join(' / ')} のどれか`;
+    begin(newSeed(), (era ?? '') as Era | '');
+  });
+  action('choose', (id: string) => (play && scene === 'Play' ? play.choose(id) : `今は選択できない(scene: ${scene})`));
+  action('speed', (n: unknown) => (play && scene === 'Play' ? play.setSpeed(n) : `今は速度を変えられない(scene: ${scene})`));
+  action('pause', () => { if (!play || scene !== 'Play') return `今は一時停止できない(scene: ${scene})`; play.togglePause(); });
+  action('omakase', (on: unknown) => { if (!play) return '人生が始まっていない'; play.setOmakase(on !== false && on !== 0 && on !== 'off'); });
+
+  // ---- 起動 ----
+  if (rec0) {
+    let era: Era | '' = '';
+    const player = new Player(rec0);
+    const head = player.input(-1);
+    if (head.startsWith('era:')) era = head.slice(4) as Era;
+    firstSeed = false;
+    begin(rec0.seed, era, player);
+  } else if (auto) {
+    begin(newSeed(), lastEra);
+  } else title();
 }

@@ -56,3 +56,11 @@ mukkii-game/Perfect_Dev_Environment decisions of 2026-09-13.
 - 文章が主役なので Phaser を使わず DOM + CSS。`src/core/` は使う。
 - イベントは時代ロック(`years`)必須。小道具の初出年を lint で検査する(日本版クローンが叩かれた整合性の崩れを避ける)。
 - Astra(GPT-6)への独立セカンドオピニオンは行わない(BRIEF の 2026-10-15 変更)。
+
+## 2026-10-15 — 実装の決定(司令塔 Opus)
+
+- パートは別セッションでなく司令塔のサブエージェントで並列に作り、同じ作業フォルダの別ファイルを触らせた(作業ブランチは使わず、司令塔だけが main に commit)。
+- 1 回の advance = 1 年。その年のイベントを列(queue)に積み、選択で止まったら choose で続きを進める。logic が自分で呼ぶイベントは `system.json`(`ev_sys_*`)、選択から logic を動かす命令は `do_*` フラグ。
+- 同期 3 人は本人と同じ logic を別 seed・別ボット(think / dreamer / stable)で 1 年ずつ並走させる。
+- 業界入りの年は古い時代を厚くした(データが 2040 年までのため。QUESTIONS)。
+- 共有 URL は `?seed=` と、時代を選んだ時だけ `&era=`。
