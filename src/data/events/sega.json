@@ -1,102 +1,905 @@
 [
-  { "id": "ev_sega_in_otorii", "years": [1983, 2017], "weight": 2,
-    "text": { "ja": "本社は羽田の大鳥居。飛行機の音で会議が 1 分止まる。止まった分だけ、仕様が延びる。", "en": "HQ is in Otorii by Haneda airport. Meetings pause a minute per plane. Specs grow by exactly that minute." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "passion": 2 }, "tag": ["sega", "gag"] },
-  { "id": "ev_sega_in_am_cs", "years": [1985, 2000], "weight": 2,
-    "text": { "ja": "業務用(AM)と家庭用(CS)で食堂の席が分かれている。あなたは真ん中の席に座り、両側から睨まれた。", "en": "Arcade (AM) and console (CS) staff sit on opposite sides of the cafeteria. You sat in the middle and got glared at from both." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "network": 3, "passion": -2 }, "tag": ["sega", "gag"] },
-  { "id": "ev_sega_in_taikan", "years": [1985, 1990], "weight": 3,
-    "text": { "ja": "体感筐体の試作に乗った。油圧で揺れ、昼食が戻った。報告書には「揺れは仕様」と書かれた。", "en": "You test-rode the motion cabinet prototype. Hydraulics shook you; lunch came back up. The report read: 'shaking is intended.'" },
-    "when": ["flag.sega", "status=employed", "job!=qa"], "once": true, "effect": { "hp": -5, "passion": 8, "fame": 2 }, "memory": { "ja": "体感筐体の試作で昼食を戻した", "en": "lost my lunch on the motion-cabinet prototype" }, "tag": ["sega", "high", "gag"] },
-  { "id": "ev_sega_in_genesis_us", "years": [1990, 1993], "weight": 2,
-    "text": { "ja": "海外では勝っている。アメリカの売上グラフが廊下に貼られた。国内のグラフは貼られなかった。", "en": "Overseas, you're winning. The US sales chart went up in the hallway. The Japan chart did not." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "passion": 5, "fame": 2 }, "tag": ["sega", "gag"] },
-  { "id": "ev_sega_in_tower", "years": [1991, 1995], "weight": 2,
-    "text": { "ja": "メガドライブの上にメガ CD、その上に 32X。机の上の塔は、本体より周辺機器の方が高い。", "en": "Mega Drive, then Mega CD on top, then 32X on top of that. The add-ons on your desk are taller than the console." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "passion": 2, "skill": 2 }, "tag": ["sega", "gag"] },
-  { "id": "ev_sega_in_saturn_2cpu", "years": [1994, 1997], "weight": 3,
-    "text": { "ja": "サターンは CPU が 2 つ。片方を動かすのに 3 か月、両方を同時に動かすのに 1 年かかった。", "en": "The Saturn has two CPUs. Three months to run one. A year to run both at once." },
-    "when": ["flag.sega", "status=employed", "job=programmer"], "once": true, "effect": { "skill": 8, "hp": -8 }, "memory": { "ja": "サターンの CPU を 2 つ同時に動かした", "en": "got both Saturn CPUs running at once" }, "tag": ["sega", "high", "crunch"] },
-  { "id": "ev_sega_in_shiro", "years": [1997, 1998], "weight": 3,
-    "text": { "ja": "「セガサターン、シロ!」。CM の柔道着の人が本社に来た日、全員が背筋を伸ばして廊下に並んだ。", "en": "'Sega Saturn, shiro!' The day the judo-uniform man from the ads visited HQ, everyone lined the hallway standing straight." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "passion": 8, "fame": 1 }, "memory": { "ja": "柔道着の人の前で背筋を伸ばした", "en": "stood at attention for the judo-uniform man" }, "tag": ["sega", "high", "celeb"] },
-  { "id": "ev_sega_in_dc_cm", "years": [1998, 1999], "weight": 3,
-    "text": { "ja": "自社の役員が CM で子どもに「だっせーよな」と言われている。社員は皆、言い返す言葉を持っていなかった。", "en": "A company executive appears in the TV ad getting told 'Sega is lame' by kids. Nobody in the office had a comeback." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "passion": 3, "network": 2 }, "tag": ["sega", "gag"] },
-  { "id": "ev_sega_in_shenmue", "years": [1998, 2000], "weight": 3,
-    "text": { "ja": "横須賀の町を丸ごと作っている部署に手伝いに行った。担当は自動販売機 60 台。全部で本当に買える。", "en": "You helped the team recreating all of Yokosuka. Your job: 60 vending machines. Every one actually works." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "skill": 5, "hp": -6, "fame": 2 }, "memory": { "ja": "横須賀の自動販売機を 60 台作った", "en": "built 60 vending machines in Yokosuka" }, "tag": ["sega", "high"] },
-  { "id": "ev_sega_in_exit_day", "years": [2001, 2001], "weight": 100,
-    "text": { "ja": "1 月 31 日、朝礼で家庭用ハードからの撤退が告げられた。泣いている先輩の机に、開発機が 3 台。「持って帰っていいって」。", "en": "January 31. At the morning meeting, the end of the console business is announced. On a crying senior's desk, three dev kits. 'They said we can take them home.'" },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "passion": -12, "network": 5, "fame": 3 }, "memory": { "ja": "撤退の日に開発機を持って帰った", "en": "took a dev kit home on the day the console died" }, "tag": ["sega", "pit_like"] },
-  { "id": "ev_sega_in_split", "years": [2000, 2003], "weight": 3,
-    "text": { "ja": "開発部門が 9 つの会社に分かれた。名刺の社名が変わり、隣の席の人が別会社になった。給湯室は共用。", "en": "R&D was split into nine companies. Your business card changed; the person next to you is now another company. The kitchenette is shared." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "network": 3, "passion": -3 }, "tag": ["sega", "gag"] },
-  { "id": "ev_sega_in_merge_back", "years": [2003, 2004], "weight": 3,
-    "text": { "ja": "分かれた会社がまた 1 つに戻った。3 年で名刺は 3 種類。給湯室だけは一度も変わらなかった。", "en": "The split companies merged back. Three business cards in three years. The kitchenette never changed once." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "network": 2, "passion": 2 }, "tag": ["sega", "gag"] },
-  { "id": "ev_sega_in_sammy", "years": [2004, 2006], "weight": 3,
-    "text": { "ja": "経営統合で、パチスロの図面が隣の島に来た。音の担当が「当たり」の音を作り、入社以来いちばん褒められた。", "en": "After the merger, pachislot blueprints arrived at the next desk island. The sound guy made the 'jackpot' sound and got the most praise of his career." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "money": 20, "passion": -2, "network": 3 }, "tag": ["sega", "gag"] },
-  { "id": "ev_sega_in_segagaga", "years": [2000, 2001], "weight": 3,
-    "text": { "ja": "自社の没落をネタにする自虐ゲームの企画が通った。開発室の空気は、ゲームの中より明るかった。", "en": "A self-parody game about the company's own decline got greenlit. The dev room was in better spirits than the game." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "passion": 10, "fame": 3 }, "memory": { "ja": "自社の没落を自虐するゲームを作った", "en": "made a game mocking my own company's decline" }, "tag": ["sega", "high", "weird"] },
-  { "id": "ev_sega_in_ryu", "years": [2005, 2006], "weight": 3,
-    "text": { "ja": "新宿で大人向け任侠ゲームのロケハン。領収書の但し書きに「取材」と書き、経理に 3 回聞き返された。", "en": "Location scouting in Shinjuku for a yakuza drama game. You wrote 'research' on the receipts. Accounting asked three times." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "passion": 5, "money": -5 }, "tag": ["sega", "gag"] },
-  { "id": "ev_sega_in_costume", "years": [1992, 2035], "weight": 1,
-    "text": { "ja": "イベントで青いハリネズミの着ぐるみに入った。子どもに蹴られ、中では泣いていた。外から見ると笑顔だった。", "en": "You wore the blue hedgehog costume at an event. Kids kicked you; you cried inside. From outside, it kept smiling." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "hp": -3, "fame": 2, "passion": 3 }, "tag": ["sega", "gag"] },
-  { "id": "ev_sega_in_60th", "years": [2020, 2020], "weight": 3,
-    "text": { "ja": "創業 60 周年。手のひらサイズのゲームギアが配られた。単 3 電池 6 本は、もう要らない。", "en": "The company's 60th anniversary. Everyone got a palm-sized Game Gear. No more six AA batteries." },
-    "when": ["flag.sega", "status=employed"], "once": true, "effect": { "passion": 5 }, "tag": ["sega", "gag"] },
-  { "id": "ev_sega_in_blue", "years": [1983, 2035], "weight": 1,
-    "text": { "ja": "気づけば服が青ばかりになった。クローゼットを見た恋人が「会社?」と聞いた。", "en": "Your wardrobe has turned entirely blue. Your partner looked at the closet and asked, 'Company?'" },
-    "when": ["flag.sega"], "once": true, "effect": { "passion": 2 }, "tag": ["sega", "gag", "family"] },
-  { "id": "ev_sega_bond_vf", "years": [1994, 2000], "once": true,
-    "text": { "ja": "「3D 格闘の父」とエレベーターで 2 人きり。「ポリゴン何枚?」「12 枚です」「いいね」。あなたは 20 年、この 3 語で食べていく。", "en": "Alone in the elevator with 'the father of 3D fighting games.' 'How many polygons?' 'Twelve.' 'Nice.' You'll dine out on those three words for 20 years." },
-    "when": ["flag.sega"], "effect": { "passion": 12, "skill": 5, "network": 5 }, "memory": { "ja": "3D 格闘の父に「いいね」と言われた", "en": "the father of 3D fighting games said 'nice'" }, "tag": ["bond", "high", "sega"] },
-  { "id": "ev_exsega_everywhere", "years": [1995, 2035], "weight": 2,
-    "text": { "ja": "転職先の会議室。6 人中 4 人が元セガだった。会議が同窓会になり、議題は 2 つ目から始まった。", "en": "New company, first meeting. Four of six people are ex-Sega. It turned into a reunion; the agenda started from item two." },
-    "when": ["flag.ex_sega", "status=employed"], "once": true, "effect": { "network": 6, "passion": 3 }, "tag": ["sega", "gag"] },
-  { "id": "ev_exsega_dc_tears", "years": [2002, 2035], "weight": 2,
-    "text": { "ja": "飲み会でドリームキャストの話になり、元セガの全員が同時に黙った。10 秒後、全員が同時に泣いた。", "en": "Dreamcast came up at drinks. Every ex-Sega person went silent at once. Ten seconds later, they all cried at once." },
-    "when": ["flag.ex_sega"], "once": true, "effect": { "network": 4, "passion": 2 }, "tag": ["sega", "gag"] },
-  { "id": "ev_exsega_interview", "years": [1995, 2035], "weight": 2,
-    "text": { "ja": "面接で「セガ時代の話を」と言われ、1 時間話した。採用理由は「話が面白かったから」。", "en": "'Tell us about your Sega days,' the interviewer said. You talked for an hour. Reason for hire: 'the stories were good.'" },
-    "when": ["flag.ex_sega", "status=employed"], "once": true, "effect": { "network": 3, "fame": 1 }, "tag": ["sega", "gag"] },
-  { "id": "ev_grav_vf2", "years": [1994, 1996], "weight": 4,
-    "text": { "ja": "社運をかけた 3D 格闘を作っていたら『バーチャファイター2』が出た。企画書は 3 日で「3D アクション」に書き換わった。", "en": "You were building the company's big 3D fighter when Virtua Fighter 2 hit. In three days the proposal was rewritten as a '3D action game.'" },
-    "when": ["!flag.sega", "!flag.ex_sega", "status=employed"], "once": true, "effect": { "passion": -8, "skill": 3 }, "tag": ["gravity", "sega", "spec"] },
-  { "id": "ev_grav_help_otorii", "years": [1993, 2000], "weight": 4,
-    "text": { "ja": "「C 言語が書ける者を全員よこせ」とセガから電話。大鳥居に送り込まれた。開発室の床に寝袋が 40 個並んでいた。", "en": "'Send everyone who can write C,' Sega called. You were shipped to Otorii. Forty sleeping bags lined the dev-room floor." },
-    "when": ["!flag.sega", "!flag.ex_sega", "status=employed", "job=programmer"], "once": true, "effect": { "hp": -10, "network": 8, "skill": 5, "fame": 2 }, "memory": { "ja": "大鳥居の修羅場を生き延びた", "en": "survived the Otorii death march" }, "tag": ["gravity", "sega", "crunch", "high"] },
-  { "id": "ev_grav_arrow_patent", "years": [2001, 2006], "weight": 4,
-    "text": { "ja": "矢印で道案内する運転ゲームを作ったら、法務が「セガの特許に当たる」。矢印は、点滅する看板になった。", "en": "You built a driving game with a guiding arrow. Legal: 'That's Sega's patent.' The arrow became a blinking signboard." },
-    "when": ["!flag.sega", "!flag.ex_sega", "status=employed"], "once": true, "effect": { "passion": -5, "skill": 3 }, "tag": ["gravity", "sega", "spec", "gag"] },
-  { "id": "ev_grav_shenmue_sub", "years": [1998, 1999], "weight": 4,
-    "text": { "ja": "セガから下請けの仕事。横須賀の町の電柱を 400 本作る。「1 本ずつ違う汚れを付けろ」と言われた。", "en": "Contract work from Sega: model 400 utility poles for a Yokosuka street. 'Each one needs different grime.'" },
-    "when": ["!flag.sega", "!flag.ex_sega", "status=employed"], "once": true, "effect": { "skill": 6, "hp": -6, "money": 10 }, "memory": { "ja": "横須賀の電柱を 400 本作った", "en": "modeled 400 utility poles for Yokosuka" }, "tag": ["gravity", "sega", "high"] },
-  { "id": "ev_grav_exsega_join", "years": [2001, 2003], "weight": 4,
-    "text": { "ja": "元セガの人が 3 人入社してきた。初日に開発室の机が島の形に並び替えられ、2 日目に寝袋が増えた。", "en": "Three ex-Sega people joined. Day one, the desks were rearranged into islands. Day two, more sleeping bags." },
-    "when": ["!flag.sega", "!flag.ex_sega", "status=employed"], "once": true, "effect": { "network": 5, "skill": 2 }, "tag": ["gravity", "sega", "gag"] },
-  { "id": "ev_grav_interview_fail", "years": [1985, 2000], "weight": 3,
-    "text": { "ja": "セガの面接を受けた。「好きなゲームは?」に他社のタイトルを答え、面接官が静かにうなずいた。落ちた。", "en": "You interviewed at Sega. 'Favorite game?' You named another company's title. The interviewer nodded quietly. You didn't get in." },
-    "when": ["!flag.sega", "!flag.ex_sega", "age<=30"], "once": true, "effect": { "passion": -3, "network": 1 }, "tag": ["gravity", "sega", "gag"] },
-  { "id": "ev_grav_taikan_war", "years": [1986, 1990], "weight": 3,
-    "text": { "ja": "社長が「セガみたいに筐体を動かせ」。油圧の予算は無く、新人 2 人が後ろから揺らすことになった。", "en": "The boss: 'Make the cabinet move, like Sega.' No budget for hydraulics, so two new hires shook it from behind." },
-    "when": ["!flag.sega", "!flag.ex_sega", "status=employed"], "once": true, "effect": { "passion": 3, "hp": -3 }, "tag": ["gravity", "sega", "gag"] },
-  { "id": "ev_grav_sonic_speed", "years": [1991, 1993], "weight": 3,
-    "text": { "ja": "社長がソニックの速さに驚き、うちの主人公の歩く速さが 3 倍になった。壁にめり込むようになった。", "en": "The boss saw how fast Sonic runs. Your hero's walking speed tripled. He now clips through walls." },
-    "when": ["!flag.sega", "!flag.ex_sega", "status=employed"], "once": true, "effect": { "passion": -2, "skill": 2 }, "tag": ["gravity", "sega", "spec", "gag"] },
-  { "id": "ev_grav_segagaga_play", "years": [2001, 2002], "weight": 3,
-    "text": { "ja": "セガが自社の没落を自虐するゲームを出した。社内で回し遊びし、誰かが言った。「うちならこのネタで 3 本作れる」。", "en": "Sega released a game mocking its own decline. It went around the office. Someone said: 'We could make three games out of our material.'" },
-    "when": ["!flag.sega", "!flag.ex_sega", "status=employed"], "once": true, "effect": { "passion": 4, "network": 2 }, "tag": ["gravity", "sega", "gag"] },
-  { "id": "ev_grav_sega_offer", "years": [1990, 2012], "weight": 3,
-    "text": { "ja": "セガから電話。「うちに来ないか」。給料は今と同じ。でも、あのロゴだ。", "en": "A call from Sega. 'Come work for us.' Same salary as now. But it's that logo." },
-    "when": ["!flag.sega", "!flag.ex_sega", "status=employed", "career>=2"], "once": true,
+  {
+    "id": "ev_sega_in_otorii",
+    "years": [
+      1983,
+      2017
+    ],
+    "weight": 2,
+    "text": {
+      "ja": "本社は羽田の大鳥居。飛行機の音で会議が 1 分止まる。止まった分だけ、仕様が延びる。",
+      "en": "HQ is in Otorii by Haneda airport. Meetings pause a minute per plane. Specs grow by exactly that minute."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": 2
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_am_cs",
+    "years": [
+      1985,
+      2000
+    ],
+    "weight": 2,
+    "text": {
+      "ja": "業務用(AM)と家庭用(CS)で食堂の席が分かれている。あなたは真ん中の席に座り、両側から睨まれた。",
+      "en": "Arcade (AM) and console (CS) staff sit on opposite sides of the cafeteria. You sat in the middle and got glared at from both."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "network": 3,
+      "passion": -2
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_taikan",
+    "years": [
+      1985,
+      1990
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "体感筐体の試作に乗った。油圧で揺れ、昼食が戻った。報告書には「揺れは仕様」と書かれた。",
+      "en": "You test-rode the motion cabinet prototype. Hydraulics shook you; lunch came back up. The report read: 'shaking is intended.'"
+    },
+    "when": [
+      "flag.sega",
+      "status=employed",
+      "job!=qa"
+    ],
+    "once": true,
+    "effect": {
+      "hp": -5,
+      "passion": 8,
+      "fame": 2
+    },
+    "memory": {
+      "ja": "体感筐体の試作で昼食を戻した",
+      "en": "lost my lunch on the motion-cabinet prototype"
+    },
+    "tag": [
+      "sega",
+      "high",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_genesis_us",
+    "years": [
+      1990,
+      1993
+    ],
+    "weight": 2,
+    "text": {
+      "ja": "海外では勝っている。アメリカの売上グラフが廊下に貼られた。国内のグラフは貼られなかった。",
+      "en": "Overseas, you're winning. The US sales chart went up in the hallway. The Japan chart did not."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": 5,
+      "fame": 2
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_tower",
+    "years": [
+      1991,
+      1995
+    ],
+    "weight": 2,
+    "text": {
+      "ja": "メガドライブの上にメガ CD、その上に 32X。机の上の塔は、本体より周辺機器の方が高い。",
+      "en": "Mega Drive, then Mega CD on top, then 32X on top of that. The add-ons on your desk are taller than the console."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": 2,
+      "skill": 2
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_saturn_2cpu",
+    "years": [
+      1994,
+      1997
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "サターンは CPU が 2 つ。片方を動かすのに 3 か月、両方を同時に動かすのに 1 年かかった。",
+      "en": "The Saturn has two CPUs. Three months to run one. A year to run both at once."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed",
+      "job=programmer"
+    ],
+    "once": true,
+    "effect": {
+      "skill": 8,
+      "hp": -8
+    },
+    "memory": {
+      "ja": "サターンの CPU を 2 つ同時に動かした",
+      "en": "got both Saturn CPUs running at once"
+    },
+    "tag": [
+      "sega",
+      "high",
+      "crunch"
+    ]
+  },
+  {
+    "id": "ev_sega_in_shiro",
+    "years": [
+      1997,
+      1998
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "「セガサターン、シロ!」。CM の柔道着の人が本社に来た日、全員が背筋を伸ばして廊下に並んだ。",
+      "en": "'Sega Saturn, shiro!' The day the judo-uniform man from the ads visited HQ, everyone lined the hallway standing straight."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": 8,
+      "fame": 1
+    },
+    "memory": {
+      "ja": "柔道着の人の前で背筋を伸ばした",
+      "en": "stood at attention for the judo-uniform man"
+    },
+    "tag": [
+      "sega",
+      "high",
+      "celeb"
+    ]
+  },
+  {
+    "id": "ev_sega_in_dc_cm",
+    "years": [
+      1998,
+      1999
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "自社の役員が CM で子どもに「だっせーよな」と言われている。社員は皆、言い返す言葉を持っていなかった。",
+      "en": "A company executive appears in the TV ad getting told 'Sega is lame' by kids. Nobody in the office had a comeback."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": 3,
+      "network": 2
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_shenmue",
+    "years": [
+      1998,
+      2000
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "横須賀の町を丸ごと作っている部署に手伝いに行った。担当は自動販売機 60 台。全部で本当に買える。",
+      "en": "You helped the team recreating all of Yokosuka. Your job: 60 vending machines. Every one actually works."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "skill": 5,
+      "hp": -6,
+      "fame": 2
+    },
+    "memory": {
+      "ja": "横須賀の自動販売機を 60 台作った",
+      "en": "built 60 vending machines in Yokosuka"
+    },
+    "tag": [
+      "sega",
+      "high"
+    ]
+  },
+  {
+    "id": "ev_sega_in_exit_day",
+    "years": [
+      2001,
+      2001
+    ],
+    "weight": 100,
+    "text": {
+      "ja": "1 月 31 日、朝礼で家庭用ハードからの撤退が告げられた。泣いている先輩の机に、開発機が 3 台。「持って帰っていいって」。",
+      "en": "January 31. At the morning meeting, the end of the console business is announced. On a crying senior's desk, three dev kits. 'They said we can take them home.'"
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": -12,
+      "network": 5,
+      "fame": 3
+    },
+    "memory": {
+      "ja": "撤退の日に開発機を持って帰った",
+      "en": "took a dev kit home on the day the console died"
+    },
+    "tag": [
+      "sega",
+      "pit_like"
+    ]
+  },
+  {
+    "id": "ev_sega_in_split",
+    "years": [
+      2000,
+      2003
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "開発部門が 9 つの会社に分かれた。名刺の社名が変わり、隣の席の人が別会社になった。給湯室は共用。",
+      "en": "R&D was split into nine companies. Your business card changed; the person next to you is now another company. The kitchenette is shared."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "network": 3,
+      "passion": -3
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_merge_back",
+    "years": [
+      2003,
+      2004
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "分かれた会社がまた 1 つに戻った。3 年で名刺は 3 種類。給湯室だけは一度も変わらなかった。",
+      "en": "The split companies merged back. Three business cards in three years. The kitchenette never changed once."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "network": 2,
+      "passion": 2
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_sammy",
+    "years": [
+      2004,
+      2006
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "経営統合で、パチスロの図面が隣の島に来た。音の担当が「当たり」の音を作り、入社以来いちばん褒められた。",
+      "en": "After the merger, pachislot blueprints arrived at the next desk island. The sound guy made the 'jackpot' sound and got the most praise of his career."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "money": 20,
+      "passion": -2,
+      "network": 3
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_segagaga",
+    "years": [
+      2000,
+      2001
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "自社の没落をネタにする自虐ゲームの企画が通った。開発室の空気は、ゲームの中より明るかった。",
+      "en": "A self-parody game about the company's own decline got greenlit. The dev room was in better spirits than the game."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": 10,
+      "fame": 3
+    },
+    "memory": {
+      "ja": "自社の没落を自虐するゲームを作った",
+      "en": "made a game mocking my own company's decline"
+    },
+    "tag": [
+      "sega",
+      "high",
+      "weird"
+    ]
+  },
+  {
+    "id": "ev_sega_in_ryu",
+    "years": [
+      2005,
+      2006
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "新宿で大人向け任侠ゲームのロケハン。領収書の但し書きに「取材」と書き、経理に 3 回聞き返された。",
+      "en": "Location scouting in Shinjuku for a yakuza drama game. You wrote 'research' on the receipts. Accounting asked three times."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": 5,
+      "money": -5
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_costume",
+    "years": [
+      1992,
+      2035
+    ],
+    "weight": 1,
+    "text": {
+      "ja": "イベントで青いハリネズミの着ぐるみに入った。子どもに蹴られ、中では泣いていた。外から見ると笑顔だった。",
+      "en": "You wore the blue hedgehog costume at an event. Kids kicked you; you cried inside. From outside, it kept smiling."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "hp": -3,
+      "fame": 2,
+      "passion": 3
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_60th",
+    "years": [
+      2020,
+      2020
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "創業 60 周年。手のひらサイズのゲームギアが配られた。単 3 電池 6 本は、もう要らない。",
+      "en": "The company's 60th anniversary. Everyone got a palm-sized Game Gear. No more six AA batteries."
+    },
+    "when": [
+      "flag.sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": 5
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_sega_in_blue",
+    "years": [
+      1983,
+      2035
+    ],
+    "weight": 1,
+    "text": {
+      "ja": "気づけば服が青ばかりになった。クローゼットを見た恋人が「会社?」と聞いた。",
+      "en": "Your wardrobe has turned entirely blue. Your partner looked at the closet and asked, 'Company?'"
+    },
+    "when": [
+      "flag.sega"
+    ],
+    "once": true,
+    "effect": {
+      "passion": 2
+    },
+    "tag": [
+      "sega",
+      "gag",
+      "family"
+    ]
+  },
+  {
+    "id": "ev_sega_bond_vf",
+    "years": [
+      1994,
+      2000
+    ],
+    "once": true,
+    "text": {
+      "ja": "「3D 格闘の父」とエレベーターで 2 人きり。「ポリゴン何枚?」「12 枚です」「いいね」。あなたは 20 年、この 3 語で食べていく。",
+      "en": "Alone in the elevator with 'the father of 3D fighting games.' 'How many polygons?' 'Twelve.' 'Nice.' You'll dine out on those three words for 20 years."
+    },
+    "when": [
+      "flag.sega"
+    ],
+    "effect": {
+      "passion": 12,
+      "skill": 5,
+      "network": 5
+    },
+    "memory": {
+      "ja": "3D 格闘の父に「いいね」と言われた",
+      "en": "the father of 3D fighting games said 'nice'"
+    },
+    "tag": [
+      "bond",
+      "high",
+      "sega"
+    ]
+  },
+  {
+    "id": "ev_exsega_everywhere",
+    "years": [
+      1995,
+      2035
+    ],
+    "weight": 2,
+    "text": {
+      "ja": "転職先の会議室。6 人中 4 人が元セガだった。会議が同窓会になり、議題は 2 つ目から始まった。",
+      "en": "New company, first meeting. Four of six people are ex-Sega. It turned into a reunion; the agenda started from item two."
+    },
+    "when": [
+      "flag.ex_sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "network": 6,
+      "passion": 3
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_exsega_dc_tears",
+    "years": [
+      2002,
+      2035
+    ],
+    "weight": 2,
+    "text": {
+      "ja": "飲み会でドリームキャストの話になり、元セガの全員が同時に黙った。10 秒後、全員が同時に泣いた。",
+      "en": "Dreamcast came up at drinks. Every ex-Sega person went silent at once. Ten seconds later, they all cried at once."
+    },
+    "when": [
+      "flag.ex_sega"
+    ],
+    "once": true,
+    "effect": {
+      "network": 4,
+      "passion": 2
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_exsega_interview",
+    "years": [
+      1995,
+      2035
+    ],
+    "weight": 2,
+    "text": {
+      "ja": "面接で「セガ時代の話を」と言われ、1 時間話した。採用理由は「話が面白かったから」。",
+      "en": "'Tell us about your Sega days,' the interviewer said. You talked for an hour. Reason for hire: 'the stories were good.'"
+    },
+    "when": [
+      "flag.ex_sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "network": 3,
+      "fame": 1
+    },
+    "tag": [
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_grav_vf2",
+    "years": [
+      1994,
+      1996
+    ],
+    "weight": 4,
+    "text": {
+      "ja": "社運をかけた 3D 格闘を作っていたら『バーチャファイター2』が出た。企画書は 3 日で「3D アクション」に書き換わった。",
+      "en": "You were building the company's big 3D fighter when Virtua Fighter 2 hit. In three days the proposal was rewritten as a '3D action game.'"
+    },
+    "when": [
+      "!flag.sega",
+      "!flag.ex_sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": -8,
+      "skill": 3
+    },
+    "tag": [
+      "gravity",
+      "sega",
+      "spec"
+    ]
+  },
+  {
+    "id": "ev_grav_help_otorii",
+    "years": [
+      1993,
+      2000
+    ],
+    "weight": 4,
+    "text": {
+      "ja": "「C 言語が書ける者を全員よこせ」とセガから電話。大鳥居に送り込まれた。開発室の床に寝袋が 40 個並んでいた。",
+      "en": "'Send everyone who can write C,' Sega called. You were shipped to Otorii. Forty sleeping bags lined the dev-room floor."
+    },
+    "when": [
+      "!flag.sega",
+      "!flag.ex_sega",
+      "status=employed",
+      "job=programmer"
+    ],
+    "once": true,
+    "effect": {
+      "hp": -10,
+      "network": 8,
+      "skill": 5,
+      "fame": 2
+    },
+    "memory": {
+      "ja": "大鳥居の修羅場を生き延びた",
+      "en": "survived the Otorii death march"
+    },
+    "tag": [
+      "gravity",
+      "sega",
+      "crunch",
+      "high"
+    ]
+  },
+  {
+    "id": "ev_grav_arrow_patent",
+    "years": [
+      2001,
+      2006
+    ],
+    "weight": 4,
+    "text": {
+      "ja": "矢印で道案内する運転ゲームを作ったら、法務が「セガの特許に当たる」。矢印は、点滅する看板になった。",
+      "en": "You built a driving game with a guiding arrow. Legal: 'That's Sega's patent.' The arrow became a blinking signboard."
+    },
+    "when": [
+      "!flag.sega",
+      "!flag.ex_sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": -5,
+      "skill": 3
+    },
+    "tag": [
+      "gravity",
+      "sega",
+      "spec",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_grav_shenmue_sub",
+    "years": [
+      1998,
+      1999
+    ],
+    "weight": 4,
+    "text": {
+      "ja": "セガから下請けの仕事。横須賀の町の電柱を 400 本作る。「1 本ずつ違う汚れを付けろ」と言われた。",
+      "en": "Contract work from Sega: model 400 utility poles for a Yokosuka street. 'Each one needs different grime.'"
+    },
+    "when": [
+      "!flag.sega",
+      "!flag.ex_sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "skill": 6,
+      "hp": -6,
+      "money": 10
+    },
+    "memory": {
+      "ja": "横須賀の電柱を 400 本作った",
+      "en": "modeled 400 utility poles for Yokosuka"
+    },
+    "tag": [
+      "gravity",
+      "sega",
+      "high"
+    ]
+  },
+  {
+    "id": "ev_grav_exsega_join",
+    "years": [
+      2001,
+      2003
+    ],
+    "weight": 4,
+    "text": {
+      "ja": "元セガの人が 3 人入社してきた。初日に開発室の机が島の形に並び替えられ、2 日目に寝袋が増えた。",
+      "en": "Three ex-Sega people joined. Day one, the desks were rearranged into islands. Day two, more sleeping bags."
+    },
+    "when": [
+      "!flag.sega",
+      "!flag.ex_sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "network": 5,
+      "skill": 2
+    },
+    "tag": [
+      "gravity",
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_grav_interview_fail",
+    "years": [
+      1985,
+      2000
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "セガの面接を受けた。「好きなゲームは?」に他社のタイトルを答え、面接官が静かにうなずいた。落ちた。",
+      "en": "You interviewed at Sega. 'Favorite game?' You named another company's title. The interviewer nodded quietly. You didn't get in."
+    },
+    "when": [
+      "!flag.sega",
+      "!flag.ex_sega",
+      "age<=30"
+    ],
+    "once": true,
+    "effect": {
+      "passion": -3,
+      "network": 1
+    },
+    "tag": [
+      "gravity",
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_grav_taikan_war",
+    "years": [
+      1986,
+      1990
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "社長が「セガみたいに筐体を動かせ」。油圧の予算は無く、新人 2 人が後ろから揺らすことになった。",
+      "en": "The boss: 'Make the cabinet move, like Sega.' No budget for hydraulics, so two new hires shook it from behind."
+    },
+    "when": [
+      "!flag.sega",
+      "!flag.ex_sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": 3,
+      "hp": -3
+    },
+    "tag": [
+      "gravity",
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_grav_sonic_speed",
+    "years": [
+      1991,
+      1993
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "社長がソニックの速さに驚き、うちの主人公の歩く速さが 3 倍になった。壁にめり込むようになった。",
+      "en": "The boss saw how fast Sonic runs. Your hero's walking speed tripled. He now clips through walls."
+    },
+    "when": [
+      "!flag.sega",
+      "!flag.ex_sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": -2,
+      "skill": 2
+    },
+    "tag": [
+      "gravity",
+      "sega",
+      "spec",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_grav_segagaga_play",
+    "years": [
+      2001,
+      2002
+    ],
+    "weight": 3,
+    "text": {
+      "ja": "セガが自社の没落を自虐するゲームを出した。社内で回し遊びし、誰かが言った。「うちならこのネタで 3 本作れる」。",
+      "en": "Sega released a game mocking its own decline. It went around the office. Someone said: 'We could make three games out of our material.'"
+    },
+    "when": [
+      "!flag.sega",
+      "!flag.ex_sega",
+      "status=employed"
+    ],
+    "once": true,
+    "effect": {
+      "passion": 4,
+      "network": 2
+    },
+    "tag": [
+      "gravity",
+      "sega",
+      "gag"
+    ]
+  },
+  {
+    "id": "ev_grav_sega_offer",
+    "years": [
+      1990,
+      2012
+    ],
+    "weight": 1,
+    "text": {
+      "ja": "セガから電話。「うちに来ないか」。給料は今と同じ。でも、あのロゴだ。",
+      "en": "A call from Sega. 'Come work for us.' Same salary as now. But it's that logo."
+    },
+    "when": [
+      "!flag.sega",
+      "!flag.ex_sega",
+      "status=employed",
+      "career>=2"
+    ],
+    "once": true,
     "choices": [
-      { "id": "ch_grav_sega_go", "label": { "ja": "行く", "en": "Go" }, "effect": { "passion": 10, "network": 5, "flag": { "do_join_sega": true } }, "result": { "ja": "初出社の朝、大鳥居の駅で飛行機の音を聞いた。あの音が、しばらく会議の合図になる。", "en": "First morning, Otorii station, the roar of a plane overhead. That sound will mark your meetings for years." } },
-      { "id": "ch_grav_sega_stay", "label": { "ja": "断る", "en": "Decline" }, "effect": { "passion": -3, "money": 20 }, "result": { "ja": "断った。10 年後、飲み会で元セガの人の話を聞くたび、少し胃が痛くなる。", "en": "You declined. For the next decade, every ex-Sega story at drinks gives you a small stomachache." } }
-    ], "tag": ["gravity", "sega", "choice", "big"] }
+      {
+        "id": "ch_grav_sega_go",
+        "label": {
+          "ja": "行く",
+          "en": "Go"
+        },
+        "effect": {
+          "passion": 10,
+          "network": 5,
+          "flag": {
+            "do_join_sega": true
+          }
+        },
+        "result": {
+          "ja": "初出社の朝、大鳥居の駅で飛行機の音を聞いた。あの音が、しばらく会議の合図になる。",
+          "en": "First morning, Otorii station, the roar of a plane overhead. That sound will mark your meetings for years."
+        }
+      },
+      {
+        "id": "ch_grav_sega_stay",
+        "label": {
+          "ja": "断る",
+          "en": "Decline"
+        },
+        "effect": {
+          "passion": -3,
+          "money": 20
+        },
+        "result": {
+          "ja": "断った。10 年後、飲み会で元セガの人の話を聞くたび、少し胃が痛くなる。",
+          "en": "You declined. For the next decade, every ex-Sega story at drinks gives you a small stomachache."
+        }
+      }
+    ],
+    "tag": [
+      "gravity",
+      "sega",
+      "choice",
+      "big"
+    ]
+  }
 ]

@@ -1,6 +1,8 @@
 // 終わり = 開発者としての死(PLAN §4)。死因の 1 行(共有文の 1 行目)と、結果画面の要約を作る。
 import type { State, EndingId, Ending, Text } from './types';
 import { JOB_TEXT } from './names';
+import { LASTWORDS } from './data';
+import { test } from './select';
 
 function causeOf(s: State, id: EndingId): Text {
   const a = s.age, c = s.inner.counts;
@@ -62,6 +64,14 @@ function epitaphOf(s: State, id: EndingId): Text {
   };
 }
 
+function lastWordOf(s: State, id: EndingId): Text | undefined {
+  const ok = LASTWORDS.filter((l) => l.endings.includes(id) && (l.when ?? []).every((c) => test(s, c)));
+  // 条件つき(元セガ・名声 …)の台詞を優先
+  const special = ok.filter((l) => l.when?.length);
+  const pool = special.length && s.rng.chance(0.7) ? special : ok;
+  return pool.length ? s.rng.pick(pool).text : undefined;
+}
+
 export function makeEnding(s: State, id: EndingId, custom?: Text): Ending {
   const cause = custom ? { ja: `${s.age} 歳、${custom.ja}`, en: `At ${s.age}, ${custom.en}` } : causeOf(s, id);
   const w = s.works;
@@ -75,5 +85,5 @@ export function makeEnding(s: State, id: EndingId, custom?: Text): Ending {
   const en = `Entered the industry in ${s.startYear} at ${s.startAge} as a ${job0.en} (${s.entry.en}). ` +
     (w.length ? `Worked on ${w.length} games: ${hit} hits, ${flop} flops. ` : 'Not a single game shipped. ') +
     (fates ? `${fates} of them kept living on after release. ` : '') + `${cause.en}.`;
-  return { id, age: s.age, year: s.year, cause, summary: { ja, en }, epitaph: epitaphOf(s, id) };
+  return { id, age: s.age, year: s.year, cause, summary: { ja, en }, epitaph: epitaphOf(s, id), lastWord: lastWordOf(s, id) };
 }

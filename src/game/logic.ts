@@ -4,7 +4,7 @@
 import { Rng } from '../core/rng';
 import { tune } from '../core/tuning';
 import type { State, InitOptions, Text, Effect, GameEvent, Choice, Job, CompanySize, EndingId, Era, LogLine, Company } from './types';
-import { EVENT_BY_ID, POOL, TIMELINE_BY_YEAR, HIST, HIST_OF } from './data';
+import { EVENT_BY_ID, POOL, TIMELINE_BY_YEAR, HIST, HIST_OF, COMPANIES, type CoRow } from './data';
 import { eligible, draw, positionOf } from './select';
 
 export { positionOf };
@@ -39,7 +39,7 @@ function gachaAge(r: Rng): number {
   if (x < tune('gacha.age18') + tune('gacha.lateBloomer') + tune('gacha.age50')) return r.int(50, 57); // 50 すぎで業界入り(ひいひい言いながら)
   return 22;
 }
-type Entry = { size: CompanySize; text: Text; w: (age: number, year: number) => number; indie?: boolean };
+type Entry = { size: CompanySize; text: Text; w: (age: number, year: number) => number; indie?: boolean; sega?: boolean; segaSub?: boolean };
 const ENTRIES: Entry[] = [
   { size: 'big', text: { ja: '大手の新卒', en: 'fresh graduate at a major' }, w: (a) => (a === 22 ? 3 : 0.3) },
   { size: 'mid', text: { ja: '中堅ソフトハウス', en: 'mid-size studio' }, w: () => 3 },
@@ -51,6 +51,9 @@ const ENTRIES: Entry[] = [
   { size: 'sub', text: { ja: '早期退職からの再出発組', en: 'second career after early retirement' }, w: (a) => (a >= 50 ? 6 : 0) },
   { size: 'indie', text: { ja: '定年前に一念発起した独学組', en: 'self-taught late starter' }, w: (a) => (a >= 50 ? 2 : 0), indie: true },
   { size: 'abroad', text: { ja: '海外のスタジオ', en: 'overseas studio' }, w: (_a, y) => (y >= 1990 ? 0.6 : 0.2) },
+  // セガの引力(PLAN §11): 1983〜2001 年は業界入りの約 4 人に 1 人がセガ
+  { size: 'big', sega: true, text: { ja: 'セガ', en: 'Sega' }, w: (a, y) => (a >= 50 ? 0.3 : y <= 1982 ? 1.3 : y <= 2001 ? 5 : y <= 2015 ? 2 : 1.3) },
+  { size: 'sub', segaSub: true, text: { ja: 'セガの下請け', en: "Sega's contractor" }, w: (_a, y) => (y >= 1990 && y <= 2010 ? 0.8 : 0) },
 ];
 const JOBS: [Job, number][] = [['programmer', 30], ['planner', 20], ['artist', 20], ['sound', 7], ['qa', 15], ['sales', 6]];
 const REGIONS: Text[] = [{ ja: '東京', en: 'Tokyo' }, { ja: '東京', en: 'Tokyo' }, { ja: '京都', en: 'Kyoto' }, { ja: '大阪', en: 'Osaka' }, { ja: '福岡', en: 'Fukuoka' }, { ja: '地方', en: 'the countryside' }];
@@ -68,8 +71,31 @@ function nameOf(gacha: Text, typed?: string): Text {
   return t ? { ja: t, en: t } : gacha;
 }
 
-function newCompany(r: Rng, size: CompanySize, year: number): Company {
+/** その年の社名(社名が変わる会社: 光栄 → コーエー、セガ・エンタープライゼス → セガ …) */
+function nameAt(c: CoRow, year: number): Text {
+  let n = c.name;
+  for (const [y, t] of c.renames ?? []) if (y <= year) n = t;
+  return n;
+}
+/** 勤め先を表から引く: 大手は実名、中堅・小さい会社・下請けはパロディ名(その年に存在した会社だけ)。無ければ名前を作る */
+function newCompany(r: Rng, size: CompanySize, year: number, avoid?: string): Company {
+  const rows = size === 'big' ? COMPANIES.real : ['mid', 'small', 'sub'].includes(size) ? COMPANIES.parody.filter((c) => c.size === size) : [];
+  const ok = rows.filter((c) => c.years[0] <= year && year <= c.years[1] && c.id !== avoid);
+  if (ok.length && r.chance(0.85)) {
+    const total = ok.reduce((t, c) => t + (c.weight ?? 1), 0);
+    let x = r.next() * total;
+    const c = ok.find((c) => (x -= c.weight ?? 1) < 0) ?? ok[ok.length - 1];
+    return { id: c.id, name: nameAt(c, year), size };
+  }
   return { id: `co_${size}_${r.int(1, 999)}`, name: companyName(r, size, year), size };
+}
+const SEGA = () => COMPANIES.real.find((c) => c.id === 'co_sega');
+/** 会社が変わった・年が変わった時に呼ぶ: 社名の変更と、セガにいる / いた の印(PLAN §11) */
+function syncCompany(s: State) {
+  const row = COMPANIES.real.find((c) => c.id === s.company.id);
+  if (row) s.company.name = nameAt(row, s.year);
+  if (s.company.id === 'co_sega') s.flags.sega = true;
+  else if (s.flags.sega) { s.flags.sega = false; s.flags.ex_sega = true; }
 }
 
 export function init(seed: number, options: InitOptions = {}): State {
@@ -81,7 +107,8 @@ export function init(seed: number, options: InitOptions = {}): State {
   const job = wpick(r, JOBS, ([, w]) => w)[0];
   const base = age <= 18 ? [80, 90, 10, 5, 10] : age <= 24 ? [70, 80, 25, 15, 30] : age < 50 ? [60, 95, 15, 10, 100] : [50, 95, 10, 30, 600];
   const company: Company = entry.indie ? { id: 'co_indie_self', name: { ja: '自室', en: 'your bedroom' }, size: 'indie' }
-    : peerOf && peerOf.company.size !== 'indie' ? peerOf.company : newCompany(r, entry.size, year);
+    : peerOf && peerOf.company.size !== 'indie' ? peerOf.company
+    : entry.sega && SEGA() ? { id: 'co_sega', name: nameAt(SEGA()!, year), size: 'big' } : newCompany(r, entry.size, year);
   const s: State = {
     seed, year, age, startAge: age, startYear: year, era: eraOf(year), job, status: entry.indie ? 'indie' : 'employed',
     name: nameOf(personName(r), options.name), entry: entry.text, region: entry.size === 'abroad' ? { ja: '海外', en: 'abroad' } : r.pick(REGIONS),
@@ -94,7 +121,7 @@ export function init(seed: number, options: InitOptions = {}): State {
       workTarget: -1, startJob: job, prevJob: job, histDone: [], highs: [],
       // 人生に一度の大挫折と大成功(業界に入って何年目に来るか)
       pitAt: r.int(2, 10), peakAt: r.int(4, 16), pitDone: false, peakDone: false,
-      bondAt: r.int(3, 18), bondDone: false, nextBig: year + r.int(2, 4), prisonUntil: 0,
+      bondAt: r.int(3, 18), bondDone: false, gravAt: r.int(2, 15), gravDone: false, nextBig: year + r.int(2, 4), prisonUntil: 0,
     },
   };
   if (!peerOf) {
@@ -105,6 +132,8 @@ export function init(seed: number, options: InitOptions = {}): State {
       s.peers.push({ name: p.name.ja, bot: bots[i], summary: peerSummary(p) });
     }
   }
+  if (entry.segaSub) s.flags.sega_sub = true;
+  syncCompany(s);
   logEvent(s, s.status === 'indie' ? 'ev_sys_start_indie' : 'ev_sys_start', 'event');
   return s;
 }
@@ -132,6 +161,9 @@ function logEvent(s: State, id: string, kind: LogLine['kind']) {
 // ---- 効果 ----
 function apply(s: State, e: Effect | undefined, ctx: string, out: string[], cause?: Text) {
   if (!e) return;
+  try { applyInner(s, e, ctx, out, cause); } finally { syncCompany(s); }
+}
+function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Text) {
   for (const k of ['hp', 'passion', 'skill', 'network', 'fame'] as const) if (e[k]) s.stat[k] = clamp(s.stat[k] + e[k]!);
   if (e.money) s.stat.money += e.money;
   if (e.job) s.job = e.job;
@@ -179,6 +211,10 @@ function apply(s: State, e: Effect | undefined, ctx: string, out: string[], caus
     } else if (f === 'do_prison') { // 服役(3 年)。明けたら個人開発者として再起する
       s.inner.prevJob = s.job; s.flags.in_prison = true; s.inner.prisonUntil = s.year + 3;
       setStatus(s, 'left'); s.job = 'other'; s.inner.otherJob = { ja: '塀の中', en: 'prison' };
+    } else if (f === 'do_join_sega' && SEGA()) { // セガに入る(PLAN §11)
+      s.company = { id: 'co_sega', name: nameAt(SEGA()!, s.year), size: 'big' }; s.companies.push({ company: s.company, year: s.year });
+      setStatus(s, 'employed'); s.inner.companyYears = 0;
+      s.inner.nextWorkYear = s.year + s.rng.int(tune('work.everyMin'), tune('work.everyMax'));
     } else if (f === 'do_mega') { // 終わらない巨大プロジェクト(5 年、作品が出ない)
       s.flags.mega_project = true; s.inner.nextWorkYear = s.year + 5;
     }
@@ -225,6 +261,7 @@ function checkEnd(s: State, out: string[]) {
 // ---- 1 年 ----
 function beginYear(s: State, out: string[]) {
   s.era = eraOf(s.year);
+  syncCompany(s);
   const r = s.rng;
   for (const t of TIMELINE_BY_YEAR.get(s.year) ?? []) log(s, t.text, 'timeline', [t.kind]);
   if ((TIMELINE_BY_YEAR.get(s.year) ?? []).length) out.push('timeline');
@@ -263,8 +300,9 @@ function beginYear(s: State, out: string[]) {
   }
   // 人生に一度の大挫折と大成功(当てはまる話が無ければ翌年に持ち越す)
   const turning: string[] = [];
-  for (const [tag, at, done] of [['pit', 'pitAt', 'pitDone'], ['peak', 'peakAt', 'peakDone'], ['bond', 'bondAt', 'bondDone']] as const) {
+  for (const [tag, at, done] of [['pit', 'pitAt', 'pitDone'], ['peak', 'peakAt', 'peakDone'], ['bond', 'bondAt', 'bondDone'], ['gravity', 'gravAt', 'gravDone']] as const) {
     if (s.inner[done] || s.year - s.startYear < s.inner[at] || s.status === 'left') continue;
+    if (tag === 'gravity' && (s.flags.sega || s.flags.ex_sega)) continue; // セガの引力はセガに入らなかった人生でだけ
     const pool = POOL.filter((e) => e.tag?.includes(tag) && eligible(s, e));
     if (!pool.length) continue;
     s.inner[done] = true;
@@ -281,7 +319,7 @@ function beginYear(s: State, out: string[]) {
   const n = r.int(tune('life.eventsMin'), tune('life.eventsMax')) - (q.length > 0 ? 1 : 0) - hist.length;
   const sysChoice = [...sys, ...q, ...hist, ...turning].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
-  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && !['pit', 'peak', 'bond', 'big'].some((t) => e.tag?.includes(t)));
+  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && !['pit', 'peak', 'bond', 'big', 'gravity'].some((t) => e.tag?.includes(t)));
   let picked = draw(r, pool, Math.max(1, n));
   // 選択は 1 年に 1 本まで、作品の後日談も 1 年に 1 本まで
   let seenChoice = false, seenAfter = false;

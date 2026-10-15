@@ -46,7 +46,7 @@ export interface Stat { hp: number; passion: number; skill: number; network: num
 export interface Work { id: string; name: Text; year: number; platform: string; role: Role; result: WorkResult; history: { year: number; text: Text }[] }
 export interface Peer { name: string; bot: string; summary: Text }
 export type EndingId = 'end_burnout' | 'end_body' | 'end_debt' | 'end_blacklist' | 'end_retire' | 'end_pen_down' | 'end_ai_seat' | 'end_arrest' | 'end_switch';
-export interface Ending { id: EndingId; age: number; year: number; cause: Text; summary: Text; /** 最後の 1 行(一番テンションが上がった瞬間 +「いいゲーム人生だった」) */ epitaph: Text }
+export interface Ending { id: EndingId; age: number; year: number; cause: Text; summary: Text; /** 最後の 1 行(一番テンションが上がった瞬間 +「いいゲーム人生だった」) */ epitaph: Text; /** 引退時の最後の台詞(有名な台詞のパロディ。lastwords.json) */ lastWord?: Text }
 export type LogKind = 'event' | 'timeline' | 'choice' | 'work' | 'peer';
 export interface LogLine { year: number; age: number; text: Text; kind: LogKind; tag?: string[]; hist?: string }
 export interface Company { id: string; name: Text; size: CompanySize }
@@ -97,7 +97,8 @@ export interface Inner {
   prevJob: Job;
   histDone: string[];
   pitAt: number; peakAt: number; pitDone: boolean; peakDone: boolean;
-  bondAt: number; bondDone: boolean; // 人生に一度の大物との縁
+  bondAt: number; bondDone: boolean;
+  gravAt: number; gravDone: boolean;  // セガの引力(入らなかった人生でも一度) // 人生に一度の大物との縁
   nextBig: number;
   prisonUntil: number;                 // 服役が明ける年(0 = なし)                     // 次の大きな選択が来る年
   highs: { year: number; age: number; text: Text; w: number; kind?: string }[]; // テンションが上がった瞬間(最後に思い出す)        // この人生で起きた歴史の事件(hs_id)

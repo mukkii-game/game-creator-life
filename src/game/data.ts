@@ -29,3 +29,11 @@ for (const t of TIMELINE) {
 }
 /** 普通に抽選されるイベント(system と weight 0 は除く) */
 export const POOL: GameEvent[] = EVENTS.filter((e) => !e.id.startsWith('ev_sys_') && !HIST_OF.has(e.id) && (e.weight ?? 1) > 0);
+
+// 会社名の表(本当に有名な会社は実名、中小はパロディ名。PLAN §13)と、引退時の最後の台詞(lastwords)
+export interface CoRow { id: string; name: import('./types').Text; years: [number, number]; weight?: number; size?: string; renames?: [number, import('./types').Text][] }
+const coMod = import.meta.glob('../data/companies.json', { eager: true, import: 'default' }) as Record<string, { real: CoRow[]; parody: CoRow[] }>;
+export const COMPANIES = Object.values(coMod)[0] ?? { real: [], parody: [] };
+export interface LastWord { id: string; endings: string[]; when?: string[]; text: import('./types').Text }
+const lwMod = import.meta.glob('../data/lastwords.json', { eager: true, import: 'default' }) as Record<string, { lines: LastWord[] }>;
+export const LASTWORDS: LastWord[] = Object.values(lwMod)[0]?.lines ?? [];
