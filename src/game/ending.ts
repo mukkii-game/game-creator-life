@@ -18,12 +18,21 @@ function causeOf(s: State, id: EndingId): Text {
       ? { ja: `${a} 歳、定年。送別会のケーキに自分のドット絵`, en: `Retired at ${a}. Your pixel art was on the farewell cake` }
       : { ja: `${a} 歳、業界を卒業`, en: `Graduated from the industry at ${a}` };
     case 'end_pen_down': return { ja: `${a} 歳、筆を置く。開発者として大往生`, en: `At ${a}, you put down the pen. A full developer's life` };
+    case 'end_arrest': return { ja: `${a} 歳、魔が差して逮捕。取り調べで「好きなゲームは?」と聞かれ、3 時間しゃべった`, en: `At ${a}, a moment of weakness and an arrest. Asked about your favorite game in custody, you talked for three hours` };
     case 'end_ai_seat': return { ja: `${a} 歳、AI に席を譲った。引き継ぎ資料も AI が書いた`, en: `At ${a}, you gave your seat to an AI. The AI wrote the handover doc too` };
   }
 }
 
-export function makeEnding(s: State, id: EndingId): Ending {
-  const cause = causeOf(s, id);
+/** 最後の 1 行。一番テンションが上がった瞬間を思い出して「いいゲーム人生だった」 */
+function epitaphOf(s: State): Text {
+  const hs = s.inner.highs;
+  if (!hs.length) return { ja: '特に何も無かった。でも、いいゲーム人生だった。', en: 'Nothing special happened. Still, it was a good game life.' };
+  const best = hs.reduce((a, b) => (b.w >= a.w ? b : a));
+  return { ja: `${best.year} 年、${best.age} 歳。${best.text.ja}。あの時はテンションが上がった。いいゲーム人生だった。`, en: `${best.year}, age ${best.age}: ${best.text.en.replace(/\.$/, '')}. What a rush. It was a good game life.` };
+}
+
+export function makeEnding(s: State, id: EndingId, custom?: Text): Ending {
+  const cause = custom ? { ja: `${s.age} 歳、${custom.ja}`, en: `At ${s.age}, ${custom.en}` } : causeOf(s, id);
   const w = s.works;
   const hit = w.filter((x) => x.result === 'hit' || x.result === 'legend').length;
   const flop = w.filter((x) => x.result === 'flop').length;
@@ -35,5 +44,5 @@ export function makeEnding(s: State, id: EndingId): Ending {
   const en = `Entered the industry in ${s.startYear} at ${s.startAge} as a ${job0.en} (${s.entry.en}). ` +
     (w.length ? `Worked on ${w.length} games: ${hit} hits, ${flop} flops. ` : 'Not a single game shipped. ') +
     (fates ? `${fates} of them kept living on after release. ` : '') + `${cause.en}.`;
-  return { id, age: s.age, year: s.year, cause, summary: { ja, en } };
+  return { id, age: s.age, year: s.year, cause, summary: { ja, en }, epitaph: epitaphOf(s) };
 }

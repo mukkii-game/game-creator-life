@@ -82,7 +82,7 @@ export function init(seed: number, options: InitOptions = {}): State {
     inner: {
       used: [], seen: {}, uses: {}, queue: [], nextWorkYear: year + r.int(tune('work.everyMin'), tune('work.everyMax')), companyYears: 0, searchFails: 0,
       leftYear: 0, otherJob: null, counts: {}, lastTag: '', choicesMade: 0, peerStates: [], isPeer: !!peerOf, bot: peerOf?.bot ?? '',
-      workTarget: -1, startJob: job, prevJob: job, histDone: [],
+      workTarget: -1, startJob: job, prevJob: job, histDone: [], highs: [],
     },
   };
   if (!peerOf) {
@@ -118,7 +118,7 @@ function logEvent(s: State, id: string, kind: LogLine['kind']) {
 }
 
 // ---- 効果 ----
-function apply(s: State, e: Effect | undefined, ctx: string, out: string[]) {
+function apply(s: State, e: Effect | undefined, ctx: string, out: string[], cause?: Text) {
   if (!e) return;
   for (const k of ['hp', 'passion', 'skill', 'network', 'fame'] as const) if (e[k]) s.stat[k] = clamp(s.stat[k] + e[k]!);
   if (e.money) s.stat.money += e.money;
@@ -155,7 +155,9 @@ function apply(s: State, e: Effect | undefined, ctx: string, out: string[]) {
       setStatus(s, 'employed'); s.inner.companyYears = 0; s.inner.leftYear = 0; s.flags.came_back = true;
       s.inner.nextWorkYear = s.year + s.rng.int(1, 3);
     } else if (f === 'do_end') {
-      end(s, s.flags.ai_seat ? 'end_ai_seat' : ctx === 'ev_sys_comeback' ? 'end_burnout' : 'end_retire', out);
+      end(s, s.flags.ai_seat ? 'end_ai_seat' : ctx === 'ev_sys_comeback' ? 'end_burnout' : 'end_retire', out, cause);
+    } else if (f === 'do_arrest') {
+      end(s, 'end_arrest', out, cause);
     }
   }
 }
@@ -171,9 +173,9 @@ function count(s: State, ev: GameEvent) {
 }
 
 // ---- 終わり ----
-function end(s: State, id: EndingId, out: string[]) {
+function end(s: State, id: EndingId, out: string[], custom?: Text) {
   if (s.ending) return;
-  s.ending = makeEnding(s, id);
+  s.ending = makeEnding(s, id, custom);
   s.status = 'ended';
   s.choice = undefined;
   s.inner.queue = [];
@@ -303,8 +305,9 @@ function runItem(s: State, id: string, out: string[]) {
   if (id.startsWith('@end:')) return end(s, id.slice(5) as EndingId, out);
   if (id === '@release') {
     if (s.status !== 'employed' && s.status !== 'indie') return;
-    const { line } = release(s);
+    const { line, work } = release(s);
     log(s, line, 'work'); out.push('work');
+    if (work.result === 'hit' || work.result === 'legend') s.inner.highs.push({ year: s.year, age: s.age, text: { ja: `${work.name.ja}が${RESULT_TEXT[work.result].ja}になった`, en: `${work.name.en} became a ${RESULT_TEXT[work.result].en.toLowerCase()}` }, w: (work.result === 'legend' ? 4 : 1.5) + s.rng.next() });
     s.inner.nextWorkYear = s.year + r.int(tune('work.everyMin'), tune('work.everyMax'));
     return;
   }
@@ -351,9 +354,20 @@ function runItem(s: State, id: string, out: string[]) {
   log(s, fill(s, ev.text), ev.tag?.includes('afterlife') ? 'work' : 'event', ev.tag);
   if (hs) s.log[s.log.length - 1].hist = hs;
   if (ev.tag?.includes('afterlife')) out.push('work'); else out.push('event');
-  apply(s, ev.effect, ev.id, out);
+  remember(s, ev, ev.memory);
+  apply(s, ev.effect, ev.id, out, ev.cause);
   schedule(s, ev.later);
   s.inner.workTarget = -1;
+}
+
+/** テンションが上がった瞬間を覚えておく(最後の 1 行に使う) */
+function remember(s: State, ev: GameEvent, memory?: Text) {
+  const t = ev.tag ?? [];
+  const w = t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
+  if (!w) return;
+  const first = (x: string, sep: RegExp) => x.split(sep)[0];
+  const text = memory ? fill(s, memory) : (() => { const f = fill(s, ev.text); return { ja: first(f.ja, /。/), en: first(f.en, /\. /) }; })();
+  s.inner.highs.push({ year: s.year, age: s.age, text, w: w + s.rng.next() });
 }
 
 function promote(s: State) {
@@ -442,7 +456,9 @@ export function choose(s: State, choiceId: string): string[] {
   s.inner.choicesMade++;
   log(s, fill(s, c.result ?? c.label), 'choice', ['choice']);
   out.push('chosen');
-  apply(s, c.effect, eventId, out);
+  const cev = EVENT_BY_ID.get(eventId);
+  if (cev && (c.memory || cev.memory || (cev.tag ?? []).some((t) => t === 'high' || t === 'celeb'))) remember(s, cev, c.memory ?? cev.memory);
+  apply(s, c.effect, eventId, out, c.cause ?? cev?.cause);
   schedule(s, c.later);
   s.inner.workTarget = -1;
   checkEnd(s, out);

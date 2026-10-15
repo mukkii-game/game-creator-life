@@ -32,7 +32,7 @@
     "Ending": {
       "type": "object", "required": ["id", "age", "year", "cause", "summary"],
       "properties": {
-        "id": { "enum": ["end_burnout", "end_body", "end_debt", "end_blacklist", "end_retire", "end_pen_down", "end_ai_seat"] },
+        "id": { "enum": ["end_burnout", "end_body", "end_debt", "end_blacklist", "end_retire", "end_pen_down", "end_ai_seat", "end_arrest"] },
         "age": { "type": "integer" }, "year": { "type": "integer" },
         "cause": { "$ref": "#/$defs/Text", "description": "共有文の 1 行目(「52 歳、3 度目の仕様変更で心が折れ、農業へ」)" },
         "summary": { "$ref": "#/$defs/Text", "description": "結果画面の本文(入り方・作品数・運命・終わり方を 3〜4 文で)" }

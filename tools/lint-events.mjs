@@ -32,7 +32,7 @@ const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other'
 const COND = /^!?(age|year|era|job|status|works|pos|company\.size|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z0-9_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
 const JOBS = ['programmer', 'planner', 'artist', 'sound', 'qa', 'sales', 'director', 'producer', 'other'];
 const STATUS = ['employed', 'indie', 'left', 'retired', 'ended'];
-const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow']);
+const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow', 'cause', 'memory']);
 const TL_KEYS = new Set(['id', 'year', 'month', 'kind', 'text', 'use', 'src', 'unverified']);
 
 function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
@@ -93,6 +93,8 @@ function checkEvent(ev, w, needYears, histYear) {
     if (needYears && (!Array.isArray(ev.years) || ev.years.length !== 2 || !ev.years.every(Number.isInteger) || ev.years[0] > ev.years[1] || ev.years[0] < 1970 || ev.years[1] > 2040)) err(w, 'years は [from, to](1970〜2040)');
     if (!needYears && ev.years) err(w, '事件の variant に years は書かない(事件の year / until が使われる)');
     text(w + '.text', ev.text);
+    if (ev.cause) text(w + '.cause', ev.cause);
+    if (ev.memory) text(w + '.memory', ev.memory);
     for (const c of ev.when || []) {
       if (!COND.test(c)) { err(w, `when の語彙外: ${c}`); continue; }
       const m = /^!?(pos|job|status|company\.size)\s*!?=\s*([a-z0-9_-]+)$/.exec(c);
@@ -110,6 +112,9 @@ function checkEvent(ev, w, needYears, histYear) {
         seen(c.id, cw);
         text(cw + '.label', c.label);
         if (c.result) text(cw + '.result', c.result);
+        if (c.cause) text(cw + '.cause', c.cause);
+        if (c.memory) text(cw + '.memory', c.memory);
+        for (const k of Object.keys(c)) if (!['id', 'label', 'effect', 'later', 'result', 'cause', 'memory'].includes(k)) err(cw, `choice に未知の ${k}`);
         effect(cw + '.effect', c.effect ?? {});
         if (!c.effect) err(cw, 'effect が無い({} でよい)');
         strs.push(c.label?.ja, c.label?.en, c.result?.ja, c.result?.en);

@@ -19,7 +19,7 @@ function scorer(w: (s: State) => W): Bot {
       let v = (e.hp ?? 0) * k.hp + (e.passion ?? 0) * k.passion + (e.skill ?? 0) * k.skill + (e.network ?? 0) * k.network
         + (e.money ?? 0) / 10 * k.money + (e.fame ?? 0) * k.fame;
       if (e.flag?.do_go_indie) v += k.indie;
-      if (e.flag?.do_end) v += k.end;
+      if (e.flag?.do_end || e.flag?.do_arrest) v += k.end;
       if (e.flag?.do_return) v += 10;
       if (v > bestV) { bestV = v; best = c; }
     }

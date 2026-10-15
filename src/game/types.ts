@@ -20,11 +20,15 @@ export interface Effect {
   job?: Job; status?: Status; work?: WorkEffect;
 }
 export interface Later { after: number; event: string }
-export interface Choice { id: string; label: Text; effect: Effect; later?: Later[]; result?: Text }
+export interface Choice { id: string; label: Text; effect: Effect; later?: Later[]; result?: Text; cause?: Text; memory?: Text }
 export interface GameEvent {
   id: string; years: [number, number]; text: Text;
   when?: string[]; weight?: number; once?: boolean;
   effect?: Effect; later?: Later[]; choices?: Choice[]; tag?: string[]; allow?: string[];
+  /** この効果で人生が終わる時(do_end / do_arrest)の死因の 1 行 */
+  cause?: Text;
+  /** 最後に思い出す時の短い 1 行(tag high / celeb の時。無ければ本文の 1 文目) */
+  memory?: Text;
 }
 export type TimelineKind = 'hardware' | 'hit' | 'incident' | 'work' | 'ai' | 'future';
 export interface TimelineEntry { id: string; year: number; month?: number; kind: TimelineKind; text: Text; use: string; src: string; unverified?: boolean }
@@ -41,8 +45,8 @@ export type Pos = 'client_lead' | 'client' | 'dev_lead' | 'dev' | 'sub' | 'qa' |
 export interface Stat { hp: number; passion: number; skill: number; network: number; money: number; fame: number }
 export interface Work { id: string; name: Text; year: number; platform: string; role: Role; result: WorkResult; history: { year: number; text: Text }[] }
 export interface Peer { name: string; bot: string; summary: Text }
-export type EndingId = 'end_burnout' | 'end_body' | 'end_debt' | 'end_blacklist' | 'end_retire' | 'end_pen_down' | 'end_ai_seat';
-export interface Ending { id: EndingId; age: number; year: number; cause: Text; summary: Text }
+export type EndingId = 'end_burnout' | 'end_body' | 'end_debt' | 'end_blacklist' | 'end_retire' | 'end_pen_down' | 'end_ai_seat' | 'end_arrest';
+export interface Ending { id: EndingId; age: number; year: number; cause: Text; summary: Text; /** 最後の 1 行(一番テンションが上がった瞬間 +「いいゲーム人生だった」) */ epitaph: Text }
 export type LogKind = 'event' | 'timeline' | 'choice' | 'work' | 'peer';
 export interface LogLine { year: number; age: number; text: Text; kind: LogKind; tag?: string[]; hist?: string }
 export interface Company { id: string; name: Text; size: CompanySize }
@@ -91,7 +95,8 @@ export interface Inner {
   workTarget: number;        // afterlife のイベントが指す作品の番号(-1 = 直近)
   startJob: Job;
   prevJob: Job;
-  histDone: string[];        // この人生で起きた歴史の事件(hs_id)
+  histDone: string[];
+  highs: { year: number; age: number; text: Text; w: number }[]; // テンションが上がった瞬間(最後に思い出す)        // この人生で起きた歴史の事件(hs_id)
 }
 
 export interface InitOptions {
