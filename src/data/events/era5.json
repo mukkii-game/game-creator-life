@@ -137,7 +137,7 @@
     "text": { "ja": "1 人で作ったゲームが世界的ヒットというニュース。社内 200 人のプロジェクトより売れたらしい。帰りに PC を買った。", "en": "News: a game made by one person is a global hit, outselling your 200-person project. You bought a PC on the way home." },
     "when": ["status=employed"], "effect": { "passion": 5, "money": -15, "flag": { "home_dev": true } }, "tag": ["gag"] },
   { "id": "ev_era5_go_park", "years": [2016, 2017], "when": ["status=employed"], "once": true,
-    "text": { "ja": "位置情報のモンスター集めが大流行。昼休み、会社前の公園にスマホを持った人が 40 人。全員うちの社員。", "en": "Location-based monster catching is everywhere. At lunch, 40 people with phones in the park out front. All coworkers." },
+    "text": { "ja": "『Pokémon GO』が大流行。昼休み、会社前の公園にスマホを持った人が 40 人。全員うちの社員。", "en": "Pokémon GO is everywhere. At lunch, 40 people with phones in the park out front. All coworkers." },
     "effect": { "hp": 4, "passion": 3, "network": 2 }, "tag": ["gag"] },
   { "id": "ev_era5_vr_demo", "years": [2016, 2019],
     "text": { "ja": "VR のデモを 1 日 30 回案内した。帰りの電車がもう現実なのか分からない。", "en": "You ran the VR demo 30 times today. On the train home you're not sure this is reality." },

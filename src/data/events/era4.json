@@ -14,7 +14,7 @@
         "result": { "ja": "終電を逃した。狩った竜の数は、今月の仕様書の枚数より多い。", "en": "You missed the last train. Dragons slain outnumber this month's spec pages." } },
       { "id": "ch_era4_hunt_leave", "label": { "ja": "先に帰る", "en": "Go home" }, "effect": { "hp": 3, "network": -3 },
         "later": [{ "after": 2, "event": "ev_era4_early_bird_promo" }],
-        "result": { "ja": "翌朝、誰とも話が合わなかった。全員、尻尾の話をしている。", "en": "Next morning you can't follow any conversation. Everyone's talking about tails." } }
+        "result": { "ja": "翌朝、誰とも話が合わなかった。全員、モンハンの尻尾の話をしている。", "en": "Next morning you can't follow any conversation. Everyone's talking about Monster Hunter tails." } }
     ], "tag": ["peer", "choice"] },
   { "id": "ev_era4_hunt_buddy_offer", "years": [2004, 2016], "weight": 0,
     "text": { "ja": "昔の狩り仲間から電話。「うちに来ないか。腕は知ってる。ゲームの方の」。", "en": "An old hunting buddy calls: 'Join us. I know your skills. The in-game ones.'" },
@@ -23,7 +23,7 @@
     "text": { "ja": "定時に帰る人として有名になり、なぜか「段取りの人」と呼ばれて係長になった。", "en": "Known as 'the one who leaves on time,' you're somehow labeled 'the organized one' and made team lead." },
     "effect": { "fame": 3, "network": 3, "passion": -2 }, "tag": ["job", "gag"] },
   { "id": "ev_era4_brain_title", "years": [2005, 2008], "once": true, "weight": 2,
-    "text": { "ja": "大人向けの頭の体操ゲームが大ヒット。部長「次の企画、全部タイトルに『脳』を入れて」。", "en": "A brain-training game for adults is a smash. Your boss: 'Every pitch gets the word BRAIN in the title.'" },
+    "text": { "ja": "『脳トレ』が大ヒット。部長「次の企画、全部タイトルに『脳』を入れて」。", "en": "Brain Age is a smash. Your boss: 'Every pitch gets the word BRAIN in the title.'" },
     "when": ["status=employed"],
     "choices": [
       { "id": "ch_era4_brain_yes", "label": { "ja": "『脳』を入れる", "en": "Add BRAIN" }, "effect": { "money": 30, "passion": -8 },
@@ -83,7 +83,7 @@
     "text": { "ja": "残った者に「特別賞与」が出た。封筒の中身は社長の手書きの礼状。字はとても上手だった。", "en": "A 'special bonus' for those who stayed: a handwritten thank-you note from the president. Lovely penmanship." },
     "effect": { "passion": 4, "network": 2 }, "tag": ["money", "gag"] },
   { "id": "ev_era4_social_transfer", "years": [2009, 2011], "once": true, "weight": 2,
-    "text": { "ja": "ケータイのソーシャルゲーム部署へ異動の打診。「カードを引くだけ。売上は今の 10 倍」。", "en": "Offered a transfer to the mobile social game team. 'Players just draw cards. Ten times the revenue.'" },
+    "text": { "ja": "ケータイのソーシャルゲーム部署へ異動の打診。「『怪盗ロワイヤル』みたいなの。カードを引くだけ。売上は今の 10 倍」。", "en": "Offered a transfer to the mobile social game team. 'Like Kaitou Royale. Players just draw cards. Ten times the revenue.'" },
     "when": ["status=employed"],
     "choices": [
       { "id": "ch_era4_social_go", "label": { "ja": "異動する", "en": "Transfer" }, "effect": { "money": 60, "passion": -6, "flag": { "social_dev": true } },
