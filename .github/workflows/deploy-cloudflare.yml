@@ -45,4 +45,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           PROJECT: ${{ vars.CLOUDFLARE_PROJECT || github.event.repository.name }}
-        run: npx --yes wrangler@4 pages deploy dist --project-name "$PROJECT" --branch "${GITHUB_REF_NAME}"
+        run: |
+          # プロジェクトが無ければ作る(初回だけ。既にあれば失敗するので無視)
+          npx --yes wrangler@4 pages project create "$PROJECT" --production-branch main || true
+          npx --yes wrangler@4 pages deploy dist --project-name "$PROJECT" --branch "${GITHUB_REF_NAME}"

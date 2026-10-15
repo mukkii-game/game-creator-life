@@ -18,3 +18,4 @@
 - [ ] **同期 3 人は bots.ts のボット**で並走(元ネタの「同じ秒に生まれた 4 人」の置き換え)。画面には年の節目だけ出す(常時表示は狭い)。
 - [ ] 素材は CSS 図形と絵文字で始める(PixelMplus フォントと効果音ラボの効果音は候補。CREDITS に書いてから使う)。
 - [ ] Astra(GPT-6)への依頼文は **作らない**(BRIEF 2026-10-15 の変更どおり)。
+- [ ] .github/workflows/deploy-cloudflare.yml: Cloudflare Pages のプロジェクトが無くてデプロイが落ちていたので、無ければ `wrangler pages project create` で作る 1 行を足した(2026-10-15 司令塔)。
