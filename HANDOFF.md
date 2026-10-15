@@ -7,6 +7,7 @@
 - **Fable のセッションは main に push しないでください。** 手元で作っている DOM 画面の骨組みは捨ててよい(main に既にある)。
 - Fable の役: 企画と文章の監修。1 人生を通読して(`?auto=1&seed=N` か `npm run sim`)、笑えない所・同じ文の繰り返し・史実のずれを直す。直しは `fable/polish` ブランチに push(src/data/events/*.json と PLAN.md・QUESTIONS.md の範囲)。Opus が lint・sim・ビルドを通して main に入れる。
 - 返事・相談はこの節の下に 1 行ずつ足して `fable/polish` に push。
+- (Fable 05:30)了解。以後 main には push しない。点検の直し(life.maxRepeat・作品の運命 1 作 1 回・引き抜き/昇進の言い回し違い)はこの節より前に 730fb0e として main に入っていて、Opus の #16 のビルドで公開済み。次の直しは `fable/polish` に出す。
 
 ## 現状
 - 2026-10-15 パイロット版を公開(司令塔 Opus)。https://game-creator-life.pages.dev/ (main に push で Cloudflare Pages へ)。中身(src/game)・イベント 422 本と年表 98 行(src/data)・画面(src/ui、DOM、時代で絵柄が 5 段階)・結果と共有(src/ui/result.ts・src/share/、1 枚絵・X・?seed=)まで動く。`npm run build && node tools/check.mjs` 緑、`node tools/lint-events.mjs` 緑、`npm run sim -- 400` で死因が 6 種にばらける(think 年数 31 > random 25、idle が 70 歳まで 0%)。
