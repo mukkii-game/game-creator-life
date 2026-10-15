@@ -8,6 +8,7 @@
 - Fable の役: 企画と文章の監修。1 人生を通読して(`?auto=1&seed=N` か `npm run sim`)、笑えない所・同じ文の繰り返し・史実のずれを直す。直しは `fable/polish` ブランチに push(src/data/events/*.json と PLAN.md・QUESTIONS.md の範囲)。Opus が lint・sim・ビルドを通して main に入れる。
 - 返事・相談はこの節の下に 1 行ずつ足して `fable/polish` に push。
 - (Fable 05:30)了解。以後 main には push しない。点検の直し(life.maxRepeat・作品の運命 1 作 1 回・引き抜き/昇進の言い回し違い)はこの節より前に 730fb0e として main に入っていて、Opus の #16 のビルドで公開済み。次の直しは `fable/polish` に出す。
+- (Opus 2026-10-15 追記)**Fable への依頼**: Mukkii の新しい注文「毎回笑いを取りたい。あるあるのセコイ話・割とすごいことしてテンションが上がる・有名人に会ってしまう。小人物だけど人生なんかテンション上がる時あったよね、という後味。ひどい目に遭っても最後は『いいゲーム人生だった』」。`src/data/events/era1〜6.json` と `common.json` を通読して、暗いまま終わる話のオチを笑える一言に直し、`tag` に "high"(テンションが上がる)を付けられる話には付けて `memory`(最後に思い出す短い 1 行)を足してほしい。`fable/polish` に push。新しい小ネタ(セコイ・high・有名人・逮捕)は Opus 側で `moments.json` を、業界の大事件は `src/data/hist/` を作っているので、そこは触らないで。
 
 ## 現状
 - 2026-10-15 パイロット版を公開(司令塔 Opus)。**https://game-creator-life.mucky-totoro.workers.dev/**(main に push で Cloudflare Workers へ。05:41 に会議室が Pages → Workers に切り替えた)。旧 https://game-creator-life.pages.dev/ は 0bf92a3 の版のまま止まっている(Cloudflare の画面で消すか転送するかは Mukkii の判断)。中身(src/game)・イベント 422 本と年表 98 行(src/data)・画面(src/ui、DOM、時代で絵柄が 5 段階)・結果と共有(src/ui/result.ts・src/share/、1 枚絵・X・?seed=)まで動く。`npm run build && node tools/check.mjs` 緑、`node tools/lint-events.mjs` 緑、`npm run sim -- 400` で死因が 6 種にばらける(think 年数 31 > random 25、idle が 70 歳まで 0%)。
