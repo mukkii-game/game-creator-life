@@ -59,6 +59,7 @@ export interface State {
 
 export interface Inner {
   used: string[];            // once のイベントで出たもの
+  seen: Record<string, number>; // イベント → 最後に出た年(同じ小ネタの連発を防ぐ)
   queue: string[];           // その年に残っているイベント(選択で止まった続き)
   nextWorkYear: number;      // 次に作品が出る年
   companyYears: number;      // 今の会社にいる年数

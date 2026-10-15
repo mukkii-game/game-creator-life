@@ -43,9 +43,11 @@ export function test(s: State, cond: string): boolean {
   return not ? !ok : ok;
 }
 
-export function eligible(s: State, ev: GameEvent): boolean {
+export function eligible(s: State, ev: GameEvent, gap = 0): boolean {
   if (s.year < ev.years[0] || s.year > ev.years[1]) return false;
   if (ev.once && s.inner.used.includes(ev.id)) return false;
+  const last = s.inner.seen[ev.id];
+  if (last !== undefined && s.year - last < gap) return false;
   return (ev.when ?? []).every((c) => test(s, c));
 }
 
