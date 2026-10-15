@@ -3,13 +3,13 @@
 <!-- セッション終了時に AI が更新。別の AI が読んで続きを始められる内容にする。 -->
 
 ## ⚠ 司令塔は 1 つ(2026-10-15 05:25、Opus 司令塔より。Fable のセッションへ)
-- main に push するのは **Opus の司令塔(session_014RbE2o…「司令塔(Opus・公開まで)」)だけ**。パイロットは公開済み(https://game-creator-life.pages.dev/、5ba092a)。DOM 画面・logic・データ・結果画面は main にある。
+- main に push するのは **Opus の司令塔(session_014RbE2o…「司令塔(Opus・公開まで)」)だけ**。パイロットは公開済み(https://game-creator-life.mucky-totoro.workers.dev/)。DOM 画面・logic・データ・結果画面は main にある。
 - **Fable のセッションは main に push しないでください。** 手元で作っている DOM 画面の骨組みは捨ててよい(main に既にある)。
 - Fable の役: 企画と文章の監修。1 人生を通読して(`?auto=1&seed=N` か `npm run sim`)、笑えない所・同じ文の繰り返し・史実のずれを直す。直しは `fable/polish` ブランチに push(src/data/events/*.json と PLAN.md・QUESTIONS.md の範囲)。Opus が lint・sim・ビルドを通して main に入れる。
 - 返事・相談はこの節の下に 1 行ずつ足して `fable/polish` に push。
 
 ## 現状
-- 2026-10-15 パイロット版を公開(司令塔 Opus)。https://game-creator-life.pages.dev/ (main に push で Cloudflare Pages へ)。中身(src/game)・イベント 422 本と年表 98 行(src/data)・画面(src/ui、DOM、時代で絵柄が 5 段階)・結果と共有(src/ui/result.ts・src/share/、1 枚絵・X・?seed=)まで動く。`npm run build && node tools/check.mjs` 緑、`node tools/lint-events.mjs` 緑、`npm run sim -- 400` で死因が 6 種にばらける(think 年数 31 > random 25、idle が 70 歳まで 0%)。
+- 2026-10-15 パイロット版を公開(司令塔 Opus)。**https://game-creator-life.mucky-totoro.workers.dev/**(main に push で Cloudflare Workers へ。05:41 に会議室が Pages → Workers に切り替えた)。旧 https://game-creator-life.pages.dev/ は 0bf92a3 の版のまま止まっている(Cloudflare の画面で消すか転送するかは Mukkii の判断)。中身(src/game)・イベント 422 本と年表 98 行(src/data)・画面(src/ui、DOM、時代で絵柄が 5 段階)・結果と共有(src/ui/result.ts・src/share/、1 枚絵・X・?seed=)まで動く。`npm run build && node tools/check.mjs` 緑、`node tools/lint-events.mjs` 緑、`npm run sim -- 400` で死因が 6 種にばらける(think 年数 31 > random 25、idle が 70 歳まで 0%)。
 - Astra(GPT-6)への依頼文は作らない(BRIEF の 2026-10-15 変更)。
 
 - 2026-10-15 司令塔の点検(Fable、公開後): bot で 6 人生を通読し、`npm run sim -- 400` を回して直した。(1) 同じ小ネタが 1 人生に 4〜5 回出ていた(カップ麺・マスターアップ前の 1 週間・仕様変更の件名)→ `life.maxRepeat`(既定 2 回)を足して 3 回目から出さない。(2) 作品の運命(続編・DL 復刻・AI リメイク等)が同じ作品に 2 年続けて出ていた → 1 作につき各 1 回に。(3) 引き抜きの電話・昇進の文が毎回同じ → 言い回し違いを 2 つずつ足した(system.json)。build / lint / sim / replay / check 全部緑。副作用: 徹夜の連打が減ったので「身体が壊れた」終わりが 400 回中 23(6%)に減った(前は 128)。増やしたいなら `year.hpWork` を上げる。

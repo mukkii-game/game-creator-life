@@ -341,7 +341,7 @@ function header(c: CanvasRenderingContext2D, l: Lang, x: number, y: number, maxW
 function footer(c: CanvasRenderingContext2D, l: Lang, x: number, y: number, k: number, align: CanvasTextAlign) {
   c.textAlign = align; c.textBaseline = 'alphabetic';
   c.fillStyle = '#8e97aa'; c.font = `${20 * k}px ${DOT}`;
-  c.fillText(`${HASHTAG[l]}   game-creator-life.pages.dev`, x, y);
+  c.fillText(`${HASHTAG[l]}   game-creator-life.mucky-totoro.workers.dev`, x, y);
   c.textAlign = 'left';
 }
 

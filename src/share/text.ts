@@ -8,7 +8,7 @@ import { JOB_TEXT } from '../game/names';
 export const TITLE: Text = { ja: '1200万人のゲームクリエイター人生', en: 'Life as One of 12 Million Game Creators' };
 export const HASHTAG: Text = { ja: '#1200万人のゲームクリエイター人生', en: '#12MillionGameCreators' };
 /** 本番の URL。itch.io の埋め込み(itch.zone)やローカルファイルの時はこちらを共有する */
-export const PROD_URL = 'https://game-creator-life.pages.dev/';
+export const PROD_URL = 'https://game-creator-life.mucky-totoro.workers.dev/';
 
 /** 入口の文を「〜の」形にする。logic の entry.ja は「大手の新卒」型(古い版は「〜に入り」型)。知らない文は「〜の」を足す */
 const ENTRY_SHORT: Record<string, Text> = {
