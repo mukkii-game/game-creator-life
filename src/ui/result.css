@@ -52,3 +52,6 @@
 .rs-epitaph { margin: 40px auto 8px; max-width: 26em; font-size: 19px; line-height: 1.8; color: #fff4d6; letter-spacing: .03em; text-align: center; }
 .rs-epitaph-panel { margin: 4px 0 14px; padding: 12px 6px; font-size: 17px; border-top: 1px solid rgba(255,244,214,.25); border-bottom: 1px solid rgba(255,244,214,.25); animation: rsEpi 2.4s ease-out both; }
 @keyframes rsEpi { from { opacity: 0; } to { opacity: 1; } }
+
+/* 引退時の最後の台詞(有名な台詞のパロディ) */
+.rs-lastword { margin: 10px 0 4px; font-size: 17px; font-weight: bold; text-align: center; color: #ffd36b; }

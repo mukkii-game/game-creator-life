@@ -10,7 +10,7 @@ import { load } from '../core/save';
 import type { State, LogLine, Work, Era, Choice } from '../game/types';
 import { tune } from '../core/tuning';
 import { t, lang } from '../core/i18n';
-import { sfx } from '../core/audio';
+import { sfx, playSe, playBgm, bgmOfYear, duckBgm, type SeId } from '../core/audio';
 import { expose } from '../core/demo';
 import type { Recorder, Player } from '../core/replay';
 import { h, tf, tx, lookOf, setLook, money, FocusRing } from './util';
@@ -126,6 +126,11 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   const ring = new FocusRing();
 
   const yearMs = () => (speed === 'fast' ? tune('ui.fast') : tune('life.yearSec') / speed) * 1000;
+  // 効果音: 「一気に」の時は大事な音(伝説・ヒット・選択・人生の終わり)だけにして、同じ音の間も空ける
+  const se = (id: SeId, big = false) => {
+    if (speed === 'fast' && !big) return;
+    playSe(id, { minGap: speed === 'fast' ? 0.8 : speed === 4 ? 0.3 : 0.1 });
+  };
   // 1 行の長さ: 1 年を行数で割る。ただし読み切れるように、1 行の最短(ui.lineMin 秒 ÷ 速度)を下回らない
   const lineMs = () => Math.max(60, yearMs() / Math.max(2, batchN), speed === 'fast' ? 0 : tune('ui.lineMin') * 1000 / (speed as number));
 
@@ -143,6 +148,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     yearEl.dataset.unit = t('yearUnit');
     ageEl.textContent = `${age}${lang() === 'ja' ? ' 歳' : ' y/o'}`;
     setLook(app, lookOf(year));
+    playBgm(bgmOfYear(year)); // 時代が変わったら曲も変わる(同じ曲なら何もしない)
     expose('score', age);
   }
   function setTape() {
@@ -279,7 +285,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     requestAnimationFrame(() => { chat.scrollTop = chat.scrollHeight; });
     tickerLines.push(`${t('histTvTag')} ${tx(hd.news)}`);
     setTape();
-    sfx.score();
+    se(style === 'tv' ? 'tv' : 'paper');
     return msg;
   }
 
@@ -296,7 +302,18 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const m = (l.hist && histBubble(l, l.hist)) || bubble(l.kind, tx(l.text), l.year);
     if (l.kind === 'work') {
       m.classList.add('pop');
-      if (/発売|ships/.test(l.text.ja + l.text.en) && !(l.tag ?? []).includes('afterlife')) sfx.score();
+      if ((l.tag ?? []).includes('afterlife')) se('after');
+      else if (/発売|ships/.test(l.text.ja + l.text.en)) {
+        // 発売の結果で音を変える(伝説 > ヒット > そこそこ > 爆死)
+        const w = [...s.works].reverse().find((x) => l.text.ja.includes(x.name.ja));
+        const r = w?.result ?? 'ok';
+        se(r === 'legend' ? 'legend' : r === 'hit' ? 'hit' : r === 'flop' ? 'flop' : 'ok', r === 'legend' || r === 'hit');
+      }
+    } else if (!l.hist) {
+      const tg = l.tag ?? [];
+      if (tg.includes('high') || tg.includes('peak')) se('high');
+      else if (tg.includes('celeb')) se('celeb');
+      else if (tg.includes('pit')) se('pit');
     }
     if ((l.tag ?? []).includes('afterlife')) m.classList.add('afterlife');
     // テンションが上がった瞬間・有名人に会った瞬間は少し明るく(後味を良くする)
@@ -378,7 +395,8 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const toEnd = () => { chat.scrollTop = chat.scrollHeight; };
     requestAnimationFrame(toEnd);
     setTimeout(toEnd, 350);
-    sfx.ui();
+    se('ask', true);
+    duckBgm(true);
     // replay → おまかせ の順で自動で選ぶ
     const fromReplay = o.player ? o.player.input(choiceFrame) : '';
     if (fromReplay && c.choices.some((x) => x.id === fromReplay)) {
@@ -405,6 +423,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     o.recorder.push(choiceFrame, id);
     choiceFrame++;
     sfx.tap();
+    duckBgm(false);
     choose(s, id);
     for (; shown < s.log.length; shown++) queue.push(s.log[shown]);
     batchN = queue.filter((l) => l.kind !== 'timeline').length || 1;
@@ -421,6 +440,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const e = s.ending!;
     setTicker(e.year, e.age);
     sfx.over();
+    playBgm(null, 1500); // 終わりのジングルを聞かせる
     const ov = h('div', 'ending');
     const box = h('div', 'ending-box');
     box.append(h('div', 'ending-head', t('endHead')), h('div', 'ending-when', tf('endAt', { year: e.year, age: e.age })), h('div', 'ending-cause', tx(e.cause)), h('div', 'ending-tap', t('toResult')));

@@ -12,6 +12,7 @@ import { drawCard, toBlob, ensureFont, RESULT_COLOR } from '../share/card';
 import { HIST_BY_ID } from '../game/data';
 import { chronicleCount } from './title';
 import { t } from '../core/i18n';
+import { playSe } from '../core/audio';
 import { tf } from './util';
 import { TITLE, shareText, lifeUrl, xIntentUrl, entryPhrase } from '../share/text';
 
@@ -31,6 +32,7 @@ const S: Record<string, Text> = {
   works: { ja: '作品', en: 'WORKS' },
   noWorks: { ja: '(世に出た作品はなし)', en: '(no games shipped)' },
   peers: { ja: '同期', en: 'PEERS' },
+  music: { ja: '音楽・効果音', en: 'MUSIC & SOUND EFFECTS' },
   thanks: { ja: '協力', en: 'SPECIAL THANKS' },
   thanksBody: { ja: '寝袋 / カップ麺 / 栄養ドリンク / 仕様書(第 14 版)', en: 'Sleeping bag / Cup noodles / Energy drinks / Spec doc (rev. 14)' },
   fin: { ja: '終', en: 'FIN' },
@@ -101,10 +103,12 @@ function buildRoll(s: State, l: Lang): HTMLElement {
   }
   h2('peers');
   s.peers.forEach((pe, i) => { p(peerName(s, i, l)); p(pe.summary[l], 'rs-small'); });
+  h2('music'); p(l === 'ja' ? '魔王魂' : 'MaouDamashii'); p('https://maou.audio/', 'rs-small');
   h2('thanks'); p(T('thanksBody', l), 'rs-small');
   const job = JOB_TEXT[s.job] ?? JOB_TEXT.other;
   box.append(el('p', 'rs-cause', s.ending ? s.ending.cause[l] : ''));
   p(l === 'ja' ? `${s.ending?.year ?? s.year} 年 / 最後の肩書き: ${job.ja}` : `${s.ending?.year ?? s.year} / last title: ${job.en}`, 'rs-small');
+  if (s.ending?.lastWord) box.append(el('p', 'rs-lastword', `「${s.ending.lastWord[l]}」`));
   if (s.ending?.epitaph) box.append(el('p', 'rs-epitaph', s.ending.epitaph[l]));
   box.append(el('p', 'rs-fin', T('fin', l)));
   p(T('oneOf', l), 'rs-small');
@@ -222,6 +226,7 @@ export function showResult(root: HTMLElement, s: State, hooks: ResultHooks) {
     panel.append(pin);
     pin.append(el('p', 'rs-ttl rs-dot', T('head', l)));
     pin.append(el('p', 'rs-cause-big rs-dot', s.ending ? s.ending.cause[l] : ''));
+    if (s.ending?.lastWord) pin.append(el('p', 'rs-lastword', `「${s.ending.lastWord[l]}」`));
     if (s.ending?.epitaph) pin.append(el('p', 'rs-epitaph rs-epitaph-panel', s.ending.epitaph[l]));
     pin.append(el('p', 'rs-sum', s.ending ? s.ending.summary[l] : ''));
     if (hooks.chronicle) pin.append(chronicleBox(s, hooks.chronicle));
@@ -284,6 +289,8 @@ export function showResult(root: HTMLElement, s: State, hooks: ResultHooks) {
     links.append(og);
     pin.append(links);
     pin.append(el('p', 'rs-keys', T('keys', l)));
+    pin.append(el('p', 'rs-keys', t('soundCredit')));
+    playSe('clap', { vol: 0.8 });
     // ロールを飛ばしたタップが下のボタンに落ちないよう、少しだけ押せなくする
     panel.style.pointerEvents = 'none';
     setTimeout(() => { panel.style.pointerEvents = ''; }, 450);

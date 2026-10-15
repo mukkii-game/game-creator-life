@@ -81,7 +81,8 @@ function render(app: HTMLElement, era: Era | '', onStart: (era: Era | '') => voi
   onTap(langB, () => { toggleLang(); relang(pick); });
   const muteB = h('button', 'mini', isMuted() ? t('unmute') : t('mute'));
   onTap(muteB, () => { toggleMuted(); muteB.textContent = isMuted() ? t('unmute') : t('mute'); });
-  tools.append(langB, muteB);
+  // 魔王魂の規約: 著作表記が必要(CREDITS.md)
+  tools.append(langB, muteB, h('span', 'title-credit', t('soundCredit')));
 
   const help = h('p', 'title-help', t('controlsHelp'));
   const note = h('p', 'title-note', t('note12m'));

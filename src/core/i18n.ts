@@ -17,6 +17,7 @@ const TABLE: Record<string, { ja: string; en: string }> = {
   era4: { ja: '2004–11 ケータイ', en: '2004–11 Feature phones' },
   era5: { ja: '2012–19 ソシャゲ', en: '2012–19 Gacha games' },
   era6: { ja: '2020–35 AI', en: '2020–35 AI' },
+  soundCredit: { ja: '音楽・効果音: 魔王魂', en: 'Music & SFX: MaouDamashii (maou.audio)' },
   note12m: { ja: '1200 万人 = 世界でゲームを作っている人の推計(SlashData 2024 の 1110 万人から推定。趣味・学生を含む)', en: '12 million = estimated number of people making games worldwide (extrapolated from SlashData 2024: 11.1M, incl. hobbyists and students)' },
   controlsHelp: { ja: 'タップ / 1〜3 で選ぶ・Enter で進む・Space で一時停止 / パッド: 十字・A 決定・B 速度・START 停止', en: 'Tap / 1–3 to choose, Enter to skip, Space to pause / Pad: D-pad, A select, B speed, START pause' },
   revealYear: { ja: '{v} 年', en: '{v}' },

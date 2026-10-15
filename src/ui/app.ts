@@ -7,7 +7,7 @@ import type { Era, State } from '../game/types';
 import { startSeed } from '../core/rng';
 import { query } from '../core/meta';
 import { t } from '../core/i18n';
-import { sfx } from '../core/audio';
+import { playSe, stopSe, playBgm } from '../core/audio';
 import { expose } from '../core/demo';
 import { describe, action } from '../core/probe';
 import { Recorder, Player, replayFromUrl } from '../core/replay';
@@ -69,6 +69,7 @@ export function startApp(container: HTMLElement) {
     setScene('Title');
     play = null;
     expose('score', 0);
+    playBgm('title');
     const scr = showTitle(app, lastEra, (era) => begin(newSeed(), era), () => chronicle());
     onCmd = scr.onCmd;
   }
@@ -113,12 +114,18 @@ export function startApp(container: HTMLElement) {
     box.append(who, tap);
     ov.append(box);
     app.append(ov);
-    lines.forEach((_, i) => setTimeout(() => sfx.tap(), (auto ? 150 : 500) * i));
+    // 音: 発表の曲 + ドラムロール → 1 行ずつ「ピッ」→ 会社名で「当たり」のジングル
+    playBgm('reveal', 400);
+    const step = auto ? 150 : 500;
     let started = false;
+    playSe('drum');
+    lines.forEach((_, i) => setTimeout(() => { if (!started) playSe('pi'); }, step * i));
+    setTimeout(() => { stopSe('drum'); if (!started) playSe('gacha'); }, step * lines.length);
     const go = () => {
       if (started) return;
       started = true;
       clearTimeout(tm);
+      stopSe('drum');
       run(seed, era, player, seen, name);
     };
     const tm = setTimeout(go, auto || player ? 1400 : 6000);
@@ -143,6 +150,7 @@ export function startApp(container: HTMLElement) {
     onCmd = () => {};
     setLook(app, lookOf(s.ending?.year ?? s.year));
     app.dataset.scene = 'result';
+    playBgm('roll', 1200); // スタッフロール: しみじみ、でも前向き
     // 年表図鑑に足す(どの遊び方でも、触れた事件は図鑑に残す)
     const before = load().chronicle;
     const { all, added } = addChronicle(s.chronicle);
