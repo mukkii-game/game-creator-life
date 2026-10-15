@@ -1,0 +1,3915 @@
+[
+ {
+  "id": "ev_cr_inv_back",
+  "years": [
+   1988,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "腰をかばって椅子から立つのに 4 秒かかった日、専門学校から講師の誘い。「座って話すだけですよ」と言われた。",
+   "en": "The day it took you four seconds to get out of your chair, a game school offered you a teaching post. \"You just sit and talk.\""
+  },
+  "when": [
+   "age>=40",
+   "stat.hp<35",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_inv_back_yes",
+    "label": {
+     "ja": "講師になる",
+     "en": "Teach"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "hp": 10
+    },
+    "result": {
+     "ja": "初日の授業。教壇には椅子が無かった。90 分立ちっぱなしだった。",
+     "en": "First class. There was no chair at the podium. Ninety minutes on your feet."
+    }
+   },
+   {
+    "id": "ch_cr_inv_back_no",
+    "label": {
+     "ja": "現場に残る",
+     "en": "Stay on the job"
+    },
+    "effect": {
+     "skill": 3,
+     "hp": -3
+    },
+    "result": {
+     "ja": "湿布を 2 枚に増やして、徹夜に戻った。",
+     "en": "You upgraded to two pain patches and went back to all-nighters."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_rumor",
+  "years": [
+   1990,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "同期いわく「専門学校の講師は週 3 で夕方に帰れる」。噂の出どころは、その同期が見た夢だった。",
+   "en": "A peer swore that game-school teachers work three days a week and go home early. The source of the rumor: a dream he had."
+  },
+  "when": [
+   "age>=42",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_rumor_yes",
+    "label": {
+     "ja": "噂に乗る",
+     "en": "Believe it"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "hp": 5
+    },
+    "result": {
+     "ja": "実際は週 6 だった。夕方には帰れた。翌朝 7 時の体験入学の準備のために。",
+     "en": "It was six days a week. You did get home early: to prep for the 7 a.m. open house."
+    }
+   },
+   {
+    "id": "ch_cr_rumor_no",
+    "label": {
+     "ja": "噂を広める側に回る",
+     "en": "Spread it instead"
+    },
+    "effect": {
+     "network": 4
+    },
+    "result": {
+     "ja": "3 人が講師になった。3 人とも、年賀状に「話が違う」と書いてきた。",
+     "en": "Three people became teachers. All three wrote \"That is NOT what you said\" on their New Year cards."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_prof",
+  "years": [
+   2003,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "大学から、ゲーム学科の教授の話が来た。「教授」と刷られた名刺の見本を見せられ、手が震えた。",
+   "en": "A university offered you a professorship in its game department. They showed you a sample business card that said PROFESSOR. Your hands shook."
+  },
+  "when": [
+   "age>=45",
+   "works>=3",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_prof_yes",
+    "label": {
+     "ja": "教授になる",
+     "en": "Become a professor"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "fame": 5
+    },
+    "result": {
+     "ja": "正月、親戚の集まりで名刺を配った。叔父が初めて敬語になった。",
+     "en": "At New Year you handed out your card to the relatives. Your uncle used polite speech with you for the first time."
+    }
+   },
+   {
+    "id": "ch_cr_prof_no",
+    "label": {
+     "ja": "現場で作り続ける",
+     "en": "Keep making games"
+    },
+    "effect": {
+     "passion": 4
+    },
+    "result": {
+     "ja": "断った。見本の名刺だけはもらって、財布に入れて持ち歩いた。",
+     "en": "You declined, but kept the sample card. It lives in your wallet."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_reunion",
+  "years": [
+   2003,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "同窓会で一番モテていたのは「教授になった」やつだった。ゲームを作っている自分の話は、乾杯の前に終わった。",
+   "en": "At the class reunion, the star was the guy who \"became a professor.\" Your story about making games was over before the toast."
+  },
+  "when": [
+   "age>=45",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_reunion_yes",
+    "label": {
+     "ja": "大学の公募に出す",
+     "en": "Apply to a university"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "network": 3
+    },
+    "result": {
+     "ja": "採用された。次の同窓会、名刺を出す前に幹事が「先生!」と呼んだ。",
+     "en": "You got the job. At the next reunion, the organizer called out \"Professor!\" before you even pulled out your card."
+    }
+   },
+   {
+    "id": "ch_cr_reunion_no",
+    "label": {
+     "ja": "現場で見返す",
+     "en": "Show them with a game"
+    },
+    "effect": {
+     "passion": 6
+    },
+    "result": {
+     "ja": "帰りの電車で、企画書を 3 枚書いた。終点で 2 枚捨てた。",
+     "en": "You wrote three pages of a proposal on the train home. You threw out two at the last stop."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_passion",
+  "years": [
+   1988,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "企画書の白紙を 2 時間見つめた。その日、専門学校から「現場の話をしてほしい」と電話。白紙よりは楽そうに聞こえた。",
+   "en": "You stared at a blank proposal for two hours. That day a game school called: \"Tell our students about the real job.\" It sounded easier than the blank page."
+  },
+  "when": [
+   "age>=40",
+   "stat.passion<30",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_passion_yes",
+    "label": {
+     "ja": "話しに行く",
+     "en": "Go talk"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "passion": 5
+    },
+    "result": {
+     "ja": "話し始めたら 90 分止まらなかった。そのまま常勤になっていた。",
+     "en": "Once you started, you talked for ninety minutes straight. Somehow you ended up on full-time staff."
+    }
+   },
+   {
+    "id": "ch_cr_passion_no",
+    "label": {
+     "ja": "白紙に戻る",
+     "en": "Back to the blank page"
+    },
+    "effect": {
+     "skill": 2
+    },
+    "result": {
+     "ja": "白紙の右上に、日付だけ書いた。進んだ気がした。",
+     "en": "You wrote the date in the top-right corner of the blank page. It felt like progress."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_online",
+  "years": [
+   2020,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "通信制高校のゲームコースから講師の依頼。授業は画面越しで、生徒の顔は全員アイコンだった。",
+   "en": "An online high school game course wants you to teach. Classes are on screen, and every student is just an icon."
+  },
+  "when": [
+   "age>=40",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_online_yes",
+    "label": {
+     "ja": "引き受ける",
+     "en": "Accept"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "hp": 5
+    },
+    "result": {
+     "ja": "最初の授業で、猫のアイコンの生徒が 1 人だけ「わかりました」と書いた。",
+     "en": "In the first class, one student with a cat icon typed \"got it.\" Just one."
+    }
+   },
+   {
+    "id": "ch_cr_online_no",
+    "label": {
+     "ja": "断る",
+     "en": "Decline"
+    },
+    "effect": {
+     "network": 2
+    },
+    "result": {
+     "ja": "断ったが、事務の人と年賀状のやり取りだけ続いた。",
+     "en": "You declined, but you and the school clerk kept exchanging New Year cards."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_esports",
+  "years": [
+   2018,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "高校に新しくできた e スポーツコースから声がかかった。面接で「格ゲーは何段?」と聞かれ、作る側だと 3 回説明した。",
+   "en": "A high school with a new esports course wants you. In the interview they asked your fighting-game rank. You explained three times that you MAKE games."
+  },
+  "when": [
+   "age>=40",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_esports_yes",
+    "label": {
+     "ja": "先生になる",
+     "en": "Teach there"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "hp": 5,
+     "passion": 3
+    },
+    "result": {
+     "ja": "着任の日、生徒が自分の作ったゲームでランク戦をしていた。誰も作者だと知らなかった。",
+     "en": "On your first day, students were playing ranked matches of your own game. Nobody knew you made it."
+    }
+   },
+   {
+    "id": "ch_cr_esports_no",
+    "label": {
+     "ja": "断る",
+     "en": "Decline"
+    },
+    "effect": {
+     "skill": 2
+    },
+    "result": {
+     "ja": "帰り道、格ゲーの練習を少しだけ始めた。",
+     "en": "On the way home, you quietly started practicing fighting games."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_eyes",
+  "years": [
+   1988,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "老眼でドット 1 個がぼやける。見かねた元上司が専門学校の講師の口を紹介してくれた。「黒板の字は大きいから」。",
+   "en": "Your aging eyes blur single pixels. Your old boss found you a teaching job at a game school. \"The writing on the blackboard is big.\""
+  },
+  "when": [
+   "age>=48",
+   "stat.hp<45",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_eyes_yes",
+    "label": {
+     "ja": "先生になる",
+     "en": "Become a teacher"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "hp": 8,
+     "network": 3
+    },
+    "result": {
+     "ja": "黒板の字は大きかった。自分の書く字が、一番大きかった。",
+     "en": "The blackboard writing was big. Yours was the biggest of all."
+    }
+   },
+   {
+    "id": "ch_cr_eyes_no",
+    "label": {
+     "ja": "老眼鏡を買う",
+     "en": "Buy reading glasses"
+    },
+    "effect": {
+     "money": -3,
+     "skill": 2
+    },
+    "result": {
+     "ja": "老眼鏡でドットがくっきり見えた。上司の顔は見えなくなった。",
+     "en": "With reading glasses the pixels were sharp. Your boss across the room was now a blur."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_dean",
+  "years": [
+   2003,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "大学の学部長がわざわざ会社に来た。手土産は高い羊羹。「学科のパンフレットに、あなたの作品名を載せたい」。",
+   "en": "A university dean came all the way to your office with expensive yokan. \"We would love your games listed in our department brochure.\""
+  },
+  "when": [
+   "age>=50",
+   "works>=5",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_dean_yes",
+    "label": {
+     "ja": "教授になる",
+     "en": "Take the chair"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "fame": 6
+    },
+    "result": {
+     "ja": "パンフレットに作品名が載った。一番大きく載ったのは、一番売れなかった作品だった。",
+     "en": "The brochure listed your games. The biggest picture was of your worst seller."
+    }
+   },
+   {
+    "id": "ch_cr_dean_no",
+    "label": {
+     "ja": "羊羹だけいただく",
+     "en": "Just take the yokan"
+    },
+    "effect": {
+     "passion": 3
+    },
+    "result": {
+     "ja": "羊羹は職場で分けた。1 切れが、やけに薄かった。",
+     "en": "You split the yokan with the team. Every slice was suspiciously thin."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_opencampus",
+  "years": [
+   1995,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "専門学校の体験入学にゲスト講師で呼ばれた。帰りに封筒を 2 つ渡された。謝礼と、常勤の誘いだった。",
+   "en": "A game school brought you in as a guest at its open house. On the way out they handed you two envelopes: your fee, and a full-time offer."
+  },
+  "when": [
+   "age>=40",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_opencampus_yes",
+    "label": {
+     "ja": "2 つ目の封筒を開ける",
+     "en": "Open envelope two"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "money": 20
+    },
+    "result": {
+     "ja": "中の条件書には「体験入学 年 24 回」と書いてあった。",
+     "en": "The terms inside said: \"Open houses: 24 per year.\""
+    }
+   },
+   {
+    "id": "ch_cr_opencampus_no",
+    "label": {
+     "ja": "謝礼だけもらう",
+     "en": "Just take the fee"
+    },
+    "effect": {
+     "money": 3
+    },
+    "result": {
+     "ja": "謝礼は 5000 円。帰りの電車でカツ丼を食べたら、ほぼ消えた。",
+     "en": "The fee was 5,000 yen. One pork cutlet bowl on the way home took care of most of it."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_family",
+  "years": [
+   1988,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "家族に「先生になったら安心」と言われた。ゲームを作って 20 年、初めて「安心」と言われた仕事の話だった。",
+   "en": "Your family said, \"We would feel safe if you became a teacher.\" Twenty years in games, and nobody had ever said \"safe\" about your work."
+  },
+  "when": [
+   "age>=44",
+   "flag.partner",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_family_yes",
+    "label": {
+     "ja": "安心させる",
+     "en": "Give them peace of mind"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "passion": -3,
+     "hp": 6
+    },
+    "result": {
+     "ja": "先生になった。家族は安心した。安心しすぎて、自分の話を誰も聞かなくなった。",
+     "en": "You became a teacher. The family relaxed. So much that nobody listened to your stories anymore."
+    }
+   },
+   {
+    "id": "ch_cr_family_no",
+    "label": {
+     "ja": "もう少し作る",
+     "en": "A little longer in games"
+    },
+    "effect": {
+     "passion": 5
+    },
+    "result": {
+     "ja": "「もう少し」と言った。家族は、それが 3 回目だと数えていた。",
+     "en": "\"Just a little longer,\" you said. They counted: that was the third time."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_adjunct",
+  "years": [
+   2003,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "大学の非常勤で週 1 コマ。時給にすると現場の 3 倍。計算したのは帰りの電車で、信じられず 2 回やり直した。",
+   "en": "One adjunct class a week at a university. Per hour, triple your studio pay. You did the math on the train home, twice, because you did not believe it."
+  },
+  "when": [
+   "age>=46",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_adjunct_yes",
+    "label": {
+     "ja": "そのまま専任になる",
+     "en": "Go full-time"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "money": 10
+    },
+    "result": {
+     "ja": "専任になったら、準備と会議の時間も時給に入った。3 倍は 0.9 倍になった。",
+     "en": "Full-time, your prep and meetings counted too. Triple became 0.9."
+    }
+   },
+   {
+    "id": "ch_cr_adjunct_no",
+    "label": {
+     "ja": "週 1 で続ける",
+     "en": "Keep it at once a week"
+    },
+    "effect": {
+     "money": 8,
+     "network": 2
+    },
+    "result": {
+     "ja": "週 1 の授業が、週で一番待ち遠しい日になった。",
+     "en": "That one class became the day you looked forward to all week."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_inv_burnout",
+  "years": [
+   1988,
+   2040
+  ],
+  "weight": 0.3,
+  "once": true,
+  "text": {
+   "ja": "朝、会社の前で 20 分立ち止まった。ポケットには、専門学校の講師募集のチラシが 3 か月入ったまま。",
+   "en": "This morning you stood outside the office for twenty minutes. In your pocket: a game-school recruiting flyer, there for three months now."
+  },
+  "when": [
+   "age>=40",
+   "stat.passion<25",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_burnout_yes",
+    "label": {
+     "ja": "チラシの番号に電話する",
+     "en": "Call the number"
+    },
+    "effect": {
+     "flag": {
+      "do_teach": true
+     },
+     "passion": 5,
+     "hp": 5
+    },
+    "result": {
+     "ja": "電話に出た事務の人が「やっと来ましたね」。チラシは自分宛てに作られていた。",
+     "en": "The clerk who answered said, \"Finally.\" The flyer had been made with you in mind."
+    }
+   },
+   {
+    "id": "ch_cr_burnout_no",
+    "label": {
+     "ja": "会社に入る",
+     "en": "Walk in"
+    },
+    "effect": {
+     "skill": 2,
+     "passion": -2
+    },
+    "result": {
+     "ja": "21 分目に入った。チラシは 4 か月目に入った。",
+     "en": "You went in at minute 21. The flyer entered month four."
+    }
+   }
+  ],
+  "tag": [
+   "teach",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_attend",
+  "years": [
+   1988,
+   2040
+  ],
+  "text": {
+   "ja": "朝 9 時の授業、出席 3 人。昼の 1 時、学食には 40 人いた。",
+   "en": "9 a.m. class: three students. 1 p.m. in the cafeteria: forty."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": -3
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_rpgtool",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "卒業制作の発表会。3 人とも同じ RPG ツールで、最初の敵は 3 人とも同じスライムだった。",
+   "en": "Graduation projects: three students, one RPG maker tool, and the same first slime in all three games."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": -2,
+   "skill": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_musou",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "企画書の課題に 40 人中 28 人が「最強の主人公が無双」。残る 12 人は「最強の主人公が異世界で無双」。",
+   "en": "Proposal assignment: 28 of 40 wrote \"an overpowered hero wrecks everyone.\" The other 12: \"an overpowered hero wrecks everyone, in another world.\""
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": -3
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_jobrate",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "パンフレットに「就職率 98%」。分母を事務の人に聞いたら、窓を開けて空気を入れ替え始めた。",
+   "en": "The brochure says \"98% job placement.\" You asked the office what the denominator was. They opened a window to air out the room."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "network": 1,
+   "passion": -1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_opencampus",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "体験入学で高校生にゲーム機を配る係。自分の授業より、ずっと盛り上がった。",
+   "en": "Open house duty: handing out game consoles to high schoolers. Far more excitement than any of your lectures."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": -1,
+   "hp": 2
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_generation",
+  "years": [
+   2015,
+   2040
+  ],
+  "text": {
+   "ja": "「ファミコンが出た頃は」と話したら、前の席が「親が持ってたやつ」。後ろの席は「じいちゃんの」。",
+   "en": "\"Back when the Famicom came out...\" Front row: \"My parents had one.\" Back row: \"My grandpa's.\""
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": -2
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_dream",
+  "years": [
+   2005,
+   2040
+  ],
+  "text": {
+   "ja": "「将来の夢は?」に全員「神ゲーを作る」。「どうやって?」には全員「頑張る」。",
+   "en": "\"Your dream?\" Everyone: \"Make a legendary game.\" \"How?\" Everyone: \"Try hard.\""
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_copy",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "課題の作品が、去年の先輩のものとタイトル画面まで同じだった。違うのは名前の欄だけ。去年それを採点したのは自分だった。",
+   "en": "A submission matched last year's, title screen and all. Only the name field changed. You graded the original yourself."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": -3,
+   "skill": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_bugfind",
+  "years": [
+   1988,
+   2040
+  ],
+  "text": {
+   "ja": "学生のバグを 1 分で見つけたら、教室がざわついた。現場時代に 3 日かかって怒られた種類のバグだった。",
+   "en": "You found a student's bug in one minute. The room murmured. Back in the studio, that exact kind of bug once took you three days and a scolding."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 5,
+   "fame": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_parents",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "保護者会で「うちの子はゲーム会社に入れますか」。自分の会社が 2 つ潰れたことは、言えなかった。",
+   "en": "At a parent meeting: \"Will my child get into a game company?\" You did not mention that two of yours went under."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "network": 2
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_allnighter",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "締め切り前夜の学生から「先生、徹夜しても大丈夫ですか」。経験者として、カップ麺の銘柄を 3 つ教えた。",
+   "en": "A student the night before a deadline: \"Is it okay to pull an all-nighter?\" As a veteran, you recommended three brands of cup noodles."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_faculty",
+  "years": [
+   2003,
+   2040
+  ],
+  "text": {
+   "ja": "教授会で 2 時間、会議室のエアコンの温度を決めた。結論は「次回に持ち越し」。仕様会議よりは早く終わった。",
+   "en": "Faculty meeting: two hours on the room's air-conditioning setting. Verdict: \"Carry over to next time.\" Still faster than a spec meeting."
+  },
+  "when": [
+   "job=teacher",
+   "company.size=school"
+  ],
+  "effect": {
+   "passion": -2,
+   "hp": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_paper",
+  "years": [
+   2003,
+   2040
+  ],
+  "text": {
+   "ja": "論文を書けと言われた。題は「ゲーム開発における仕様変更の発生頻度」。データは自分の人生だけで足りた。",
+   "en": "They told you to write a paper: \"On the Frequency of Spec Changes in Game Development.\" Your own life supplied all the data."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "skill": 3,
+   "fame": 2
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_kaken",
+  "years": [
+   2003,
+   2040
+  ],
+  "text": {
+   "ja": "科研費の申請書を書いた。研究テーマは「遊び」。届いた結果の封筒は、遊びのない薄さだった。",
+   "en": "You applied for a research grant. Topic: \"Play.\" The reply envelope was thin, with no room for play."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": -3,
+   "skill": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_meishi",
+  "years": [
+   2003,
+   2040
+  ],
+  "text": {
+   "ja": "「教授」の名刺を飲み屋で出したら、ママの態度が変わった。翌月、お会計も変わった。",
+   "en": "You showed your \"Professor\" card at a bar. The owner's attitude changed. The next month, so did your bill."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "money": -5,
+   "fame": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_lineup",
+  "years": [
+   2003,
+   2040
+  ],
+  "text": {
+   "ja": "オープンキャンパス。ゲーム学科の前だけ高校生の行列。保護者の行列は、隣の情報学科の前にできていた。",
+   "en": "Campus open day: a line of teens outside the game department. The line of parents was outside Computer Science next door."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_grading",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "卒業制作の採点。バグで先に進めない作品に、「難易度が高い」と好意的に書いた。",
+   "en": "Grading graduation projects. For the one that softlocks, you kindly wrote: \"Very challenging.\""
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 1
+  },
+  "tag": [
+   "teacher",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_cr_genius",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "40 人に 1 人、本物がいる。授業中はずっと寝ていて、提出物だけ自分より上手かった。",
+   "en": "One in forty is the real thing. Sleeps through every class. Turns in work better than yours."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 4,
+   "skill": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_gacha",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "授業中、全員がスマホでガチャを回していた。それを教材に確率の計算をさせたら、初めて全員が起きていた。",
+   "en": "Mid-class, everyone was pulling gacha on their phones. You made it a probability lesson. First time all of them stayed awake."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 4,
+   "skill": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_resume",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "学生の履歴書を添削した。「ゲームが好きだから」を 40 回消して、40 回書き直された。",
+   "en": "You corrected student resumes. You crossed out \"Because I love games\" forty times. They wrote it back forty times."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": -1,
+   "network": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_snacks",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "研究室にお菓子を置いたら、学生が来るようになった。質問は 1 つも無く、お菓子だけ減った。",
+   "en": "You put snacks in your office, and students started coming. Zero questions. Lots fewer snacks."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "money": -2,
+   "network": 2
+  },
+  "tag": [
+   "teacher",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_cr_credits",
+  "years": [
+   1993,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "教え子が入社して 5 年。届いたソフトのスタッフロールの最後に「恩師 {name}」。1 文字だけ誤字だった。",
+   "en": "Five years after a student joined a studio, their game arrived. At the end of the credits: \"Mentor: {name}.\" One letter misspelled."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 15,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "教え子のスタッフロールに「恩師」と載った",
+   "en": "a student put me in their credits as \"mentor\""
+  },
+  "tag": [
+   "teacher",
+   "high",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_cr_director",
+  "years": [
+   1995,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "業界の飲み会で「先生!」と呼ばれた。大手のディレクターになった教え子が、自分の分まで払ってくれた。",
+   "en": "At an industry party someone shouted \"Teacher!\" A former student, now a director at a major studio, paid for your drinks too."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 12,
+   "network": 5
+  },
+  "memory": {
+   "ja": "ディレクターになった教え子に飲み代をおごられた",
+   "en": "a former student, now a director, bought my drinks"
+  },
+  "tag": [
+   "teacher",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_cr_award",
+  "years": [
+   1997,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "ゲームの賞の中継を見ていたら、壇上でトロフィーを持っていたのは、出席率 40% だった教え子だった。",
+   "en": "Watching a game awards broadcast, you saw who held the trophy: a former student with 40% attendance."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 14,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "出席率 40% だった教え子が賞を取った",
+   "en": "my 40%-attendance student won an award"
+  },
+  "tag": [
+   "teacher",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_cr_letter",
+  "years": [
+   1990,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "卒業生から手紙。「先生の『納期は守れ、でも嘘はつくな』だけ覚えています」。言った覚えは無かった。",
+   "en": "A letter from a graduate: \"All I remember is you saying, keep the deadline but never lie.\" You do not remember saying it."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 8
+  },
+  "memory": {
+   "ja": "卒業生が、言った覚えのない名言を覚えていてくれた",
+   "en": "a graduate remembered a line I never said"
+  },
+  "tag": [
+   "teacher",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_cr_esports",
+  "years": [
+   2018,
+   2040
+  ],
+  "text": {
+   "ja": "e スポーツコースの生徒に格ゲーで挑まれ、10 秒で負けた。「先生が作ったゲームでいいですよ」と言われ、それも負けた。",
+   "en": "An esports student challenged you to a fighting game. You lost in ten seconds. \"We can play yours, sir.\" You lost that too."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": -2,
+   "network": 2
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_mute",
+  "years": [
+   2020,
+   2040
+  ],
+  "text": {
+   "ja": "オンライン授業で 90 分しゃべり続けた。最後のチャットに「先生、ずっとミュートでした」。",
+   "en": "You lectured online for ninety minutes. Last message in the chat: \"Sir, you were muted the whole time.\""
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": -4
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_ai",
+  "years": [
+   2023,
+   2040
+  ],
+  "text": {
+   "ja": "学生の企画書は全部 AI が書いたものだった。採点も AI にさせたら、互いに「すばらしい」と褒め合っていた。",
+   "en": "Every proposal was written by AI. You had an AI grade them. They called each other \"excellent.\""
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": -3,
+   "skill": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_visit",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "教え子の就職先にあいさつに行った。昔、自分を不採用にした会社だった。人事部長は自分の顔を覚えていなかった。",
+   "en": "You visited a student's new employer to say thanks. It was the company that once rejected you. HR did not remember your face."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "network": 3,
+   "passion": 2
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_healthy",
+  "years": [
+   1988,
+   2040
+  ],
+  "text": {
+   "ja": "夜 7 時に家に帰ったら、家族に「どこか悪いの?」と心配された。健康診断は 20 年ぶりに全部 A だった。",
+   "en": "You came home at 7 p.m. Your family asked if you were sick. Your checkup came back all A's for the first time in twenty years."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "hp": 10,
+   "passion": -2
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_emo",
+  "years": [
+   2016,
+   2040
+  ],
+  "text": {
+   "ja": "授業で昔の自分の作品を見せたら、学生が「レトロでエモい」。発売当時の雑誌には「古臭い」と書かれた作品だった。",
+   "en": "You showed your old game in class. Students called it \"retro and vibey.\" At launch, magazines called it \"dated.\""
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 6,
+   "fame": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_tenure",
+  "years": [
+   2003,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "准教授から教授になった。研究室の名札が替わった。学生からの呼び名は「先生」のままだった。",
+   "en": "You were promoted to full professor. The nameplate on your door changed. Students still just call you \"sir.\""
+  },
+  "when": [
+   "job=teacher",
+   "company.size=school",
+   "age>=50"
+  ],
+  "effect": {
+   "fame": 3,
+   "passion": 4
+  },
+  "memory": {
+   "ja": "教授になって、研究室の名札が替わった",
+   "en": "my nameplate changed to \"professor\""
+  },
+  "tag": [
+   "teacher",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_cr_festival",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "学園祭で学生のゲームに行列ができた。並んでいる客の半分は、ほかの学生の親だった。",
+   "en": "At the school festival, a student's game had a line. Half the line was other students' parents."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "teacher",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_cr_review",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "現場の流儀で作品をレビューしたら、翌週、受講生が 40 人から 12 人に減った。残った 12 人は目つきが変わっていた。",
+   "en": "You reviewed student games studio-style. Next week the class went from forty to twelve. The twelve had a new look in their eyes."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 4,
+   "network": -2
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_scout",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "企業の採用担当から「いい子いませんか」と電話。名前を挙げた 3 人中 2 人が、その日も欠席していた。",
+   "en": "A recruiter called: \"Any good students?\" Of the three names you gave, two were absent that very day."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "network": 3
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_syllabus",
+  "years": [
+   2003,
+   2040
+  ],
+  "text": {
+   "ja": "シラバスに「到達目標」を書く欄があった。現場で 20 年、自分の到達目標を書いたことは 1 度も無かった。",
+   "en": "The syllabus form had a box for \"learning goals.\" Twenty years in games, and you had never once written a goal for yourself."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "effect": {
+   "passion": 2,
+   "skill": 1
+  },
+  "tag": [
+   "teacher",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_cr_rage_title",
+  "years": [
+   1990,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "卒業制作が 3 本続けてタイトル画面で止まった。気がつくと学生の席で自分が直していて、「俺が見本を見せる」と口が言っていた。",
+   "en": "Three graduation projects in a row froze on the title screen. You found yourself fixing them at a student's desk, saying \"I'll show you how it's done.\""
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_rage_title_yes",
+    "label": {
+     "ja": "現場に戻って見本を見せる",
+     "en": "Go back and show them"
+    },
+    "effect": {
+     "flag": {
+      "do_return": true
+     },
+     "passion": 20
+    },
+    "result": {
+     "ja": "辞表を出した日、学生に「見本、楽しみにしてます」と言われた。半分は皮肉だった。",
+     "en": "The day you quit, students said, \"Can't wait to see your example.\" Half of them meant it."
+    },
+    "memory": {
+     "ja": "「俺が見本を見せる」と現場に戻った",
+     "en": "I went back to the studio to \"show them how it's done\""
+    }
+   },
+   {
+    "id": "ch_cr_rage_title_no",
+    "label": {
+     "ja": "教室で見本を見せる",
+     "en": "Show them in class"
+    },
+    "effect": {
+     "skill": 3,
+     "passion": 5
+    },
+    "result": {
+     "ja": "黒板に 1 時間でミニゲームを書いた。学生は写真を撮り、誰も写さなかった。",
+     "en": "You wrote a mini game on the blackboard in an hour. They took photos. Nobody copied it down."
+    }
+   }
+  ],
+  "tag": [
+   "teacher",
+   "return",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_rage_proposal",
+  "years": [
+   2012,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "講評会で「最強の主人公」の企画書を 40 本読み終えた。その夜、自分の企画書を書き始めたら、朝まで止まらなかった。",
+   "en": "You finished reviewing forty \"overpowered hero\" proposals. That night you started your own. You did not stop until morning."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_rage_proposal_yes",
+    "label": {
+     "ja": "企画書を持って会社を回る",
+     "en": "Pitch it to studios"
+    },
+    "effect": {
+     "flag": {
+      "do_return": true
+     },
+     "passion": 18,
+     "skill": 2
+    },
+    "result": {
+     "ja": "5 社目で通った。主人公は、最弱だった。",
+     "en": "The fifth studio said yes. The hero was the weakest one ever."
+    },
+    "memory": {
+     "ja": "学生の企画書に腹を立てて、自分の企画を通した",
+     "en": "angry at student pitches, I got my own pitch greenlit"
+    }
+   },
+   {
+    "id": "ch_cr_rage_proposal_no",
+    "label": {
+     "ja": "授業の見本にする",
+     "en": "Use it as a teaching sample"
+    },
+    "effect": {
+     "passion": 6,
+     "network": 2
+    },
+    "result": {
+     "ja": "見本として配ったら、翌年の企画書の 30 本がそれにそっくりだった。",
+     "en": "You handed it out as a model. The next year, thirty proposals looked exactly like it."
+    }
+   }
+  ],
+  "tag": [
+   "teacher",
+   "return",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_rage_anyone",
+  "years": [
+   1995,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "出席 2 人の教室で「ゲームなんて誰でも作れますよ」と言われた。誰でも作れるか、見せてやることにした。",
+   "en": "In a class of two, a student said, \"Anyone can make games.\" You decided to show them just how \"anyone\" does it."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_rage_anyone_yes",
+    "label": {
+     "ja": "現場に戻る",
+     "en": "Back to the studio"
+    },
+    "effect": {
+     "flag": {
+      "do_return": true
+     },
+     "passion": 15
+    },
+    "result": {
+     "ja": "1 年かけて 1 本作った。完成の夜、あの学生に「誰でもは作れない」とメールした。",
+     "en": "One game, one year. On launch night you emailed that student: \"Not anyone.\""
+    },
+    "memory": {
+     "ja": "「誰でも作れる」と言われて、本当に 1 本作った",
+     "en": "told \"anyone can make games,\" I actually made one"
+    }
+   },
+   {
+    "id": "ch_cr_rage_anyone_no",
+    "label": {
+     "ja": "「じゃあ作ってみて」と言う",
+     "en": "\"Then make one,\" you say"
+    },
+    "effect": {
+     "passion": 4
+    },
+    "result": {
+     "ja": "学生は 1 週間で作ってきた。すごく、つまらなかった。2 人で笑った。",
+     "en": "The student made one in a week. It was very boring. You both laughed."
+    }
+   }
+  ],
+  "tag": [
+   "teacher",
+   "return",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_student_co",
+  "years": [
+   1995,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "10 年前の教え子が会社を作った。「先生、一緒にやりませんか。給料は安いけど、徹夜はさせません」。最後のは嘘だと分かった。",
+   "en": "A student from ten years ago founded a studio. \"Join us, sir. The pay is low, but no all-nighters.\" You knew that last part was a lie."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_student_co_yes",
+    "label": {
+     "ja": "教え子の会社に入る",
+     "en": "Join your student"
+    },
+    "effect": {
+     "flag": {
+      "do_return": true
+     },
+     "passion": 15,
+     "network": 5
+    },
+    "result": {
+     "ja": "初日、元教え子の社長に企画書を出した。赤ペンで直されて戻ってきた。",
+     "en": "Day one, you gave your former student—now your boss—a proposal. It came back covered in red ink."
+    },
+    "memory": {
+     "ja": "教え子の会社に入って、教え子に赤ペンを入れられた",
+     "en": "I joined my student's studio and got my work red-penned by them"
+    }
+   },
+   {
+    "id": "ch_cr_student_co_no",
+    "label": {
+     "ja": "学校に残って応援する",
+     "en": "Stay and cheer them on"
+    },
+    "effect": {
+     "network": 4
+    },
+    "result": {
+     "ja": "そこの会社の求人票を、教室の一番目立つ場所に貼った。",
+     "en": "You posted their job listing in the most visible spot in the classroom."
+    }
+   }
+  ],
+  "tag": [
+   "teacher",
+   "return",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_old_pal",
+  "years": [
+   1990,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "昔の仲間から電話。「あのシリーズの続編、やっと通った。お前がいないと始まらない」。電話のあと、1 時間黒板を消し続けた。",
+   "en": "An old teammate called: \"The sequel finally got greenlit. We can't start without you.\" After the call, you kept erasing the blackboard for an hour."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_old_pal_yes",
+    "label": {
+     "ja": "戻る",
+     "en": "Go back"
+    },
+    "effect": {
+     "flag": {
+      "do_return": true
+     },
+     "passion": 20,
+     "network": 5
+    },
+    "result": {
+     "ja": "初日の会議室に、昔と同じメンバー 4 人。全員、老眼鏡を額にのせていた。",
+     "en": "Day one, the same four people from back then. All of them with reading glasses pushed up on their foreheads."
+    },
+    "memory": {
+     "ja": "昔の仲間に「お前がいないと始まらない」と呼ばれた",
+     "en": "my old team said they couldn't start without me"
+    }
+   },
+   {
+    "id": "ch_cr_old_pal_no",
+    "label": {
+     "ja": "学生を推薦する",
+     "en": "Recommend a student"
+    },
+    "effect": {
+     "network": 6
+    },
+    "result": {
+     "ja": "推薦した教え子は、3 年後にその続編のリードになった。",
+     "en": "The student you recommended became that sequel's lead three years later."
+    }
+   }
+  ],
+  "tag": [
+   "teacher",
+   "return",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_old_boss",
+  "years": [
+   1988,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "元上司が学校に来た。「現場は人が足りない。椅子は空けてある」。その椅子は、昔より座り心地のいいやつになっていた。",
+   "en": "Your old boss visited. \"We're short on people. Your chair is waiting.\" It was a much nicer chair than the old one."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_old_boss_yes",
+    "label": {
+     "ja": "座りに戻る",
+     "en": "Go sit in it"
+    },
+    "effect": {
+     "flag": {
+      "do_return": true
+     },
+     "passion": 12,
+     "hp": -3
+    },
+    "result": {
+     "ja": "座り心地はよかった。座っている時間も、昔と同じく長かった。",
+     "en": "It was comfortable. And just like before, you sat in it for far too many hours."
+    }
+   },
+   {
+    "id": "ch_cr_old_boss_no",
+    "label": {
+     "ja": "椅子だけ写真に撮る",
+     "en": "Just take a photo of the chair"
+    },
+    "effect": {
+     "passion": 3
+    },
+    "result": {
+     "ja": "写真を待ち受けにした。学生に「何ですかそれ」と聞かれた。",
+     "en": "You made it your phone wallpaper. A student asked what it was."
+    }
+   }
+  ],
+  "tag": [
+   "teacher",
+   "return",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_indie_student",
+  "years": [
+   2012,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "教え子のインディーゲームが海外で売れた。「先生、2 作目を手伝ってください」と英語の契約書が届いた。",
+   "en": "A former student's indie game sold well overseas. Now an English contract arrived: \"Please help with our second game, sir.\""
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_indie_student_yes",
+    "label": {
+     "ja": "サインする",
+     "en": "Sign it"
+    },
+    "effect": {
+     "flag": {
+      "do_return": true
+     },
+     "passion": 15,
+     "money": 10
+    },
+    "result": {
+     "ja": "辞書を引きながらサインした。肩書の欄は「Sensei」になっていた。",
+     "en": "You signed with a dictionary in hand. Your title on the contract: \"Sensei.\""
+    },
+    "memory": {
+     "ja": "教え子の 2 作目に「Sensei」として呼ばれた",
+     "en": "my student hired me as \"Sensei\" for their second game"
+    }
+   },
+   {
+    "id": "ch_cr_indie_student_no",
+    "label": {
+     "ja": "アドバイスだけ送る",
+     "en": "Just send advice"
+    },
+    "effect": {
+     "network": 4,
+     "fame": 2
+    },
+    "result": {
+     "ja": "長文のメールを送った。返事は絵文字 1 個だった。",
+     "en": "You sent a long email. The reply was a single emoji."
+    }
+   }
+  ],
+  "tag": [
+   "teacher",
+   "return",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_exam",
+  "years": [
+   1990,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "定期試験の監督中、問題用紙の裏にステージの図を描いていた。気がつくと 6 面分になっていた。",
+   "en": "While proctoring an exam, you sketched level maps on the back of a test sheet. Before you knew it, there were six levels."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_exam_yes",
+    "label": {
+     "ja": "その 6 面を作りに戻る",
+     "en": "Go build those six levels"
+    },
+    "effect": {
+     "flag": {
+      "do_return": true
+     },
+     "passion": 15
+    },
+    "result": {
+     "ja": "6 面は製品版で 4 面に減った。1 面は試験の問題用紙の名残で、迷路になった。",
+     "en": "Six levels became four in the final game. One still had the shape of that exam sheet: a maze."
+    }
+   },
+   {
+    "id": "ch_cr_exam_no",
+    "label": {
+     "ja": "問題用紙を回収する",
+     "en": "Collect the papers"
+    },
+    "effect": {
+     "passion": 2
+    },
+    "result": {
+     "ja": "自分の 1 枚だけ、提出せずに持ち帰った。",
+     "en": "You took one sheet home: yours."
+    }
+   }
+  ],
+  "tag": [
+   "teacher",
+   "return",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_expo",
+  "years": [
+   1996,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "学生を連れてゲームの展示会へ。ブースの行列を見ているうちに、学生より先に名刺を配り始めていた。",
+   "en": "You took students to a game expo. Watching the lines at the booths, you started handing out business cards before they did."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_expo_yes",
+    "label": {
+     "ja": "名刺をくれた会社に行く",
+     "en": "Follow up on the cards"
+    },
+    "effect": {
+     "flag": {
+      "do_return": true
+     },
+     "passion": 12,
+     "network": 6
+    },
+    "result": {
+     "ja": "学生の誰より早く内定が出た。学生には黙っていた。",
+     "en": "You got an offer before any of your students. You kept it quiet."
+    }
+   },
+   {
+    "id": "ch_cr_expo_no",
+    "label": {
+     "ja": "学生の名刺を配る",
+     "en": "Hand out the students' cards"
+    },
+    "effect": {
+     "network": 5
+    },
+    "result": {
+     "ja": "学生 2 人に面接の話が来た。帰りの電車で、2 人が初めて敬語を使った。",
+     "en": "Two students got interviews. On the train home, they used polite speech with you for the first time."
+    }
+   }
+  ],
+  "tag": [
+   "teacher",
+   "return",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_healthy_again",
+  "years": [
+   1988,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "先生になって 3 年、体重も血圧も元に戻った。健康な体を見下ろして、ふと思った。「これ、また徹夜できるな」。",
+   "en": "Three years of teaching, and your weight and blood pressure are back to normal. You look down at your healthy body and think: \"I could pull all-nighters again.\""
+  },
+  "when": [
+   "job=teacher",
+   "age<=62"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_healthy_yes",
+    "label": {
+     "ja": "徹夜できる場所に戻る",
+     "en": "Go back where the all-nighters are"
+    },
+    "effect": {
+     "flag": {
+      "do_return": true
+     },
+     "passion": 15,
+     "hp": -5
+    },
+    "result": {
+     "ja": "戻って 1 か月、血圧も元に戻った。昔の方に。",
+     "en": "A month back, and your blood pressure returned to normal. The old normal."
+    }
+   },
+   {
+    "id": "ch_cr_healthy_no",
+    "label": {
+     "ja": "健康のまま教える",
+     "en": "Stay healthy and teach"
+    },
+    "effect": {
+     "hp": 5
+    },
+    "result": {
+     "ja": "健康診断の紙を、教室の後ろに貼った。学生は誰も見なかった。",
+     "en": "You pinned your checkup results at the back of the classroom. No one looked."
+    }
+   }
+  ],
+  "tag": [
+   "teacher",
+   "return",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_ai_rage",
+  "years": [
+   2023,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "学生に「AI があれば先生いらなくないですか」と言われた。その夜、AI にできない仕事を探して求人サイトを開いた。",
+   "en": "A student asked, \"With AI around, do we even need teachers?\" That night you opened a job site, looking for work AI can't do."
+  },
+  "when": [
+   "job=teacher"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_ai_rage_yes",
+    "label": {
+     "ja": "現場に戻る",
+     "en": "Back to the studio"
+    },
+    "effect": {
+     "flag": {
+      "do_return": true
+     },
+     "passion": 12,
+     "skill": 2
+    },
+    "result": {
+     "ja": "見つけた仕事は「AI の出したものを直す係」だった。給料は前より上がった。",
+     "en": "The job you found: fixing what the AI makes. It paid better than before."
+    }
+   },
+   {
+    "id": "ch_cr_ai_rage_no",
+    "label": {
+     "ja": "AI と授業を分け合う",
+     "en": "Share the class with AI"
+    },
+    "effect": {
+     "skill": 3
+    },
+    "result": {
+     "ja": "前半を AI、後半を自分が受け持った。学生は後半だけ起きていた。",
+     "en": "AI took the first half, you took the second. Students only woke up for yours."
+    }
+   }
+  ],
+  "tag": [
+   "teacher",
+   "return",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_illust",
+  "years": [
+   1990,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "会社に内緒で描いた本の表紙に、出版社から依頼が来た。会社の絵より 3 倍速く描けた。",
+   "en": "A publisher saw a cover you drew on the side and wants more. You drew it three times faster than anything at work."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=artist"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_illust_stay",
+    "label": {
+     "ja": "会社の絵を描き続ける",
+     "en": "Keep drawing for the studio"
+    },
+    "effect": {
+     "skill": 3,
+     "money": 5
+    },
+    "result": {
+     "ja": "表紙の仕事は 1 回だけ受けた。謝礼で、いいペンを買った。",
+     "en": "You took the one cover job. The fee bought you a good pen."
+    }
+   },
+   {
+    "id": "ch_cr_illust_go",
+    "label": {
+     "ja": "フリーのイラストレーターになる",
+     "en": "Go freelance"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "名刺を自分で描いた。肩書の字が、一番上手かった。",
+     "en": "You drew your own business card. The lettering on your title was the best part."
+    },
+    "cause": {
+     "ja": "フリーのイラストレーターに転身。確定申告の書類も、締め切り当日の朝に描き上げた",
+     "en": "went freelance as an illustrator. You finished your tax forms on the morning of the deadline, like any job"
+    },
+    "memory": {
+     "ja": "自分の名前で絵の仕事が来た",
+     "en": "art jobs started coming in my own name"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_figure",
+  "years": [
+   1997,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "ボスの 3D モデルを粘土で作り直して机に飾っていたら、模型店の店長に「これ、売ってくれ」と言われた。",
+   "en": "You sculpted the boss from your game in clay for your desk. A hobby shop owner asked, \"Can I sell this?\""
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=artist"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_figure_stay",
+    "label": {
+     "ja": "机に飾っておく",
+     "en": "Keep it on your desk"
+    },
+    "effect": {
+     "passion": 4
+    },
+    "result": {
+     "ja": "ボスは机の上で 10 年、締め切りを見守った。",
+     "en": "The boss watched over your deadlines from that desk for ten years."
+    }
+   },
+   {
+    "id": "ch_cr_figure_go",
+    "label": {
+     "ja": "造形師になる",
+     "en": "Become a sculptor"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "店の棚に並んだ。3 日で売り切れた。自分で 1 個買い戻した。",
+     "en": "It hit the shelf and sold out in three days. You bought one back yourself."
+    },
+    "cause": {
+     "ja": "フィギュアの造形師に転身。最初の新作は、昔自分が作ったゲームのボスだった",
+     "en": "became a figure sculptor. Your first new piece was a boss from one of your old games"
+    },
+    "memory": {
+     "ja": "自分の作ったボスの人形が 3 日で売り切れた",
+     "en": "my boss figure sold out in three days"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_manga",
+  "years": [
+   1980,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "昼休みに描いていた開発室の 4 コマが、漫画雑誌の新人賞に引っかかった。",
+   "en": "The four-panel comics you drew at lunch about the dev room got picked up by a manga magazine contest."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=artist"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_manga_stay",
+    "label": {
+     "ja": "社内報に載せる",
+     "en": "Run them in the company newsletter"
+    },
+    "effect": {
+     "network": 5
+    },
+    "result": {
+     "ja": "社内報で連載が始まった。部長が毎回、自分がモデルの回だけ切り抜いていた。",
+     "en": "They ran in the newsletter. The manager clipped every strip he appeared in."
+    }
+   },
+   {
+    "id": "ch_cr_manga_go",
+    "label": {
+     "ja": "漫画家になる",
+     "en": "Become a manga artist"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "最初の打ち合わせで、編集者に「締め切りは守れます?」と聞かれ、笑ってしまった。",
+     "en": "At the first meeting, the editor asked if you could hit deadlines. You laughed."
+    },
+    "cause": {
+     "ja": "漫画家に転身。連載のネタは、全部前の会社の実話だった",
+     "en": "became a manga artist. Every plot came straight from your old studio"
+    },
+    "memory": {
+     "ja": "開発室の 4 コマが賞を取った",
+     "en": "my dev-room comic strip won a prize"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_picturebook",
+  "years": [
+   1985,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "姪にドット絵で描いてあげた絵本が、親戚づてに出版社の目に留まった。",
+   "en": "A picture book you made for your niece in pixel art reached a publisher through a relative."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=artist"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_pb_stay",
+    "label": {
+     "ja": "姪にだけ贈る",
+     "en": "Keep it for your niece"
+    },
+    "effect": {
+     "passion": 5
+    },
+    "result": {
+     "ja": "姪は絵本を 100 回読んだ。101 回目に「続きは?」と聞いた。",
+     "en": "Your niece read it 100 times. On the 101st she asked for a sequel."
+    }
+   },
+   {
+    "id": "ch_cr_pb_go",
+    "label": {
+     "ja": "絵本作家になる",
+     "en": "Become a picture-book author"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "絵本は重版した。どのページも 16 色だった。",
+     "en": "It went to a second printing. Every page used just 16 colors."
+    },
+    "cause": {
+     "ja": "絵本作家に転身。どの絵本も 16 色で描いた",
+     "en": "became a picture-book author. Every book in sixteen colors"
+    },
+    "memory": {
+     "ja": "姪のために描いた絵本が本屋に並んだ",
+     "en": "the picture book I made for my niece hit bookstores"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_lightnovel",
+  "years": [
+   2005,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "ボツになった企画の設定資料 200 ページを小説にして投稿したら、新人賞の最終選考に残った。",
+   "en": "You turned 200 pages of a canceled game's setting notes into a novel. It made the final round of a new-writer contest."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=planner"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_ln_stay",
+    "label": {
+     "ja": "企画に戻す",
+     "en": "Pitch it as a game again"
+    },
+    "effect": {
+     "skill": 3,
+     "passion": 3
+    },
+    "result": {
+     "ja": "企画会議で「小説の方が面白い」と言われた。",
+     "en": "At the pitch meeting: \"The novel was better.\""
+    }
+   },
+   {
+    "id": "ch_cr_ln_go",
+    "label": {
+     "ja": "ラノベ作家になる",
+     "en": "Become a light novelist"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "デビュー作の帯に「元ゲームクリエイター」。一番大きい字だった。",
+     "en": "The band on your debut said \"former game creator.\" In the biggest font."
+    },
+    "cause": {
+     "ja": "ラノベ作家に転身。4 巻目のあとがきで元同僚に謝った",
+     "en": "became a light-novel author. In the afterword of volume four, you apologized to your old coworkers"
+    },
+    "memory": {
+     "ja": "ボツ企画が小説になって本屋に並んだ",
+     "en": "my canceled game became a novel on store shelves"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_tvwriter",
+  "years": [
+   1980,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "飲み会で話した「ゲーム業界あるある」が、テレビの構成作家の耳に入った。",
+   "en": "Your \"game industry life\" stories at a drinking party reached the ears of a TV writer."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=planner"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_tv_stay",
+    "label": {
+     "ja": "飲み会のネタで終わらせる",
+     "en": "Keep it as party talk"
+    },
+    "effect": {
+     "network": 4
+    },
+    "result": {
+     "ja": "ネタは次の飲み会でもウケた。3 回目で、上司に止められた。",
+     "en": "The stories killed again next time. The third time, your boss made you stop."
+    }
+   },
+   {
+    "id": "ch_cr_tv_go",
+    "label": {
+     "ja": "放送作家になる",
+     "en": "Become a TV writer"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "最初の会議で、ボツ案を 30 本出した。全部採用されなかったが、慣れていた。",
+     "en": "At your first meeting you pitched thirty ideas. None used. You were used to it."
+    },
+    "cause": {
+     "ja": "放送作家に転身。番組のコーナー名は、ボツになった企画の名前だった",
+     "en": "became a TV writer. Your show's segment titles were all names of canceled game pitches"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_writer",
+  "years": [
+   1985,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "ゲーム雑誌のコラムを頼まれた。読者アンケートの順位が、本業の企画書の評価より上だった。",
+   "en": "A game magazine asked you for a column. Its reader-poll ranking beat anything your proposals ever got."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=planner"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_writer_stay",
+    "label": {
+     "ja": "副業でちょっとだけ",
+     "en": "Keep it on the side"
+    },
+    "effect": {
+     "fame": 3,
+     "money": 5
+    },
+    "result": {
+     "ja": "コラムは 1 年続いた。最終回は、会社にばれた話だった。",
+     "en": "The column ran a year. The last one was about getting caught by your company."
+    }
+   },
+   {
+    "id": "ch_cr_writer_go",
+    "label": {
+     "ja": "ゲームライターになる",
+     "en": "Become a game writer"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "会社の机を片付けて、ノートパソコン 1 台だけ持って出た。",
+     "en": "You cleared your desk and walked out with nothing but a laptop."
+    },
+    "cause": {
+     "ja": "ゲームライターに転身。昔自分が作ったゲームのレビューでは、星 3 つに抑えた",
+     "en": "became a game journalist. You gave your own old game a modest three stars"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_copywriter",
+  "years": [
+   1985,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "パッケージの裏の宣伝文句を書いたら、広告代理店から電話が来た。",
+   "en": "You wrote the copy on the back of a game box. An ad agency called."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=planner"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_copy_stay",
+    "label": {
+     "ja": "パッケージ裏を書き続ける",
+     "en": "Keep writing box copy"
+    },
+    "effect": {
+     "skill": 2,
+     "fame": 1
+    },
+    "result": {
+     "ja": "次のパッケージには、ついに「感動巨編」と書いた。中身はパズルだった。",
+     "en": "On the next box you finally wrote \"an epic masterpiece.\" It was a puzzle game."
+    }
+   },
+   {
+    "id": "ch_cr_copy_go",
+    "label": {
+     "ja": "コピーライターになる",
+     "en": "Become a copywriter"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "最初の仕事は、5 文字のキャッチコピー。100 案出して、1 案目が通った。",
+     "en": "First job: a five-character slogan. You wrote 100. They picked the first one."
+    },
+    "cause": {
+     "ja": "コピーライターに転身。最初に通ったのは「ついに出た」の 5 文字だった",
+     "en": "became an ad copywriter. Your first approved line was \"It's finally here\""
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_sysdev",
+  "years": [
+   1995,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "業務システムの会社から給料 1.5 倍の誘い。面接で「バグで誰かが泣くことはありますか?」と聞いたら、笑われた。",
+   "en": "A business software company offered 1.5x your pay. You asked if bugs ever made anyone cry. They laughed."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=programmer"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_sys_stay",
+    "label": {
+     "ja": "ゲームのバグと生きる",
+     "en": "Stay with game bugs"
+    },
+    "effect": {
+     "skill": 3,
+     "passion": 2
+    },
+    "result": {
+     "ja": "翌週、ゲームのバグで自分が泣いた。",
+     "en": "The next week, a game bug made you cry."
+    }
+   },
+   {
+    "id": "ch_cr_sys_go",
+    "label": {
+     "ja": "業務システムへ",
+     "en": "Go into business software"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     },
+     "money": 30
+    },
+    "result": {
+     "ja": "初めての定時退社。夕日を見たのは何年ぶりか、数えられなかった。",
+     "en": "First day leaving on time. You could not count how many years since you last saw a sunset."
+    },
+    "cause": {
+     "ja": "業務システムのエンジニアに転身。バグが出ても、もう誰にも「裏技」と呼ばれない",
+     "en": "became a business systems engineer. When bugs happen now, nobody calls them secret tricks"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_ricecooker",
+  "years": [
+   1985,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "家電メーカーから、炊飯器のプログラムの仕事の誘い。炊き上がりのメロディは、好きに作っていいと言われた。",
+   "en": "An appliance maker offered you a job programming rice cookers. You could make the \"rice is ready\" melody however you liked."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=programmer"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_rice_stay",
+    "label": {
+     "ja": "ゲームの曲を書き続ける",
+     "en": "Stay in games"
+    },
+    "effect": {
+     "skill": 2
+    },
+    "result": {
+     "ja": "その夜、炊飯器のピーという音が、やけに寂しく聞こえた。",
+     "en": "That night your own rice cooker's beep sounded lonely."
+    }
+   },
+   {
+    "id": "ch_cr_rice_go",
+    "label": {
+     "ja": "家電メーカーへ",
+     "en": "Join the appliance maker"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     },
+     "money": 20
+    },
+    "result": {
+     "ja": "炊き上がりの音を 3 か月かけて作った。会議で、全員が拍手した。",
+     "en": "Three months on the \"rice is ready\" tune. The whole meeting applauded."
+    },
+    "cause": {
+     "ja": "家電メーカーに転身。炊飯器の炊き上がりの音に、ステージクリアの曲を仕込んだ",
+     "en": "joined an appliance maker and hid a stage-clear jingle in the rice cooker"
+    },
+    "memory": {
+     "ja": "炊飯器の炊き上がりの曲を作って拍手された",
+     "en": "my rice cooker jingle got applause"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_jingle",
+  "years": [
+   1980,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "スーパーの店内で流す曲を頼まれた。3 日で 1 曲、ギャラはゲームの BGM の 10 倍だった。",
+   "en": "A supermarket asked you to write in-store music. Three days, one song, ten times what game music paid."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=sound"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_jingle_stay",
+    "label": {
+     "ja": "ゲーム音楽に戻る",
+     "en": "Back to game music"
+    },
+    "effect": {
+     "skill": 3,
+     "money": 10
+    },
+    "result": {
+     "ja": "スーパーで自分の曲が流れるたび、カゴに 1 つ余分に入れた。",
+     "en": "Every time your song played at the supermarket, you added one extra item to your basket."
+    }
+   },
+   {
+    "id": "ch_cr_jingle_go",
+    "label": {
+     "ja": "CM 音楽の作曲家になる",
+     "en": "Become a jingle composer"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "次の依頼は、ホームセンターから。曲は 15 秒。",
+     "en": "Next job: a home-improvement store. Fifteen seconds."
+    },
+    "cause": {
+     "ja": "CM 音楽の作曲家に転身。スーパーの売り場で、自分の曲が 1 日 300 回流れている",
+     "en": "became a jingle composer. Your song plays 300 times a day in supermarkets"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_vocalo",
+  "years": [
+   2009,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "趣味で投稿したボカロ曲の再生数が、自分のゲームの販売本数を 1 日で抜いた。",
+   "en": "A Vocaloid song you uploaded for fun beat your game's total sales in plays in a single day."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=sound"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_vocalo_stay",
+    "label": {
+     "ja": "ゲームの曲に生かす",
+     "en": "Use it in your game music"
+    },
+    "effect": {
+     "skill": 3,
+     "fame": 2
+    },
+    "result": {
+     "ja": "次のゲームの BGM で、コメント欄に「ボカロの人だ」と書かれた。",
+     "en": "Under your next game's soundtrack, someone commented: \"It's the Vocaloid guy.\""
+    }
+   },
+   {
+    "id": "ch_cr_vocalo_go",
+    "label": {
+     "ja": "ボカロ P になる",
+     "en": "Become a Vocaloid producer"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "投稿 2 曲目で、会社の後輩からコメントが来た。「先輩ですよね?」",
+     "en": "On your second upload, a junior from work commented: \"That's you, isn't it?\""
+    },
+    "cause": {
+     "ja": "ボカロ P に転身。代表曲のサビは、ボツになったボス戦の曲だった",
+     "en": "became a Vocaloid producer. Your biggest chorus was a rejected boss-battle theme"
+    },
+    "memory": {
+     "ja": "趣味の曲がゲームの販売本数を 1 日で抜いた",
+     "en": "my hobby song outsold my game in a day"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_proofreader",
+  "years": [
+   1980,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "バグを見つける目を買われて、出版社に校正の仕事を勧められた。「見つけたら褒められる仕事ですよ」と言われ、少し泣いた。",
+   "en": "A publisher wants your bug-hunting eyes for proofreading. \"Here, people thank you for finding mistakes.\" You teared up a little."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=qa"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_proof_stay",
+    "label": {
+     "ja": "バグ探しを続ける",
+     "en": "Keep hunting bugs"
+    },
+    "effect": {
+     "skill": 3
+    },
+    "result": {
+     "ja": "翌日もバグを見つけて、翌日も怒られた。",
+     "en": "The next day you found a bug and got yelled at again."
+    }
+   },
+   {
+    "id": "ch_cr_proof_go",
+    "label": {
+     "ja": "校正者になる",
+     "en": "Become a proofreader"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "初日に誤字を 40 個見つけた。編集者に、お菓子をもらった。",
+     "en": "Day one: 40 typos found. The editor gave you snacks."
+    },
+    "cause": {
+     "ja": "出版社の校正者に転身。誤字を見つけるたび、心の中で「再現性あり」とつぶやく",
+     "en": "became a proofreader. Every typo you find, you whisper: \"reproducible\""
+    },
+    "memory": {
+     "ja": "見つけたら褒められる仕事に出会った",
+     "en": "I found a job where finding mistakes gets you thanked"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_carqa",
+  "years": [
+   1977,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "デバッグで鍛えた「同じことを 1000 回やる力」を、自動車の品質検査の会社が欲しがった。",
+   "en": "A car maker's quality-check team wants the skill debugging gave you: doing the same thing a thousand times."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=qa"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_car_stay",
+    "label": {
+     "ja": "1000 回目のバグを探す",
+     "en": "Look for bug #1000"
+    },
+    "effect": {
+     "skill": 2,
+     "passion": 2
+    },
+    "result": {
+     "ja": "1000 回目に、ついにバグが出た。再現手順を書くのに 2 時間かかった。",
+     "en": "On try #1000, the bug finally showed up. Writing the repro steps took two hours."
+    }
+   },
+   {
+    "id": "ch_cr_car_go",
+    "label": {
+     "ja": "自動車の検査員になる",
+     "en": "Inspect cars"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     },
+     "money": 20
+    },
+    "result": {
+     "ja": "1 日 2000 回ドアを開け閉めした。誰も仕様を変えなかった。",
+     "en": "2,000 door slams a day. Nobody changed the spec."
+    },
+    "cause": {
+     "ja": "自動車の品質検査員に転身。ドアを 1 日 2000 回開け閉めしても、仕様変更は来ない",
+     "en": "became a car quality inspector. You open a door 2,000 times a day, and the spec never changes"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_shop",
+  "years": [
+   1985,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "営業で通っていたゲームショップの店長に、「この店、継いでくれないか」と言われた。",
+   "en": "The owner of a game shop on your sales route asked if you'd take over the store."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=sales"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_shop_stay",
+    "label": {
+     "ja": "営業を続ける",
+     "en": "Keep selling"
+    },
+    "effect": {
+     "network": 4
+    },
+    "result": {
+     "ja": "代わりにその店の売り場づくりを手伝った。店長は少し寂しそうだった。",
+     "en": "You helped redo the shop floor instead. The owner looked a little sad."
+    }
+   },
+   {
+    "id": "ch_cr_shop_go",
+    "label": {
+     "ja": "店を継ぐ",
+     "en": "Take over the shop"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "最初の日、自分が営業したソフトをワゴンから出して、定価の棚に戻した。",
+     "en": "Day one, you took the games you used to sell out of the bargain bin and put them back at full price."
+    },
+    "cause": {
+     "ja": "町のゲームショップの店長に転身。常連の子どもに「おじさん、ゲーム作れる?」と聞かれ、少しだけと答えた",
+     "en": "took over a local game shop. When a kid asked \"Can you make games?\" you said, \"A little\""
+    },
+    "memory": {
+     "ja": "自分の営業したソフトを、定価の棚に戻した",
+     "en": "I put the games I used to sell back on the full-price shelf"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_consult",
+  "years": [
+   2011,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "セミナーで 1 回しゃべったら、「ゲーミフィケーション・コンサルタント」の名刺を勧められた。肩書の意味は、勧めた人も知らなかった。",
+   "en": "After one seminar talk, someone urged you to print cards saying \"Gamification Consultant.\" Even they didn't know what it meant."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=producer"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_consult_stay",
+    "label": {
+     "ja": "名刺はしまっておく",
+     "en": "Keep the cards in a drawer"
+    },
+    "effect": {
+     "passion": 2,
+     "network": 2
+    },
+    "result": {
+     "ja": "名刺は引き出しの奥に 500 枚眠った。",
+     "en": "500 cards sleep in the back of a drawer."
+    }
+   },
+   {
+    "id": "ch_cr_consult_go",
+    "label": {
+     "ja": "コンサルになる",
+     "en": "Become a consultant"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     },
+     "money": 50
+    },
+    "result": {
+     "ja": "最初の客は、町内会のラジオ体操だった。スタンプカードにボスを付けた。",
+     "en": "Your first client: the neighborhood morning exercises. You added a boss to the stamp card."
+    },
+    "cause": {
+     "ja": "ゲームコンサルに転身。仕事の中身を聞かれると、毎回ちがう答えをしている",
+     "en": "became a \"game consultant.\" Each time someone asks what you do, you give a different answer"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_consult_dir",
+  "years": [
+   2005,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "異業種の社長から「うちの研修をゲームみたいにしてほしい」。報酬は、今の年収の半分を 3 か月で。",
+   "en": "A CEO from another industry asked you to \"make our employee training like a game.\" The fee: half your yearly pay, in three months."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=director"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_cd_stay",
+    "label": {
+     "ja": "一回だけ手伝う",
+     "en": "Help out just once"
+    },
+    "effect": {
+     "money": 30,
+     "network": 3
+    },
+    "result": {
+     "ja": "研修にレベルアップの音を付けた。部長が一番喜んだ。",
+     "en": "You added a level-up sound to the training. The manager loved it most."
+    }
+   },
+   {
+    "id": "ch_cr_cd_go",
+    "label": {
+     "ja": "研修コンサルになる",
+     "en": "Go into consulting"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     },
+     "money": 50
+    },
+    "result": {
+     "ja": "名刺の肩書はカタカナ 12 文字。自分でも読み間違えた。",
+     "en": "Your new title is twelve katakana characters long. You misread it yourself."
+    },
+    "cause": {
+     "ja": "研修をゲームにするコンサルに転身。社長たちに「経験値」と言わせるのが仕事になった",
+     "en": "became a consultant who turns training into games. Getting CEOs to say \"XP\" is now your job"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_gamebar",
+  "years": [
+   2005,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "行きつけのゲームバーのマスターが引退するという。「常連の中で、ゲームの話が一番長いのはあんただ」。",
+   "en": "The owner of your favorite game bar is retiring. \"Of all the regulars, you talk about games the longest.\""
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_bar_stay",
+    "label": {
+     "ja": "常連のままでいる",
+     "en": "Stay a regular"
+    },
+    "effect": {
+     "passion": 3,
+     "money": -3
+    },
+    "result": {
+     "ja": "次のマスターも、やっぱり自分の話を長いと言った。",
+     "en": "The next owner also said you talk too long."
+    }
+   },
+   {
+    "id": "ch_cr_bar_go",
+    "label": {
+     "ja": "店を継ぐ",
+     "en": "Take over the bar"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "開店の日、昔の同僚が 12 人来た。12 人とも、ツケにした。",
+     "en": "On opening night, twelve old coworkers came. All twelve ran a tab."
+    },
+    "cause": {
+     "ja": "ゲームバーの店長に転身。看板メニューは、昔の現場の夜食を再現したカップ麺",
+     "en": "became a game bar owner. The house special is the cup noodles from your crunch days"
+    },
+    "memory": {
+     "ja": "昔の仲間 12 人が開店の日に来てくれた",
+     "en": "twelve old teammates came on opening night"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_youtuber",
+  "years": [
+   2012,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "昔の開発の裏話を動画にして出したら、広告の収入が本業の給料を抜いた。",
+   "en": "You posted videos about behind-the-scenes game dev. The ad money passed your actual salary."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_yt_stay",
+    "label": {
+     "ja": "本業を続ける",
+     "en": "Keep your day job"
+    },
+    "effect": {
+     "fame": 3,
+     "money": 5
+    },
+    "result": {
+     "ja": "動画はたまに出した。会社の広報から、内容のチェックが入るようになった。",
+     "en": "You post now and then. PR started reviewing your videos."
+    }
+   },
+   {
+    "id": "ch_cr_yt_go",
+    "label": {
+     "ja": "動画で食べていく",
+     "en": "Go full-time on video"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "会社を辞める動画が、一番再生された。",
+     "en": "Your \"I quit my job\" video got the most views."
+    },
+    "cause": {
+     "ja": "ゲームの裏話の動画配信者に転身。一番再生されたのは、自分の失敗作の回だった",
+     "en": "became a video creator telling game-dev stories. Your most viewed video was about your biggest flop"
+    },
+    "memory": {
+     "ja": "裏話の動画が、給料より稼いだ",
+     "en": "my behind-the-scenes videos earned more than my salary"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_caster",
+  "years": [
+   2018,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "社内の大会で実況をやったら声がいいとほめられ、e スポーツの大会から依頼が来た。",
+   "en": "You did play-by-play at an office tournament. Your voice was a hit, and an esports event called."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_caster_stay",
+    "label": {
+     "ja": "社内大会専属でいる",
+     "en": "Stick to office tournaments"
+    },
+    "effect": {
+     "network": 5
+    },
+    "result": {
+     "ja": "社内大会が年 4 回に増えた。仕事は年 4 回、止まった。",
+     "en": "Office tournaments went to four a year. Work stopped four times a year."
+    }
+   },
+   {
+    "id": "ch_cr_caster_go",
+    "label": {
+     "ja": "実況者になる",
+     "en": "Become a caster"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "初めての大会で叫びすぎて、翌日は声が出なかった。",
+     "en": "You yelled so much at your first event that you had no voice the next day."
+    },
+    "cause": {
+     "ja": "e スポーツの実況者に転身。叫びすぎた声は、開発時代の徹夜明けと同じになった",
+     "en": "became an esports caster. Your shouted-out voice sounds just like your old crunch-week mornings"
+    },
+    "memory": {
+     "ja": "大観衆の前で実況して叫んだ",
+     "en": "I called a match in front of a huge crowd"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_dagashi",
+  "years": [
+   1977,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "父から電話。「駄菓子屋、継ぐか?」。店の奥には、子どもの頃に遊んだゲームの筐体がまだあった。",
+   "en": "Your father called: \"Want to take over the candy shop?\" In the back, the arcade cabinet from your childhood is still there."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_dagashi_stay",
+    "label": {
+     "ja": "業界に残る",
+     "en": "Stay in the industry"
+    },
+    "effect": {
+     "passion": 3
+    },
+    "result": {
+     "ja": "正月に帰って、筐体で 1 回だけ遊んだ。100 円は父が出した。",
+     "en": "You went home at New Year and played one round. Dad paid the coin."
+    }
+   },
+   {
+    "id": "ch_cr_dagashi_go",
+    "label": {
+     "ja": "店を継ぐ",
+     "en": "Take over the shop"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "店の奥の筐体を磨いた。子どもが 3 人、並んだ。",
+     "en": "You polished the cabinet in the back. Three kids lined up."
+    },
+    "cause": {
+     "ja": "実家の駄菓子屋を継いで転身。店の奥の筐体の最高得点は、まだ子どもに抜かれていない",
+     "en": "took over the family candy shop. Your high score on the back-room cabinet is still unbeaten by any kid"
+    },
+    "memory": {
+     "ja": "実家の筐体に、子どもが 3 人並んだ",
+     "en": "three kids lined up at the old cabinet"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_boardgame",
+  "years": [
+   2010,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "社内で遊びに作ったボードゲームが、即売会で 100 個完売した。",
+   "en": "A board game you made for fun at the office sold out all 100 copies at a fan market."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=director"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_bg_stay",
+    "label": {
+     "ja": "社内の遊びに戻す",
+     "en": "Keep it an office game"
+    },
+    "effect": {
+     "passion": 4,
+     "network": 3
+    },
+    "result": {
+     "ja": "昼休みのたびに遊ばれた。勝つのは、いつも経理の人だった。",
+     "en": "It gets played every lunch. Accounting always wins."
+    }
+   },
+   {
+    "id": "ch_cr_bg_go",
+    "label": {
+     "ja": "ボードゲーム作家になる",
+     "en": "Make board games"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "2 作目のルールに誤りが見つかった。パッチは当てられないので、説明書を刷り直した。",
+     "en": "A rules error turned up in game two. No patches possible, so you reprinted the rulebook."
+    },
+    "cause": {
+     "ja": "ボードゲーム作家に転身。パッチを当てられないので、説明書を 4 回刷り直した",
+     "en": "became a board game designer. You can't patch cardboard, so you reprinted the rules four times"
+    },
+    "memory": {
+     "ja": "手作りのボードゲームが即売会で完売した",
+     "en": "my homemade board game sold out"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_escape",
+  "years": [
+   2010,
+   2040
+  ],
+  "weight": 0.25,
+  "once": true,
+  "text": {
+   "ja": "社員旅行の余興で作った謎解きが大好評で、イベント会社から声がかかった。",
+   "en": "The puzzle hunt you made for the company trip was a smash, and an events company came calling."
+  },
+  "when": [
+   "career>=2",
+   "age<=45",
+   "job!=teacher",
+   "!flag.in_prison",
+   "job=planner"
+  ],
+  "choices": [
+   {
+    "id": "ch_cr_esc_stay",
+    "label": {
+     "ja": "次の社員旅行も担当する",
+     "en": "Run next year's trip too"
+    },
+    "effect": {
+     "network": 5
+    },
+    "result": {
+     "ja": "翌年は謎が難しすぎて、全員が宿に帰れなかった。",
+     "en": "Next year's was too hard. Nobody made it back to the inn."
+    }
+   },
+   {
+    "id": "ch_cr_esc_go",
+    "label": {
+     "ja": "謎解き作家になる",
+     "en": "Become a puzzle designer"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "初めての公演で、正解者が 0 人。ゲームの頃と同じく、難易度を下げた。",
+     "en": "Your first show: zero solvers. Just like in games, you lowered the difficulty."
+    },
+    "cause": {
+     "ja": "謎解きイベントの作家に転身。いちばん難しい謎は、前の会社の経費精算の手順をそのまま使った",
+     "en": "became a puzzle event designer. Your hardest puzzle was just your old company's expense report process"
+    }
+   }
+  ],
+  "tag": [
+   "switch",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_cr_oldcode",
+  "years": [
+   1995,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "若手が「この古いコード、読める人がいなくて」と席に来た。20 年前に自分が書いたコードで、コメントは「あとで直す」。",
+   "en": "A young dev came to your desk: \"Nobody can read this old code.\" You wrote it twenty years ago. The comment said \"fix later.\""
+  },
+  "when": [
+   "age>=60",
+   "flag.rehired",
+   "job!=teacher"
+  ],
+  "effect": {
+   "passion": 12,
+   "network": 4
+  },
+  "memory": {
+   "ja": "20 年前の自分のコードで若手を助けた",
+   "en": "my own 20-year-old code saved the young team"
+  },
+  "tag": [
+   "rehire",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_cr_halfpay",
+  "years": [
+   1995,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "給料は半分になった。会議も半分になり、責任はゼロになった。ゲームを作る時間だけが倍になった。",
+   "en": "Your pay was cut in half. So were the meetings. Responsibility: zero. Time to make games: doubled."
+  },
+  "when": [
+   "age>=60",
+   "flag.rehired",
+   "job!=teacher"
+  ],
+  "effect": {
+   "passion": 12,
+   "money": -10
+  },
+  "memory": {
+   "ja": "給料半分で、ゲームを作る時間が倍になった",
+   "en": "half the pay, twice the time to make games"
+  },
+  "tag": [
+   "rehire",
+   "high",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_cr_morework",
+  "years": [
+   1995,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "数えてみたら、定年後の数年で関わった作品のほうが、その前の 10 年より多かった。",
+   "en": "You counted: you've worked on more games in the few years since retirement than in the ten years before it."
+  },
+  "when": [
+   "age>=60",
+   "flag.rehired",
+   "job!=teacher"
+  ],
+  "effect": {
+   "passion": 14,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "定年後のほうが作品数が多かった",
+   "en": "I made more games after retiring than before"
+  },
+  "tag": [
+   "rehire",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_cr_nickname",
+  "years": [
+   1995,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "名刺の肩書が「嘱託」になった。若手は誰も肩書を見ず、「困った時の{name}さん」と呼んだ。",
+   "en": "Your card now says \"contract staff.\" No one reads it. The young team just calls you \"{name}, for when we're stuck.\""
+  },
+  "when": [
+   "age>=60",
+   "flag.rehired",
+   "job!=teacher"
+  ],
+  "effect": {
+   "passion": 10,
+   "network": 5
+  },
+  "memory": {
+   "ja": "「困った時の{name}さん」と呼ばれた",
+   "en": "they called me \"{name}, for when we're stuck\""
+  },
+  "tag": [
+   "rehire",
+   "high",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_cr_welcome",
+  "years": [
+   1995,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "新人の歓迎会で一番ウケたのは、自分の「昔の締め切り」の話だった。翌週、新人の 1 人が席に相談に来た。",
+   "en": "At the welcome party, the biggest hit was your \"deadlines back in my day\" story. The next week, a rookie came to your desk for advice."
+  },
+  "when": [
+   "age>=60",
+   "flag.rehired",
+   "job!=teacher"
+  ],
+  "effect": {
+   "passion": 8,
+   "network": 4
+  },
+  "memory": {
+   "ja": "新人が自分の席に相談に来た",
+   "en": "a rookie came to me for advice"
+  },
+  "tag": [
+   "rehire",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_cr_bugrace",
+  "years": [
+   1995,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "デバッグのバイトで大学生と並んで座った。見つけたバグの数で、3 か月連続で勝った。",
+   "en": "Part-time QA, sitting next to college kids. You found the most bugs three months in a row."
+  },
+  "when": [
+   "age>=60",
+   "flag.parttime",
+   "job!=teacher"
+  ],
+  "effect": {
+   "passion": 12,
+   "skill": 2
+  },
+  "memory": {
+   "ja": "60 すぎてバグ探しで大学生に勝った",
+   "en": "past sixty, I out-bugged the college kids"
+  },
+  "tag": [
+   "rehire",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_cr_autograph",
+  "years": [
+   1995,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "バイト先の若手が、昔の自分の作品のファンだった。昼休みに頼まれたサインは、バグ票の裏に書いた。",
+   "en": "A young coworker at your part-time job was a fan of your old game. You signed the back of a bug report at lunch."
+  },
+  "when": [
+   "age>=60",
+   "flag.parttime",
+   "job!=teacher"
+  ],
+  "effect": {
+   "passion": 14,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "バイト先で、昔の作品のファンにサインした",
+   "en": "I signed an autograph for a fan at my part-time job"
+  },
+  "tag": [
+   "rehire",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_cr_port",
+  "years": [
+   2010,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "昔のゲームの移植の仕事が来た。当時の仕様を知っているのは社内で自分だけ。時給のバイトが会議の主役になった。",
+   "en": "A port of an old game came in. You were the only one who knew how the original worked. The hourly temp became the star of the meeting."
+  },
+  "when": [
+   "age>=60",
+   "flag.parttime",
+   "job!=teacher"
+  ],
+  "effect": {
+   "passion": 15,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "バイトなのに、移植の会議の主役になった",
+   "en": "a part-timer, but the star of the porting meeting"
+  },
+  "tag": [
+   "rehire",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_cr_early",
+  "years": [
+   1995,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "若手より早く来て、若手より早く帰る。それでもバグは若手より多く見つける。給料明細を見て、ちょっと笑った。",
+   "en": "In before the young staff, out before them too. Still find more bugs than them. You looked at your pay slip and grinned a little."
+  },
+  "when": [
+   "age>=60",
+   "flag.parttime",
+   "job!=teacher"
+  ],
+  "effect": {
+   "passion": 8,
+   "hp": 3
+  },
+  "memory": {
+   "ja": "早く来て早く帰って、バグは一番見つけた",
+   "en": "first in, first out, most bugs found"
+  },
+  "tag": [
+   "rehire",
+   "high",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_cr_mentor_lunch",
+  "years": [
+   1995,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "嘱託になって、昼ごはんを若手と食べるようになった。現役の頃は、昼ごはんを食べる時間が無かった。",
+   "en": "On contract, you started eating lunch with the young team. Back in your prime, you never had time for lunch."
+  },
+  "when": [
+   "age>=60",
+   "flag.rehired",
+   "job!=teacher"
+  ],
+  "effect": {
+   "passion": 8,
+   "hp": 4,
+   "network": 3
+  },
+  "memory": {
+   "ja": "若手と昼ごはんを食べるようになった",
+   "en": "I started having lunch with the young team"
+  },
+  "tag": [
+   "rehire",
+   "warm"
+  ]
+ }
+]
