@@ -25,7 +25,7 @@ export const KNOBS: Knob[] = [
   { key: 'year.hp', label: '体力の上限の年ごとの下がり', value: 0.8, min: 0, max: 3, step: 0.1, unit: '点/年', aim: '40 歳からは 1.5 倍。70 歳で上限が 50 前後' },
   { key: 'year.hpRegen', label: '1 年で戻る体力', value: 0.08, min: 0, max: 1, step: 0.02, unit: '上限までの割合', aim: '徹夜 1 回は 1 年で半分くらい戻る。続くと倒れる' },
   { key: 'year.hpWork', label: '働いている年の体力の減り', value: 2, min: 0, max: 15, step: 1, unit: '点', aim: '45 歳から 1.5 倍。戻る分と釣り合って、徹夜が重なると倒れる' },
-  { key: 'year.passion', label: '1 年の情熱の減り', value: 3, min: 0, max: 10, step: 1, unit: '点', aim: '何もしないと 70 歳まで続かない(idle の穴をふさぐ)' },
+  { key: 'year.passion', label: '1 年の情熱の減り', value: 6, min: 0, max: 10, step: 1, unit: '点', aim: '何もしないと 70 歳まで続かない(idle の穴をふさぐ)' },
   { key: 'year.skillMin', label: '1 年の腕の伸び(最少)', value: 2, min: 0, max: 10, step: 1, unit: '点' },
   { key: 'year.skillMax', label: '1 年の腕の伸び(最多)', value: 6, min: 0, max: 15, step: 1, unit: '点' },
   { key: 'year.salary', label: '会社員の 1 年の貯金', value: 60, min: 0, max: 300, step: 10, unit: '万円', aim: '大手は 1.5 倍、下請けは 0.5 倍' },
