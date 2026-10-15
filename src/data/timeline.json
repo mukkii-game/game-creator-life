@@ -1,12 +1,61 @@
 [
-  { "id": "tl_1978_invaders", "year": 1978, "kind": "hit", "text": { "ja": "タイトー『スペースインベーダー』が大流行。喫茶店のテーブルがゲーム台になる。", "en": "Taito's Space Invaders becomes a craze; café tables turn into game cabinets." }, "use": "黎明期の入口", "src": "スペースインベーダー" },
-  { "id": "tl_1983_famicom", "year": 1983, "month": 7, "kind": "hardware", "text": { "ja": "任天堂がファミリーコンピュータを発売。", "en": "Nintendo releases the Family Computer (Famicom)." }, "use": "時代の分かれ目", "src": "ファミリーコンピュータ" },
-  { "id": "tl_1986_dq", "year": 1986, "month": 5, "kind": "hit", "text": { "ja": "『ドラゴンクエスト』発売。国民的 RPG の誕生。", "en": "Dragon Quest launches; the national RPG is born." }, "use": "「RPG を作れ」の号令", "src": "ドラゴンクエスト" },
-  { "id": "tl_1988_dq3_lines", "year": 1988, "month": 2, "kind": "hit", "text": { "ja": "『ドラゴンクエストIII』発売。発売日に行列ができ、以後は平日発売を避けるようになった。", "en": "Dragon Quest III launches; lines around the block led to the custom of avoiding weekday releases." }, "use": "クランチと家族の行事がぶつかる選択の前振り", "src": "ドラゴンクエストIII そして伝説へ…" },
-  { "id": "tl_1994_ps", "year": 1994, "month": 12, "kind": "hardware", "text": { "ja": "PlayStation 発売。CD-ROM の時代へ。", "en": "PlayStation launches; the CD-ROM era begins." }, "use": "ムービー班ができる", "src": "PlayStation (ゲーム機)" },
-  { "id": "tl_2004_ds", "year": 2004, "month": 12, "kind": "hardware", "text": { "ja": "ニンテンドー DS 発売。2 画面とタッチペン。", "en": "Nintendo DS launches: two screens and a stylus." }, "use": "2 画面の仕様変更", "src": "ニンテンドーDS" },
-  { "id": "tl_2008_iphone_jp", "year": 2008, "month": 7, "kind": "hardware", "text": { "ja": "iPhone 3G が日本で発売。App Store 開始。", "en": "iPhone 3G launches in Japan; the App Store opens." }, "use": "「アプリで一発」", "src": "iPhone 3G" },
-  { "id": "tl_2012_compgacha", "year": 2012, "month": 5, "kind": "incident", "text": { "ja": "消費者庁が「コンプガチャ」を景品表示法違反と判断。7 月から禁止。", "en": "Japan's Consumer Affairs Agency rules 'complete gacha' illegal; banned from July." }, "use": "売上倍 → 規制 → 炎上", "src": "コンプリートガチャ" },
-  { "id": "tl_2020_covid_wfh", "year": 2020, "kind": "work", "text": { "ja": "新型コロナウイルスの流行で、ゲーム開発も在宅勤務に。", "en": "COVID-19 pushes game development to work from home." }, "use": "寝袋が不要に", "src": "新型コロナウイルス感染症の流行 (2019年-)" },
-  { "id": "tl_2022_chatgpt", "year": 2022, "month": 11, "kind": "ai", "text": { "ja": "ChatGPT 公開。生成 AI の波が始まる。", "en": "ChatGPT is released; the generative AI wave begins." }, "use": "「背景、AI でいける?」", "src": "ChatGPT" }
+ {
+  "id": "tl_2004_ds",
+  "year": 2004,
+  "month": 12,
+  "kind": "hardware",
+  "text": {
+   "ja": "ニンテンドー DS 発売。2 画面とタッチペン。",
+   "en": "Nintendo DS launches: two screens and a stylus."
+  },
+  "use": "2 画面の仕様変更",
+  "src": "ニンテンドーDS"
+ },
+ {
+  "id": "tl_2008_iphone_jp",
+  "year": 2008,
+  "month": 7,
+  "kind": "hardware",
+  "text": {
+   "ja": "iPhone 3G が日本で発売。App Store 開始。",
+   "en": "iPhone 3G launches in Japan; the App Store opens."
+  },
+  "use": "「アプリで一発」",
+  "src": "iPhone 3G"
+ },
+ {
+  "id": "tl_2012_compgacha",
+  "year": 2012,
+  "month": 5,
+  "kind": "incident",
+  "text": {
+   "ja": "消費者庁が「コンプガチャ」を景品表示法違反と判断。7 月から禁止。",
+   "en": "Japan's Consumer Affairs Agency rules 'complete gacha' illegal; banned from July."
+  },
+  "use": "売上倍 → 規制 → 炎上",
+  "src": "コンプリートガチャ"
+ },
+ {
+  "id": "tl_2020_covid_wfh",
+  "year": 2020,
+  "kind": "work",
+  "text": {
+   "ja": "新型コロナウイルスの流行で、ゲーム開発も在宅勤務に。",
+   "en": "COVID-19 pushes game development to work from home."
+  },
+  "use": "寝袋が不要に",
+  "src": "新型コロナウイルス感染症の流行 (2019年-)"
+ },
+ {
+  "id": "tl_2022_chatgpt",
+  "year": 2022,
+  "month": 11,
+  "kind": "ai",
+  "text": {
+   "ja": "ChatGPT 公開。生成 AI の波が始まる。",
+   "en": "ChatGPT is released; the generative AI wave begins."
+  },
+  "use": "「背景、AI でいける?」",
+  "src": "ChatGPT"
+ }
 ]
