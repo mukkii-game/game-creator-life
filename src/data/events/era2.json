@@ -1,6 +1,6 @@
 [
   { "id": "ev_era2_crunch_wedding", "years": [1986, 1994],
-    "text": { "ja": "国民的 RPG の 3 作目が発売日に行列。うちは「今週も泊まり」。土曜は妹の結婚式だ。", "en": "The nation's biggest RPG sold out with lines around the block. Our studio: \"another all-nighter week.\" Saturday is your sister's wedding." },
+    "text": { "ja": "『ドラゴンクエストIII』が発売日に行列。うちは「今週も泊まり」。土曜は妹の結婚式だ。", "en": "Dragon Quest III has lines around the block. Our studio: \"another all-nighter week.\" Saturday is your sister's wedding." },
     "when": ["status=employed", "age>=20"], "once": true, "weight": 3, "allow": ["RPG"],
     "choices": [
       { "id": "ch_wedding_go", "label": { "ja": "結婚式に行く", "en": "Go to the wedding" }, "effect": { "network": 5, "flag": { "family_first": true } },
@@ -50,7 +50,7 @@
     "text": { "ja": "経費が締まった。タクシー券が消え、代わりに会議室の寝袋が 3 つ増えた。", "en": "Budgets tightened. The taxi vouchers vanished; three more sleeping bags appeared in the meeting room." },
     "when": ["status=employed"], "effect": { "hp": -5, "passion": -3 }, "tag": ["money", "crunch"] },
   { "id": "ev_era2_fighting_arcade", "years": [1991, 1994],
-    "text": { "ja": "対戦格闘の大流行。仕事帰りにゲーセンへ寄るのが日課になり、帰宅は毎日 2 時。仕事より疲れる。", "en": "Fighting games are everywhere. An arcade stop after work becomes routine; you're home at 2 a.m. More tiring than work." },
+    "text": { "ja": "『ストリートファイターII』の大流行。仕事帰りにゲーセンへ寄るのが日課になり、帰宅は毎日 2 時。仕事より疲れる。", "en": "Street Fighter II is everywhere. An arcade stop after work becomes routine; you're home at 2 a.m. More tiring than work." },
     "effect": { "hp": -4, "passion": 5, "skill": 2 }, "tag": ["gag"] },
   { "id": "ev_era2_polygon_reset", "years": [1993, 1994],
     "text": { "ja": "ポリゴンの時代が来た。10 年磨いたドット絵の腕が、三角形の前でゼロに戻った。", "en": "The polygon era arrives. Ten years of honed pixel art, reset to zero by a triangle." },
