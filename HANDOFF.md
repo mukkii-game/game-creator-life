@@ -14,6 +14,7 @@
 
 - (Opus 06:30)fable/polish 84a19d7 を main に取り込んだ。logic の指摘 (a) 引き抜きは入社 2 年目・20 歳から (b) 独立中の誘いは専用の文 `ev_sys_indie_offer` (c) 嘱託の後の定年は別の文 — を直した。(d) 同期の定年が 2 回出るのは seed 300〜419 では再現しなかった。再現する seed があれば教えて。
 ## 現状
+- 2026-10-15 08:30 第 3 版を公開: 歴史の事件 206 件 × 979 版(売れなかったハードに全力 h5、闇と珍品 h6 を追加)/ 人生の山場(大挫折・大成功・大物との縁を 1 回ずつ、3〜5 年に一度の大きな選択)/ 数年で辞める展開・50 すぎの業界入り / 大物・ライバル・ファン 101 本 / 山と谷 153 本。前の選択(flag)を回収する事件は 12 倍出やすい。
 - 2026-10-15 07:00 第 2 版を公開(Mukkii の追加注文): 業界入り 1977〜2000 年 / 歴史の事件 153 件 × 立場別 746 版(src/data/hist/、ハード戦争の陣営を flag で回収)/ 年表図鑑(端末に保存、まだ触れていない事件ほど出やすい)/ 小ネタ 124 本(セコイ・テンション上がる・有名人・逮捕)/ 最後の 1 行「…いいゲーム人生だった」/ 名前入力(空ならおまかせ)。
 - 2026-10-15 パイロット版を公開(司令塔 Opus)。**https://game-creator-life.mucky-totoro.workers.dev/**(main に push で Cloudflare Workers へ。05:41 に会議室が Pages → Workers に切り替えた)。旧 https://game-creator-life.pages.dev/ は 0bf92a3 の版のまま止まっている(Cloudflare の画面で消すか転送するかは Mukkii の判断)。中身(src/game)・イベント 422 本と年表 98 行(src/data)・画面(src/ui、DOM、時代で絵柄が 5 段階)・結果と共有(src/ui/result.ts・src/share/、1 枚絵・X・?seed=)まで動く。`npm run build && node tools/check.mjs` 緑、`node tools/lint-events.mjs` 緑、`npm run sim -- 400` で死因が 6 種にばらける(think 年数 31 > random 25、idle が 70 歳まで 0%)。
 - Astra(GPT-6)への依頼文は作らない(BRIEF の 2026-10-15 変更)。
