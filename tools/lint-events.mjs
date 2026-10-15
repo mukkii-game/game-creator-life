@@ -29,7 +29,7 @@ export const PROPS = {
   '生成AI': 2022, '生成 AI': 2022, 'ChatGPT': 2022, 'AI': 2022, 'プロンプト': 2022, 'prompt': 2022,
 };
 const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other']);
-const COND = /^!?(age|year|era|job|status|works|pos|company\.size|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
+const COND = /^!?(age|year|era|job|status|works|pos|company\.size|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z0-9_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
 const JOBS = ['programmer', 'planner', 'artist', 'sound', 'qa', 'sales', 'director', 'producer', 'other'];
 const STATUS = ['employed', 'indie', 'left', 'retired', 'ended'];
 const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow']);
@@ -53,7 +53,7 @@ function effect(where, e) {
   for (const [k, v] of Object.entries(e)) {
     if (['hp', 'passion', 'skill', 'network', 'fame'].includes(k)) { if (!Number.isInteger(v) || v < -50 || v > 50) err(where, `${k}=${v} は -50〜50 の整数`); }
     else if (k === 'money') { if (!Number.isInteger(v) || v < -2000 || v > 5000) err(where, `money=${v} は -2000〜5000`); }
-    else if (k === 'flag') { for (const [f, b] of Object.entries(v)) { if (!/^[a-z_]+$/.test(f) || typeof b !== 'boolean') err(where, `flag ${f}`); } }
+    else if (k === 'flag') { for (const [f, b] of Object.entries(v)) { if (!/^[a-z0-9_]+$/.test(f) || typeof b !== 'boolean') err(where, `flag ${f}`); } }
     else if (k === 'job') { if (!JOBS.includes(v)) err(where, `job=${v}`); }
     else if (k === 'status') { if (!STATUS.includes(v)) err(where, `status=${v}`); }
     else if (k === 'work') {

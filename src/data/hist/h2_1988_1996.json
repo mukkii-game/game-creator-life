@@ -1,0 +1,3330 @@
+[
+ {
+  "id": "hs_1988_dq3",
+  "year": 1988,
+  "month": 2,
+  "kind": "hit",
+  "weight": 3,
+  "title": {
+   "ja": "『ドラゴンクエストIII』発売日に大行列",
+   "en": "Lines around the block for Dragon Quest III"
+  },
+  "news": {
+   "ja": "2 月 10 日(水曜)の発売日に各地で行列。学校を休む子が社会問題になり、以後シリーズは休日発売が慣例に。",
+   "en": "Dragon Quest III launched on a Wednesday, February 10. Kids skipped school to line up, and later entries moved to weekends."
+  },
+  "src": "ドラゴンクエストIII そして伝説へ…",
+  "variants": [
+   {
+    "id": "ev_hs_1988_dq3_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員会で「うちの新作も発売日は日曜に」と決まった。日曜に出すには、マスター ROM を金曜に上げろという意味だった。",
+     "en": "The board decides: \"Our launches go on Sundays too.\" Which means the master ROM is due Friday night."
+    },
+    "effect": {
+     "fame": 3,
+     "hp": -5
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1988_dq3_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "行列のニュースを見て、社長が言った。「うちも RPG を作る。来月から」。机にあるのは麻雀ゲームの仕様書だ。",
+     "en": "Watching the lines on TV, the boss says, \"We're making an RPG. Starting next month.\" Your desk holds a mahjong game spec."
+    },
+    "effect": {
+     "passion": 3,
+     "skill": 3,
+     "hp": -3
+    },
+    "allow": [
+     "RPG"
+    ],
+    "tag": [
+     "hist",
+     "hit",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1988_dq3_young",
+    "when": [
+     "age<=20"
+    ],
+    "text": {
+     "ja": "平日の朝 6 時、行列に並んだ。会社に「風邪で」と電話した声が、思ったより元気だった。",
+     "en": "6 a.m. on a weekday, you're in line. You call in sick, and your voice sounds suspiciously cheerful."
+    },
+    "effect": {
+     "passion": 5,
+     "network": -3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1988_dq3_any",
+    "text": {
+     "ja": "国民的 RPG の 3 作目で、日本中が行列になった。同じ日に出たうちのソフトの売上は、行列の 1 人分くらいだった。",
+     "en": "The nation's biggest RPG sequel sparks lines nationwide. Our game, released the same day, sold about one line's worth of a person."
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 2
+    },
+    "allow": [
+     "RPG"
+    ],
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1988_megadrive",
+  "year": 1988,
+  "month": 10,
+  "until": 1989,
+  "kind": "hardware",
+  "weight": 3,
+  "title": {
+   "ja": "メガドライブ発売、16 ビット戦争の始まり",
+   "en": "The Mega Drive launches: the 16-bit war begins"
+  },
+  "news": {
+   "ja": "セガが 16 ビット機メガドライブを 21,000 円で発売。",
+   "en": "Sega releases the 16-bit Mega Drive for 21,000 yen."
+  },
+  "src": "メガドライブ",
+  "variants": [
+   {
+    "id": "ev_hs_1988_md_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "次の作品、どの陣営で出すか。黒い 16 ビットか、台数の多い赤白か。社長は「君が決めろ。外れたら君のせいだ」。",
+     "en": "Which camp for the next game: the black 16-bit box, or the red-and-white one everyone owns? The boss: \"Your call. Your fault if it's wrong.\""
+    },
+    "choices": [
+     {
+      "id": "ch_hs_1988_md_sega",
+      "label": {
+       "ja": "黒い 16 ビット(セガ)",
+       "en": "The black 16-bit box (Sega)"
+      },
+      "effect": {
+       "passion": 8,
+       "money": -20,
+       "flag": {
+        "w_two_side_md": true
+       }
+      },
+      "later": [
+       {
+        "after": 3,
+        "event": "ev_hs_1991_sonic_md"
+       }
+      ],
+      "result": {
+       "ja": "開発機が届いた。箱に「取扱注意」とあり、誰も持ち上げられなかった。",
+       "en": "The dev kit arrived, stamped \"handle with care.\" Nobody dared lift it."
+      }
+     },
+     {
+      "id": "ch_hs_1988_md_nin",
+      "label": {
+       "ja": "台数の多い方(任天堂)",
+       "en": "The bigger install base (Nintendo)"
+      },
+      "effect": {
+       "network": 5,
+       "money": 20,
+       "passion": -3,
+       "flag": {
+        "w_two_side_nin": true
+       }
+      },
+      "result": {
+       "ja": "営業が拍手した。ROM の発注は半年待ちだと聞いて、拍手がやんだ。",
+       "en": "Sales applauded, until they heard ROM orders were six months out."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "hardware",
+     "choice"
+    ]
+   },
+   {
+    "id": "ev_hs_1988_md_client",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "セガの営業が菓子折りを持って来た。部長が「両方で出せば?」と言い、あなたの土日が 2 倍になった。",
+     "en": "Sega's rep visits with a box of sweets. The manager says, \"Why not both?\" Your weekends doubled in workload."
+    },
+    "effect": {
+     "money": 30,
+     "hp": -10,
+     "network": 5
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1988_md_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "元請けが「16 ビットの移植、できる?」。できますと答えた夜、68000 の本を 3 冊買った。",
+     "en": "The client asks, \"Can you port to 16-bit?\" You say yes, then buy three books on the 68000 that night."
+    },
+    "effect": {
+     "skill": 6,
+     "money": -1
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_1988_md_any",
+    "text": {
+     "ja": "黒くて大きいゲーム機が出た。弟が「16 ビットってすごいの?」と聞き、説明したら 8 ビット分しか伝わらなかった。",
+     "en": "A big black console arrives. Your brother asks if 16-bit is better. Your explanation got about 8 bits across."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "family"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1988_cdrom2",
+  "year": 1988,
+  "month": 12,
+  "until": 1989,
+  "kind": "hardware",
+  "weight": 2,
+  "title": {
+   "ja": "PC エンジン CD-ROM² 発売",
+   "en": "The PC Engine CD-ROM² launches"
+  },
+  "news": {
+   "ja": "NEC ホームエレクトロニクスが、家庭用ゲーム機向けで世界初の CD-ROM ドライブを発売。",
+   "en": "NEC Home Electronics releases the world's first CD-ROM drive for a home console."
+  },
+  "src": "CD-ROM2",
+  "variants": [
+   {
+    "id": "ev_hs_1988_cdrom2_sound",
+    "when": [
+     "job=sound"
+    ],
+    "text": {
+     "ja": "「CD だから生の音が入る」。3 音しか鳴らない世界から来たあなたに、オーケストラの見積書が回ってきた。",
+     "en": "\"It's a CD, so real audio.\" You, from the land of three-voice chiptunes, are handed a quote for an orchestra."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_1988_cd_go",
+      "label": {
+       "ja": "CD の陣営に乗る",
+       "en": "Join the CD camp"
+      },
+      "effect": {
+       "skill": 8,
+       "money": -10,
+       "flag": {
+        "w_two_side_pce": true
+       }
+      },
+      "result": {
+       "ja": "録音の日、指揮者に「ループはどこで?」と聞いて、怒られた。",
+       "en": "At the session, you asked the conductor where the loop point was. He was not pleased."
+      }
+     },
+     {
+      "id": "ch_hs_1988_cd_stay",
+      "label": {
+       "ja": "3 音に残る",
+       "en": "Stay with three voices"
+      },
+      "effect": {
+       "skill": 3,
+       "passion": -2
+      },
+      "result": {
+       "ja": "3 音で泣ける曲を作った。誰も CD で聴かなかった。",
+       "en": "You wrote a tearjerker in three voices. No one played it on CD."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "hardware",
+     "choice"
+    ]
+   },
+   {
+    "id": "ev_hs_1988_cdrom2_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "「容量 540MB! 何でも入る!」。社長が喜んだ。半年後、入れる物を作る人が足りないと気づいた。",
+     "en": "\"540MB! It holds anything!\" The boss is thrilled. Six months later he notices no one is making anything to put in it."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": -8,
+     "flag": {
+      "w_two_side_pce": true
+     }
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1988_cdrom2_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "CD のゲームのデバッグ。ロード中に寝て、起きたらまだロード中だった。バグ票には「仕様」と書いた。",
+     "en": "Debugging a CD game. You fell asleep during a load and woke up mid-load. You filed it as \"by design.\""
+    },
+    "effect": {
+     "hp": 3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1988_cdrom2_any",
+    "text": {
+     "ja": "ゲーム機に CD が乗る時代が来た。同僚が「ROM の容量で悩む日々も終わり」と言った。悩みは容量からロード時間に変わった。",
+     "en": "Consoles now play CDs. A coworker says ROM-size headaches are over. The headaches just moved to load times."
+    },
+    "effect": {
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1989_gameboy",
+  "year": 1989,
+  "month": 4,
+  "until": 1990,
+  "kind": "hardware",
+  "weight": 3,
+  "title": {
+   "ja": "ゲームボーイ発売、『テトリス』が大ヒット",
+   "en": "The Game Boy launches; Tetris becomes a smash"
+  },
+  "news": {
+   "ja": "任天堂が 4 月にゲームボーイを発売。6 月の『テトリス』とともに大人まで広がる。",
+   "en": "Nintendo releases the Game Boy in April. With Tetris in June, it spreads even to adults."
+  },
+  "src": "ゲームボーイ",
+  "variants": [
+   {
+    "id": "ev_hs_1989_gb_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "白黒 4 階調、画面は緑っぽい。カラーで 3 か月かけた主人公を、4 色に減らした夜、少し泣いた。",
+     "en": "Four shades of greenish gray. You spent three months on a color hero. Cutting him to four shades, you cried a little."
+    },
+    "effect": {
+     "skill": 5,
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_gb_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "元請けから「携帯機版を 3 か月で」。予算は据え置き機の半分。理由は「画面が小さいから」。",
+     "en": "The client wants a handheld version in three months, at half the budget. Reason: \"The screen is smaller.\""
+    },
+    "effect": {
+     "money": 10,
+     "hp": -8
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_gb_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "パートナーが落ちものパズルにはまった。夜中の 2 時、隣から「あと 1 列」と聞こえる。あなたの帰宅は 3 時だ。",
+     "en": "Your partner is hooked on the falling-block puzzle. At 2 a.m. you hear \"one more line.\" You get home at 3."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": -2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_gb_any",
+    "text": {
+     "ja": "通勤電車で、背広の人が落ちものパズルを積んでいた。ゲームを作っていると言ったら、初めて親戚に尊敬された。",
+     "en": "Men in suits stack falling blocks on the train. When you said you make games, a relative respected you for the first time."
+    },
+    "effect": {
+     "passion": 5,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1989_otaku_wind",
+  "year": 1989,
+  "month": 8,
+  "until": 1990,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "連続誘拐殺人事件の報道で、ゲーム・アニメへの風当たりが強まる",
+   "en": "Coverage of a serial crime turns public opinion against games and anime"
+  },
+  "news": {
+   "ja": "1989 年の事件の報道をきっかけに、アニメやゲームの愛好者に厳しい目が向けられた。",
+   "en": "After coverage of a 1989 crime case, fans of anime and games faced harsh public scrutiny."
+  },
+  "src": "東京・埼玉連続幼女誘拐殺人事件",
+  "variants": [
+   {
+    "id": "ev_hs_1989_otaku_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "相手の両親へのあいさつ。「お仕事は?」に「ゲームを」と答えたら、お茶が一杯分、ぬるくなった気がした。",
+     "en": "Meeting your partner's parents. \"Your job?\" \"I make games.\" The tea seemed to go one cup colder."
+    },
+    "effect": {
+     "passion": -5,
+     "network": -3
+    },
+    "tag": [
+     "hist",
+     "family"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_otaku_client",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "広報から通達。「当面、作品の宣伝では『家族で遊べる』を必ず入れること」。作っているのは忍者が斬り合うゲームだ。",
+     "en": "Memo from PR: \"All ads must say 'fun for the whole family.'\" Your game is about ninjas cutting each other."
+    },
+    "effect": {
+     "passion": -3,
+     "fame": -2
+    },
+    "tag": [
+     "hist",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_otaku_young",
+    "when": [
+     "age<=24"
+    ],
+    "text": {
+     "ja": "母が部屋のゲーム雑誌を段ボールにまとめて「押し入れに」。抗議した。翌月の号から、職場に送ってもらった。",
+     "en": "Mom boxed up your game magazines \"for the closet.\" You protested, then had next month's issue sent to the office."
+    },
+    "effect": {
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "family"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_otaku_any",
+    "text": {
+     "ja": "世間の目が冷たくなった。会社の名刺から「ゲーム」の字が消え、「ソフトウェア開発」になった。仕事は 1 行も変わらない。",
+     "en": "Public opinion turned cold. Your business card dropped the word \"games\" for \"software development.\" Not one line of the work changed."
+    },
+    "effect": {
+     "passion": -4,
+     "network": -2
+    },
+    "tag": [
+     "hist"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1989_tax",
+  "year": 1989,
+  "month": 4,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "消費税(3%)導入",
+   "en": "Japan introduces a 3% consumption tax"
+  },
+  "news": {
+   "ja": "4 月 1 日、消費税 3% が始まった。ゲームソフトの値札も変わる。",
+   "en": "On April 1, a 3% consumption tax takes effect. Game price tags change too."
+  },
+  "src": "消費税",
+  "variants": [
+   {
+    "id": "ev_hs_1989_tax_sales",
+    "when": [
+     "job=sales"
+    ],
+    "text": {
+     "ja": "定価 5,800 円が 5,974 円に。店の人に「1 円玉を何枚用意すれば」と聞かれ、計算して答えたら 26 枚だった。",
+     "en": "5,800 yen became 5,974. A shopkeeper asks how many 1-yen coins to stock. You did the math: 26 per sale."
+    },
+    "effect": {
+     "network": 3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "money",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_tax_client",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "会議で「税込でキリのいい値段に」と決まった。キリのいい値段にするため、ROM を 1 つ小さくしろと言われた。",
+     "en": "The meeting decides on a round price after tax. To get there, you're told to use a smaller ROM chip."
+    },
+    "effect": {
+     "skill": 3,
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "money",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_tax_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "同人ソフトの即売会。500 円のディスクにお釣りの 15 円を出していたら、列が会場の外まで伸びた。",
+     "en": "At a doujin fair, you hand out 15 yen in change on every 500-yen disk. The line stretched out of the hall."
+    },
+    "effect": {
+     "money": -1,
+     "fame": 2
+    },
+    "tag": [
+     "hist",
+     "money",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_tax_any",
+    "text": {
+     "ja": "消費税が始まった。昼のカップ麺が 3 円上がり、給料は上がらなかった。",
+     "en": "The consumption tax begins. Your lunch cup noodles went up 3 yen. Your salary did not."
+    },
+    "effect": {
+     "money": -1,
+     "passion": -1
+    },
+    "tag": [
+     "hist",
+     "money"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1990_dq4",
+  "year": 1990,
+  "month": 2,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『ドラゴンクエストIV』は日曜発売に",
+   "en": "Dragon Quest IV launches on a Sunday"
+  },
+  "news": {
+   "ja": "前作の行列騒ぎを受け、シリーズ 4 作目は 2 月 11 日の日曜に発売された。",
+   "en": "After the uproar over lines for the previous game, Dragon Quest IV launched on Sunday, February 11."
+  },
+  "src": "ドラゴンクエストIV 導かれし者たち",
+  "variants": [
+   {
+    "id": "ev_hs_1990_dq4_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "うちの新作の発売日が、国民的 RPG と同じ日曜にかぶった。社長は日付を 1 週ずらした。1 週分、作業が増えた。",
+     "en": "Our launch landed on the same Sunday as the nation's RPG. The boss pushed it a week. A week more of work appeared."
+    },
+    "effect": {
+     "hp": -5,
+     "skill": 3
+    },
+    "allow": [
+     "RPG"
+    ],
+    "tag": [
+     "hist",
+     "hit",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1990_dq4_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "デバッグの仕事が全部止まった。ほかの会社が発売をずらしたからだ。暇になった週、自腹で国民的 RPG を買った。",
+     "en": "All debug work paused because rivals pushed their launches. With a free week, you bought the nation's RPG yourself."
+    },
+    "effect": {
+     "money": -1,
+     "passion": 4
+    },
+    "allow": [
+     "RPG"
+    ],
+    "tag": [
+     "hist",
+     "hit"
+    ]
+   },
+   {
+    "id": "ev_hs_1990_dq4_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "日曜の発売で、子どもと一緒に並べた。子どもは主人公の名前を、あなたの名前にした。最初に死んだ。",
+     "en": "A Sunday launch, so you lined up with your kid. The kid named the hero after you. He died first."
+    },
+    "effect": {
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1990_dq4_any",
+    "text": {
+     "ja": "国民的 RPG の新作は日曜発売になった。休日出勤のあなたは、昼休みに会社の前の行列を眺めた。",
+     "en": "The nation's RPG moved to a Sunday launch. Working that Sunday, you watched the line outside the office at lunch."
+    },
+    "effect": {
+     "passion": -2,
+     "skill": 2
+    },
+    "allow": [
+     "RPG"
+    ],
+    "tag": [
+     "hist",
+     "hit",
+     "crunch"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1990_sfc",
+  "year": 1990,
+  "month": 11,
+  "until": 1991,
+  "kind": "hardware",
+  "weight": 3,
+  "title": {
+   "ja": "スーパーファミコン発売、品薄と行列",
+   "en": "The Super Famicom launches amid shortages"
+  },
+  "news": {
+   "ja": "任天堂が 11 月 21 日にスーパーファミコンを 25,000 円で発売。初回出荷は即日で売り切れた。",
+   "en": "Nintendo releases the Super Famicom on November 21 for 25,000 yen. Launch stock sells out the first day."
+  },
+  "src": "スーパーファミコン",
+  "variants": [
+   {
+    "id": "ev_hs_1990_sfc_sega",
+    "when": [
+     "flag.w_two_side_md"
+    ],
+    "text": {
+     "ja": "灰色の新型が出た夜、セガ担当の机でだけ電話が鳴らなかった。あなたの机のことだ。",
+     "en": "The night the gray machine launched, only the Sega team's phones stayed silent. Your phone, specifically."
+    },
+    "effect": {
+     "passion": -5,
+     "network": -3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1990_sfc_nin",
+    "when": [
+     "flag.w_two_side_nin"
+    ],
+    "text": {
+     "ja": "台数の多い陣営を選んだ判断が当たった。ご褒美は、新型の開発機と、新しい締め切りだった。",
+     "en": "Betting on the bigger camp paid off. Your reward: a new dev kit and a new deadline."
+    },
+    "effect": {
+     "network": 5,
+     "money": 20,
+     "hp": -5
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1990_sfc_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "新型の開発機は 1 台だけ。元請けから借りた機械を 8 人で回した。あなたの番は毎日、午前 3 時からだ。",
+     "en": "One dev kit for eight people, borrowed from the client. Your shift on it starts at 3 a.m. daily."
+    },
+    "effect": {
+     "hp": -8,
+     "skill": 4
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1990_sfc_any",
+    "text": {
+     "ja": "新型が出た。親戚の子に「1 台手に入らない?」と頼まれた。作っている側にも、1 台も回ってこない。",
+     "en": "The new console is out. A young cousin asks if you can get one. Even the people making games can't."
+    },
+    "effect": {
+     "network": -1,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "family"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1990_gamegear",
+  "year": 1990,
+  "month": 10,
+  "until": 1991,
+  "kind": "hardware",
+  "weight": 1,
+  "title": {
+   "ja": "ゲームギア発売",
+   "en": "The Game Gear launches"
+  },
+  "news": {
+   "ja": "セガがカラー液晶の携帯機ゲームギアを発売。",
+   "en": "Sega releases the Game Gear, a handheld with a color LCD."
+  },
+  "src": "ゲームギア",
+  "variants": [
+   {
+    "id": "ev_hs_1990_gg_sega",
+    "when": [
+     "flag.w_two_side_md"
+    ],
+    "text": {
+     "ja": "セガの陣営には携帯機の仕事も来た。カラーで描けると喜んだら、試遊機の電池が 3 時間で切れた。",
+     "en": "The Sega camp gets handheld work too. Color at last! Then the demo unit's batteries died in three hours."
+    },
+    "effect": {
+     "skill": 4,
+     "money": 10
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1990_gg_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "白黒の携帯機用に描いた絵を、カラーの携帯機用に塗り直せと言われた。4 色が 32 色に。締め切りは同じだ。",
+     "en": "Repaint your grayscale handheld art for a color handheld. Four colors become 32. The deadline stays the same."
+    },
+    "effect": {
+     "skill": 4,
+     "hp": -4
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_1990_gg_any",
+    "text": {
+     "ja": "カラーの携帯機が出た。電車で遊ぶ人のカバンが、単 3 電池でふくらみはじめた。",
+     "en": "A color handheld arrives. On the train, people's bags start bulging with AA batteries."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1991_sf2",
+  "year": 1991,
+  "month": 3,
+  "until": 1992,
+  "kind": "hit",
+  "weight": 3,
+  "title": {
+   "ja": "『ストリートファイターII』で対戦格闘ブーム",
+   "en": "Street Fighter II sparks a fighting-game boom"
+  },
+  "news": {
+   "ja": "カプコンの業務用『ストリートファイターII』が大ヒット。ゲームセンターに人が戻る。",
+   "en": "Capcom's arcade hit Street Fighter II brings crowds back to game centers."
+  },
+  "src": "ストリートファイターII",
+  "variants": [
+   {
+    "id": "ev_hs_1991_sf2_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員から「うちも対戦格闘を。半年で」。あなたが書いた企画書の必殺技は、全部ほかの会社の技の名前に似ていた。",
+     "en": "The board wants a fighting game in six months. Every special move in your pitch sounded like someone else's."
+    },
+    "effect": {
+     "fame": 3,
+     "hp": -8,
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_sf2_dev",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "会社帰りのゲーセンで、コマンド入力の判定を研究した。研究費は毎晩 500 円。経費では落ちなかった。",
+     "en": "You study command-input timing at the arcade on your way home. Research costs 500 yen a night. Not reimbursable."
+    },
+    "effect": {
+     "skill": 6,
+     "money": -5
+    },
+    "tag": [
+     "hist",
+     "hit"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_sf2_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "「仕事で遅くなる」が 3 週続いた。パートナーがゲーセンまで迎えに来た。あなたは 12 連勝中だった。",
+     "en": "\"Working late\" three weeks running. Your partner came to pick you up at the arcade. You were on a 12-win streak."
+    },
+    "effect": {
+     "skill": 2,
+     "passion": 3,
+     "network": -3
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_sf2_any",
+    "text": {
+     "ja": "ゲーセンに人が戻ってきた。昼休みに同僚と対戦し、負けた方が午後の仕様変更を伝えに行くことになった。",
+     "en": "The arcades are full again. You and a coworker play at lunch; the loser has to deliver the afternoon's spec change."
+    },
+    "effect": {
+     "passion": 4,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1991_bubble",
+  "year": 1991,
+  "until": 1992,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "バブル崩壊",
+   "en": "Japan's bubble economy collapses"
+  },
+  "news": {
+   "ja": "地価と株価が下がり、景気が急に冷えこんだ。",
+   "en": "Land and stock prices fall, and the economy chills fast."
+  },
+  "src": "バブル崩壊",
+  "variants": [
+   {
+    "id": "ev_hs_1991_bubble_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "社長が去年買った土地の値段が半分になった。社員旅行はハワイから、社長の実家の田植えになった。",
+     "en": "The land the boss bought last year lost half its value. The company trip changed from Hawaii to planting rice at his parents' farm."
+    },
+    "effect": {
+     "money": -20,
+     "passion": -3,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "money",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_bubble_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "元請けの経費が締まった。「単価は据え置き、本数は倍」。机の上の仕様書が、2 冊重なった。",
+     "en": "The client tightens budgets: \"Same rate, twice the titles.\" Two spec binders now sit stacked on your desk."
+    },
+    "effect": {
+     "money": -10,
+     "hp": -6,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "money",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_bubble_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "経費削減で、タクシー券が廃止された。終電後の帰り道は、会社の寝袋になった。",
+     "en": "Cost cuts kill the taxi vouchers. After the last train, your ride home is now the office sleeping bag."
+    },
+    "effect": {
+     "hp": -5,
+     "money": 5
+    },
+    "tag": [
+     "hist",
+     "money",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_bubble_any",
+    "text": {
+     "ja": "景気が冷えた。ボーナスの袋が薄くなり、中から「来期に期待」の紙が出てきた。",
+     "en": "The economy cooled. The bonus envelope got thinner. Inside: a note reading \"Here's to next year.\""
+    },
+    "effect": {
+     "money": -10,
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "money",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1991_sonic",
+  "year": 1991,
+  "month": 7,
+  "until": 1992,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『ソニック・ザ・ヘッジホッグ』発売、海外でメガドライブが躍進",
+   "en": "Sonic the Hedgehog launches; the Genesis surges overseas"
+  },
+  "news": {
+   "ja": "セガの『ソニック』が北米で大ヒットし、メガドライブ(Genesis)が海外で勢いを得る。",
+   "en": "Sega's Sonic becomes a hit in North America, giving the Genesis real momentum abroad."
+  },
+  "src": "ソニック・ザ・ヘッジホッグ (1991年のゲーム)",
+  "variants": [
+   {
+    "id": "ev_hs_1991_sonic_md",
+    "when": [
+     "flag.w_two_side_md"
+    ],
+    "text": {
+     "ja": "国内では負けていたセガの陣営に、海外から注文が来た。英語のファクスを辞書で読むと「もっと速く」だった。",
+     "en": "The Sega camp, losing at home, gets orders from overseas. You decode the English fax with a dictionary: \"Make it faster.\""
+    },
+    "effect": {
+     "money": 30,
+     "fame": 5,
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_sonic_abroad",
+    "when": [
+     "pos=abroad"
+    ],
+    "text": {
+     "ja": "こっちでは青いハリネズミが一番人気。日本の友達に手紙で書いたら「冗談でしょ」と返ってきた。",
+     "en": "Here, the blue hedgehog rules. You wrote to a friend back home, who replied, \"You're joking.\""
+    },
+    "effect": {
+     "network": 4,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hit"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_sonic_nin",
+    "when": [
+     "flag.w_two_side_nin"
+    ],
+    "text": {
+     "ja": "海外の取引先から「来年は Genesis でも出せないか」。台数の多い方を選んだはずが、海の向こうでは逆だった。",
+     "en": "An overseas partner asks about a Genesis version. You picked the bigger camp; across the ocean, it's the other way round."
+    },
+    "effect": {
+     "network": -2,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_sonic_any",
+    "text": {
+     "ja": "青くて速いキャラが海外で大人気らしい。会議で「うちも速いやつを」と言われ、主人公の歩く速さを 2 倍にした。",
+     "en": "A fast blue mascot is huge overseas. The meeting says, \"Ours should be fast too.\" You doubled the hero's walk speed."
+    },
+    "effect": {
+     "skill": 2,
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "spec"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1991_megacd",
+  "year": 1991,
+  "month": 12,
+  "until": 1992,
+  "kind": "hardware",
+  "weight": 1,
+  "title": {
+   "ja": "メガ CD 発売",
+   "en": "The Mega-CD launches"
+  },
+  "news": {
+   "ja": "セガがメガドライブ用の CD-ROM ドライブ、メガ CD を発売。",
+   "en": "Sega releases the Mega-CD, a CD-ROM add-on for the Mega Drive."
+  },
+  "src": "メガCD",
+  "variants": [
+   {
+    "id": "ev_hs_1991_megacd_md",
+    "when": [
+     "flag.w_two_side_md"
+    ],
+    "text": {
+     "ja": "セガの陣営に「CD で実写ムービーを」。撮影の主演は、なぜかあなただった。社員だからギャラが要らない。",
+     "en": "Sega camp orders: \"Live-action video on CD.\" The lead actor, somehow, is you. Employees don't need a fee."
+    },
+    "effect": {
+     "fame": 4,
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_megacd_pce",
+    "when": [
+     "flag.w_two_side_pce"
+    ],
+    "text": {
+     "ja": "CD は 3 年前からやっている。後から来たライバルの記事を読みながら、先輩風を吹かせた。吹かせる相手は後輩 1 人。",
+     "en": "You've done CD games for three years. Reading about the late rival, you act the veteran—to your one junior."
+    },
+    "effect": {
+     "passion": 3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_megacd_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "元請けから「ROM 版を CD 版に。追加の音楽を 20 曲」。外注先を探したら、自分しかいなかった。",
+     "en": "The client wants a CD version with 20 new tracks. You looked for an outside composer and found only yourself."
+    },
+    "effect": {
+     "skill": 4,
+     "hp": -6,
+     "money": 10
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_megacd_any",
+    "text": {
+     "ja": "ゲーム機の上にもう 1 段、CD の箱が載る時代。机の上の開発機のタワーが、天井の蛍光灯にあと 20 cm になった。",
+     "en": "Now consoles stack a CD unit on top. The dev-kit tower on your desk is 20 cm from the ceiling lights."
+    },
+    "effect": {
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1992_sf2_sfc",
+  "year": 1992,
+  "month": 6,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "スーパーファミコン版『ストリートファイターII』発売",
+   "en": "Street Fighter II comes to the Super Famicom"
+  },
+  "news": {
+   "ja": "6 月 10 日、ゲーセンの大ヒット作が家庭用に移植され、大ヒットに。",
+   "en": "On June 10, the arcade smash arrives at home and becomes a huge seller."
+  },
+  "src": "ストリートファイターII",
+  "variants": [
+   {
+    "id": "ev_hs_1992_sf2sfc_nin",
+    "when": [
+     "flag.w_two_side_nin"
+    ],
+    "text": {
+     "ja": "灰色の陣営の勝ちが見えてきた。うちの格闘ゲームの発売日は、あの移植作の翌週。勝ったのは陣営で、うちではなかった。",
+     "en": "The gray camp is clearly winning. Our fighting game launches the week after that port. The camp won. We didn't."
+    },
+    "effect": {
+     "money": 10,
+     "passion": -4
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1992_sf2sfc_md",
+    "when": [
+     "flag.w_two_side_md"
+    ],
+    "text": {
+     "ja": "ライバル機の移植作が大ヒット。セガの陣営の会議は、6 ボタンのコントローラの話だけで 2 時間続いた。",
+     "en": "The rival console's port is a smash. The Sega-camp meeting spent two hours on nothing but six-button controllers."
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1992_sf2sfc_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "格闘ゲームのデバッグ。全キャラ同士の組み合わせ、全技、全部。バグ票は 1,200 枚、親指の皮は 2 回むけた。",
+     "en": "Debugging a fighting game: every matchup, every move. 1,200 bug tickets. Your thumbs peeled twice."
+    },
+    "effect": {
+     "hp": -8,
+     "skill": 5
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1992_sf2sfc_any",
+    "text": {
+     "ja": "ゲーセンの対戦が家でもできるようになった。帰宅すると、隣の部屋から波動の気合いが毎晩聞こえる。",
+     "en": "Arcade fights come home. Every night, battle cries come through the wall from next door."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": -1
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1992_mariokart",
+  "year": 1992,
+  "month": 8,
+  "until": 1993,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『スーパーマリオカート』発売",
+   "en": "Super Mario Kart launches"
+  },
+  "news": {
+   "ja": "任天堂のレースゲームが大ヒットし、対戦レースの定番になる。",
+   "en": "Nintendo's racing game becomes a hit and a party staple."
+  },
+  "src": "スーパーマリオカート",
+  "variants": [
+   {
+    "id": "ev_hs_1992_mk_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "「息抜きに」と会社に 1 本買った。翌週、夜の作業時間が 2 時間減り、甲羅の投げ方だけが全員うまくなった。",
+     "en": "You bought one copy for the office \"to unwind.\" Next week, night work fell by two hours. Everyone got great at throwing shells."
+    },
+    "effect": {
+     "network": 5,
+     "skill": -2,
+     "passion": 4
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1992_mk_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "企画会議に「キャラクターがカートに乗るゲーム」の企画書が 7 本出た。あなたのもその 1 本だ。",
+     "en": "Seven pitches for \"mascots in go-karts\" at the planning meeting. One of them is yours."
+    },
+    "effect": {
+     "passion": -2,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1992_mk_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "パートナーと対戦して、プロとして本気を出した。その夜は口をきいてもらえなかった。",
+     "en": "You played your partner and went full professional. You weren't spoken to for the rest of the night."
+    },
+    "effect": {
+     "passion": 2,
+     "network": -2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1992_mk_any",
+    "text": {
+     "ja": "4 人で遊べるレースが流行った。同期の飲み会がなくなり、同期の家でコントローラを取り合う会になった。",
+     "en": "A four-player racer catches on. Drinking nights with your peers become fights over controllers at someone's place."
+    },
+    "effect": {
+     "network": 3,
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hit"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1992_dq5",
+  "year": 1992,
+  "month": 9,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『ドラゴンクエストV』発売",
+   "en": "Dragon Quest V launches"
+  },
+  "news": {
+   "ja": "9 月 27 日(日曜)、シリーズ初のスーパーファミコン作品が発売。",
+   "en": "On Sunday, September 27, the series' first Super Famicom entry launches."
+  },
+  "src": "ドラゴンクエストV 天空の花嫁",
+  "variants": [
+   {
+    "id": "ev_hs_1992_dq5_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "ゲームの中の結婚相手を選ぶ場面で、30 分悩んだ。隣でパートナーが、その 30 分を計っていた。",
+     "en": "You agonized 30 minutes over which in-game bride to pick. Your partner, beside you, timed all 30."
+    },
+    "effect": {
+     "passion": 3,
+     "network": -2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1992_dq5_planner",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "部長が「うちのにも結婚を入れろ」。作っているのはパズルゲームだ。ブロック同士を結婚させる仕様書を書いた。",
+     "en": "The manager wants marriage in our game too. It's a puzzle game. You wrote a spec for blocks getting married."
+    },
+    "effect": {
+     "skill": 3,
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1992_dq5_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "日曜の発売で、店のレジが足りないらしい。うちの社長が近所の店にレジ打ちの手伝いに行き、なぜか仕事を 1 本取ってきた。",
+     "en": "Stores lack cashiers on launch Sunday. The boss helps at a local shop and somehow comes back with a contract."
+    },
+    "effect": {
+     "money": 10,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1992_dq5_any",
+    "text": {
+     "ja": "国民的 RPG の 5 作目。月曜の朝礼で、課長が「昨日は徹夜で」と言い、仕事の話だと思った全員が感心した。",
+     "en": "The nation's RPG, part five. At Monday's meeting, the section chief says he pulled an all-nighter. Everyone assumed it was work."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "allow": [
+     "RPG"
+    ],
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1993_vf",
+  "year": 1993,
+  "month": 12,
+  "until": 1994,
+  "kind": "hit",
+  "weight": 3,
+  "title": {
+   "ja": "『バーチャファイター』稼働、ポリゴンの時代へ",
+   "en": "Virtua Fighter hits arcades: the polygon era begins"
+  },
+  "news": {
+   "ja": "セガがポリゴンで描く対戦格闘ゲームを業務用で出し、ゲーセンで大人気に。",
+   "en": "Sega releases an arcade fighter drawn in 3D polygons, and it draws crowds."
+  },
+  "src": "バーチャファイター",
+  "variants": [
+   {
+    "id": "ev_hs_1993_vf_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "10 年かけて磨いたドット絵の腕が、ゲーセンの 1 台で古くなった。帰りに、方眼紙と三角定規を買った。",
+     "en": "Ten years of pixel craft, outdated by one arcade cabinet. On the way home, you bought graph paper and a set square."
+    },
+    "effect": {
+     "passion": -5,
+     "skill": -3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "3d"
+    ]
+   },
+   {
+    "id": "ev_hs_1993_vf_programmer",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "行列とベクトルの本を会社が 10 冊買った。高校の数学の先生に電話したら、「今さら?」と言われた。",
+     "en": "The company buys ten books on matrices and vectors. You call your old math teacher, who says, \"Now?\""
+    },
+    "effect": {
+     "skill": 7,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "3d"
+    ]
+   },
+   {
+    "id": "ev_hs_1993_vf_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員会で「来年からは全部ポリゴンで」。見積もりの数字を見た役員が、静かに「半分はドットで」と言い直した。",
+     "en": "The board says, \"Everything is polygons from next year.\" After seeing the budget, a director quietly corrects it to half."
+    },
+    "effect": {
+     "fame": 3,
+     "money": 10,
+     "hp": -5
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "3d"
+    ]
+   },
+   {
+    "id": "ev_hs_1993_vf_any",
+    "text": {
+     "ja": "ゲーセンの人だかりの中で、カクカクの人が殴り合っていた。同僚が「これが未来だ」と言い、その日から会社に来なくなった。転職だった。",
+     "en": "In an arcade crowd, blocky figures trade punches. A coworker says, \"This is the future,\" and stopped showing up. He'd switched jobs."
+    },
+    "effect": {
+     "passion": 3,
+     "network": -2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "3d"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1993_us_hearing",
+  "year": 1993,
+  "month": 12,
+  "until": 1994,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "米議会でゲームの暴力表現が問題に、ESRB 設立へ",
+   "en": "US Congress holds hearings on game violence, leading to the ESRB"
+  },
+  "news": {
+   "ja": "1993 年末の米議会公聴会を受け、1994 年に業界団体が年齢区分の機関 ESRB を作った。",
+   "en": "Following late-1993 congressional hearings, the industry set up the ESRB age-rating board in 1994."
+  },
+  "src": "エンターテインメントソフトウェアレイティング委員会",
+  "variants": [
+   {
+    "id": "ev_hs_1993_hearing_abroad",
+    "when": [
+     "pos=abroad"
+    ],
+    "text": {
+     "ja": "会社の会議室でテレビの公聴会を見た。上司が画面の格闘ゲームを指さし「あの血、来週までに灰色に」。",
+     "en": "You watch the hearings on the office TV. Your boss points at a fighting game on screen: \"Make that blood gray by next week.\""
+    },
+    "effect": {
+     "skill": 3,
+     "passion": -4
+    },
+    "tag": [
+     "hist",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1993_hearing_client",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "海外版の担当になった。日本版との違いの一覧表は 40 項目。そのうち 38 項目が「血の色」だった。",
+     "en": "You're put in charge of the overseas version. The list of changes has 40 items; 38 are about blood color."
+    },
+    "effect": {
+     "skill": 3,
+     "hp": -4,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1993_hearing_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "海外版のデバッグで、画面に赤が残っていないか 1 コマずつ見た。夢の中まで緑色になった。",
+     "en": "Debugging the overseas build, you checked every frame for leftover red. Even your dreams turned green."
+    },
+    "effect": {
+     "hp": -4,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1993_hearing_any",
+    "text": {
+     "ja": "海の向こうの議会でゲームが問題に。母から電話。「あんたのは大丈夫?」 作っているのは釣りのゲームだ。",
+     "en": "Games are under fire in a foreign congress. Mom calls: \"Is yours okay?\" You make a fishing game."
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1994_3do",
+  "year": 1994,
+  "month": 3,
+  "kind": "hardware",
+  "weight": 1,
+  "title": {
+   "ja": "3DO REAL 日本発売",
+   "en": "The 3DO REAL launches in Japan"
+  },
+  "news": {
+   "ja": "松下電器産業が 32 ビット機 3DO REAL を国内で発売(北米は 1993 年 10 月)。",
+   "en": "Panasonic releases the 32-bit 3DO REAL in Japan (North America got it in October 1993)."
+  },
+  "src": "3DO",
+  "variants": [
+   {
+    "id": "ev_hs_1994_3do_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "家電メーカーの人が来た。「開発費、うちが少し持ちます」。少しの意味を確かめないまま、握手した。",
+     "en": "A consumer-electronics rep visits: \"We'll cover some of the costs.\" You shook hands without asking what \"some\" meant."
+    },
+    "effect": {
+     "money": 20,
+     "passion": 3,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_3do_abroad",
+    "when": [
+     "pos=abroad"
+    ],
+    "text": {
+     "ja": "こっちでは半年前から売っている 32 ビット機。日本の発売をニュースで見て、少し得意げになった。",
+     "en": "You've had this 32-bit console for half a year over here. Seeing Japan's launch on TV, you feel a little smug."
+    },
+    "effect": {
+     "passion": 2,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_3do_sales",
+    "when": [
+     "job=sales"
+    ],
+    "text": {
+     "ja": "家電量販店に営業へ。ゲーム機は冷蔵庫の売り場の隣に並んでいた。値段も冷蔵庫の隣にふさわしかった。",
+     "en": "Sales call at an electronics store. The console sat next to the fridges. The price fit right in."
+    },
+    "effect": {
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_3do_any",
+    "text": {
+     "ja": "家電メーカーのゲーム機が出た。親が「それなら電器屋で買える」と喜んだ。値札を見て、静かに棚に戻した。",
+     "en": "A console from an appliance maker. Your parents were glad they could buy it at the electronics store. They saw the price and put it back."
+    },
+    "effect": {
+     "passion": 1
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "family"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1994_neogeocd",
+  "year": 1994,
+  "month": 9,
+  "kind": "hardware",
+  "weight": 1,
+  "title": {
+   "ja": "ネオジオ CD 発売",
+   "en": "The Neo Geo CD launches"
+  },
+  "news": {
+   "ja": "SNK が業務用と同じソフトを CD で遊べるネオジオ CD を発売。",
+   "en": "SNK releases the Neo Geo CD, playing its arcade games from CD."
+  },
+  "src": "ネオジオCD",
+  "variants": [
+   {
+    "id": "ev_hs_1994_ngcd_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "CD 版のデバッグ。ロードの時間をストップウォッチで測る係になった。1 日の記録は「待ち」で埋まった。",
+     "en": "Debugging a CD port, you're the one timing loads with a stopwatch. Your daily log is mostly \"waiting.\""
+    },
+    "effect": {
+     "hp": 2,
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_ngcd_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "格闘ゲームの CD 移植を受けた。ロード画面に入れる小さなゲームを考えるのが、一番楽しい仕事だった。",
+     "en": "You took a CD port of a fighting game. The best part was designing the minigame for the load screen."
+    },
+    "effect": {
+     "skill": 3,
+     "money": 10
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_ngcd_young",
+    "when": [
+     "age<=25"
+    ],
+    "text": {
+     "ja": "ロム版は高くて買えなかったゲーセンの格闘ゲームが、CD で手の届く値段に。給料日にソフトを 3 本買った。",
+     "en": "Arcade fighters you could never afford on cartridge got cheaper on CD. You bought three on payday."
+    },
+    "effect": {
+     "money": -2,
+     "passion": 4
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_ngcd_any",
+    "text": {
+     "ja": "ゲーセンと同じ格闘ゲームが CD で家に来た。ロード中にお湯を入れたカップ麺が、ちょうどできあがった。",
+     "en": "Arcade fighters come home on CD. Cup noodles started during a load were ready just as it finished."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1994_nextgen",
+  "year": 1994,
+  "month": 11,
+  "until": 1995,
+  "kind": "hardware",
+  "weight": 3,
+  "title": {
+   "ja": "セガサターンと PlayStation が発売、次世代機戦争へ",
+   "en": "Sega Saturn and PlayStation launch: the next-gen war begins"
+  },
+  "news": {
+   "ja": "11 月 22 日にセガサターン、12 月 3 日にソニーの PlayStation が発売された。",
+   "en": "The Sega Saturn launched on November 22, and Sony's PlayStation on December 3."
+  },
+  "src": "次世代ゲーム機戦争",
+  "variants": [
+   {
+    "id": "ev_hs_1994_nextgen_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "次の作品、どの陣営で出す? セガの格闘ゲーム機か、ソニーの新顔か。社長は「両方は無理。決めて」と目をそらした。",
+     "en": "Which camp next: Sega's fighting-game machine or Sony's newcomer? The boss looks away: \"Not both. You decide.\""
+    },
+    "choices": [
+     {
+      "id": "ch_hs_1994_ss",
+      "label": {
+       "ja": "セガサターン",
+       "en": "Sega Saturn"
+      },
+      "effect": {
+       "passion": 6,
+       "network": 3,
+       "flag": {
+        "w_two_side_ss": true
+       }
+      },
+      "later": [
+       {
+        "after": 2,
+        "event": "ev_hs_1996_ff7_ss"
+       }
+      ],
+      "result": {
+       "ja": "CPU が 2 つあると聞いて喜んだ。使いこなすのに 2 年かかると聞いて、黙った。",
+       "en": "Two CPUs! You cheered, until you heard it takes two years to use both."
+      }
+     },
+     {
+      "id": "ch_hs_1994_ps",
+      "label": {
+       "ja": "PlayStation",
+       "en": "PlayStation"
+      },
+      "effect": {
+       "skill": 4,
+       "money": 10,
+       "flag": {
+        "w_two_side_ps": true
+       }
+      },
+      "later": [
+       {
+        "after": 2,
+        "event": "ev_hs_1996_ff7_ps"
+       }
+      ],
+      "result": {
+       "ja": "ソフトの卸値が安いと聞いて営業が喜んだ。音楽会社の人の名刺が、机に 1 枚増えた。",
+       "en": "Sales loved the low wholesale price. A record-label business card appeared on your desk."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "hardware",
+     "choice",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_nextgen_md",
+    "when": [
+     "flag.w_two_side_md"
+    ],
+    "text": {
+     "ja": "16 ビットの頃からセガ一筋。新しい黒い箱(今度は灰色)の開発機が届き、古い開発機を拝んでから片付けた。",
+     "en": "Sega loyal since 16-bit. The new kit (gray this time) arrives. You bowed to the old one before packing it away."
+    },
+    "effect": {
+     "passion": 5,
+     "skill": 3,
+     "flag": {
+      "w_two_side_ss": true
+     }
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_nextgen_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "「次は CD-ROM でムービーも」。ドット班の机が 4 つ減り、ムービー班の机が 4 つ増えた。座っているのは同じ人だ。",
+     "en": "\"CD-ROM means movies too.\" Four pixel-art desks became four movie-team desks. Same people sitting at them."
+    },
+    "effect": {
+     "skill": 5,
+     "hp": -4
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "3d"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_nextgen_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "元請けが「両方の次世代機で出す。移植はおたくで」。片方の発売日に間に合うと、もう片方の分の徹夜が始まった。",
+     "en": "The client is going on both new consoles; you handle the ports. Hit one launch, and the all-nighters for the other begin."
+    },
+    "effect": {
+     "money": 20,
+     "hp": -10,
+     "skill": 4
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_nextgen_any",
+    "text": {
+     "ja": "12 日違いで新型が 2 台。年末の売り場で、親子連れが両方の箱の前で 20 分迷っていた。あなたも作る側で同じだけ迷った。",
+     "en": "Two new consoles, 12 days apart. In the year-end aisle, a family dithered 20 minutes between boxes. You dithered just as long as a developer."
+    },
+    "effect": {
+     "passion": 4
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1994_pcfx",
+  "year": 1994,
+  "month": 12,
+  "until": 1995,
+  "kind": "hardware",
+  "weight": 1,
+  "title": {
+   "ja": "PC-FX 発売",
+   "en": "The PC-FX launches"
+  },
+  "news": {
+   "ja": "12 月 23 日、NEC ホームエレクトロニクスが PC エンジンの後継機 PC-FX を発売。",
+   "en": "On December 23, NEC Home Electronics releases the PC-FX, successor to the PC Engine."
+  },
+  "src": "PC-FX",
+  "variants": [
+   {
+    "id": "ev_hs_1994_pcfx_pce",
+    "when": [
+     "flag.w_two_side_pce"
+    ],
+    "text": {
+     "ja": "CD の陣営を 6 年守った。後継機の資料に「ポリゴンは不得意」とあり、アニメの絵を描ける人を探しはじめた。",
+     "en": "Six years in the CD camp. The successor's docs say \"weak at polygons.\" You start hunting for anime artists."
+    },
+    "effect": {
+     "passion": 3,
+     "money": -10,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_pcfx_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "「動画が得意な機械らしい」。アニメのセル画の会社から絵を習いに来いと言われた。修業は 1 枚目で終わった。",
+     "en": "\"It's good at video.\" You're sent to learn from an anime cel studio. Your apprenticeship ended at frame one."
+    },
+    "effect": {
+     "skill": 3,
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_pcfx_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "年末に新型が 3 台。会議のホワイトボードに陣営の表を書いたら、表の方が企画書より長くなった。",
+     "en": "Three new consoles by year's end. You drew a camp chart on the whiteboard. It ended up longer than the pitch."
+    },
+    "effect": {
+     "skill": 2,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_pcfx_any",
+    "text": {
+     "ja": "ひと月で新型が 3 台出た。お年玉を握った甥に「どれがいい?」と聞かれ、答えに 3 週間かかった。",
+     "en": "Three new consoles in one month. Your nephew, clutching New Year's money, asks which. Your answer took three weeks."
+    },
+    "effect": {
+     "passion": 2,
+     "network": 1
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "family"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1994_tokimemo",
+  "year": 1994,
+  "month": 5,
+  "until": 1995,
+  "kind": "hit",
+  "weight": 1,
+  "title": {
+   "ja": "『ときめきメモリアル』発売、恋愛ゲームの流行",
+   "en": "Tokimeki Memorial launches; dating sims take off"
+  },
+  "news": {
+   "ja": "コナミの恋愛シミュレーションが PC エンジンで発売され、のちに他機種へ広がる。",
+   "en": "Konami's dating sim launches on the PC Engine and later spreads to other consoles."
+  },
+  "src": "ときめきメモリアル",
+  "variants": [
+   {
+    "id": "ev_hs_1994_tokimemo_planner",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "「恋愛ゲームを作れ」。恋愛の経験を会議で聞かれ、正直に答えたら、企画は先輩に回った。",
+     "en": "\"Make a dating sim.\" Asked about your romantic experience in the meeting, you answered honestly. The project went to a senior."
+    },
+    "effect": {
+     "passion": -3,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_tokimemo_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "「資料だから」と恋愛ゲームを家で遊んでいたら、パートナーにセーブデータの名前を見られた。資料の説明は通らなかった。",
+     "en": "Playing a dating sim at home \"for research,\" your partner saw the save file name. The research excuse didn't work."
+    },
+    "effect": {
+     "passion": -5,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_tokimemo_sound",
+    "when": [
+     "job=sound"
+    ],
+    "text": {
+     "ja": "恋愛ゲームの仕事で、声優さんの収録に立ち会った。「好きです」のテイクを 40 回聞き、何も感じなくなった。",
+     "en": "On a dating sim, you sat in on voice recording. After 40 takes of \"I like you,\" you felt nothing."
+    },
+    "effect": {
+     "skill": 4
+    },
+    "tag": [
+     "hist",
+     "hit"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_tokimemo_any",
+    "text": {
+     "ja": "画面の中の同級生に告白するゲームが流行った。同期が攻略ノートを作っていた。仕事のノートより厚かった。",
+     "en": "A game about confessing to a classmate catches on. A peer keeps a strategy notebook, thicker than his work notes."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1995_vb",
+  "year": 1995,
+  "month": 7,
+  "kind": "hardware",
+  "weight": 2,
+  "title": {
+   "ja": "バーチャルボーイ発売",
+   "en": "The Virtual Boy launches"
+  },
+  "news": {
+   "ja": "7 月 21 日、任天堂が赤い単色の立体映像のゲーム機バーチャルボーイを発売。",
+   "en": "On July 21, Nintendo releases the Virtual Boy, a red monochrome 3D console."
+  },
+  "src": "バーチャルボーイ",
+  "variants": [
+   {
+    "id": "ev_hs_1995_vb_nin",
+    "when": [
+     "flag.w_two_side_nin"
+    ],
+    "text": {
+     "ja": "任天堂の陣営に新型の開発機が来た。のぞき込んで 1 日作業したら、家に帰っても世界が赤かった。",
+     "en": "The Nintendo camp gets the new kit. After a full day peering into it, the whole world stayed red on the way home."
+    },
+    "effect": {
+     "skill": 3,
+     "hp": -5
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_vb_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "立体のゲーム機のデバッグ。15 分ごとの休憩が義務で、休憩の時間の方が長い日もあった。",
+     "en": "Debugging the 3D goggle console. Breaks every 15 minutes are mandatory. Some days, breaks took longer than testing."
+    },
+    "effect": {
+     "hp": 3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_vb_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "使える色は赤と黒だけ。夕焼けの絵を描けと言われ、生まれて初めて、何も工夫せずに完成した。",
+     "en": "Red and black only. Asked to draw a sunset, for the first time in your life, you finished with no effort at all."
+    },
+    "effect": {
+     "passion": 3,
+     "skill": 1
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_vb_any",
+    "text": {
+     "ja": "のぞき込む立体のゲーム機が出た。店の試遊台で遊んだ後、ずっと目の前に赤い線が残っていた。",
+     "en": "A peer-into-it 3D console is out. After the store demo, a red line floated in front of your eyes for hours."
+    },
+    "effect": {
+     "passion": 1,
+     "hp": -1
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1995_win95",
+  "year": 1995,
+  "month": 11,
+  "until": 1996,
+  "kind": "hardware",
+  "weight": 3,
+  "title": {
+   "ja": "Windows 95 日本語版発売",
+   "en": "Windows 95 launches in Japanese"
+  },
+  "news": {
+   "ja": "11 月 23 日、深夜 0 時の発売に行列ができ、パソコンとインターネットが一気に広まる。",
+   "en": "On November 23, lines formed for the midnight launch, and PCs and the internet spread fast."
+  },
+  "src": "Microsoft Windows 95",
+  "variants": [
+   {
+    "id": "ev_hs_1995_win95_programmer",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "PC 版の移植を任された。音が出ない機種、絵が出ない機種、両方出ない機種。サポートの電話が 3 本並んだ。",
+     "en": "You're handed the PC port. Some machines have no sound, some no picture, some neither. Three support lines, all ringing."
+    },
+    "effect": {
+     "skill": 6,
+     "hp": -6
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_win95_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "パソコンが家電になった。自作のゲームを遊べる人が、急に町じゅうにいる気がした。気のせいではなかった。",
+     "en": "PCs became home appliances. Suddenly the whole town seemed able to run your homemade game. It wasn't just a feeling."
+    },
+    "effect": {
+     "fame": 5,
+     "money": 20,
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_win95_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "社長が「これからはインターネットだ」と言い、会社のホームページを作れと言われた。訪問者の 1 人目は社長だった。",
+     "en": "The boss declares the internet is the future and orders a company homepage. Visitor number one: the boss."
+    },
+    "effect": {
+     "network": 3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_win95_any",
+    "text": {
+     "ja": "深夜の電器屋に行列。父がパソコンを買った。設定に呼ばれ、ゲームを作る人はパソコンに詳しいと信じられた。",
+     "en": "Midnight lines at the electronics store. Dad bought a PC and called you to set it up. Game makers, he believes, know computers."
+    },
+    "effect": {
+     "network": 2,
+     "hp": -2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "family"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1995_satellaview",
+  "year": 1995,
+  "month": 4,
+  "until": 1996,
+  "kind": "hardware",
+  "weight": 1,
+  "title": {
+   "ja": "サテラビュー放送開始",
+   "en": "Satellaview broadcasts begin"
+  },
+  "news": {
+   "ja": "スーパーファミコンで衛星放送からゲームを受け取る、サテラビューのサービスが始まった。",
+   "en": "Satellaview begins, letting the Super Famicom receive games over satellite broadcasts."
+  },
+  "src": "サテラビュー",
+  "variants": [
+   {
+    "id": "ev_hs_1995_bs_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "衛星で配る小さなゲームの仕事。放送は毎週土曜の決まった時間。マスターアップの締め切りが、毎週来るようになった。",
+     "en": "Small games beamed by satellite every Saturday at a fixed hour. The master deadline now arrives weekly."
+    },
+    "effect": {
+     "money": 10,
+     "hp": -5,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_bs_sound",
+    "when": [
+     "job=sound"
+    ],
+    "text": {
+     "ja": "生放送の音声付きゲームの仕事。本番中にスタジオで BGM のボタンを押す係。押し間違えた時、全国に流れた。",
+     "en": "A game with live audio. You're the one pressing the music button in the studio. Your one wrong press went out nationwide."
+    },
+    "effect": {
+     "skill": 3,
+     "fame": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_bs_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもが「空からゲームが降ってくる」と言った。アンテナの向きを直しにベランダへ出たのは、あなただった。",
+     "en": "Your kid says games fall from the sky. You were the one sent to the balcony to adjust the dish."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": -1
+    },
+    "tag": [
+     "hist",
+     "family"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_bs_any",
+    "text": {
+     "ja": "ゲームを空から配る時代。カセットを店に運ぶ営業の人が、空を見上げて少し不安そうだった。",
+     "en": "Games now come from the sky. A sales guy who hauls cartridges to stores glanced up, looking a little worried."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1995_chrono",
+  "year": 1995,
+  "month": 3,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『クロノ・トリガー』発売",
+   "en": "Chrono Trigger launches"
+  },
+  "news": {
+   "ja": "3 月 11 日、有名な作り手たちが集まった RPG がスーパーファミコンで発売された。",
+   "en": "On March 11, an RPG made by a team of famous creators launches on the Super Famicom."
+  },
+  "src": "クロノ・トリガー",
+  "variants": [
+   {
+    "id": "ev_hs_1995_chrono_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員会で「うちも有名な人を集めて大作を」。有名な人の名前を出せと言われ、自分の名前を書いて消した。",
+     "en": "The board wants a big game with an all-star team. Asked to list the stars, you wrote your own name, then erased it."
+    },
+    "effect": {
+     "fame": 3,
+     "passion": -2,
+     "network": 3
+    },
+    "allow": [
+     "RPG"
+    ],
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_chrono_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "スタッフロールに有名な名前が並ぶゲームを見た。下請けの会社名は 1 行もない。うちの仕事も、たぶんどこかで同じだ。",
+     "en": "The credits are full of famous names, and not one subcontractor. Our work, somewhere, probably ends the same way."
+    },
+    "effect": {
+     "passion": -4,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hit"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_chrono_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "時を旅する RPG の絵に打ちのめされた。机に戻り、自分のドットを 1 個だけ動かして、帰った。",
+     "en": "The time-travel RPG's art floored you. You went back to your desk, moved exactly one pixel, and went home."
+    },
+    "effect": {
+     "passion": 3,
+     "skill": 3
+    },
+    "allow": [
+     "RPG"
+    ],
+    "tag": [
+     "hist",
+     "hit"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_chrono_any",
+    "text": {
+     "ja": "時をかける RPG が出た。遊びながら「あの年に戻れたら」と考えた。戻りたいのは、今の会社に入る前の日だった。",
+     "en": "A time-travel RPG comes out. Playing, you wonder which year you'd return to. The day before you joined this company."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "allow": [
+     "RPG"
+    ],
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1995_purikura",
+  "year": 1995,
+  "month": 7,
+  "until": 1996,
+  "kind": "hit",
+  "weight": 1,
+  "title": {
+   "ja": "『プリント倶楽部』稼働",
+   "en": "Print Club photo booths arrive"
+  },
+  "news": {
+   "ja": "撮った写真をシールにする業務用機が登場し、ゲームセンターに若い女性客が増えた。",
+   "en": "Arcade photo-sticker booths arrive, bringing many young women into game centers."
+  },
+  "src": "プリント倶楽部",
+  "variants": [
+   {
+    "id": "ev_hs_1995_puri_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "パートナーとシールの機械で撮った。手帳に貼られた写真のあなたは、デバッグ明けで目が死んでいた。",
+     "en": "You took sticker photos with your partner. In the one stuck in their planner, your eyes are dead from a debug night."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_puri_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "うちのゲーセンの売上 1 位が、ゲームではなくシールの機械になった。会議室の空気も、シールのように薄くなった。",
+     "en": "Our arcade's top earner is now a sticker booth, not a game. The meeting room air got as thin as a sticker."
+    },
+    "effect": {
+     "passion": -3,
+     "money": 5
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_puri_young",
+    "when": [
+     "age<=26"
+    ],
+    "text": {
+     "ja": "ゲーセンに女の子の行列。同期と「出会いの場が来た」と喜んだ。並んでいたのは、シールの機械の前だけだった。",
+     "en": "Lines of young women at the arcade. You and a peer thought romance had arrived. They were only lining up for the sticker booth."
+    },
+    "effect": {
+     "passion": 2,
+     "network": 1
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_puri_any",
+    "text": {
+     "ja": "ゲーセンの一角が、写真をシールにする機械で埋まった。格闘ゲームの台が 1 台、そのために片付けられた。",
+     "en": "A corner of the arcade fills with photo-sticker booths. A fighting cabinet was cleared away to make room."
+    },
+    "effect": {
+     "passion": -1
+    },
+    "tag": [
+     "hist",
+     "hit"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1996_pokemon",
+  "year": 1996,
+  "month": 2,
+  "until": 1997,
+  "kind": "hit",
+  "weight": 3,
+  "title": {
+   "ja": "『ポケットモンスター 赤・緑』発売",
+   "en": "Pokémon Red and Green launch"
+  },
+  "news": {
+   "ja": "2 月 27 日にゲームボーイで発売され、口コミと通信交換で社会現象になる。",
+   "en": "Released February 27 on Game Boy, it becomes a phenomenon through word of mouth and link-cable trading."
+  },
+  "src": "ポケットモンスター 赤・緑",
+  "variants": [
+   {
+    "id": "ev_hs_1996_poke_nin",
+    "when": [
+     "flag.w_two_side_nin"
+    ],
+    "text": {
+     "ja": "古い携帯機が急にまた売れはじめた。任天堂の陣営に残ったあなたに、白黒の仕事が倍で戻ってきた。",
+     "en": "The old handheld is suddenly selling again. Having stayed in Nintendo's camp, you get double the grayscale work."
+    },
+    "effect": {
+     "money": 30,
+     "skill": 3,
+     "hp": -4
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_poke_planner",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "「うちもモンスター集めを」。部長の指示で、モンスターを 151 匹考えた。会議で通ったのは 3 匹だった。",
+     "en": "\"We need a monster-collecting game too.\" You designed 151 monsters. Three survived the meeting."
+    },
+    "effect": {
+     "skill": 4,
+     "passion": -4
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_poke_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもに「通信ケーブルを貸して」と言われた。ゲームを作る親の威厳は、ケーブル 1 本分だった。",
+     "en": "Your kid asks to borrow a link cable. A game-developer parent's authority: exactly one cable long."
+    },
+    "effect": {
+     "passion": 5,
+     "money": -1
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_poke_any",
+    "text": {
+     "ja": "白黒の携帯機で、子どもたちがモンスターを交換していた。カラーと容量の話ばかりしていた会議が、少し静かになった。",
+     "en": "Kids trade monsters on a black-and-white handheld. Meetings that were all about color and capacity got a bit quieter."
+    },
+    "effect": {
+     "passion": 4,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hit"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1996_n64",
+  "year": 1996,
+  "month": 6,
+  "until": 1997,
+  "kind": "hardware",
+  "weight": 3,
+  "title": {
+   "ja": "NINTENDO64 発売",
+   "en": "The Nintendo 64 launches"
+  },
+  "news": {
+   "ja": "6 月 23 日、任天堂が 64 ビット機 NINTENDO64 を発売。ソフトは ROM カセットのまま。",
+   "en": "On June 23, Nintendo releases the 64-bit Nintendo 64, still using ROM cartridges."
+  },
+  "src": "NINTENDO64",
+  "variants": [
+   {
+    "id": "ev_hs_1996_n64_lead",
+    "when": [
+     "pos=dev_lead",
+     "!flag.w_two_side_ss",
+     "!flag.w_two_side_ps"
+    ],
+    "text": {
+     "ja": "遅れて来た 3 台目。サターンかプレステか 64 か、まだ決めていないのはうちだけだった。",
+     "en": "The third and latest console. Saturn, PlayStation, or 64? We're the last studio still undecided."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_1996_n64",
+      "label": {
+       "ja": "64 に賭ける",
+       "en": "Bet on the 64"
+      },
+      "effect": {
+       "passion": 6,
+       "money": -10,
+       "flag": {
+        "w_two_side_nsf": true
+       }
+      },
+      "result": {
+       "ja": "3D スティックで主人公を動かした瞬間、会議室の全員が「おお」と言った。ROM の値段を聞いて全員が「ああ」と言った。",
+       "en": "When the hero moved with the analog stick, the whole room went \"ooh.\" Then they heard the ROM price: \"oh.\""
+      }
+     },
+     {
+      "id": "ch_hs_1996_ps_late",
+      "label": {
+       "ja": "台数の伸びるプレステ",
+       "en": "The fast-growing PlayStation"
+      },
+      "effect": {
+       "money": 10,
+       "network": 3,
+       "flag": {
+        "w_two_side_ps": true
+       }
+      },
+      "later": [
+       {
+        "after": 1,
+        "event": "ev_hs_1996_ff7_ps"
+       }
+      ],
+      "result": {
+       "ja": "流行に乗った。発売予定表のうちの名前は、知らない会社の名前に挟まれて 1 行だった。",
+       "en": "You went with the tide. Our name on the release schedule is one line between companies you've never heard of."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "hardware",
+     "choice",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_n64_ss",
+    "when": [
+     "flag.w_two_side_ss"
+    ],
+    "text": {
+     "ja": "3 台目の新型が出た。サターンの陣営の会議で、議題は「新作」から「残るか移るか」になった。",
+     "en": "A third new console arrives. In the Saturn camp's meeting, the agenda changed from \"new title\" to \"stay or switch.\""
+    },
+    "effect": {
+     "passion": -4,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_n64_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "ROM の容量が足りず、描いた絵の色数を半分にしろと言われた。CD の陣営に行った同期は、ムービーを 40 分作っている。",
+     "en": "Not enough ROM, so halve your colors. A peer in the CD camp is making 40 minutes of movies."
+    },
+    "effect": {
+     "skill": 4,
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_n64_any",
+    "text": {
+     "ja": "スティックが付いたコントローラのゲーム機が出た。持ち方が 3 通りあり、3 通りとも手がつりそうだった。",
+     "en": "A console with an analog stick arrives. Its controller has three grips. All three nearly cramped your hand."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1996_ff7",
+  "year": 1996,
+  "month": 1,
+  "until": 1997,
+  "kind": "hit",
+  "weight": 3,
+  "title": {
+   "ja": "『ファイナルファンタジーVII』の PlayStation 発売を発表",
+   "en": "Final Fantasy VII is announced for PlayStation"
+  },
+  "news": {
+   "ja": "1996 年 1 月、スクウェアの人気 RPG の新作が PlayStation で出ると発表され、次世代機戦争の流れが大きく変わる。",
+   "en": "In January 1996, Square's next big RPG is announced for PlayStation, shifting the console war."
+  },
+  "src": "ファイナルファンタジーVII",
+  "variants": [
+   {
+    "id": "ev_hs_1996_ff7_ps",
+    "when": [
+     "flag.w_two_side_ps"
+    ],
+    "text": {
+     "ja": "プレステを選んだ判断が当たった。会社の評価が上がり、次の予算が 3 倍。ムービー班の人数も 3 倍。あなたの睡眠は 3 分の 1。",
+     "en": "Picking PlayStation paid off. The company's standing rose; next budget, triple. Movie team, triple. Your sleep, a third."
+    },
+    "effect": {
+     "money": 50,
+     "fame": 8,
+     "hp": -10,
+     "network": 5
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_ff7_ss",
+    "when": [
+     "flag.w_two_side_ss"
+    ],
+    "text": {
+     "ja": "人気 RPG の新作がライバル陣営へ。サターンの開発機の上に、誰かがそっと PlayStation の資料を置いていった。",
+     "en": "The big RPG went to the rival camp. Someone quietly left PlayStation docs on top of your Saturn dev kit."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_1996_ss_stay",
+      "label": {
+       "ja": "サターンに残る",
+       "en": "Stay with Saturn"
+      },
+      "effect": {
+       "passion": -2,
+       "money": -20
+      },
+      "result": {
+       "ja": "残った人たちの結束は固くなった。人数は少なくなった。",
+       "en": "Those who stayed grew closer. There were fewer of them."
+      }
+     },
+     {
+      "id": "ch_hs_1996_ss_move",
+      "label": {
+       "ja": "プレステの会社へ移る",
+       "en": "Move to a PlayStation studio"
+      },
+      "effect": {
+       "money": 20,
+       "network": -3,
+       "flag": {
+        "do_change_company": true,
+        "w_two_side_ps": true
+       },
+       "passion": -6
+      },
+      "result": {
+       "ja": "新しい会社の初日、机には去年の自分の作品のチラシが「研究資料」として貼ってあった。",
+       "en": "First day at the new studio: last year's flyer for your own game is pinned up as \"research material.\""
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "hit",
+     "war",
+     "choice"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_ff7_n64",
+    "when": [
+     "flag.w_two_side_nsf"
+    ],
+    "text": {
+     "ja": "人気 RPG の新作は CD の陣営へ。64 の陣営の会議で、部長は「うちはカセットで勝負だ」と言い、誰も目を合わせなかった。",
+     "en": "The big RPG went to the CD camp. In the 64 team's meeting, the boss says, \"We'll win with cartridges.\" No one met his eyes."
+    },
+    "effect": {
+     "passion": -6,
+     "skill": 2
+    },
+    "allow": [
+     "RPG"
+    ],
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_ff7_any",
+    "text": {
+     "ja": "人気 RPG の新作が新しい陣営へ移ると発表された。その日、業界の名刺入れの中身が一斉に入れ替わった気がした。",
+     "en": "The big RPG is moving to a new camp. That day, it felt like every business-card holder in the industry got reshuffled."
+    },
+    "effect": {
+     "network": 3,
+     "passion": 2
+    },
+    "allow": [
+     "RPG"
+    ],
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1996_biohazard",
+  "year": 1996,
+  "month": 3,
+  "until": 1997,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『バイオハザード』発売",
+   "en": "Resident Evil (Biohazard) launches"
+  },
+  "news": {
+   "ja": "3 月 22 日、カプコンのホラーゲームが PlayStation で発売され、ロングセラーに。",
+   "en": "On March 22, Capcom's horror game launches on PlayStation and becomes a long seller."
+  },
+  "src": "バイオハザード (ゲーム)",
+  "variants": [
+   {
+    "id": "ev_hs_1996_bio_ps",
+    "when": [
+     "flag.w_two_side_ps"
+    ],
+    "text": {
+     "ja": "プレステの陣営に追い風。うちにも「怖いゲームを」の注文が来た。ドアが開くだけの演出を作るのに 2 週間かかった。",
+     "en": "A tailwind for the PlayStation camp. We get a \"scary game\" order. A door-opening scene alone took two weeks."
+    },
+    "effect": {
+     "money": 20,
+     "skill": 4,
+     "hp": -4
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_bio_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "夜中のフロアで、怖いゲームのデバッグを 1 人で。後ろで物音がして叫んだら、寝袋の先輩が起きただけだった。",
+     "en": "Debugging a horror game alone on the floor at night. A noise behind you; you screamed. Just a senior waking in his sleeping bag."
+    },
+    "effect": {
+     "hp": -3,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_bio_sound",
+    "when": [
+     "job=sound"
+    ],
+    "text": {
+     "ja": "「怖い足音を録ってきて」。夜の会社の廊下で革靴を鳴らした。警備員さんの方が怖がっていた。",
+     "en": "\"Record some scary footsteps.\" You clacked leather shoes in the dark office hallway. The security guard was the one who got scared."
+    },
+    "effect": {
+     "skill": 4,
+     "network": 1
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_bio_any",
+    "text": {
+     "ja": "洋館のホラーゲームが流行った。会社の古いビルのエレベーターが止まった夜、あなたは階段で弾の数を数えていた。",
+     "en": "A mansion horror game is the rage. The night the old office elevator broke, you took the stairs counting imaginary ammo."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1996_sakura",
+  "year": 1996,
+  "month": 9,
+  "until": 1997,
+  "kind": "hit",
+  "weight": 1,
+  "title": {
+   "ja": "『サクラ大戦』発売",
+   "en": "Sakura Wars launches"
+  },
+  "news": {
+   "ja": "9 月 27 日、セガサターンで発売され、サターンを代表するヒット作になる。",
+   "en": "Released September 27 on the Sega Saturn, it becomes one of the console's signature hits."
+  },
+  "src": "サクラ大戦",
+  "variants": [
+   {
+    "id": "ev_hs_1996_sakura_ss",
+    "when": [
+     "flag.w_two_side_ss"
+    ],
+    "text": {
+     "ja": "サターンの陣営に大ヒット。残ってよかったと泣いた。打ち上げのカラオケで、主題歌を 4 回歌った。",
+     "en": "A smash hit for the Saturn camp. You cried, glad you stayed. At the wrap party karaoke, you sang the theme four times."
+    },
+    "effect": {
+     "passion": 10,
+     "money": 20,
+     "fame": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_sakura_ps",
+    "when": [
+     "flag.w_two_side_ps"
+    ],
+    "text": {
+     "ja": "勝ったはずの陣営なのに、昼休みの話題はサターンの新作ばかり。同僚がこっそり本体を買っていた。",
+     "en": "We're in the winning camp, yet lunch talk is all about the Saturn hit. A coworker secretly bought the console."
+    },
+    "effect": {
+     "passion": 2,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_sakura_planner",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "「恋愛と戦闘を 1 本に」の企画が、ヒット作のおかげで通った。半年後、似た企画書が社内で 6 本になった。",
+     "en": "Your \"romance plus battles\" pitch got approved thanks to the hit. Six months later, six similar pitches circulated in-house."
+    },
+    "effect": {
+     "fame": 3,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_sakura_any",
+    "text": {
+     "ja": "サターンから大ヒットが出た。陣営の勝ち負けの話は、ヒット 1 本でまた振り出しに戻った気がした。少しだけ。",
+     "en": "A big hit on Saturn. For a moment, it felt like the console war had reset to zero. Only for a moment."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "war"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1996_tamagotchi",
+  "year": 1996,
+  "month": 11,
+  "until": 1997,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『たまごっち』発売、社会現象に",
+   "en": "Tamagotchi launches and becomes a craze"
+  },
+  "news": {
+   "ja": "11 月 23 日、バンダイの携帯育成ゲームが発売され、品薄が続く社会現象になった。",
+   "en": "Released November 23, Bandai's handheld virtual pet sells out everywhere and becomes a social craze."
+  },
+  "src": "たまごっち",
+  "variants": [
+   {
+    "id": "ev_hs_1996_tama_client",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員会で「うちも育てるゲームを」。何を育てるか 3 時間話し、決まったのは「部下」だった。",
+     "en": "The board wants a raising game. After three hours debating what to raise, they settled on \"subordinates.\""
+    },
+    "effect": {
+     "passion": -3,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_tama_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "育成ゲームのデバッグ。泊まり込みで、3 時間ごとに起きてごはんをあげた。自分のごはんは忘れた。",
+     "en": "Debugging a pet game, sleeping at the office, waking every three hours to feed it. You forgot to feed yourself."
+    },
+    "effect": {
+     "hp": -5,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "crunch",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_tama_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "パートナーの小さな卵を、出張中だけ預かった。会議中に鳴り、全員の前でうんちを片付けた。",
+     "en": "You minded your partner's little egg pet during a trip. It beeped mid-meeting, and you cleaned up its poop in front of everyone."
+    },
+    "effect": {
+     "passion": 2,
+     "fame": -1
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_tama_any",
+    "text": {
+     "ja": "手のひらの卵が品薄になった。親戚中から「手に入らない?」と頼まれた。ゲームを作る人なら何とかなると思われている。",
+     "en": "The palm-sized egg sold out. Relatives all ask if you can get one. A game maker, they assume, can manage."
+    },
+    "effect": {
+     "network": 2,
+     "passion": 1
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family"
+    ]
+   }
+  ]
+ }
+]

@@ -31,7 +31,7 @@ function value(s: State, key: string): string | number | boolean | undefined {
   return undefined;
 }
 
-const RE = /^(!?)([a-z_.]+)(?:\s*(=|!=|<=|>=|<|>)\s*([a-z0-9_-]+))?$/;
+const RE = /^(!?)([a-z0-9_.]+)(?:\s*(=|!=|<=|>=|<|>)\s*([a-z0-9_-]+))?$/;
 
 export function test(s: State, cond: string): boolean {
   const m = RE.exec(cond.trim());
