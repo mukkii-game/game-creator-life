@@ -955,6 +955,64 @@
     ]
    },
    {
+    "id": "ev_hs_2012_pazudora_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "外注のテストで、自社のパズルの消える音を 3000 回聞いた。目標は「パズドラより気持ちよく」。気持ちよかったのは定時だった。",
+     "en": "Contract testing: 3,000 listens to your team's match sound. The goal: \"more satisfying than Puzzle & Dragons.\" The satisfying part was going home."
+    },
+    "effect": {
+     "skill": 2,
+     "hp": -2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_pazudora_hit_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "毎朝ランキングを見る。1 位はパズドラ、自社の『ドラゴン×クリスタル マージブレイブ』は 214 位。今日は 213 位。会議で褒められた。",
+     "en": "Every morning, the charts. No. 1: Puzzle & Dragons. Your team's Dragon × Crystal Merge Brave: No. 214. Today, 213. You got praised in the meeting."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "rival",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_pazudora_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもが指でドロップを動かして 10 コンボ。あなたの最高は 6。父の威厳は、指の速さで決まる時代になった。",
+     "en": "Your kid chains ten combos. Your best is six. Parental authority now depends on finger speed."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_2012_pazudora_any",
     "text": {
      "ja": "電車で隣の人も向かいの人も、指で石をなぞっていた。自分も、降りる駅を 2 つ過ぎた。",
@@ -1446,6 +1504,66 @@
     ]
    },
    {
+    "id": "ev_hs_2013_monst_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "外注のテストで、自社の引っぱるゲームの角度を 1 度ずつ試した。壁で跳ね返らない穴を見つけ、「1 度の人」と呼ばれた。",
+     "en": "Contract testing your team's slingshot game, one degree at a time. You found the angle where shots skip the wall. They call you \"One-Degree.\""
+    },
+    "effect": {
+     "skill": 4,
+     "flag": {
+      "hit_qa_ace": true
+     }
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2013_monst_hit_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "昼休み、隣の席の 4 人が協力プレイで盛り上がっていた。混ざりたくて始め、1 週間後には自分が誘う側になった。",
+     "en": "At lunch the four people next to you were playing co-op. You started just to join in. A week later, you were the one inviting."
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2013_monst_hit_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "企画書に「モンストみたいに 4 人で」と書いた。会議で 4 人が別々の意見を出し、協力プレイの難しさを知った。",
+     "en": "Your proposal said \"four players, like Monster Strike.\" In the meeting, four people had four opinions. Co-op is hard."
+    },
+    "effect": {
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag",
+     "rival"
+    ]
+   },
+   {
     "id": "ev_hs_2013_monst_any",
     "text": {
      "ja": "居酒屋で、隣の大学生 4 人がスマホを机に並べて同時に叫んでいた。作る側にいながら、少しうらやましかった。",
@@ -1782,6 +1900,62 @@
     ]
    },
    {
+    "id": "ev_hs_2015_undertale_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "テストの休み時間に Undertale を遊び、誰も倒さずに終えた。午後のテストで、敵を倒す手が少しためらった。",
+     "en": "On breaks you played Undertale and finished without hurting anyone. That afternoon, your hand hesitated before defeating enemies in testing."
+    },
+    "effect": {
+     "passion": 4
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug"
+    ]
+   },
+   {
+    "id": "ev_hs_2015_undertale_hit_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "ほぼ 1 人で作られたと聞き、30 人の自社の RPG の会議が静かになった。誰かが「うちは 30 人いる」と言い、もっと静かになった。",
+     "en": "Hearing it was made almost single-handedly, your 30-person RPG meeting went quiet. Someone said, \"But we have 30 people.\" It got quieter."
+    },
+    "effect": {
+     "passion": -2,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "rival",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2015_undertale_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもに「このゲームは敵を倒さなくていいんだよ」と教えられた。あなたの作品では、敵を 3000 体倒す。",
+     "en": "Your kid explained, \"In this game you don't have to defeat the monsters.\" In your game, you defeat 3,000."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family"
+    ]
+   },
+   {
     "id": "ev_hs_2015_undertale_any",
     "text": {
      "ja": "後輩が「誰も倒さなくていいゲームがあるんです」と熱弁した。帰りに、敵を 300 体倒す自分の作品の仕様書を読んだ。",
@@ -1904,6 +2078,45 @@
     "tag": [
      "hist",
      "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_pokemongo_hit_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "会社の前の公園がポケストップだった。チーム全員で昼の散歩に出て、午後の会議は 10 分遅れた。",
+     "en": "The park outside the office was a PokéStop. The whole team went for a lunch walk. The afternoon meeting started ten minutes late."
+    },
+    "effect": {
+     "hp": 4,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_pokemongo_hit_dev_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "「うちも位置情報で」と言われ、町を歩く企画を書いた。試しに 1 日 2 万歩。企画より先に体重が落ちた。",
+     "en": "\"Let's do location-based too.\" You wrote a walk-the-town pitch and tested it: 20,000 steps a day. Your weight dropped before the pitch did."
+    },
+    "effect": {
+     "hp": 5,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag",
+     "rival"
     ]
    },
    {
@@ -2195,6 +2408,71 @@
      "hist",
      "hardware",
      "work"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_switch_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "外注のテストで、自社のオープンワールドの壁を全部登ろうとした。ブレス オブ ザ ワイルドの後なので、登れない壁 214 か所を報告した。",
+     "en": "Contract testing your team's open world, you tried to climb every wall. After Breath of the Wild, you reported all 214 that wouldn't let you."
+    },
+    "effect": {
+     "skill": 4,
+     "hp": -3,
+     "flag": {
+      "hit_qa_ace": true
+     }
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_switch_hit_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "ゼルダの新作で崖を登り、向こうを見た。あの丘にも行ける。翌朝、会議に遅刻して「丘が」と言いかけた。",
+     "en": "In the new Zelda you climbed a cliff and looked out. You could go to that hill too. Next morning you were late and almost said \"the hill.\""
+    },
+    "effect": {
+     "passion": 6,
+     "hp": -2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "high"
+    ],
+    "memory": {
+     "ja": "ブレス オブ ザ ワイルドの丘で朝になった",
+     "en": "watched the sun come up from a hill in Breath of the Wild"
+    }
+   },
+   {
+    "id": "ev_hs_2017_switch_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもとゼルダの料理を全部試した。「微妙な料理」ができるたびに子どもが笑う。あなたの企画書より受けた。",
+     "en": "You and your kid tried every recipe in Zelda. Every \"dubious food\" made your kid laugh. It got more laughs than any of your pitches."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family"
     ]
    },
    {
@@ -3089,6 +3367,67 @@
     ]
    },
    {
+    "id": "ev_hs_2020_atsumori_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "在宅のテストの合間に島で釣りをした。カブの値段の上下を見ながら、自分の単価も上がらないかと思った。",
+     "en": "Between tests at home you fished on your island. Watching turnip prices rise and fall, you wished your own rate would."
+    },
+    "effect": {
+     "hp": 3,
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_atsumori_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもの島に招かれ、案内された。あなたの作ったゲームより、丁寧に作り込まれていた。",
+     "en": "Your kid invited you to their island and gave you the tour. It was more carefully crafted than any game you'd made."
+    },
+    "effect": {
+     "passion": 4,
+     "hp": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family",
+     "high"
+    ],
+    "memory": {
+     "ja": "子どもの島を案内してもらった",
+     "en": "got the tour of your kid's island"
+    }
+   },
+   {
+    "id": "ev_hs_2020_atsumori_hit_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "同じ月に自社の『ほのぼの村のスローライフ』を出した。1 位はあつ森、うちは 63 位。それでも「同じジャンル」と言える日が来た。",
+     "en": "Your team's Slow Life in Honobono Village came out the same month. No. 1: Animal Crossing. Yours: No. 63. Still, you could say \"same genre.\""
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "rival"
+    ]
+   },
+   {
     "id": "ev_hs_2020_atsumori_any",
     "text": {
      "ja": "実家の母がゲームを始め、カブの値段を毎朝電話で聞いてくる。親子の会話が 10 年ぶりに増えた。",
@@ -3503,6 +3842,67 @@
     "tag": [
      "hist",
      "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_eldenring_hit_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "同じ月に自社のアクション『黄昏の灯火と灰の騎士』を出した。順位は ELDEN RING の 38 個下。レビューに「難しい」と書かれて喜んだ。",
+     "en": "Your team's action game, Knight of Ash and the Twilight Lamp, came out the same month, 38 places below ELDEN RING. A review called it \"hard.\" You were thrilled."
+    },
+    "effect": {
+     "passion": 4
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "rival"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_eldenring_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもが同じボスに 100 回負け、101 回目で勝った。叫び声で隣の家から電話が来た。あなたは少し泣いた。",
+     "en": "Your kid lost to the same boss 100 times and won on the 101st. The neighbors called about the scream. You cried a little."
+    },
+    "effect": {
+     "passion": 5,
+     "hp": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family",
+     "high"
+    ],
+    "memory": {
+     "ja": "子どもが 101 回目でボスに勝った",
+     "en": "saw your kid beat a boss on try 101"
+    }
+   },
+   {
+    "id": "ev_hs_2022_eldenring_hit_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "発売から 1 週間、毎晩狭間の地をさまよった。会社には「目が疲れて」と言ったが、疲れていたのは指だった。",
+     "en": "For a week after launch you wandered the Lands Between every night. You told work your eyes were tired. It was your fingers."
+    },
+    "effect": {
+     "passion": 4,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "hit",
      "gag"
     ]
    },
@@ -4207,6 +4607,64 @@
     ]
    },
    {
+    "id": "ev_hs_2024_palworld_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "外注のテストで、自社のサバイバルの穴を毎日見つけた。早期アクセスでもここまで売れる例を見て、社長は穴を「味」と呼び始めた。",
+     "en": "Contract testing your team's survival game, you found bugs every day. Seeing an early-access game sell like that, the boss started calling bugs \"character.\""
+    },
+    "effect": {
+     "skill": 3,
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2024_palworld_hit_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "ランキングの 1 位はパルワールド。社長は「小さい会社でもここまで行ける」と言った。下請けの事務所が少し明るくなった。",
+     "en": "Palworld at No. 1. \"Even a small studio can get there,\" said the boss. The subcontractor's office felt a little brighter."
+    },
+    "effect": {
+     "passion": 4
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "rival"
+    ]
+   },
+   {
+    "id": "ev_hs_2024_palworld_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもがパルと工場を作っていた。「働かせすぎ」と言うと、「お父さんの会社より休ませてる」。",
+     "en": "Your kid built a factory staffed by Pals. \"You're working them too hard.\" \"They get more breaks than at your company.\""
+    },
+    "effect": {
+     "passion": 2,
+     "hp": -1
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_2024_palworld_any",
     "text": {
      "ja": "甥が夢中でモンスターと拠点を作るゲームの話をしていた。説明を聞くうちに、自分も遊んでいた。",
@@ -4419,6 +4877,72 @@
      "family",
      "gag"
     ]
+   },
+   {
+    "id": "ev_hs_2025_switch2_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "自社のロンチ作のテスト中、隣の部屋から一日中マリオカート ワールドの音。休み時間に 1 回だけ遊び、2 時間戻らなかった。",
+     "en": "Testing your team's launch title while Mario Kart World blared next door all day. You played one race on break and came back two hours later."
+    },
+    "effect": {
+     "passion": 3,
+     "skill": -1
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2025_switch2_hit_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "抽選に 5 回外れ、6 回目で当たった。発売日の夜にマリオカート ワールドで徹夜。翌朝、会社の廊下でも曲がろうとした。",
+     "en": "Five lottery losses, then a win. Launch night: all night in Mario Kart World. Next morning you tried to drift around the office corridor."
+    },
+    "effect": {
+     "passion": 5,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "high",
+     "gag"
+    ],
+    "memory": {
+     "ja": "抽選の 6 回目で当たって徹夜した",
+     "en": "won the lottery on try six and stayed up all night"
+    }
+   },
+   {
+    "id": "ev_hs_2025_switch2_hit_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "ロンチの一覧に自分の小さなゲームも並んだ。1 位はマリオカート ワールド、自分は 180 位。並んだだけで泣けた。",
+     "en": "Your little game made the launch lineup. No. 1: Mario Kart World. You: No. 180. Just being on the list made you cry."
+    },
+    "effect": {
+     "passion": 6,
+     "fame": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "high"
+    ],
+    "memory": {
+     "ja": "新しい機械のロンチ一覧に並んだ",
+     "en": "made the launch lineup of a new console"
+    }
    },
    {
     "id": "ev_hs_2025_switch2_any",

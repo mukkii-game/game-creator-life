@@ -2996,6 +2996,64 @@
     ]
    },
    {
+    "id": "ev_hs_dark_1999_shenmue_hit_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "同じ月に出した自社のアドベンチャーの売りは「町の人 30 人」。シェンムーの町を見た夜、あなたは自社の 30 人に謝った。",
+     "en": "Your team's adventure, out the same month, boasted \"30 townspeople.\" After seeing Shenmue's town, you apologized to your 30."
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "rival",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_shenmue_hit_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "港でフォークリフトのバイトに励む主人公を見て、自分のバイト時代を思い出した。翌日、なぜか仕事が少し楽しかった。",
+     "en": "Watching the hero work a forklift job at the harbor reminded you of your own part-time days. Work felt a little better the next day."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_shenmue_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもがゲームの中のカプセルトイを回し続けた。中のお金は本物ではないと説明するのに 1 時間かかった。",
+     "en": "Your kid kept cranking the in-game capsule toy machine. Explaining that the money inside wasn't real took an hour."
+    },
+    "effect": {
+     "hp": -1,
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family"
+    ]
+   },
+   {
     "id": "ev_hs_dark_1999_shen_any",
     "text": {
      "ja": "年末、雪の横須賀を歩くゲームを遊び、正月休みが全部消えた。初詣は、ゲームの中の神社で済ませた。",

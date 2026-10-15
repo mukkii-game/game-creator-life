@@ -103,6 +103,69 @@
     ]
    },
    {
+    "id": "ev_hs_1988_dq3_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "外注のデバッグの徹夜明け、行列の横を通った。並ぶ人たちの顔は自分たちと同じくらい疲れていて、うれしそうだった。",
+     "en": "Walking home after an all-night bug hunt, you passed the line. The people in it looked as tired as you, and much happier."
+    },
+    "effect": {
+     "passion": 4,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug"
+    ]
+   },
+   {
+    "id": "ev_hs_1988_dq3_hit_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "発売日に並ぶため会社を休んだ。翌日、課長も同じ列にいたとわかり、2 人で黙って有給の書類を書いた。",
+     "en": "You skipped work to line up on release day. Next day you learned your section chief was in the same line. You both filled out leave forms in silence."
+    },
+    "effect": {
+     "passion": 6,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "high",
+     "gag"
+    ],
+    "memory": {
+     "ja": "ドラクエIIIの行列で課長と会った",
+     "en": "met the section chief in the Dragon Quest III line"
+    }
+   },
+   {
+    "id": "ev_hs_1988_dq3_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもが学校を休んで並ぶと言い出した。親として止め、親として代わりに並んだ。会社には「親戚の法事」と言った。",
+     "en": "Your kid wanted to skip school to line up. As a parent you said no. As a parent you lined up instead. Work heard \"a family funeral.\""
+    },
+    "effect": {
+     "passion": 4,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_1988_dq3_any",
     "text": {
      "ja": "『ドラゴンクエストIII』で日本中が行列になった。同じ日に出たうちのソフトの売上は、行列の 1 人分くらいだった。",
@@ -640,6 +703,71 @@
      "hist",
      "petty",
      "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_gameboy_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "テトリスを遊びすぎ、テスト中の自社のパズルの不具合を夢の中で見つけた。朝、試すと本当にあった。",
+     "en": "Too much Tetris. You found a bug in your team's puzzle game in a dream. In the morning you checked. It was real."
+    },
+    "effect": {
+     "skill": 4,
+     "hp": -2,
+     "flag": {
+      "hit_qa_ace": true
+     }
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug",
+     "high"
+    ],
+    "memory": {
+     "ja": "夢の中で不具合を見つけた",
+     "en": "found a bug in a dream"
+    }
+   },
+   {
+    "id": "ev_hs_1989_gameboy_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもと通信ケーブルをつないでテトリスで対戦。3 連敗した夜、あなたは本気で練習した。",
+     "en": "You and your kid linked up for Tetris. After three straight losses, you practiced for real that night."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": -1
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_gameboy_hit_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "会議で誰かが「テトリスみたいに、落ちて消えるやつ」。その月の社内の企画書 12 本のうち、9 本が何かを落としていた。",
+     "en": "\"Something that falls and clears, like Tetris.\" Of the 12 proposals that month, nine were dropping something."
+    },
+    "effect": {
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag",
+     "rival"
     ]
    },
    {
@@ -1377,6 +1505,75 @@
     }
    },
    {
+    "id": "ev_hs_1991_sf2_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "外注のテストで、自社の格闘ゲームの技を 1 つずつ試した。ストIIみたいにつながる組み合わせを見つけ、仕様書が 1 枚増えた。",
+     "en": "Contract testing your team's fighter, move by move. You found a combo that chained like Street Fighter II. The spec grew a page."
+    },
+    "effect": {
+     "skill": 4,
+     "flag": {
+      "hit_qa_ace": true
+     }
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug",
+     "high"
+    ],
+    "memory": {
+     "ja": "テストで連続技を見つけて仕様にした",
+     "en": "found a combo in testing that became a feature"
+    }
+   },
+   {
+    "id": "ev_hs_1991_sf2_hit_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "ゲームセンターで知らない人と 30 戦。負けた相手に缶ジュースをおごると、翌週から毎週来るようになった。",
+     "en": "Thirty rounds against a stranger at the arcade. You bought the loser a soda. He came back every week after that."
+    },
+    "effect": {
+     "network": 4,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "high"
+    ],
+    "memory": {
+     "ja": "ゲームセンターで毎週戦う友人ができた",
+     "en": "made a weekly arcade sparring friend"
+    }
+   },
+   {
+    "id": "ev_hs_1991_sf2_hit_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "同じ月に自社の対戦格闘『烈風八極伝』を出した。店の隅の 1 台は、ストIIの順番待ちの人の荷物置きになった。",
+     "en": "Your team's fighter, Reppu Hakkyoku-den, came out the same month. Its one cabinet in the corner became a bag rack for the Street Fighter II line."
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "rival",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_1991_sf2_any",
     "text": {
      "ja": "ゲーセンに人が戻ってきた。昼休みに同僚と対戦し、負けた方が午後の仕様変更を伝えに行くことになった。",
@@ -1600,6 +1797,64 @@
      "ja": "海外の雑誌で星 4 つをもらった",
      "en": "Got four stars in a foreign magazine"
     }
+   },
+   {
+    "id": "ev_hs_1991_sonic_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "外注のテストで、自社のアクションの速さを測った。目標は「ソニックより速く」。先に目が回ったのはテスト係だった。",
+     "en": "Contract testing your team's action game. The goal: \"faster than Sonic.\" The testers got dizzy before the game did."
+    },
+    "effect": {
+     "skill": 3,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_sonic_hit_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "ソニックの速さはどう出しているのか、3 日分析した。わかったのは、自分たちのやり方では無理だということだった。",
+     "en": "You spent three days working out how Sonic moves so fast. What you learned: not with the way your team does things."
+    },
+    "effect": {
+     "skill": 4,
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "rival"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_sonic_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもの描く青いハリネズミが、日に日に速そうになる。あなたの作ったキャラクターは、まだ冷蔵庫に貼られていない。",
+     "en": "Your kid's blue hedgehog drawings look faster every day. Nothing you created has made it onto the fridge yet."
+    },
+    "effect": {
+     "passion": -2,
+     "hp": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family"
+    ]
    },
    {
     "id": "ev_hs_1991_sonic_any",
@@ -2170,6 +2425,65 @@
      "ja": "社内で初めて立方体を回した",
      "en": "First in the company to spin a 3D cube"
     }
+   },
+   {
+    "id": "ev_hs_1993_vf_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "外注のテストで、自社のポリゴンの格闘ゲームを担当。キャラが壁に消える穴を 41 個見つけ、「消える男」と呼ばれた。",
+     "en": "Contract testing your team's polygon fighter. You found 41 ways for fighters to vanish into walls. They called you \"the vanishing man.\""
+    },
+    "effect": {
+     "skill": 4,
+     "flag": {
+      "hit_qa_ace": true
+     }
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1993_vf_hit_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "ゲームセンターで、角ばった人が殴り合う画面に人だかり。後ろから 2 時間見て、帰りに電器屋でパソコンの値段を見た。",
+     "en": "A crowd around blocky people punching each other. You watched from the back for two hours, then checked computer prices on the way home."
+    },
+    "effect": {
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "spec"
+    ]
+   },
+   {
+    "id": "ev_hs_1993_vf_hit_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "元請けから「バーチャみたいなのを、色数 16 で」。描いた角ばった人は、なぜかとても強そうだった。",
+     "en": "\"Like Virtua Fighter, in 16 colors.\" The blocky man you drew somehow looked very tough."
+    },
+    "effect": {
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag",
+     "rival"
+    ]
    },
    {
     "id": "ev_hs_1993_vf_any",
@@ -3008,6 +3322,62 @@
     }
    },
    {
+    "id": "ev_hs_1994_tokimemo_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "外注のテストで、自社の恋愛ゲームの告白を全部見た。報告書の最後に「全員かわいいです」と書き、課長に消された。",
+     "en": "Contract testing your team's dating sim, you saw every confession. You ended the report with \"They're all lovely.\" The chief deleted it."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_tokimemo_hit_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "社内で「ときメモみたいなの」の企画が 3 本並んだ。全部に「伝説の木」が出てきて、会議室が森になった。",
+     "en": "Three proposals \"like Tokimeki Memorial\" at once. All three had a legendary tree. The meeting room turned into a forest."
+    },
+    "effect": {
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag",
+     "rival"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_tokimemo_hit_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "友人が、手帳の 3 年後に「卒業式」と書いていた。ゲームの話だった。あなたは自分の 3 年後を何も書けなかった。",
+     "en": "A friend wrote \"graduation\" in his planner, three years out. It was the game. You had nothing written for your own three years."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_1994_tokimemo_any",
     "text": {
      "ja": "画面の中の同級生に告白するゲームが流行った。同期が攻略ノートを作っていた。仕事のノートより厚かった。",
@@ -3536,6 +3906,68 @@
     ]
    },
    {
+    "id": "ev_hs_1995_chrono_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "テストの休み時間、全員がクロノ・トリガーの別のエンディングの話をしていた。数え切れず、報告書より詳しかった。",
+     "en": "At break the whole test team talked about Chrono Trigger's other endings. Too many to count. More detail than any bug report."
+    },
+    "effect": {
+     "network": 3,
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_chrono_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもが「時間を戻したい」と泣いた。宿題を忘れた日だった。2 人でクロノ・トリガーを遊び、宿題は戻らなかった。",
+     "en": "Your kid cried, wishing time could go back. Forgotten homework. You played Chrono Trigger together. The homework stayed forgotten."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_chrono_hit_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "発売日に買い、徹夜で遊んで遅刻。課長に謝ると「何周目?」と聞かれた。課長は 2 周目だった。",
+     "en": "Bought it on day one, played all night, came in late. You apologized. The chief asked, \"Which playthrough?\" He was on his second."
+    },
+    "effect": {
+     "passion": 5,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "high",
+     "gag"
+    ],
+    "memory": {
+     "ja": "クロノ・トリガーの周回で課長と並んだ",
+     "en": "matched the chief playthrough for playthrough"
+    }
+   },
+   {
     "id": "ev_hs_1995_chrono_any",
     "text": {
      "ja": "時をかける RPG が出た。遊びながら「あの年に戻れたら」と考えた。戻りたいのは、今の会社に入る前の日だった。",
@@ -3761,6 +4193,72 @@
     }
    },
    {
+    "id": "ev_hs_1996_pokemon_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "外注のテストで、自社のゲームの交換機能を 2 台で 1000 回試した。ケーブルを抜く瞬間の致命的な穴を見つけ、元請けに名前を覚えられた。",
+     "en": "Contract testing a trade feature: a thousand trades on two handhelds. You found the fatal bug when the cable is pulled. The client learned your name."
+    },
+    "effect": {
+     "skill": 4,
+     "network": 3,
+     "flag": {
+      "hit_qa_ace": true
+     }
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug",
+     "high"
+    ],
+    "memory": {
+     "ja": "交換機能の致命的な穴を見つけた",
+     "en": "found the fatal bug in a trade feature"
+    }
+   },
+   {
+    "id": "ev_hs_1996_pokemon_hit_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "後輩と通信ケーブルをつなぎ、昼休みに交換。最後の 1 匹を探して、課の全員が 1 か月浮かれていた。",
+     "en": "You and a junior linked up to trade at lunch. Hunting for the last one, the whole section was giddy for a month."
+    },
+    "effect": {
+     "network": 3,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_pokemon_hit_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "元請けから「ポケモンみたいに集めて交換するやつ」。描いたのは 15 匹。それでも 1 か月かかった。",
+     "en": "\"Collect and trade, like Pokémon.\" You drew fifteen monsters. Even that took a month."
+    },
+    "effect": {
+     "skill": 3,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag",
+     "rival"
+    ]
+   },
+   {
     "id": "ev_hs_1996_poke_any",
     "text": {
      "ja": "白黒の携帯機で、子どもたちがモンスターを交換していた。カラーと容量の話ばかりしていた会議が、少し静かになった。",
@@ -3937,6 +4435,61 @@
      "hist",
      "petty",
      "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_n64_hit_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "発売日に買ったマリオ 64 で、カメラの動きを一晩中研究した。翌日、自社の 3D のテストで「カメラが下手です」と書けた。",
+     "en": "You spent the night studying the camera in Super Mario 64. Next day you could write \"the camera is clumsy\" in your team's 3D test report."
+    },
+    "effect": {
+     "skill": 4
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "debug"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_n64_hit_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "マリオ 64 の城の庭を 1 周して、3D で走るとはこういうことかと知った。自社のキャラは、まだ前にしか歩けない。",
+     "en": "One lap of the castle garden in Super Mario 64 showed you what running in 3D means. Your team's character still only walks forward."
+    },
+    "effect": {
+     "skill": 3,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "rival"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_n64_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもがスティックでマリオを走らせ、城の前を何周も回る。「どこへ行くの」「どこでも」。あなたは少し嫉妬した。",
+     "en": "Your kid runs Mario in circles outside the castle. \"Where are you going?\" \"Anywhere.\" You felt a little jealous."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family"
     ]
    },
    {
