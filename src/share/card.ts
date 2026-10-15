@@ -7,6 +7,26 @@ import type { Lang } from '../core/i18n';
 import { JOB_TEXT } from '../game/names';
 import { RESULT_TEXT } from '../game/works';
 import { TITLE, HASHTAG, isEos, entryPhrase } from './text';
+import { peopleUrl, emoteUrl, faceOf, PEOPLE_COLS, EMO } from '../ui/art';
+
+// 絵の素材(ぴぽや。CREDITS.md): 顔 = ぴぽや32シンプル、王冠 = プチエモートアイコン。読めなければ今までのドット絵・★で描く
+const imgCache = new Map<string, Promise<HTMLImageElement | null>>();
+function loadImg(url: string): Promise<HTMLImageElement | null> {
+  let p = imgCache.get(url);
+  if (!p) {
+    p = new Promise((ok) => {
+      const im = new Image();
+      const t = setTimeout(() => ok(null), 3000);
+      im.onload = () => { clearTimeout(t); ok(im); };
+      im.onerror = () => { clearTimeout(t); ok(null); };
+      im.src = url;
+    });
+    imgCache.set(url, p);
+  }
+  return p;
+}
+let people: HTMLImageElement | null = null;
+let emote: HTMLImageElement | null = null;
 
 export type CardKind = 'portrait' | 'og';
 export const CARD_SIZE: Record<CardKind, [number, number]> = { portrait: [1080, 1350], og: [1200, 630] };
@@ -85,6 +105,18 @@ function fitFont(c: CanvasRenderingContext2D, text: string, family: string, size
 
 // ---------- 社員証 ----------
 function drawFace(c: CanvasRenderingContext2D, s: State, x: number, y: number, w: number, h: number) {
+  if (people) {
+    // 32×32 のうち胸から上(x 6〜26, y 2〜26。20×24 = 写真と同じ 5:6)を整数倍で
+    const idx = faceOf(s.seed, s.ending?.age ?? s.age);
+    const sx = (idx % PEOPLE_COLS) * 32 + 6, sy = Math.floor(idx / PEOPLE_COLS) * 32 + 2;
+    c.fillStyle = '#c9d6e8'; c.fillRect(x, y, w, h);
+    const sc = Math.max(1, Math.floor(Math.min(w / 20, h / 24)));
+    const dw = 20 * sc, dh = 24 * sc;
+    c.save(); c.imageSmoothingEnabled = false;
+    c.drawImage(people, sx, sy, 20, 24, x + (w - dw) / 2, y + h - dh, dw, dh);
+    c.restore();
+    return;
+  }
   const r = new Rng((s.seed ^ 0x5eed) >>> 0);
   const skin = r.pick(['#f2c9a0', '#e8b48a', '#d49a6a', '#f5d3b3', '#b97c52']);
   const hair = r.pick(['#222', '#3a2a1e', '#5b3b24', '#777', '#1d2a4a', '#b0b0b0']);
@@ -250,7 +282,14 @@ function drawWork(c: CanvasRenderingContext2D, w: Work, l: Lang, x: number, base
     c.fillText([...name][0] ?? '?', x0 + ww / 2, base - ww / 2);
   }
   // 伝説は星
-  if (w.result === 'legend') { c.fillStyle = '#fff'; c.font = `${18 * k}px ${SANS}`; c.fillText('★', x0 + ww - 12 * k, top + 12 * k); }
+  if (w.result === 'legend') {
+    if (emote) {
+      const [er, ec] = EMO.legend, sz = Math.max(12, Math.round(36 * k / 12) * 12);
+      c.save(); c.imageSmoothingEnabled = false;
+      c.drawImage(emote, ec * 12, er * 12, 12, 12, x0 + ww - sz * 0.75, top - sz * 0.35, sz, sz);
+      c.restore();
+    } else { c.fillStyle = '#fff'; c.font = `${18 * k}px ${SANS}`; c.fillText('★', x0 + ww - 12 * k, top + 12 * k); }
+  }
   // 後日談の印(棚の上の付箋)
   if (w.history.length) {
     const eos = w.history.some(isEos);
@@ -359,6 +398,7 @@ function footer(c: CanvasRenderingContext2D, l: Lang, x: number, y: number, k: n
 export async function drawCard(s: State, l: Lang, kind: CardKind = 'portrait', canvas?: HTMLCanvasElement): Promise<HTMLCanvasElement> {
   await ensureFont();
   await loadGlyphs(s, l);
+  [people, emote] = await Promise.all([loadImg(peopleUrl), loadImg(emoteUrl)]);
   const [W, H] = CARD_SIZE[kind];
   const cv = canvas ?? document.createElement('canvas');
   cv.width = W; cv.height = H;

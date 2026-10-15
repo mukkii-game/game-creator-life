@@ -15,6 +15,7 @@ import { expose } from '../core/demo';
 import type { Recorder, Player } from '../core/replay';
 import { h, tf, tx, lookOf, setLook, money, FocusRing } from './util';
 import { onTap, type Cmd } from './input';
+import { emo, faceEl, faceOf, type EmoName } from './art';
 
 export type Speed = 1 | 2 | 4 | 'fast';
 const SPEEDS: Speed[] = [1, 2, 4, 'fast'];
@@ -47,9 +48,21 @@ export interface PlayScreen {
 
 const JOB_ICON: Record<string, string> = { programmer: '💻', planner: '📝', artist: '🎨', sound: '🎵', qa: '🐛', sales: '📞', director: '🎬', producer: '💼', other: '🌾' };
 const KIND_ICON: Record<string, string> = { event: '💬', work: '📦', peer: '👥', choice: '🙋', ask: '❓' };
+const KIND_EMO: Record<string, EmoName> = { event: 'event', work: 'work', peer: 'peer', choice: 'choice', ask: 'ask' };
 const KIND_WHO: Record<string, string> = { event: 'fromEvent', work: 'fromWork', peer: 'fromPeer', choice: 'fromChoice', ask: 'fromAsk' };
 /** 歴史の事件の見た目: テレビの速報風(tv)か新聞の号外風(paper) */
 export const HIST_ICON: Record<string, string> = { hardware: '🎮', hit: '🏆', incident: '📰', work: '💼', ai: '🤖', future: '🚀' };
+/** 歴史の事件の種類 → ぴぽやのアイコン(読めない時は HIST_ICON の絵文字) */
+export const HIST_EMO: Record<string, EmoName> = { hardware: 'hardware', hit: 'hit', incident: 'incident', work: 'biz', ai: 'ai', future: 'future' };
+export const histIcon = (kind: string, cls = 'who-ic') => emo(HIST_EMO[kind] ?? 'incident', HIST_ICON[kind] ?? '📰', cls);
+const kindIcon = (kind: string) => emo(KIND_EMO[kind] ?? 'event', KIND_ICON[kind] ?? '💬', 'who-ic');
+/** 作品の結果の印(伝説 = 王冠、ヒット = 星、爆死 = 汗) */
+function resultMark(w: Work, scale = 1): HTMLElement | null {
+  if (w.result === 'legend') return emo('legend', '👑', 'work-mark', scale);
+  if (w.result === 'hit') return emo('star', '⭐', 'work-mark', scale);
+  if (w.result === 'flop') return emo('flop', '💦', 'work-mark', scale);
+  return null;
+}
 const HIST_STYLE: Record<string, 'tv' | 'paper'> = { hardware: 'tv', ai: 'tv', future: 'tv', hit: 'paper', incident: 'paper', work: 'paper' };
 
 /** 作品棚の形: カセット → CD → DL → アプリ(時代と機種で) */
@@ -177,9 +190,13 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const head = h('div', 'card-head');
     head.append(h('span', 'card-badge', t('idCard')), h('span', 'card-pos', tx(POS_TEXT[positionOf(s)])), h('span', 'card-co', tx(s.company.name)));
     const body = h('div', 'card-body');
-    const photo = h('div', 'card-photo', JOB_ICON[s.job] ?? '👤');
+    const photo = h('div', 'card-photo');
+    photo.dataset.e = JOB_ICON[s.job] ?? '👤';
+    photo.append(faceEl(faceOf(s.seed, s.age), 'face'));
     const who = h('div', 'card-who');
-    who.append(h('div', 'card-name', tx(s.name)), h('div', 'card-job', `${tx(JOB_TEXT[s.job])} · ${t(`st_${s.status}`)}`));
+    const jobLine = h('div', 'card-job');
+    jobLine.append(emo((s.job in JOB_ICON ? s.job : 'other') as EmoName, JOB_ICON[s.job] ?? '', 'job-ic', 1.5), h('span', '', `${tx(JOB_TEXT[s.job])} · ${t(`st_${s.status}`)}`));
+    who.append(h('div', 'card-name', tx(s.name)), jobLine);
     const m = h('div', `card-money${s.stat.money < 0 ? ' neg' : ''}`);
     m.append(h('span', 'g-lab', t('money')), h('b', '', money(s.stat.money)));
     body.append(photo, who, m);
@@ -198,6 +215,8 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     s.works.forEach((w) => {
       const b = h('button', `work shape-${shapeOf(w)} r-${w.result}`);
       b.append(h('span', 'work-ch', initial(w)));
+      const mk = resultMark(w);
+      if (mk) b.append(mk);
       b.title = `${tx(w.name)} (${w.year})`;
       if (w.history.length) b.classList.add('has-history');
       onTap(b, () => openWork(w));
@@ -235,6 +254,8 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const box = h('div', `modal-box work-detail r-${w.result}`);
     const icon = h('div', `work big shape-${shapeOf(w)} r-${w.result}`);
     icon.append(h('span', 'work-ch', initial(w)));
+    const mk = resultMark(w, 2);
+    if (mk) icon.append(mk);
     box.append(icon, h('h3', '', tx(w.name)), h('div', 'wd-meta', `${w.year} · ${w.platform} · ${t(`role_${w.role}`)} · ${t(`res_${w.result}`)}`));
     box.append(h('div', 'wd-lab', t('history')));
     const ul = h('ul', 'wd-hist');
@@ -255,7 +276,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   function bubble(kind: string, text: string, year: number): HTMLElement {
     const msg = h('div', `msg k-${kind}`);
     const who = h('div', 'who');
-    who.append(h('span', 'who-ic', KIND_ICON[kind] ?? '💬'), h('span', 'who-nm', t(KIND_WHO[kind] ?? 'fromEvent')), h('span', 'who-yr', String(year)));
+    who.append(kindIcon(kind), h('span', 'who-nm', t(KIND_WHO[kind] ?? 'fromEvent')), h('span', 'who-yr', String(year)));
     msg.append(who, h('div', 'bubble', text));
     chatInner.append(msg);
     // 古い吹き出しは捨てる(DOM を軽く)
@@ -274,7 +295,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const msg = h('div', `msg k-${l.kind} hist hist-${style} pop`);
     msg.dataset.hist = hs;
     const who = h('div', 'who');
-    who.append(h('span', 'who-ic', HIST_ICON[hd.kind] ?? '📰'), h('span', 'who-nm', t(style === 'tv' ? 'histTv' : 'histPaper')), h('span', 'who-yr', hd.month ? tf('ym', { y: l.year, m: hd.month }) : String(l.year)));
+    who.append(histIcon(hd.kind), h('span', 'who-nm', t(style === 'tv' ? 'histTv' : 'histPaper')), h('span', 'who-yr', hd.month ? tf('ym', { y: l.year, m: hd.month }) : String(l.year)));
     if (mark) who.append(h('span', `hist-mark m-${mark}`, t(mark === 'new' ? 'histNew' : 'histOtherPos')));
     const head = h('div', 'hist-head');
     head.append(h('span', 'hist-tag', t(style === 'tv' ? 'histTvTag' : 'histPaperTag')), h('span', 'hist-news', tx(hd.news)));
@@ -317,8 +338,11 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     }
     if ((l.tag ?? []).includes('afterlife')) m.classList.add('afterlife');
     // テンションが上がった瞬間・有名人に会った瞬間は少し明るく(後味を良くする)
-    if ((l.tag ?? []).includes('high')) m.classList.add('t-high');
-    if ((l.tag ?? []).includes('celeb')) m.classList.add('t-celeb');
+    const tgs = l.tag ?? [];
+    if (tgs.includes('high') || tgs.includes('celeb')) {
+      m.classList.add(tgs.includes('celeb') ? 't-celeb' : 't-high');
+      m.querySelector('.who')?.append(tgs.includes('celeb') ? emo('celeb', '🌟', 'who-mark') : emo('high', '✨', 'who-mark'));
+    } else if (tgs.includes('pit')) m.querySelector('.who')?.append(emo('pit', '💦', 'who-mark'));
     paintAll();
     return true;
   }
@@ -375,7 +399,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
       msg.className = `${msg.className.replace(/\bk-\w+/g, '').replace(/\bpop\b/g, '').trim()} k-ask pop`;
       if (!msg.dataset.hist) {
         const nm = msg.querySelector('.who-nm'); if (nm) nm.textContent = t('fromAsk');
-        const ic = msg.querySelector('.who-ic'); if (ic) ic.textContent = KIND_ICON.ask;
+        const ic = msg.querySelector('.who-ic'); if (ic) ic.replaceWith(kindIcon('ask'));
       }
     } else {
       msg = bubble('ask', tx(c.text), curYear);

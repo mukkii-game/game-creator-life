@@ -6,6 +6,7 @@ import { h, tf, setLook, FocusRing } from './util';
 import { load, save } from '../core/save';
 import { HIST } from '../game/data';
 import { onTap, type Cmd } from './input';
+import { emo, personEl, LINEAGES } from './art';
 
 export interface TitleScreen { onCmd: (c: Cmd) => void }
 
@@ -31,6 +32,10 @@ function render(app: HTMLElement, era: Era | '', onStart: (era: Era | '') => voi
   const wrap = h('div', 'title');
   const logo = h('div', 'title-logo');
   logo.append(h('div', 'title-num', '12,000,000'), h('h1', 'title-main', t('title')));
+  // 1200 万人のうちの何人か(ぴぽやの人物。若手・中堅・ベテランを混ぜて並べる。並びは固定)
+  const crowd = h('div', 'title-crowd');
+  [0, 12, 3, 15, 7, 20, 10, 17].forEach((li, i) => crowd.append(personEl(LINEAGES[li][i % 3], 'person')));
+  logo.append(crowd);
   const sub = h('p', 'title-sub', t('titleSub'));
   const line = h('p', 'title-tag', t('tagline'));
 
@@ -73,7 +78,7 @@ function render(app: HTMLElement, era: Era | '', onStart: (era: Era | '') => voi
   onTap(go, () => { keep(); onStart(pick); });
 
   const chronB = h('button', 'chron-btn');
-  chronB.append(h('span', 'chron-ic', '📜'), h('span', '', tf('chronBtn', { n: chronicleCount(load().chronicle), all: HIST.length })));
+  chronB.append(emo('book', '📜', 'chron-ic'), h('span', '', tf('chronBtn', { n: chronicleCount(load().chronicle), all: HIST.length })));
   onTap(chronB, () => { sfx.ui(); onChronicle(); });
 
   const tools = h('div', 'title-tools');

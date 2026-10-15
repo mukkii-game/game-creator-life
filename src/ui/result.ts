@@ -33,6 +33,7 @@ const S: Record<string, Text> = {
   noWorks: { ja: '(世に出た作品はなし)', en: '(no games shipped)' },
   peers: { ja: '同期', en: 'PEERS' },
   music: { ja: '音楽・効果音', en: 'MUSIC & SOUND EFFECTS' },
+  art: { ja: '絵(人物・アイコン)', en: 'ART (PEOPLE & ICONS)' },
   thanks: { ja: '協力', en: 'SPECIAL THANKS' },
   thanksBody: { ja: '寝袋 / カップ麺 / 栄養ドリンク / 仕様書(第 14 版)', en: 'Sleeping bag / Cup noodles / Energy drinks / Spec doc (rev. 14)' },
   fin: { ja: '終', en: 'FIN' },
@@ -104,6 +105,7 @@ function buildRoll(s: State, l: Lang): HTMLElement {
   h2('peers');
   s.peers.forEach((pe, i) => { p(peerName(s, i, l)); p(pe.summary[l], 'rs-small'); });
   h2('music'); p(l === 'ja' ? '魔王魂' : 'MaouDamashii'); p('https://maou.audio/', 'rs-small');
+  h2('art'); p(l === 'ja' ? 'ぴぽや' : 'Pipoya'); p('https://pipoya.net/', 'rs-small');
   h2('thanks'); p(T('thanksBody', l), 'rs-small');
   const job = JOB_TEXT[s.job] ?? JOB_TEXT.other;
   box.append(el('p', 'rs-cause', s.ending ? s.ending.cause[l] : ''));

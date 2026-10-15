@@ -19,6 +19,7 @@ import { showChronicle } from './chronicle';
 import { load, save, addChronicle } from '../core/save';
 import { startPlay, type PlayScreen, type Speed } from './play';
 import { h, tf, tx, setLook, lookOf, loadFonts } from './util';
+import { installArt } from './art';
 
 const DEMO_SEED = 12000000;
 const ERAS = ['era1', 'era2', 'era3'];
@@ -27,6 +28,7 @@ export function startApp(container: HTMLElement) {
   loadFonts();
   const app = h('div', 'gcl');
   container.append(app);
+  installArt(app);
   installInput(container);
   installBuildId();
 

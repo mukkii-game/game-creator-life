@@ -6,7 +6,7 @@ import { POS_TEXT } from '../game/names';
 import type { Hist, Pos } from '../game/types';
 import { h, tf, tx, setLook } from './util';
 import { onTap, type Cmd } from './input';
-import { HIST_ICON } from './play';
+import { histIcon } from './play';
 
 export interface ChronicleScreen { onCmd: (c: Cmd) => void }
 
@@ -42,7 +42,7 @@ function item(x: Hist, set: Set<string>): HTMLElement {
   const touched = got.length > 0 || [...set].some((k) => k.startsWith(`${x.id}:`));
   const li = h('li', `chr-item k-${x.kind}${touched ? ' got' : ' unk'}`);
   const when = h('div', 'chr-when');
-  when.append(h('span', 'chr-ic', HIST_ICON[x.kind] ?? '📰'), h('b', '', x.month && touched ? tf('ym', { y: x.year, m: x.month }) : String(x.year)));
+  when.append(histIcon(x.kind, 'chr-ic'), h('b', '', x.month && touched ? tf('ym', { y: x.year, m: x.month }) : String(x.year)));
   li.append(when);
   const body = h('div', 'chr-body');
   if (!touched) {
