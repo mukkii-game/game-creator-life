@@ -79,19 +79,19 @@ export function release(s: State): { work: Work; line: Text } {
 export function clamp(v: number) { return Math.max(0, Math.min(100, Math.round(v))); }
 
 // 発売後に勝手に起きること(データのイベントとは別の、機種と年で決まる運命)
-type Fate = { test: (w: Work, year: number) => boolean; chance: number; text: Text; result?: WorkResult; fame?: number };
+type Fate = { key: string; test: (w: Work, year: number) => boolean; chance: number; text: Text; result?: WorkResult; fame?: number };
 const FATES: Fate[] = [
-  { test: (w, y) => ['ケータイ', 'ソシャゲ', 'スマホ'].includes(w.platform) && y - w.year >= 3 && !done(w, 'eos'), chance: 0.35,
+  { key: 'eos', test: (w, y) => ['ケータイ', 'ソシャゲ', 'スマホ'].includes(w.platform) && y - w.year >= 3, chance: 0.35,
     text: { ja: 'サービス終了。最後の日、ログインしていたのは 41 人だった。', en: 'End of service. On the last day, 41 players were online.' } },
-  { test: (w, y) => y >= 2006 && y - w.year >= 15 && w.year < 2000, chance: 0.05,
+  { key: 'rerelease', test: (w, y) => y >= 2006 && y - w.year >= 15 && w.year < 2000, chance: 0.05,
     text: { ja: 'ダウンロード版で復刻。800 円。あなたに 1 円も入らない。', en: 'Re-released digitally for 800 yen. You get zero.' } },
-  { test: (w, y) => y >= 2016 && y - w.year >= 20 && w.result === 'flop', chance: 0.04, result: 'ok', fame: 4,
+  { key: 'gem', test: (w, y) => y >= 2016 && y - w.year >= 20 && w.result === 'flop', chance: 0.04, result: 'ok', fame: 4,
     text: { ja: '海外のコレクターの間で「隠れた名作」扱いに。中古価格が 40 倍。', en: 'Overseas collectors call it a "hidden gem." Used prices up 40x.' } },
-  { test: (w, y) => y >= 2024 && y - w.year >= 10, chance: 0.03,
+  { key: 'airemake', test: (w, y) => y >= 2024 && y - w.year >= 10, chance: 0.03,
     text: { ja: 'AI リメイクが出た。キャラの指が 6 本ある。あなたに 1 円も入らない。', en: 'An AI remake came out. Characters have six fingers. You get zero.' } },
-  { test: (w, y) => y >= 2012 && y - w.year >= 8 && (w.result === 'hit' || w.result === 'legend'), chance: 0.05,
+  { key: 'rta', test: (w, y) => y >= 2012 && y - w.year >= 8 && (w.result === 'hit' || w.result === 'legend'), chance: 0.05,
     text: { ja: 'RTA の定番になった。世界記録は 4 分 12 秒。あなたは 40 時間かけて作った面だ。', en: 'It became a speedrun staple. World record: 4:12. That stage took you 40 hours.' } },
-  { test: (w, y) => y - w.year >= 1 && y - w.year <= 3 && w.result === 'hit' && w.role !== 'solo', chance: 0.25,
+  { key: 'sequel', test: (w, y) => y - w.year >= 1 && y - w.year <= 3 && w.result === 'hit' && w.role !== 'solo', chance: 0.25,
     text: { ja: '続編が決まった。あなたの名前は企画会議に呼ばれる人の一覧に無かった。', en: 'A sequel was greenlit. Your name wasn\'t on the meeting invite.' } },
 ];
 function done(w: Work, key: string) { return w.history.some((h) => (h as { key?: string }).key === key); }
@@ -104,10 +104,9 @@ export function tickWorks(s: State): { work: Work; text: Text }[] {
   for (let i = 0; i < n; i++) {
     const w = s.works[(i + off) % n];
     for (const f of FATES) {
-      if (!f.test(w, s.year)) continue;
+      if (done(w, f.key) || !f.test(w, s.year)) continue;
       if (!s.rng.chance(f.chance * base / 0.06)) continue;
-      const h = { year: s.year, text: f.text } as { year: number; text: Text; key?: string };
-      if (f === FATES[0]) h.key = 'eos';
+      const h = { year: s.year, text: f.text, key: f.key } as { year: number; text: Text; key?: string };
       w.history.push(h);
       if (f.result) w.result = f.result;
       if (f.fame) s.stat.fame = clamp(s.stat.fame + f.fame);

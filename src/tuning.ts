@@ -12,6 +12,7 @@ export const KNOBS: Knob[] = [
   { key: 'life.eventsMin', label: '1 年のイベント数(最少)', value: 2, min: 1, max: 5, step: 1, unit: '本', aim: 'あるあるの連打。少ないと間延びする' },
   { key: 'life.eventsMax', label: '1 年のイベント数(最多)', value: 3, min: 1, max: 6, step: 1, unit: '本' },
   { key: 'life.choiceEvery', label: '選択イベントの出やすさ', value: 0.45, min: 0, max: 1, step: 0.05, unit: '1 年あたり', aim: '1 年に 1 回は多すぎる。2〜3 年に 1 回くらい悩む' },
+  { key: 'life.maxRepeat', label: '同じイベントは 1 人生で何回まで', value: 2, min: 1, max: 10, step: 1, unit: '回', aim: '2 回目は反復ネタとして効く。3 回目からは飽きる(通読して決めた)' },
   { key: 'life.repeatGap', label: '同じイベントが再び出るまで', value: 6, min: 0, max: 20, step: 1, unit: '年', aim: '反復ネタは効くが、毎年は飽きる' },
   // 業界入り
   { key: 'gacha.lastYear', label: '業界入りの最後の年', value: 2026, min: 2000, max: 2035, step: 1, unit: '年' },

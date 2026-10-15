@@ -43,9 +43,11 @@ export function test(s: State, cond: string): boolean {
   return not ? !ok : ok;
 }
 
-export function eligible(s: State, ev: GameEvent, gap = 0): boolean {
+export function eligible(s: State, ev: GameEvent, gap = 0, maxRepeat = 99): boolean {
   if (s.year < ev.years[0] || s.year > ev.years[1]) return false;
   if (ev.once && s.inner.used.includes(ev.id)) return false;
+  // 同じ小ネタは 1 人生で maxRepeat 回まで(反復ネタは 2 回目で効き、3 回目から飽きる)
+  if ((s.inner.uses[ev.id] ?? 0) >= maxRepeat && !ev.tag?.includes('repeatable')) return false;
   const last = s.inner.seen[ev.id];
   if (last !== undefined && s.year - last < gap) return false;
   return (ev.when ?? []).every((c) => test(s, c));

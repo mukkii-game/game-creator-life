@@ -77,7 +77,7 @@ export function init(seed: number, options: InitOptions = {}): State {
     stat: { hp: base[0], passion: base[1], skill: base[2], network: base[3], money: base[4], fame: 0 },
     flags: {}, works: [], peers: [], log: [], pending: [], rng: r,
     inner: {
-      used: [], seen: {}, queue: [], nextWorkYear: year + r.int(tune('work.everyMin'), tune('work.everyMax')), companyYears: 0, searchFails: 0,
+      used: [], seen: {}, uses: {}, queue: [], nextWorkYear: year + r.int(tune('work.everyMin'), tune('work.everyMax')), companyYears: 0, searchFails: 0,
       leftYear: 0, otherJob: null, counts: {}, lastTag: '', choicesMade: 0, peerStates: [], isPeer: !!peerOf, bot: peerOf?.bot ?? '',
       workTarget: -1, startJob: job, prevJob: job,
     },
@@ -217,8 +217,8 @@ function beginYear(s: State, out: string[]) {
     if (r.chance(tune('job.bankrupt') * mult * bad)) sys.push('ev_sys_bankrupt');
     else {
       if (s.year >= s.inner.nextWorkYear) q.push('@release');
-      if (!s.flags.age60 && s.year - (s.inner.seen.ev_sys_offer ?? -99) >= 4 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push('ev_sys_offer');
-      else if (canPromote(s) && r.chance(tune('job.promote'))) sys.push('ev_sys_promote');
+      if (!s.flags.age60 && s.year - (s.inner.seen.ev_sys_offer ?? -99) >= 4 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(r.pick(['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
+      else if (canPromote(s) && r.chance(tune('job.promote'))) sys.push(r.pick(['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
       if (s.year >= 2027 && !s.inner.used.includes('ev_sys_ai_seat') && r.chance(Math.min(0.6, tune('ai.seat') * (1 + 2 * Math.min(1, (s.year - 2027) / 8)) + Math.max(0, s.year - 2035) * 0.12))) sys.push('ev_sys_ai_seat');
     }
   } else if (s.status === 'indie') {
@@ -234,7 +234,7 @@ function beginYear(s: State, out: string[]) {
   const n = r.int(tune('life.eventsMin'), tune('life.eventsMax')) - (q.length > 0 ? 1 : 0);
   const sysChoice = sys.some((id) => EVENT_BY_ID.get(id)?.choices) || q.some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
-  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)));
+  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)));
   let picked = draw(r, pool, Math.max(1, n));
   // 選択は 1 年に 1 本まで、作品の後日談も 1 年に 1 本まで
   let seenChoice = false, seenAfter = false;
@@ -304,8 +304,10 @@ function runItem(s: State, id: string, out: string[]) {
   }
   if (ev.once || ev.id.startsWith('ev_sys_')) s.inner.used.push(ev.id);
   s.inner.seen[ev.id] = s.year;
+  s.inner.uses[ev.id] = (s.inner.uses[ev.id] ?? 0) + 1;
   count(s, ev);
-  if (ev.id === 'ev_sys_promote') promote(s);
+  if (ev.id.startsWith('ev_sys_promote')) promote(s);
+  if (ev.id.startsWith('ev_sys_offer')) s.inner.seen.ev_sys_offer = s.year; // 言い回し違いの版も同じ 4 年の間隔に数える
   if (ev.choices) {
     s.choice = { eventId: ev.id, choices: ev.choices, text: fill(s, ev.text) };
     log(s, s.choice.text, 'event', ev.tag);
