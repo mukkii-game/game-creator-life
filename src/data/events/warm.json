@@ -1,0 +1,3483 @@
+[
+ {
+  "id": "ev_wm_pr_wrap_laugh",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "売れなかった作品の打ち上げ。売上の数字が読み上げられた瞬間、全員が爆笑した。店員に「何かいいことでも?」と聞かれた。",
+   "en": "The wrap party for the game that didn't sell. When the sales figure was read out, everyone burst out laughing. The waiter asked if something good had happened."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "network": 3
+  },
+  "memory": {
+   "ja": "爆死の打ち上げで、全員が笑っていた",
+   "en": "everyone laughed at the wrap party of our flop"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_yosegaki",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "マスターアップの日に回した寄せ書きの色紙を、今も玄関に飾っている。客には毎回「誰のサインですか」と聞かれる。",
+   "en": "The card the whole team signed on master-up day still hangs by your front door. Every guest asks whose autograph it is."
+  },
+  "when": [
+   "works>=1",
+   "career>=3"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4
+  },
+  "memory": {
+   "ja": "チームの寄せ書きを、ずっと玄関に飾っていた",
+   "en": "kept the team's signed card by the door for years"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_reunion20",
+  "years": [
+   1997,
+   2040
+  ],
+  "text": {
+   "ja": "20 年前の売れなかったゲームを、当時のチームで集まって遊んだ。全員、自分の担当箇所のバグを真っ先に見つけた。",
+   "en": "The old team got together to play the flop you made twenty years ago. Everyone found the bugs in their own part first."
+  },
+  "when": [
+   "works>=2",
+   "career>=20"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 7,
+   "network": 4
+  },
+  "memory": {
+   "ja": "20 年後、チームで集まって昔のゲームを遊んだ",
+   "en": "played our old game with the team twenty years later"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_good_game",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "飲み会の締めはいつも誰かの「でも、あれは良いゲームだった」。数えたら今年で 40 回目。毎回、全員がうなずく。",
+   "en": "Every drinking night ends with someone saying, \"Still, that was a good game.\" That makes forty times. Everyone nods every time."
+  },
+  "when": [
+   "works>=1",
+   "career>=6"
+  ],
+  "weight": 0.6,
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "memory": {
+   "ja": "「あれは良いゲームだった」と 40 回言い合った",
+   "en": "said \"that was a good game\" forty times and meant it"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_one_letter",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "初週 800 本の作品に、ファンレターが 1 通届いた。チーム全員でコピーを取り、1 人 1 枚ずつ大事に持ち帰った。",
+   "en": "The game sold 800 copies its first week, and got exactly one fan letter. The team photocopied it so everyone could take one home."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 8
+  },
+  "memory": {
+   "ja": "たった 1 通のファンレターを全員でコピーした",
+   "en": "the whole team photocopied our only fan letter"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_wagon_buy",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "ワゴンで 480 円になった自作を、元チームの全員がこっそり 1 本ずつ買っていた。その週の売上の半分は身内だった。",
+   "en": "When your game hit the 480-yen bargain bin, every member of the old team secretly bought a copy. Half that week's sales were family."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "money": -1,
+   "network": 2
+  },
+  "memory": {
+   "ja": "ワゴンの自作を、チーム全員がこっそり買っていた",
+   "en": "the whole team secretly bought our game from the bargain bin"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_rom_drawer",
+  "years": [
+   1977,
+   2008
+  ],
+  "text": {
+   "ja": "マスター ROM の控えを机の引き出しにしまってある。中身は売れなかったゲーム。引き出しの鍵だけは会社で一番厳重。",
+   "en": "A copy of the master ROM sits in your desk drawer. The game inside didn't sell. The drawer has the best lock in the building."
+  },
+  "when": [
+   "works>=1",
+   "job!=teacher"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 3
+  },
+  "memory": {
+   "ja": "売れなかったマスター ROM を、鍵付きの引き出しにしまった",
+   "en": "locked our unsold master ROM away like treasure"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_staffroll_toast",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "発売日の夜、会議室でスタッフロールを流して乾杯した。曲が 4 分あったので、ビールがすっかりぬるくなった。",
+   "en": "Launch night, you played the staff roll in the meeting room and toasted. The song ran four minutes. The beer got warm."
+  },
+  "when": [
+   "works>=1",
+   "status=employed"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "memory": {
+   "ja": "会議室でスタッフロールを流して乾杯した",
+   "en": "toasted to our own staff roll in the meeting room"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_review_clip",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "雑誌の評価は 10 点満点の 4 点。サウンド担当は「音楽が良い」の 1 行だけ切り抜いて、20 年財布に入れている。",
+   "en": "The magazine gave it 4 out of 10. The sound designer clipped the one line, \"great music,\" and has kept it in their wallet for twenty years."
+  },
+  "when": [
+   "works>=1",
+   "career>=4"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 2
+  },
+  "memory": {
+   "ja": "評価 4 点の雑誌の 1 行を、仲間が財布に入れていた",
+   "en": "a teammate kept one kind line from a 4/10 review"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_speedrun",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "10 年前に売れなかった自作で、海外の誰かがタイムアタックをしていた。最速記録の決め手は、自分が直し忘れたバグだった。",
+   "en": "Someone overseas was speedrunning your unsold game from ten years ago. The world record hinges on a bug you forgot to fix."
+  },
+  "when": [
+   "works>=1",
+   "career>=10"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 7,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "売れなかった自作が、海外でタイムアタックされていた",
+   "en": "strangers abroad speedrun the game nobody bought"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_tshirt",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "開発チームで作った記念 T シャツ。ゲームより長持ちして、今では寝間着として現役。洗濯のたびに少し誇らしい。",
+   "en": "The team T-shirt outlived the game. It's still in service as pajamas. Every wash, you feel a little proud."
+  },
+  "when": [
+   "works>=1",
+   "career>=5"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 3
+  },
+  "memory": {
+   "ja": "チームの T シャツが、ゲームより長生きした",
+   "en": "the team T-shirt outlived the game"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_used_kid",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "中古屋で、子どもが自分の売れなかった作品を手に取った。値札は 100 円。レジまで後ろをついて行き、店員に怪しまれた。",
+   "en": "At a used-games shop, a kid picked up your old flop. 100 yen. You followed them to the register and the clerk got suspicious."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "memory": {
+   "ja": "中古屋で、子どもが 100 円の自作を買ってくれた",
+   "en": "watched a kid buy my 100-yen flop"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_group_chat",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "元チームのグループチャットは今も動いている。発言の 9 割は「あれは良いゲームだった」と、誰かの猫の写真。",
+   "en": "The old team's group chat is still alive. Ninety percent of it is \"that was a good game\" and photos of someone's cat."
+  },
+  "when": [
+   "works>=1",
+   "career>=8"
+  ],
+  "weight": 0.6,
+  "once": true,
+  "effect": {
+   "passion": 3,
+   "network": 3
+  },
+  "memory": {
+   "ja": "元チームのチャットは、猫と昔話で続いた",
+   "en": "the old team chat lived on in cats and nostalgia"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_remaster_petition",
+  "years": [
+   2010,
+   2040
+  ],
+  "text": {
+   "ja": "昔の売れなかった作品に「リマスター希望」の署名がネットで集まった。38 人。全員の名前に見覚えがあった。",
+   "en": "An online petition for a remaster of your old flop: 38 signatures. You recognized every single name."
+  },
+  "when": [
+   "works>=2",
+   "career>=10"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "network": 2
+  },
+  "memory": {
+   "ja": "リマスター署名 38 人、全員知り合いだった",
+   "en": "all 38 names on the remaster petition were friends"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_boss_toast",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "売れないと分かっていた発売日、部長が乾杯の挨拶で言った。「誇れ」。そして、経費で落ちない特上寿司を取った。",
+   "en": "Launch day, everyone knew it wouldn't sell. The department head raised a glass: \"Be proud.\" Then ordered premium sushi the budget couldn't cover."
+  },
+  "when": [
+   "works>=1",
+   "status=employed"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "money": -1
+  },
+  "memory": {
+   "ja": "売れない発売日に、部長が「誇れ」と言った",
+   "en": "our boss said \"be proud\" on a launch day that flopped"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_bug_frame",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "最後のバグ票をチームで額に入れて飾った。番号は 3,104。対応欄には「直さない(仕様)」と書いてある。",
+   "en": "The team framed the very last bug ticket. Number 3,104. The resolution field reads: \"Won't fix (by design).\""
+  },
+  "when": [
+   "works>=1",
+   "job!=teacher"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 2
+  },
+  "memory": {
+   "ja": "最後のバグ票を額に入れて飾った",
+   "en": "framed our last bug ticket: \"won't fix\""
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pr_sequel_dream",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "売れなかった作品の続編の企画書を、チーム全員が今も 1 部ずつ持っている。誰も出さない。でも誰も捨てない。",
+   "en": "Everyone on the old team still keeps a copy of the sequel pitch for the game that flopped. No one submits it. No one throws it out."
+  },
+  "when": [
+   "works>=2",
+   "career>=8"
+  ],
+  "weight": 0.6,
+  "once": true,
+  "effect": {
+   "passion": 4
+  },
+  "memory": {
+   "ja": "出せない続編の企画書を、全員が持っていた",
+   "en": "we all kept the pitch for a sequel that never came"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_news",
+  "years": [
+   1980,
+   2040
+  ],
+  "text": {
+   "ja": "昔いた会社が潰れていたと、年賀状で知った。差出人の住所を見ると、元同僚の勤め先が全員ばらばらになっていた。",
+   "en": "A New Year's card told you your old company had folded. The return addresses showed your old coworkers scattered to new jobs."
+  },
+  "when": [
+   "career>=6",
+   "!flag.wm_oldco_gone",
+   "!flag.in_prison"
+  ],
+  "weight": 0.7,
+  "once": true,
+  "effect": {
+   "passion": -2,
+   "network": 2,
+   "flag": {
+    "wm_oldco_gone": true
+   }
+  },
+  "tag": [
+   "alumni"
+  ]
+ },
+ {
+  "id": "ev_wm_al_call",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "会社が潰れた冬、元同僚から電話。「残念会やろう」。会場は、潰れた会社の真向かいの居酒屋だった。",
+   "en": "The winter the company went under, a coworker called: \"Let's have a farewell drink.\" The bar was right across from the shuttered office."
+  },
+  "when": [
+   "status=left",
+   "career>=2",
+   "!flag.wm_oldco_gone",
+   "!flag.in_prison",
+   "!flag.burned"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 3,
+   "flag": {
+    "wm_oldco_gone": true
+   }
+  },
+  "memory": {
+   "ja": "潰れた会社の向かいで、残念会をした",
+   "en": "drank to our dead company right across the street"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_yearly",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "潰れた会社の同窓会が、今年で 10 回目。在籍していた年数より、同窓会の歴の方が長くなった。",
+   "en": "The reunion for your defunct company hit its tenth year. You've now been an alumnus longer than you were an employee."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "career>=12"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 4
+  },
+  "memory": {
+   "ja": "潰れた会社の同窓会は、在籍より長く続いた",
+   "en": "our dead company's reunions outlasted the company"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_wedding_song",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "元同僚の結婚式で、潰れた会社の社歌を全員で歌った。新婦側の親族は、最後まで不安そうな顔をしていた。",
+   "en": "At an ex-coworker's wedding, you all sang the anthem of your defunct company. The bride's relatives looked worried the entire time."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "age>=27",
+   "age<=50"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 3
+  },
+  "memory": {
+   "ja": "元同僚の結婚式で、潰れた会社の社歌を歌った",
+   "en": "sang our dead company's anthem at a friend's wedding"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_nengajo",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "潰れた会社の仲間からの年賀状が、今年も 12 枚届いた。1 枚だけ毎年、会社の余った社名入り封筒で来る。",
+   "en": "Twelve New Year's cards from the old crew again this year. One always arrives in leftover envelopes printed with the dead company's logo."
+  },
+  "when": [
+   "flag.wm_oldco_gone"
+  ],
+  "weight": 0.6,
+  "effect": {
+   "passion": 3,
+   "network": 2
+  },
+  "memory": {
+   "ja": "潰れた会社の仲間から、毎年年賀状が来た",
+   "en": "new year's cards from the old crew, every single year"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_kanreki",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "元同僚の還暦祝い。贈り物は赤いちゃんちゃんこと、倉庫に残っていた会社ロゴ入りの赤いジャンパー。",
+   "en": "An ex-coworker turned sixty. The gifts: the traditional red vest, and a red company jacket left over in someone's storage."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "age>=56"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 3
+  },
+  "memory": {
+   "ja": "元同僚の還暦を、昔のジャンパーで祝った",
+   "en": "celebrated a friend's 60th in our old company jacket"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_president80",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "潰れた会社の元社長の 80 歳の誕生日会。元社長は「あの時の給料、遅れてすまん」と、全員に 500 円玉を配った。",
+   "en": "Your old company president turned eighty. At the party he said, \"Sorry the paychecks were late back then,\" and gave everyone a 500-yen coin."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "age>=52"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "network": 3,
+   "money": 1
+  },
+  "memory": {
+   "ja": "元社長の 80 歳の誕生日で、500 円玉をもらった",
+   "en": "got a 500-yen coin at our old president's 80th"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_window_sticker",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔の会社のビルの前を通った。看板は外されていたが、3 階の窓に、自分が貼ったキャラのシールがまだ残っていた。",
+   "en": "You passed your old company's building. The sign was gone, but the character sticker you stuck on a third-floor window was still there."
+  },
+  "when": [
+   "flag.wm_oldco_gone"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4
+  },
+  "memory": {
+   "ja": "潰れた会社の窓に、自分のシールが残っていた",
+   "en": "my sticker outlived the company on its window"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_homepage",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "潰れた会社のホームページを、元同僚が自腹で 15 年借り続けている。アクセスカウンターの 9 割は自分たち。",
+   "en": "An ex-coworker has paid for the dead company's website for fifteen years. Ninety percent of the visitor counter is the old staff."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "career>=15"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 3,
+   "network": 2
+  },
+  "memory": {
+   "ja": "潰れた会社のホームページを、仲間が守っていた",
+   "en": "a friend kept our dead company's website alive"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_hellowork",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "潰れた会社の元上司と、職業安定所の待合でばったり会った。番号札が 1 番違い。その日から飲み友達になった。",
+   "en": "You ran into your old boss in the unemployment office waiting room. Your ticket numbers were one apart. Drinking buddies ever since."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "status=left"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 4
+  },
+  "memory": {
+   "ja": "職安の待合で、元上司と飲み友達になった",
+   "en": "became drinking buddies with my old boss at the job center"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_kids",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "潰れた会社の同窓会に子どもを連れて行った。子ども同士はすぐ遊び始め、親たちはなぜか昔の企画会議を始めた。",
+   "en": "You brought your kid to the old company reunion. The kids started playing right away. The parents, somehow, started an old planning meeting."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "flag.child"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "memory": {
+   "ja": "同窓会で、親たちが昔の企画会議を始めた",
+   "en": "at the reunion, the parents restarted an old planning meeting"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_hospital",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "元同僚の見舞いに行くと、病室に元チームが 6 人。看護師に「何の集まりですか」と聞かれ、全員で潰れた社名を答えた。",
+   "en": "You visited an ex-coworker in the hospital. Six from the old team were already there. A nurse asked what group you were. Everyone said the dead company's name."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "age>=50"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 3
+  },
+  "memory": {
+   "ja": "病室に、潰れた会社のチームが集まった",
+   "en": "the old team filled a hospital room, all six of us"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_moving",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "元同僚の引っ越しを、潰れた会社の仲間 5 人で手伝った。段ボールの運び方が、全員マスター提出の日と同じ慎重さだった。",
+   "en": "Five of the old crew helped an ex-coworker move. Everyone carried the boxes as carefully as a master disc on submission day."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "age<=55"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 3,
+   "network": 3,
+   "hp": -2
+  },
+  "memory": {
+   "ja": "潰れた会社の仲間で、引っ越しを手伝った",
+   "en": "the old crew helped a friend move, like a master submission"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_versus",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "同窓会の二次会は、潰れた会社の最後のゲームで対戦大会。負けた人は、当時のバグの責任を一つ引き受ける決まり。",
+   "en": "The reunion after-party is a tournament on the dead company's last game. Whoever loses takes the blame for one old bug."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "works>=1"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "memory": {
+   "ja": "同窓会で、昔のバグの責任を賭けて対戦した",
+   "en": "played our last game for the blame on old bugs"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_grandkid",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "潰れた会社の同窓会に、元同僚の孫が来た。「おじいちゃんの会社、どこ?」と聞かれ、全員で同じ方向を指さした。",
+   "en": "An ex-coworker's grandkid came to the reunion. \"Where was Grandpa's company?\" Everyone pointed the same direction."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "age>=58"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 2
+  },
+  "memory": {
+   "ja": "同窓会で、全員が昔の会社の方角を指さした",
+   "en": "we all pointed toward where the company used to be"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_checkup",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "潰れた会社の同窓会、今年の幹事は 68 歳。案内状の最後に「健康診断の結果を持参のこと。見せ合います」。",
+   "en": "This year's organizer for the old company reunion is 68. The invitation ends: \"Bring your health checkup results. We'll compare.\""
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "age>=63"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "hp": 2
+  },
+  "memory": {
+   "ja": "同窓会で、健康診断の結果を見せ合った",
+   "en": "compared checkup results at the old company reunion"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_al_mug",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "潰れた会社のロゴ入りマグカップを、今の会社でも使っている。新人に「どこの会社ですか」と聞かれ、毎回 10 分語る。",
+   "en": "You still use your dead company's logo mug at your current job. When a new hire asks about it, you talk for ten minutes. Every time."
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "status=employed"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 3,
+   "network": -1
+  },
+  "memory": {
+   "ja": "潰れた会社のマグカップで、新人に昔話をした",
+   "en": "told every new hire the story of my old company's mug"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_junior_ceo",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔面倒を見た後輩が社長になっていた。「先輩の企画書の書き方、まだ真似してます。うちに来ませんか」",
+   "en": "A junior you once mentored is now a company president. \"I still copy how you write proposals. Will you join us?\""
+  },
+  "when": [
+   "career>=10",
+   "age<=60",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_junior_ceo_go",
+    "label": {
+     "ja": "後輩の会社へ行く",
+     "en": "Join your junior's company"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "入社した。社長室に、自分の昔の企画書が額に入って飾ってあった。誤字もそのまま。",
+     "en": "You joined. Your old proposal hangs framed in the president's office, typos and all."
+    },
+    "memory": {
+     "ja": "後輩の社長室に、自分の企画書が飾ってあった",
+     "en": "my old proposal hung framed in my junior's office"
+    }
+   },
+   {
+    "id": "ch_wm_iv_junior_ceo_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。後輩は「じゃあ飲みましょう」と言い、本当に毎年おごりに来る。",
+     "en": "You declined. \"Then let's drink,\" the junior said, and now treats you every year."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_old_boss",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "新人の頃に叱ってくれた元上司から電話。「新しいチームを作る。お前の席はもう取ってある」",
+   "en": "The boss who used to scold you as a rookie called. \"I'm building a new team. Your seat's already taken. By you.\""
+  },
+  "when": [
+   "career>=4",
+   "age<=58",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_old_boss_go",
+    "label": {
+     "ja": "元上司のチームへ",
+     "en": "Join your old boss"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "行った。席には名札が貼ってあり、新人の頃のあだ名で書かれていた。",
+     "en": "You went. Your desk had a name tag, written with your old rookie nickname."
+    },
+    "memory": {
+     "ja": "元上司が、新しいチームに席を取っておいてくれた",
+     "en": "my old boss saved me a seat on his new team"
+    }
+   },
+   {
+    "id": "ch_wm_iv_old_boss_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。元上司は「そうか」とだけ言い、翌年の年賀状に「席はまだ空いてる」。",
+     "en": "You declined. \"I see,\" was all he said. Next New Year's card: \"The seat's still open.\""
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_peer",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "同期の {peer} から深夜に電話。「今の現場、面白いぞ。お前が来たらもっと面白い」。後ろでキーボードの音がする。",
+   "en": "A late-night call from {peer}, your old classmate from training. \"This place is fun. It'd be more fun with you.\" Keyboards clatter behind them."
+  },
+  "when": [
+   "career>=3",
+   "age<=58",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_peer_go",
+    "label": {
+     "ja": "{peer} の現場へ行く",
+     "en": "Join {peer}"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     },
+     "hp": -3
+    },
+    "result": {
+     "ja": "行った。初日から深夜まで {peer} と作った。疲れたが、新人の頃の匂いがした。",
+     "en": "You went. First day, you and {peer} built things until midnight. Exhausting, but it smelled like your rookie year."
+    },
+    "memory": {
+     "ja": "同期の {peer} に誘われて、また一緒に作った",
+     "en": "built games with {peer} again, like rookies"
+    }
+   },
+   {
+    "id": "ch_wm_iv_peer_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。{peer} は「だよな」と笑い、そのまま 2 時間雑談して切った。",
+     "en": "You declined. \"Figured,\" {peer} laughed, and then chatted for two more hours."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_rescue",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "無職 3 か月目、昔一緒に徹夜した友人から電話。「人が足りない。お前の徹夜の強さが要る」",
+   "en": "Three months unemployed. An old all-nighter buddy called. \"We're short on people. We need your all-nighter stamina.\""
+  },
+  "when": [
+   "status=left",
+   "career>=2",
+   "!flag.burned",
+   "age<=60",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_rescue_go",
+    "label": {
+     "ja": "友人の会社へ",
+     "en": "Join your friend"
+    },
+    "effect": {
+     "passion": 10,
+     "network": 4,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "入社した。歓迎会で、友人は「実はうち、徹夜は無い」と白状した。",
+     "en": "You joined. At the welcome party, the friend admitted: \"Actually, we don't do all-nighters here.\""
+    },
+    "memory": {
+     "ja": "無職の時、昔の徹夜仲間が拾ってくれた",
+     "en": "an old all-nighter buddy rescued me from unemployment"
+    }
+   },
+   {
+    "id": "ch_wm_iv_rescue_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。友人は電話を切る前に、別の求人を 3 件読み上げてくれた。",
+     "en": "You declined. Before hanging up, the friend read you three other job listings."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_outsourcer",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔、無茶な納期を一緒に乗り切った外注の社長から。「あの時の借りを返したい。うちで好きに作ってくれ」",
+   "en": "The head of a contractor who survived an impossible deadline with you. \"Let me repay that favor. Come make whatever you want.\""
+  },
+  "when": [
+   "career>=6",
+   "age<=60",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_outsourcer_go",
+    "label": {
+     "ja": "外注先だった会社へ",
+     "en": "Join the old contractor"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "入った。本当に好きに作らせてくれた。予算も「好きに」だったが、少なめの方の好きにだった。",
+     "en": "You joined. They really let you make what you wanted. The budget was \"whatever\" too. The small kind of whatever."
+    },
+    "memory": {
+     "ja": "昔の納期の借りを、外注の社長が返してくれた",
+     "en": "an old contractor repaid a deadline we survived together"
+    }
+   },
+   {
+    "id": "ch_wm_iv_outsourcer_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。それでも次の仕事から、見積もりがほんの少しだけ安くなった。",
+     "en": "You declined. Still, their quotes got a tiny bit cheaper after that."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_alumni_founder",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "潰れた会社の元同僚たちが、新しい会社を作った。「社員番号 1 番は空けてある。お前の分だ」",
+   "en": "Your ex-coworkers from the dead company started a new one. \"We left employee number one open. It's yours.\""
+  },
+  "when": [
+   "flag.wm_oldco_gone",
+   "age<=60",
+   "status!=indie",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_alumni_founder_go",
+    "label": {
+     "ja": "社員番号 1 番になる",
+     "en": "Become employee number one"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "入った。社員証の番号は 1。ただし社長は 0 番だった。",
+     "en": "You joined. Your badge said 1. The president's said 0."
+    },
+    "memory": {
+     "ja": "潰れた会社の仲間が、社員番号 1 番を空けてくれた",
+     "en": "my old crew saved employee number one for me"
+    }
+   },
+   {
+    "id": "ch_wm_iv_alumni_founder_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。1 番は今も空いたまま。毎年「まだ空いてる」と連絡が来る。",
+     "en": "You declined. Number one is still open. Every year: \"Still open.\""
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_tokyo_branch",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔の部下が海外のスタジオで偉くなっていた。「日本に支社を作ります。あなたの段取りが欲しい」",
+   "en": "A former subordinate is now a big name at an overseas studio. \"We're opening a Japan branch. We need your planning.\""
+  },
+  "when": [
+   "career>=8",
+   "age<=58",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_tokyo_branch_go",
+    "label": {
+     "ja": "昔の部下の支社へ",
+     "en": "Join your former subordinate"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "入った。会議は英語で、段取りは通じた。昼食の注文だけは 3 年通じなかった。",
+     "en": "You joined. Meetings were in English; your planning got through. Your lunch orders didn't, for three years."
+    },
+    "memory": {
+     "ja": "昔の部下が、海外から迎えに来てくれた",
+     "en": "a former subordinate came back to bring me along"
+    }
+   },
+   {
+    "id": "ch_wm_iv_tokyo_branch_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。昔の部下は「では師匠として」と、毎年お土産を送ってくる。",
+     "en": "You declined. The former subordinate now sends you gifts every year, \"for my mentor.\""
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_school_friend",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "専門学校の同級生から 20 年ぶりの連絡。「卒業制作のあのゲーム、ちゃんと作り直さないか。会社ごと用意した」",
+   "en": "A message from a school classmate, twenty years on. \"Want to properly remake our graduation project? I've set up a whole company.\""
+  },
+  "when": [
+   "career>=15",
+   "age<=60",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_school_friend_go",
+    "label": {
+     "ja": "卒業制作を作り直しに行く",
+     "en": "Go remake the graduation project"
+    },
+    "effect": {
+     "passion": 12,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "行った。20 年前のデータを開くと、最初の画面に二人の若い名前があった。",
+     "en": "You went. Opening the twenty-year-old data, the title screen showed two young names."
+    },
+    "memory": {
+     "ja": "20 年ぶりに、同級生と卒業制作を作り直した",
+     "en": "remade our graduation project with a classmate after twenty years"
+    }
+   },
+   {
+    "id": "ch_wm_iv_school_friend_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。同級生は卒業制作のデータだけ送ってきた。今も時々開いて眺める。",
+     "en": "You declined. The classmate sent the old project files anyway. You open them now and then."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_teacher_back",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔のチームの後輩が学校まで訪ねてきた。「先生じゃなくて、先輩に戻ってください」。手には企画書と菓子折り。",
+   "en": "A junior from your old team showed up at the school. \"Stop being a teacher. Be our senior again.\" They held a proposal and a box of sweets."
+  },
+  "when": [
+   "pos=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_teacher_back_go",
+    "label": {
+     "ja": "先輩に戻る",
+     "en": "Go back to being a senior"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_return": true
+     }
+    },
+    "result": {
+     "ja": "現場に戻った。菓子折りは、学校の職員室に置いてきた。",
+     "en": "You went back to the studio. You left the sweets in the faculty room."
+    },
+    "memory": {
+     "ja": "後輩が「先輩に戻って」と学校まで来てくれた",
+     "en": "a junior came to the school to ask me back"
+    }
+   },
+   {
+    "id": "ch_wm_iv_teacher_back_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。後輩はそのまま特別講師として 90 分喋って帰った。学生には大好評だった。",
+     "en": "You declined. The junior then gave a 90-minute guest lecture. The students loved it."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_advisor",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "定年が見えた頃、昔の飲み仲間から。「若い連中に、昔の作り方を見せてやってくれ」。肩書は「顧問」、机は窓際。",
+   "en": "With retirement in sight, an old drinking buddy called. \"Show the kids how we used to make games.\" Title: advisor. Desk: by the window."
+  },
+  "when": [
+   "age>=55",
+   "age<=66",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_advisor_go",
+    "label": {
+     "ja": "顧問になる",
+     "en": "Become the advisor"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     },
+     "hp": 3
+    },
+    "result": {
+     "ja": "行った。若手が毎日質問に来る。半分はゲームの話、半分は腰の話。",
+     "en": "You went. The young staff come by daily. Half the questions are about games, half about back pain."
+    },
+    "memory": {
+     "ja": "定年前、昔の飲み仲間が顧問に呼んでくれた",
+     "en": "an old drinking buddy made me an advisor before retirement"
+    }
+   },
+   {
+    "id": "ch_wm_iv_advisor_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。飲み仲間は代わりに、若手を 1 人ずつ飲みに連れてくるようになった。",
+     "en": "You declined. Instead, the buddy started bringing young staff to drinks, one at a time."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_rival",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔張り合っていた他社の人から連絡。「ずっと、お前と組んでみたかった」。待ち合わせは、昔の展示会の会場前。",
+   "en": "A message from a rival at another company. \"I've always wanted to work with you.\" The meeting spot: outside the old trade-show hall."
+  },
+  "when": [
+   "career>=8",
+   "age<=60",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_rival_go",
+    "label": {
+     "ja": "元ライバルと組む",
+     "en": "Team up with your old rival"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "組んだ。打ち合わせの半分は、20 年前の展示会でどっちのブースが目立ったかの言い合い。",
+     "en": "You teamed up. Half of every meeting is arguing whose booth stood out more, twenty years ago."
+    },
+    "memory": {
+     "ja": "元ライバルが「組みたかった」と言ってくれた",
+     "en": "my old rival said they'd always wanted to work with me"
+    }
+   },
+   {
+    "id": "ch_wm_iv_rival_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。元ライバルは「やっぱりな」と笑い、また張り合う相手に戻った。",
+     "en": "You declined. \"Figured,\" the rival laughed. Back to being rivals."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_sound_friend",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔一緒に徹夜した音屋の友人が会社を作った。「ゲームを丸ごと作れる会社にしたい。まず {name} が要る」",
+   "en": "An old sound-designer friend from your all-nighter days started a company. \"I want us to make whole games. First, I need {name}.\""
+  },
+  "when": [
+   "career>=6",
+   "age<=60",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_sound_friend_go",
+    "label": {
+     "ja": "音屋の会社へ",
+     "en": "Join the sound designer's company"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "入った。会社の電話の保留音が、昔一緒に作ったゲームの曲だった。",
+     "en": "You joined. The company's hold music was a song from a game you made together."
+    },
+    "memory": {
+     "ja": "昔の音屋の友人が「まず君が要る」と言った",
+     "en": "an old sound friend said \"first, I need you\""
+    }
+   },
+   {
+    "id": "ch_wm_iv_sound_friend_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。友人は代わりに、着信音をその曲にしたデータを送ってきた。",
+     "en": "You declined. The friend sent you that song as a ringtone instead."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_sleeping_bag",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔、同じ寝袋を交代で使った仲間から。「うちは定時に帰れる。本当に帰れる。一度見に来い」",
+   "en": "An old crewmate who once took turns with you in the same sleeping bag. \"We go home on time here. Really. Come see.\""
+  },
+  "when": [
+   "career>=5",
+   "age<=60",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_sleeping_bag_go",
+    "label": {
+     "ja": "定時の会社へ",
+     "en": "Join the go-home-on-time company"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     },
+     "hp": 8
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_wm_fu_ontime"
+     }
+    ],
+    "result": {
+     "ja": "入った。18 時に全員帰った。初日は帰り方が分からず、駅で 30 分立っていた。",
+     "en": "You joined. At 6 p.m., everyone left. On day one, you didn't know how to go home and stood at the station for thirty minutes."
+    },
+    "memory": {
+     "ja": "寝袋仲間が、定時に帰れる会社に呼んでくれた",
+     "en": "a sleeping-bag buddy brought me to a go-home-on-time company"
+    }
+   },
+   {
+    "id": "ch_wm_iv_sleeping_bag_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。仲間は「寝袋、まだ持ってるか」と聞いた。持っていた。",
+     "en": "You declined. The crewmate asked if you still had the sleeping bag. You did."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_qa_buddy",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "デバッガー時代の相棒が、開発会社の部長になっていた。「バグを見つけるのは才能だ。作る側に来い」",
+   "en": "Your old bug-hunting partner is now a department head at a dev studio. \"Finding bugs is a talent. Come build with us.\""
+  },
+  "when": [
+   "career>=4",
+   "age<=55",
+   "job=qa",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_qa_buddy_go",
+    "label": {
+     "ja": "作る側へ行く",
+     "en": "Move to the making side"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "行った。最初の仕事で自分の作ったバグを自分で見つけ、相棒に拍手された。",
+     "en": "You went. On your first task you found your own bug, and your old partner applauded."
+    },
+    "memory": {
+     "ja": "デバッガーの相棒が、作る側に呼んでくれた",
+     "en": "my old bug-hunting partner brought me over to make games"
+    }
+   },
+   {
+    "id": "ch_wm_iv_qa_buddy_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。相棒は「じゃあ、うちのを全部見てくれ」と、デバッグの指名をくれた。",
+     "en": "You declined. \"Then test all of ours,\" the partner said, and requested you by name."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_indie_pull",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "一人で細々と作っていると、昔の仲間から。「一人で抱えるな。うちのチームで続きを作れ」",
+   "en": "Working alone, scraping by, you heard from an old teammate. \"Don't carry it alone. Finish it with our team.\""
+  },
+  "when": [
+   "status=indie",
+   "career>=3",
+   "age<=60",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_indie_pull_go",
+    "label": {
+     "ja": "仲間のチームに入る",
+     "en": "Join the team"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     },
+     "money": 50
+    },
+    "result": {
+     "ja": "入った。一人で 3 年悩んだところを、チームは 3 日で直した。少し悔しかった。",
+     "en": "You joined. The problem you'd wrestled with alone for three years, the team fixed in three days. It stung a little."
+    },
+    "memory": {
+     "ja": "一人で作っていた時、昔の仲間が手を差し伸べた",
+     "en": "an old teammate reached out when I was working alone"
+    }
+   },
+   {
+    "id": "ch_wm_iv_indie_pull_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。仲間は代わりに、毎回テストプレイを手伝いに来るようになった。",
+     "en": "You declined. The teammate started coming over to playtest every build instead."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_wedding_meet",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "元同僚の結婚式の二次会で、昔の先輩に捕まった。「明日、うちの面接に来い。面接官は俺だ。合格だ」",
+   "en": "At an ex-coworker's wedding after-party, an old senior grabbed you. \"Come interview with us tomorrow. I'm the interviewer. You passed.\""
+  },
+  "when": [
+   "age>=27",
+   "age<=52",
+   "career>=3",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_wedding_meet_go",
+    "label": {
+     "ja": "翌日、面接に行く",
+     "en": "Go to the interview"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "行った。面接は 5 分で終わり、残りの 1 時間は昨日の新郎の話だった。",
+     "en": "You went. The interview took five minutes. The next hour was about yesterday's groom."
+    },
+    "memory": {
+     "ja": "結婚式の二次会で、昔の先輩に合格をもらった",
+     "en": "an old senior hired me at a wedding after-party"
+    }
+   },
+   {
+    "id": "ch_wm_iv_wedding_meet_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。先輩は酔っていて、翌朝そのことを覚えていなかった。縁だけ残った。",
+     "en": "You declined. The senior was drunk and didn't remember it the next morning. The friendship stayed."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_iv_partner_push",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔の同僚から誘いが来て迷っていると、パートナーが言った。「あの人の話をする時、あなた楽しそう」",
+   "en": "An old coworker invited you over. While you hesitated, your partner said: \"You always look happy when you talk about them.\""
+  },
+  "when": [
+   "flag.partner",
+   "career>=5",
+   "age<=58",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_wm_iv_partner_push_go",
+    "label": {
+     "ja": "乗る",
+     "en": "Take the offer"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_wm_fu_partner"
+     }
+    ],
+    "result": {
+     "ja": "転職した。帰りが遅くなったが、パートナーは「ほら、楽しそう」と言った。",
+     "en": "You switched jobs. You come home later now, but your partner says, \"See? You look happy.\""
+    },
+    "memory": {
+     "ja": "パートナーが「楽しそう」と背中を押してくれた",
+     "en": "my partner said \"you look happy\" and pushed me forward"
+    }
+   },
+   {
+    "id": "ch_wm_iv_partner_push_stay",
+    "label": {
+     "ja": "断る(縁は残す)",
+     "en": "Decline (stay friends)"
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2
+    },
+    "result": {
+     "ja": "断った。パートナーは「じゃあ、今度家に呼んで」と言い、昔の同僚は月 1 で夕飯を食べに来る。",
+     "en": "You declined. \"Then invite them over,\" said your partner. Now the old coworker comes to dinner monthly."
+    }
+   }
+  ],
+  "tag": [
+   "warm",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_wm_fu_ontime",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "定時の会社に入って 3 年。夕方、家族と晩ご飯を食べている。たまに寝袋が恋しくなるのが、我ながら怖い。",
+   "en": "Three years at the go-home-on-time company. You eat dinner with family in the evening. Sometimes you miss the sleeping bag, which scares you."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "hp": 6,
+   "passion": 4
+  },
+  "memory": {
+   "ja": "定時に帰って、晩ご飯を食べるようになった",
+   "en": "started eating dinner at home like a person"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fu_partner",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "転職して 2 年。パートナーが「最近、寝言が楽しそう」と言った。寝言の内容は仕様変更だった。",
+   "en": "Two years after switching. Your partner says you sound happy in your sleep lately. You were mumbling about spec changes."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 5
+  },
+  "memory": {
+   "ja": "寝言まで楽しそうだと言われた",
+   "en": "even my sleep-talk sounded happy"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_child_plays",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "子どもが自分のゲームで遊んでいた。「ここ作った人、性格悪い」と言われた場所は、自分が一番こだわった場所だった。",
+   "en": "Your kid was playing your game. \"Whoever made this part is mean,\" they said. It was the part you were proudest of."
+  },
+  "when": [
+   "flag.child",
+   "works>=1"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "memory": {
+   "ja": "子どもが自分のゲームで遊んで、文句を言っていた",
+   "en": "my kid played my game and complained about my favorite part"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_parent_photo",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "親がスタッフロールの自分の名前を、テレビごと写真に撮っていた。ピンぼけで、隣の人の名前の方がよく写っていた。",
+   "en": "Your parent photographed your name in the staff roll, TV and all. It was blurry. The name next to yours came out sharper."
+  },
+  "when": [
+   "works>=1",
+   "age<=48"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5
+  },
+  "memory": {
+   "ja": "親がスタッフロールの名前を写真に撮った",
+   "en": "my parent took a photo of my name in the credits"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_grandkid_friends",
+  "years": [
+   2010,
+   2040
+  ],
+  "text": {
+   "ja": "孫が友達に「うちの人が作ったゲーム」と自慢して、皆で遊び始めた。3 分後、「普通のゲームやろう」と言われた。",
+   "en": "Your grandkid bragged to friends, \"My family made this game!\" They all played it. Three minutes later: \"Let's play a normal game.\""
+  },
+  "when": [
+   "age>=60",
+   "works>=2"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5
+  },
+  "memory": {
+   "ja": "孫が自分のゲームを友達に自慢してくれた",
+   "en": "my grandkid bragged about my game to friends"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_partner_test",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "パートナーにテストプレイを頼んだ。感想は「主人公の髪型が変」の 1 点だけ。直したら、なぜか評判が少し良くなった。",
+   "en": "You asked your partner to playtest. The only feedback: \"The hero's hair is weird.\" You fixed it, and somehow the reviews got a little better."
+  },
+  "when": [
+   "flag.partner",
+   "job!=teacher",
+   "status!=left"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "skill": 2
+  },
+  "memory": {
+   "ja": "パートナーの一言で、主人公の髪型を直した",
+   "en": "fixed the hero's hair on my partner's advice"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_child_essay",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "子どもの作文の題は「親の仕事」。「毎日ゲームをしていて、たまに怒られている」と書かれた。だいたい合っている。",
+   "en": "Your kid wrote an essay: \"My Parent's Job.\" It said: \"Plays games every day and sometimes gets yelled at.\" Basically accurate."
+  },
+  "when": [
+   "flag.child",
+   "job!=teacher"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4
+  },
+  "memory": {
+   "ja": "子どもの作文に、仕事がだいたい正しく書かれた",
+   "en": "my kid's essay got my job basically right"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_child_credits",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "子どもがエンディングを最後まで見て、スタッフロールの名前を見つけて叫んだ。そのあと 2 時間、他の人の名前も全部読み上げた。",
+   "en": "Your kid watched to the very end and screamed at your name in the credits. Then spent two hours reading every other name aloud."
+  },
+  "when": [
+   "flag.child",
+   "works>=2"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 7
+  },
+  "memory": {
+   "ja": "子どもがスタッフロールで名前を見つけて叫んだ",
+   "en": "my kid screamed when they found my name in the credits"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_child_joins",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "子どもがゲーム会社に入った。初任給で食事をおごってくれた。店は、自分が新人の頃に通っていた安い定食屋だった。",
+   "en": "Your kid joined a game company and treated you to dinner with their first paycheck. At the cheap diner you used to go to as a rookie."
+  },
+  "when": [
+   "flag.child",
+   "age>=50"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 8,
+   "money": 1
+  },
+  "memory": {
+   "ja": "子どもが初任給で、昔の定食屋でおごってくれた",
+   "en": "my kid bought me dinner at my old rookie diner"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_parents_boxes",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "実家の押し入れから、自分が関わったゲームの箱が全部出てきた。どれも未開封。親いわく「もったいなくて」。",
+   "en": "In your parents' closet: every game you ever worked on. All still sealed. \"It felt like a waste to open them,\" they said."
+  },
+  "when": [
+   "works>=3",
+   "age>=35"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "memory": {
+   "ja": "実家に、自分のゲームが全部未開封で並んでいた",
+   "en": "my parents kept every game I made, still sealed"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_bento",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "マスターアップの朝、パートナーの弁当にのりで「おつかれ」と書いてあった。徹夜明けで、昼には「おつか」まで食べていた。",
+   "en": "Master-up morning. Your partner wrote \"good job\" in seaweed on your lunch. Post all-nighter, you'd eaten half of it by noon."
+  },
+  "when": [
+   "flag.partner",
+   "status=employed",
+   "job!=teacher",
+   "works>=1"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "hp": 2
+  },
+  "memory": {
+   "ja": "マスターアップの朝、弁当に「おつかれ」とあった",
+   "en": "a \"good job\" written in seaweed on master-up day"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_child_bug",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "子どもが自分のゲームのバグを見つけて報告してきた。発売から 6 年、誰も気づかなかったやつ。お小遣いを 100 円上げた。",
+   "en": "Your kid found a bug in your game. Six years since launch and nobody had noticed. You raised their allowance by 100 yen."
+  },
+  "when": [
+   "flag.child",
+   "works>=1",
+   "career>=6"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "money": -1
+  },
+  "memory": {
+   "ja": "子どもが 6 年誰も見つけなかったバグを見つけた",
+   "en": "my kid found a bug nobody had caught in six years"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_onsen_cabinet",
+  "years": [
+   1982,
+   2040
+  ],
+  "text": {
+   "ja": "家族旅行の旅館のゲームコーナーに、昔関わった筐体が残っていた。ハイスコア 1 位は、テストの時の自分の 3 文字のまま。",
+   "en": "At the family trip's hot-spring inn, an arcade cabinet you once worked on. The top high score was still your three initials from testing."
+  },
+  "when": [
+   "flag.partner",
+   "works>=1",
+   "career>=8"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "memory": {
+   "ja": "旅館の筐体に、自分のハイスコアが残っていた",
+   "en": "found my test high score still on an inn's old cabinet"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_parent_call",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "親から電話。「ニュースでゲーム業界が大変って。ご飯食べてる?」。最後に「あと、ゲームの難易度を下げなさい」。",
+   "en": "A call from your parent. \"The news says the game industry is struggling. Are you eating?\" And finally: \"Also, make your games easier.\""
+  },
+  "when": [
+   "age>=25",
+   "age<=55"
+  ],
+  "weight": 0.7,
+  "once": true,
+  "effect": {
+   "passion": 3,
+   "hp": 2
+  },
+  "memory": {
+   "ja": "親に「難易度を下げなさい」と言われた",
+   "en": "my parent told me to make my games easier"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fm_first_pay",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "初任給で親に食事をおごった。仕事の説明ができず、「テレビの中の絵を動かす人」と言った。親は「すごいね」とだけ言った。",
+   "en": "You treated your parents to dinner with your first paycheck. You couldn't explain the job, so you said \"I make pictures move on TV.\" They said, \"Wow.\""
+  },
+  "when": [
+   "career<=1",
+   "status=employed",
+   "age<=30"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "money": -2
+  },
+  "memory": {
+   "ja": "初任給で、親にご飯をおごった",
+   "en": "treated my parents to dinner with my first paycheck"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pe_peer_drink",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "同期の {peer} と 10 年ぶりに飲んだ。話題の 8 割は新人研修の日の昼ごはん。残りの 2 割は腰。",
+   "en": "Drinks with {peer}, from your training cohort, for the first time in ten years. 80% of the talk was lunch on training day. 20% was back pain."
+  },
+  "when": [
+   "career>=10"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 3
+  },
+  "memory": {
+   "ja": "同期の {peer} と、研修の日の昼ごはんの話をした",
+   "en": "talked about training-day lunch with {peer} for hours"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pe_peer_thanks",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{peer} の作品が売れた。悔しくて買ったら、スタッフロールの謝辞に自分の名前があった。昔貸した資料 1 冊分。",
+   "en": "{peer}'s game was a hit. You bought it out of spite. Your name was in the special thanks. For one reference book you lent them."
+  },
+  "when": [
+   "career>=5"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "memory": {
+   "ja": "{peer} の作品の謝辞に、自分の名前があった",
+   "en": "found my name in {peer}'s special thanks"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pe_peer_photo",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{peer} から突然、新人研修の集合写真が送られてきた。全員の髪が、今の 3 倍あった。",
+   "en": "Out of nowhere, {peer} sent the group photo from your training days. Everyone had three times the hair."
+  },
+  "when": [
+   "career>=15"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 2
+  },
+  "memory": {
+   "ja": "{peer} が、新人の頃の写真を送ってきた",
+   "en": "{peer} sent our rookie photo, full of hair"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pe_peer_wedding",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{peer} の結婚式でスピーチを頼まれた。新人の頃の失敗談を 3 つ用意したら、そのうち 2 つは自分の失敗だった。",
+   "en": "You gave a speech at {peer}'s wedding. You prepared three rookie-era blunders. Two of them turned out to be yours."
+  },
+  "when": [
+   "age>=26",
+   "age<=45",
+   "career>=3"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 3
+  },
+  "memory": {
+   "ja": "{peer} の結婚式で、自分の失敗談を話した",
+   "en": "told my own blunders at {peer}'s wedding"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pe_peer_kanreki",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "還暦の祝いを {peer} と合同でやった。ケーキのロウソクは 2 人分で 120 本。火災報知器が鳴った。",
+   "en": "You and {peer} had a joint 60th birthday party. 120 candles on one cake. The fire alarm went off."
+  },
+  "when": [
+   "age>=60",
+   "age<=62"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "memory": {
+   "ja": "{peer} と合同の還暦祝いで、火災報知器が鳴った",
+   "en": "{peer} and I set off the fire alarm at our 60th"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_pe_peer_visit",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{peer} が昔の会社の近くに来たついでに、自分の職場をのぞきに来た。差し入れはあの頃と同じ、安いシュークリーム。",
+   "en": "{peer} dropped by your workplace on the way past your old office. The treat: the same cheap cream puffs as back then."
+  },
+  "when": [
+   "career>=6",
+   "status=employed"
+  ],
+  "weight": 0.6,
+  "once": true,
+  "effect": {
+   "passion": 3,
+   "network": 2
+  },
+  "memory": {
+   "ja": "{peer} が、あの頃のシュークリームを持ってきた",
+   "en": "{peer} brought the same cheap cream puffs as back then"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_jr_stage",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔ゲーム作りを教えた後輩が、ディレクターとして壇上で挨拶していた。最初の 1 行が、自分の口癖だった。",
+   "en": "A junior you once taught was on stage as a director. Their first line was your old catchphrase."
+  },
+  "when": [
+   "career>=10"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "network": 2
+  },
+  "memory": {
+   "ja": "後輩の挨拶の 1 行目が、自分の口癖だった",
+   "en": "a junior opened their big speech with my catchphrase"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_jr_critique",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "後輩に企画書をダメ出しされた。全部正しかった。そのダメ出しの仕方を教えたのは、自分だった。",
+   "en": "A junior tore your proposal apart. Every point was right. You were the one who taught them how to critique."
+  },
+  "when": [
+   "career>=8",
+   "status=employed",
+   "job!=teacher"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 3,
+   "skill": 3
+  },
+  "memory": {
+   "ja": "後輩のダメ出しが、全部自分仕込みだった",
+   "en": "a junior critiqued me exactly the way I taught them"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_jr_letter",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "辞めていく後輩が、引き出しに手紙を残していった。「先輩のバグ票が一番読みやすかったです」。人生最高の褒め言葉。",
+   "en": "A junior who quit left a note in your drawer: \"Your bug reports were the easiest to read.\" Best compliment of your life."
+  },
+  "when": [
+   "career>=4",
+   "status=employed",
+   "job!=teacher"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5
+  },
+  "memory": {
+   "ja": "「バグ票が一番読みやすかった」と手紙をもらった",
+   "en": "a junior said my bug reports were the easiest to read"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_jr_memo",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "新人の頃に後輩へ渡したメモを、その後輩がまた新人に渡していた。字は自分のだった。コピーのコピーのコピーだった。",
+   "en": "The memo you gave a junior long ago, they'd passed to their own new hire. Your handwriting. A copy of a copy of a copy."
+  },
+  "when": [
+   "career>=12",
+   "status=employed"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "memory": {
+   "ja": "昔のメモが、コピーされて新人に渡っていた",
+   "en": "my old memo got passed down, a copy of a copy"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_tc_one_lesson",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "卒業生がゲーム会社に受かったと報告に来た。「先生の授業、1 個だけ覚えてます」。それは雑談の時間だった。",
+   "en": "A graduate came to say they got hired at a game studio. \"I remember one of your lessons.\" It was the time you went off-topic."
+  },
+  "when": [
+   "pos=teacher"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "memory": {
+   "ja": "教え子が「先生の雑談だけ覚えてる」と言った",
+   "en": "a student remembered only my off-topic tangent"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_tc_credit_pause",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "教え子の初めての作品が出た。スタッフロールで名前を探すのに 7 分。見つけて一時停止して、画面ごと写真を撮った。",
+   "en": "A former student's first game came out. It took seven minutes to find their name in the credits. You paused and photographed the screen."
+  },
+  "when": [
+   "flag.taught"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "memory": {
+   "ja": "教え子の名前を、スタッフロールで見つけた",
+   "en": "found a student's name in the credits and paused it"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fn_kid_letter",
+  "years": [
+   1977,
+   2008
+  ],
+  "text": {
+   "ja": "小学生からのファンレター。「大人になったらこの会社に入ります」。会社の方が先に無くなりそうで、少し焦った。",
+   "en": "A fan letter from a grade-schooler: \"When I grow up, I'll join this company.\" You worried the company might not last that long."
+  },
+  "when": [
+   "works>=1",
+   "status=employed"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5
+  },
+  "memory": {
+   "ja": "小学生に「この会社に入ります」と手紙をもらった",
+   "en": "a kid wrote they'd join our company someday"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fn_sns_post",
+  "years": [
+   2010,
+   2040
+  ],
+  "text": {
+   "ja": "SNS で知らない人が「子どもの頃一番遊んだゲーム」と自作の画面を上げていた。いいねを押す指が震えて、2 回押して取り消した。",
+   "en": "A stranger posted your old game as \"the one I played most as a kid.\" Your finger shook so much you liked it twice and undid it."
+  },
+  "when": [
+   "works>=2",
+   "career>=12"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 7,
+   "fame": 1
+  },
+  "memory": {
+   "ja": "知らない人が「一番遊んだゲーム」と言ってくれた",
+   "en": "a stranger called my game the one they played most as a kid"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fn_wedding_music",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "昔のゲームの曲を結婚式の入場曲に使った、という人から手紙が来た。同封の写真では、新郎がガッツポーズをしていた。",
+   "en": "A letter from someone who used your old game's music for their wedding entrance. In the enclosed photo, the groom was doing a victory pose."
+  },
+  "when": [
+   "works>=2",
+   "career>=10"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "memory": {
+   "ja": "昔のゲームの曲が、誰かの結婚式で流れた",
+   "en": "my game's music played at a stranger's wedding"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fn_autograph",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "イベントで昔の作品にサインを頼まれた。サインなんて考えたこともなく、楷書でフルネームを書いた。相手は喜んでいた。",
+   "en": "At an event, someone asked you to sign your old game. You'd never had an autograph. You wrote your full name in neat print. They were thrilled."
+  },
+  "when": [
+   "works>=2"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "fame": 1
+  },
+  "memory": {
+   "ja": "初めてのサインを、楷書で書いた",
+   "en": "signed my first autograph in neat block letters"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fn_doctor",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "健康診断の医師が、自分の昔のゲームのファンだった。数値はどれも悪いのに、ずっと笑顔で話してくれた。",
+   "en": "The doctor at your checkup was a fan of your old game. Every number was bad, but they smiled the whole time."
+  },
+  "when": [
+   "age>=45",
+   "works>=2"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "hp": -1
+  },
+  "memory": {
+   "ja": "健康診断の医師が、自分のゲームのファンだった",
+   "en": "my doctor was a fan, despite my numbers"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fn_prison_fan",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "塀の中で、同室の人が自分の昔のゲームを知っていた。「あのボス、ずるいよな」。刑期でいちばん楽しい 5 分だった。",
+   "en": "Inside, your cellmate knew your old game. \"That boss was so unfair, right?\" The best five minutes of your sentence."
+  },
+  "when": [
+   "flag.in_prison",
+   "works>=1"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 8
+  },
+  "memory": {
+   "ja": "塀の中で、同室の人が自分のゲームを知っていた",
+   "en": "my cellmate knew my game and hated my boss fight"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ow_museum",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "ゲームの展示会で、昔の作品がガラスケースに入っていた。ラベルの発売年が 1 年間違っていた。言わずに帰った。",
+   "en": "At a game exhibition, your old work sat in a glass case. The release year on the label was off by one. You left without saying anything."
+  },
+  "when": [
+   "works>=1",
+   "career>=15"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "fame": 1
+  },
+  "memory": {
+   "ja": "昔の作品が、ガラスケースに飾られていた",
+   "en": "saw my old game behind museum glass"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ow_price_up",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "古いゲーム屋の棚で、昔の自分の作品が 3,980 円になっていた。発売した時より高い。初めて何かに勝った気がした。",
+   "en": "At an old game shop, your old work was priced at 3,980 yen. More than it cost at launch. For once, you felt like you'd won."
+  },
+  "when": [
+   "works>=1",
+   "career>=10"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5
+  },
+  "memory": {
+   "ja": "昔の作品が、発売時より高くなっていた",
+   "en": "my old game now costs more than it did at launch"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ow_rerelease",
+  "years": [
+   2007,
+   2040
+  ],
+  "text": {
+   "ja": "昔の作品が新しいハードで復刻された。紹介文に、自分が仕込んだ隠しメッセージのことが「発見!」と書かれていた。",
+   "en": "Your old game got re-released on new hardware. The description mentioned, \"Discovered!\", the hidden message you once slipped in."
+  },
+  "when": [
+   "works>=2",
+   "career>=15"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 7,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "仕込んだ隠しメッセージが、復刻で見つかった",
+   "en": "my hidden message was \"discovered\" in a re-release"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ow_sticker",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "押し入れから、昔の作品の店頭用ステッカーが 1 束出てきた。子どもの頃の自分なら泣いて喜んだ。今の自分も少し喜んだ。",
+   "en": "A bundle of promo stickers for your old game turned up in the closet. Kid-you would have cried with joy. Current-you was a little happy too."
+  },
+  "when": [
+   "works>=1",
+   "career>=8"
+  ],
+  "weight": 0.6,
+  "once": true,
+  "effect": {
+   "passion": 3
+  },
+  "memory": {
+   "ja": "押し入れから、昔の作品のステッカーが出てきた",
+   "en": "found a bundle of promo stickers from my old game"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_cleaner",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "徹夜明けの朝、ビルの清掃の人が缶コーヒーをくれた。「いつも一番遅いから」。一番遅いのは褒め言葉ではない。",
+   "en": "Morning after an all-nighter, the building cleaner handed you a can of coffee. \"You're always the last one.\" Not exactly a compliment."
+  },
+  "when": [
+   "status=employed",
+   "job!=teacher",
+   "age<=45"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "hp": 1
+  },
+  "memory": {
+   "ja": "徹夜明けに、清掃の人が缶コーヒーをくれた",
+   "en": "the building cleaner gave me coffee after an all-nighter"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_shop_owner",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔通ったゲーム屋の店長が、自分の作品だけ毎回 1 本多く仕入れてくれていた。理由は「知り合いの作品だから」。在庫も 1 本多かった。",
+   "en": "The owner of your old local game shop always ordered one extra copy of your games. \"Because I know the maker.\" The leftovers were one extra too."
+  },
+  "when": [
+   "works>=2"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5
+  },
+  "memory": {
+   "ja": "ゲーム屋の店長が、自分の作品を 1 本多く仕入れてくれた",
+   "en": "the local shop always ordered one extra copy of my games"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_loctest",
+  "years": [
+   1978,
+   2040
+  ],
+  "text": {
+   "ja": "ロケテストの日、近所の子どもが筐体の前に 2 時間並んでいた。「明日もある?」と聞かれ、上司に頼んで 1 日延ばした。",
+   "en": "At a location test, a neighborhood kid lined up at your cabinet for two hours. \"Is it here tomorrow?\" You begged your boss for one more day."
+  },
+  "when": [
+   "status=employed",
+   "works>=1",
+   "job!=teacher"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "network": -1
+  },
+  "memory": {
+   "ja": "子どものために、ロケテストを 1 日延ばした",
+   "en": "extended a location test a day for one kid"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_desk",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "新人の頃に会社でもらった机を、20 年使っている。天板の焦げ跡は、初めての徹夜でこぼしたカップ麺。",
+   "en": "You've used the same desk for twenty years. The scorch mark on top is from cup noodles you spilled on your first all-nighter."
+  },
+  "when": [
+   "career>=20",
+   "status=employed"
+  ],
+  "weight": 0.6,
+  "once": true,
+  "effect": {
+   "passion": 3
+  },
+  "memory": {
+   "ja": "20 年使った机に、新人の頃の焦げ跡があった",
+   "en": "my desk still bears the burn from my first all-nighter"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_farewell",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "最後の出勤日、若手が送別会を開いてくれた。BGM は自分が昔作ったゲームの曲。若手は誰もそれを知らずに選んでいた。",
+   "en": "On your last day, the young staff threw you a farewell party. The background music was from your old game. None of them knew. They just liked it."
+  },
+  "when": [
+   "age>=63",
+   "works>=2",
+   "status=employed"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 7
+  },
+  "memory": {
+   "ja": "送別会で、知らずに自分の曲が流れていた",
+   "en": "my old game's music played at my farewell, by chance"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_penpal",
+  "years": [
+   1997,
+   2040
+  ],
+  "text": {
+   "ja": "15 年前に問い合わせメールをくれたプレイヤーと、今も年に 1 回メールしている。会ったことはない。お互いの子の年は知っている。",
+   "en": "You still exchange one email a year with a player who wrote in fifteen years ago. You've never met. You know each other's kids' ages."
+  },
+  "when": [
+   "career>=15",
+   "works>=1"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 2
+  },
+  "memory": {
+   "ja": "昔のプレイヤーと、15 年メールを続けた",
+   "en": "fifteen years of yearly emails with an old player"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_candy_shop",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "帰省すると、近所の駄菓子屋のおばあちゃんが「ゲームの人」と呼ぶ。本名は 30 年覚えてもらえていない。",
+   "en": "Back home, the old lady at the corner candy shop calls you \"the game person.\" Thirty years, and she's never learned your name."
+  },
+  "when": [
+   "career>=10"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 3
+  },
+  "memory": {
+   "ja": "地元で「ゲームの人」と呼ばれ続けた",
+   "en": "back home, I'm forever \"the game person\""
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_first_credit",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "初めてスタッフロールに名前が載った。最後の最後、「THANKS」の欄。それでも 30 回見た。",
+   "en": "Your name appeared in a staff roll for the first time. At the very, very end, under \"THANKS.\" You watched it thirty times."
+  },
+  "when": [
+   "works>=1",
+   "career<=4"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 7
+  },
+  "memory": {
+   "ja": "初めて、スタッフロールの最後に名前が載った",
+   "en": "first saw my name at the very end of the credits"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_late_senior",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "50 を過ぎて入った業界。20 代の先輩が「何回でも聞いてください」と言うので本当に何回も聞いたら、付箋にまとめてくれた。",
+   "en": "You joined the industry past fifty. A senior in their twenties said, \"Ask as many times as you need.\" You did. They made you a set of sticky notes."
+  },
+  "when": [
+   "age>=50",
+   "career<=3",
+   "status=employed"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "skill": 2
+  },
+  "memory": {
+   "ja": "20 代の先輩が、付箋で仕事を教えてくれた",
+   "en": "a twenty-something senior taught me with sticky notes"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_mega_birthday",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "終わらないプロジェクトの 4 年目。チームで誕生日を祝った回数が、仕様書の改訂回数を超えた。ケーキの方が進んでいる。",
+   "en": "Year four of the endless project. The team has celebrated more birthdays than the spec has been revised. The cake is making more progress."
+  },
+  "when": [
+   "flag.mega_project"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 3
+  },
+  "memory": {
+   "ja": "終わらないプロジェクトで、誕生日だけは祝い続けた",
+   "en": "the endless project had more birthday cakes than milestones"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_rookie_ramen",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "入社 1 年目、先輩が終電を逃した夜にラーメンをおごってくれた。「お前もいつか後輩におごれ」。メモに書いた。",
+   "en": "Your first year, a senior bought you ramen the night you both missed the last train. \"Someday you treat a junior.\" You wrote it in your notebook."
+  },
+  "when": [
+   "career<=1",
+   "status=employed",
+   "age<=35"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "later": [
+   {
+    "after": 10,
+    "event": "ev_wm_fu_ramen"
+   }
+  ],
+  "memory": {
+   "ja": "終電を逃した夜、先輩がラーメンをおごってくれた",
+   "en": "a senior bought me ramen the night we missed the last train"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_fu_ramen",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "終電を逃した夜、後輩にラーメンをおごった。「お前もいつか後輩におごれ」。10 年前のメモを、そのまま読み上げた。",
+   "en": "The night you missed the last train, you bought a junior ramen. \"Someday you treat a junior.\" You read it straight from a ten-year-old notebook."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 2,
+   "money": -1
+  },
+  "memory": {
+   "ja": "10 年前のラーメンの恩を、後輩に返した",
+   "en": "passed on a ten-year-old bowl of ramen to a junior"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_left_friend",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "無職の昼、昔の同僚が「暇なら手伝って」と同人ゲームの絵を頼んできた。報酬は焼肉。久しぶりに腹いっぱい食べた。",
+   "en": "Unemployed, midday, an old coworker asked you to help with art for their hobby game. Payment: yakiniku. First full stomach in a while."
+  },
+  "when": [
+   "status=left",
+   "!flag.in_prison",
+   "career>=2"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "hp": 2,
+   "network": 2
+  },
+  "memory": {
+   "ja": "無職の時、昔の同僚が焼肉で仕事をくれた",
+   "en": "an old coworker paid me in yakiniku when I was unemployed"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_indie_buyer",
+  "years": [
+   2010,
+   2040
+  ],
+  "text": {
+   "ja": "一人で作ったゲームが 1 本売れた。購入者の名前を見ると、新人の頃の上司だった。レビューは「相変わらず細かい」。",
+   "en": "One copy of your solo game sold. The buyer's name: your boss from your rookie days. Review: \"As fussy as ever.\""
+  },
+  "when": [
+   "status=indie",
+   "works>=1"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "money": 1
+  },
+  "memory": {
+   "ja": "個人作品を、新人の頃の上司が買ってくれた",
+   "en": "my rookie-era boss bought my indie game"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_wm_ms_teacher_old_team",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "学校の文化祭に、昔のチームが遊びに来た。学生の作品で一番盛り上がったのは、元チームのおじさんたちだった。",
+   "en": "Your old team visited the school festival. The ones who got most excited about the students' games were the old guys from your team."
+  },
+  "when": [
+   "pos=teacher"
+  ],
+  "weight": 0.8,
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "network": 3
+  },
+  "memory": {
+   "ja": "学校の文化祭に、昔のチームが来てくれた",
+   "en": "my old team came to the school festival and had the most fun"
+  },
+  "tag": [
+   "warm"
+  ]
+ }
+]

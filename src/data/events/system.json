@@ -119,7 +119,10 @@
     },
     "effect": {
       "passion": -10,
-      "status": "left"
+      "status": "left",
+      "flag": {
+        "wm_oldco_gone": true
+      }
     },
     "tag": [
       "system",
