@@ -623,5 +623,29 @@
       "choice",
       "indie"
     ]
+  },
+  {
+    "id": "ev_sys_prison_out",
+    "years": [
+      1970,
+      2040
+    ],
+    "weight": 0,
+    "text": {
+      "ja": "出所の日。門の前で空を見上げた。手元に残ったのは、中で方眼紙に描きためた 200 枚のゲームの企画。",
+      "en": "Release day. You look up at the sky outside the gate. All you kept: 200 game ideas drawn on graph paper inside."
+    },
+    "effect": {
+      "passion": 30,
+      "hp": 10,
+      "flag": {
+        "in_prison": false,
+        "do_go_indie": true
+      }
+    },
+    "tag": [
+      "system",
+      "milestone"
+    ]
   }
 ]

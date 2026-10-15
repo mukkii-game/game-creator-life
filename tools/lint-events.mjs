@@ -31,7 +31,7 @@ export const PROPS = {
 };
 const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other']);
 const COND = /^!?(age|year|era|job|status|works|career|pos|company\.size|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z0-9_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
-const JOBS = ['programmer', 'planner', 'artist', 'sound', 'qa', 'sales', 'director', 'producer', 'other'];
+const JOBS = ['programmer', 'planner', 'artist', 'sound', 'qa', 'sales', 'director', 'producer', 'teacher', 'other'];
 const STATUS = ['employed', 'indie', 'left', 'retired', 'ended'];
 const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow', 'cause', 'memory']);
 const TL_KEYS = new Set(['id', 'year', 'month', 'kind', 'text', 'use', 'src', 'unverified']);
@@ -99,7 +99,7 @@ function checkEvent(ev, w, needYears, histYear) {
     for (const c of ev.when || []) {
       if (!COND.test(c)) { err(w, `when の語彙外: ${c}`); continue; }
       const m = /^!?(pos|job|status|company\.size)\s*!?=\s*([a-z0-9_-]+)$/.exec(c);
-      const VALS = { pos: ['client_lead', 'client', 'dev_lead', 'dev', 'sub', 'qa', 'indie', 'abroad', 'outside'], job: JOBS, status: STATUS, 'company.size': ['big', 'mid', 'small', 'sub', 'indie', 'abroad', 'none'] };
+      const VALS = { pos: ['client_lead', 'client', 'dev_lead', 'dev', 'sub', 'qa', 'indie', 'abroad', 'teacher', 'prison', 'outside'], job: JOBS, status: STATUS, 'company.size': ['big', 'mid', 'small', 'sub', 'indie', 'abroad', 'school', 'none'] };
       if (m && !VALS[m[1]].includes(m[2])) err(w, `when の値が無い: ${c}(${m[1]} は ${VALS[m[1]].join(' / ')})`);
     }
     effect(w + '.effect', ev.effect);

@@ -2,12 +2,12 @@
 import type { Rng } from '../core/rng';
 
 export interface Text { ja: string; en: string }
-export type Job = 'programmer' | 'planner' | 'artist' | 'sound' | 'qa' | 'sales' | 'director' | 'producer' | 'other';
+export type Job = 'programmer' | 'planner' | 'artist' | 'sound' | 'qa' | 'sales' | 'director' | 'producer' | 'teacher' | 'other';
 export type Status = 'employed' | 'indie' | 'left' | 'retired' | 'ended';
 export type Era = 'era1' | 'era2' | 'era3' | 'era4' | 'era5' | 'era6';
 export type Role = 'junior' | 'core' | 'lead' | 'solo';
 export type WorkResult = 'flop' | 'ok' | 'hit' | 'legend';
-export type CompanySize = 'big' | 'mid' | 'small' | 'sub' | 'indie' | 'abroad' | 'none';
+export type CompanySize = 'big' | 'mid' | 'small' | 'sub' | 'indie' | 'abroad' | 'school' | 'none';
 export type StatKey = 'hp' | 'passion' | 'skill' | 'network' | 'money' | 'fame';
 
 export interface WorkEffect {
@@ -40,12 +40,12 @@ export interface Hist {
   variants: Omit<GameEvent, 'years'>[];
 }
 /** 立場。歴史の事件の受け止め方が変わる */
-export type Pos = 'client_lead' | 'client' | 'dev_lead' | 'dev' | 'sub' | 'qa' | 'indie' | 'abroad' | 'outside';
+export type Pos = 'client_lead' | 'client' | 'dev_lead' | 'dev' | 'sub' | 'qa' | 'indie' | 'abroad' | 'teacher' | 'prison' | 'outside';
 
 export interface Stat { hp: number; passion: number; skill: number; network: number; money: number; fame: number }
 export interface Work { id: string; name: Text; year: number; platform: string; role: Role; result: WorkResult; history: { year: number; text: Text }[] }
 export interface Peer { name: string; bot: string; summary: Text }
-export type EndingId = 'end_burnout' | 'end_body' | 'end_debt' | 'end_blacklist' | 'end_retire' | 'end_pen_down' | 'end_ai_seat' | 'end_arrest';
+export type EndingId = 'end_burnout' | 'end_body' | 'end_debt' | 'end_blacklist' | 'end_retire' | 'end_pen_down' | 'end_ai_seat' | 'end_arrest' | 'end_switch';
 export interface Ending { id: EndingId; age: number; year: number; cause: Text; summary: Text; /** 最後の 1 行(一番テンションが上がった瞬間 +「いいゲーム人生だった」) */ epitaph: Text }
 export type LogKind = 'event' | 'timeline' | 'choice' | 'work' | 'peer';
 export interface LogLine { year: number; age: number; text: Text; kind: LogKind; tag?: string[]; hist?: string }
@@ -98,7 +98,8 @@ export interface Inner {
   histDone: string[];
   pitAt: number; peakAt: number; pitDone: boolean; peakDone: boolean;
   bondAt: number; bondDone: boolean; // 人生に一度の大物との縁
-  nextBig: number;                     // 次の大きな選択が来る年
+  nextBig: number;
+  prisonUntil: number;                 // 服役が明ける年(0 = なし)                     // 次の大きな選択が来る年
   highs: { year: number; age: number; text: Text; w: number }[]; // テンションが上がった瞬間(最後に思い出す)        // この人生で起きた歴史の事件(hs_id)
 }
 

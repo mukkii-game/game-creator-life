@@ -94,7 +94,7 @@ export function init(seed: number, options: InitOptions = {}): State {
       workTarget: -1, startJob: job, prevJob: job, histDone: [], highs: [],
       // 人生に一度の大挫折と大成功(業界に入って何年目に来るか)
       pitAt: r.int(2, 12), peakAt: r.int(5, 24), pitDone: false, peakDone: false,
-      bondAt: r.int(3, 18), bondDone: false, nextBig: year + r.int(2, 4),
+      bondAt: r.int(3, 18), bondDone: false, nextBig: year + r.int(2, 4), prisonUntil: 0,
     },
   };
   if (!peerOf) {
@@ -170,6 +170,17 @@ function apply(s: State, e: Effect | undefined, ctx: string, out: string[], caus
       end(s, s.flags.ai_seat ? 'end_ai_seat' : ctx === 'ev_sys_comeback' ? 'end_burnout' : 'end_retire', out, cause);
     } else if (f === 'do_arrest') {
       end(s, 'end_arrest', out, cause);
+    } else if (f === 'do_switch') { // ゲームの外の仕事へ転身して、ゲーム人生を終える(イラストレーター・漫画家・作家・コンサル …)
+      end(s, 'end_switch', out, cause);
+    } else if (f === 'do_teach') { // 専門学校・大学の先生になる(作品は出なくなる。戻るなら do_return)
+      s.inner.prevJob = s.job === 'teacher' ? s.inner.prevJob : s.job; s.job = 'teacher';
+      s.company = newCompany(s.rng, 'school', s.year); s.companies.push({ company: s.company, year: s.year });
+      setStatus(s, 'employed'); s.inner.companyYears = 0; s.flags.taught = true;
+    } else if (f === 'do_prison') { // 服役(3 年)。明けたら個人開発者として再起する
+      s.inner.prevJob = s.job; s.flags.in_prison = true; s.inner.prisonUntil = s.year + 3;
+      setStatus(s, 'left'); s.job = 'other'; s.inner.otherJob = { ja: '塀の中', en: 'prison' };
+    } else if (f === 'do_mega') { // 終わらない巨大プロジェクト(5 年、作品が出ない)
+      s.flags.mega_project = true; s.inner.nextWorkYear = s.year + 5;
     }
   }
 }
@@ -229,11 +240,11 @@ function beginYear(s: State, out: string[]) {
   else if (s.age === 65 && (s.status === 'employed' || s.status === 'indie')) sys.push('ev_sys_age65', '@check65');
   else if (s.age >= 60 && !s.flags.age60 && (s.status === 'employed' || s.status === 'indie')) { s.flags.age60 = true; sys.push('ev_sys_age60'); }
   if (s.status === 'employed') {
-    const mult = { big: 0.3, mid: 1, small: 1.6, sub: 2, abroad: 1, indie: 0, none: 0 }[s.company.size];
+    const mult = { big: 0.3, mid: 1, small: 1.6, sub: 2, abroad: 1, indie: 0, school: 0, none: 0 }[s.company.size];
     const bad = [1983, 1991, 1992, 2001, 2008, 2009, 2023, 2024].includes(s.year) ? 2 : 1;
-    if (r.chance(tune('job.bankrupt') * mult * bad)) sys.push('ev_sys_bankrupt');
+    if (s.job !== 'teacher' && r.chance(tune('job.bankrupt') * mult * bad)) sys.push('ev_sys_bankrupt');
     else {
-      if (s.year >= s.inner.nextWorkYear) q.push('@release');
+      if (s.year >= s.inner.nextWorkYear && s.job !== 'teacher') q.push('@release');
       const lastOffer = Math.max(s.inner.seen.ev_sys_offer ?? -99, s.inner.seen.ev_sys_offer_b ?? -99, s.inner.seen.ev_sys_offer_c ?? -99);
       if (!s.flags.age60 && s.inner.companyYears >= 2 && s.age >= 20 && s.year - lastOffer >= 4 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(r.pick(['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
       else if (canPromote(s) && r.chance(tune('job.promote'))) sys.push(r.pick(['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
@@ -243,7 +254,9 @@ function beginYear(s: State, out: string[]) {
     if (s.year >= s.inner.nextWorkYear) q.push('@release');
     if (r.chance(0.08 + s.stat.network / 500) && s.stat.money < 100) sys.push('@rehire_offer');
   } else if (s.status === 'left') {
-    if (s.flags.burned && s.job === 'other') {
+    if (s.flags.in_prison) {
+      if (s.year >= s.inner.prisonUntil) sys.push('ev_sys_prison_out');
+    } else if (s.flags.burned && s.job === 'other') {
       if (s.year - s.inner.leftYear >= 5) sys.push('@end:end_burnout');
       else if (!s.inner.used.includes('ev_sys_comeback') && r.chance(tune('job.comeback') + s.stat.network / 400)) sys.push('ev_sys_comeback');
     } else if (s.year > s.inner.leftYear) sys.push('@search');
@@ -338,6 +351,7 @@ function runItem(s: State, id: string, out: string[]) {
     log(s, line, 'work'); out.push('work');
     if (work.result === 'hit' || work.result === 'legend') s.inner.highs.push({ year: s.year, age: s.age, text: { ja: `${work.name.ja}が${RESULT_TEXT[work.result].ja}になった`, en: `${work.name.en} became a ${RESULT_TEXT[work.result].en.toLowerCase()}` }, w: (work.result === 'legend' ? 4 : 1.5) + s.rng.next() });
     s.inner.nextWorkYear = s.year + r.int(tune('work.everyMin'), tune('work.everyMax'));
+    s.flags.mega_project = false;
     return;
   }
   if (id === '@check65') { if (s.stat.hp < 40) end(s, 'end_retire', out); return; }
@@ -391,7 +405,7 @@ function runItem(s: State, id: string, out: string[]) {
 /** テンションが上がった瞬間を覚えておく(最後の 1 行に使う) */
 function remember(s: State, ev: GameEvent, memory?: Text) {
   const t = ev.tag ?? [];
-  const w = t.includes('peak') ? 6 : t.includes('bond') ? 5 : t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
+  const w = t.includes('peak') ? 6 : t.includes('bond') ? 5 : t.includes('warm') ? 4 : t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
   if (!w) return;
   const first = (x: string, sep: RegExp) => x.split(sep)[0];
   const text = memory ? fill(s, memory) : (() => { const f = fill(s, ev.text); return { ja: first(f.ja, /。/), en: first(f.en, /\. /) }; })();
@@ -418,7 +432,7 @@ function endYear(s: State, out: string[]) {
     s.stat.skill = clamp(s.stat.skill + r.int(tune('year.skillMin'), tune('year.skillMax')) * (s.age >= 50 ? 0.5 : 1));
   }
   if (s.status === 'employed') {
-    const mult = { big: 1.5, mid: 1, small: 0.8, sub: 0.5, abroad: 1.6, indie: 0, none: 0 }[s.company.size] * (s.job === 'director' || s.job === 'producer' ? 1.4 : 1) * (s.flags.rehired || s.flags.parttime ? 0.4 : 1);
+    const mult = { big: 1.5, mid: 1, small: 0.8, sub: 0.5, abroad: 1.6, indie: 0, school: 0.9, none: 0 }[s.company.size] * (s.job === 'director' || s.job === 'producer' ? 1.4 : 1) * (s.flags.rehired || s.flags.parttime ? 0.4 : 1);
     s.stat.money += Math.round(tune('year.salary') * mult);
     s.inner.companyYears++;
   } else if (s.status === 'indie') s.stat.money -= tune('year.indieCost');

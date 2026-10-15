@@ -31,6 +31,7 @@ const CO_TAIL: Record<CompanySize, [string, string][]> = {
   sub: [['開発', 'Dev'], ['プログラミング', 'Programming'], ['技研', 'Labs']],
   indie: [['ゲーム部', 'Game Club'], ['', '']],
   abroad: [['Inc.', 'Inc.'], ['Studios', 'Studios'], ['Ltd.', 'Ltd.']],
+  school: [['ゲーム専門学校', 'Game College'], ['クリエイティブ専門学校', 'Creative Academy'], ['芸術大学', 'University of Arts'], ['情報大学', 'Information University']],
   none: [['', '']],
 };
 export function companyName(r: Rng, size: CompanySize, year: number): Text {
@@ -87,7 +88,7 @@ export function platformFor(r: Rng, year: number, role: Role): string {
 export const JOB_TEXT: Record<Job, Text> = {
   programmer: { ja: 'プログラマ', en: 'programmer' }, planner: { ja: 'プランナー', en: 'planner' }, artist: { ja: 'グラフィッカー', en: 'artist' },
   sound: { ja: 'サウンド', en: 'sound designer' }, qa: { ja: 'デバッガー', en: 'QA tester' }, sales: { ja: '営業', en: 'sales rep' },
-  director: { ja: 'ディレクター', en: 'director' }, producer: { ja: 'プロデューサー', en: 'producer' }, other: { ja: '業界の外', en: 'outside the industry' },
+  director: { ja: 'ディレクター', en: 'director' }, producer: { ja: 'プロデューサー', en: 'producer' }, teacher: { ja: '講師', en: 'teacher' }, other: { ja: '業界の外', en: 'outside the industry' },
 };
 export const OTHER_JOBS: Text[] = [
   { ja: '実家の農業', en: 'family farm' }, { ja: 'ラーメン屋', en: 'ramen shop' }, { ja: '不動産屋', en: 'real-estate office' },
@@ -100,5 +101,5 @@ export const POS_TEXT: Record<import('./types').Pos, Text> = {
   client_lead: { ja: '発注元の責任者', en: 'publisher-side lead' }, client: { ja: '発注元(大手)', en: 'publisher staff' },
   dev_lead: { ja: '開発会社の責任者', en: 'studio lead' }, dev: { ja: '開発会社', en: 'studio staff' },
   sub: { ja: '下請け', en: 'subcontractor' }, qa: { ja: 'デバッガー', en: 'QA tester' },
-  indie: { ja: '独立', en: 'indie' }, abroad: { ja: '海外', en: 'overseas' }, outside: { ja: '業界の外', en: 'outside the industry' },
+  indie: { ja: '独立', en: 'indie' }, abroad: { ja: '海外', en: 'overseas' }, teacher: { ja: '先生', en: 'teacher' }, prison: { ja: '塀の中', en: 'in prison' }, outside: { ja: '業界の外', en: 'outside the industry' },
 };

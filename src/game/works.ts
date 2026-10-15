@@ -18,7 +18,7 @@ function roleFor(s: State): Role {
 }
 
 function roll(s: State, role: Role): WorkResult {
-  const sizeBonus = { big: 0.05, mid: 0, small: -0.02, sub: -0.04, indie: -0.03, abroad: 0.03, none: 0 }[s.company.size];
+  const sizeBonus = { big: 0.05, mid: 0, small: -0.02, sub: -0.04, indie: -0.03, abroad: 0.03, school: 0, none: 0 }[s.company.size];
   const shift = (s.stat.skill - 60) / 600 + sizeBonus + (role === 'lead' ? 0.03 : 0) + s.stat.fame / 2500;
   const legend = Math.max(0.005, tune('work.legend') + shift / 5);
   const hit = Math.max(0.03, tune('work.hit') + shift);
