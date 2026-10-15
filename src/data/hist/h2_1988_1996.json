@@ -82,8 +82,8 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "発売日の打ち上げに紛れ込んだ。トイレの手洗い場で隣になったのは、国民的 RPG の作曲家だった。ハンカチを貸した。",
-     "en": "You crashed a launch party. At the restroom sink, next to you: the composer of the nation's RPG. You lent him your handkerchief."
+     "ja": "発売日の打ち上げに紛れ込んだ。トイレの手洗い場で隣になったのは、すぎやまこういちさんだった。ハンカチを貸した。",
+     "en": "You crashed a launch party. At the restroom sink, next to you: Koichi Sugiyama. You lent him your handkerchief."
     },
     "effect": {
      "passion": 8,
@@ -95,8 +95,8 @@
      "high"
     ],
     "memory": {
-     "ja": "国民的 RPG の作曲家にハンカチを貸した",
-     "en": "Lent a handkerchief to the nation's RPG composer"
+     "ja": "すぎやまこういちさんにハンカチを貸した",
+     "en": "Lent Koichi Sugiyama my handkerchief"
     },
     "allow": [
      "RPG"
@@ -105,8 +105,8 @@
    {
     "id": "ev_hs_1988_dq3_any",
     "text": {
-     "ja": "国民的 RPG の 3 作目で、日本中が行列になった。同じ日に出たうちのソフトの売上は、行列の 1 人分くらいだった。",
-     "en": "The nation's biggest RPG sequel sparks lines nationwide. Our game, released the same day, sold about one line's worth of a person."
+     "ja": "『ドラゴンクエストIII』で日本中が行列になった。同じ日に出たうちのソフトの売上は、行列の 1 人分くらいだった。",
+     "en": "Dragon Quest III sparks lines nationwide. Our game, released the same day, sold about one line's worth of a person."
     },
     "effect": {
      "passion": -3,
@@ -562,8 +562,8 @@
    "en": "The Game Boy launches; Tetris becomes a smash"
   },
   "news": {
-   "ja": "任天堂が 4 月にゲームボーイを発売。6 月の『テトリス』とともに大人まで広がる。",
-   "en": "Nintendo releases the Game Boy in April. With Tetris in June, it spreads even to adults."
+   "ja": "任天堂が 4 月に、横井軍平らが開発したゲームボーイを発売。6 月の『テトリス』とともに大人まで広がる。",
+   "en": "In April Nintendo releases the Game Boy, developed by Gunpei Yokoi's team. With Tetris in June, it spreads even to adults."
   },
   "src": "ゲームボーイ",
   "variants": [
@@ -610,8 +610,8 @@
      "flag.partner"
     ],
     "text": {
-     "ja": "パートナーが落ちものパズルにはまった。夜中の 2 時、隣から「あと 1 列」と聞こえる。あなたの帰宅は 3 時だ。",
-     "en": "Your partner is hooked on the falling-block puzzle. At 2 a.m. you hear \"one more line.\" You get home at 3."
+     "ja": "パートナーが『テトリス』にはまった。夜中の 2 時、隣から「あと 1 列」と聞こえる。あなたの帰宅は 3 時だ。",
+     "en": "Your partner is hooked on Tetris. At 2 a.m. you hear \"one more line.\" You get home at 3."
     },
     "effect": {
      "passion": 3,
@@ -629,8 +629,8 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "「動作確認用」に会社の携帯機を 1 台持ち帰った。動作確認は、落ちものパズルで毎晩 3 時間続いた。",
-     "en": "You took an office handheld home \"for testing.\" The testing ran three hours a night, all of it falling blocks."
+     "ja": "「動作確認用」に会社のゲームボーイを 1 台持ち帰った。動作確認は、『テトリス』で毎晩 3 時間続いた。",
+     "en": "You took an office Game Boy home \"for testing.\" The testing ran three hours a night, all of it Tetris."
     },
     "effect": {
      "passion": 4,
@@ -645,8 +645,8 @@
    {
     "id": "ev_hs_1989_gb_any",
     "text": {
-     "ja": "通勤電車で、背広の人が落ちものパズルを積んでいた。ゲームを作っていると言ったら、初めて親戚に尊敬された。",
-     "en": "Men in suits stack falling blocks on the train. When you said you make games, a relative respected you for the first time."
+     "ja": "通勤電車で、背広の人が『テトリス』を積んでいた。ゲームを作っていると言ったら、初めて親戚に尊敬された。",
+     "en": "Men in suits stack Tetris blocks on the train. When you said you make games, a relative respected you for the first time."
     },
     "effect": {
      "passion": 5,
@@ -898,8 +898,8 @@
      "pos=dev_lead"
     ],
     "text": {
-     "ja": "うちの新作の発売日が、国民的 RPG と同じ日曜にかぶった。社長は日付を 1 週ずらした。1 週分、作業が増えた。",
-     "en": "Our launch landed on the same Sunday as the nation's RPG. The boss pushed it a week. A week more of work appeared."
+     "ja": "うちの新作の発売日が、『ドラゴンクエストIV』と同じ日曜にかぶった。社長は日付を 1 週ずらした。1 週分、作業が増えた。",
+     "en": "Our launch landed on the same Sunday as Dragon Quest IV. The boss pushed it a week. A week more of work appeared."
     },
     "effect": {
      "hp": -5,
@@ -920,8 +920,8 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "デバッグの仕事が全部止まった。ほかの会社が発売をずらしたからだ。暇になった週、自腹で国民的 RPG を買った。",
-     "en": "All debug work paused because rivals pushed their launches. With a free week, you bought the nation's RPG yourself."
+     "ja": "デバッグの仕事が全部止まった。ほかの会社が発売をずらしたからだ。暇になった週、自腹で『ドラゴンクエストIV』を買った。",
+     "en": "All debug work paused because rivals pushed their launches. With a free week, you bought Dragon Quest IV yourself."
     },
     "effect": {
      "money": -1,
@@ -959,8 +959,8 @@
      "pos=client"
     ],
     "text": {
-     "ja": "発売記念のパーティーで、国民的 RPG の絵を描く漫画家とエレベーターで 2 人きり。言えたのは「何階ですか」だけだった。",
-     "en": "At the launch party, alone in an elevator with the manga artist who draws the nation's RPG. All you managed: \"Which floor?\""
+     "ja": "発売記念のパーティーで、鳥山明さんとエレベーターで 2 人きり。言えたのは「何階ですか」だけだった。",
+     "en": "At the launch party, alone in an elevator with Akira Toriyama. All you managed: \"Which floor?\""
     },
     "effect": {
      "passion": 7,
@@ -972,8 +972,8 @@
      "high"
     ],
     "memory": {
-     "ja": "国民的 RPG の絵の漫画家に「何階ですか」と聞いた",
-     "en": "Asked the nation's RPG artist \"Which floor?\""
+     "ja": "鳥山明さんに「何階ですか」と聞いた",
+     "en": "Asked Akira Toriyama \"Which floor?\""
     },
     "allow": [
      "RPG"
@@ -982,8 +982,8 @@
    {
     "id": "ev_hs_1990_dq4_any",
     "text": {
-     "ja": "国民的 RPG は日曜発売に。休日出勤の昼、行列の小学生に「おじさん、これ作った人?」。うなずいてしまった。",
-     "en": "The nation's RPG launches on Sunday. Working that day, a kid in line asks, \"Mister, did you make this?\" You nodded."
+     "ja": "『ドラゴンクエストIV』は日曜発売に。休日出勤の昼、行列の小学生に「おじさん、これ作った人?」。うなずいてしまった。",
+     "en": "Dragon Quest IV launches on Sunday. Working that day, a kid in line asks, \"Mister, did you make this?\" You nodded."
     },
     "effect": {
      "passion": -2,
@@ -1289,8 +1289,8 @@
    "en": "Street Fighter II sparks a fighting-game boom"
   },
   "news": {
-   "ja": "カプコンの業務用『ストリートファイターII』が大ヒット。ゲームセンターに人が戻る。",
-   "en": "Capcom's arcade hit Street Fighter II brings crowds back to game centers."
+   "ja": "カプコンの西谷亮らが作った業務用『ストリートファイターII』が大ヒット。ゲームセンターに人が戻る。",
+   "en": "Capcom's arcade hit Street Fighter II, directed by Akira Nishitani, brings crowds back to game centers."
   },
   "src": "ストリートファイターII",
   "variants": [
@@ -1358,8 +1358,8 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "対戦台の向かいに座っていたのは、その格闘ゲームを作った側の人だった。負けた。「いい腕だね」と言われた。",
-     "en": "The player across the cabinet turned out to be one of the fighting game's creators. You lost. He said, \"Nice hands.\""
+     "ja": "対戦台の向かいに座っていたのは、『ストII』を作った西谷亮さんだった。負けた。「いい腕だね」と言われた。",
+     "en": "The player across the cabinet turned out to be Akira Nishitani, who made Street Fighter II. You lost. He said, \"Nice hands.\""
     },
     "effect": {
      "passion": 8,
@@ -1372,8 +1372,8 @@
      "high"
     ],
     "memory": {
-     "ja": "格闘ゲームの作り手に「いい腕だね」と言われた",
-     "en": "A fighting-game creator told me \"Nice hands\""
+     "ja": "西谷亮さんに「いい腕だね」と言われた",
+     "en": "Akira Nishitani told me \"Nice hands\""
     }
    },
    {
@@ -1548,8 +1548,8 @@
      "pos=abroad"
     ],
     "text": {
-     "ja": "こっちでは青いハリネズミが一番人気。日本の友達に手紙で書いたら「冗談でしょ」と返ってきた。",
-     "en": "Here, the blue hedgehog rules. You wrote to a friend back home, who replied, \"You're joking.\""
+     "ja": "こっちではソニックが一番人気。日本の友達に手紙で書いたら「冗談でしょ」と返ってきた。",
+     "en": "Here, Sonic rules. You wrote to a friend back home, who replied, \"You're joking.\""
     },
     "effect": {
      "network": 4,
@@ -1604,8 +1604,8 @@
    {
     "id": "ev_hs_1991_sonic_any",
     "text": {
-     "ja": "青くて速いキャラが海外で大人気らしい。会議で「うちも速いやつを」と言われ、主人公の歩く速さを 2 倍にした。",
-     "en": "A fast blue mascot is huge overseas. The meeting says, \"Ours should be fast too.\" You doubled the hero's walk speed."
+     "ja": "ソニックが海外で大人気らしい。会議で「うちも速いやつを」と言われ、主人公の歩く速さを 2 倍にした。",
+     "en": "Sonic is huge overseas. The meeting says, \"Ours should be fast too.\" You doubled the hero's walk speed."
     },
     "effect": {
      "skill": 2,
@@ -2034,8 +2034,8 @@
      "pos=client_lead"
     ],
     "text": {
-     "ja": "業界のパーティーで、国民的 RPG の生みの親の隣に座った。名刺を出す手が震え、エビが 1 匹落ちた。拾ってくれた。",
-     "en": "At an industry party, you sat beside the creator of the nation's RPG. Your hand shook with your card; a shrimp fell. He picked it up."
+     "ja": "業界のパーティーで、堀井雄二さんの隣に座った。名刺を出す手が震え、エビが 1 匹落ちた。拾ってくれた。",
+     "en": "At an industry party, you sat beside Yuji Horii. Your hand shook with your card; a shrimp fell. He picked it up."
     },
     "effect": {
      "passion": 10,
@@ -2047,8 +2047,8 @@
      "high"
     ],
     "memory": {
-     "ja": "国民的 RPG の生みの親が、落としたエビを拾ってくれた",
-     "en": "The nation's RPG creator picked up my dropped shrimp"
+     "ja": "堀井雄二さんが、落としたエビを拾ってくれた",
+     "en": "Yuji Horii picked up my dropped shrimp"
     },
     "allow": [
      "RPG"
@@ -2057,8 +2057,8 @@
    {
     "id": "ev_hs_1992_dq5_any",
     "text": {
-     "ja": "国民的 RPG の 5 作目。月曜の朝礼で、課長が「昨日は徹夜で」と言い、仕事の話だと思った全員が感心した。",
-     "en": "The nation's RPG, part five. At Monday's meeting, the section chief says he pulled an all-nighter. Everyone assumed it was work."
+     "ja": "『ドラゴンクエストV』が出た。月曜の朝礼で、課長が「昨日は徹夜で」と言い、仕事の話だと思った全員が感心した。",
+     "en": "Dragon Quest V is out. At Monday's meeting, the section chief says he pulled an all-nighter. Everyone assumed it was work."
     },
     "effect": {
      "passion": 2
@@ -2086,8 +2086,8 @@
    "en": "Virtua Fighter hits arcades: the polygon era begins"
   },
   "news": {
-   "ja": "セガがポリゴンで描く対戦格闘ゲームを業務用で出し、ゲーセンで大人気に。",
-   "en": "Sega releases an arcade fighter drawn in 3D polygons, and it draws crowds."
+   "ja": "セガの鈴木裕らがポリゴンで描く対戦格闘ゲームを業務用で出し、ゲーセンで大人気に。",
+   "en": "Sega's Yu Suzuki and team release an arcade fighter drawn in 3D polygons, and it draws crowds."
   },
   "src": "バーチャファイター",
   "variants": [
@@ -2430,8 +2430,8 @@
      "pos=client"
     ],
     "text": {
-     "ja": "説明会に、海外の有名なゲームの生みの親が来ていた。握手した手を、その日は洗わずにキーボードを打った。",
-     "en": "A famous overseas game creator came to the briefing. You shook his hand and typed all day without washing it."
+     "ja": "説明会に、エレクトロニック・アーツと 3DO を作ったトリップ・ホーキンスさんが来ていた。握手した手を、その日は洗わずにキーボードを打った。",
+     "en": "Trip Hawkins, founder of Electronic Arts and 3DO, came to the briefing. You shook his hand and typed all day without washing it."
     },
     "effect": {
      "passion": 7,
@@ -2443,8 +2443,8 @@
      "high"
     ],
     "memory": {
-     "ja": "海外の有名な作り手と握手した",
-     "en": "Shook hands with a famous overseas game creator"
+     "ja": "トリップ・ホーキンスさんと握手した",
+     "en": "Shook hands with Trip Hawkins"
     }
    },
    {
@@ -2991,8 +2991,8 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "収録スタジオの廊下で、人気声優に「おつかれさまです」と言われた。言い返した声が、思いきり裏返った。",
-     "en": "In the studio hallway, a popular voice actor said, \"Good work today.\" Your reply came out in a squeak."
+     "ja": "収録スタジオの廊下で、藤崎詩織役の金月真美さんに「おつかれさまです」と言われた。言い返した声が、思いきり裏返った。",
+     "en": "In the studio hallway, Mami Kingetsu, the voice of Shiori Fujisaki, said, \"Good work today.\" Your reply came out in a squeak."
     },
     "effect": {
      "passion": 8
@@ -3003,8 +3003,8 @@
      "high"
     ],
     "memory": {
-     "ja": "人気声優に「おつかれさまです」と言われた",
-     "en": "A famous voice actor told me \"Good work today\""
+     "ja": "金月真美さんに「おつかれさまです」と言われた",
+     "en": "Mami Kingetsu told me \"Good work today\""
     }
    },
    {
@@ -3443,8 +3443,8 @@
    "en": "Chrono Trigger launches"
   },
   "news": {
-   "ja": "3 月 11 日、有名な作り手たちが集まった RPG がスーパーファミコンで発売された。",
-   "en": "On March 11, an RPG made by a team of famous creators launches on the Super Famicom."
+   "ja": "3 月 11 日、坂口博信・堀井雄二・鳥山明の「ドリームプロジェクト」から生まれた RPG がスーパーファミコンで発売された。",
+   "en": "On March 11, the RPG born from the \"Dream Project\" of Hironobu Sakaguchi, Yuji Horii and Akira Toriyama launches on the Super Famicom."
   },
   "src": "クロノ・トリガー",
   "variants": [
@@ -3495,8 +3495,8 @@
      "job=artist"
     ],
     "text": {
-     "ja": "時を旅する RPG の絵に打ちのめされた。机に戻り、自分のドットを 1 個だけ動かして、帰った。",
-     "en": "The time-travel RPG's art floored you. You went back to your desk, moved exactly one pixel, and went home."
+     "ja": "『クロノ・トリガー』の絵に打ちのめされた。机に戻り、自分のドットを 1 個だけ動かして、帰った。",
+     "en": "Chrono Trigger's art floored you. You went back to your desk, moved exactly one pixel, and went home."
     },
     "effect": {
      "passion": 3,
@@ -3516,8 +3516,8 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "時を旅する RPG に勇気をもらい、ボツになった企画を出し直した。通った。廊下で小さくガッツポーズした。",
-     "en": "Inspired by the time-travel RPG, you resubmitted a rejected pitch. It passed. You fist-pumped quietly in the hallway."
+     "ja": "『クロノ・トリガー』に勇気をもらい、ボツになった企画を出し直した。通った。廊下で小さくガッツポーズした。",
+     "en": "Inspired by Chrono Trigger, you resubmitted a rejected pitch. It passed. You fist-pumped quietly in the hallway."
     },
     "effect": {
      "passion": 8,
@@ -3674,8 +3674,8 @@
    "en": "Pokémon Red and Green launch"
   },
   "news": {
-   "ja": "2 月 27 日にゲームボーイで発売され、口コミと通信交換で社会現象になる。",
-   "en": "Released February 27 on Game Boy, it becomes a phenomenon through word of mouth and link-cable trading."
+   "ja": "2 月 27 日、田尻智が率いるゲームフリークの作品がゲームボーイで発売され、口コミと通信交換で社会現象になる。",
+   "en": "Released February 27 on Game Boy, Satoshi Tajiri's Game Freak creation becomes a phenomenon through word of mouth and link-cable trading."
   },
   "src": "ポケットモンスター 赤・緑",
   "variants": [
@@ -3743,8 +3743,8 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "モンスター集めの作り手の講演に行った。質問の時間に当てられ、緊張して自分の名前を聞いてしまった。",
-     "en": "You attended a talk by the monster-collecting game's creator. Picked for a question, you nervously asked him your own name."
+     "ja": "田尻智さんの講演に行った。質問の時間に当てられ、緊張して自分の名前を聞いてしまった。",
+     "en": "You attended a talk by Satoshi Tajiri. Picked for a question, you nervously asked him your own name."
     },
     "effect": {
      "passion": 8,
@@ -3756,8 +3756,8 @@
      "high"
     ],
     "memory": {
-     "ja": "モンスター集めの作り手に質問した(自分の名前を)",
-     "en": "Asked the monster game's creator a question (my own name)"
+     "ja": "田尻智さんに質問した(自分の名前を)",
+     "en": "Asked Satoshi Tajiri a question (my own name)"
     }
    },
    {
@@ -4000,8 +4000,8 @@
      "flag.w_two_side_ss"
     ],
     "text": {
-     "ja": "人気 RPG の新作がライバル陣営へ。サターンの開発機の上に、誰かがそっと PlayStation の資料を置いていった。",
-     "en": "The big RPG went to the rival camp. Someone quietly left PlayStation docs on top of your Saturn dev kit."
+     "ja": "『FFVII』がライバル陣営へ。サターンの開発機の上に、誰かがそっと PlayStation の資料を置いていった。",
+     "en": "Final Fantasy VII went to the rival camp. Someone quietly left PlayStation docs on top of your Saturn dev kit."
     },
     "choices": [
      {
@@ -4053,8 +4053,8 @@
      "flag.w_two_side_nsf"
     ],
     "text": {
-     "ja": "人気 RPG の新作は CD の陣営へ。64 の陣営の会議で、部長は「うちはカセットで勝負だ」と言い、誰も目を合わせなかった。",
-     "en": "The big RPG went to the CD camp. In the 64 team's meeting, the boss says, \"We'll win with cartridges.\" No one met his eyes."
+     "ja": "『FFVII』は CD の陣営へ。64 の陣営の会議で、部長は「うちはカセットで勝負だ」と言い、誰も目を合わせなかった。",
+     "en": "Final Fantasy VII went to the CD camp. In the 64 team's meeting, the boss says, \"We'll win with cartridges.\" No one met his eyes."
     },
     "effect": {
      "passion": -6,
@@ -4094,8 +4094,8 @@
    {
     "id": "ev_hs_1996_ff7_any",
     "text": {
-     "ja": "人気 RPG の新作が新しい陣営へ移ると発表された。その日、業界の名刺入れの中身が一斉に入れ替わった気がした。",
-     "en": "The big RPG is moving to a new camp. That day, it felt like every business-card holder in the industry got reshuffled."
+     "ja": "『FFVII』が新しい陣営へ移ると発表された。その日、業界の名刺入れの中身が一斉に入れ替わった気がした。",
+     "en": "Final Fantasy VII is moving to a new camp. That day, it felt like every business-card holder in the industry got reshuffled."
     },
     "effect": {
      "network": 3,
@@ -4124,8 +4124,8 @@
    "en": "Resident Evil (Biohazard) launches"
   },
   "news": {
-   "ja": "3 月 22 日、カプコンのホラーゲームが PlayStation で発売され、ロングセラーに。",
-   "en": "On March 22, Capcom's horror game launches on PlayStation and becomes a long seller."
+   "ja": "3 月 22 日、三上真司がディレクターを務めたカプコンのホラーゲームが PlayStation で発売され、ロングセラーに。",
+   "en": "On March 22, Capcom's horror game directed by Shinji Mikami launches on PlayStation and becomes a long seller."
   },
   "src": "バイオハザード (ゲーム)",
   "variants": [
@@ -4303,8 +4303,8 @@
      "pos=client"
     ],
     "text": {
-     "ja": "発表会で、主題歌を歌う歌手と同じエレベーターに乗った。降りる階を通り過ぎても、降りられなかった。",
-     "en": "At the press event, you shared an elevator with the theme-song singer. You rode right past your floor."
+     "ja": "発表会で、主題歌「檄!帝国華撃団」を歌う横山智佐さんと同じエレベーターに乗った。降りる階を通り過ぎても、降りられなかった。",
+     "en": "At the press event, you rode an elevator with Chisa Yokoyama, singer of the theme \"Geki! Teikoku Kagekidan.\" You missed your floor and still couldn't get off."
     },
     "effect": {
      "passion": 8
@@ -4315,8 +4315,8 @@
      "high"
     ],
     "memory": {
-     "ja": "主題歌の歌手と同じエレベーターで階を通り過ぎた",
-     "en": "Rode past my floor in an elevator with the theme singer"
+     "ja": "横山智佐さんと同じエレベーターで階を通り過ぎた",
+     "en": "Rode past my floor with Chisa Yokoyama"
     }
    },
    {
