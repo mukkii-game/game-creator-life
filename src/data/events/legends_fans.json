@@ -1,0 +1,2682 @@
+[
+ {
+  "id": "ev_lf_bond_invader",
+  "years": [
+   1979,
+   1985
+  ],
+  "once": true,
+  "text": {
+   "ja": "喫茶店で「インベーダーの生みの親」と隣の席に。基板の配線図を見せたら「ここ 1 本多いよ」。配線は 1 本減り、自慢話は 1 本増えた。",
+   "en": "At a coffee shop you sat next to the creator of the famous alien-invasion game. You showed him your wiring. \"One wire too many.\" One less wire, one more story to brag about."
+  },
+  "effect": {
+   "passion": 12,
+   "skill": 5,
+   "network": 5
+  },
+  "memory": {
+   "ja": "インベーダーの生みの親に配線を 1 本直してもらった",
+   "en": "the father of the alien invaders fixed one of my wires"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_pacman",
+  "years": [
+   1980,
+   1990
+  ],
+  "once": true,
+  "text": {
+   "ja": "「パックマンの生みの親」の講演で質問した。「敵にも性格を」と返され、翌日から自作の敵 4 匹に名前を付けた。全員、上司の名前だった。",
+   "en": "You asked the creator of the famous maze-chomping game a question at his talk. \"Give the enemies personalities.\" Next day you named your four enemies. All after your bosses."
+  },
+  "effect": {
+   "passion": 10,
+   "skill": 4,
+   "network": 3
+  },
+  "memory": {
+   "ja": "パックマンの生みの親に「敵にも性格を」と教わった",
+   "en": "the maze-chomper's creator told me to give enemies personalities"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_handheld",
+  "years": [
+   1980,
+   1996
+  ],
+  "once": true,
+  "text": {
+   "ja": "「携帯ゲーム機の父」に試作を見せた。「新しい部品はいらん。古い部品で遊び方を新しく」。引き出しのガラクタが急に宝の山に見えた。",
+   "en": "You showed your prototype to the father of handheld games. \"No new parts. Old parts, new ways to play.\" The junk in your drawer suddenly looked like treasure."
+  },
+  "effect": {
+   "passion": 12,
+   "skill": 6,
+   "network": 4
+  },
+  "memory": {
+   "ja": "携帯ゲーム機の父に「古い部品で新しく」と教わった",
+   "en": "the father of handhelds said: old parts, new play"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_plumber",
+  "years": [
+   1983,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "展示会で「配管工の生みの親」が自社ブースに来て 3 分遊んだ。「ジャンプの終わり、もう少し」。その夜、ジャンプの終わりだけ 40 回直した。",
+   "en": "At a trade show, the plumber's creator stopped by your booth and played for three minutes. \"The end of the jump, just a bit more.\" That night you tweaked only the jump's end. Forty times."
+  },
+  "effect": {
+   "passion": 14,
+   "skill": 6,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "配管工の生みの親がうちのゲームのジャンプを直してくれた",
+   "en": "the plumber's creator gave notes on my jump"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_rpg_writer",
+  "years": [
+   1986,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "「国民的 RPG の生みの親」に飲みに連れて行かれた。終電まで、黙って自分の話を聞いてくれた。気づけば 3 時間、自分だけしゃべっていた。",
+   "en": "The creator of the national RPG took you out drinking. He listened quietly until the last train. You realized you'd been the only one talking. For three hours."
+  },
+  "effect": {
+   "passion": 12,
+   "network": 8
+  },
+  "memory": {
+   "ja": "国民的 RPG の生みの親が終電まで話を聞いてくれた",
+   "en": "the father of the national RPG listened to me until the last train"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_rpg_composer",
+  "years": [
+   1986,
+   2021
+  ],
+  "once": true,
+  "text": {
+   "ja": "スタジオのエレベーターで「国民的 RPG の作曲家」と 2 人きり。「ゲームの音、好きですか」と聞かれ「はい」。人生で一番いい「はい」だった。",
+   "en": "In a studio elevator, alone with the composer of the national RPG. \"Do you like game music?\" \"Yes.\" The best \"yes\" of your life."
+  },
+  "effect": {
+   "passion": 12,
+   "network": 4
+  },
+  "memory": {
+   "ja": "国民的 RPG の作曲家にエレベーターで話しかけられた",
+   "en": "the national RPG's composer spoke to me in an elevator"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_ff_creator",
+  "years": [
+   1987,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "「最後のつもりで作った RPG」の生みの親に企画を相談した。「毎回、最後のつもりで」。あなたはその後 5 回「これが最後」と言い、5 回とも次を作った。",
+   "en": "You asked the creator of the RPG \"made as the final one\" for advice. \"Make every one like it's your last.\" You said \"this is my last\" five more times. Each time, you made another."
+  },
+  "effect": {
+   "passion": 14,
+   "skill": 4,
+   "network": 5
+  },
+  "memory": {
+   "ja": "「毎回、最後のつもりで」と教わった",
+   "en": "a legend told me to make every game like my last"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_ff_composer",
+  "years": [
+   1987,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "打ち上げのカラオケで「名バトル曲の作曲家」と同じ部屋に。あなたは本人の前で本人の曲を入れた。採点 68 点。本人は一番大きな拍手をくれた。",
+   "en": "Wrap-party karaoke, same room as the composer of legendary battle themes. You sang his song in front of him. Score: 68. He clapped the loudest."
+  },
+  "effect": {
+   "passion": 12,
+   "network": 6,
+   "hp": -2
+  },
+  "memory": {
+   "ja": "名バトル曲の作曲家の前でその人の曲を歌った",
+   "en": "i sang a legend's battle theme in front of him"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_spy",
+  "years": [
+   1987,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "試写会で「スパイ潜入ゲームの監督」と隣の席に。監督は上映中ずっとメモを取り、あなたは寝ていた。終映後「どうでした?」と聞かれた。",
+   "en": "At a film preview you sat next to the director of the stealth spy games. He took notes the whole time. You slept. Afterward: \"What did you think?\""
+  },
+  "effect": {
+   "network": 4
+  },
+  "memory": {
+   "ja": "スパイ潜入ゲームの監督と映画の話をした",
+   "en": "i talked movies with the stealth-game director"
+  },
+  "choices": [
+   {
+    "id": "ch_lf_bond_spy_honest",
+    "label": {
+     "ja": "「寝てました」と正直に言う",
+     "en": "Admit you slept"
+    },
+    "effect": {
+     "passion": 10,
+     "network": 8
+    },
+    "result": {
+     "ja": "監督は大笑いし「寝られる映画は音がいい」。名刺をもらった。",
+     "en": "He laughed hard. \"A movie you can sleep through has good sound.\" You got his card."
+    }
+   },
+   {
+    "id": "ch_lf_bond_spy_bluff",
+    "label": {
+     "ja": "それっぽく語る",
+     "en": "Fake a review"
+    },
+    "effect": {
+     "passion": 6,
+     "skill": 6
+    },
+    "result": {
+     "ja": "「ラストの解釈が違う」と 30 分の講義が始まった。人生で一番濃い 30 分だった。",
+     "en": "\"You've got the ending wrong.\" A thirty-minute lecture followed. The densest half hour of your life."
+    }
+   }
+  ],
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_monster",
+  "years": [
+   1996,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "「モンスター集めの生みの親」と虫取りの話で 1 時間盛り上がった。ゲームの話はゼロ。帰り道、なぜか企画書が 3 本書けた。",
+   "en": "You talked bug-catching for an hour with the creator of the monster-collecting games. Not a word about games. On the way home, three proposals wrote themselves."
+  },
+  "effect": {
+   "passion": 12,
+   "skill": 4,
+   "network": 4
+  },
+  "memory": {
+   "ja": "モンスター集めの生みの親と虫取りの話をした",
+   "en": "i talked bug-catching with the monster-collecting legend"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_shooting_god",
+  "years": [
+   1984,
+   2005
+  ],
+  "once": true,
+  "text": {
+   "ja": "「シューティングの神様」に自作の弾を見てもらった。「避けられる弾は優しさ」。弾を 3 割減らしたら、テストの後輩が泣いて喜んだ。",
+   "en": "The god of shooting games looked at your bullet patterns. \"A dodgeable bullet is a kindness.\" You cut the bullets by 30%. Your junior tester wept with joy."
+  },
+  "effect": {
+   "passion": 10,
+   "skill": 6
+  },
+  "memory": {
+   "ja": "シューティングの神様に「避けられる弾は優しさ」と教わった",
+   "en": "the god of shooters taught me that a dodgeable bullet is kindness"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_meijin",
+  "years": [
+   1985,
+   1995
+  ],
+  "once": true,
+  "text": {
+   "ja": "「連射の名人」の全国キャラバンで自社ソフトの手伝いをした。名人の連射を 30 センチの距離で見た。家で真似したら 6 連射で指がつった。",
+   "en": "You helped out at the rapid-fire master's nationwide caravan. You watched his trigger finger from a foot away. At home you tried it. Six taps, then a cramp."
+  },
+  "effect": {
+   "passion": 10,
+   "network": 5,
+   "hp": -2
+  },
+  "memory": {
+   "ja": "連射の名人の指を間近で見た",
+   "en": "i saw the rapid-fire master's finger up close"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_3d_fighter",
+  "years": [
+   1993,
+   2008
+  ],
+  "once": true,
+  "text": {
+   "ja": "「ポリゴン格闘の父」の開発室を見学した。机にはカンフーの本が 20 冊。翌日から本屋に通い、型を真似して腰を痛めた。",
+   "en": "You toured the lab of the father of polygon fighting games. Twenty kung fu books on his desk. You started visiting bookstores, copied the stances, and threw out your back."
+  },
+  "effect": {
+   "passion": 10,
+   "skill": 5,
+   "hp": -3
+  },
+  "memory": {
+   "ja": "ポリゴン格闘の父の開発室を見学した",
+   "en": "i toured the lab of the polygon-fighting legend"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_fighting_planner",
+  "years": [
+   1991,
+   2008
+  ],
+  "once": true,
+  "text": {
+   "ja": "ゲーセンの対戦台で、相手は「対戦格闘ブームの立役者」だった。3 秒で負けた。台の向こうから顔が出て「いい待ち方ですね」。",
+   "en": "At an arcade versus cabinet, your opponent was the man behind the fighting-game boom. You lost in three seconds. His face peeked over: \"Nice defensive play.\""
+  },
+  "effect": {
+   "passion": 12,
+   "network": 4
+  },
+  "memory": {
+   "ja": "対戦格闘の立役者に「いい待ち方」と褒められた",
+   "en": "the fighting-game legend praised my turtling"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_sound_novel",
+  "years": [
+   1992,
+   2012
+  ],
+  "once": true,
+  "text": {
+   "ja": "「サウンドノベルの生みの親」に企画を読んでもらった。一言「文字だけで怖いですね」。それが褒め言葉だと気づいたのは 1 年後だった。",
+   "en": "The creator of the sound novel read your proposal. \"Scary with just text.\" You realized it was a compliment a year later."
+  },
+  "effect": {
+   "passion": 8,
+   "skill": 5,
+   "network": 4
+  },
+  "memory": {
+   "ja": "サウンドノベルの生みの親に企画を読んでもらった",
+   "en": "the sound novel's creator read my proposal"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_horror",
+  "years": [
+   1996,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "飲み会で「サバイバルホラーの生みの親」の隣に。「ゾンビは歩くのがいい」と熱弁された。翌週、あなたの企画のゾンビは全員歩き出した。",
+   "en": "At a drinking party you sat next to the father of survival horror. \"Zombies should walk.\" The next week, every zombie in your project started walking."
+  },
+  "effect": {
+   "passion": 10,
+   "skill": 5,
+   "network": 4
+  },
+  "memory": {
+   "ja": "サバイバルホラーの生みの親とゾンビを語った",
+   "en": "i talked zombies with the father of survival horror"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_kirby",
+  "years": [
+   1992,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "イベントの楽屋で「ピンクの丸いヒーローの生みの親」に会った。のどまで「弟子にしてください」が出かかっている。",
+   "en": "Backstage at an event, you met the creator of the round pink hero. \"Please take me as your apprentice\" is on the tip of your tongue."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "memory": {
+   "ja": "ピンクの丸いヒーローの生みの親に会った",
+   "en": "i met the creator of the round pink hero"
+  },
+  "choices": [
+   {
+    "id": "ch_lf_bond_kirby_ask",
+    "label": {
+     "ja": "言う",
+     "en": "Say it"
+    },
+    "effect": {
+     "passion": 12,
+     "skill": 4,
+     "flag": {
+      "fan_disciple": true
+     }
+    },
+    "result": {
+     "ja": "「弟子は取らないけど、毎日作って」。その日から毎日作った。3 日坊主にならなかった唯一の約束。",
+     "en": "\"I don't take apprentices. But make something every day.\" You did. The only promise you ever kept past day three."
+    },
+    "memory": {
+     "ja": "「毎日作って」と言われ、本当に毎日作った",
+     "en": "a legend told me to make something every day, and i did"
+    }
+   },
+   {
+    "id": "ch_lf_bond_kirby_sign",
+    "label": {
+     "ja": "言わずにサインだけ頼む",
+     "en": "Just ask for an autograph"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3
+    },
+    "result": {
+     "ja": "色紙には丸が 1 個描いてあった。たぶん家宝。",
+     "en": "The card had a single circle on it. Probably a family heirloom now."
+    }
+   }
+  ],
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_rhythm",
+  "years": [
+   1996,
+   2012
+  ],
+  "once": true,
+  "text": {
+   "ja": "「ラップで進む音ゲーの生みの親」と打ち合わせ。「企画をラップで説明して」と言われた。韻は 1 つも踏めなかったが、企画は通った。",
+   "en": "Meeting with the creator of the rapping rhythm game. \"Pitch it as a rap.\" You didn't land a single rhyme. The pitch got approved anyway."
+  },
+  "effect": {
+   "passion": 10,
+   "network": 5
+  },
+  "memory": {
+   "ja": "音ゲーの生みの親の前でラップをした",
+   "en": "i rapped a pitch for a rhythm-game legend"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_katamari",
+  "years": [
+   2004,
+   2016
+  ],
+  "once": true,
+  "text": {
+   "ja": "「転がして大きくするゲームの作者」と公園で偶然会った。「すべり台もゲームになるよね」。あなたは 30 分すべり台を見つめ、通報されかけた。",
+   "en": "You ran into the creator of the roll-it-bigger game at a park. \"Even a slide could be a game.\" You stared at the slide for thirty minutes. Someone nearly called the police."
+  },
+  "effect": {
+   "passion": 10,
+   "skill": 4
+  },
+  "memory": {
+   "ja": "公園で「転がすゲーム」の作者と話した",
+   "en": "i met the roll-it-bigger creator in a park"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_souls",
+  "years": [
+   2009,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "「死にゲーの監督」に自作を遊んでもらった。12 回死んで一言「優しすぎる」。帰り道、敵の攻撃力を 3 倍にした。",
+   "en": "The director of the famously punishing action games played your game. Died twelve times. \"Too kind.\" On the way home, you tripled every enemy's attack."
+  },
+  "effect": {
+   "passion": 12,
+   "skill": 5,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "死にゲーの監督に「優しすぎる」と言われた",
+   "en": "the punishing-games director called my game too kind"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_mask",
+  "years": [
+   2010,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "「仮面で人前に出る監督」と飲みに行った。最後まで仮面のまま、あなたの愚痴を全部聞いてくれた。顔は知らない。でも恩人だ。",
+   "en": "You went drinking with the director who appears in public in a mask. He kept it on all night and heard out every complaint you had. You never saw his face. Still, he's your benefactor."
+  },
+  "effect": {
+   "passion": 12,
+   "network": 6
+  },
+  "memory": {
+   "ja": "仮面の監督が愚痴を全部聞いてくれた",
+   "en": "the masked director listened to all my complaints"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_president",
+  "years": [
+   1993,
+   2015
+  ],
+  "once": true,
+  "text": {
+   "ja": "「プログラマー出身の社長」が展示会で、あなたのバグの話を楽しそうに聞いた。「それ、こう直すと速いですよ」。社長にデバッグしてもらった。",
+   "en": "At a trade show, the programmer-turned-company-president happily listened to your bug story. \"Fix it this way, it's faster.\" A president debugged your code."
+  },
+  "effect": {
+   "passion": 14,
+   "skill": 6,
+   "network": 4
+  },
+  "memory": {
+   "ja": "プログラマー出身の社長にバグを直してもらった",
+   "en": "a programmer-president helped me fix a bug"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_tetris",
+  "years": [
+   1989,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "来日イベントで「落ち物パズルの生みの親」と握手した。3 か月練習した英語で話しかけたら、日本語で「ありがとう」と返された。",
+   "en": "At an event in Japan, you shook hands with the creator of the falling-block puzzle. You spoke the English you'd practiced for three months. He replied in Japanese: \"Arigato.\""
+  },
+  "effect": {
+   "passion": 10,
+   "network": 4
+  },
+  "memory": {
+   "ja": "落ち物パズルの生みの親と握手した",
+   "en": "i shook hands with the falling-block puzzle legend"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_atari",
+  "years": [
+   1977,
+   1986
+  ],
+  "once": true,
+  "text": {
+   "ja": "来日した「アメリカのゲーム会社の創業者」のカバン持ちを 1 日だけした。ゲームの話より、ピザ屋を作る話を 2 時間聞いた。",
+   "en": "For one day you carried the bags of the founder of the American game company. Instead of games, he told you about his pizza restaurant. For two hours."
+  },
+  "effect": {
+   "passion": 10,
+   "network": 6
+  },
+  "memory": {
+   "ja": "アメリカのゲーム会社の創業者のカバンを持った",
+   "en": "i carried the bags of an american game-company founder"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_simcity",
+  "years": [
+   1989,
+   2012
+  ],
+  "once": true,
+  "text": {
+   "ja": "海外の会議で「街を作るゲームの作者」と話した。「勝ち負けのないゲームもある」。負けっぱなしの人生を少しだけ肯定された気がした。",
+   "en": "At a conference abroad you spoke with the creator of the city-building game. \"Some games have no winning or losing.\" Your life of losses felt slightly validated."
+  },
+  "effect": {
+   "passion": 10,
+   "skill": 3,
+   "network": 4
+  },
+  "memory": {
+   "ja": "街を作るゲームの作者と話した",
+   "en": "i talked with the city-builder's creator"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_doom",
+  "years": [
+   1993,
+   2015
+  ],
+  "once": true,
+  "text": {
+   "ja": "海外の開発者会議で「3D シューティングの天才プログラマー」の講演を最前列で聞いた。分かった英単語は 3 つ。ノートは 12 ページ埋まった。",
+   "en": "At a developers' conference abroad you sat front row for the genius programmer of 3D shooters. You understood three English words. You filled twelve pages of notes."
+  },
+  "effect": {
+   "passion": 10,
+   "skill": 6
+  },
+  "memory": {
+   "ja": "天才プログラマーの講演を最前列で聞いた",
+   "en": "i sat front row for a genius programmer's talk"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_solo_world",
+  "years": [
+   2011,
+   2025
+  ],
+  "once": true,
+  "text": {
+   "ja": "海外のイベントで「一人で作ったブロックの世界が世界中で売れた作者」に「君も一人で?」と聞かれた。「はい」。ハイタッチされた。",
+   "en": "At an event abroad, the man whose one-person block-world game sold around the world asked: \"You work alone too?\" \"Yes.\" He high-fived you."
+  },
+  "effect": {
+   "passion": 14,
+   "network": 5
+  },
+  "memory": {
+   "ja": "ブロックの世界の作者にハイタッチされた",
+   "en": "the block-world creator high-fived me"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_youtube_teacher",
+  "years": [
+   2022,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "「ゲーム作りの講座動画の大御所」とイベントで 5 分話せた。「毎日作ってますか」。その日から、講座動画を見る時間を作る時間に変えた。",
+   "en": "At an event you got five minutes with the legend known for game-design lecture videos. \"Are you making something every day?\" From then on, you swapped watching his videos for making things."
+  },
+  "effect": {
+   "passion": 12,
+   "skill": 5
+  },
+  "memory": {
+   "ja": "講座動画の大御所に「毎日作ってますか」と聞かれた",
+   "en": "a legend asked if i was making something every day"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_hunting",
+  "years": [
+   2004,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "「みんなで狩るゲームのプロデューサー」と出張の新幹線で隣に。3 時間、肉の焼き加減の話だけをした。いまでも肉はそこで焼き上げる。",
+   "en": "On a bullet train, you sat next to the producer of the multiplayer monster-hunting games. Three hours of talk about grilling meat. You still pull the meat off right at that moment."
+  },
+  "effect": {
+   "passion": 10,
+   "network": 5
+  },
+  "memory": {
+   "ja": "狩りゲームのプロデューサーと肉の焼き加減を語った",
+   "en": "i talked grilling with the monster-hunting producer"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_hedgehog",
+  "years": [
+   1991,
+   2010
+  ],
+  "once": true,
+  "text": {
+   "ja": "「青いハリネズミのプログラマー」と海外のホテルのロビーで話した。「速さは気持ちいい」。あなたの次の作品の主人公は、無駄に走った。",
+   "en": "In a hotel lobby abroad you talked with the programmer of the blue hedgehog. \"Speed feels good.\" The hero of your next game ran around for no reason."
+  },
+  "effect": {
+   "passion": 10,
+   "skill": 5
+  },
+  "memory": {
+   "ja": "青いハリネズミのプログラマーと話した",
+   "en": "i talked with the blue hedgehog's programmer"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_legend_lift",
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "「名前を聞けば誰でも分かるゲームデザイナー」とエレベーターで 2 人きり。10 階分、何も言えなかった。降り際の「お疲れさまです」で 3 日浮かれた。",
+   "en": "Alone in an elevator with a game designer everyone knows by name. Ten floors, and you said nothing. \"Good work today,\" he said as he left. You floated for three days."
+  },
+  "effect": {
+   "passion": 10,
+   "network": 2
+  },
+  "memory": {
+   "ja": "伝説のデザイナーに「お疲れさまです」と言われた",
+   "en": "a legendary designer told me \"good work today\""
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_legend_pickup",
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "大御所プロデューサーとの企画会議。没になった自分の案を、大御所が「さっきの、いいじゃない」と拾った。会議室の空気が 180 度変わった。",
+   "en": "A planning meeting with a big-name producer. He picked up your rejected idea: \"That one earlier, not bad.\" The room flipped 180 degrees."
+  },
+  "effect": {
+   "passion": 14,
+   "network": 8,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "大御所に没案を拾ってもらった",
+   "en": "a legend rescued my rejected idea"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_legend_pixel",
+  "years": [
+   1980,
+   2006
+  ],
+  "once": true,
+  "text": {
+   "ja": "「伝説のドット絵師」にドットを 1 個だけ直された。それだけで絵が生き返った。あなたが 3 日かけた絵だった。",
+   "en": "A legendary pixel artist changed exactly one pixel of yours. The whole picture came alive. You had spent three days on it."
+  },
+  "effect": {
+   "passion": 8,
+   "skill": 8
+  },
+  "memory": {
+   "ja": "伝説のドット絵師にドットを 1 個直された",
+   "en": "a legendary pixel artist fixed one of my pixels"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_legend_programmer",
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "「伝説のプログラマー」が自分のコードを 10 秒見て「これ、ループの外に」。処理落ちが消えた。あなたは 2 週間悩んでいた。",
+   "en": "A legendary programmer glanced at your code for ten seconds. \"Move this outside the loop.\" The slowdown vanished. You had struggled for two weeks."
+  },
+  "effect": {
+   "passion": 8,
+   "skill": 10
+  },
+  "memory": {
+   "ja": "伝説のプログラマーにコードを 10 秒で直された",
+   "en": "a legendary programmer fixed my code in ten seconds"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_legend_master",
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "業界の大御所に何度も飲みに連れて行かれた。ある夜、酔って「師匠」と呼んでしまった。大御所は黙ってグラスを置いた。",
+   "en": "An industry legend kept taking you out for drinks. One night, drunk, you called him \"Master.\" He set down his glass in silence."
+  },
+  "effect": {
+   "network": 4
+  },
+  "memory": {
+   "ja": "大御所を「師匠」と呼んだ",
+   "en": "i called a legend \"master\""
+  },
+  "choices": [
+   {
+    "id": "ch_lf_bond_master_keep",
+    "label": {
+     "ja": "これからもそう呼ぶ",
+     "en": "Keep calling him that"
+    },
+    "effect": {
+     "passion": 12,
+     "network": 8,
+     "flag": {
+      "fan_master": true
+     }
+    },
+    "result": {
+     "ja": "「勝手にしろ」と笑われた。以後、毎年年賀状が届く。",
+     "en": "\"Suit yourself,\" he laughed. A New Year's card has arrived every year since."
+    }
+   },
+   {
+    "id": "ch_lf_bond_master_sorry",
+    "label": {
+     "ja": "「すみません」と謝る",
+     "en": "Apologize"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 6,
+     "flag": {
+      "fan_master": true
+     }
+    },
+    "result": {
+     "ja": "「師匠でいいよ」と言われた。結局、呼ぶことになった。",
+     "en": "\"Master is fine.\" So you ended up calling him that anyway."
+    }
+   }
+  ],
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_legend_composer",
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "「ゲーム音楽の巨匠」が、あなたが仮で入れた効果音を「これ、いいね」。そのまま製品に入った。あなたが口で言った「ピロン」だった。",
+   "en": "A master of game music heard your placeholder sound effect: \"I like this.\" It shipped as is. It was you, saying \"piron\" into a mic."
+  },
+  "effect": {
+   "passion": 12,
+   "skill": 3,
+   "network": 4
+  },
+  "memory": {
+   "ja": "巨匠に口で言った効果音を褒められた",
+   "en": "a game-music master loved the sound i made with my mouth"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_legend_cowork",
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "業界の大御所の新作に 1 か月だけ助っ人で呼ばれた。スタッフロールの 214 番目に名前が載った。そこで一時停止して写真を撮った。",
+   "en": "A legend's new game called you in to help for one month. Your name appeared 214th in the credits. You paused right there and took a photo."
+  },
+  "effect": {
+   "passion": 12,
+   "skill": 4,
+   "network": 6,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "大御所の作品のスタッフロールに名前が載った",
+   "en": "my name was in a legend's credits"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_bond_legend_overseas",
+  "years": [
+   1990,
+   2040
+  ],
+  "once": true,
+  "text": {
+   "ja": "海外の有名スタジオの創業者が来社し、昼食で隣の席に。箸の持ち方を教えた。帰国後に届いた礼状は、箸の話だけだった。",
+   "en": "The founder of a famous overseas studio visited and sat next to you at lunch. You taught him to hold chopsticks. His thank-you letter was only about chopsticks."
+  },
+  "effect": {
+   "passion": 10,
+   "network": 8
+  },
+  "memory": {
+   "ja": "海外の有名スタジオの創業者に箸の持ち方を教えた",
+   "en": "i taught chopsticks to a famous studio founder"
+  },
+  "tag": [
+   "bond",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_mag_name",
+  "years": [
+   1983,
+   2015
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "雑誌のインタビューで、大物クリエイターが「最近気になる作り手」に {name} の名を挙げた。誤植で 1 文字違っていたが、切り抜いた。",
+   "en": "In a magazine interview, a famous creator named {name} as \"a developer to watch.\" Misprinted by one letter. You clipped it anyway."
+  },
+  "when": [
+   "works>=1",
+   "stat.fame>=15"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 5
+  },
+  "memory": {
+   "ja": "大物クリエイターに名前を挙げてもらった(誤植つき)",
+   "en": "a famous creator named me in a magazine, misprinted"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_letter_ref",
+  "years": [
+   1980,
+   1997
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "知らない会社から封書。「御社の {work} を参考にしました」。同封された新作を遊んだら、{work} より面白かった。",
+   "en": "A letter from a company you've never heard of: \"We took inspiration from {work}.\" You played the enclosed game. It was more fun than {work}."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "「参考にしました」と手紙が届いた",
+   "en": "a letter said they were inspired by my game"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_mail_ref",
+  "years": [
+   1996,
+   2010
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "海外のスタジオから英語のメール。翻訳サイトにかけたら「あなたのゲームは私たちの心のオーブン」。たぶん褒めている。",
+   "en": "An email from a studio overseas. You ran it through a translation site: \"Your game is the oven of our hearts.\" Probably a compliment."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "海外のスタジオから「心のオーブン」とメールが来た",
+   "en": "an overseas studio called my game the oven of their hearts"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_overseas_influence",
+  "years": [
+   2005,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "海外の有名スタジオの監督が、講演で「影響を受けた作品」にあなたの昔の作品を挙げた。客席 2000 人で、泣いたのはあなただけ。",
+   "en": "A director from a famous overseas studio listed your old game as an influence in his talk. Two thousand in the audience. Only you cried."
+  },
+  "when": [
+   "works>=2"
+  ],
+  "effect": {
+   "passion": 15,
+   "fame": 6
+  },
+  "memory": {
+   "ja": "海外の有名監督が自分の昔の作品を影響源に挙げた",
+   "en": "a famous director named my old game as an influence"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_rival_company",
+  "years": [
+   1983,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "業界紙に、ライバル会社の看板ディレクターの言葉。「{name} にだけは負けたくない」。あなたはその人の名前を知らなかった。慌てて調べた。",
+   "en": "In a trade paper, a rival company's star director said: \"The one person I won't lose to is {name}.\" You'd never heard of him. You looked him up in a panic."
+  },
+  "when": [
+   "works>=1",
+   "stat.fame>=20"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 4
+  },
+  "memory": {
+   "ja": "ライバル会社の看板に「負けたくない」と言われた",
+   "en": "a rival's star director said he won't lose to me"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_counter_meeting",
+  "years": [
+   1980,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "部長に呼ばれた。「ライバル社が {name} 対策の会議を開いたらしい」。対策される側になったのか。帰りにケーキを 2 個買った。",
+   "en": "Your manager called you in. \"Word is a rival held a meeting about how to beat {name}.\" You're someone to beat now. You bought two slices of cake on the way home."
+  },
+  "when": [
+   "works>=1",
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "ライバル社が自分の対策会議を開いた",
+   "en": "a rival held a meeting just to beat me"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_sns_jump",
+  "years": [
+   2010,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "大ヒット作の開発者が SNS で「ジャンプの感触は {work} が手本」と書いた。3 万いいね。あなたの放置アカウントのフォロワーが 12 人増えた。",
+   "en": "The developer of a smash hit posted: \"Our jump feel was modeled on {work}.\" Thirty thousand likes. Your abandoned account gained twelve followers."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 4
+  },
+  "memory": {
+   "ja": "大ヒット作の開発者に「手本」と言われた",
+   "en": "a hit game's developer called my game their model"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_award_speech",
+  "years": [
+   1996,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "大きな賞の受賞スピーチで「あの人のゲームが無ければ今の私はない」とあなたの名前が出た。テレビの前でカップ麺を落とした。",
+   "en": "In an award speech on TV, the winner said: \"Without that person's games, I wouldn't be here,\" and named you. You dropped your cup noodles."
+  },
+  "when": [
+   "works>=2",
+   "stat.fame>=20"
+  ],
+  "effect": {
+   "passion": 15,
+   "fame": 6
+  },
+  "memory": {
+   "ja": "受賞スピーチで名前を出された",
+   "en": "a winner thanked me in an award speech"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_copy_honor",
+  "years": [
+   1985,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "{work} にそっくりのゲームが他社から出た。腹が立つより先に「真似される側になった」と、トイレで小さくガッツポーズした。",
+   "en": "Another company released a game suspiciously like {work}. Before anger came something else: you're the one being copied now. A small fist pump in the restroom."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "自分のゲームのそっくりさんが出た",
+   "en": "someone copied my game"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_textbook",
+  "years": [
+   2000,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "専門学校の教科書に {work} が「よい例」として載った。「悪い例」のページには、あなたの別の作品が載っていた。",
+   "en": "A game school textbook featured {work} as a \"good example.\" On the \"bad example\" page: another game of yours."
+  },
+  "when": [
+   "works>=2"
+  ],
+  "effect": {
+   "passion": 8,
+   "fame": 4
+  },
+  "memory": {
+   "ja": "教科書に「よい例」で載った(悪い例にも)",
+   "en": "a textbook used my game as a good example (and a bad one)"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_interview_idol",
+  "years": [
+   1990,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "新人の面接で「{name} さんに憧れて業界に来ました」と言われた。面接官の自分が一番緊張して、水を 3 杯飲んだ。",
+   "en": "In a job interview, the applicant said: \"I got into this industry because of {name}.\" You, the interviewer, were the most nervous. Three glasses of water."
+  },
+  "when": [
+   "works>=2",
+   "status=employed",
+   "age>=30"
+  ],
+  "effect": {
+   "passion": 12,
+   "network": 3,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "「憧れて業界に来ました」と言われた",
+   "en": "a newcomer said i was why they joined the industry"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_legend_mention",
+  "years": [
+   1986,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "大物の対談記事で「あの小さい会社のゲーム、いいよね」とあなたの作品に触れていた。会社の電話が 1 日鳴りやまなかった。全部、身内だった。",
+   "en": "In a legend's interview: \"That game from the little company, it's good.\" It was yours. The office phone rang all day. All family members."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 4
+  },
+  "memory": {
+   "ja": "大物の対談で自分のゲームに触れてもらった",
+   "en": "a legend mentioned my game in an interview"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_speedrun",
+  "years": [
+   2010,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "昔の {work} がタイムアタックの大会で走られていた。世界記録は 11 分。作ったあなたは、クリアまで 3 時間かかる。",
+   "en": "{work} was being run at a speedrunning event. World record: eleven minutes. You, the creator, need three hours to beat it."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "自分のゲームがタイムアタックの大会で走られた",
+   "en": "my game was run at a speedrunning event"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_peer",
+  "years": [
+   1980,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "飲み会で同期の {peer} が「お前にだけは負けたくない」。ライバル視されていたとは。あなたは {peer} に一度も勝ったことがない。",
+   "en": "At drinks, {peer} said: \"You're the one person I won't lose to.\" You had no idea. You have never once beaten {peer}."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10,
+   "network": 3
+  },
+  "memory": {
+   "ja": "同期にライバル宣言された",
+   "en": "my peer declared me a rival"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_overseas_poster",
+  "years": [
+   1995,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "海外のゲーム会社を見学したら、壁に {work} の海外版ポスター。「ずっと目標でした」。日本の本社にも無いポスターだった。",
+   "en": "Visiting a studio overseas, you found the foreign-release poster for {work} on their wall. \"It's always been our goal.\" Your own head office doesn't even have that poster."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 14,
+   "fame": 4,
+   "network": 4
+  },
+  "memory": {
+   "ja": "海外のスタジオの壁に自分の作品のポスターがあった",
+   "en": "an overseas studio had my game's poster on the wall"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_remake",
+  "years": [
+   2005,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "有名スタジオから「あなたの昔の作品をリメイクさせて」と連絡が来た。権利は前の会社にあり、あなたには何の権限も無い。それでもうれしかった。",
+   "en": "A famous studio asked to remake one of your old games. The rights belong to your old company; you have no say at all. Still, you were thrilled."
+  },
+  "when": [
+   "works>=2"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 4
+  },
+  "memory": {
+   "ja": "有名スタジオに昔の作品をリメイクしたいと言われた",
+   "en": "a famous studio wanted to remake my old game"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_challenge",
+  "years": [
+   1983,
+   2000
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "ライバル会社の新作の取扱説明書の最後に「{company} のみなさん、次も勝負です」。社内に張り出され、全員の残業が 2 時間増えた。",
+   "en": "The last page of a rival's new manual: \"To everyone at {company}: see you in the next round.\" It went up on the office wall. Everyone's overtime grew two hours."
+  },
+  "when": [
+   "works>=1",
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 10,
+   "hp": -3,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "ライバル会社から説明書で挑戦状が来た",
+   "en": "a rival challenged us in their manual"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_one_post",
+  "years": [
+   2010,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "大物クリエイターが {work} を遊んで「やられた」とだけ投稿した。売上が 3 倍になった。あなたの 3 年は、その 4 文字に負けた。",
+   "en": "A big-name creator played {work} and posted just: \"Got me.\" Sales tripled. Your three years of work lost to two words."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 14,
+   "fame": 5,
+   "money": 30
+  },
+  "memory": {
+   "ja": "大物の「やられた」で売上が 3 倍になった",
+   "en": "a legend's \"got me\" tripled my sales"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_award_judge",
+  "years": [
+   1996,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "賞は逃した。でも講評で選考委員の大物が「一番悔しかったのは {work} を選べなかったこと」。賞状より重い講評だった。",
+   "en": "You didn't win. But a legendary judge said: \"My biggest regret is that we couldn't choose {work}.\" It weighed more than any trophy."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 4
+  },
+  "memory": {
+   "ja": "選考委員の大物に「選べず悔しい」と言われた",
+   "en": "a legendary judge regretted not choosing my game"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_talk_notes",
+  "years": [
+   2000,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "開発者会議で講演したら、最前列で大手のエースがメモを取っていた。翌年、エースの新作に自分の技がそのまま入っていた。誇らしさ 7、悔しさ 3。",
+   "en": "You gave a talk at a developer conference; a big studio's ace took notes in the front row. Next year his new game used your technique exactly. Seventy percent pride, thirty percent sour."
+  },
+  "when": [
+   "works>=2"
+  ],
+  "effect": {
+   "passion": 10,
+   "skill": 3,
+   "fame": 4
+  },
+  "memory": {
+   "ja": "講演で話した技が大手の新作に入った",
+   "en": "my technique showed up in a big studio's game"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_flowers",
+  "years": [
+   1990,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "発売日、ライバル会社の大物からお祝いの花が届いた。札には「次はうちが勝ちます」。花は枯れたが、札はいまも机にある。",
+   "en": "Launch day: congratulatory flowers from a rival company's legend. The card read: \"Next time, we win.\" The flowers died. The card is still on your desk."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 12,
+   "network": 4,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "ライバルの大物から「次はうちが勝つ」と花が届いた",
+   "en": "a rival legend sent flowers: \"next time, we win\""
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_rival_translated",
+  "years": [
+   1997,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "海外のファンサイトで自分のインタビューが翻訳されていた。「天才です」と訳されていた。原文は「たまたまです」。",
+   "en": "An overseas fan site had translated your interview. It said: \"I am a genius.\" The original: \"It was luck.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 8,
+   "fame": 4
+  },
+  "memory": {
+   "ja": "海外で「天才」と訳された",
+   "en": "an overseas site translated me as a genius"
+  },
+  "tag": [
+   "rival",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_postcard_first",
+  "years": [
+   1980,
+   1995
+  ],
+  "weight": 0.7,
+  "once": true,
+  "text": {
+   "ja": "アンケートハガキが会社経由で届いた。「ボスが強すぎ」。初めての感想だった。額に入れた。",
+   "en": "A reader-survey postcard was forwarded to you. \"The boss is too hard.\" Your first ever feedback. You framed it."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10
+  },
+  "memory": {
+   "ja": "初めての感想ハガキを額に入れた",
+   "en": "i framed my first fan postcard"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_letter_love",
+  "years": [
+   1980,
+   1995
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "封書のファンレター。便箋の 1 枚目に大きく「好きです!」。3 日浮かれてから 2 枚目を読んだ。「特に 3 面の BGM が」。",
+   "en": "A fan letter in an envelope. Page one, in big letters: \"I love you!\" You floated for three days, then read page two: \"…r stage 3 music.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_letter_photo",
+  "years": [
+   1983,
+   1995
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ファンレターに写真が 1 枚同封されていた。どきっとして見ると、ハイスコアを出したテレビ画面の写真だった。5 分見つめてから壁に貼った。",
+   "en": "A fan letter came with a photo. Your heart skipped. It was a photo of a TV screen showing a high score. You stared for five minutes, then pinned it to the wall."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_readers_corner",
+  "years": [
+   1983,
+   2000
+  ],
+  "weight": 0.7,
+  "once": true,
+  "text": {
+   "ja": "ゲーム雑誌の読者コーナーに {work} のイラストが載った。描いたのは小学生。公式の絵より上手かった。",
+   "en": "A drawing of {work} appeared in a game magazine's reader corner. By a grade-schooler. Better than the official art."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "雑誌の読者コーナーに自分のゲームの絵が載った",
+   "en": "a kid's drawing of my game ran in a magazine"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_kid_bug",
+  "years": [
+   1983,
+   1995
+  ],
+  "weight": 0.7,
+  "once": true,
+  "text": {
+   "ja": "小学生からハガキ。「4 面で壁に入ると無敵になります。すごい技です」。知っていた。直す前に発売されたのだ。",
+   "en": "A postcard from a kid: \"If you walk into the wall in stage 4 you become invincible. Amazing trick!\" You knew. It shipped before you could fix it."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 4,
+   "skill": 2
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_letter_hospital",
+  "years": [
+   1983,
+   1998
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "入院中の子から手紙。「病院で毎日遊んでいます」。手描きの攻略地図を送った。翌年「退院しました。地図はまちがっていました」。",
+   "en": "A letter from a kid in hospital: \"I play it every day here.\" You mailed a hand-drawn map of the game. A year later: \"I got out of the hospital. Your map was wrong.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 12
+  },
+  "memory": {
+   "ja": "入院中の子に攻略地図を送った(まちがっていた)",
+   "en": "i sent a hospitalized kid a map (it was wrong)"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_letter_complaint",
+  "years": [
+   1980,
+   1995
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "便箋 8 枚の苦情が届いた。全部読んだら、誰よりも遊び込んでいた。最後の 1 行は「次も買います」。",
+   "en": "An eight-page complaint letter. Reading it all, you realized they'd played it more than anyone. Last line: \"I'll buy the next one too.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 8,
+   "skill": 2
+  },
+  "memory": {
+   "ja": "8 枚の苦情の最後に「次も買います」",
+   "en": "an eight-page complaint ended with \"i'll buy the next one\""
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_valentine",
+  "years": [
+   1983,
+   1999
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "2 月 14 日、会社に自分宛ての小包。チョコだ! 開けると、手書きの攻略本とバグ 14 件のリストだった。全部、本物のバグだった。",
+   "en": "February 14th: a package for you at the office. Chocolate! Inside: a handmade strategy guide and a list of fourteen bugs. All real."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 4,
+   "skill": 3
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_letter_reply",
+  "years": [
+   1985,
+   1995
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ファンレターに全部返事を書くと決めた。3 通目で手がつり、残りの 40 通には年賀状のコピーを送った。",
+   "en": "You vowed to answer every fan letter by hand. Your hand cramped on the third. The other forty got photocopied New Year's cards."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 5,
+   "hp": -1
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_letter_regular",
+  "years": [
+   1980,
+   1995
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "毎月届く丸文字のファンレター。会ってみたいと思い始めた頃、最後に「3 年 2 組」とあった。小学 3 年生だった。",
+   "en": "A fan letter in round, girlish handwriting arrived every month. Just as you started wanting to meet, you noticed the sign-off: \"Class 3-2.\" Third grade."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_mail_first",
+  "years": [
+   1996,
+   2007
+  ],
+  "weight": 0.7,
+  "once": true,
+  "text": {
+   "ja": "問い合わせ窓口に「開発者の方へ」とメール。転送されてきたのは 3 か月後。返事を書いたら「もう全クリしました」。",
+   "en": "An email \"to the developers\" arrived at the support desk. It was forwarded to you three months later. You replied: \"I already beat it.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_bbs_love",
+  "years": [
+   1998,
+   2007
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "公式ホームページの掲示板に「{name} さん、大好きです」。毎晩見に行った。1 週間後、続きが書かれた。「の作るボスが」。",
+   "en": "On the official site's message board: \"{name}, I love you.\" You checked every night. A week later, the rest: \"…r bosses.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_bbs_lurk",
+  "years": [
+   1998,
+   2007
+  ],
+  "weight": 0.7,
+  "once": true,
+  "text": {
+   "ja": "掲示板に匿名で「このゲーム、隠し部屋あるらしいよ」と書いた。「ねーよ」と返された。作った本人なのに論破された。",
+   "en": "You posted anonymously on a board: \"I hear there's a secret room in this game.\" Reply: \"No there isn't.\" You made the game, and you lost the argument."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 3
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_kiriban",
+  "years": [
+   1997,
+   2007
+  ],
+  "weight": 0.7,
+  "once": true,
+  "text": {
+   "ja": "{work} のファンのホームページを見つけた。アクセスカウンター 1000 番を踏んだのは自分。管理人から「キリ番おめでとう!」。",
+   "en": "You found a fan homepage for {work}. You hit visitor number 1,000. The webmaster posted: \"Congrats on the lucky number!\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 8
+  },
+  "memory": {
+   "ja": "自分のゲームのファンサイトでキリ番を踏んだ",
+   "en": "i hit the lucky visitor number on my own game's fan site"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_mail_love",
+  "years": [
+   1996,
+   2007
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "女性の名前でメール。「あなたのことを毎晩考えています」。どきどきしながら件名を見た。「ラスボスの倒し方」。",
+   "en": "An email with a woman's name: \"I think about you every night.\" Heart pounding, you checked the subject line: \"How to beat the final boss.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_mail_father",
+  "years": [
+   1996,
+   2007
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "「父と最後に遊んだゲームです」というメール。泣きながら返事を書いた。翌日の返信「父が単身赴任から戻りました。また遊びます」。",
+   "en": "Email: \"This is the last game I played with my dad.\" You wrote back in tears. Next day's reply: \"Dad's back from working out of town. We'll play again.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10
+  },
+  "memory": {
+   "ja": "泣きながら書いた返事が勘違いだった",
+   "en": "i cried writing back to a fan, over a misunderstanding"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_offkai",
+  "years": [
+   1999,
+   2007
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "掲示板のファンのオフ会に、正体を隠して参加した。ゲームを語ったら、全員に「にわかですね」と言われた。",
+   "en": "You went to a fan meetup from the message board, keeping your identity secret. You talked about the game. Everyone called you a poser."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 6,
+   "network": 2
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_selfpraise",
+  "years": [
+   1999,
+   2007
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "匿名掲示板で「{name} って天才じゃね?」と書いた。直後に「本人乙」。書き込みから 10 秒だった。",
+   "en": "On an anonymous board you posted: \"Isn't {name} a genius?\" Immediately: \"Nice try, {name}.\" Ten seconds after you posted."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": -2
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_tgs_booth",
+  "years": [
+   1996,
+   2040
+  ],
+  "weight": 0.7,
+  "once": true,
+  "text": {
+   "ja": "ゲームショウの試遊台で、少年に「これ作った人?」と聞かれ「そうだよ」。「じゃあ、ここ直して」と画面を指さされた。",
+   "en": "At a game show demo booth, a boy asked: \"Did you make this?\" \"Yep.\" \"Then fix this,\" he said, pointing at the screen."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 2
+  },
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_sign_event",
+  "years": [
+   1990,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "初めてのサイン会。並んだのは 7 人。うち 3 人は親戚だった。残りの 4 人の名前は、いまも全部言える。",
+   "en": "Your first signing event. Seven people lined up. Three were relatives. You can still name the other four."
+  },
+  "when": [
+   "works>=2"
+  ],
+  "effect": {
+   "passion": 10,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "初めてのサイン会に 7 人並んだ(親戚 3 人)",
+   "en": "seven people came to my first signing, three were family"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_sign_practice",
+  "years": [
+   1985,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "いつか頼まれる日のためにサインを練習した。3 年間使わなかった。初めて書いたのは宅配便の受け取り欄だった。",
+   "en": "You practiced your autograph for the day someone asked. Three years, unused. The first time you wrote it: signing for a delivery."
+  },
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_doujin",
+  "years": [
+   1985,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "同人誌即売会で {work} の同人誌を見つけた。キャラが全員、自分の設定より幸せそうだった。3 冊買った。",
+   "en": "At a fanzine fair you found a doujinshi of {work}. Every character looked happier than in your version. You bought three copies."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10
+  },
+  "memory": {
+   "ja": "自分のゲームの同人誌を見つけた",
+   "en": "i found a fanzine of my game"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_doujin_mistake",
+  "years": [
+   1990,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "即売会で女性に「ファンです!」と声をかけられた。舞い上がって名刺を出した。隣のブースの人気作家のファンだった。",
+   "en": "At a fanzine fair, a woman called out: \"I'm a huge fan!\" You whipped out your business card. She meant the popular artist at the next booth."
+  },
+  "effect": {
+   "passion": 3,
+   "network": 1
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_cosplay",
+  "years": [
+   1995,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "イベントで {work} の脇役のコスプレをした人に会った。衣装はゲームより細かく、設定資料に無い裏地まであった。",
+   "en": "At an event you met someone cosplaying a side character from {work}. The costume was more detailed than the game, down to a lining that was never in the design notes."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10
+  },
+  "memory": {
+   "ja": "自分のゲームの脇役のコスプレに会った",
+   "en": "i met a cosplayer of my game's side character"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_stage_wave",
+  "years": [
+   1996,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ゲームショウのステージ。客席の女の子がずっと自分に手を振っている。振り返したら、後ろのキャラの着ぐるみに振っていた。",
+   "en": "On stage at a game show, a girl in the crowd kept waving at you. You waved back. She was waving at the mascot costume behind you."
+  },
+  "effect": {
+   "passion": 3
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_street",
+  "years": [
+   1990,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "街で若い女性に「あの、もしかして…」と呼び止められた。サインペンを出しかけた。「落としましたよ」と社員証を渡された。",
+   "en": "On the street a young woman stopped you: \"Excuse me, are you…\" You reached for a pen. \"…the one who dropped this?\" She handed you your ID badge."
+  },
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_snack",
+  "years": [
+   1980,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ファンから会社に菓子折りの差し入れ。「開発の皆さんへ」。あなたが会議から戻ると、箱はもう空だった。",
+   "en": "A fan sent a box of sweets to the office: \"For the development team.\" When you got back from a meeting, the box was empty."
+  },
+  "when": [
+   "works>=1",
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_wedding",
+  "years": [
+   1995,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "ファンから結婚式の招待状。「二人の出会いは {work} です」。式場で {work} の曲が流れた。ご祝儀は奮発して 3 万円。",
+   "en": "A wedding invitation from fans: \"We met through {work}.\" Your game's music played at the reception. You splurged: 30,000 yen in the envelope."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 14,
+   "money": -3
+  },
+  "memory": {
+   "ja": "自分のゲームで出会った二人の結婚式に呼ばれた",
+   "en": "i was invited to a wedding of a couple who met through my game"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_sns_reply",
+  "years": [
+   2008,
+   2040
+  ],
+  "weight": 0.7,
+  "once": true,
+  "text": {
+   "ja": "「{work} 作った人ですか?」とリプライ。「はい」と返すと「最高でした!」。その夜、通知を 50 回見返した。",
+   "en": "A reply: \"Are you the one who made {work}?\" \"Yes.\" \"It was amazing!\" That night you reread the notification fifty times."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10
+  },
+  "memory": {
+   "ja": "「最高でした!」と知らない人に言われた",
+   "en": "a stranger told me my game was amazing"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_sns_marry",
+  "years": [
+   2010,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "「{name} さんと結婚したい」という投稿を見つけ、スクショした。続きの投稿は「{name} さんの作ったヒロインと」。",
+   "en": "You found a post: \"I want to marry {name}'s…\" and screenshotted it. The follow-up: \"…heroine.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_dm_meet",
+  "years": [
+   2010,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "DM で「お会いして話したいです」。髪を切り、服を買って喫茶店へ。来たのは中年男性で、企画の売り込みだった。3 時間話し込んだ。",
+   "en": "A DM: \"I'd love to meet and talk.\" You got a haircut and new clothes. A middle-aged man showed up to pitch his game idea. You talked for three hours."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 5,
+   "network": 3,
+   "money": -2
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_stream_comment",
+  "years": [
+   2012,
+   2040
+  ],
+  "weight": 0.7,
+  "once": true,
+  "text": {
+   "ja": "配信者が {work} を実況していた。コメント欄に「作者見てる?」。見てた。「見てます」と書き込んだら「なりすまし乙」。",
+   "en": "A broadcaster was playing {work} live. In the chat: \"Is the creator watching?\" You were. You typed \"I am.\" Reply: \"Nice try, impostor.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_egosearch",
+  "years": [
+   2008,
+   2040
+  ],
+  "weight": 0.7,
+  "once": true,
+  "text": {
+   "ja": "自分の名前で検索した。3 件目「{name} はもう終わった」。4 件目「{name} の新作まだ?」。4 件目だけ見て生きることにした。",
+   "en": "You searched your own name. Result 3: \"{name} is washed up.\" Result 4: \"When's {name}'s next game?\" You decided to live by result 4 only."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_birthday_art",
+  "years": [
+   2010,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "誕生日に、ファンから {work} の主人公の絵が 30 枚届いた。主人公の誕生日だった。あなたの誕生日は先月。",
+   "en": "Thirty fan drawings of the hero of {work} arrived for the birthday. The hero's birthday. Yours was last month."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 8
+  },
+  "memory": {
+   "ja": "自分のゲームの主人公の誕生日に絵が 30 枚届いた",
+   "en": "fans sent thirty drawings for my hero's birthday"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_parent_child",
+  "years": [
+   2010,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "「父と遊んだ {work} を、いまは息子と遊んでいます」という投稿。泣いた。写真の息子は、作った自分も知らない裏技を使っていた。",
+   "en": "A post: \"I played {work} with my dad. Now I play it with my son.\" You cried. In the photo, the son was using a trick even you didn't know."
+  },
+  "when": [
+   "works>=2"
+  ],
+  "effect": {
+   "passion": 12
+  },
+  "memory": {
+   "ja": "親子 2 代で自分のゲームを遊んでくれていた",
+   "en": "a family played my game across two generations"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_last_login",
+  "years": [
+   2008,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "オンラインゲームの最終日。ファンが最後まで集まり「ありがとう」と書き続けた。あなたも書いた。「運営乙」と返された。",
+   "en": "Last day of the online game's service. Fans gathered and kept typing \"thank you.\" You typed it too. Someone replied: \"Thanks, admin. Took you long enough.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10
+  },
+  "memory": {
+   "ja": "サービス終了の日、ファンが「ありがとう」と書き続けた",
+   "en": "on the last day of service, fans kept typing thank you"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_junior_letter",
+  "years": [
+   2005,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "新人の歓迎会で「子どもの頃、ファンレターを送りました」と言われた。返事は来なかったらしい。年賀状のコピーすら送っていなかった。",
+   "en": "At a welcome party, a new hire said: \"I sent you a fan letter as a kid.\" Never got a reply, apparently. Not even a photocopied New Year's card."
+  },
+  "when": [
+   "works>=2",
+   "status=employed",
+   "age>=35"
+  ],
+  "effect": {
+   "passion": 12,
+   "network": 4
+  },
+  "memory": {
+   "ja": "昔のファンが新人として入ってきた",
+   "en": "a kid who once wrote me fan mail joined as a new hire"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_old_reply",
+  "years": [
+   2015,
+   2040
+  ],
+  "weight": 0.5,
+  "once": true,
+  "text": {
+   "ja": "「30 年前、ファンレターに返事をもらいました」と写真付きの投稿。自分の字だった。誤字が 2 つあった。",
+   "en": "A post with a photo: \"Thirty years ago, I got a reply to my fan letter.\" It was your handwriting. With two typos."
+  },
+  "when": [
+   "works>=2",
+   "age>=48"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "30 年前に書いた返事が SNS に出てきた",
+   "en": "a reply i wrote thirty years ago resurfaced online"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_crowdfund",
+  "years": [
+   2013,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "独立して新作の資金を募った。支援者の名簿に、昔ファンレターをくれた人の名前があった。金額は当時の自分の月給と同じだった。",
+   "en": "You went indie and ran a crowdfunding campaign. Among the backers: someone who once sent you a fan letter. The pledge equaled your old monthly salary."
+  },
+  "when": [
+   "works>=1",
+   "status=indie"
+  ],
+  "effect": {
+   "passion": 14,
+   "money": 20
+  },
+  "memory": {
+   "ja": "昔のファンが新作を支援してくれた",
+   "en": "an old fan backed my new game"
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_sns_love_icon",
+  "years": [
+   2012,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "かわいいアイコンの人が毎日いいねをくれる。ある日プロフィールを見た。「40 代、妻子あり、{work} 最高」。",
+   "en": "Someone with a cute icon likes every post of yours. One day you checked their profile: \"40s, married with kids, {work} forever.\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "fan",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lf_fan_review_essay",
+  "years": [
+   2008,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "通販サイトのレビューに 4000 字の感想文。最後に「星 1 つ。好きすぎてつらいから」。平均点が 0.2 下がった。",
+   "en": "A 4,000-word review on a shopping site, ending: \"One star. I love it too much, it hurts.\" Your average dropped by 0.2."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "fan"
+  ]
+ }
+]
