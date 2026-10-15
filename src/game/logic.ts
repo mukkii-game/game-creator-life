@@ -228,7 +228,8 @@ function beginYear(s: State, out: string[]) {
     if (r.chance(tune('job.bankrupt') * mult * bad)) sys.push('ev_sys_bankrupt');
     else {
       if (s.year >= s.inner.nextWorkYear) q.push('@release');
-      if (!s.flags.age60 && s.year - (s.inner.seen.ev_sys_offer ?? -99) >= 4 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(r.pick(['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
+      const lastOffer = Math.max(s.inner.seen.ev_sys_offer ?? -99, s.inner.seen.ev_sys_offer_b ?? -99, s.inner.seen.ev_sys_offer_c ?? -99);
+      if (!s.flags.age60 && s.inner.companyYears >= 2 && s.age >= 20 && s.year - lastOffer >= 4 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(r.pick(['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
       else if (canPromote(s) && r.chance(tune('job.promote'))) sys.push(r.pick(['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
       if (s.year >= 2027 && !s.inner.used.includes('ev_sys_ai_seat') && r.chance(Math.min(0.6, tune('ai.seat') * (1 + 2 * Math.min(1, (s.year - 2027) / 8)) + Math.max(0, s.year - 2035) * 0.12))) sys.push('ev_sys_ai_seat');
     }
@@ -329,9 +330,8 @@ function runItem(s: State, id: string, out: string[]) {
     out.push('event');
     return;
   }
-  if (id === '@rehire_offer') { // 独立中にお金が尽きかけたら、会社員に戻る誘い
-    return runItem(s, 'ev_sys_offer', out);
-  }
+  if (id === '@rehire_offer') return runItem(s, 'ev_sys_indie_offer', out); // 独立中にお金が尽きかけたら、会社員に戻る誘い
+
   const ev = EVENT_BY_ID.get(id);
   if (!ev) return;
   if (ev.years && (s.year < ev.years[0] || s.year > ev.years[1])) return;

@@ -570,5 +570,58 @@
       "system",
       "job"
     ]
+  },
+  {
+    "id": "ev_sys_indie_offer",
+    "years": [
+      1970,
+      2040
+    ],
+    "weight": 0,
+    "text": {
+      "ja": "貯金が 2 桁になった頃、昔の取引先から電話。「うちで正社員にならない? ボーナスもあるよ。図書カードだけど」",
+      "en": "Savings down to two digits, an old client calls: \"Want a staff job? There's even a bonus. In book vouchers.\""
+    },
+    "choices": [
+      {
+        "id": "ch_sys_indie_offer_join",
+        "label": {
+          "ja": "会社員に戻る",
+          "en": "Go back to a salary"
+        },
+        "effect": {
+          "money": 50,
+          "passion": -5,
+          "flag": {
+            "do_change_company": true
+          }
+        },
+        "result": {
+          "ja": "入社初日、名刺の肩書きが「CEO」から「主任」になった。少しほっとした。",
+          "en": "Day one: your card goes from \"CEO\" to \"Lead.\" Oddly relieving."
+        }
+      },
+      {
+        "id": "ch_sys_indie_offer_stay",
+        "label": {
+          "ja": "独立を続ける",
+          "en": "Stay indie"
+        },
+        "effect": {
+          "passion": 8,
+          "money": -20
+        },
+        "result": {
+          "ja": "電話を切って、もやしを炒めた。自由の味がした。",
+          "en": "You hang up and fry bean sprouts. Tastes like freedom."
+        }
+      }
+    ],
+    "tag": [
+      "system",
+      "job",
+      "choice",
+      "indie"
+    ]
   }
 ]
