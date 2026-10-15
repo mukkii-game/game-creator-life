@@ -1,0 +1,13 @@
+{
+  "id": "ev_wk_streamer_digs_up",
+  "years": [2015, 2035],
+  "text": {
+    "ja": "{work} を配信者が「クソゲー発掘」企画で掘り起こした。再生 300 万回。あなたの名前はスタッフロールの 47 番目。",
+    "en": "A streamer dug up {work} for a 'worst games ever' special. 3 million views. Your name is 47th in the credits."
+  },
+  "when": ["works>=1"],
+  "once": true,
+  "weight": 2,
+  "effect": { "fame": 8, "passion": 5, "money": 0, "work": { "last": { "history": { "ja": "配信で掘り起こされて再評価", "en": "Dug up by a streamer, re-evaluated" } } } },
+  "tag": ["work", "afterlife", "gag"]
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "game-creator-life/event.schema.json",
+  "title": "Event / Timeline (src/data/)",
+  "$defs": {
+    "Text": { "type": "object", "required": ["ja", "en"], "properties": { "ja": { "type": "string", "minLength": 1 }, "en": { "type": "string", "minLength": 1 } }, "additionalProperties": false },
+    "Condition": { "type": "string", "pattern": "^!?(age|year|era|job|status|works|company\\.size|stat\\.(hp|passion|skill|network|money|fame)|flag\\.[a-z_]+)(\\s*(=|!=|<|<=|>|>=)\\s*[a-z0-9_-]+)?$" },
+    "Effect": {
+      "type": "object",
+      "properties": {
+        "hp": { "type": "integer", "minimum": -50, "maximum": 50 },
+        "passion": { "type": "integer", "minimum": -50, "maximum": 50 },
+        "skill": { "type": "integer", "minimum": -50, "maximum": 50 },
+        "network": { "type": "integer", "minimum": -50, "maximum": 50 },
+        "fame": { "type": "integer", "minimum": -50, "maximum": 50 },
+        "money": { "type": "integer", "minimum": -2000, "maximum": 5000, "description": "万円" },
+        "flag": { "type": "object", "additionalProperties": { "type": "boolean" } },
+        "job": { "enum": ["programmer", "planner", "artist", "sound", "qa", "sales", "director", "producer", "other"] },
+        "status": { "enum": ["employed", "indie", "left", "retired", "ended"] },
+        "work": {
+          "type": "object",
+          "properties": {
+            "add": { "type": "object", "properties": { "platform": { "type": "string" }, "role": { "enum": ["junior", "core", "lead", "solo"] } } },
+            "last": { "type": "object", "properties": { "result": { "enum": ["flop", "ok", "hit", "legend"] }, "history": { "$ref": "#/$defs/Text" } } }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "Later": { "type": "object", "required": ["after", "event"], "properties": { "after": { "type": "integer", "minimum": 1, "maximum": 50 }, "event": { "type": "string", "pattern": "^ev_[a-z0-9_]+$" } }, "additionalProperties": false },
+    "Choice": {
+      "type": "object", "required": ["id", "label", "effect"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^ch_[a-z0-9_]+$" },
+        "label": { "$ref": "#/$defs/Text" },
+        "effect": { "$ref": "#/$defs/Effect" },
+        "later": { "type": "array", "items": { "$ref": "#/$defs/Later" } },
+        "result": { "$ref": "#/$defs/Text" }
+      }, "additionalProperties": false
+    },
+    "Event": {
+      "type": "object", "required": ["id", "years", "text"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^ev_[a-z0-9_]+$" },
+        "years": { "type": "array", "items": { "type": "integer", "minimum": 1970, "maximum": 2040 }, "minItems": 2, "maxItems": 2 },
+        "text": { "$ref": "#/$defs/Text" },
+        "when": { "type": "array", "items": { "$ref": "#/$defs/Condition" } },
+        "weight": { "type": "number", "minimum": 0, "default": 1 },
+        "once": { "type": "boolean", "default": false },
+        "effect": { "$ref": "#/$defs/Effect" },
+        "later": { "type": "array", "items": { "$ref": "#/$defs/Later" } },
+        "choices": { "type": "array", "items": { "$ref": "#/$defs/Choice" }, "minItems": 2, "maxItems": 3 },
+        "tag": { "type": "array", "items": { "type": "string" } },
+        "allow": { "type": "array", "items": { "type": "string" }, "description": "lint の初出年チェックの例外にする語" }
+      }, "additionalProperties": false
+    },
+    "TimelineEntry": {
+      "type": "object", "required": ["id", "year", "kind", "text", "use", "src"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^tl_[a-z0-9_]+$" },
+        "year": { "type": "integer", "minimum": 1970, "maximum": 2040 },
+        "month": { "type": "integer", "minimum": 1, "maximum": 12 },
+        "kind": { "enum": ["hardware", "hit", "incident", "work", "ai", "future"] },
+        "text": { "$ref": "#/$defs/Text" },
+        "use": { "type": "string" },
+        "src": { "type": "string", "minLength": 1 },
+        "unverified": { "type": "boolean" }
+      }, "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    { "type": "array", "items": { "$ref": "#/$defs/Event" } },
+    { "type": "array", "items": { "$ref": "#/$defs/TimelineEntry" } }
+  ]
+}

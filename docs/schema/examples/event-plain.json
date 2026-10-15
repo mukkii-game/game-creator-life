@@ -1,0 +1,12 @@
+{
+  "id": "ev_era2_bonus_bookcard",
+  "years": [1986, 1994],
+  "text": {
+    "ja": "「今期はボーナスが出る」と社長。封筒を開けると図書カード 500 円分だった。",
+    "en": "\"Bonuses this term,\" says the boss. Inside the envelope: a 500-yen book voucher."
+  },
+  "when": ["status=employed", "company.size=small"],
+  "weight": 1,
+  "effect": { "passion": -5, "money": 0 },
+  "tag": ["money", "gag"]
+}

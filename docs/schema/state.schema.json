@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "game-creator-life/state.schema.json",
+  "title": "State (src/game/logic.ts が持つ状態。画面と結果はこれだけ読む)",
+  "conditionKeys": ["age", "year", "era", "job", "status", "works", "company.size", "stat.hp", "stat.passion", "stat.skill", "stat.network", "stat.money", "stat.fame", "flag.*"],
+  "$defs": {
+    "Text": { "type": "object", "required": ["ja", "en"], "properties": { "ja": { "type": "string" }, "en": { "type": "string" } } },
+    "Stat": {
+      "type": "object", "required": ["hp", "passion", "skill", "network", "money", "fame"],
+      "properties": {
+        "hp": { "type": "integer", "minimum": 0, "maximum": 100, "description": "体力。0 で倒れる" },
+        "passion": { "type": "integer", "minimum": 0, "maximum": 100, "description": "情熱。0 で心が折れる" },
+        "skill": { "type": "integer", "minimum": 0, "maximum": 100, "description": "腕" },
+        "network": { "type": "integer", "minimum": 0, "maximum": 100, "description": "人脈" },
+        "money": { "type": "integer", "description": "貯金(万円)。負は借金" },
+        "fame": { "type": "integer", "minimum": 0, "maximum": 100, "description": "名声(隠し)" }
+      }
+    },
+    "Work": {
+      "type": "object", "required": ["id", "name", "year", "platform", "role", "result", "history"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^wk_[a-z0-9_]+$" },
+        "name": { "$ref": "#/$defs/Text" },
+        "year": { "type": "integer" },
+        "platform": { "type": "string", "description": "era と会社で決まる機種の名前(表示用)" },
+        "role": { "enum": ["junior", "core", "lead", "solo"] },
+        "result": { "enum": ["flop", "ok", "hit", "legend"] },
+        "history": { "type": "array", "items": { "type": "object", "required": ["year", "text"], "properties": { "year": { "type": "integer" }, "text": { "$ref": "#/$defs/Text" } } }, "description": "後日談(発売後に起きたこと)" }
+      }
+    },
+    "Peer": { "type": "object", "required": ["name", "bot", "summary"], "properties": { "name": { "type": "string" }, "bot": { "type": "string", "description": "bots.ts の名前" }, "summary": { "$ref": "#/$defs/Text" } } },
+    "Ending": {
+      "type": "object", "required": ["id", "age", "year", "cause", "summary"],
+      "properties": {
+        "id": { "enum": ["end_burnout", "end_body", "end_debt", "end_blacklist", "end_retire", "end_pen_down", "end_ai_seat"] },
+        "age": { "type": "integer" }, "year": { "type": "integer" },
+        "cause": { "$ref": "#/$defs/Text", "description": "共有文の 1 行目(「52 歳、3 度目の仕様変更で心が折れ、農業へ」)" },
+        "summary": { "$ref": "#/$defs/Text", "description": "結果画面の本文(入り方・作品数・運命・終わり方を 3〜4 文で)" }
+      }
+    },
+    "LogLine": { "type": "object", "required": ["year", "age", "text", "kind"], "properties": { "year": { "type": "integer" }, "age": { "type": "integer" }, "text": { "$ref": "#/$defs/Text" }, "kind": { "enum": ["event", "timeline", "choice", "work", "peer"] } } }
+  },
+  "type": "object",
+  "required": ["seed", "year", "age", "startAge", "era", "job", "status", "company", "stat", "flags", "works", "peers", "log", "pending"],
+  "properties": {
+    "seed": { "type": "integer" },
+    "year": { "type": "integer" }, "age": { "type": "integer" }, "startAge": { "type": "integer" },
+    "era": { "enum": ["era1", "era2", "era3", "era4", "era5", "era6"] },
+    "job": { "enum": ["programmer", "planner", "artist", "sound", "qa", "sales", "director", "producer", "other"] },
+    "status": { "enum": ["employed", "indie", "left", "retired", "ended"] },
+    "company": { "type": "object", "required": ["id", "name", "size"], "properties": { "id": { "type": "string", "pattern": "^co_[a-z0-9_]+$" }, "name": { "$ref": "#/$defs/Text" }, "size": { "enum": ["big", "mid", "small", "sub", "indie", "abroad", "none"] } } },
+    "stat": { "$ref": "#/$defs/Stat" },
+    "flags": { "type": "object", "additionalProperties": { "type": "boolean" }, "description": "partner, child, house, burned_once, left_once など" },
+    "works": { "type": "array", "items": { "$ref": "#/$defs/Work" } },
+    "peers": { "type": "array", "items": { "$ref": "#/$defs/Peer" }, "minItems": 3, "maxItems": 3 },
+    "log": { "type": "array", "items": { "$ref": "#/$defs/LogLine" } },
+    "pending": { "type": "array", "items": { "type": "object", "required": ["year", "event"], "properties": { "year": { "type": "integer" }, "event": { "type": "string" } } }, "description": "later で予約されたイベント" },
+    "choice": { "type": "object", "required": ["eventId", "choices"], "properties": { "eventId": { "type": "string" }, "choices": { "type": "array" } }, "description": "選択待ちの時だけ" },
+    "ending": { "$ref": "#/$defs/Ending" }
+  }
+}

@@ -47,3 +47,12 @@ plumbing with a Phaser 4 game template: direct push to main, one Pages
 workflow with a Playwright smoke check, one manual itch.io workflow, and a
 small `src/core` layer (save, i18n, audio, input, demo, meta). Rationale in
 mukkii-game/Perfect_Dev_Environment decisions of 2026-09-13.
+
+## 2026-10-15 — 企画の決定(PLAN.md、Fable)
+
+- タイトルの数は「世界でゲームを作る人の総数 1200 万人(趣味・学生込み)」。元ネタの「80 億 = 人類全員」と同じ数え方にし、趣味に戻る人も含める。出典 SlashData 2024-06(11.1M)。
+- ひねりは「作品棚」(関わった作品が発売後も史実に連動して生き続ける)。他の 2 案は QUESTIONS.md。
+- 本当の死・病気・自殺は入れない。終わりは「開発者としての死」だけ。
+- 文章が主役なので Phaser を使わず DOM + CSS。`src/core/` は使う。
+- イベントは時代ロック(`years`)必須。小道具の初出年を lint で検査する(日本版クローンが叩かれた整合性の崩れを避ける)。
+- Astra(GPT-6)への独立セカンドオピニオンは行わない(BRIEF の 2026-10-15 変更)。
