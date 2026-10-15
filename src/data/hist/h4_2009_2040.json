@@ -393,8 +393,8 @@
      "stat.network>=40"
     ],
     "text": {
-     "ja": "飲み会の 2 次会で、隣の人とひと狩り行った。あとで知った。『ドラゴンクエスト』の作曲家、すぎやまこういちさんだった。回復は全部こちらがした。",
-     "en": "At an after-party, you go on a hunt with the person next to you. Later you learn: Koichi Sugiyama, the Dragon Quest composer. You did all the healing."
+     "ja": "飲み会の 2 次会で、全員が携帯機を出してひと狩り。『モンハン』の辻本良三さんの記事で読んだ「協力」を思い出し、回復は全部こちらがした。",
+     "en": "At the after-party, everyone pulls out a handheld for a hunt. Remembering an interview with Monster Hunter's Ryozo Tsujimoto about teamwork, you did all the healing."
     },
     "effect": {
      "passion": 8,
@@ -941,8 +941,8 @@
      "stat.fame>=30"
     ],
     "text": {
-     "ja": "業界の打ち上げで、『パズドラ』の山本大介さんと名刺を交換した。自分の名刺は、角が折れていた。",
-     "en": "At an industry party, you swap business cards with Daisuke Yamamoto of Puzzle & Dragons. Yours has a bent corner."
+     "ja": "『パズドラ』の山本大介さんのインタビューを切り抜いて机に貼った。隣に貼った自分の名刺は、角が折れていた。",
+     "en": "You pinned an interview with Puzzle & Dragons' Daisuke Yamamoto above your desk. Your own business card, pinned beside it, had a bent corner."
     },
     "effect": {
      "passion": 5,
@@ -1797,8 +1797,8 @@
      "stat.network>=50"
     ],
     "text": {
-     "ja": "海外の講演会で、Epic Games のティム・スウィーニーさんの隣に座った。英語で言えたのは「グッド」だけだった。",
-     "en": "At a talk abroad, you sit next to Epic Games' Tim Sweeney. All you manage in English is \"Good.\""
+     "ja": "Epic Games のティム・スウィーニーさんが、エンジンを無料にすると発表した。英語の記事で分かった単語は「フリー」だけ。一番大事な単語だった。",
+     "en": "Epic Games' Tim Sweeney announces the engine is now free. The only word you understood in the English article was \"free.\" It was the one that mattered."
     },
     "effect": {
      "passion": 6,
@@ -2207,8 +2207,8 @@
      "stat.fame>=30"
     ],
     "text": {
-     "ja": "展示会で自分の VR デモに 2 時間待ちの行列。『Rez』の水口哲也さんも並んでくれ、遊び終えてにっこり会釈した。",
-     "en": "A two-hour line for your VR demo at an expo. Tetsuya Mizuguchi of Rez waits in it, plays, and gives you a smiling nod."
+     "ja": "展示会で自分の VR デモに 2 時間待ちの行列。隣のブースは水口哲也さんの『Rez Infinite』で、行列はそっちが長かった。それでも光栄だった。",
+     "en": "A two-hour line for your VR demo at an expo. Next door was Tetsuya Mizuguchi's Rez Infinite, with an even longer line. You were honored anyway."
     },
     "effect": {
      "passion": 10,
@@ -3335,8 +3335,8 @@
      "stat.fame>=30"
     ],
     "text": {
-     "ja": "自分の島に、『FF』の作曲家・植松伸夫さんがたまたま遊びに来た。名乗れないまま、カブだけ売った。",
-     "en": "By chance, Nobuo Uematsu, the Final Fantasy composer, visits your island. Too starstruck to introduce yourself, you just sell them turnips."
+     "ja": "島の BGM を消し、植松伸夫さんの『FF』の曲を流してカブを売った。島の住民より、自分の方がしんみりしていた。",
+     "en": "You muted your island's music, put on Nobuo Uematsu's Final Fantasy tracks, and sold turnips. You were more moved than any of your villagers."
     },
     "effect": {
      "passion": 8,
@@ -4810,8 +4810,8 @@
      "works>=1"
     ],
     "text": {
-     "ja": "発表会で、桜井政博さんに「あれ遊びましたよ」と言われた。{work} のことだった。3 日眠れなかった。",
-     "en": "At the reveal, Masahiro Sakurai tells you, \"I played that one.\" They mean {work}. You don't sleep for three days."
+     "ja": "新しいハードの発表で、桜井政博さんの新作が映った。同じハードに {work} を出す。それだけで 3 日眠れなかった。",
+     "en": "At the reveal, Masahiro Sakurai's new game appears. {work} is coming out on the same hardware. That alone keeps you up for three days."
     },
     "effect": {
      "passion": 12,

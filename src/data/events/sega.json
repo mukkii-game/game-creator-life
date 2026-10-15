@@ -169,8 +169,8 @@
     ],
     "weight": 3,
     "text": {
-      "ja": "「セガサターン、シロ!」。CM の柔道着の人が本社に来た日、全員が背筋を伸ばして廊下に並んだ。",
-      "en": "'Sega Saturn, shiro!' The day the judo-uniform man from the ads visited HQ, everyone lined the hallway standing straight."
+      "ja": "「セガサターン、シロ!」。CM が社内のテレビに流れるたび、全員が背筋を伸ばした。",
+      "en": "'Sega Saturn, shiro!' Every time the ad played on the office TV, everyone sat up straight."
     },
     "when": [
       "flag.sega",
@@ -182,8 +182,8 @@
       "fame": 1
     },
     "memory": {
-      "ja": "柔道着の人の前で背筋を伸ばした",
-      "en": "stood at attention for the judo-uniform man"
+      "ja": "「セガサターン、シロ!」で背筋が伸びた",
+      "en": "sat up straight for 'Sega Saturn, shiro!'"
     },
     "tag": [
       "sega",
@@ -489,8 +489,8 @@
     ],
     "once": true,
     "text": {
-      "ja": "「3D 格闘の父」とエレベーターで 2 人きり。「ポリゴン何枚?」「12 枚です」「いいね」。あなたは 20 年、この 3 語で食べていく。",
-      "en": "Alone in the elevator with 'the father of 3D fighting games.' 'How many polygons?' 'Twelve.' 'Nice.' You'll dine out on those three words for 20 years."
+      "ja": "『バーチャファイター』のポリゴンを数えて研究した。自分のキャラは 12 枚。会議で「いいね」と言われ、20 年この話で食べていく。",
+      "en": "You studied Virtua Fighter by counting its polygons. Your character had twelve. Someone in the meeting said \"nice,\" and you'll dine out on it for 20 years."
     },
     "when": [
       "flag.sega"
@@ -501,8 +501,8 @@
       "network": 5
     },
     "memory": {
-      "ja": "3D 格闘の父に「いいね」と言われた",
-      "en": "the father of 3D fighting games said 'nice'"
+      "ja": "『バーチャファイター』を研究して 12 枚で作った",
+      "en": "built a 12-polygon character studying Virtua Fighter"
     },
     "tag": [
       "bond",

@@ -82,8 +82,8 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "発売日の打ち上げに紛れ込んだ。トイレの手洗い場で隣になったのは、すぎやまこういちさんだった。ハンカチを貸した。",
-     "en": "You crashed a launch party. At the restroom sink, next to you: Koichi Sugiyama. You lent him your handkerchief."
+     "ja": "行列のニュースを会社のテレビで見た日、残業の BGM はすぎやまこういちさんの曲だった。ラスボス前の気分で、締め切りを倒した。",
+     "en": "The day the launch lines hit the office TV, your overtime soundtrack was Koichi Sugiyama's music. Feeling like it was the final boss, you beat your deadline."
     },
     "effect": {
      "passion": 8,
@@ -95,8 +95,8 @@
      "high"
     ],
     "memory": {
-     "ja": "すぎやまこういちさんにハンカチを貸した",
-     "en": "Lent Koichi Sugiyama my handkerchief"
+     "ja": "すぎやまこういちさんの曲で締め切りを倒した",
+     "en": "beat a deadline to Koichi Sugiyama's music"
     },
     "allow": [
      "RPG"
@@ -1087,8 +1087,8 @@
      "pos=client"
     ],
     "text": {
-     "ja": "発売記念のパーティーで、鳥山明さんとエレベーターで 2 人きり。言えたのは「何階ですか」だけだった。",
-     "en": "At the launch party, alone in an elevator with Akira Toriyama. All you managed: \"Which floor?\""
+     "ja": "鳥山明さんが描いた『ドラゴンクエストIV』の箱を、発売日に 2 本買った。1 本は開けずに本棚に飾り、もう 1 本は朝までに開けた。",
+     "en": "On launch day you bought two copies of Dragon Quest IV, box art by Akira Toriyama. One stays sealed on your shelf. The other was open by dawn."
     },
     "effect": {
      "passion": 7,
@@ -1100,8 +1100,8 @@
      "high"
     ],
     "memory": {
-     "ja": "鳥山明さんに「何階ですか」と聞いた",
-     "en": "Asked Akira Toriyama \"Which floor?\""
+     "ja": "鳥山明さんの描いた箱を開けずに飾った",
+     "en": "kept an Akira Toriyama box sealed on the shelf"
     },
     "allow": [
      "RPG"
@@ -1486,8 +1486,8 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "対戦台の向かいに座っていたのは、『ストII』を作った西谷亮さんだった。負けた。「いい腕だね」と言われた。",
-     "en": "The player across the cabinet turned out to be Akira Nishitani, who made Street Fighter II. You lost. He said, \"Nice hands.\""
+     "ja": "『ストII』の対戦台で 30 連敗。雑誌で企画の西谷亮さんの名前を覚え、勝手に師匠と呼んで、また 100 円入れた。",
+     "en": "Thirty straight losses on the Street Fighter II cabinet. You learned planner Akira Nishitani's name from a magazine, decided he was your master, and put in another coin."
     },
     "effect": {
      "passion": 8,
@@ -1500,8 +1500,8 @@
      "high"
     ],
     "memory": {
-     "ja": "西谷亮さんに「いい腕だね」と言われた",
-     "en": "Akira Nishitani told me \"Nice hands\""
+     "ja": "西谷亮さんを勝手に師匠と呼んだ",
+     "en": "made Akira Nishitani my master without asking"
     }
    },
    {
@@ -2289,8 +2289,8 @@
      "pos=client_lead"
     ],
     "text": {
-     "ja": "業界のパーティーで、堀井雄二さんの隣に座った。名刺を出す手が震え、エビが 1 匹落ちた。拾ってくれた。",
-     "en": "At an industry party, you sat beside Yuji Horii. Your hand shook with your card; a shrimp fell. He picked it up."
+     "ja": "『ドラクエV』の花嫁選びで、職場が二派に分かれて言い争った。堀井雄二さんにはがきを 2 通書いたが、どちらも出せなかった。",
+     "en": "Dragon Quest V's bride choice split the office into two camps. You wrote Yuji Horii two postcards, one for each side, and mailed neither."
     },
     "effect": {
      "passion": 10,
@@ -2302,8 +2302,8 @@
      "high"
     ],
     "memory": {
-     "ja": "堀井雄二さんが、落としたエビを拾ってくれた",
-     "en": "Yuji Horii picked up my dropped shrimp"
+     "ja": "堀井雄二さんに出せないはがきを書いた",
+     "en": "wrote Yuji Horii postcards I never mailed"
     },
     "allow": [
      "RPG"
@@ -2744,8 +2744,8 @@
      "pos=client"
     ],
     "text": {
-     "ja": "説明会に、エレクトロニック・アーツと 3DO を作ったトリップ・ホーキンスさんが来ていた。握手した手を、その日は洗わずにキーボードを打った。",
-     "en": "Trip Hawkins, founder of Electronic Arts and 3DO, came to the briefing. You shook his hand and typed all day without washing it."
+     "ja": "3DO の開発機が会社に届いた。エレクトロニック・アーツを作ったトリップ・ホーキンスさんの新しいハードだ。箱を開ける前に手を洗った。",
+     "en": "A 3DO dev kit arrives at the office: the new hardware from Trip Hawkins, founder of Electronic Arts. You washed your hands before opening the box."
     },
     "effect": {
      "passion": 7,
@@ -2757,8 +2757,8 @@
      "high"
     ],
     "memory": {
-     "ja": "トリップ・ホーキンスさんと握手した",
-     "en": "Shook hands with Trip Hawkins"
+     "ja": "トリップ・ホーキンスさんのハードを手を洗って開けた",
+     "en": "washed my hands before opening Trip Hawkins's hardware"
     }
    },
    {
@@ -3305,8 +3305,8 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "収録スタジオの廊下で、藤崎詩織役の金月真美さんに「おつかれさまです」と言われた。言い返した声が、思いきり裏返った。",
-     "en": "In the studio hallway, Mami Kingetsu, the voice of Shiori Fujisaki, said, \"Good work today.\" Your reply came out in a squeak."
+     "ja": "隣の席の同僚が、藤崎詩織役の金月真美さんの声を一日中流している。1 か月で、あなたも詩織の台詞を全部言えるようになった。",
+     "en": "The coworker beside you plays Mami Kingetsu's voice as Shiori Fujisaki all day. Within a month you could recite every one of Shiori's lines."
     },
     "effect": {
      "passion": 8
@@ -3317,8 +3317,8 @@
      "high"
     ],
     "memory": {
-     "ja": "金月真美さんに「おつかれさまです」と言われた",
-     "en": "Mami Kingetsu told me \"Good work today\""
+     "ja": "金月真美さんの詩織の台詞を全部覚えた",
+     "en": "learned all of Mami Kingetsu's Shiori lines by heart"
     }
    },
    {
@@ -4175,8 +4175,8 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "田尻智さんの講演に行った。質問の時間に当てられ、緊張して自分の名前を聞いてしまった。",
-     "en": "You attended a talk by Satoshi Tajiri. Picked for a question, you nervously asked him your own name."
+     "ja": "田尻智さんの講演を、客席の一番後ろで聞いた。質問の時間、手を挙げる練習だけで終わった。メモ帳には自分の名前が 3 回書いてあった。",
+     "en": "You heard Satoshi Tajiri speak from the very back row. During Q&A, you only practiced raising your hand. Your notepad had your own name written three times."
     },
     "effect": {
      "passion": 8,
@@ -4188,8 +4188,8 @@
      "high"
     ],
     "memory": {
-     "ja": "田尻智さんに質問した(自分の名前を)",
-     "en": "Asked Satoshi Tajiri a question (my own name)"
+     "ja": "田尻智さんの講演を客席の後ろで聞いた",
+     "en": "heard Satoshi Tajiri speak from the back row"
     }
    },
    {
@@ -4856,8 +4856,8 @@
      "pos=client"
     ],
     "text": {
-     "ja": "発表会で、主題歌「檄!帝国華撃団」を歌う横山智佐さんと同じエレベーターに乗った。降りる階を通り過ぎても、降りられなかった。",
-     "en": "At the press event, you rode an elevator with Chisa Yokoyama, singer of the theme \"Geki! Teikoku Kagekidan.\" You missed your floor and still couldn't get off."
+     "ja": "横山智佐さんの歌う「檄!帝国華撃団」を、残業中に何度もかけた。気分が上がりすぎて、終電を 2 本見送った。",
+     "en": "You played \"Geki! Teikoku Kagekidan,\" sung by Chisa Yokoyama, over and over during overtime. Too fired up to stop, you let two last trains go by."
     },
     "effect": {
      "passion": 8
@@ -4868,8 +4868,8 @@
      "high"
     ],
     "memory": {
-     "ja": "横山智佐さんと同じエレベーターで階を通り過ぎた",
-     "en": "Rode past my floor with Chisa Yokoyama"
+     "ja": "横山智佐さんの歌で終電を 2 本見送った",
+     "en": "let two last trains go by to Chisa Yokoyama's song"
     }
    },
    {
