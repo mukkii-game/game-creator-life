@@ -1,0 +1,5068 @@
+[
+ {
+  "id": "ev_tn_pit_data_wipe",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "半年分のデータが消えた。バックアップは取ってあった。壊れたのと同じディスクの中に。",
+   "en": "Six months of data, gone. You did have a backup: on the very disk that died."
+  },
+  "effect": {
+   "passion": -25,
+   "skill": 3
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_cancel3y",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "3 年かけた作品が発売中止になった。手元に残ったのは、ロゴ入りのボールペン 1 本。インクはもう出ない。",
+   "en": "The game you spent three years on was cancelled. All you kept was a ballpoint pen with its logo. It no longer writes."
+  },
+  "effect": {
+   "passion": -28,
+   "skill": 5
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_wagon",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "自信作が発売 1 週間で中古屋のワゴンに並んだ。値札は 380 円。隣の弁当より安かった。",
+   "en": "A week after launch, your proudest work sat in the used-games bargain bin. 380 yen. Cheaper than the lunch box next to it."
+  },
+  "effect": {
+   "passion": -25,
+   "fame": -5
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_reject30",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "企画書 30 本が全部ボツ。31 本目の表紙に自分で「ボツ」と書いて出したら、それだけ笑ってもらえた。",
+   "en": "All thirty of your proposals were rejected. On number 31 you wrote \"REJECTED\" on the cover yourself. That one got a laugh."
+  },
+  "effect": {
+   "passion": -22,
+   "network": 3
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_collapse",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "締め切り前夜に倒れて 3 週間入院。退院した日、ゲームは自分抜きで完成していた。スタッフロールに名前はあった。",
+   "en": "You collapsed the night before the deadline: three weeks in hospital. The game shipped without you. Your name was still in the credits."
+  },
+  "effect": {
+   "hp": -25,
+   "passion": -20
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_launch_bug",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "発売日に致命的なバグが見つかった。雑誌に「裏技」として載り、自分の作品で一番有名な場面になった。",
+   "en": "A fatal bug turned up on launch day. Magazines printed it as a \"secret trick,\" and it became the most famous moment in your game."
+  },
+  "effect": {
+   "passion": -20,
+   "fame": 5
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_young",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "初めて任されたステージが全部作り直しになった。先輩は「いい勉強になったね」と言い、その日の飲み代を割り勘にした。",
+   "en": "The first stage they trusted you with got scrapped entirely. Your senior said \"Good lesson, huh?\" and then split the bar tab with you."
+  },
+  "when": [
+   "age<=26"
+  ],
+  "effect": {
+   "passion": -20,
+   "skill": 5
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_oldman",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "出した企画が「おじさんの思い出話」と付箋つきで戻ってきた。付箋の字は、やけに丸かった。",
+   "en": "Your proposal came back with a sticky note: \"An old man's nostalgia.\" The handwriting was very round and bubbly."
+  },
+  "when": [
+   "age>=45"
+  ],
+  "effect": {
+   "passion": -22
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_home_lock",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "仕事に 3 年打ち込むうちに、家の鍵が替わっていた。新しい鍵は、自分のゲームのキャラのキーホルダー付きで郵便受けにあった。",
+   "en": "Three years buried in work, and the locks at home were changed. The new key was in the mailbox, on a keychain of your own game's character."
+  },
+  "when": [
+   "flag.partner"
+  ],
+  "effect": {
+   "passion": -25,
+   "network": -5
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_arcade_loc",
+  "years": [
+   1979,
+   2000
+  ],
+  "text": {
+   "ja": "ロケテストで自分のゲームの台に誰も座らなかった。3 日目にやっと座ったのは、休憩中の店員だった。",
+   "en": "At the location test, nobody sat at your cabinet. On day three, someone finally did: an arcade employee on break."
+  },
+  "effect": {
+   "passion": -24
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_floppy",
+  "years": [
+   1980,
+   1996
+  ],
+  "text": {
+   "ja": "フロッピーにマジックで「大事」と書いたら、上書き用の山に紛れた。半年分が「大事」ごと消えた。",
+   "en": "You wrote IMPORTANT on a floppy in marker. It ended up in the overwrite pile. Six months vanished, IMPORTANT and all."
+  },
+  "effect": {
+   "passion": -25
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_crash_abroad",
+  "years": [
+   1982,
+   1985
+  ],
+  "text": {
+   "ja": "海外の市場が崩れ、会社が倒れた。自分のカートリッジは砂漠に埋められたらしい。砂漠には行ったこともない。",
+   "en": "The market crashed and your company went down. Rumor says your cartridges got buried in the desert. You've never even seen a desert."
+  },
+  "when": [
+   "pos=abroad"
+  ],
+  "effect": {
+   "passion": -25,
+   "money": -80,
+   "flag": {
+    "do_change_company": true
+   }
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_small_bankrupt",
+  "years": [
+   1979,
+   2040
+  ],
+  "text": {
+   "ja": "朝、会社のドアに弁護士の張り紙。机の中のお菓子だけは、なんとか取り返した。",
+   "en": "One morning, a lawyer's notice was taped to the office door. You at least managed to rescue the snacks from your desk."
+  },
+  "when": [
+   "status=employed",
+   "company.size=small"
+  ],
+  "effect": {
+   "passion": -25,
+   "money": -50,
+   "flag": {
+    "do_change_company": true
+   }
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_bubble",
+  "years": [
+   1991,
+   1994
+  ],
+  "text": {
+   "ja": "バブルが弾けて会社が傾いた。給料の代わりに、売れ残りのカートリッジが 1 箱届いた。",
+   "en": "The bubble burst and the company tilted. Instead of a paycheck, a box of unsold cartridges arrived."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": -25,
+   "money": -100
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_leak",
+  "years": [
+   1985,
+   2000
+  ],
+  "text": {
+   "ja": "発表前の新作が雑誌にすっぱ抜かれ、企画ごと消えた。その号は今も実家の本棚の奥に隠してある。",
+   "en": "A magazine leaked your unannounced game and the whole project died. You still keep that issue hidden at the back of your parents' bookshelf."
+  },
+  "effect": {
+   "passion": -24
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_genre_flip",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "発売半年前、上の一声でジャンルが変わった。RPG がパズルに。主人公はブロックの 1 個になった。",
+   "en": "Six months before launch, one word from the top changed the genre. RPG to puzzle. The hero became one of the blocks."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": -25,
+   "skill": 3
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_client_lead",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "看板シリーズの新作を任され、シリーズで一番売れなかった。次の会議には、自分の席札が無かった。",
+   "en": "They handed you the flagship series. Your entry sold the worst of them all. At the next meeting, there was no name card for you."
+  },
+  "when": [
+   "pos=client_lead"
+  ],
+  "effect": {
+   "passion": -28,
+   "fame": -10,
+   "network": -5
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_client_dept",
+  "years": [
+   1979,
+   2040
+  ],
+  "text": {
+   "ja": "部署ごと無くなった。最後の日、送別の寄せ書きは、来週捨てる書類の山の上に置かれていた。",
+   "en": "Your whole department was dissolved. On the last day, the farewell card sat on top of next week's shredding pile."
+  },
+  "when": [
+   "pos=client"
+  ],
+  "effect": {
+   "passion": -24,
+   "network": -5
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_dev_lead",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "予算を 3 倍使った大作が、社内試写会で寝息に包まれた。いちばん大きな寝息は社長だった。",
+   "en": "The epic that ate triple its budget played to a chorus of snores at the internal screening. The loudest came from the president."
+  },
+  "when": [
+   "pos=dev_lead"
+  ],
+  "effect": {
+   "passion": -28,
+   "money": -50,
+   "network": -5
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_dev_scrap",
+  "years": [
+   1979,
+   2040
+  ],
+  "text": {
+   "ja": "発注元の方針が変わり、作りかけのゲームが丸ごと別の会社に移った。引き継ぎの資料を作るのは自分だった。",
+   "en": "The publisher changed course and your half-built game moved to another studio. You were the one writing the handover notes."
+  },
+  "when": [
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": -25,
+   "skill": 3
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_sub_unpaid",
+  "years": [
+   1979,
+   2040
+  ],
+  "text": {
+   "ja": "元請けが倒れ、3 か月分の支払いが消えた。届いたのは、払うはずだった額が書かれた丁寧なお詫び状。",
+   "en": "The prime contractor went under, taking three months of payment with it. What arrived: a polite apology listing exactly what they would have paid."
+  },
+  "when": [
+   "pos=sub"
+  ],
+  "effect": {
+   "passion": -22,
+   "money": -100
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_qa_recall",
+  "years": [
+   1979,
+   2040
+  ],
+  "text": {
+   "ja": "自分が見逃したバグで、ソフト 10 万本を回収することになった。再現手順は、今でもそらで言える。",
+   "en": "A bug you missed forced a recall of 100,000 copies. You can still recite the reproduction steps by heart."
+  },
+  "when": [
+   "pos=qa"
+  ],
+  "effect": {
+   "passion": -25,
+   "skill": 5
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_indie_41",
+  "years": [
+   1979,
+   2040
+  ],
+  "text": {
+   "ja": "自腹で 2 年かけた作品が、初月 41 本売れた。そのうち 3 本は母が買っていた。",
+   "en": "Two years and all your savings: 41 copies sold the first month. Mom bought three of them."
+  },
+  "when": [
+   "status=indie"
+  ],
+  "effect": {
+   "passion": -26,
+   "money": -150
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_indie_reject",
+  "years": [
+   2010,
+   2040
+  ],
+  "text": {
+   "ja": "配信の審査に 5 回落ちた。6 回目の不合格通知は、文面を覚えてしまったので途中から読まなかった。",
+   "en": "Rejected by the store's review five times. By the sixth notice you knew the wording by heart and stopped reading halfway."
+  },
+  "when": [
+   "status=indie"
+  ],
+  "effect": {
+   "passion": -22,
+   "skill": 3
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_hw_exit",
+  "years": [
+   2001,
+   2003
+  ],
+  "text": {
+   "ja": "会社がゲーム機づくりから撤退した。売り場の自社ハードの棚は、翌月よその会社の棚になっていた。",
+   "en": "Your company pulled out of making consoles. By the next month, its shelf at the store belonged to a rival."
+  },
+  "when": [
+   "status=employed",
+   "company.size=big"
+  ],
+  "effect": {
+   "passion": -22,
+   "network": 3
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_merger",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "会社が合併し、自分のシリーズが相手のシリーズに吸収された。新しいロゴには、元のキャラの耳だけ残った。",
+   "en": "The merger folded your series into theirs. In the new logo, only your character's ears survived."
+  },
+  "when": [
+   "status=employed",
+   "company.size=big"
+  ],
+  "effect": {
+   "passion": -25
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_board",
+  "years": [
+   1997,
+   2008
+  ],
+  "text": {
+   "ja": "ネットの掲示板に自分の作品の「クソゲー」スレが立った。スレは 10 本目まで伸び、発売元のどのゲームより長く続いた。",
+   "en": "An online board started a \"worst game ever\" thread about yours. It ran to part 10, outliving every game the publisher made."
+  },
+  "effect": {
+   "passion": -22,
+   "fame": 3
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_lehman",
+  "years": [
+   2008,
+   2010
+  ],
+  "text": {
+   "ja": "リーマン・ショックで出資元が企画から手を引いた。会議室には、試作のマスコットの着ぐるみだけが残った。",
+   "en": "After the Lehman shock, the investors pulled out of your project. Only the mascot costume from the prototype stayed in the meeting room."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": -25,
+   "money": -30
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_sns_flame",
+  "years": [
+   2009,
+   2040
+  ],
+  "text": {
+   "ja": "宣伝のつもりの一言が SNS で炎上した。謝罪文のほうが、ゲームの紹介文より 3 倍読まれた。",
+   "en": "A promo post blew up on social media, the bad way. Your apology got three times the readers of the game's description."
+  },
+  "effect": {
+   "passion": -25,
+   "fame": -10,
+   "network": -5
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_sync_wipe",
+  "years": [
+   2011,
+   2040
+  ],
+  "text": {
+   "ja": "同期の設定ミスで、クラウドのデータが空のフォルダで上書きされた。空のフォルダは、きちんと 3 か所にバックアップされていた。",
+   "en": "A sync mix-up overwrote all your online files with an empty folder. The empty folder was faithfully backed up in three places."
+  },
+  "effect": {
+   "passion": -25
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_gacha_odds",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "担当のガチャの確率表記が間違っていた。お詫びの石を配る作業で、その年の夏が終わった。",
+   "en": "The odds listed for your gacha were wrong. The whole summer went to handing out apology gems."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": -24,
+   "fame": -5
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pit_ai_replace",
+  "years": [
+   2023,
+   2040
+  ],
+  "text": {
+   "ja": "自分の担当の作業が AI に置き換わった。置き換えの手順書を書いたのも自分だった。",
+   "en": "Your tasks were handed to an AI. You were the one who wrote the procedure for it."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": -25,
+   "skill": 3
+  },
+  "tag": [
+   "pit"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_essay",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "親戚の子の作文が賞を取った。題は「わたしの好きなゲーム」。自分の作品で、作者は「天才」と書かれていた。",
+   "en": "A relative's kid won an essay prize. Title: \"My Favorite Game.\" It was yours, and the creator was called \"a genius.\""
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 30
+  },
+  "memory": {
+   "ja": "親戚の子の作文で「天才」と書かれた",
+   "en": "a kid's prize-winning essay called you a genius"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_tv",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "自分の作品がテレビの特集で取り上げられた。自分が映ったのは 4 秒。録画を 200 回見た。",
+   "en": "Your game got a TV feature. You were on screen for four seconds. You watched the tape 200 times."
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 50
+  },
+  "memory": {
+   "ja": "テレビの特集に 4 秒映った",
+   "en": "four seconds on a TV feature"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_award",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "作品が大きな賞を取った。壇上で何を言ったか覚えていない。ネクタイが裏返しだったことだけ覚えている。",
+   "en": "Your game won a big award. You don't remember your speech. You only remember your tie was on inside out."
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 25,
+   "money": 100
+  },
+  "memory": {
+   "ja": "大きな賞の壇上に立った",
+   "en": "standing on stage to accept a big award"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_letters",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "ファンからの手紙が段ボール 3 箱届いた。全部読むのに半年かかり、読み終えた日に 4 箱目が来た。",
+   "en": "Three cardboard boxes of fan letters arrived. Reading them took six months. The day you finished, box four came."
+  },
+  "effect": {
+   "passion": 28,
+   "fame": 20,
+   "network": 5
+  },
+  "memory": {
+   "ja": "ファンレターが段ボールで届いた",
+   "en": "fan letters by the cardboard box"
+  },
+  "tag": [
+   "peak",
+   "high",
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_dad",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "作品が大ヒットし、「ゲームなんて」と言っていた父がこっそり全クリしていた。セーブデータの名前は「とうちゃん」。",
+   "en": "Your game became a smash. Dad, who always scoffed at games, had secretly beaten it. The save file was named \"DAD.\""
+  },
+  "effect": {
+   "passion": 28,
+   "fame": 20,
+   "money": 100
+  },
+  "memory": {
+   "ja": "ゲーム嫌いの父がこっそり全クリしていた",
+   "en": "dad, who hated games, secretly beat yours"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_million",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "作品が 100 万本売れた。社長から金一封。中身より、封筒の「金一封」の字のほうが立派だった。",
+   "en": "Your game sold a million copies. The president handed you a bonus envelope. The calligraphy on it beat what was inside."
+  },
+  "when": [
+   "status=employed",
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 150,
+   "work": {
+    "last": {
+     "result": "hit"
+    }
+   }
+  },
+  "memory": {
+   "ja": "作品が 100 万本売れた",
+   "en": "a million copies sold"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_train",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "電車で隣の人が、自分のゲームの攻略本を読んでいた。降りる駅を 3 つ過ぎた。",
+   "en": "On the train, the person next to you was reading the strategy guide for your game. You rode three stops past yours."
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 50
+  },
+  "memory": {
+   "ja": "電車で隣の人が自分の攻略本を読んでいた",
+   "en": "a stranger on the train reading your strategy guide"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_arcade_line",
+  "years": [
+   1979,
+   1996
+  ],
+  "text": {
+   "ja": "ゲームセンターの自分の台に、順番待ちの 100 円玉が積まれていた。1 枚足して、こっそり列に並んだ。",
+   "en": "At the arcade, coins were stacked on your cabinet to hold places in line. You added one and quietly waited your turn."
+  },
+  "effect": {
+   "passion": 28,
+   "fame": 20,
+   "money": 80
+  },
+  "memory": {
+   "ja": "自分の台に 100 円玉が積まれていた",
+   "en": "coins stacked on your cabinet, waiting in line"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_phenomenon",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "作品が社会現象になり、ニュースで「学校で持ち込み禁止に」と流れた。母から「あんた何したの」と電話。",
+   "en": "Your game became a social phenomenon; the news said schools were banning it. Mom called: \"What did you do?\""
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 28,
+   "fame": 25,
+   "money": 200,
+   "work": {
+    "last": {
+     "result": "legend"
+    }
+   }
+  },
+  "memory": {
+   "ja": "作品が社会現象になった",
+   "en": "your game became a social phenomenon"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_overseas",
+  "years": [
+   1986,
+   2040
+  ],
+  "text": {
+   "ja": "作品が海外で大ヒット。読めない言葉のファンレターが届き、訳してもらうと「続編まだ?」だった。",
+   "en": "A smash hit overseas. Fan letters came in languages you can't read. Translated, they all said: \"Sequel when?\""
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 150
+  },
+  "memory": {
+   "ja": "海外で大ヒットした",
+   "en": "a smash hit overseas"
+  },
+  "tag": [
+   "peak",
+   "high",
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_merch",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "キャラがお菓子のおまけになった。スーパーで 20 箱買い、レジで「お好きなんですね」。「作りました」とは言えなかった。",
+   "en": "Your character became a prize in snack boxes. You bought twenty. The cashier said \"You must love these.\" You couldn't say \"I made them.\""
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 100
+  },
+  "memory": {
+   "ja": "キャラがお菓子のおまけになった",
+   "en": "your character in snack boxes"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_textbook",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "自分のゲームが専門学校の教科書に「名作の例」として載った。例の 3 つ目だった。",
+   "en": "Your game made it into a game-school textbook as an example of a classic. Example number three."
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 30
+  },
+  "memory": {
+   "ja": "教科書に名作の例として載った",
+   "en": "your game in a textbook as a classic"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_karaoke",
+  "years": [
+   1993,
+   2040
+  ],
+  "text": {
+   "ja": "作品の主題歌がカラオケに入った。初めて自分で歌ったら、採点は 62 点だった。",
+   "en": "Your game's theme song made it into karaoke. The first time you sang it yourself, you scored 62."
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 60
+  },
+  "memory": {
+   "ja": "自分の作品の歌がカラオケに入った",
+   "en": "your game's song made it into karaoke"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_tgs",
+  "years": [
+   1996,
+   2040
+  ],
+  "text": {
+   "ja": "東京ゲームショウで自分の作品の試遊が 3 時間待ち。列の最後尾の札を持っていたのは自分だった。",
+   "en": "At Tokyo Game Show, the line to play your game hit three hours. The one holding the end-of-line sign was you."
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 50
+  },
+  "memory": {
+   "ja": "東京ゲームショウで 3 時間待ちの列",
+   "en": "a three-hour line at Tokyo Game Show"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_board_god",
+  "years": [
+   1997,
+   2010
+  ],
+  "text": {
+   "ja": "ネットの掲示板で自分の作品が「神ゲー」と呼ばれた。夜中に「作者です」と書きかけて、消した。",
+   "en": "An online board called your game a masterpiece. Late at night you started typing \"I'm the creator,\" then deleted it."
+  },
+  "effect": {
+   "passion": 28,
+   "fame": 20,
+   "money": 50
+  },
+  "memory": {
+   "ja": "掲示板で「神ゲー」と呼ばれた",
+   "en": "an online board calling your game a masterpiece"
+  },
+  "tag": [
+   "peak",
+   "high",
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_flip_phone",
+  "years": [
+   2001,
+   2008
+  ],
+  "text": {
+   "ja": "ケータイ向けの小さなゲームが月 100 万人に遊ばれた。通勤電車で 3 人に 1 人が遊んでいた。ように見えた。",
+   "en": "A tiny game you made for flip phones reached a million players a month. On the commute, one in three seemed to be playing it. Or so it looked."
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 200
+  },
+  "memory": {
+   "ja": "ケータイのゲームが月 100 万人",
+   "en": "a million players a month on flip phones"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_app_top",
+  "years": [
+   2009,
+   2040
+  ],
+  "text": {
+   "ja": "スマホのアプリで自分のゲームが無料ランキング 1 位。1 位の画面を 30 枚スクショした。",
+   "en": "Your game hit number one on the free app chart. You took thirty screenshots of it."
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 200
+  },
+  "memory": {
+   "ja": "アプリのランキング 1 位",
+   "en": "number one on the app chart"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_trend",
+  "years": [
+   2010,
+   2040
+  ],
+  "text": {
+   "ja": "作品名が SNS のトレンド 1 位になった。2 位はその作品の悪口だったが、1 位は 1 位だ。",
+   "en": "Your game hit number one in social media trends. Number two was people complaining about it. Still, number one."
+  },
+  "effect": {
+   "passion": 25,
+   "fame": 25,
+   "money": 100
+  },
+  "memory": {
+   "ja": "作品の名前がトレンド 1 位",
+   "en": "your game trending at number one"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_speedrun",
+  "years": [
+   2013,
+   2040
+  ],
+  "text": {
+   "ja": "海外の早解き大会で、自分のゲームがトリを飾った。夜中に見ていて、知らない裏技に 3 回叫んだ。",
+   "en": "Your game closed out a big overseas speedrun marathon. Watching at 3 a.m., you yelled three times at tricks you never knew existed."
+  },
+  "effect": {
+   "passion": 28,
+   "fame": 20,
+   "money": 50
+  },
+  "memory": {
+   "ja": "早解き大会のトリが自分のゲーム",
+   "en": "your game closing a speedrun marathon"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_remake",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "昔の作品がリメイクされ、若い開発者に「これを遊んで業界に入りました」と言われた。帰りの電車で少し泣いた。",
+   "en": "An old game of yours got a remake. A young developer said, \"Playing this is why I got into the industry.\" On the train home, you cried a little."
+  },
+  "when": [
+   "works>=2"
+  ],
+  "effect": {
+   "passion": 30,
+   "fame": 20,
+   "money": 100
+  },
+  "memory": {
+   "ja": "「これを遊んで業界に入りました」と言われた",
+   "en": "a young dev saying your game got them into the industry"
+  },
+  "tag": [
+   "peak",
+   "high",
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_indie_old",
+  "years": [
+   1980,
+   2009
+  ],
+  "text": {
+   "ja": "自主制作のソフトが雑誌の投稿コーナーで大賞。賞金で買ったのは、もう 1 台のパソコンだった。",
+   "en": "Your self-made software won the grand prize in a magazine's reader contest. The prize money bought... another computer."
+  },
+  "when": [
+   "status=indie"
+  ],
+  "effect": {
+   "passion": 28,
+   "fame": 20,
+   "money": 100
+  },
+  "memory": {
+   "ja": "雑誌の投稿コーナーで大賞",
+   "en": "grand prize in a magazine contest"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_indie_new",
+  "years": [
+   2010,
+   2040
+  ],
+  "text": {
+   "ja": "1 人で作ったゲームが世界で 50 万本売れた。祝杯は、いつものコンビニの、いつもより高いアイス。",
+   "en": "The game you made alone sold 500,000 copies worldwide. To celebrate: the usual convenience store, a pricier ice cream than usual."
+  },
+  "when": [
+   "status=indie"
+  ],
+  "effect": {
+   "passion": 30,
+   "fame": 25,
+   "money": 800
+  },
+  "memory": {
+   "ja": "1 人で作ったゲームが世界で 50 万本",
+   "en": "a solo game that sold half a million"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_sub",
+  "years": [
+   1980,
+   2040
+  ],
+  "text": {
+   "ja": "下請けで作った作品が大ヒット。スタッフロールに名前は無かったが、元請けの社長が雑誌で「あの会社のおかげ」と言った。",
+   "en": "A game you built as a subcontractor became a huge hit. You weren't in the credits, but the publisher's president told a magazine: \"We owe it to that studio.\""
+  },
+  "when": [
+   "pos=sub"
+  ],
+  "effect": {
+   "passion": 28,
+   "fame": 15,
+   "money": 100,
+   "network": 10
+  },
+  "memory": {
+   "ja": "元請けの社長が雑誌でうちの名前を出した",
+   "en": "the publisher's president naming your studio in a magazine"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_qa",
+  "years": [
+   1980,
+   2040
+  ],
+  "text": {
+   "ja": "発売直前、自分だけが致命的なバグを見つけた。開発室の全員から拍手され、プロデューサーに肩を揉まれた。",
+   "en": "Right before launch, you alone found the fatal bug. The whole dev room applauded and the producer gave you a shoulder rub."
+  },
+  "when": [
+   "pos=qa"
+  ],
+  "effect": {
+   "passion": 28,
+   "fame": 15,
+   "network": 10,
+   "money": 30
+  },
+  "memory": {
+   "ja": "自分だけが見つけたバグで拍手をもらった",
+   "en": "the bug only you found, and the applause"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_banner",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "立ち上げたシリーズが大ヒットし、本社ビルに垂れ幕が下がった。下から写真を撮る自分を、警備員が怪しんでいた。",
+   "en": "Your new series debuted as a smash, and its banner hung down the headquarters. A guard eyed you suspiciously as you photographed it."
+  },
+  "when": [
+   "pos=client_lead"
+  ],
+  "effect": {
+   "passion": 25,
+   "fame": 25,
+   "money": 200
+  },
+  "memory": {
+   "ja": "本社ビルに自分の作品の垂れ幕",
+   "en": "your game's banner on headquarters"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_named",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "チームの作品が大ヒットし、大手から「次も御社で」と名指しの電話。切ってから窓を開けて叫んだ。",
+   "en": "Your team's game was a smash; a major publisher called asking for you by name. You hung up, opened the window, and yelled."
+  },
+  "when": [
+   "pos=dev_lead"
+  ],
+  "effect": {
+   "passion": 28,
+   "fame": 20,
+   "money": 200,
+   "network": 10
+  },
+  "memory": {
+   "ja": "大手から名指しで次回作を頼まれた",
+   "en": "a major publisher asking for your team by name"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_reverse_import",
+  "years": [
+   1983,
+   2040
+  ],
+  "text": {
+   "ja": "海外の会社で作った作品が、日本で逆輸入のヒット。実家の近所の店で平積みされていた。",
+   "en": "A game you made abroad became a hit back in Japan. The store near your parents' house had it stacked by the register."
+  },
+  "when": [
+   "pos=abroad"
+  ],
+  "effect": {
+   "passion": 25,
+   "fame": 20,
+   "money": 150
+  },
+  "memory": {
+   "ja": "海外で作った作品が日本で逆輸入のヒット",
+   "en": "your game from abroad, a hit back home"
+  },
+  "tag": [
+   "peak",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_pk_late",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "50 を過ぎて作った作品が大ヒット。同窓会で「ゲーム作ってるんだって?」と聞かれ、名刺を 40 枚配った。",
+   "en": "Your game, made past fifty, became a smash. At the class reunion someone asked \"I hear you make games?\" You handed out forty business cards."
+  },
+  "when": [
+   "age>=50"
+  ],
+  "effect": {
+   "passion": 30,
+   "fame": 20,
+   "money": 100
+  },
+  "memory": {
+   "ja": "50 すぎの作品が大ヒット",
+   "en": "a smash hit made past fifty"
+  },
+  "tag": [
+   "peak",
+   "high",
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_big_go_indie",
+  "years": [
+   1980,
+   2040
+  ],
+  "text": {
+   "ja": "企画会議でまた落ちた。帰りに通帳を開くと、独立できそうな額がちょうど入っていた。",
+   "en": "Shot down at the planning meeting again. On the way home you checked your bankbook: just about enough to go solo."
+  },
+  "when": [
+   "status=employed",
+   "career>=3"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_go_indie_yes",
+    "label": {
+     "ja": "独立する",
+     "en": "Go independent"
+    },
+    "effect": {
+     "passion": 15,
+     "money": -100,
+     "flag": {
+      "do_go_indie": true,
+      "life_went_indie": true
+     }
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_tn_fu_indie_3y"
+     }
+    ],
+    "result": {
+     "ja": "辞表を出した。最後の日、机の引き出しから 10 年前の企画書が出てきた。それを最初に作ることにした。",
+     "en": "You handed in your notice. On the last day, a ten-year-old proposal turned up in your drawer. That would be your first game."
+    }
+   },
+   {
+    "id": "ch_tn_go_indie_no",
+    "label": {
+     "ja": "会社に残る",
+     "en": "Stay"
+    },
+    "effect": {
+     "money": 50,
+     "passion": -10
+    },
+    "later": [
+     {
+      "after": 5,
+      "event": "ev_tn_fu_stay_5y"
+     }
+    ],
+    "result": {
+     "ja": "残った。通帳はそっと引き出しに戻した。",
+     "en": "You stayed. The bankbook went quietly back into the drawer."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_indie_3y",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "独立して 3 年。自分で決めた締め切りを、自分で 4 回延ばした。誰にも怒られないのが一番こたえる。",
+   "en": "Three years solo. You pushed your own deadline four times. The worst part: nobody yells at you."
+  },
+  "effect": {
+   "passion": 5,
+   "skill": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_stay_5y",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "あの時の企画が、5 年たって後輩の名前で通った。打ち上げで後輩は「先輩の案です」と言ってくれた。",
+   "en": "Five years later, that old idea finally got approved under a junior's name. At the wrap party, the junior said: \"It was my senior's idea.\""
+  },
+  "effect": {
+   "passion": 5,
+   "network": 8
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_tn_big_major_offer",
+  "years": [
+   1980,
+   2040
+  ],
+  "text": {
+   "ja": "大手から引き抜きの電話。年収は倍、ただし作るのは他人のシリーズの 9 作目。",
+   "en": "A major publisher wants to poach you. Double the pay. The job: entry nine of someone else's series."
+  },
+  "when": [
+   "status=employed",
+   "company.size!=big"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_major_yes",
+    "label": {
+     "ja": "大手へ行く",
+     "en": "Take it"
+    },
+    "effect": {
+     "money": 200,
+     "passion": -10,
+     "flag": {
+      "do_change_company": true,
+      "life_poached": true
+     }
+    },
+    "later": [
+     {
+      "after": 4,
+      "event": "ev_tn_fu_major"
+     }
+    ],
+    "result": {
+     "ja": "行った。入館証の写真は、人生で一番いい笑顔だった。",
+     "en": "You went. Your ID badge photo was the best smile of your life."
+    }
+   },
+   {
+    "id": "ch_tn_major_no",
+    "label": {
+     "ja": "断る",
+     "en": "Turn it down"
+    },
+    "effect": {
+     "passion": 10,
+     "network": 5
+    },
+    "result": {
+     "ja": "社長に話したら、ボーナスが 1 万円増えた。断った額の 1% だった。",
+     "en": "You told the president. Your bonus went up 10,000 yen: one percent of what you turned down."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_major",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "9 作目は無事に売れた。10 作目の会議で、元の作者の席に自分が座っていた。",
+   "en": "Entry nine sold fine. At the meeting for entry ten, you were sitting in the original creator's chair."
+  },
+  "effect": {
+   "fame": 8,
+   "passion": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_tn_big_abroad",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "海外のスタジオから誘い。条件は最高。ただし英語は「ハロー」と「ゲームオーバー」しか言えない。",
+   "en": "A studio overseas wants you. Great terms. Your English: \"hello\" and \"game over.\""
+  },
+  "when": [
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_abroad_go",
+    "label": {
+     "ja": "海を渡る",
+     "en": "Cross the ocean"
+    },
+    "effect": {
+     "passion": 15,
+     "skill": 10,
+     "network": -10,
+     "money": 100,
+     "flag": {
+      "life_abroad": true
+     }
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_tn_fu_abroad"
+     }
+    ],
+    "result": {
+     "ja": "渡った。初日の会議で言えたのは「ゲームオーバー」だけで、なぜか受けた。",
+     "en": "You went. At the first meeting, all you managed was \"game over.\" Somehow, it got a laugh."
+    }
+   },
+   {
+    "id": "ch_tn_abroad_stay",
+    "label": {
+     "ja": "日本に残る",
+     "en": "Stay in Japan"
+    },
+    "effect": {
+     "network": 5,
+     "passion": -5
+    },
+    "result": {
+     "ja": "断りの手紙を、辞書を引きながら 3 日かけて書いた。",
+     "en": "You spent three days writing the refusal letter with a dictionary."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_abroad",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "海外暮らし 3 年。夢の中でも英語で締め切りに追われるようになった。",
+   "en": "Three years abroad. Now even your dreams have English-language deadlines."
+  },
+  "effect": {
+   "skill": 5,
+   "network": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_tn_big_family_day",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "マスターアップの日と、子どもの運動会が重なった。どちらも「一生に一度」だと言われている。",
+   "en": "Master-up day and your kid's sports day fell on the same date. Both sides say it's \"once in a lifetime.\""
+  },
+  "when": [
+   "flag.child"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_family_go",
+    "label": {
+     "ja": "運動会へ行く",
+     "en": "Go to sports day"
+    },
+    "effect": {
+     "passion": 5,
+     "hp": 5,
+     "network": -10,
+     "flag": {
+      "life_chose_family": true
+     }
+    },
+    "later": [
+     {
+      "after": 10,
+      "event": "ev_tn_fu_family"
+     }
+    ],
+    "result": {
+     "ja": "子どもは徒競走で 1 位。帰ると、ROM に自分のバグが 1 個入っていた。",
+     "en": "Your kid won the race. Back at work, one of your bugs had made it onto the ROM."
+    }
+   },
+   {
+    "id": "ch_tn_family_work",
+    "label": {
+     "ja": "会社へ行く",
+     "en": "Go to work"
+    },
+    "effect": {
+     "fame": 5,
+     "skill": 5,
+     "passion": -10,
+     "flag": {
+      "life_chose_work": true
+     }
+    },
+    "later": [
+     {
+      "after": 10,
+      "event": "ev_tn_fu_work"
+     }
+    ],
+    "result": {
+     "ja": "マスターは無事に上がった。運動会のビデオでは、自分の席にカメラを持った祖母が座っていた。",
+     "en": "The master shipped fine. In the sports-day video, Grandma sat in your seat holding the camera."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_family",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "あの運動会の写真が、子どもの結婚式のスライドに出てきた。隣の席の元上司が一番泣いていた。",
+   "en": "That sports-day photo showed up in your kid's wedding slideshow. The former boss next to you cried the hardest."
+  },
+  "effect": {
+   "passion": 10,
+   "network": 5
+  },
+  "weight": 0,
+  "memory": {
+   "ja": "運動会の写真が子どもの結婚式に出てきた",
+   "en": "that sports-day photo at your kid's wedding"
+  },
+  "tag": [
+   "big_after",
+   "high",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_work",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "子どもが就職の面接で、親の作ったゲームの話をしたらしい。運動会の話は一度もしなかったそうだ。",
+   "en": "Your kid apparently talked about your game at a job interview. Never once mentioned sports day."
+  },
+  "effect": {
+   "passion": 8,
+   "fame": 3
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_tn_big_soul_gacha",
+  "years": [
+   2011,
+   2040
+  ],
+  "text": {
+   "ja": "上から「次はガチャで行く」。作りたいのはパズルだ。パズルにガチャを付けるとどうなるのか、誰も知らない。",
+   "en": "From the top: \"Next one has gacha.\" You want to make a puzzle game. Nobody knows what a puzzle game with gacha even is."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_gacha_sell",
+    "label": {
+     "ja": "魂を売る",
+     "en": "Sell your soul"
+    },
+    "effect": {
+     "money": 200,
+     "passion": -15,
+     "flag": {
+      "life_sold_soul": true
+     }
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_tn_fu_gacha_rich"
+     }
+    ],
+    "result": {
+     "ja": "ガチャを付けた。最初の確率表を作った夜、パズルのピースに謝った。",
+     "en": "You added gacha. The night you made the first odds table, you apologized to the puzzle pieces."
+    }
+   },
+   {
+    "id": "ch_tn_gacha_refuse",
+    "label": {
+     "ja": "断って企画を通す",
+     "en": "Refuse and fight for it"
+    },
+    "effect": {
+     "passion": 15,
+     "network": -10
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_tn_fu_gacha_refused"
+     }
+    ],
+    "result": {
+     "ja": "会議で 3 時間粘った。通った理由は「もう帰りたい」だった。",
+     "en": "You held out for three hours in the meeting. It got approved because everyone wanted to go home."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_gacha_rich",
+  "years": [
+   2011,
+   2040
+  ],
+  "text": {
+   "ja": "ガチャ付きパズルは大当たり。ボーナスで買った高いソファで、昔の買い切りのパズルを遊んでいる。",
+   "en": "The gacha puzzle hit big. On the fancy sofa your bonus bought, you play an old pay-once puzzle game."
+  },
+  "effect": {
+   "money": 150,
+   "passion": 3
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_gacha_refused",
+  "years": [
+   2011,
+   2040
+  ],
+  "text": {
+   "ja": "ガチャ無しのパズルは地味に売れ、ファンから手紙が来た。「課金しなくていいゲームをありがとう」。",
+   "en": "The gacha-free puzzle sold modestly. A fan wrote: \"Thank you for a game I don't have to pay into.\""
+  },
+  "effect": {
+   "passion": 12,
+   "fame": 5
+  },
+  "weight": 0,
+  "memory": {
+   "ja": "「課金しなくていいゲームをありがとう」と手紙が来た",
+   "en": "a fan thanking you for a game with no paywall"
+  },
+  "tag": [
+   "big_after",
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_big_ports",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "移植の仕事ばかり 5 本目。次も移植なら確実にボーナス。オリジナルなら会社の金庫が空になる賭け。",
+   "en": "Port job number five. Another port means a safe bonus. An original means betting the company safe."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_ports_keep",
+    "label": {
+     "ja": "移植を続ける",
+     "en": "Keep porting"
+    },
+    "effect": {
+     "money": 100,
+     "skill": 10,
+     "passion": -10
+    },
+    "result": {
+     "ja": "移植の腕は社内一に。あだ名は「どんな箱にも入る人」。",
+     "en": "You became the best porter in the company. Nickname: \"fits in any box.\""
+    }
+   },
+   {
+    "id": "ch_tn_ports_orig",
+    "label": {
+     "ja": "オリジナルを出す",
+     "en": "Make an original"
+    },
+    "effect": {
+     "passion": 15,
+     "money": -50
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_tn_fu_original"
+     }
+    ],
+    "result": {
+     "ja": "企画書の 1 行目に「移植ではありません」と書いた。",
+     "en": "Line one of the proposal: \"This is not a port.\""
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_original",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "あの時のオリジナルは、出るには出た。売上の報告会で誰も目を合わせなかったが、帰りに 1 人だけアイスをおごってくれた。",
+   "en": "That original did come out. No one met your eyes at the sales review, but one person bought you an ice cream afterward."
+  },
+  "effect": {
+   "passion": 5,
+   "network": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_tn_big_sequels",
+  "years": [
+   1988,
+   2040
+  ],
+  "text": {
+   "ja": "社長「続編をあと 10 本作れ」。主人公の年齢は、設定上もう 80 歳を超えている。",
+   "en": "The president: \"Ten more sequels.\" According to the lore, the hero is already past eighty."
+  },
+  "when": [
+   "status=employed",
+   "works>=2"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_seq_yes",
+    "label": {
+     "ja": "続編を作る",
+     "en": "Make sequels"
+    },
+    "effect": {
+     "money": 150,
+     "fame": 10,
+     "passion": -10,
+     "flag": {
+      "life_sequel_machine": true
+     }
+    },
+    "result": {
+     "ja": "作った。11 作目で、主人公はついに孫に剣を譲った。",
+     "en": "You did. In entry eleven, the hero finally handed the sword to a grandchild."
+    }
+   },
+   {
+    "id": "ch_tn_seq_no",
+    "label": {
+     "ja": "新作を通す",
+     "en": "Push a new game"
+    },
+    "effect": {
+     "passion": 15,
+     "network": -5
+    },
+    "result": {
+     "ja": "表紙に「続編ではありません」と大きく書いた。会議で 3 回「何作目?」と聞かれた。",
+     "en": "\"NOT A SEQUEL\" in big letters on the cover. In the meeting, three people asked which entry it was."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_rights",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "自分の作品の権利を買いたいという会社が現れた。提示額で家が建つ。ただし二度とそのキャラを描けない。",
+   "en": "A company wants to buy the rights to your game. The offer would build a house. But you could never draw that character again."
+  },
+  "choices": [
+   {
+    "id": "ch_tn_rights_sell",
+    "label": {
+     "ja": "売る",
+     "en": "Sell"
+    },
+    "effect": {
+     "money": 1500,
+     "passion": -20,
+     "flag": {
+      "life_sold_rights": true
+     }
+    },
+    "later": [
+     {
+      "after": 5,
+      "event": "ev_tn_fu_rights_sold"
+     }
+    ],
+    "result": {
+     "ja": "判子を押した。帰り道、手がずっとキャラの形をなぞっていた。",
+     "en": "You stamped the contract. All the way home, your hand kept tracing the character's outline."
+    }
+   },
+   {
+    "id": "ch_tn_rights_keep",
+    "label": {
+     "ja": "売らない",
+     "en": "Keep them"
+    },
+    "effect": {
+     "passion": 15,
+     "money": -20
+    },
+    "later": [
+     {
+      "after": 5,
+      "event": "ev_tn_fu_rights_kept"
+     }
+    ],
+    "result": {
+     "ja": "断った。帰りに、ちょっといい鉛筆を買った。",
+     "en": "You said no. On the way home, you bought a slightly nicer pencil."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_rights_sold",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "売ったキャラが、知らない人の手でアニメになった。録画はしたが、まだ見られていない。家は建った。",
+   "en": "The character you sold got an anime, made by strangers. You recorded it but still can't watch it. The house got built."
+  },
+  "effect": {
+   "passion": -5,
+   "money": 50
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_rights_kept",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "売らなかったキャラで、ようやく次の作品ができた。家は無いが、キャラはいる。",
+   "en": "With the character you kept, you finally finished the next game. No house, but the character is still yours."
+  },
+  "effect": {
+   "passion": 12,
+   "fame": 5
+  },
+  "weight": 0,
+  "memory": {
+   "ja": "売らなかったキャラで次の作品ができた",
+   "en": "finishing a new game with the character you refused to sell"
+  },
+  "tag": [
+   "big_after",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_big_care",
+  "years": [
+   1980,
+   2040
+  ],
+  "text": {
+   "ja": "実家の親が倒れた。プロジェクトは山場。帰れば半年は戻れない。",
+   "en": "Your parent back home collapsed. The project is at its peak. Go home, and you won't be back for six months."
+  },
+  "when": [
+   "age>=40"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_care_home",
+    "label": {
+     "ja": "実家に帰る",
+     "en": "Go home"
+    },
+    "effect": {
+     "hp": 5,
+     "passion": -5,
+     "network": -10,
+     "flag": {
+      "life_caregiver": true
+     }
+    },
+    "result": {
+     "ja": "枕元でゲーム機の説明を 3 回した。4 回目に「お前が作ったのか」と言われた。",
+     "en": "At the bedside you explained the console three times. The fourth time: \"You made this?\""
+    }
+   },
+   {
+    "id": "ch_tn_care_stay",
+    "label": {
+     "ja": "現場に残る",
+     "en": "Stay on the project"
+    },
+    "effect": {
+     "skill": 10,
+     "passion": -10,
+     "money": 50
+    },
+    "result": {
+     "ja": "毎晩、病院に電話した。親は「ゲーム作っとけ」と言って先に切った。",
+     "en": "You called the hospital every night. Your parent said \"Go make your game\" and hung up first."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_tn_big_ai_all",
+  "years": [
+   2023,
+   2040
+  ],
+  "text": {
+   "ja": "AI に全部任せれば、制作期間は半分。ただし任せた部分は、もう誰も直し方を知らない。",
+   "en": "Hand everything to AI and the schedule halves. But nobody will know how to fix the parts it made."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_ai_all_yes",
+    "label": {
+     "ja": "任せる",
+     "en": "Hand it over"
+    },
+    "effect": {
+     "money": 100,
+     "skill": -10,
+     "passion": -5,
+     "flag": {
+      "life_ai_all": true
+     }
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_tn_fu_ai_all"
+     }
+    ],
+    "result": {
+     "ja": "任せた。空いた時間で、会議が 2 本増えた。",
+     "en": "You did. The free time filled up with two more meetings."
+    }
+   },
+   {
+    "id": "ch_tn_ai_all_no",
+    "label": {
+     "ja": "手で作る",
+     "en": "Make it by hand"
+    },
+    "effect": {
+     "passion": 10,
+     "skill": 10,
+     "money": -50,
+     "flag": {
+      "life_handmade": true
+     }
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_tn_fu_handmade"
+     }
+    ],
+    "result": {
+     "ja": "手で作ることにした。キーボードの「Enter」が光るほど減った。",
+     "en": "You chose to build it by hand. Your Enter key wore down to a shine."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice",
+   "ai"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_ai_all",
+  "years": [
+   2023,
+   2040
+  ],
+  "text": {
+   "ja": "AI が作った部分にバグ。直せる人を社内で探したら、一番詳しいのは AI だった。",
+   "en": "A bug in the AI-built part. You searched the company for someone who could fix it. The one who knew it best was the AI."
+  },
+  "effect": {
+   "passion": -5,
+   "money": 30
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "ai"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_handmade",
+  "years": [
+   2023,
+   2040
+  ],
+  "text": {
+   "ja": "「全部手作り」と宣伝したら「本当に?」と疑われた。作業中の手の写真を 300 枚出した。",
+   "en": "You advertised it as \"all handmade.\" People doubted it. You posted 300 photos of your hands at work."
+  },
+  "effect": {
+   "passion": 8,
+   "fame": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "ai"
+  ]
+ },
+ {
+  "id": "ev_tn_big_arcade_home",
+  "years": [
+   1983,
+   1990
+  ],
+  "text": {
+   "ja": "家庭用ゲーム機の部署を作るから来ないかと誘われた。ゲームセンターの部署は、ボーナスが現金の束で出る。",
+   "en": "They're starting a home console team and want you. Back in the arcade division, bonuses come as a stack of cash."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_home_go",
+    "label": {
+     "ja": "家庭用へ",
+     "en": "Go home console"
+    },
+    "effect": {
+     "skill": 10,
+     "passion": 10,
+     "money": -30,
+     "flag": {
+      "life_home_side": true
+     }
+    },
+    "result": {
+     "ja": "移った。最初の作品は容量が足りず、主人公の髪が 1 色になった。",
+     "en": "You moved. The first game ran out of memory, so the hero's hair got one color."
+    }
+   },
+   {
+    "id": "ch_tn_home_stay",
+    "label": {
+     "ja": "ゲームセンターに残る",
+     "en": "Stay in arcades"
+    },
+    "effect": {
+     "money": 80,
+     "flag": {
+      "life_arcade_side": true
+     }
+    },
+    "result": {
+     "ja": "残った。現金のボーナスを、帰りの電車で 12 回ポケットごしに確かめた。",
+     "en": "You stayed. On the train home, you patted your pocket to check the cash bonus twelve times."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_magazine",
+  "years": [
+   1979,
+   1995
+  ],
+  "text": {
+   "ja": "パソコン雑誌への投稿の賞金が、給料を超えた。会社を辞めて投稿一本で食べていくか。",
+   "en": "Your prize money from computer magazine contests just passed your salary. Quit and live off submissions?"
+  },
+  "when": [
+   "status=employed",
+   "age<=35"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_mag_quit",
+    "label": {
+     "ja": "辞めて投稿で食う",
+     "en": "Quit and submit"
+    },
+    "effect": {
+     "passion": 15,
+     "money": -30,
+     "flag": {
+      "do_go_indie": true
+     }
+    },
+    "result": {
+     "ja": "辞めた。翌月、その雑誌の投稿コーナーが終わった。",
+     "en": "You quit. The next month, that magazine ended its submissions corner."
+    }
+   },
+   {
+    "id": "ch_tn_mag_both",
+    "label": {
+     "ja": "二足のわらじ",
+     "en": "Do both"
+    },
+    "effect": {
+     "hp": -10,
+     "money": 30
+    },
+    "result": {
+     "ja": "昼は会社、夜は投稿。ペンネームが社内でばれていないと思っていたのは自分だけだった。",
+     "en": "Office by day, submissions by night. You were the only one who thought your pen name was a secret."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_subsidiary",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "子会社の社長にならないかと言われた。社員は自分を入れて 4 人、仕事は親会社の下請け。",
+   "en": "They offer to make you president of a subsidiary. Four staff including you. Work: subcontracting for the parent company."
+  },
+  "when": [
+   "status=employed",
+   "age>=35"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_sub_yes",
+    "label": {
+     "ja": "引き受ける",
+     "en": "Accept"
+    },
+    "effect": {
+     "network": 10,
+     "money": 50,
+     "passion": -5,
+     "job": "producer"
+    },
+    "result": {
+     "ja": "名刺に「代表取締役」。最初の仕事はトイレの電球の交換だった。",
+     "en": "\"President\" on your business card. First job: changing the restroom light bulb."
+    }
+   },
+   {
+    "id": "ch_tn_sub_no",
+    "label": {
+     "ja": "現場に残る",
+     "en": "Stay hands-on"
+    },
+    "effect": {
+     "skill": 5,
+     "passion": 10
+    },
+    "result": {
+     "ja": "断った。代わりに社長になった同期からの年賀状が、年々豪華になっていく。",
+     "en": "You declined. The peer who took the job sends fancier New Year cards every year."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_promotion",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "管理職の話が来た。給料は上がるが、もう自分の手では作らない。愛用のキーボードをなでた。",
+   "en": "A management offer. More pay, but no more making things with your own hands. You stroked your trusty keyboard."
+  },
+  "when": [
+   "status=employed",
+   "career>=6"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_promo_yes",
+    "label": {
+     "ja": "管理職になる",
+     "en": "Take management"
+    },
+    "effect": {
+     "money": 100,
+     "network": 10,
+     "passion": -10,
+     "job": "director"
+    },
+    "result": {
+     "ja": "会議が 1 日 7 本。8 本目は、会議を減らす会議だった。",
+     "en": "Seven meetings a day. Number eight was a meeting about cutting meetings."
+    }
+   },
+   {
+    "id": "ch_tn_promo_no",
+    "label": {
+     "ja": "現場一筋",
+     "en": "Stay on the floor"
+    },
+    "effect": {
+     "skill": 10,
+     "passion": 10,
+     "money": -20
+    },
+    "result": {
+     "ja": "残った。10 年後、元部下が上司になり、自分に「さん」付けで仕事を頼んだ。",
+     "en": "You stayed. Ten years later, your former junior became your boss and asked you for things very politely."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_anime_tie",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "人気アニメのゲーム化の話。売れるのは確実。ただし締め切りはアニメの放送開始に合わせて 7 か月。",
+   "en": "A licensed game for a hit anime. Guaranteed sales. But it has to ship in seven months, timed to the broadcast."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_anime_yes",
+    "label": {
+     "ja": "受ける",
+     "en": "Take it"
+    },
+    "effect": {
+     "money": 200,
+     "hp": -20,
+     "fame": 5
+    },
+    "result": {
+     "ja": "7 か月で出した。アニメの第 1 話で、主人公がゲームと違う必殺技を使った。",
+     "en": "You shipped in seven months. In episode one, the hero used a different special move than in your game."
+    }
+   },
+   {
+    "id": "ch_tn_anime_no",
+    "label": {
+     "ja": "断る",
+     "en": "Pass"
+    },
+    "effect": {
+     "passion": 5,
+     "money": -30
+    },
+    "result": {
+     "ja": "断った。他社が出したそのゲームを、子どもの頃の自分なら絶対に買っていた。",
+     "en": "You passed. The version another studio made is one your childhood self would have bought in a heartbeat."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_resort",
+  "years": [
+   1987,
+   1991
+  ],
+  "text": {
+   "ja": "バブルの勢いで、会社が「ゲームの次はリゾートだ」と言い出した。開発からリゾート部へ異動の打診。",
+   "en": "Riding the bubble, the company declares: \"After games, resorts!\" They want you in the new resort division."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_resort_go",
+    "label": {
+     "ja": "リゾートへ行く",
+     "en": "Go to resorts"
+    },
+    "effect": {
+     "money": 150,
+     "passion": -15,
+     "flag": {
+      "life_resort": true
+     }
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_tn_fu_resort"
+     }
+    ],
+    "result": {
+     "ja": "行った。最初の仕事は、ゲームのキャラの形をしたプールの設計だった。",
+     "en": "You went. First job: designing a pool shaped like a game character."
+    }
+   },
+   {
+    "id": "ch_tn_resort_stay",
+    "label": {
+     "ja": "開発に残る",
+     "en": "Stay in development"
+    },
+    "effect": {
+     "passion": 10
+    },
+    "result": {
+     "ja": "残った。リゾート部の同僚から、毎週南の島の絵はがきが届いた。",
+     "en": "You stayed. Every week a former colleague sent a postcard from a southern island."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_resort",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "バブルが弾け、リゾート計画は消えた。キャラの形のプールの設計図だけが、開発室に戻ってきた。",
+   "en": "The bubble burst and the resort plan vanished. Only the blueprint for the character-shaped pool came back to the dev room."
+  },
+  "effect": {
+   "passion": -5,
+   "network": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_tn_big_flip_phone",
+  "years": [
+   2000,
+   2008
+  ],
+  "text": {
+   "ja": "ケータイのゲームの部署が人を探している。画面は小さく、容量はもっと小さい。ボーナスだけは大きい。",
+   "en": "The mobile phone games team is hiring. Tiny screen, tinier memory. Only the bonus is big."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_flip_go",
+    "label": {
+     "ja": "行く",
+     "en": "Go"
+    },
+    "effect": {
+     "money": 100,
+     "skill": 5,
+     "flag": {
+      "life_mobile": true
+     }
+    },
+    "result": {
+     "ja": "行った。最初の作品は容量オーバー。主人公の名前を 4 文字から 2 文字に削って収めた。",
+     "en": "You went. Your first game was over the limit, so you cut the hero's name from four characters to two."
+    }
+   },
+   {
+    "id": "ch_tn_flip_stay",
+    "label": {
+     "ja": "据え置き機に残る",
+     "en": "Stay on consoles"
+    },
+    "effect": {
+     "passion": 10
+    },
+    "result": {
+     "ja": "残った。通勤電車で、元同僚の作ったケータイのゲームを遊ぶ人を 3 人見た。",
+     "en": "You stayed. On the commute, you spotted three people playing your old colleague's phone game."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_socialgame",
+  "years": [
+   2010,
+   2016
+  ],
+  "text": {
+   "ja": "ソシャゲに移れば年収 2 倍。今のチームは、10 年がかりの大作の 3 年目。",
+   "en": "Move to social games and your pay doubles. Your current team is in year three of a ten-year epic."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_sg_go",
+    "label": {
+     "ja": "移る",
+     "en": "Switch"
+    },
+    "effect": {
+     "money": 300,
+     "passion": -10,
+     "flag": {
+      "life_socialgame": true
+     }
+    },
+    "result": {
+     "ja": "移った初日、「イベントは毎週です」と言われた。",
+     "en": "Day one at the new place: \"Events are every week.\""
+    }
+   },
+   {
+    "id": "ch_tn_sg_stay",
+    "label": {
+     "ja": "大作を続ける",
+     "en": "Stick with the epic"
+    },
+    "effect": {
+     "passion": 10,
+     "skill": 10,
+     "money": -30
+    },
+    "later": [
+     {
+      "after": 7,
+      "event": "ev_tn_fu_epic"
+     }
+    ],
+    "result": {
+     "ja": "残った。ボーナスの封筒は薄かったが、作っている城は分厚い。",
+     "en": "You stayed. The bonus envelope was thin, but the castle you're building is thick."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_epic",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "10 年がかりの大作がついに出た。エンディングで自分の名前が出たのは、開始から 41 分後だった。",
+   "en": "The ten-year epic finally shipped. Your name appeared in the credits forty-one minutes in."
+  },
+  "effect": {
+   "passion": 12,
+   "fame": 5
+  },
+  "weight": 0,
+  "memory": {
+   "ja": "10 年がかりの大作のスタッフロールに名前が出た",
+   "en": "your name in the credits of a ten-year epic"
+  },
+  "tag": [
+   "big_after",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_big_crowdfund",
+  "years": [
+   2013,
+   2040
+  ],
+  "text": {
+   "ja": "クラウドファンディングで新作の資金を集めるか。集まらなければ、世界中に「集まらなかった」と知られる。",
+   "en": "Crowdfund the new game? If it fails, the whole world sees that it failed."
+  },
+  "when": [
+   "status=indie"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_cf_go",
+    "label": {
+     "ja": "やる",
+     "en": "Do it"
+    },
+    "effect": {
+     "money": 300,
+     "passion": 10,
+     "fame": 10
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_tn_fu_crowd"
+     }
+    ],
+    "result": {
+     "ja": "目標の 3 倍が集まった。喜んだのは 1 日だけだった。",
+     "en": "It raised triple the goal. The joy lasted one day."
+    }
+   },
+   {
+    "id": "ch_tn_cf_self",
+    "label": {
+     "ja": "自腹で作る",
+     "en": "Self-fund"
+    },
+    "effect": {
+     "money": -200,
+     "passion": 5
+    },
+    "result": {
+     "ja": "自腹にした。通帳の残高が、作っているゲームの体力ゲージと同じ減り方をした。",
+     "en": "You paid your own way. Your bank balance drained exactly like your game's health bar."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_crowd",
+  "years": [
+   2013,
+   2040
+  ],
+  "text": {
+   "ja": "支援者特典の手描きの絵はがき 800 枚を、まだ描いている。ゲームより終わらない。",
+   "en": "You are still drawing the 800 handmade postcards promised to backers. They're taking longer than the game."
+  },
+  "effect": {
+   "hp": -10,
+   "network": 10
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_tn_big_buyout",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "大手が自分の小さな会社ごと買いたいと言う。社員 3 人の生活は安泰。ただし作るものは向こうが決める。",
+   "en": "A major wants to buy your little studio. Your three staff would be secure. But they'd decide what you make."
+  },
+  "when": [
+   "status=indie"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_buy_sell",
+    "label": {
+     "ja": "売る",
+     "en": "Sell"
+    },
+    "effect": {
+     "money": 800,
+     "passion": -15,
+     "flag": {
+      "do_change_company": true,
+      "life_sold_studio": true
+     }
+    },
+    "result": {
+     "ja": "売った。新しい名刺は会社名が長すぎて、自分の名前が小さくなった。",
+     "en": "You sold. The new company name was so long that your own name on the card shrank."
+    }
+   },
+   {
+    "id": "ch_tn_buy_keep",
+    "label": {
+     "ja": "売らない",
+     "en": "Refuse"
+    },
+    "effect": {
+     "passion": 15,
+     "money": -50
+    },
+    "result": {
+     "ja": "断った。3 人で回転寿司へ行き、皿の色を気にせず食べた。その月だけ。",
+     "en": "You refused. The three of you went for conveyor-belt sushi and ignored the plate colors. Just that month."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_hometown",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "地元で一緒にゲーム会社を立ち上げないかと幼なじみ。家賃は都会の 3 分の 1、仕事も 3 分の 1。",
+   "en": "A childhood friend wants to start a game studio back home. Rent is a third of the city's. So is the work."
+  },
+  "when": [
+   "age>=35"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_home_town",
+    "label": {
+     "ja": "地元へ帰る",
+     "en": "Go home"
+    },
+    "effect": {
+     "passion": 10,
+     "hp": 10,
+     "money": -30,
+     "network": -5,
+     "flag": {
+      "life_hometown": true,
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "帰った。駅前に「ゲームの町」と看板を出したら、町内会で 2 時間説明させられた。",
+     "en": "You went. You put up a \"Game Town\" sign by the station and had to explain it to the neighborhood council for two hours."
+    }
+   },
+   {
+    "id": "ch_tn_home_city",
+    "label": {
+     "ja": "都会に残る",
+     "en": "Stay in the city"
+    },
+    "effect": {
+     "money": 30,
+     "network": 5
+    },
+    "result": {
+     "ja": "残った。お盆に帰ると、幼なじみは農業で大成功していた。",
+     "en": "You stayed. At Obon you went home and found your friend had become a hugely successful farmer."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_bug_tell",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "発売 2 週間前、自分だけが気づいた致命的なバグ。言えば発売延期。黙れば 100 本に 1 本で起きる。",
+   "en": "Two weeks to launch, a fatal bug only you noticed. Speak up and it's delayed. Stay quiet and it hits one copy in a hundred."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_bug_say",
+    "label": {
+     "ja": "言う",
+     "en": "Speak up"
+    },
+    "effect": {
+     "passion": 10,
+     "network": -5,
+     "fame": 5
+    },
+    "result": {
+     "ja": "言った。延期の発表の日、エレベーターで誰とも目が合わなかった。半年後、ファンから「延期してくれてありがとう」と手紙。",
+     "en": "You spoke up. On delay-announcement day, nobody met your eyes in the elevator. Six months later, a fan wrote: \"Thanks for the delay.\""
+    }
+   },
+   {
+    "id": "ch_tn_bug_quiet",
+    "label": {
+     "ja": "黙る",
+     "en": "Keep quiet"
+    },
+    "effect": {
+     "money": 50,
+     "passion": -15
+    },
+    "later": [
+     {
+      "after": 1,
+      "event": "ev_tn_fu_bug"
+     }
+    ],
+    "result": {
+     "ja": "黙った。マスターアップの夜、乾杯のビールの味がしなかった。",
+     "en": "You kept quiet. The master-up toast tasted like nothing."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_bug",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "あのバグは子どもたちの間で「呪いの面」と呼ばれる裏技になった。今も学校で噂が続いているらしい。",
+   "en": "That bug became a playground legend: \"the cursed stage.\" Kids still whisper about it at school."
+  },
+  "effect": {
+   "fame": 10,
+   "passion": -3
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_tn_big_old_boss",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "昔自分を首にした元上司が、新会社に誘ってきた。「お前しかいない」。前も同じことを言っていた。",
+   "en": "The boss who once fired you invites you to his new company. \"You're the only one.\" He said that last time too."
+  },
+  "when": [
+   "career>=8"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_ob_go",
+    "label": {
+     "ja": "行く",
+     "en": "Go"
+    },
+    "effect": {
+     "money": 50,
+     "network": 10,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "行った。初日、元上司は自分の名前を間違えた。",
+     "en": "You went. On day one, he got your name wrong."
+    }
+   },
+   {
+    "id": "ch_tn_ob_no",
+    "label": {
+     "ja": "断る",
+     "en": "Refuse"
+    },
+    "effect": {
+     "passion": 10
+    },
+    "result": {
+     "ja": "断った。気持ちよかった。気持ちよさは 3 日続いた。",
+     "en": "You refused. It felt great. The feeling lasted three days."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_engine",
+  "years": [
+   2005,
+   2040
+  ],
+  "text": {
+   "ja": "自社エンジンを守るか、海外の汎用エンジンに乗り換えるか。自社エンジンの中身を全部知っているのは、もう自分 1 人。",
+   "en": "Keep the in-house engine, or switch to a foreign off-the-shelf one? You're the last person who knows the in-house engine inside out."
+  },
+  "when": [
+   "job=programmer"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_eng_keep",
+    "label": {
+     "ja": "自社エンジンを守る",
+     "en": "Keep it"
+    },
+    "effect": {
+     "skill": 10,
+     "passion": 5,
+     "money": -30,
+     "flag": {
+      "life_own_engine": true
+     }
+    },
+    "result": {
+     "ja": "守った。引き継ぎ資料を書き始めたら 1,200 ページになった。",
+     "en": "You kept it. The handover document you started hit 1,200 pages."
+    }
+   },
+   {
+    "id": "ch_tn_eng_switch",
+    "label": {
+     "ja": "乗り換える",
+     "en": "Switch"
+    },
+    "effect": {
+     "skill": -5,
+     "money": 50,
+     "passion": -5
+    },
+    "result": {
+     "ja": "乗り換えた。自社エンジンの最後のビルドに、こっそり自分の名前を隠しておいた。",
+     "en": "You switched. In the in-house engine's final build, you secretly hid your name."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_novelist",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "趣味で書いた小説が出版社の目に留まった。小説家になるか、ゲームに残るか。",
+   "en": "A novel you wrote on the side caught a publisher's eye. Become a novelist, or stay in games?"
+  },
+  "when": [
+   "job=planner"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_nov_stay",
+    "label": {
+     "ja": "ゲームに残る",
+     "en": "Stay in games"
+    },
+    "effect": {
+     "passion": 5,
+     "skill": 5
+    },
+    "result": {
+     "ja": "残った。小説の原稿は、次の作品の設定資料集に化けた。",
+     "en": "You stayed. The manuscript turned into the lore book for your next game."
+    }
+   },
+   {
+    "id": "ch_tn_nov_go",
+    "label": {
+     "ja": "小説家になる",
+     "en": "Become a novelist"
+    },
+    "effect": {
+     "passion": 10,
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "原稿用紙を買い込んだ。最初の 1 行は「ゲームオーバー」だった。",
+     "en": "You stocked up on manuscript paper. The first line: \"Game over.\""
+    },
+    "cause": {
+     "ja": "ゲームを辞めて小説家に。デビュー作の主人公はゲームクリエイターだった",
+     "en": "left games to become a novelist. The hero of your debut novel was a game creator"
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_teacher",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "専門学校から講師の話。授業が週 3 日、現場が週 2 日。給料は安定、締め切りは学生の分まで増える。",
+   "en": "A game school wants you as an instructor. Three days teaching, two days at work. Stable pay, plus every student's deadlines."
+  },
+  "when": [
+   "age>=40"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_teach_yes",
+    "label": {
+     "ja": "講師になる",
+     "en": "Teach"
+    },
+    "effect": {
+     "network": 15,
+     "money": 30,
+     "passion": -5,
+     "flag": {
+      "life_teacher": true
+     }
+    },
+    "later": [
+     {
+      "after": 6,
+      "event": "ev_tn_fu_teacher"
+     }
+    ],
+    "result": {
+     "ja": "引き受けた。初回の授業で、学生に自分の作品を知っている人が 1 人もいなかった。",
+     "en": "You accepted. In your first class, not one student knew any of your games."
+    }
+   },
+   {
+    "id": "ch_tn_teach_no",
+    "label": {
+     "ja": "現場一本",
+     "en": "Stay on the job"
+    },
+    "effect": {
+     "skill": 5,
+     "passion": 5
+    },
+    "result": {
+     "ja": "断った。代わりに行った同期の授業で、自分の作品が「失敗例」として紹介されていた。",
+     "en": "You declined. The peer who went instead used your game in class as an example of failure."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_teacher",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔の教え子が、ヒット作のディレクターとして挨拶に来た。名刺の肩書きが自分より 2 段上だった。",
+   "en": "A former student came to say hello, now director of a hit game. Their title was two ranks above yours."
+  },
+  "effect": {
+   "passion": 12,
+   "network": 10
+  },
+  "weight": 0,
+  "memory": {
+   "ja": "教え子がヒット作のディレクターになって会いに来た",
+   "en": "a former student came back as a hit game's director"
+  },
+  "tag": [
+   "big_after",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_big_vr",
+  "years": [
+   2016,
+   2025
+  ],
+  "text": {
+   "ja": "VR の新部署の立ち上げに誘われた。未来はたぶんここにある。たぶん。",
+   "en": "They want you to launch a new VR team. The future is probably here. Probably."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_vr_go",
+    "label": {
+     "ja": "行く",
+     "en": "Go"
+    },
+    "effect": {
+     "passion": 10,
+     "skill": 10,
+     "money": -20,
+     "flag": {
+      "life_vr": true
+     }
+    },
+    "result": {
+     "ja": "行った。テスト中に酔って、会議室の床で 2 時間寝た。",
+     "en": "You went. You got motion sick testing and slept on the meeting room floor for two hours."
+    }
+   },
+   {
+    "id": "ch_tn_vr_stay",
+    "label": {
+     "ja": "今の部署に残る",
+     "en": "Stay"
+    },
+    "effect": {
+     "money": 20
+    },
+    "result": {
+     "ja": "残った。VR 部署の打ち上げ写真では、全員の顔にゴーグルの跡が付いていた。",
+     "en": "You stayed. In the VR team's party photo, everyone had goggle marks on their faces."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_publisher",
+  "years": [
+   2010,
+   2040
+  ],
+  "text": {
+   "ja": "海外のパブリッシャーから契約の話。前金で 1 年は暮らせる。ただし契約書が英語で 80 ページ。",
+   "en": "A foreign publisher offers a deal. The advance covers a year of living. The contract: 80 pages, in English."
+  },
+  "when": [
+   "status=indie"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_pub_sign",
+    "label": {
+     "ja": "サインする",
+     "en": "Sign"
+    },
+    "effect": {
+     "money": 400,
+     "passion": -5
+    },
+    "result": {
+     "ja": "サインした。読んだのは 3 ページ目まで。4 ページ目からのことは、今もときどき夢に見る。",
+     "en": "You signed. You read up to page three. What came after, you still sometimes dream about."
+    }
+   },
+   {
+    "id": "ch_tn_pub_self",
+    "label": {
+     "ja": "自分で出す",
+     "en": "Self-publish"
+    },
+    "effect": {
+     "passion": 10,
+     "money": -50
+    },
+    "result": {
+     "ja": "自分で出した。ストアページの英語は、辞書と根性で書いた。",
+     "en": "You self-published. You wrote the English store page with a dictionary and pure grit."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_hw_team",
+  "years": [
+   1985,
+   2005
+  ],
+  "text": {
+   "ja": "会社が新しいゲーム機を作る。ハード部門へ行けば歴史に名前が残る。たぶん仕様書の欄外に。",
+   "en": "The company is building a new console. Join the hardware team and your name goes down in history. Probably in the margin of the spec sheet."
+  },
+  "when": [
+   "status=employed",
+   "company.size=big"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_hw_go",
+    "label": {
+     "ja": "ハード部門へ",
+     "en": "Join hardware"
+    },
+    "effect": {
+     "skill": 10,
+     "network": 10,
+     "passion": -5,
+     "flag": {
+      "life_hw_team": true
+     }
+    },
+    "result": {
+     "ja": "行った。試作機に最初に電源を入れたのは自分。煙が出た。",
+     "en": "You joined. You were the first to power on the prototype. Smoke came out."
+    }
+   },
+   {
+    "id": "ch_tn_hw_stay",
+    "label": {
+     "ja": "ソフトに残る",
+     "en": "Stay on software"
+    },
+    "effect": {
+     "passion": 10
+    },
+    "result": {
+     "ja": "残った。新しいゲーム機の発表会で、自分のソフトの映像が 30 秒流れた。",
+     "en": "You stayed. At the console's unveiling, thirty seconds of your game played on the big screen."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_early_retire",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "早期退職の募集。割増の退職金で、残りの人生を遊んで暮らせる。遊ぶのはもちろんゲームだ。",
+   "en": "Early retirement offers are out. With the bonus package you could spend the rest of your life playing. Games, of course."
+  },
+  "when": [
+   "age>=55",
+   "status=employed"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_er_stay",
+    "label": {
+     "ja": "残る",
+     "en": "Stay"
+    },
+    "effect": {
+     "passion": 10,
+     "money": -10
+    },
+    "result": {
+     "ja": "残った。若手に「まだいるんですか」と言われたが、褒め言葉だと受け取った。",
+     "en": "You stayed. A junior asked \"You're still here?\" You took it as a compliment."
+    }
+   },
+   {
+    "id": "ch_tn_er_go",
+    "label": {
+     "ja": "手を挙げる",
+     "en": "Raise your hand"
+    },
+    "effect": {
+     "money": 500,
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "手を挙げた。送別会で、若手が自分のゲームの曲を口笛で吹いてくれた。",
+     "en": "You raised your hand. At the farewell party, the juniors whistled the theme from your game."
+    },
+    "cause": {
+     "ja": "早期退職。退職金で全部のゲーム機をそろえ、毎日だれかの作ったゲームを遊んでいる",
+     "en": "took early retirement, bought every console with the package, and now plays other people's games every day"
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_credit",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "元請けから「スタッフロールに名前を出さない代わりに、報酬を 3 割増し」と言われた。",
+   "en": "The publisher offers 30% more pay if your studio stays out of the credits."
+  },
+  "when": [
+   "pos=sub"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_cr_name",
+    "label": {
+     "ja": "名前を出す",
+     "en": "Keep your name"
+    },
+    "effect": {
+     "fame": 10,
+     "passion": 10,
+     "money": -30
+    },
+    "result": {
+     "ja": "名前を出した。実家の母がテレビ画面のスタッフロールを写真に撮り、親戚に配った。",
+     "en": "You kept your name. Mom photographed the credits on the TV screen and mailed them to the relatives."
+    }
+   },
+   {
+    "id": "ch_tn_cr_money",
+    "label": {
+     "ja": "お金を取る",
+     "en": "Take the money"
+    },
+    "effect": {
+     "money": 80,
+     "passion": -10
+    },
+    "result": {
+     "ja": "お金を取った。ヒットしたその作品の雑誌記事を、他人事のように切り抜いた。",
+     "en": "You took the money. When it became a hit, you clipped the magazine articles like they were about someone else."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_qa_path",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "デバッグのリーダーになるか、給料が下がっても開発の見習いになるか。",
+   "en": "Become QA lead, or take a pay cut to start as a development apprentice?"
+  },
+  "when": [
+   "pos=qa"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_qa_lead",
+    "label": {
+     "ja": "リーダーになる",
+     "en": "Become QA lead"
+    },
+    "effect": {
+     "money": 50,
+     "network": 10
+    },
+    "result": {
+     "ja": "リーダーになった。部下のバグ報告の誤字を直す毎日。",
+     "en": "You became lead. Now you spend every day fixing typos in your team's bug reports."
+    }
+   },
+   {
+    "id": "ch_tn_qa_dev",
+    "label": {
+     "ja": "開発の見習いになる",
+     "en": "Become an apprentice"
+    },
+    "effect": {
+     "job": "planner",
+     "money": -30,
+     "passion": 15,
+     "skill": 5
+    },
+    "result": {
+     "ja": "見習いになった。初めて作った敵キャラに、デバッガー時代の後輩が 200 件のバグを出してきた。",
+     "en": "You switched. Your first enemy design got 200 bug reports from your old QA juniors."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_streamer",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "人気の実況者に自分のゲームを渡すか。当たれば一晩で売れる。外れれば一晩で「つまらない」が広まる。",
+   "en": "Send your game to a popular Let's Play creator? A hit sells it overnight. A miss spreads \"boring\" overnight."
+  },
+  "when": [
+   "status=indie"
+  ],
+  "choices": [
+   {
+    "id": "ch_tn_st_send",
+    "label": {
+     "ja": "渡す",
+     "en": "Send it"
+    },
+    "effect": {
+     "fame": 10
+    },
+    "later": [
+     {
+      "after": 1,
+      "event": "ev_tn_fu_stream"
+     }
+    ],
+    "result": {
+     "ja": "渡した。配信の日は、怖くて見られなかった。",
+     "en": "You sent it. On broadcast day you were too scared to watch."
+    }
+   },
+   {
+    "id": "ch_tn_st_no",
+    "label": {
+     "ja": "渡さない",
+     "en": "Don't"
+    },
+    "effect": {
+     "passion": 5
+    },
+    "result": {
+     "ja": "渡さなかった。その夜、自分で自分のゲームを実況した。視聴者は 2 人。母と、たぶん母のもう 1 台の端末。",
+     "en": "You didn't. That night you broadcast your own game. Two viewers: Mom, and probably Mom's other device."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_fu_stream",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "実況者は自分のゲームを 3 時間遊び、ラスボスの直前で「また今度」と言った。それで 2 万本売れた。",
+   "en": "The creator played your game for three hours and stopped right before the final boss: \"Next time.\" That sold 20,000 copies."
+  },
+  "effect": {
+   "money": 200,
+   "fame": 10,
+   "passion": 10
+  },
+  "weight": 0,
+  "memory": {
+   "ja": "実況で 2 万本売れた",
+   "en": "a Let's Play that sold 20,000 copies"
+  },
+  "tag": [
+   "big_after",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_big_patron",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "大金持ちの知人が、好きなゲームを作れと資金を出してくれるという。条件は、主人公を知人にすること。",
+   "en": "A rich acquaintance offers to fund any game you want. One condition: the hero has to be him."
+  },
+  "choices": [
+   {
+    "id": "ch_tn_pat_yes",
+    "label": {
+     "ja": "受ける",
+     "en": "Accept"
+    },
+    "effect": {
+     "money": 300,
+     "passion": -5
+    },
+    "result": {
+     "ja": "受けた。主人公は空を飛び、剣を振り、なぜか毎面ゴルフをする。",
+     "en": "You accepted. The hero flies, swings a sword, and for some reason plays golf every stage."
+    }
+   },
+   {
+    "id": "ch_tn_pat_no",
+    "label": {
+     "ja": "断る",
+     "en": "Decline"
+    },
+    "effect": {
+     "passion": 10
+    },
+    "result": {
+     "ja": "断った。知人は別の会社で自分が主人公のゲームを作らせ、それは 300 本売れた。",
+     "en": "You declined. He had another studio make a game starring himself. It sold 300 copies."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_rest",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "体を壊しかけている。医者は「半年休め」、作品は「今が一番大事な時」。",
+   "en": "Your body is breaking down. The doctor says \"Rest six months.\" The project says \"This is the crucial moment.\""
+  },
+  "choices": [
+   {
+    "id": "ch_tn_rest_yes",
+    "label": {
+     "ja": "休む",
+     "en": "Rest"
+    },
+    "effect": {
+     "hp": 25,
+     "passion": -10,
+     "money": -30
+    },
+    "result": {
+     "ja": "休んだ。半年ぶりに見た作品は、自分抜きでも少し良くなっていた。それが一番こたえた。",
+     "en": "You rested. Six months later the game had gotten a little better without you. That hurt the most."
+    }
+   },
+   {
+    "id": "ch_tn_rest_no",
+    "label": {
+     "ja": "続ける",
+     "en": "Keep going"
+    },
+    "effect": {
+     "hp": -20,
+     "skill": 10,
+     "fame": 5
+    },
+    "result": {
+     "ja": "続けた。打ち上げで、栄養ドリンクの空き瓶のピラミッドができた。",
+     "en": "You kept going. At the wrap party, the empty energy-drink bottles formed a pyramid."
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_big_ramen",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "親友に一緒に店をやろうと言われた。ゲームとは関係ないが親友は本気で、場所まで決めている。",
+   "en": "Your best friend wants to open a shop with you. Nothing to do with games, but he's serious. He's even picked the spot."
+  },
+  "choices": [
+   {
+    "id": "ch_tn_ramen_no",
+    "label": {
+     "ja": "断る",
+     "en": "Decline"
+    },
+    "effect": {
+     "passion": 5,
+     "network": -5
+    },
+    "result": {
+     "ja": "断った。親友の店に行くと、メニューの名前が全部、自分のゲームの技名だった。",
+     "en": "You declined. At his shop, every menu item was named after a move from your game."
+    }
+   },
+   {
+    "id": "ch_tn_ramen_go",
+    "label": {
+     "ja": "店をやる",
+     "en": "Open the shop"
+    },
+    "effect": {
+     "passion": 5,
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "やることにした。券売機のボタンの配置は、自分が全部決めた。",
+     "en": "You said yes. You designed the layout of the ticket machine buttons yourself."
+    },
+    "cause": {
+     "ja": "親友とラーメン屋を始める。券売機のボタン配置だけ異様に遊びやすい",
+     "en": "opened a ramen shop with your best friend. The ticket machine is suspiciously well designed"
+    }
+   }
+  ],
+  "tag": [
+   "big",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_qq_sleeping_bag",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "入社 3 日目。机の下に寝袋が 4 つ並んでいて、全部使用中だった。",
+   "en": "Day three at the company. Four sleeping bags under the desks, all occupied."
+  },
+  "when": [
+   "career<=1",
+   "status=employed"
+  ],
+  "weight": 0.3,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_tn_qq_bag_stay",
+    "label": {
+     "ja": "5 つ目の寝袋を買う",
+     "en": "Buy bag number five"
+    },
+    "effect": {
+     "hp": -5,
+     "passion": 3,
+     "network": 3
+    },
+    "result": {
+     "ja": "買った。先輩が「いい色だね」と言った。それが初めての雑談だった。",
+     "en": "You bought one. A senior said \"Nice color.\" Your first small talk at work."
+    }
+   },
+   {
+    "id": "ch_tn_qq_bag_quit",
+    "label": {
+     "ja": "実家に帰る",
+     "en": "Go home to your parents"
+    },
+    "effect": {
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "駅まで走った。改札で振り返ると、寝袋が 1 つ寝返りを打った気がした。",
+     "en": "You ran to the station. At the gate you looked back. One of the bags seemed to roll over."
+    },
+    "cause": {
+     "ja": "入社 3 日目、寝袋を見て実家に帰った",
+     "en": "three days in, you saw the sleeping bags and went home to your parents"
+    }
+   }
+  ],
+  "tag": [
+   "quickquit",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_qq_lottery",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "初任給で買った宝くじが 1 等に当たった。手が震えて、仕様書を逆さまに読んでいた。",
+   "en": "The lottery ticket from your first paycheck hit the jackpot. Your hands shook; you were reading the spec upside down."
+  },
+  "when": [
+   "career<=3"
+  ],
+  "weight": 0.3,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_tn_qq_lot_stay",
+    "label": {
+     "ja": "黙って働く",
+     "en": "Keep quiet and work"
+    },
+    "effect": {
+     "money": 1000,
+     "passion": 5
+    },
+    "result": {
+     "ja": "黙って働いた。翌日から、昼の弁当だけがやけに豪華になった。",
+     "en": "You kept quiet and worked. From the next day, only your lunches got suspiciously fancy."
+    }
+   },
+   {
+    "id": "ch_tn_qq_lot_quit",
+    "label": {
+     "ja": "辞めて遊んで暮らす",
+     "en": "Quit and play forever"
+    },
+    "effect": {
+     "money": 3000,
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "辞表は便箋 1 枚。理由の欄に「当たったので」と書いた。",
+     "en": "Your resignation was one sheet. Under \"reason\" you wrote: \"I won.\""
+    },
+    "cause": {
+     "ja": "初任給の宝くじで 1 等が当たり引退。以後、遊ぶ側として生きた",
+     "en": "retired after your first-paycheck lottery ticket hit the jackpot. You lived the rest of your life on the playing side"
+    }
+   }
+  ],
+  "tag": [
+   "quickquit",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_qq_tofu",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "実家から電話。「家業の豆腐屋、継いでくれ」。後ろで父が豆腐を落とす音がした。",
+   "en": "A call from home: \"Take over the family tofu shop.\" In the background, you heard your father drop a block of tofu."
+  },
+  "when": [
+   "career<=3"
+  ],
+  "weight": 0.3,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_tn_qq_tofu_stay",
+    "label": {
+     "ja": "断る",
+     "en": "Refuse"
+    },
+    "effect": {
+     "passion": 5,
+     "network": -3
+    },
+    "result": {
+     "ja": "断った。翌月、豆腐が 1 丁だけ宅配便で届いた。手紙は無かった。",
+     "en": "You refused. The next month, a single block of tofu arrived by courier. No note."
+    }
+   },
+   {
+    "id": "ch_tn_qq_tofu_quit",
+    "label": {
+     "ja": "継ぐ",
+     "en": "Take it over"
+    },
+    "effect": {
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "帰った。最初の朝、豆腐をドット絵のように四角く切りすぎた。",
+     "en": "You went home. The first morning, you cut the tofu into squares as neat as pixels."
+    },
+    "cause": {
+     "ja": "実家の豆腐屋を継ぐ。レジの横に、作りかけのゲームの企画書が貼ってある",
+     "en": "took over the family tofu shop. A proposal for an unfinished game is still taped by the register"
+    }
+   }
+  ],
+  "tag": [
+   "quickquit",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_qq_accounting",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "ゲーム会社に入ったのに、配属先は経理だった。初仕事は、開発部の夜食の領収書の束。",
+   "en": "You joined a game company and got assigned to accounting. First task: a stack of the dev team's late-night snack receipts."
+  },
+  "when": [
+   "career<=1",
+   "status=employed"
+  ],
+  "weight": 0.3,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_tn_qq_acc_stay",
+    "label": {
+     "ja": "経理で耐える",
+     "en": "Stick it out"
+    },
+    "effect": {
+     "money": 20,
+     "network": 5
+    },
+    "result": {
+     "ja": "耐えた。夜食の量で、どの企画が危ないか分かるようになった。",
+     "en": "You stuck it out. Now you can tell which project is in trouble from the late-night snack spending."
+    }
+   },
+   {
+    "id": "ch_tn_qq_acc_quit",
+    "label": {
+     "ja": "辞める",
+     "en": "Quit"
+    },
+    "effect": {
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "辞めた。最後の日、開発部の人が夜食のおにぎりを 1 個くれた。領収書つきで。",
+     "en": "You quit. On your last day, a developer gave you a rice ball. With the receipt."
+    },
+    "cause": {
+     "ja": "ゲーム会社の経理に配属され、夜食の領収書を 3 か月数えて辞めた",
+     "en": "were assigned to a game company's accounting team, counted snack receipts for three months, and quit"
+    }
+   }
+  ],
+  "tag": [
+   "quickquit",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_qq_scout",
+  "years": [
+   1980,
+   2003
+  ],
+  "text": {
+   "ja": "社内の宣伝用の写真が雑誌に載り、芸能事務所からスカウトが来た。",
+   "en": "Your photo in a company ad ran in a magazine, and a talent agency came to scout you."
+  },
+  "when": [
+   "career<=3",
+   "age<=26"
+  ],
+  "weight": 0.3,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_tn_qq_sc_stay",
+    "label": {
+     "ja": "断る",
+     "en": "Decline"
+    },
+    "effect": {
+     "fame": 3,
+     "passion": 3
+    },
+    "result": {
+     "ja": "断った。社内では 1 か月だけ「スター」と呼ばれた。",
+     "en": "You declined. For one month, the office called you \"the star.\""
+    }
+   },
+   {
+    "id": "ch_tn_qq_sc_quit",
+    "label": {
+     "ja": "芸能界へ",
+     "en": "Go into showbiz"
+    },
+    "effect": {
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "事務所に行った。最初の仕事は、ゲームのテレビ CM だった。",
+     "en": "You signed. Your first job: a TV commercial for a game."
+    },
+    "cause": {
+     "ja": "雑誌の宣伝写真でスカウトされ芸能界へ。最初の仕事はゲームの CM だった",
+     "en": "got scouted from a magazine ad and left for showbiz. Your first job was a game commercial"
+    }
+   }
+  ],
+  "tag": [
+   "quickquit",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_qq_beat_boss",
+  "years": [
+   1977,
+   2003
+  ],
+  "text": {
+   "ja": "面接で「ゲームは得意です」と言った手前、社長と対戦することに。勝ってしまった。社長は笑顔で、目が笑っていない。",
+   "en": "You told the interviewer you were \"good at games,\" so now you're playing the president. You won. He's smiling. His eyes aren't."
+  },
+  "when": [
+   "career<=2",
+   "status=employed"
+  ],
+  "weight": 0.3,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_tn_qq_bb_stay",
+    "label": {
+     "ja": "わざと負けて残る",
+     "en": "Lose on purpose and stay"
+    },
+    "effect": {
+     "network": 5,
+     "passion": -2
+    },
+    "result": {
+     "ja": "次はわざと負けた。社長は「手を抜いたな」と言い、ボーナスを少し増やした。",
+     "en": "You lost the next one on purpose. The president said \"You went easy on me,\" and bumped your bonus a little."
+    }
+   },
+   {
+    "id": "ch_tn_qq_bb_quit",
+    "label": {
+     "ja": "辞表を出す",
+     "en": "Resign"
+    },
+    "effect": {
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "辞表を出した。社長は「再戦はいつでも受ける」と言った。",
+     "en": "You resigned. The president said: \"Rematch anytime.\""
+    },
+    "cause": {
+     "ja": "社長に対戦で勝ってしまい、空気に耐えきれず辞めた",
+     "en": "beat the president at a game and couldn't bear the mood, so you quit"
+    }
+   }
+  ],
+  "tag": [
+   "quickquit",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_qq_motion_sick",
+  "years": [
+   1993,
+   2003
+  ],
+  "text": {
+   "ja": "初めての 3D のゲームの担当。カメラを回すたびに酔い、1 日に 3 回トイレに走った。",
+   "en": "Your first 3D game. Every time you rotated the camera you got motion sick. Three runs to the restroom a day."
+  },
+  "when": [
+   "career<=3"
+  ],
+  "weight": 0.3,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_tn_qq_ms_stay",
+    "label": {
+     "ja": "酔い止めで戦う",
+     "en": "Fight on with pills"
+    },
+    "effect": {
+     "hp": -5,
+     "skill": 5
+    },
+    "result": {
+     "ja": "酔い止めを箱で買った。経費で落ちた。",
+     "en": "You bought motion-sickness pills by the box. They counted as a business expense."
+    }
+   },
+   {
+    "id": "ch_tn_qq_ms_quit",
+    "label": {
+     "ja": "平面の世界に帰る",
+     "en": "Return to the flat world"
+    },
+    "effect": {
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "辞めた。最後の日、窓の外の景色まで回って見えた。",
+     "en": "You quit. On your last day, even the view out the window seemed to rotate."
+    },
+    "cause": {
+     "ja": "3D 酔いで 3 か月もたずに辞め、紙芝居屋として平面の世界で活躍した",
+     "en": "quit within three months from 3D motion sickness and thrived in the flat world as a picture-card storyteller"
+    }
+   }
+  ],
+  "tag": [
+   "quickquit",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_qq_mom_call",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "母が会社に電話してきた。「うちの子、ちゃんと寝てますか」。取ったのは社長だった。",
+   "en": "Mom called the office: \"Is my child getting enough sleep?\" The president picked up."
+  },
+  "when": [
+   "career<=1",
+   "status=employed"
+  ],
+  "weight": 0.3,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_tn_qq_mom_stay",
+    "label": {
+     "ja": "開き直る",
+     "en": "Own it"
+    },
+    "effect": {
+     "network": 5,
+     "passion": 2
+    },
+    "result": {
+     "ja": "開き直った。社長はその日から、自分にだけ「ちゃんと寝てるか」と聞くようになった。",
+     "en": "You owned it. From then on, the president asked only you: \"Getting enough sleep?\""
+    }
+   },
+   {
+    "id": "ch_tn_qq_mom_quit",
+    "label": {
+     "ja": "恥ずかしくて辞める",
+     "en": "Die of shame and quit"
+    },
+    "effect": {
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "辞めた。母は「やっぱり寝てなかったのね」と言った。",
+     "en": "You quit. Mom said, \"So you weren't sleeping.\""
+    },
+    "cause": {
+     "ja": "母が会社に「ちゃんと寝てますか」と電話し、恥ずかしくて 2 か月で辞めた",
+     "en": "quit after two months because Mom called the office to ask if you were sleeping"
+    }
+   }
+  ],
+  "tag": [
+   "quickquit",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_qq_landowner",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "飲み会で出会った相手が大地主の跡取りだった。「ゲームなら買えばいいじゃない」と言われた。",
+   "en": "The person you met at a party is heir to a huge landowning family. \"If you want games, just buy them.\""
+  },
+  "when": [
+   "career<=3",
+   "!flag.partner"
+  ],
+  "weight": 0.3,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_tn_qq_lo_stay",
+    "label": {
+     "ja": "「ゲームは作るものです」",
+     "en": "\"Games are for making\""
+    },
+    "effect": {
+     "passion": 8
+    },
+    "result": {
+     "ja": "相手は笑い、次に会った時、自分の作ったゲームを買ってきてくれた。",
+     "en": "They laughed, and the next time you met, they had bought a game you worked on."
+    }
+   },
+   {
+    "id": "ch_tn_qq_lo_quit",
+    "label": {
+     "ja": "大地主の家に入る",
+     "en": "Marry into the estate"
+    },
+    "effect": {
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "結婚した。屋敷の離れに、自分専用のゲームセンターができた。",
+     "en": "You married in. A private arcade was built just for you in the estate's annex."
+    },
+    "cause": {
+     "ja": "大地主の家に入り業界を去る。屋敷の離れに自分専用のゲームセンターがある",
+     "en": "married into a landowning family and left the industry. The estate has your own private arcade"
+    }
+   }
+  ],
+  "tag": [
+   "quickquit",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_qq_burnout_one",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "初めて作ったミニゲームが社内で大受け。「もう思い残すことはない」と言ったら、本当に何も思いつかなくなった。",
+   "en": "Your first minigame was a huge hit around the office. You said \"I have no regrets now,\" and then really couldn't think of anything else."
+  },
+  "when": [
+   "career<=3"
+  ],
+  "weight": 0.3,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_tn_qq_bo_stay",
+    "label": {
+     "ja": "次を考える",
+     "en": "Think of the next one"
+    },
+    "effect": {
+     "passion": 5,
+     "skill": 3
+    },
+    "result": {
+     "ja": "考えた。2 本目は 1 本目とほぼ同じだったが、誰も気づかなかった。",
+     "en": "You did. Number two was almost identical to number one. Nobody noticed."
+    }
+   },
+   {
+    "id": "ch_tn_qq_bo_quit",
+    "label": {
+     "ja": "燃え尽きて引退",
+     "en": "Retire, burned out"
+    },
+    "effect": {
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "引退した。ミニゲームは社内の休憩室で、その後 10 年遊ばれた。",
+     "en": "You retired. The minigame was played in the break room for another ten years."
+    },
+    "cause": {
+     "ja": "初めてのミニゲームで燃え尽きて引退。本人いわく「伝説は 1 本で十分」",
+     "en": "burned out on your very first minigame and retired. In your words: \"One legend is enough\""
+    }
+   }
+  ],
+  "tag": [
+   "quickquit",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_qq_commute",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "会社まで片道 2 時間半。3 か月で、通勤電車の中で文庫本を 80 冊読んだ。",
+   "en": "Two and a half hours each way. In three months you read eighty paperbacks on the train."
+  },
+  "when": [
+   "career<=1",
+   "status=employed"
+  ],
+  "weight": 0.3,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_tn_qq_cm_stay",
+    "label": {
+     "ja": "会社の隣に引っ越す",
+     "en": "Move next to the office"
+    },
+    "effect": {
+     "money": -30,
+     "hp": 5
+    },
+    "result": {
+     "ja": "引っ越した。通勤 2 分。家に帰る理由が無くなった。",
+     "en": "You moved. Two-minute commute. Now there's no reason to ever go home."
+    }
+   },
+   {
+    "id": "ch_tn_qq_cm_quit",
+    "label": {
+     "ja": "本屋になる",
+     "en": "Become a bookseller"
+    },
+    "effect": {
+     "flag": {
+      "do_end": true
+     }
+    },
+    "result": {
+     "ja": "本屋に転職した。面接で「最近読んだ本は」と聞かれ、80 冊答えた。",
+     "en": "You switched to a bookstore job. Asked \"What have you read lately?\" in the interview, you listed eighty."
+    },
+    "cause": {
+     "ja": "通勤で 80 冊読んだ勢いで本屋に転職。攻略本の棚だけ異様に充実している",
+     "en": "read eighty books on the commute and became a bookseller. The strategy-guide shelf is suspiciously well stocked"
+    }
+   }
+  ],
+  "tag": [
+   "quickquit",
+   "choice"
+  ]
+ },
+ {
+  "id": "ev_tn_late_dots",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "老眼でドットが見えない。拡大鏡を買ったら、若手が「それ便利ですね」と 3 人買った。",
+   "en": "Farsightedness: you can't see the pixels. You bought a magnifier, and three juniors bought one too."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "passion": 3,
+   "hp": -2,
+   "network": 3
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_allnighter",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "若手に合わせて徹夜した。翌日から 3 日寝込み、戻ったら仕様が 2 回変わっていた。",
+   "en": "You pulled an all-nighter with the young crew. You were bedridden for three days. When you got back, the spec had changed twice."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "hp": -10,
+   "passion": -3
+  },
+  "tag": [
+   "late",
+   "crunch"
+  ]
+ },
+ {
+  "id": "ev_tn_late_training",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "新人研修で 20 代と並んだ。自己紹介で「趣味は盆栽です」と言ったら、なぜか一番拍手が大きかった。",
+   "en": "New-hire training, lined up with twenty-somethings. You said \"My hobby is bonsai,\" and somehow got the loudest applause."
+  },
+  "when": [
+   "age>=50",
+   "career<=1"
+  ],
+  "effect": {
+   "network": 5,
+   "passion": 3
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_young_boss",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "上司が自分の子どもと同い年。敬語で指示され、敬語で返し、2 人とも何を頼んだのか分からなくなった。",
+   "en": "Your boss is your kid's age. He gave orders in polite speech; you replied in polite speech. Neither of you knew what was asked."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "network": 3,
+   "passion": -2
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_jargon",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "若手の略語が分からない。「リスケ」「デバッグ」「ガワ」…家で辞書を引いたが、半分は辞書にも無かった。",
+   "en": "You don't get the juniors' slang. \"Resched,\" \"debug,\" \"the shell\"… You checked a dictionary at home. Half weren't in it."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "skill": 2,
+   "passion": -2
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_back",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "床に座って配線していたら腰が抜けた。救急車の中で、隊員に作りかけのゲームの話を 20 分した。",
+   "en": "Sitting on the floor running cables, your back gave out. In the ambulance, you told the paramedic about your unfinished game for twenty minutes."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "hp": -10,
+   "passion": 2
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_grandkid",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "孫に「このゲームむずかしい」と言われた。その夜、難易度を下げる仕様書を 12 ページ書いた。",
+   "en": "Your grandkid said \"This game is too hard.\" That night you wrote a twelve-page spec for lowering the difficulty."
+  },
+  "when": [
+   "age>=50",
+   "flag.child",
+   "career<=8"
+  ],
+  "effect": {
+   "passion": 5,
+   "skill": 2
+  },
+  "tag": [
+   "late",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_tn_late_pension",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "給料日。若手は手取りの話で盛り上がり、自分は年金の見込み額の手紙で静かになった。",
+   "en": "Payday. The young ones got excited about take-home pay. You went quiet over a letter estimating your pension."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "passion": -2,
+   "money": 10
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_first_credit",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "人生初のスタッフロールに自分の名前が出た。{age} 年生きて、初めて画面の中に名前がある。",
+   "en": "Your name in the credits for the first time in your life. {age} years old, and finally your name is on the screen."
+  },
+  "when": [
+   "age>=50",
+   "works>=1",
+   "career<=8"
+  ],
+  "effect": {
+   "passion": 15,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "{age} 歳で初めてスタッフロールに名前が出た",
+   "en": "your name in the credits for the first time at {age}"
+  },
+  "tag": [
+   "late",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_late_karaoke",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "打ち上げのカラオケ。若手は知らない曲ばかり。自分が演歌を入れたら、全員が手拍子をくれた。優しさが一番つらい。",
+   "en": "Wrap-party karaoke, all songs you don't know. You picked an old enka ballad and everyone clapped along. The kindness hurt the most."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "network": 5,
+   "passion": 2
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_kid_visit",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "業界に入ったと告げたら、成人した子どもに「その年で?」。翌週、子どもが職場見学に来た。",
+   "en": "You told your grown kid you'd joined the game industry. \"At your age?\" Next week, they came for a workplace tour."
+  },
+  "when": [
+   "age>=50",
+   "flag.child",
+   "career<=8"
+  ],
+  "effect": {
+   "network": 3,
+   "passion": 5
+  },
+  "tag": [
+   "late",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_tn_late_soroban",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "若手が詰まっていた計算を、前職で 30 年使ったそろばんで解いた。開発室に「おお」と声が上がった。",
+   "en": "The young team was stuck on a calculation. You solved it on the abacus you used for thirty years at your old job. The dev room went \"Whoa.\""
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "skill": 5,
+   "fame": 3,
+   "passion": 10
+  },
+  "memory": {
+   "ja": "そろばんで開発室を沸かせた",
+   "en": "wowing the dev room with an abacus"
+  },
+  "tag": [
+   "late",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_late_negotiate",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "揉めていた値段の交渉に、前職の営業の顔で出た。3 時間後、見積もりが 2 割上がって帰ってきた。",
+   "en": "You walked into a stuck price negotiation wearing your old sales face. Three hours later, the quote came back 20% higher."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "money": 30,
+   "network": 8,
+   "passion": 10
+  },
+  "memory": {
+   "ja": "前職の交渉術で見積もりを 2 割上げた",
+   "en": "raising the quote 20% with your old sales skills"
+  },
+  "tag": [
+   "late",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_late_big_font",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "画面の文字を大きくしたら、1 画面に 3 行しか出なくなった。仕様書を読むだけで指が疲れる。",
+   "en": "You enlarged the screen font. Now only three lines fit. Just reading the spec tires out your finger."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "passion": -2,
+   "skill": 1
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_mentor_23",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "教えてくれる先輩は 23 歳。休憩中に「人生相談いいですか」と言われ、仕事の時間より長く話した。",
+   "en": "Your mentor is twenty-three. On break they asked, \"Can I ask you for life advice?\" You talked longer than you worked."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "network": 6,
+   "passion": 3
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_stairs",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "エレベーターが故障した。開発室は 5 階。若手が 3 往復する間に、自分は 1 回上がって昼になった。",
+   "en": "The elevator broke. The dev room is on the fifth floor. By the time you made one trip up, the juniors had made three and it was lunchtime."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "hp": -5
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_fan_72",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "ファンレターが届いた。差出人は 72 歳。「同年代の方が作っていると知り、励みになります」。",
+   "en": "A fan letter arrived. The sender was seventy-two: \"Knowing someone my generation made this gives me courage.\""
+  },
+  "when": [
+   "age>=50",
+   "works>=1",
+   "career<=8"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "同年代のファンから手紙が来た",
+   "en": "a fan letter from someone your own age"
+  },
+  "tag": [
+   "late",
+   "high",
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_tn_late_fighting",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "若手に誘われて対戦ゲーム。10 連敗。11 戦目で、ボタンを押す前に手首をつった。",
+   "en": "The juniors invited you to a versus match. Ten straight losses. In match eleven, your wrist cramped before you pressed a button."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "hp": -3,
+   "network": 5
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_ex_subordinate",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "前の会社の元部下が、取引先の担当として来た。名刺を出す順番で、2 人とも 5 分迷った。",
+   "en": "Your former subordinate from your old job showed up as a client contact. You both spent five minutes unsure who should offer a business card first."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "network": 5
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_early_bird",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "朝 6 時に出社して掃除をしていたら、徹夜明けの若手に「まだいたんですか」と言われた。まだではない。もうだ。",
+   "en": "You came in at 6 a.m. to tidy up. A junior finishing an all-nighter said, \"You're still here?\" Not still. Already."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "passion": 2,
+   "hp": 2
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_mail",
+  "years": [
+   1996,
+   2040
+  ],
+  "text": {
+   "ja": "メールの返事に 40 分かかる。若手の返事は「了解です!」の 5 文字、自分のは時候の挨拶から始まる。",
+   "en": "Each email reply takes you forty minutes. The juniors write \"Got it!\" Yours open with seasonal greetings."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "passion": -1,
+   "network": 3
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_phone",
+  "years": [
+   1999,
+   2040
+  ],
+  "text": {
+   "ja": "若手とケータイの番号を交換した。打ち方が分からず、相手の番号を電話帳に 3 回入れ直した。",
+   "en": "You swapped mobile numbers with a junior. You couldn't figure out the keypad and entered their number three times."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "network": 3,
+   "passion": -1
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_enemy_vote",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{age} 歳の新人が考えた敵キャラが社内投票で 1 位。「どうやって思いついたんですか」に「前職の上司」と答えた。",
+   "en": "An enemy designed by the {age}-year-old rookie won the company vote. Asked \"Where did you get the idea?\" you said: \"My old boss.\""
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 5,
+   "network": 3
+  },
+  "memory": {
+   "ja": "社内投票で自分の敵キャラが 1 位",
+   "en": "your enemy design winning the company vote"
+  },
+  "tag": [
+   "late",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_late_calm",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "発売前夜の大トラブルに全員が青ざめた。自分だけ「前の会社が倒産した夜よりはまし」と言い、場がなごんだ。",
+   "en": "A huge crisis the night before launch, and everyone went pale. Only you said \"Still better than the night my old company went bankrupt.\" The room relaxed."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "network": 8,
+   "passion": 8
+  },
+  "memory": {
+   "ja": "大トラブルの夜に場をなごませた",
+   "en": "calming the room on a crisis night"
+  },
+  "tag": [
+   "late",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_tn_late_glasses",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "眼鏡を 3 本使い分けている。遠く用、近く用、画面用。今かけているのがどれかは、だいたい分からない。",
+   "en": "You rotate three pairs of glasses: far, near, and screen. Which one you're wearing right now, you usually have no idea."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "passion": -1
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_futon",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "仮眠室で寝ていたら、若手に「布団の敷き方がきれいすぎる」と写真を撮られた。社内報に載った。",
+   "en": "You napped in the rest room. A junior photographed it: \"Your futon is too perfectly made.\" It ran in the company newsletter."
+  },
+  "when": [
+   "age>=50",
+   "career<=8"
+  ],
+  "effect": {
+   "network": 4,
+   "fame": 1
+  },
+  "tag": [
+   "late"
+  ]
+ },
+ {
+  "id": "ev_tn_late_farewell",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "前の会社の同期が定年退職。送別会を「締め切り前なので」と断った。人生で一番若い断り方だった。",
+   "en": "Your peers from your old company are retiring. You skipped the farewell party: \"Deadline coming up.\" The youngest excuse of your life."
+  },
+  "when": [
+   "age>=50",
+   "age>=58",
+   "career<=8"
+  ],
+  "effect": {
+   "passion": 10
+  },
+  "memory": {
+   "ja": "同期の送別会を締め切りで断った",
+   "en": "skipping your peers' retirement party for a deadline"
+  },
+  "tag": [
+   "late",
+   "high"
+  ]
+ }
+]
