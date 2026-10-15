@@ -3,6 +3,25 @@ import { tune } from '../core/tuning';
 import type { State, Work, Role, WorkResult, Text } from './types';
 import { workName, platformFor } from './names';
 
+// あなたのチームの作品の名前(PLAN §12 を 2026-10-15 Mukkii の指示で変更): 実在のヒット作は実名で史実に出し、
+// 自分の作品は「その年のヒット作と雰囲気が似た、チームのオリジナルの造語タイトル」。表は src/data/titles.json。
+interface TitleRow { id: string; years: [number, number]; platforms?: string[]; coined?: Text[]; name?: Text; gag?: Text | Text[] }
+const tMod = import.meta.glob('../data/titles.json', { eager: true, import: 'default' }) as Record<string, { titles: TitleRow[] }>;
+const TITLES: TitleRow[] = Object.values(tMod)[0]?.titles ?? [];
+function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | null {
+  const used = new Set(s.works.map((w) => w.name.ja));
+  const near = TITLES.filter((t) => t.years[0] - 1 <= s.year && s.year <= t.years[1] + 1);
+  const fit = near.filter((t) => !t.platforms || t.platforms.some((p) => platform.includes(p) || p.includes(platform)));
+  for (const pool of [fit, near]) {
+    const cands = pool.flatMap((t) => (t.coined ?? (t.name ? [t.name] : [])).filter((n) => !used.has(`『${n.ja}』`) && !used.has(n.ja)).map((n) => ({ n, t })));
+    if (!cands.length) continue;
+    const { n, t } = s.rng.pick(cands);
+    const gags = t.gag ? (Array.isArray(t.gag) ? t.gag : [t.gag]) : [];
+    return { name: { ja: `『${n.ja}』`, en: `"${n.en}"` }, gag: gags.length ? s.rng.pick(gags) : undefined };
+  }
+  return null;
+}
+
 export const ROLE_TEXT: Record<Role, Text> = {
   junior: { ja: '末端', en: 'a junior' }, core: { ja: '中核', en: 'a core member' }, lead: { ja: 'リード', en: 'the lead' }, solo: { ja: 'ひとり', en: 'solo' },
 };
@@ -60,9 +79,11 @@ export function release(s: State): { work: Work; line: Text } {
   const r = s.rng;
   const role = roleFor(s);
   const result = roll(s, role);
-  const work: Work = { id: `wk_${s.works.length + 1}`, name: workName(r, s.year), year: s.year, platform: platformFor(r, s.year, role), role, result, history: [] };
+  const platform = platformFor(r, s.year, role);
+  const titled = role === 'solo' || !r.chance(0.8) ? null : pickTitle(s, platform);
+  const work: Work = { id: `wk_${s.works.length + 1}`, name: titled?.name ?? workName(r, s.year), year: s.year, platform, role, result, history: [] };
   s.works.push(work);
-  const gag = role === 'solo' && SOLO_LINES[result] ? SOLO_LINES[result]! : r.pick(RESULT_LINES[result]);
+  const gag = role === 'solo' && SOLO_LINES[result] ? SOLO_LINES[result]! : titled?.gag && r.chance(0.5) ? titled.gag : r.pick(RESULT_LINES[result]);
   const line: Text = {
     ja: `${work.name.ja}(${work.platform})発売。あなたは${ROLE_TEXT[role].ja}。結果は${RESULT_TEXT[result].ja}。${gag.ja}`,
     en: `${work.name.en} (${work.platform}) ships. You were ${ROLE_TEXT[role].en}. Result: ${RESULT_TEXT[result].en}. ${gag.en}`,
