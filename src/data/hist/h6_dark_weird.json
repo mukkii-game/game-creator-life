@@ -1,0 +1,3397 @@
+[
+ {
+  "id": "hs_dark_1982_invaders_ruling",
+  "year": 1982,
+  "month": 12,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "東京地裁が「ゲームのプログラムは著作物」と判断",
+   "en": "Tokyo court rules game programs are copyrighted works"
+  },
+  "news": {
+   "ja": "12 月 6 日、『スペースインベーダー』のプログラムを別の ROM に書き写した業者の裁判で、東京地裁がプログラムを著作物と認めた。",
+   "en": "On December 6, in a case over copying the Space Invaders program onto other ROMs, a Tokyo court ruled programs are protected works."
+  },
+  "src": "https://gendai.media/articles/-/68787",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1982_inv_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "社長が ROM ライターをなでながら言った。「今日からこれは『修理用』と呼ぶ」。修理するものは、何も無い。",
+     "en": "The boss pats the ROM writer. \"From today, we call this 'for repairs.'\" There is nothing to repair."
+    },
+    "effect": {
+     "passion": -2,
+     "network": 2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1982_inv_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "新聞に「プログラムは著作物」と載った。自分が書いた 4KB も作品なのだと、切り抜きを定期入れにしまった。",
+     "en": "The paper says programs are creative works. Your 4KB counts too. You tuck the clipping into your train pass holder."
+    },
+    "effect": {
+     "passion": 6,
+     "skill": 1
+    },
+    "tag": [
+     "piracy",
+     "high"
+    ],
+    "memory": {
+     "ja": "自分の 4KB が「作品」になった日",
+     "en": "the day my 4KB became a work"
+    }
+   },
+   {
+    "id": "ev_hs_dark_1982_inv_young",
+    "when": [
+     "age<=22"
+    ],
+    "text": {
+     "ja": "喫茶店のインベーダーが、ある日から妙に速くなった。店長は「新しい基板」と言って、目をそらした。",
+     "en": "One day the café's Invaders cabinet starts running oddly fast. The owner says \"new board\" and looks away."
+    },
+    "effect": {
+     "passion": 2,
+     "money": -1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1982_inv_any",
+    "text": {
+     "ja": "判決の記事で、自分の仕事にも著作権があると知った。給料には、何の権利も増えなかった。",
+     "en": "From the ruling, you learn your work has copyright. Your paycheck gains no rights at all."
+    },
+    "effect": {
+     "passion": 2,
+     "skill": 1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1984_pacman_ruling",
+  "year": 1984,
+  "month": 9,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "「パックマン事件」判決、ゲームの映像は映画の著作物に",
+   "en": "The Pac-Man ruling: game visuals count as cinematic works"
+  },
+  "news": {
+   "ja": "9 月 28 日、無断コピーの『パックマン』を店に置いた会社の裁判で、東京地裁がゲームの映像を映画の著作物と認めた。",
+   "en": "On September 28, ruling against a company that ran unauthorized Pac-Man copies in its café, a Tokyo court treated game visuals as cinematic works."
+  },
+  "src": "https://www.ritsumei.ac.jp/research/radiant/article/?id=161",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1984_pac_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "ドット絵が法律上「映画」になった。社内で「監督」と呼ばれ始めたが、仕事は今日も 8×8 の升目を塗ることだ。",
+     "en": "Your pixel art is legally \"cinema\" now. People start calling you Director. You still spend the day filling 8x8 squares."
+    },
+    "effect": {
+     "passion": 5,
+     "fame": 1
+    },
+    "tag": [
+     "piracy",
+     "high"
+    ],
+    "memory": {
+     "ja": "ドット絵で「監督」と呼ばれた",
+     "en": "got called director for my pixel art"
+    }
+   },
+   {
+    "id": "ev_hs_dark_1984_pac_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "喫茶店からの基板の注文が止まった。代わりに来たのは「本物を置きたい」という、払えない額の見積もり依頼だった。",
+     "en": "Café orders for boards stop. Instead comes a request: \"We want the real one,\" on a budget no one can afford."
+    },
+    "effect": {
+     "money": -5,
+     "network": 2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1984_pac_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "法務部が初めてゲームの部署に来た。「映画の著作物」と書いた紙を壁に貼り、いちばん感動していたのは法務部だった。",
+     "en": "Legal visits the game floor for the first time and posts a sign reading \"Cinematic Work.\" Legal is the most moved of all."
+    },
+    "effect": {
+     "passion": 3,
+     "network": 2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1984_pac_any",
+    "text": {
+     "ja": "ゲームは映画と同じだと決まった。母に話すと「じゃあ、いつ映画館でやるの」と聞かれた。",
+     "en": "Games are now legally like films. Your mother asks when yours is showing at the cinema."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1985_program_law",
+  "year": 1985,
+  "month": 6,
+  "until": 1986,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "著作権法の改正で、プログラムが著作物と明記される",
+   "en": "Copyright law amended to name programs as protected works"
+  },
+  "news": {
+   "ja": "6 月、著作権法の改正が成立し、コンピュータのプログラムが著作物として条文に書き込まれた。",
+   "en": "In June, an amendment to Japan's Copyright Act wrote computer programs into the law as protected works."
+  },
+  "src": "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/10219850614062.htm",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1985_law_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "PC ソフトのコピーツールを作る仕事が来た。発注書の品名は「バックアップ用ユーティリティ」。",
+     "en": "A job comes in: build a copy tool for PC software. The order form calls it a \"backup utility.\""
+    },
+    "effect": {},
+    "tag": [
+     "piracy",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_copytool_yes",
+      "label": {
+       "ja": "請ける",
+       "en": "Take it"
+      },
+      "effect": {
+       "money": 30,
+       "skill": 3,
+       "flag": {
+        "dark_copytool": true
+       }
+      },
+      "result": {
+       "ja": "よく売れた。雑誌の広告では、自社の新作より大きく載っていた。",
+       "en": "It sold well. In the magazine ads, it got a bigger slot than your own new game."
+      }
+     },
+     {
+      "id": "ch_dark_copytool_no",
+      "label": {
+       "ja": "断る",
+       "en": "Turn it down"
+      },
+      "effect": {
+       "passion": 3,
+       "network": 2
+      },
+      "result": {
+       "ja": "断った。翌月、同じ仕様書が隣の会社の机に載っていた。",
+       "en": "You refuse. Next month, the same spec sits on a desk at the company next door."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1985_law_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "コピー防止の仕掛けを書く係になった。破られるまで 3 日。破った雑誌の投稿者に、少し会ってみたくなった。",
+     "en": "You are put on copy protection. It lasts three days. You kind of want to meet the magazine reader who cracked it."
+    },
+    "effect": {
+     "skill": 4,
+     "passion": -2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1985_law_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "社内に「コピー禁止」の貼り紙が増えた。1 枚目の貼り紙は、コピー機で 100 枚刷られた。",
+     "en": "Signs reading \"No Copying\" go up all over the office. The first one was run off 100 times on the copier."
+    },
+    "effect": {
+     "passion": 1,
+     "network": 1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1985_law_any",
+    "text": {
+     "ja": "自分のプログラムが法律で守られることになった。守られているのは、主に会社の方だった。",
+     "en": "Your programs are now protected by law. Mostly, it is the company that is protected."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1990_multicart",
+  "year": 1990,
+  "until": 1994,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "アジアで「〇〇 in 1」の海賊版カセットが出回る",
+   "en": "Pirate \"XX-in-1\" cartridges spread across Asia"
+  },
+  "news": {
+   "ja": "台湾・香港などで作られた非正規の多数入りファミコンカセットが出回る。中身は表示の本数よりずっと少ないことが多い。",
+   "en": "Unlicensed Famicom multicarts made in Taiwan, Hong Kong and elsewhere spread. They usually hold far fewer games than the label claims."
+  },
+  "src": "https://en.wikipedia.org/wiki/Multicart",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1990_mc_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "海外の業者から「ファミコンの小さいゲームを 10 本。会社の名前は要らない」と注文が来た。前金の封筒が厚い。",
+     "en": "An overseas dealer orders \"ten small Famicom games, no company name needed.\" The advance envelope is thick."
+    },
+    "effect": {},
+    "tag": [
+     "piracy",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_multicart_yes",
+      "label": {
+       "ja": "請ける",
+       "en": "Take it"
+      },
+      "effect": {
+       "money": 40,
+       "skill": 3,
+       "flag": {
+        "dark_multicart": true
+       }
+      },
+      "result": {
+       "ja": "納めた 10 本が「52 in 1」になって戻ってきた。42 本は色違いだった。",
+       "en": "Your ten games came back as a \"52-in-1.\" Forty-two were palette swaps."
+      }
+     },
+     {
+      "id": "ch_dark_multicart_no",
+      "label": {
+       "ja": "断る",
+       "en": "Turn it down"
+      },
+      "effect": {
+       "passion": 3
+      },
+      "result": {
+       "ja": "断った。その夜、封筒の厚みを思い出して、少しだけ眠れなかった。",
+       "en": "You refuse. That night, remembering how thick the envelope was, you sleep a little worse."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1990_mc_abroad",
+    "when": [
+     "pos=abroad"
+    ],
+    "text": {
+     "ja": "屋台で「1000 in 1」を買った。中身は 12 本で、うち 1 本は自分が作ったゲームの色違いだった。",
+     "en": "You buy a \"1000-in-1\" at a street stall. It holds 12 games, and one is a recolor of a game you made."
+    },
+    "effect": {
+     "passion": 4,
+     "money": -1
+    },
+    "tag": [
+     "piracy",
+     "high"
+    ],
+    "memory": {
+     "ja": "海外の屋台で自分のゲームの色違いを見つけた",
+     "en": "found a recolor of my own game at a street stall abroad"
+    }
+   },
+   {
+    "id": "ev_hs_dark_1990_mc_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "知らない会社から「カセットの動作確認だけ」と頼まれた。ラベルが無いので断った。正規品のバグ票は今日も 300 枚ある。",
+     "en": "A strange company asks you to \"just check some cartridges.\" No labels, so you refuse. The real bug sheets: 300 again today."
+    },
+    "effect": {
+     "passion": 2,
+     "hp": -2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1990_mc_any",
+    "text": {
+     "ja": "出張帰りの課長のお土産は「999 in 1」だった。みんなで数えたら 31 本。課長は「残りは心で遊べ」と言った。",
+     "en": "The section chief brings back a \"999-in-1\" from a trip. You all count 31. He says, \"Play the rest with your heart.\""
+    },
+    "effect": {
+     "passion": 2,
+     "network": 2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1992_game_genie",
+  "year": 1992,
+  "month": 5,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "米国の控訴裁判所が、改造ツール「ゲームジーニー」を適法と判断",
+   "en": "US appeals court rules the Game Genie lawful"
+  },
+  "news": {
+   "ja": "5 月、ゲームの数値を一時的に書き換える周辺機器『ゲームジーニー』を巡る裁判で、米国の控訴裁判所が著作権の侵害に当たらないと判断した。",
+   "en": "In May, a US appeals court ruled that the Game Genie, which temporarily alters game values, does not infringe copyright."
+  },
+  "src": "https://en.wikipedia.org/wiki/Lewis_Galoob_Toys,_Inc._v._Nintendo_of_America,_Inc.",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1992_gg_abroad",
+    "when": [
+     "pos=abroad"
+    ],
+    "text": {
+     "ja": "現地の同僚が改造コードを 3 つ教えてくれた。自分が仕込んだ隠し部屋より、そっちの方が有名だった。",
+     "en": "A local coworker teaches you three cheat codes. They are more famous than the secret room you hid in the game."
+    },
+    "effect": {
+     "passion": -2,
+     "skill": 2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1992_gg_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "「改造コードで壊れないか」も検査項目に入った。無敵のまま 3 時間歩き回り、壁の中で日が暮れた。",
+     "en": "\"Does it survive cheat codes?\" joins the test list. Invincible, you wander for three hours. Night falls inside a wall."
+    },
+    "effect": {
+     "hp": -3,
+     "skill": 3
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1992_gg_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "数値の場所を読まれないよう、変数を毎回ちがう番地に置いた。翌月、自分でも見つけられなくなった。",
+     "en": "To stop codes from finding your values, you move variables to new addresses each build. Next month, even you cannot find them."
+    },
+    "effect": {
+     "skill": 4,
+     "passion": -2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1992_gg_any",
+    "text": {
+     "ja": "海の向こうで、ゲームの数字を書き換える機械が合法になった。給料の数字は、誰も書き換えてくれない。",
+     "en": "Across the ocean, a gadget that rewrites game numbers is ruled legal. No one rewrites the numbers on your paycheck."
+    },
+    "effect": {
+     "passion": 1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1999_used_split",
+  "year": 1999,
+  "month": 5,
+  "until": 2000,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "中古ゲームソフト裁判、東京と大阪の地裁で判断が割れる",
+   "en": "Used-game lawsuits: Tokyo and Osaka courts split"
+  },
+  "news": {
+   "ja": "5 月に東京地裁は中古販売の差し止めを認めず、10 月に大阪地裁はメーカー側の主張を認めた。ゲームが「映画の著作物」かが争点になった。",
+   "en": "In May the Tokyo court refused to stop used-game sales; in October the Osaka court sided with the makers. At issue: are games \"cinematic works\"?"
+  },
+  "src": "https://pc.watch.impress.co.jp/docs/article/990527/accs.htm",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1999_used_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "社長が副業で中古ゲーム屋を始めると言い出した。店番は、残業のあとで頼むと言う。",
+     "en": "The boss announces a side business: a used-game shop. You would mind the register after overtime."
+    },
+    "effect": {},
+    "tag": [
+     "piracy",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_used_shop",
+      "label": {
+       "ja": "店番をする",
+       "en": "Mind the shop"
+      },
+      "effect": {
+       "money": 15,
+       "hp": -8,
+       "flag": {
+        "dark_usedshop": true
+       }
+      },
+      "result": {
+       "ja": "店番をした。自分が下請けで作ったソフトが「3 本 1000 円」の箱に入っていた。",
+       "en": "You mind the shop. A game you made as a subcontractor sits in the \"3 for 1,000 yen\" bin."
+      }
+     },
+     {
+      "id": "ch_dark_used_no",
+      "label": {
+       "ja": "断る",
+       "en": "Decline"
+      },
+      "effect": {
+       "hp": 3
+      },
+      "result": {
+       "ja": "断った。翌週から、社長の机に値札シールの束が置かれるようになった。",
+       "en": "You decline. From next week, rolls of price stickers start appearing on the boss's desk."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_used_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "「中古は買いません」という誓約書が社内に回ってきた。家の押し入れには、中古で買ったソフトが 80 本ある。",
+     "en": "A pledge goes around the office: \"I will not buy used games.\" Your closet at home holds 80 used games."
+    },
+    "effect": {},
+    "tag": [
+     "piracy",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_used_seal",
+      "label": {
+       "ja": "押し入れを封印する",
+       "en": "Seal the closet"
+      },
+      "effect": {
+       "passion": -2,
+       "network": 3
+      },
+      "result": {
+       "ja": "ガムテープで封印した。そのガムテープも、中古屋のワゴンで買ったものだった。",
+       "en": "You tape it shut. The tape, too, came from a used-shop bargain bin."
+      }
+     },
+     {
+      "id": "ch_dark_used_honest",
+      "label": {
+       "ja": "誓約書に「80 本あります」と書く",
+       "en": "Write \"I own 80\" on the pledge"
+      },
+      "effect": {
+       "passion": 4,
+       "network": -3
+      },
+      "result": {
+       "ja": "正直に書いた。部長に呼ばれ、3 本貸してくれと頼まれた。",
+       "en": "You write the truth. The manager calls you in and asks to borrow three."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_used_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "独立の資金のために、昔の作品の在庫を中古屋に持ちこんだ。買取は 1 本 30 円。売値は 280 円だった。",
+     "en": "For your startup funds, you sell old stock of your games to a used shop. 30 yen each to sell, 280 yen on the shelf."
+    },
+    "effect": {
+     "money": 3,
+     "passion": -3
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_used_any",
+    "text": {
+     "ja": "ゲームは映画なのかで裁判になった。上映時間で言えば、うちの RPG は 80 時間の超大作だ。",
+     "en": "Courts are deciding whether games are films. By running time, your RPG is an 80-hour epic."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2002_used_supreme",
+  "year": 2002,
+  "month": 4,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "最高裁、中古ゲームソフトの販売は適法と判断",
+   "en": "Supreme Court rules used-game sales legal"
+  },
+  "news": {
+   "ja": "4 月 25 日、最高裁がメーカー側の上告を退けた。ゲームは映画の著作物だが、頒布権は最初に売った時点で尽きると判断した。",
+   "en": "On April 25, the Supreme Court rejected the makers' appeal: games are cinematic works, but distribution rights end after the first sale."
+  },
+  "src": "https://www.itmedia.co.jp/news/0204/25/used_game.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2002_sup_shop",
+    "when": [
+     "flag.dark_usedshop"
+    ],
+    "text": {
+     "ja": "あの中古屋が合法と確定した。社長は記念セールを開き、3 年分の店番の手当を図書カードでくれた。",
+     "en": "That used-game shop is officially legal. The boss throws a celebration sale and pays three years of shifts in book vouchers."
+    },
+    "effect": {
+     "money": 3,
+     "passion": 6
+    },
+    "tag": [
+     "piracy",
+     "high"
+    ],
+    "memory": {
+     "ja": "中古屋の店番が最高裁で報われた",
+     "en": "my used-shop shifts got vindicated by the supreme court"
+    }
+   },
+   {
+    "id": "ev_hs_dark_2002_sup_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員会で「新品で買いたくなる特典」を考えることになった。出た案は全部、自分が中古で買わなかった理由だった。",
+     "en": "The board wants \"perks that make people buy new.\" Every idea you offer is a reason you once skipped the used copy."
+    },
+    "effect": {
+     "skill": 3,
+     "network": 2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2002_sup_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "判決の日、中古屋で自分のソフトを 1 本買い戻した。店員に「これ、面白いですよ」と言われた。",
+     "en": "On ruling day, you buy back a copy of your own game at a used shop. The clerk says, \"This one's good.\""
+    },
+    "effect": {
+     "passion": 6,
+     "money": -1
+    },
+    "tag": [
+     "piracy",
+     "high"
+    ],
+    "memory": {
+     "ja": "中古屋の店員に自分のソフトを勧められた",
+     "en": "a used-shop clerk recommended my own game to me"
+    }
+   },
+   {
+    "id": "ev_hs_dark_2002_sup_any",
+    "text": {
+     "ja": "中古の販売は合法になった。給料日前の中古ワゴンが、少しだけ胸を張って見えた。",
+     "en": "Used sales are legal now. The pre-payday bargain bin seems to stand a little taller."
+    },
+    "effect": {
+     "passion": 2,
+     "money": -1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2004_winny",
+  "year": 2004,
+  "month": 5,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "ファイル共有ソフトの開発者が逮捕される(のちに無罪が確定)",
+   "en": "A file-sharing software developer is arrested (later acquitted)"
+  },
+  "news": {
+   "ja": "5 月、ファイル共有ソフト『Winny』の開発者が著作権法違反のほう助の疑いで逮捕された。2011 年 12 月に最高裁で無罪が確定した。",
+   "en": "In May, the developer of the file-sharing program Winny was arrested on suspicion of aiding copyright infringement. His acquittal became final in December 2011."
+  },
+  "src": "https://gigazine.net/news/20111220-winny/",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2004_winny_tool",
+    "when": [
+     "flag.dark_copytool"
+    ],
+    "text": {
+     "ja": "ニュースの夜、実家から昔の「バックアップ用ユーティリティ」の箱が届いた。開けずに、押し入れの奥へ戻した。",
+     "en": "The night of the news, a box arrives from your parents: your old \"backup utility.\" You push it, unopened, to the back of the closet."
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2004_winny_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "発売前の自社ソフトがネットに流れていないか、毎朝調べる係になった。見つかったのは、自分の攻略メモだった。",
+     "en": "Every morning you search the net for leaks of your unreleased game. What you find is your own walkthrough notes."
+    },
+    "effect": {
+     "skill": 2,
+     "passion": -2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2004_winny_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "「道具を作った人の責任」の話で、社内のプログラマが静かになった。全員が、自分の作ったツールを心の中で数えた。",
+     "en": "Talk of \"the toolmaker's responsibility\" silences the programmers. Everyone quietly counts the tools they have written."
+    },
+    "effect": {
+     "skill": 2,
+     "passion": -1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2004_winny_any",
+    "text": {
+     "ja": "ファイル共有のニュースで、会社のパソコンに監視ソフトが入った。最初に止められたのは、総務の音楽だった。",
+     "en": "After the file-sharing news, monitoring software goes on every office PC. The first thing it blocks is the admin team's music."
+    },
+    "effect": {
+     "network": 2,
+     "passion": 1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2009_r4_ruling",
+  "year": 2009,
+  "month": 2,
+  "kind": "incident",
+  "weight": 3,
+  "title": {
+   "ja": "東京地裁がマジコンの輸入・販売の差し止めを命じる",
+   "en": "Tokyo court orders a halt to flash-cart imports and sales"
+  },
+  "news": {
+   "ja": "2 月 27 日、任天堂とソフトメーカーの訴えを認め、DS 用の『R4』などの輸入・販売の差し止めと在庫の廃棄を命じた。",
+   "en": "On February 27, siding with Nintendo and software makers, the court ordered a stop to imports and sales of DS flash carts like the R4, and destruction of stock."
+  },
+  "src": "https://www.gamebusiness.jp/article/2009/10/05/453.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2009_r4_mc",
+    "when": [
+     "flag.dark_multicart"
+    ],
+    "text": {
+     "ja": "判決の解説に「海賊版の歴史」の図があった。いちばん左の写真は、昔こっそり納めた「52 in 1」だった。",
+     "en": "The ruling's explainer has a \"history of piracy\" chart. The far-left photo is the \"52-in-1\" you once quietly delivered."
+    },
+    "effect": {
+     "passion": -6,
+     "money": -5
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2009_r4_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "知り合いの社長から電話。「マジコンの日本語の説明書を書いてくれ。1 枚 5 万円」。",
+     "en": "A boss you know calls: \"Write the Japanese manual for a flash cart. 50,000 yen a page.\""
+    },
+    "effect": {},
+    "tag": [
+     "piracy",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_r4_write",
+      "label": {
+       "ja": "書く",
+       "en": "Write it"
+      },
+      "effect": {
+       "money": 20,
+       "flag": {
+        "dark_magicon": true
+       }
+      },
+      "result": {
+       "ja": "書いた。最後に「ソフトは買いましょう」と入れたら、そこだけ消されて印刷された。",
+       "en": "You write it. You add \"Please buy your games\" at the end; that line alone is cut before printing."
+      }
+     },
+     {
+      "id": "ch_dark_r4_no",
+      "label": {
+       "ja": "断る",
+       "en": "Refuse"
+      },
+      "effect": {
+       "passion": 3,
+       "network": -1
+      },
+      "result": {
+       "ja": "断った。社長は「じゃあ DS のゲームを作ってよ」と言い、その話は二度と来なかった。",
+       "en": "You refuse. The boss says, \"Then make me a DS game,\" and never calls again."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2009_r4_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "検査中の DS ソフトに、マジコン対策の確認項目が増えた。延びた 1 週間のうちに、自分の誕生日が過ぎた。",
+     "en": "Flash-cart checks get added to the DS test plan. Your birthday passes during the extra week."
+    },
+    "effect": {
+     "hp": -3,
+     "skill": 2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2009_r4_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "発売の翌日、自社のソフトがもう出回っていると聞いた。会議室の空気が重くなり、誰も窓を開けなかった。",
+     "en": "The day after launch, you hear your game is already being passed around. The meeting room goes heavy, and no one opens a window."
+    },
+    "effect": {
+     "passion": -5,
+     "network": 2
+    },
+    "tag": [
+     "piracy"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2009_r4_any",
+    "text": {
+     "ja": "電車で子どもが DS で遊んでいた。差してあるのが正規品だったので、なぜか自分が会釈した。",
+     "en": "A kid on the train plays a DS. The cartridge is genuine, and for some reason you give a little bow."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2011_ucpa",
+  "year": 2011,
+  "month": 12,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "改正不正競争防止法の施行、マジコンの販売に刑事罰",
+   "en": "Revised unfair competition law: criminal penalties for selling flash carts"
+  },
+  "news": {
+   "ja": "12 月 1 日、コピー防止を外す機器の提供に刑事罰を科す改正法が施行された。関税法も改められ、税関で止められるようになった。",
+   "en": "On December 1, a revised law took effect with criminal penalties for providing devices that bypass copy protection. Customs could now stop them too."
+  },
+  "src": "https://internet.watch.impress.co.jp/docs/news/547283.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2011_ucpa_mag",
+    "when": [
+     "flag.dark_magicon"
+    ],
+    "text": {
+     "ja": "あの社長から電話。「法律が変わるから、説明書を全部書き直してくれ。今度は 1 枚 10 万円」。",
+     "en": "That boss calls again. \"The law's changing, so rewrite all the manuals. 100,000 yen a page this time.\""
+    },
+    "effect": {},
+    "tag": [
+     "piracy",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_ucpa_quit",
+      "label": {
+       "ja": "手を引く",
+       "en": "Walk away"
+      },
+      "effect": {
+       "money": -15,
+       "passion": 4,
+       "flag": {
+        "dark_magicon": false
+       }
+      },
+      "result": {
+       "ja": "手を引いた。前にもらった分を返すと、社長は「真面目だね」と言い、利子の話を始めた。",
+       "en": "You walk away and return what you were paid. The boss says, \"How earnest,\" and starts talking about interest."
+      }
+     },
+     {
+      "id": "ch_dark_ucpa_keep",
+      "label": {
+       "ja": "続ける",
+       "en": "Keep going"
+      },
+      "effect": {
+       "money": 30,
+       "flag": {
+        "dark_magicon_keep": true
+       }
+      },
+      "result": {
+       "ja": "続けた。原稿料は倍になり、社長からの電話は非通知になった。",
+       "en": "You keep going. The fee doubles, and the boss starts calling from a blocked number."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2011_ucpa_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "回避機器の説明会に社長と出た。帰り道、社長が昔の ROM ライターの話を始め、駅を 2 つ乗り過ごした。",
+     "en": "You attend a briefing on bypass devices with your boss. On the way home he reminisces about old ROM writers, and you miss two stops."
+    },
+    "effect": {
+     "network": 2,
+     "hp": -1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2011_ucpa_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "法律が変わり、海賊版対策の予算が通った。その予算で最初に買ったのは、研究用のマジコン 3 台だった。",
+     "en": "With the new law, the anti-piracy budget is approved. The first purchase: three flash carts, for research."
+    },
+    "effect": {
+     "skill": 3,
+     "network": 2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2011_ucpa_any",
+    "text": {
+     "ja": "法律が変わり、街からマジコンの広告が消えた。空いた場所に貼られたのは、自社の新作の延期のお知らせだった。",
+     "en": "The new law clears flash-cart ads from the streets. In their place goes up a notice that your company's new game is delayed."
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2012_magicon_arrest",
+  "year": 2012,
+  "month": 7,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "マジコンの店頭販売で全国初の逮捕",
+   "en": "First arrest in Japan for selling flash carts in a store"
+  },
+  "news": {
+   "ja": "7 月、大阪府警がマジコンを店で売った男性を改正不正競争防止法違反の疑いで逮捕。店頭販売での摘発は全国で初めてとされる。",
+   "en": "In July, Osaka police arrested a man for selling flash carts at his shop under the revised law, reportedly the first store case in Japan."
+  },
+  "src": "https://internet.watch.impress.co.jp/docs/news/547283.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2012_arr_keep",
+    "when": [
+     "flag.dark_magicon_keep"
+    ],
+    "text": {
+     "ja": "ニュースに映った店の名前に見覚えがあった。説明書の最後に書いた、あの店だ。夕方、玄関のチャイムが鳴った。",
+     "en": "You recognize the shop's name on the news. It is the one printed at the back of your manual. That evening, the doorbell rings."
+    },
+    "effect": {
+     "flag": {
+      "do_arrest": true
+     }
+    },
+    "tag": [
+     "piracy",
+     "crime"
+    ],
+    "cause": {
+     "ja": "マジコンの説明書を書き続けて逮捕。押収された原稿の最後の 1 行は「ソフトは買いましょう」だった",
+     "en": "kept writing flash-cart manuals and got arrested. The last line of the seized draft read: \"Please buy your games\""
+    }
+   },
+   {
+    "id": "ev_hs_dark_2012_arr_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "社内の掲示板に逮捕の記事が貼られ、横に「ソフトは買いましょう」と手書きされた。書いたのは社長だった。",
+     "en": "The arrest article goes up on the office board with \"Please buy your games\" handwritten beside it. The president wrote it."
+    },
+    "effect": {
+     "passion": 2,
+     "network": 1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2012_arr_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "押収品の中に自社ソフトがあるか確かめる手伝いをした。正規品の検査より、なぜか手が震えた。",
+     "en": "You help check whether your company's games are among the seized goods. Your hands shake more than in any real test."
+    },
+    "effect": {
+     "skill": 2,
+     "hp": -2
+    },
+    "tag": [
+     "piracy"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2012_arr_any",
+    "text": {
+     "ja": "近所の店からマジコンの貼り紙が消えた。代わりに「ゲーム機の修理承ります」。店主の目が少し寂しそうだった。",
+     "en": "The flash-cart sign vanishes from the local shop. Now it reads \"Console repairs.\" The owner looks a little lonely."
+    },
+    "effect": {
+     "passion": 1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2014_cheat_case",
+  "year": 2014,
+  "month": 6,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "オンラインゲームのチートで、国内初の摘発",
+   "en": "Japan's first police case over online game cheating"
+  },
+  "news": {
+   "ja": "6 月、神奈川県警が、オンライン対戦ゲームでチートを使った 3 人を電子計算機損壊等業務妨害の疑いで書類送検した。",
+   "en": "In June, Kanagawa police sent papers on three players who cheated in an online shooter, on suspicion of obstructing business by damaging computers."
+  },
+  "src": "https://www.inside-games.jp/article/2014/06/29/78184.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2014_cheat_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "知らない人からメッセージ。「対戦ゲームの壁抜けツール、君なら作れるでしょ。売上は折半で」。",
+     "en": "A message from a stranger: \"You could build a wall-clip tool for that shooter. We split the profits.\""
+    },
+    "effect": {},
+    "tag": [
+     "piracy",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_cheat_make",
+      "label": {
+       "ja": "作る",
+       "en": "Build it"
+      },
+      "effect": {
+       "money": 25,
+       "skill": 3,
+       "flag": {
+        "dark_cheat": true
+       }
+      },
+      "result": {
+       "ja": "一晩でできてしまった。自分の会社のゲームより、ずっと感謝された。",
+       "en": "It took one night. You got far more thanks than for any game your company made."
+      }
+     },
+     {
+      "id": "ch_dark_cheat_no",
+      "label": {
+       "ja": "断って、対策側の勉強をする",
+       "en": "Refuse and study anti-cheat"
+      },
+      "effect": {
+       "skill": 3,
+       "passion": 2
+      },
+      "result": {
+       "ja": "断った。チート対策の本を買ったら、著者名が誘ってきた人のハンドル名と同じだった。",
+       "en": "You refuse and buy an anti-cheat book. The author's name matches the stranger's handle."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2014_cheat_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "チートの報告動画を毎日見る係になった。壁の中を走る敵を見すぎて、通勤中に壁を見ると立ち止まるようになった。",
+     "en": "Your job: watch cheat-report videos all day. After so many enemies running through walls, you now stop and stare at walls on your commute."
+    },
+    "effect": {
+     "hp": -2,
+     "skill": 3
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2014_cheat_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "運営会議で不正を見抜く仕組みを入れた。最初に引っかかったのは、運営チームのテスト用アカウントだった。",
+     "en": "You roll out a cheat-detection system. The first account it flags belongs to your own ops team's test account."
+    },
+    "effect": {
+     "network": 2,
+     "passion": -1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2014_cheat_any",
+    "text": {
+     "ja": "ズルの話がニュースになった。家で遊ぶ自分の戦績が悪いのは、ズルではなく腕のせいだった。",
+     "en": "Cheating makes the news. Your own bad record at home is due not to cheats, but to skill."
+    },
+    "effect": {
+     "passion": 1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2017_rmt_insider",
+  "year": 2017,
+  "month": 6,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "ゲーム会社の社員が、不正に作ったアカウントを RMT に出して逮捕",
+   "en": "Game company employee arrested for listing illicit accounts on an RMT site"
+  },
+  "news": {
+   "ja": "6 月、スマホゲームの開発元の社員が、不正に作ったゲームのアカウントを現金の取引サイトに出品したとして逮捕された。",
+   "en": "In June, an employee of a mobile game developer was arrested for listing illicitly created game accounts on a real-money trading site."
+  },
+  "src": "https://scan.netsecurity.ne.jp/article/2017/06/22/39879.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2017_rmt_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "テスト用アカウントに限定の武器が 99 個ある。「1 個 3 万円で買う」と、知らない人から連絡が来た。",
+     "en": "The test account holds 99 limited-edition weapons. A stranger writes: \"I'll pay 30,000 yen each.\""
+    },
+    "effect": {},
+    "tag": [
+     "piracy",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_rmt_sell",
+      "label": {
+       "ja": "1 個だけ売る",
+       "en": "Sell just one"
+      },
+      "effect": {
+       "money": 3,
+       "flag": {
+        "dark_rmt": true
+       }
+      },
+      "result": {
+       "ja": "1 個売れた。翌朝「在庫が 98 です」と、自分で報告書に書いた。",
+       "en": "One sells. The next morning you write in your own report: \"Stock: 98.\""
+      }
+     },
+     {
+      "id": "ch_dark_rmt_report",
+      "label": {
+       "ja": "通報する",
+       "en": "Report it"
+      },
+      "effect": {
+       "network": 3,
+       "passion": 2
+      },
+      "result": {
+       "ja": "通報した。連絡の相手は、社内のセキュリティ研修の担当者だった。",
+       "en": "You report it. The stranger turns out to be the company's security-training staff."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2017_rmt_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "管理画面の権限を全部見直した。いちばん強い権限を持っていたのは、3 年前に辞めた人だった。",
+     "en": "You audit every admin permission. The most powerful account belongs to someone who quit three years ago."
+    },
+    "effect": {
+     "skill": 3,
+     "network": -1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2017_rmt_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "「アカウントは売りません」という誓約書に名前を書いた。自分のアカウントは、売れるほど強くなかった。",
+     "en": "You sign a pledge: \"I will not sell accounts.\" Your account was never strong enough to sell anyway."
+    },
+    "effect": {
+     "passion": -1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2017_rmt_any",
+    "text": {
+     "ja": "ゲームのアカウントが現金で売られている話を読んだ。押し入れの昔のレアカードは、調べたら 1 枚 30 円だった。",
+     "en": "You read about game accounts sold for cash. You check your old rare cards in the closet: 30 yen apiece."
+    },
+    "effect": {
+     "money": 1
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2018_savedata_law",
+  "year": 2018,
+  "month": 11,
+  "until": 2019,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "改正不正競争防止法の施行、セーブデータの改造代行も対象に",
+   "en": "Revised law: editing save data for others becomes unfair competition"
+  },
+  "news": {
+   "ja": "11 月施行の改正で、セーブデータの改造ツールの提供や改造の代行が不正競争になった。2019 年に初めての摘発があった。",
+   "en": "A revision effective in November made providing save-editing tools or editing saves for others unfair competition. The first arrests came in 2019."
+  },
+  "src": "https://automaton-media.com/articles/newsjp/20190701-96311/",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2018_save_cheat",
+    "when": [
+     "flag.dark_cheat"
+    ],
+    "text": {
+     "ja": "4 年前に一晩で作った壁抜けツールが、まだ売られていた。法律が変わった月、作者として名前が出た。",
+     "en": "The wall-clip tool you built in one night four years ago is still on sale. The month the law changes, your name comes up as its author."
+    },
+    "effect": {
+     "flag": {
+      "do_arrest": true
+     }
+    },
+    "tag": [
+     "piracy",
+     "crime"
+    ],
+    "cause": {
+     "ja": "4 年前に作った壁抜けツールで逮捕。押収されたパソコンでは、自社のゲームまで壁を抜けた",
+     "en": "arrested over a wall-clip tool built four years earlier. On the seized PC, even your own company's game let you walk through walls"
+    }
+   },
+   {
+    "id": "ev_hs_dark_2018_save_rmt",
+    "when": [
+     "flag.dark_rmt"
+    ],
+    "text": {
+     "ja": "昔売った武器 1 個の件で、会社の記録が調べられた。在庫「98」という数字は、思ったより目立っていた。",
+     "en": "An audit digs into that one weapon you sold. The stock count of \"98\" stands out more than you thought."
+    },
+    "effect": {
+     "flag": {
+      "do_arrest": true
+     }
+    },
+    "tag": [
+     "piracy",
+     "crime"
+    ],
+    "cause": {
+     "ja": "テスト用アカウントの武器を 1 個売って逮捕。在庫は今も 98 個のまま",
+     "en": "sold one weapon from a test account and got arrested. The stock still reads 98"
+    }
+   },
+   {
+    "id": "ev_hs_dark_2018_save_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "セーブデータの改造を見つける係になった。レベル 255 の勇者を 1 日 40 人見たが、自分のレベルは上がらない。",
+     "en": "You are assigned to spot edited saves. You see 40 level-255 heroes a day; your own level stays put."
+    },
+    "effect": {
+     "skill": 3,
+     "passion": -2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2018_save_any",
+    "text": {
+     "ja": "データの改造が法律で禁じられた。子どもの頃の裏技ノートは、ぎりぎり合法だと信じている。",
+     "en": "Editing game data is now banned by law. You trust your childhood notebook of secret tricks is still just barely legal."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "piracy",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1994_capcom_de",
+  "year": 1994,
+  "month": 3,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "米国で対戦格闘の類似を巡る裁判、侵害は認められず",
+   "en": "US court finds no infringement in a fighting-game lookalike case"
+  },
+  "news": {
+   "ja": "3 月、カプコンがデータイーストの対戦格闘ゲームを訴えた裁判で、米国の地方裁判所は侵害を認めなかった。技の入力などは保護される表現ではないとされた。",
+   "en": "In March, a US district court found no infringement in Capcom's suit against Data East over a fighting game; move inputs were not protected expression."
+  },
+  "src": "https://en.wikipedia.org/wiki/Capcom_U.S.A._Inc._v._Data_East_Corp.",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1994_cde_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "企画会議で「あの格闘ゲームに似せすぎない線」が議題になった。ホワイトボードに ↓↘→+P が 12 回書いてある。",
+     "en": "The meeting topic: how not to look too much like That Fighting Game. The whiteboard shows down, down-forward, forward + punch, twelve times."
+    },
+    "effect": {},
+    "tag": [
+     "plagiarism",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_cde_own",
+      "label": {
+       "ja": "技を全部自分たちで考え直す",
+       "en": "Redesign every move ourselves"
+      },
+      "effect": {
+       "skill": 5,
+       "hp": -6,
+       "passion": 3
+      },
+      "result": {
+       "ja": "考え直した。新しい必殺技のコマンドは、開発チームの誰も出せなかった。",
+       "en": "You redesign them. No one on the team can pull off the new special moves."
+      }
+     },
+     {
+      "id": "ch_dark_cde_safe",
+      "label": {
+       "ja": "「似ているだけなら大丈夫」で行く",
+       "en": "Go with \"similar is fine\""
+      },
+      "effect": {
+       "money": 15,
+       "fame": -2
+      },
+      "result": {
+       "ja": "発売した。雑誌に「どこかで見た」と書かれ、どこで見たかは全員知っていた。",
+       "en": "It ships. A magazine says it feels familiar, and everyone knows exactly where from."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1994_cde_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "必殺技の入力の受付を書いた。似ていると言われないよう猶予を 3 フレームずらしたが、誰も気づかなかった。",
+     "en": "You write the special-move input window and shift it by three frames to avoid looking similar. No one notices."
+    },
+    "effect": {
+     "skill": 3
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1994_cde_abroad",
+    "when": [
+     "pos=abroad"
+    ],
+    "text": {
+     "ja": "現地の法務の人が、技表を 1 枚ずつ見比べていた。対空技のページだけ、なぜか 3 回見返した。",
+     "en": "Local legal staff compare move lists page by page. For some reason they reread the anti-air page three times."
+    },
+    "effect": {
+     "network": 2
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1994_cde_any",
+    "text": {
+     "ja": "格闘ゲームの裁判の記事を読み、ゲーセンで両方遊んだ。どちらでも負けた。",
+     "en": "After reading about the fighting-game lawsuit, you play both at the arcade. You lose at both."
+    },
+    "effect": {
+     "passion": 2,
+     "money": -1
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2001_emblem_saga",
+  "year": 2001,
+  "month": 5,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "『ティアリングサーガ』発売、任天堂などとの訴訟に",
+   "en": "TearRing Saga launches amid a lawsuit with Nintendo"
+  },
+  "news": {
+   "ja": "2000 年に『エムブレムサーガ』として発表された作品が改題して 5 月 24 日に発売。宣伝の仕方などを巡り、任天堂・インテリジェントシステムズとの訴訟になった。",
+   "en": "Announced in 2000 as Emblem Saga, the game launched retitled on May 24. Its marketing led to litigation with Nintendo and Intelligent Systems."
+  },
+  "src": "ティアリングサーガ ユトナ英雄戦記",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2001_saga_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "シミュレーション RPG の企画書に「あのシリーズの雰囲気で」と一行あった。消すか、残すか。",
+     "en": "Your strategy RPG proposal contains one line: \"in the spirit of That Series.\" Delete it or keep it?"
+    },
+    "effect": {},
+    "tag": [
+     "plagiarism",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_saga_erase",
+      "label": {
+       "ja": "その一行を消す",
+       "en": "Delete the line"
+      },
+      "effect": {
+       "skill": 2,
+       "passion": 2
+      },
+      "result": {
+       "ja": "消した。企画書が一行短くなり、なぜか会議も 1 時間短くなった。",
+       "en": "You delete it. The proposal gets one line shorter, and somehow the meeting an hour shorter."
+      }
+     },
+     {
+      "id": "ch_dark_saga_keep",
+      "label": {
+       "ja": "残して宣伝にも使う",
+       "en": "Keep it and use it in ads"
+      },
+      "effect": {
+       "fame": 4,
+       "money": 10,
+       "flag": {
+        "dark_saga": true
+       }
+      },
+      "result": {
+       "ja": "宣伝に使った。雑誌の見出しが大きくなり、法務部からの内線も増えた。",
+       "en": "You use it in the ads. The magazine headlines grow, and so do the calls from Legal."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2001_saga_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "法務部に呼ばれ、5 年前の企画メモを出せと言われた。メモの半分は、昼ごはんの店の名前だった。",
+     "en": "Legal asks for your planning notes from five years ago. Half of them are names of lunch places."
+    },
+    "effect": {
+     "network": 2,
+     "passion": -2
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2001_saga_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "下請けで、ある会社の城の背景を描いていた。同じ月に別の会社からも城を頼まれた。どちらの城も同じ手癖だった。",
+     "en": "As a subcontractor you paint castle backgrounds for one company. The same month, another orders castles too. Both have your same brush habits."
+    },
+    "effect": {
+     "skill": 3,
+     "money": 5,
+     "passion": -2
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2001_saga_any",
+    "text": {
+     "ja": "シリーズの生みの親が独立して作った新作を、発売日に買った。どちらの味方でもなく、ただ遊んで徹夜した。",
+     "en": "On launch day you buy the new game by the series' original creator. You take no side; you just play all night."
+    },
+    "effect": {
+     "hp": -3,
+     "passion": 5
+    },
+    "tag": [
+     "plagiarism"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2005_tearring_end",
+  "year": 2005,
+  "month": 4,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "『ティアリングサーガ』を巡る裁判が終結",
+   "en": "The TearRing Saga lawsuit concludes"
+  },
+  "news": {
+   "ja": "4 月、最高裁まで争われた裁判が終結。不正競争防止法違反の部分で任天堂側の請求が一部認められ、7600 万円の支払いが命じられた。",
+   "en": "In April, the case, fought up to the Supreme Court, ended with Nintendo's claims partly upheld under unfair competition law and 76 million yen ordered paid."
+  },
+  "src": "ティアリングサーガ ユトナ英雄戦記",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2005_tr_saga",
+    "when": [
+     "flag.dark_saga"
+    ],
+    "text": {
+     "ja": "4 年前に宣伝で使ったあの一行のせいで、会社も訴えられた。その年の賞与は「記念品」になった。",
+     "en": "That one line you used in the ads four years ago gets your company sued too. That year, the bonus becomes a \"commemorative gift.\""
+    },
+    "effect": {
+     "money": -50,
+     "passion": -5
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2005_tr_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "社内研修に「似せてよい線、いけない線」が加わった。講師は 3 年前まで、線の向こう側にいた人だった。",
+     "en": "In-house training adds \"lines you may and may not cross.\" The instructor stood on the other side of that line three years ago."
+    },
+    "effect": {
+     "skill": 3,
+     "network": 2
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2005_tr_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "デバッグで、キャラの名前を他社の作品と照らし合わせる作業が増えた。似た名前は 14 個。全部、よくある名前だった。",
+     "en": "Debugging now includes checking character names against other companies' games. 14 look alike. All are common names."
+    },
+    "effect": {
+     "skill": 2,
+     "hp": -2
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2005_tr_any",
+    "text": {
+     "ja": "裁判が終わった。どちらの作品も遊んだ自分は、どちらの続編も待っている。",
+     "en": "The case is over. Having played both games, you are waiting for both sequels."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "plagiarism"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2012_fishing_suit",
+  "year": 2012,
+  "month": 2,
+  "until": 2013,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "釣りゲームの画面の類似を巡る訴訟、一審と二審で判断が逆転",
+   "en": "Fishing-game lawsuit: the appeals court reverses the first ruling"
+  },
+  "news": {
+   "ja": "2 月に東京地裁はグリーの訴えを認めたが、8 月に知財高裁が逆転させた。共通する画面はアイデアやありふれた表現とされ、2013 年に確定。",
+   "en": "In February a Tokyo court sided with GREE; in August the IP High Court reversed it, calling the shared screens ideas or common expression. Final in 2013."
+  },
+  "src": "https://www.gamebusiness.jp/article/2013/04/18/7868.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2012_fish_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "上から「売れている釣りゲームと同じ画面で、魚だけ変えろ」と言われた。魚の絵は 3 種類しかない。",
+     "en": "Orders from above: \"Same screens as the hit fishing game, just change the fish.\" You have three fish sprites."
+    },
+    "effect": {},
+    "tag": [
+     "plagiarism",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_fish_own",
+      "label": {
+       "ja": "画面から考え直す",
+       "en": "Redesign the screens"
+      },
+      "effect": {
+       "skill": 5,
+       "hp": -6
+      },
+      "result": {
+       "ja": "考え直した。新しい画面では魚が縦に泳ぎ、テストした全員が首をかしげた。",
+       "en": "You redesign. In the new screens fish swim vertically, and every tester tilts their head."
+      }
+     },
+     {
+      "id": "ch_dark_fish_copy",
+      "label": {
+       "ja": "言われたとおりにする",
+       "en": "Do as told"
+      },
+      "effect": {
+       "money": 15,
+       "passion": -6
+      },
+      "result": {
+       "ja": "言われたとおりにした。魚の名前を変える会議だけで 2 週間かかった。",
+       "en": "You do as told. The meetings on renaming the fish alone take two weeks."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2012_fish_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "下請けで作った釣りゲームの画面が、どちらの会社の注文だったか誰も覚えていない。納品フォルダ名は「fish_final_final」。",
+     "en": "No one remembers which company ordered the fishing screens you made. The delivery folder is named \"fish_final_final.\""
+    },
+    "effect": {
+     "skill": 2,
+     "passion": -2
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2012_fish_plan",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "判決の「ありふれた表現」という言葉を読み、自分の企画書を見返した。全部、ありふれていた。",
+     "en": "You read the phrase \"common expression\" in the ruling and look back over your proposals. All of them are common."
+    },
+    "effect": {
+     "passion": -4,
+     "skill": 3
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2012_fish_any",
+    "text": {
+     "ja": "一審と二審で結論が逆になった。うちの企画会議も、毎回そうだ。",
+     "en": "The first and second rulings come out opposite. So do your planning meetings, every time."
+    },
+    "effect": {
+     "passion": 1
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2014_flappy",
+  "year": 2014,
+  "month": 2,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『Flappy Bird』が配信停止、そっくりなゲームがストアにあふれる",
+   "en": "Flappy Bird is pulled, and clones flood the stores"
+  },
+  "news": {
+   "ja": "2 月、世界的に流行した無料ゲームを作者が自ら配信停止にした。直後から、そっくりなゲームがストアの上位に並んだ。",
+   "en": "In February, the creator himself pulled the worldwide hit free game. Lookalikes immediately crowded the top of the store charts."
+  },
+  "src": "https://en.wikipedia.org/wiki/Flappy_Bird",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2014_flap_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "鳥が土管をくぐるゲームなら、週末で作れる。ストアには今、似たゲームが毎日あふれている。",
+     "en": "A bird-through-pipes game? You could make one in a weekend. The store is flooded with them daily."
+    },
+    "effect": {},
+    "tag": [
+     "plagiarism",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_flappy_make",
+      "label": {
+       "ja": "鳥を魚に変えて出す",
+       "en": "Swap the bird for a fish and ship"
+      },
+      "effect": {
+       "money": 5,
+       "passion": -3
+      },
+      "result": {
+       "ja": "出した。審査で落とされ、水の中に土管がある理由も聞かれた。",
+       "en": "You submit it. It gets rejected, along with a question about why there are pipes underwater."
+      }
+     },
+     {
+      "id": "ch_dark_flappy_own",
+      "label": {
+       "ja": "自分のゲームを作り続ける",
+       "en": "Keep making your own game"
+      },
+      "effect": {
+       "passion": 5,
+       "money": -5
+      },
+      "result": {
+       "ja": "作り続けた。3 か月後、ストアの鳥はほとんどいなくなっていた。",
+       "en": "You keep going. Three months later, the birds have mostly left the store."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2014_flap_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "昼休みに、社内の全員が同じ鳥を落としていた。最高記録 41 を出したのは、ゲームを作らない総務の人だった。",
+     "en": "At lunch, everyone in the office is crashing the same bird. The high score of 41 belongs to someone in admin who never makes games."
+    },
+    "effect": {
+     "passion": 3,
+     "network": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2014_flap_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "会議で「うちも何かがくぐるゲームを」と言われた。くぐるものの案が 40 個出て、全部、鳥だった。",
+     "en": "The meeting demands \"a game where something goes through something.\" Forty ideas come in. All of them are birds."
+    },
+    "effect": {
+     "passion": -2,
+     "skill": 1
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2014_flap_any",
+    "text": {
+     "ja": "単純な鳥のゲームに世界中が夢中になった。自分の 3 年がかりの大作は、鳥の 1 日分も遊ばれていない。",
+     "en": "The whole world goes crazy for a simple bird game. Your three-year epic has not been played as much as the bird is in one day."
+    },
+    "effect": {
+     "passion": -2,
+     "skill": 1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2014_2048",
+  "year": 2014,
+  "month": 3,
+  "kind": "hit",
+  "weight": 1,
+  "title": {
+   "ja": "パズル『2048』が公開、元になったゲームとの関係が話題に",
+   "en": "2048 goes online, sparking debate over the game it grew from"
+  },
+  "news": {
+   "ja": "3 月、数字を合わせるパズル『2048』がブラウザで無料公開され大流行。先に出ていた有料の『Threes!』との関係が議論になった。",
+   "en": "In March, the free browser puzzle 2048 became a craze, sparking debate over its relation to the earlier paid game Threes!"
+  },
+  "src": "https://techcrunch.com/2014/03/24/clones-clones-everywhere-1024-2048-and-other-copies-of-popular-paid-game-threes-fill-the-app-stores",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2014_2048_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "1 年半かけたパズルを出した週に、よく似た無料のパズルが流行った。検索すると、自分の方が「パクリ」と出てくる。",
+     "en": "The week you release a puzzle you spent 18 months on, a similar free one blows up. Search your title, and yours is called the copy."
+    },
+    "effect": {
+     "passion": -6,
+     "skill": 3
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2014_2048_plan",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "企画書に「2048 みたいな」と書いたら、隣の席から「Threes みたいな、だよ」と直された。その議論で定時が過ぎた。",
+     "en": "You write \"like 2048\" in a proposal. The next desk corrects you: \"Like Threes.\" The argument runs past quitting time."
+    },
+    "effect": {
+     "passion": 2,
+     "hp": -1
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2014_2048_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "会議中、全員が机の下で数字を合わせていた。部長は 1024 で止まり、その日の決裁も全部止まった。",
+     "en": "During the meeting, everyone is merging numbers under the table. The manager stalls at 1024, and so do all approvals that day."
+    },
+    "effect": {
+     "network": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2014_2048_any",
+    "text": {
+     "ja": "通勤電車で数字を合わせ続けた。駅を 2 つ乗り過ごし、2048 にはならなかった。",
+     "en": "You merge numbers all the way on the train. You miss two stops and never reach 2048."
+    },
+    "effect": {
+     "passion": 2,
+     "hp": -1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2021_patent_settle",
+  "year": 2021,
+  "month": 8,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "任天堂とコロプラの特許訴訟が和解",
+   "en": "Nintendo and COLOPL settle their patent lawsuit"
+  },
+  "news": {
+   "ja": "8 月、任天堂が特許の侵害を訴えていた裁判で、コロプラが総額 33 億円を支払い、任天堂が訴えを取り下げる和解が成立した。",
+   "en": "In August, COLOPL agreed to pay a total of 3.3 billion yen, and Nintendo withdrew its patent infringement suit."
+  },
+  "src": "https://gamebiz.jp/news/330605",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2021_pat_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "自社の特許の一覧が回ってきた。昔自分が考えた操作が 1 つ入っていて、発明者の欄に自分の名前があった。",
+     "en": "A list of your company's patents goes around. One is a control scheme you came up with long ago, and your name is in the inventor field."
+    },
+    "effect": {
+     "passion": 6,
+     "fame": 2
+    },
+    "tag": [
+     "plagiarism",
+     "high"
+    ],
+    "memory": {
+     "ja": "特許の発明者の欄に自分の名前があった",
+     "en": "my name was on a patent as the inventor"
+    }
+   },
+   {
+    "id": "ev_hs_dark_2021_pat_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "「作る前に特許を調べろ」と言われた。調べた 3 週間のうちに、作るはずの機能が仕様から消えた。",
+     "en": "You are told to search patents before building anything. During three weeks of searching, the feature disappears from the spec."
+    },
+    "effect": {
+     "skill": 2,
+     "passion": -3
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2021_pat_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "片手で遊べる新しい操作を思いついた。調べたら、特許がもう 5 件あった。",
+     "en": "You come up with a new one-handed control scheme. A quick search finds five patents already."
+    },
+    "effect": {
+     "passion": -2,
+     "skill": 2
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2021_pat_any",
+    "text": {
+     "ja": "33 億円の和解のニュースを、家計簿をつけながら読んだ。桁を数えているうちに、今月の赤字を忘れた。",
+     "en": "You read about the 3.3-billion-yen settlement while doing the household budget. Counting the zeros, you forget this month's deficit."
+    },
+    "effect": {
+     "passion": 1
+    },
+    "tag": [
+     "plagiarism",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1985_ikki",
+  "year": 1985,
+  "month": 11,
+  "kind": "hit",
+  "weight": 1,
+  "title": {
+   "ja": "ファミコン『いっき』発売、農民一揆のアクション",
+   "en": "Ikki for Famicom: an action game about a peasant revolt"
+  },
+  "news": {
+   "ja": "11 月 28 日、サンソフトが、鎌を投げて悪代官に立ち向かう農民のアクション『いっき』を発売。のちに「クソゲー」の代表格として愛される。",
+   "en": "On November 28, Sunsoft released Ikki, an action game where a farmer throws sickles at a corrupt magistrate. It became a beloved \"kusoge\" icon."
+  },
+  "src": "https://www.famitsu.com/article/202511/58192",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1985_ikki_plan",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "企画会議で「時代劇はどうか」と言ったら、よその会社が先に一揆を起こしていた。自分の案は「年貢」で、通らなかった。",
+     "en": "You pitch \"a samurai-era game\" just as another company starts its peasant revolt. Your idea was \"taxes in rice.\" Rejected."
+    },
+    "effect": {
+     "passion": -2,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1985_ikki_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "同じころ、うちの時代劇ゲームを検査していた。悪代官の台詞を 300 回聞き、夢の中でも年貢を取られた。",
+     "en": "Around then you were testing your own period game. After hearing the magistrate's line 300 times, he collects taxes in your dreams."
+    },
+    "effect": {
+     "hp": -3,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1985_ikki_young",
+    "when": [
+     "age<=22"
+    ],
+    "text": {
+     "ja": "友だちの家で鎌を投げ続けた。帰りに見た夕焼けが、なぜか一揆の色に見えた。",
+     "en": "At a friend's place you throw sickles all afternoon. Walking home, the sunset somehow looks like revolution."
+    },
+    "effect": {
+     "passion": 4
+    },
+    "tag": [
+     "weird"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1985_ikki_any",
+    "text": {
+     "ja": "農民が鎌で戦うゲームが店に並んだ。上司は「これからは何でもゲームになる」と言い、机の湯のみをじっと見ていた。",
+     "en": "A game about farmers fighting with sickles hits shelves. Your boss says, \"Anything can be a game now,\" and stares at his teacup."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1985_spelunker",
+  "year": 1985,
+  "month": 12,
+  "kind": "hit",
+  "weight": 1,
+  "title": {
+   "ja": "ファミコン版『スペランカー』発売、すぐやられる主人公が話題に",
+   "en": "Spelunker hits Famicom, and its fragile hero becomes legend"
+  },
+  "news": {
+   "ja": "12 月 7 日、アイレムが洞窟探検の『スペランカー』を発売。わずかな段差でやられる主人公は、のちに「最弱の主人公」と語られる。",
+   "en": "On December 7, Irem released Spelunker. Its hero, felled by the smallest drop, was later called the weakest protagonist in games."
+  },
+  "src": "https://www.famitsu.com/article/202512/59533",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1985_spel_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "担当のゲームで、主人公の当たり判定を少し甘くした。「優しすぎる」と言われ、少し戻した。",
+     "en": "In your own game you loosen the hero's hitbox a bit. \"Too kind,\" they say, so you tighten it back a little."
+    },
+    "effect": {
+     "skill": 3
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1985_spel_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "段差から落ちるとやられるかを、1 日中検査した。帰りの駅の階段を、1 段ずつ確かめて降りた。",
+     "en": "You spend all day testing whether falls are fatal. On the way home, you take the station stairs one careful step at a time."
+    },
+    "effect": {
+     "hp": -2,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1985_spel_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "恋人と洞窟のゲームを遊んだ。自分の主人公はすぐやられ、恋人に「あなたに似てる」と言われた。",
+     "en": "You play the cave game with your partner. Your hero dies instantly. Your partner says, \"Just like you.\""
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1985_spel_any",
+    "text": {
+     "ja": "すぐやられる主人公が話題になった翌朝、会社の階段で転んだ。その日からあだ名が「探検家」になった。",
+     "en": "The morning after everyone talks about the fragile hero, you trip on the office stairs. Your nickname becomes \"the Explorer.\""
+    },
+    "effect": {
+     "hp": -2,
+     "network": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1986_mississippi",
+  "year": 1986,
+  "kind": "hit",
+  "weight": 1,
+  "title": {
+   "ja": "ファミコン版『ミシシッピー殺人事件』発売、理不尽な難しさで有名に",
+   "en": "Murder on the Mississippi on Famicom becomes famous for its difficulty"
+  },
+  "news": {
+   "ja": "米国の推理アドベンチャーを、ジャレコがファミコンに移植して発売。外輪船の殺人事件を追うが、理不尽な罠の多さで語り継がれる。",
+   "en": "Jaleco ported an American mystery adventure to Famicom. You investigate a murder on a paddle steamer, and its unforgiving traps became legend."
+  },
+  "src": "https://www.gamespark.jp/article/2014/09/26/51844.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1986_miss_plan",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "推理ゲームの企画で「犯人は最後まで分からない方がいい」と言ったら通った。テストでは、誰も最後まで行けなかった。",
+     "en": "You pitch a mystery where \"no one should guess the culprit until the end.\" It is approved. In testing, no one reaches the end."
+    },
+    "effect": {
+     "passion": 2,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1986_miss_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "推理ゲームのデバッグで、船室の扉を 1 つずつ開けた。床の穴に落ちた回数で、課の記録を作った。",
+     "en": "Debugging a mystery game, you open every cabin door one by one. You set the department record for falling through the floor."
+    },
+    "effect": {
+     "hp": -2,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1986_miss_young",
+    "when": [
+     "age<=22"
+    ],
+    "text": {
+     "ja": "借りた推理ゲームで、始まってすぐ主人公がやられた。返す時に「面白かった」と言い、嘘だけ上手くなった。",
+     "en": "In a borrowed mystery game, the hero dies right at the start. Returning it, you say \"It was great.\" Only your lying improves."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1986_miss_any",
+    "text": {
+     "ja": "推理ゲームの理不尽さが話題になった。今月の給料の振込額も、なかなかの推理が必要だった。",
+     "en": "Everyone talks about the merciless mystery game. Figuring out this month's paycheck takes some detective work too."
+    },
+    "effect": {
+     "money": -1,
+     "passion": 1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1986_convoy",
+  "year": 1986,
+  "month": 12,
+  "kind": "hit",
+  "weight": 1,
+  "title": {
+   "ja": "『トランスフォーマー コンボイの謎』発売、難しさが語り草に",
+   "en": "Transformers: Mystery of Convoy launches, legendary for its difficulty"
+  },
+  "news": {
+   "ja": "12 月 5 日、タカラがファミコンで発売。敵の弾が背景にまぎれる難しさで、始まって数秒でやられる話が語り継がれる。",
+   "en": "On December 5, Takara released it for Famicom. Enemy shots blend into the background, and stories of dying within seconds live on."
+  },
+  "src": "https://www.inside-games.jp/article/2023/09/17/148629.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1986_conv_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "担当のゲームで「弾の色を背景と分けて」と 5 回言った。その冬、弾が見えないゲームが話題になり、6 回目は言わずに済んだ。",
+     "en": "Five times you ask that bullets contrast with the background. That winter a game with invisible bullets makes headlines. No sixth time needed."
+    },
+    "effect": {
+     "passion": 3,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1986_conv_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "デバッガー仲間で「開始から何秒もつか」大会をした。優勝は 9 秒。賞品は残業だった。",
+     "en": "The testers hold a \"how many seconds can you last\" contest. The winner: 9 seconds. The prize: overtime."
+    },
+    "effect": {
+     "hp": -2,
+     "passion": 3
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1986_conv_young",
+    "when": [
+     "age<=22"
+    ],
+    "text": {
+     "ja": "冬休みにロボットのゲームを買った。開始 2 秒でやられ、親に「高かったのに」と言われて、もう 1 回やられた。",
+     "en": "You buy the robot game for winter break. You die two seconds in; your parent says \"That was expensive,\" and you die again."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1986_conv_any",
+    "text": {
+     "ja": "変形ロボットのゲームが難しすぎると話題になった。自分の企画書も、上司の机の上で変形して戻ってきた。",
+     "en": "Everyone says the transforming-robot game is impossibly hard. Your proposal also came back from your boss's desk transformed."
+    },
+    "effect": {
+     "passion": 1,
+     "skill": 1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1986_challenge",
+  "year": 1986,
+  "month": 12,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "人気芸人が監修したファミコンソフトが発売、「攻略本なしでは解けない」と話題に",
+   "en": "A Famicom game supervised by a star comedian is called unbeatable without a guide"
+  },
+  "news": {
+   "ja": "12 月 10 日、タイトーが人気芸人の監修したアクションアドベンチャーを発売。常識外れの謎解きで、攻略本なしではクリアできないと言われた。",
+   "en": "On December 10, Taito released an action adventure supervised by a star comedian. Its outlandish puzzles were said to be impossible without a guidebook."
+  },
+  "src": "https://www.famitsu.com/news/202112/10243681.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1986_chal_plan",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "「常識外れの謎解きを」と注文された。思いついたのは「電源を入れて 1 時間何もしない」謎。上司は笑い、通さなかった。",
+     "en": "You are asked for \"puzzles that defy common sense.\" Your idea: do nothing for an hour after power-on. The boss laughs and rejects it."
+    },
+    "effect": {
+     "passion": 3,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1986_chal_sales",
+    "when": [
+     "job=sales"
+    ],
+    "text": {
+     "ja": "書店から「攻略本と一緒に売りたい」と頼まれた。うちのソフトには、本にするほどの謎が 1 つも無かった。",
+     "en": "A bookstore wants to sell your game with a strategy guide. Your game has no puzzle worth a whole book."
+    },
+    "effect": {
+     "money": -2,
+     "passion": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1986_chal_young",
+    "when": [
+     "age<=22"
+    ],
+    "text": {
+     "ja": "年末、攻略本を探して本屋を 4 軒回った。5 軒目で、もうソフトを売ってしまった友だちに会った。",
+     "en": "At year's end you hit four bookstores looking for the guide. At the fifth, you meet a friend who already sold the game."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1986_chal_any",
+    "text": {
+     "ja": "芸人が監修したゲームが年末の話題をさらった。忘年会で部長がその謎を真似したが、誰にも意味が分からなかった。",
+     "en": "The comedian's game steals the year-end buzz. At the office party, the manager imitates one of its puzzles. No one gets it."
+    },
+    "effect": {
+     "passion": 2,
+     "network": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1996_tail_sun",
+  "year": 1996,
+  "month": 4,
+  "kind": "hit",
+  "weight": 1,
+  "title": {
+   "ja": "PlayStation『太陽のしっぽ』発売、目的の薄い原始人ゲーム",
+   "en": "Tail of the Sun: a caveman game with no clear goal"
+  },
+  "news": {
+   "ja": "4 月 26 日、アートディンクが原始人として狩りをして暮らす『太陽のしっぽ』を発売。目的の薄さと自由さで、異色作として語られる。",
+   "en": "On April 26, Artdink released Tail of the Sun, where you live as a hunting caveman. Its freedom and vague goals made it a cult oddity."
+  },
+  "src": "https://en.wikipedia.org/wiki/Tail_of_the_Sun",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1996_tail_plan",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "「目的の無いゲーム」の企画書を出したら、「目的は?」と聞かれた。答えられず、自分の人生の目的も分からなくなった。",
+     "en": "You submit a proposal for \"a game with no goal.\" They ask, \"What's the goal?\" You cannot answer, and lose track of your life's goal too."
+    },
+    "effect": {
+     "passion": -2,
+     "skill": 3
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1996_tail_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "原始人が寝るまでを検査した。走って、転んで、寝る。自分の夜も、だいたい同じだった。",
+     "en": "You test everything up to the caveman falling asleep. Run, trip, sleep. Your nights look about the same."
+    },
+    "effect": {
+     "hp": -2,
+     "passion": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1996_tail_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "異色作が話題になり、社長が「うちも目的の無いゲームを」と言った。半年後、目的が無いまま開発が止まった。",
+     "en": "The oddity gets buzz, and the president says, \"Let's make a game with no goal.\" Six months later, development stops, still without one."
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1996_tail_any",
+    "text": {
+     "ja": "原始人が狩りをして眠るだけのゲームを遊んだ。終電を逃した夜、会社の床で同じ寝方をした。",
+     "en": "You play a game where a caveman just hunts and sleeps. The night you miss the last train, you sleep on the office floor the same way."
+    },
+    "effect": {
+     "hp": -1,
+     "passion": 3
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1996_deathcrimson",
+  "year": 1996,
+  "month": 8,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "セガサターン『デスクリムゾン』発売、伝説の作品に",
+   "en": "Death Crimson launches on Sega Saturn and becomes a legend"
+  },
+  "news": {
+   "ja": "8 月 9 日、エコールソフトウェアが銃型コントローラに対応したガンシューティングを発売。独特の作りが語り継がれ、熱心なファンを生んだ。",
+   "en": "On August 9, Ecole Software released a light-gun shooter for the Saturn. Its one-of-a-kind design became legend and earned devoted fans."
+  },
+  "src": "https://dengekionline.com/article/202407/10259",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1996_dc_young",
+    "when": [
+     "age<=30"
+    ],
+    "text": {
+     "ja": "友だちと笑い転げながら最後まで遊んだ。何十年たっても、同じ友だちと同じ場面で笑える。",
+     "en": "You and a friend laugh your way through to the end. Decades later, the same scene still cracks you both up."
+    },
+    "effect": {
+     "passion": 6,
+     "network": 2
+    },
+    "tag": [
+     "weird",
+     "high"
+    ],
+    "memory": {
+     "ja": "友だちと伝説のガンシューティングで笑い転げた",
+     "en": "laughed till it hurt over a legendary gun shooter with a friend"
+    }
+   },
+   {
+    "id": "ev_hs_dark_1996_dc_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "銃のコントローラで 1 日 800 発撃つ検査をした。帰りに、自販機のボタンも銃の構えで押した。",
+     "en": "You fire 800 shots a day testing a light gun. On the way home, you press the vending machine button in a firing stance."
+    },
+    "effect": {
+     "hp": -3,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1996_dc_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "同じ年に出たうちのガンシューティングは、誰の話題にもならなかった。話題になる方が幸せだと、後で知った。",
+     "en": "Your own gun shooter, released that same year, never gets mentioned. Later you realize being talked about is the happier fate."
+    },
+    "effect": {
+     "passion": -2,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1996_dc_any",
+    "text": {
+     "ja": "あるガンシューティングが伝説になった。自分の作品は伝説にも話題にもならず、静かに中古の棚に並んだ。",
+     "en": "A certain gun shooter becomes legend. Your own game becomes neither legend nor talk, and quietly lines up on the used shelf."
+    },
+    "effect": {
+     "passion": -1,
+     "skill": 1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1999_seaman",
+  "year": 1999,
+  "month": 7,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "ドリームキャスト『シーマン』発売、マイクで話す人面魚",
+   "en": "Seaman for Dreamcast: a human-faced fish you talk to"
+  },
+  "news": {
+   "ja": "7 月 29 日、マイクをつないで話しかけ、人の顔をした不思議な生き物を育てる『シーマン』が発売された。",
+   "en": "On July 29, Seaman launched: plug in a microphone and talk to a strange creature with a human face as you raise it."
+  },
+  "src": "https://www.famitsu.com/news/202207/29269925.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1999_sea_sound",
+    "when": [
+     "job=sound"
+    ],
+    "text": {
+     "ja": "音声認識の検査で、夜中のスタジオでマイクに話しかけ続けた。返事が無いので、自分の悩みを全部話した。",
+     "en": "Testing voice recognition, you talk into a mic in an empty studio all night. It never answers, so you tell it all your troubles."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": -2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_sea_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "パートナーが画面の魚にばかり話しかけるようになった。自分には「おやすみ」だけで、魚には「今日どうだった?」。",
+     "en": "Your partner now talks mostly to the fish on screen. You get \"good night.\" The fish gets \"How was your day?\""
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_sea_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "マイクで話しかける検査をした。隣の席の人に「独り言が増えたね」と心配された。仕事だと言うと、もっと心配された。",
+     "en": "You test games by talking into a mic. The next desk worries you talk to yourself more. You say it is work. They worry more."
+    },
+    "effect": {
+     "hp": -1,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_sea_any",
+    "text": {
+     "ja": "人の顔をした魚に説教された。会社の外で説教されたのは初めてで、少し泣いた。",
+     "en": "A fish with a human face lectures you. It is the first lecture you have gotten outside work, and you tear up a little."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1999_shenmue",
+  "year": 1999,
+  "month": 12,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "ドリームキャスト『シェンムー 一章 横須賀』発売",
+   "en": "Shenmue Chapter 1: Yokosuka launches on Dreamcast"
+  },
+  "news": {
+   "ja": "12 月 29 日、人々が暮らす横須賀の町を歩き回れる大作が発売。制作費は約 70 億円と報じられた。",
+   "en": "On December 29, an epic that let you wander a living Yokosuka was released. Its budget was reported at about 7 billion yen."
+  },
+  "src": "https://www.famitsu.com/article/202412/28694",
+  "variants": [
+   {
+    "id": "ev_hs_dark_1999_shen_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "制作費 70 億円の話を聞いた。うちの新作の予算はその 700 分の 1 で、昼ごはん代も入っていた。",
+     "en": "You hear the budget was 7 billion yen. Your new game's is one seven-hundredth of that, lunch money included."
+    },
+    "effect": {
+     "passion": -1,
+     "skill": 1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_shen_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "町の人がみんな違う顔だと聞いて驚いた。うちのゲームの町の人は 3 人で、髪の色を変えて 30 人いる。",
+     "en": "You are stunned to hear every townsperson has a unique face. Yours has three faces, recolored into thirty people."
+    },
+    "effect": {
+     "skill": 2,
+     "passion": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_shen_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "自販機でジュースが買えるゲームを遊んだ。デバッガーの血が騒ぎ、全部の自販機を叩いて回りたくなった。",
+     "en": "You play a game where you can buy juice from vending machines. Your tester instincts make you want to bang on every one."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_shen_any",
+    "text": {
+     "ja": "年末、雪の横須賀を歩くゲームを遊び、正月休みが全部消えた。初詣は、ゲームの中の神社で済ませた。",
+     "en": "Over New Year you wander snowy Yokosuka in a game, and the whole holiday vanishes. Your first shrine visit happens in the game."
+    },
+    "effect": {
+     "passion": 5,
+     "hp": -2
+    },
+    "tag": [
+     "weird",
+     "high"
+    ],
+    "memory": {
+     "ja": "ゲームの中の神社で初詣を済ませた",
+     "en": "did my new year's shrine visit inside a game"
+    }
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2007_shijuhachi",
+  "year": 2007,
+  "month": 11,
+  "kind": "hit",
+  "weight": 1,
+  "title": {
+   "ja": "PS2『四八(仮)』発売、47 都道府県の怪談",
+   "en": "Shijuhachi (Kari): ghost stories from all 47 prefectures"
+  },
+  "news": {
+   "ja": "11 月 22 日、全国 47 都道府県を題材にしたホラーアドベンチャーが発売。進行が止まる不具合などが話題になり、語り継がれる作品になった。",
+   "en": "On November 22, a horror adventure covering all 47 prefectures was released. Game-stopping bugs and more made it a title people still talk about."
+  },
+  "src": "https://giantbomb.com/wiki/Games/Shiju_Hachi_Kari",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2007_48_plan",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "出身県の怪談を企画に出した。会議で全員が「それ、うちの県にもある」と言い、47 個にはならなかった。",
+     "en": "You pitch a ghost story from your home prefecture. Everyone says, \"We have that one too,\" and it never becomes 47."
+    },
+    "effect": {
+     "passion": 2,
+     "skill": 1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2007_48_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "47 都道府県分の分岐を検査する夢を見た。起きたら 46 番目の県で止まっていた。",
+     "en": "You dream of testing branches for all 47 prefectures. You wake up stuck at number 46."
+    },
+    "effect": {
+     "hp": -2,
+     "skill": 1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2007_48_old",
+    "when": [
+     "age>=40"
+    ],
+    "text": {
+     "ja": "地元が舞台と聞いて買った。地元の話は 1 つで、それも隣の町だった。",
+     "en": "You buy it because your hometown is featured. There is one story about it, and it is set in the next town over."
+    },
+    "effect": {
+     "passion": 2,
+     "money": -1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2007_48_any",
+    "text": {
+     "ja": "47 都道府県のゲームが話題になった。社内の旅好きが「全部の県で確かめる」と言い出し、有給を使い切った。",
+     "en": "The 47-prefecture game makes waves. A travel-loving coworker vows to verify every prefecture and burns all their paid leave."
+    },
+    "effect": {
+     "passion": 2,
+     "network": 1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2010_loveplus_atami",
+  "year": 2010,
+  "month": 7,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『ラブプラス+』と熱海のキャンペーンが話題に",
+   "en": "LovePlus+ teams up with Atami, and fans flock to town"
+  },
+  "news": {
+   "ja": "7 月、恋愛ゲーム『ラブプラス+』と静岡県熱海市のキャンペーンが始まり、ゲームの恋人と旅行に来るファンで町がにぎわった。",
+   "en": "In July, a LovePlus+ campaign began in Atami, Shizuoka, and fans traveling with their in-game sweethearts filled the town."
+  },
+  "src": "https://www.4gamer.net/games/107/G010772/20100707051/",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2010_lp_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "恋愛ゲームを作る自分に「好きです」とメールが来た。3 回読み返すと、作中の子に宛てた手紙だった。",
+     "en": "An email arrives for you, the dating-sim maker: \"I love you.\" On the third read, you see it is addressed to your heroine."
+    },
+    "effect": {
+     "passion": 3,
+     "fame": 1
+    },
+    "tag": [
+     "weird",
+     "fan",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2010_lp_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "パートナーと熱海に行った。隣の部屋の人は DS とだけ泊まっていた。夕食の豪華さは、隣の方が上だった。",
+     "en": "You visit Atami with your partner. The guest next door is staying with only a DS. Their dinner is fancier than yours."
+    },
+    "effect": {
+     "passion": 4
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2010_lp_old",
+    "when": [
+     "age>=40"
+    ],
+    "text": {
+     "ja": "社員旅行が熱海になった。駅に着くと若手が全員 DS を開き、部長だけが温泉まんじゅうを見ていた。",
+     "en": "The company trip goes to Atami. At the station all the young staff open their DSes; only the manager looks at hot-spring buns."
+    },
+    "effect": {
+     "network": 3,
+     "passion": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2010_lp_any",
+    "text": {
+     "ja": "ゲームの恋人と旅行する人のニュースを見た。自分の休日は、開発機と過ごしている。",
+     "en": "You see news of people traveling with their game sweethearts. You spend your days off with a dev kit."
+    },
+    "effect": {
+     "passion": 1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2016_ff15",
+  "year": 2016,
+  "month": 8,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『ファイナルファンタジーXV』が延期を経て発売、発表から 10 年",
+   "en": "Final Fantasy XV ships after a delay, ten years after its reveal"
+  },
+  "news": {
+   "ja": "2006 年に別の名前で発表された作品が、8 月に 9 月 30 日から 11 月 29 日への延期を発表し、ついに発売された。",
+   "en": "First revealed in 2006 under another name, it announced in August a delay from September 30 to November 29, and finally shipped."
+  },
+  "src": "https://gamebiz.jp/news/167178",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2016_ff_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "うちの大作も延期するか決める日が来た。延期すれば 2 か月。しなければバグが 2000 件残る。",
+     "en": "Decision day: delay your own big title? A delay means two months. No delay means 2,000 bugs ship."
+    },
+    "effect": {},
+    "tag": [
+     "weird",
+     "choice"
+    ],
+    "choices": [
+     {
+      "id": "ch_dark_delay_yes",
+      "label": {
+       "ja": "延期する",
+       "en": "Delay it"
+      },
+      "effect": {
+       "money": -20,
+       "fame": 3,
+       "passion": 3
+      },
+      "result": {
+       "ja": "延期を発表した。ファンから「待ちます」が 3000 件、株主から「待てません」が 3 件来た。",
+       "en": "You announce the delay. 3,000 fans say \"We'll wait.\" Three shareholders say \"We won't.\""
+      }
+     },
+     {
+      "id": "ch_dark_delay_no",
+      "label": {
+       "ja": "予定どおり出す",
+       "en": "Ship on schedule"
+      },
+      "effect": {
+       "money": 20,
+       "fame": -4,
+       "hp": -6
+      },
+      "result": {
+       "ja": "予定どおり出した。発売日にバグは 2001 件になり、増えた 1 件はスタッフロールの自分の名前の誤字だった。",
+       "en": "You ship on time. Bugs hit 2,001 on launch day; the new one is a typo in your name in the credits."
+      }
+     }
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2016_ff_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "入社した年に発表された大作が、ついに出た。自分はその間に 3 本作り、そのうち 2 本が消えた。",
+     "en": "The epic announced the year you joined finally ships. Meanwhile you made three games, and two were canceled."
+    },
+    "effect": {
+     "passion": 2,
+     "skill": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2016_ff_out",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "業界を離れて何年もたつ。発表の日に盛り上がった昔の同僚と、発売日に電話した。話はほとんど腰痛だった。",
+     "en": "You left the industry years ago. On launch day you call the old coworker you got excited with at the reveal. You mostly discuss back pain."
+    },
+    "effect": {
+     "passion": 4,
+     "network": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2016_ff_any",
+    "text": {
+     "ja": "10 年待ったゲームが出た。待っている間に、自分の髪は延期なしで減っていった。",
+     "en": "The game you waited ten years for is out. Meanwhile your hair thinned right on schedule."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_2016_famimini",
+  "year": 2016,
+  "month": 11,
+  "kind": "hardware",
+  "weight": 2,
+  "title": {
+   "ja": "「ニンテンドークラシックミニ ファミリーコンピュータ」発売、品薄に",
+   "en": "Nintendo Classic Mini: Family Computer launches and sells out"
+  },
+  "news": {
+   "ja": "11 月 10 日、30 本を収めた手のひらサイズのファミコンが 5,980 円(税別)で発売。品薄が続き、高値の転売も話題になった。",
+   "en": "On November 10, a palm-sized Famicom with 30 built-in games launched at 5,980 yen before tax. It stayed sold out, and resale prices made news."
+  },
+  "src": "https://www.nintendo.co.jp/corporate/release/2016/160930.html",
+  "variants": [
+   {
+    "id": "ev_hs_dark_2016_mini_old",
+    "when": [
+     "age>=50"
+    ],
+    "text": {
+     "ja": "小さなファミコンを買いに並んだ。前に並んでいたのは、昔の自分の部下だった。2 人で昔の残業の話だけした。",
+     "en": "You line up for the mini Famicom. The person ahead is someone from your old team. You two talk only about old overtime."
+    },
+    "effect": {
+     "passion": 5,
+     "network": 3
+    },
+    "tag": [
+     "weird",
+     "high"
+    ],
+    "memory": {
+     "ja": "小さなファミコンの行列で昔の部下と再会した",
+     "en": "ran into an old team member in line for the mini famicom"
+    }
+   },
+   {
+    "id": "ev_hs_dark_2016_mini_out",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "業界を離れた身で、小さなファミコンを手に入れた。昔の取引先の作品が 30 本の中にあり、少し胸を張った。",
+     "en": "Out of the industry now, you get a mini Famicom. One of its 30 games is by an old business partner, and you feel a little proud."
+    },
+    "effect": {
+     "passion": 4
+    },
+    "tag": [
+     "weird"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2016_mini_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "復刻の検査で、30 年前のゲームを 1 日遊んだ。昔見落としたかもしれないバグは、30 年後もそこにいた。",
+     "en": "Testing a re-release, you play a 30-year-old game all day. A bug you may have missed back then is still right where it was."
+    },
+    "effect": {
+     "skill": 2,
+     "passion": 3
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_2016_mini_any",
+    "text": {
+     "ja": "小さなファミコンが買えなかった。転売の値段を見て、押し入れの本物を売るか 3 日悩んだ。",
+     "en": "You cannot find a mini Famicom. Seeing resale prices, you spend three days wondering whether to sell the real one in your closet."
+    },
+    "effect": {
+     "passion": 1
+    },
+    "tag": [
+     "weird",
+     "gag"
+    ]
+   }
+  ]
+ }
+]

@@ -295,7 +295,9 @@ function pickHist(s: State): string[] {
     const v = h.variants.map((x) => EVENT_BY_ID.get(x.id)!).find((ev) => eligible(s, ev));
     if (!v) continue;
     const novelty = !seenHist.has(h.id) ? tune<number>('hist.newBoost') : !seen.has(`${h.id}:${v.id}`) ? tune<number>('hist.newPosBoost') : 0.5;
-    cands.push({ id: v.id, w: (h.weight ?? 1) * novelty });
+    // 前に選んだこと(flag)を回収する版なら、ほぼ必ず出す(陣営・全力・闇の誘いの結末)
+    const callback = (v.when ?? []).some((c) => c.startsWith('flag.')) ? tune<number>('hist.callbackBoost') : 1;
+    cands.push({ id: v.id, w: (h.weight ?? 1) * novelty * callback });
   }
   if (!cands.length) return [];
   const n = Math.min(cands.length, s.rng.chance(tune<number>('hist.second')) ? 2 : 1);

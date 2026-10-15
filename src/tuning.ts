@@ -17,6 +17,7 @@ export const KNOBS: Knob[] = [
   // 歴史の事件(src/data/hist/)
   { key: 'hist.second', label: '歴史の事件が 1 年に 2 本来る確率', value: 0.35, min: 0, max: 1, step: 0.05, aim: '毎年 1 本は業界の大事件が自分に降ってくる' },
   { key: 'hist.newBoost', label: 'まだ触れていない事件の出やすさ', value: 4, min: 1, max: 20, step: 0.5, unit: '倍', aim: '何周しても「また同じか」にならない' },
+  { key: 'hist.callbackBoost', label: '前の選択を回収する事件の出やすさ', value: 12, min: 1, max: 50, step: 1, unit: '倍', aim: '選んだ陣営・全力・闇の誘いの結末を見逃さない' },
   { key: 'hist.newPosBoost', label: '触れた事件を別の立場で受ける出やすさ', value: 1.5, min: 0.5, max: 10, step: 0.5, unit: '倍', aim: '同じ事件でも立場が違えば別の話になる(適度に混ぜる)' },
   { key: 'choice.bigMin', label: '大きな選択の間隔(最短)', value: 3, min: 1, max: 10, step: 1, unit: '年', aim: '数年に一回、すごく悩む選択が来る' },
   { key: 'choice.bigMax', label: '大きな選択の間隔(最長)', value: 5, min: 1, max: 15, step: 1, unit: '年' },
