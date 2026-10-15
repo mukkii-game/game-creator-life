@@ -1,0 +1,5740 @@
+[
+ {
+  "id": "hs_2009_socialgame",
+  "year": 2009,
+  "until": 2010,
+  "kind": "work",
+  "weight": 3,
+  "title": {
+   "ja": "ケータイのソーシャルゲームが急伸",
+   "en": "Social games on feature phones explode"
+  },
+  "news": {
+   "ja": "GREE・モバゲータウンで、ケータイ向けのソーシャルゲームが急伸。",
+   "en": "Social games on GREE and Mobage Town take off on Japanese feature phones."
+  },
+  "src": "ソーシャルゲーム",
+  "variants": [
+   {
+    "id": "ev_hs_2009_socialgame_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員会で「ケータイでカードを引くだけのゲーム、うちもやる。君が責任者だ」。据え置きの企画書は、まだ机の中だ。",
+     "en": "At the board meeting: \"A phone game where you just draw cards. We're doing one. You're in charge.\" Your console pitch is still in your drawer."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2009_social_take",
+      "label": {
+       "ja": "ケータイ部署を引き受ける",
+       "en": "Take the phone division"
+      },
+      "effect": {
+       "money": 50,
+       "passion": -5,
+       "flag": {
+        "hiv_social": true
+       }
+      },
+      "result": {
+       "ja": "部署の名前は「新規事業室」。机は 4 つ、売上は翌年、据え置き部署を抜いた。",
+       "en": "The team is called \"New Business.\" Four desks. A year later it out-earns the console division."
+      }
+     },
+     {
+      "id": "ch_hs_2009_social_refuse",
+      "label": {
+       "ja": "据え置きに残る",
+       "en": "Stay on consoles"
+      },
+      "effect": {
+       "passion": 5,
+       "fame": 2
+      },
+      "result": {
+       "ja": "企画書を机から出した。隣の島で、カードの絵が 1 日 30 枚ずつ増えていった。",
+       "en": "You pull out your pitch. At the next desk cluster, 30 new card pictures appear every day."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "social"
+    ]
+   },
+   {
+    "id": "ev_hs_2009_socialgame_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "カードの絵を 1 枚 3,000 円で 200 枚。描き終えた夜、画面の中でそのカードが 1 枚 300 円で売られていた。",
+     "en": "200 card illustrations at 3,000 yen each. The night you finish, you see one of them selling in-game for 300 yen a pop."
+    },
+    "effect": {
+     "money": 60,
+     "passion": -5,
+     "hp": -5
+    },
+    "tag": [
+     "hist",
+     "money",
+     "gag",
+     "petty"
+    ]
+   },
+   {
+    "id": "ev_hs_2009_socialgame_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "テストするケータイが 40 機種になった。机の上は機種の墓場になり、充電器のコードで足が絡まった。",
+     "en": "Now you test on 40 phone models. Your desk is a handset graveyard, and your feet are tangled in charger cords."
+    },
+    "effect": {
+     "hp": -5,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "qa"
+    ]
+   },
+   {
+    "id": "ev_hs_2009_socialgame_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "元請けからの発注が「据え置き 1 本」から「ケータイのカード絵 300 枚」に変わった。納期は来週だ。",
+     "en": "The client's order changes from \"one console game\" to \"300 phone card illustrations.\" Due next week."
+    },
+    "effect": {
+     "money": 20,
+     "hp": -5,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "work"
+    ]
+   },
+   {
+    "id": "ev_hs_2009_socialgame_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "テスト用に、会社がケータイを 1 人 1 台配った。同期の半分が、その日のうちに自分のケータイを解約した。",
+     "en": "The company hands everyone a phone \"for testing.\" Half your cohort cancels their personal phone contracts that same day."
+    },
+    "effect": {
+     "money": 5,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2009_socialgame_any",
+    "text": {
+     "ja": "親戚の集まりで、叔父がケータイでカードを引いていた。「これ作ってんの?」と聞かれ、違うと言うと少しがっかりされた。",
+     "en": "At a family gathering, your uncle is drawing cards on his phone. \"You make this?\" You say no. He looks a little let down."
+    },
+    "effect": {
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2009_unity_free",
+  "year": 2009,
+  "month": 10,
+  "until": 2010,
+  "kind": "work",
+  "weight": 2,
+  "title": {
+   "ja": "ゲームエンジン Unity が無料化",
+   "en": "The Unity engine goes free"
+  },
+  "news": {
+   "ja": "Unity Technologies が有料だった Unity Indie を無料にし、名前を「Unity」に改めた。",
+   "en": "Unity Technologies makes its paid Unity Indie edition free and renames it simply \"Unity.\""
+  },
+  "src": "https://unity.com/news/unity-2-6-released-and-now-free",
+  "variants": [
+   {
+    "id": "ev_hs_2009_unity_free_dev_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "自社エンジンの保守に 3 人が張り付いている。無料の海外エンジンの記事を読んだ社長が「で、あの 3 人は?」と聞いた。",
+     "en": "Three people maintain your in-house engine full time. The boss reads about a free foreign engine and asks, \"So what about those three?\""
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2009_unity_switch",
+      "label": {
+       "ja": "無料エンジンに乗り換える",
+       "en": "Switch to the free engine"
+      },
+      "effect": {
+       "skill": 5,
+       "network": -5
+      },
+      "result": {
+       "ja": "3 人は別の部署へ。送別会で、エンジンの名前を誰も口にしなかった。",
+       "en": "The three move to another team. At their farewell, nobody says the engine's name."
+      }
+     },
+     {
+      "id": "ch_hs_2009_unity_keep",
+      "label": {
+       "ja": "自社エンジンを守る",
+       "en": "Keep your own engine"
+      },
+      "effect": {
+       "passion": 5,
+       "money": -30
+      },
+      "result": {
+       "ja": "3 人に缶コーヒーをおごった。予算の欄に「保守費」が来年も残った。",
+       "en": "You buy the three of them canned coffee. \"Maintenance\" stays in next year's budget."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "engine"
+    ]
+   },
+   {
+    "id": "ev_hs_2009_unity_free_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "10 年育てた自社エンジンの描画の仕組み。無料のエンジンは、同じことを 3 行でやっていた。",
+     "en": "The rendering code you nurtured for ten years. The free engine does the same thing in three lines."
+    },
+    "effect": {
+     "passion": -8,
+     "skill": 5
+    },
+    "tag": [
+     "hist",
+     "engine",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2009_unity_free_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "無料のエンジンを入れた。夜中の 3 時、自分の部屋の画面で立方体が回った。久しぶりに声を出して笑った。",
+     "en": "You install the free engine. At 3 a.m., a cube spins on the screen in your room. You laugh out loud for the first time in ages."
+    },
+    "effect": {
+     "passion": 10,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "indie",
+     "engine",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2009_unity_free_skill",
+    "when": [
+     "stat.skill>=50"
+    ],
+    "text": {
+     "ja": "無料のエンジンで、週末に 1 本作った。月曜に見せると部長が「これ、うちで出そう」。初めて自分の企画が通った。",
+     "en": "You build a game over the weekend with the free engine. Monday, the manager says, \"Let's publish this.\" Your first approved pitch."
+    },
+    "effect": {
+     "passion": 10,
+     "fame": 5
+    },
+    "tag": [
+     "hist",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2009_unity_free_any",
+    "text": {
+     "ja": "後輩が「無料のエンジンで 1 週間で作りました」とデモを見せた。自分の初めての作品は 1 年かかった。",
+     "en": "A junior shows you a demo: \"Made it in a week with the free engine.\" Your first game took a year."
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "engine"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2010_mhp3",
+  "year": 2010,
+  "month": 12,
+  "until": 2011,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『モンスターハンターポータブル 3rd』発売",
+   "en": "Monster Hunter Portable 3rd launches"
+  },
+  "news": {
+   "ja": "カプコンが PSP で『モンスターハンターポータブル 3rd』を発売。集まって遊ぶ協力プレイが社会現象に。",
+   "en": "Capcom releases Monster Hunter Portable 3rd on PSP. Hunting together in person becomes a social phenomenon."
+  },
+  "src": "モンスターハンターポータブル 3rd",
+  "variants": [
+   {
+    "id": "ev_hs_2010_mhp3_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "昼休み、会議室で 4 人が PSP を突き合わせていた。課長が入ってきて、5 人目になった。",
+     "en": "Lunch break: four people huddle over PSPs in a meeting room. The section chief walks in and becomes the fifth."
+    },
+    "effect": {
+     "network": 5,
+     "hp": -2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2010_mhp3_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "元請けとの打ち合わせ。先方の 4 人が PSP を出して「一狩りしてから」。2 時間待った。",
+     "en": "Meeting with the client. Their four reps pull out PSPs: \"One hunt first.\" You wait two hours."
+    },
+    "effect": {
+     "passion": -3,
+     "network": 5
+    },
+    "tag": [
+     "hist",
+     "gag",
+     "petty"
+    ]
+   },
+   {
+    "id": "ev_hs_2010_mhp3_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "デバッグ部屋の PSP は全部仕事用のはずだった。夜 10 時、全員が同じ竜を狩りに出ていた。",
+     "en": "Every PSP in the QA room is supposedly for work. At 10 p.m., everyone is out hunting the same dragon."
+    },
+    "effect": {
+     "network": 5,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "qa",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2010_mhp3_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "休日、パートナーと 2 人で狩りに出た。その日の会話の 9 割が「回復して」だった。",
+     "en": "On your day off, you go hunting with your partner. Ninety percent of the day's conversation is \"Heal me.\""
+    },
+    "effect": {
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "family"
+    ]
+   },
+   {
+    "id": "ev_hs_2010_mhp3_celeb",
+    "when": [
+     "stat.network>=40"
+    ],
+    "text": {
+     "ja": "飲み会の 2 次会で、隣の人とひと狩り行った。あとで知った。国民的 RPG の作曲家だった。回復は全部こちらがした。",
+     "en": "At an after-party, you go on a hunt with the person next to you. Later you learn: the composer of the nation's biggest RPG. You did all the healing."
+    },
+    "effect": {
+     "passion": 8,
+     "network": 5
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2010_mhp3_any",
+    "text": {
+     "ja": "電車で隣の高校生たちが協力プレイをしていた。誘われて竜を 1 匹倒した。人脈が 1 増えた。",
+     "en": "High schoolers next to you on the train are hunting together. They invite you in. One dragon down. Network +1."
+    },
+    "effect": {
+     "network": 1,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2011_quake",
+  "year": 2011,
+  "month": 3,
+  "kind": "incident",
+  "weight": 3,
+  "title": {
+   "ja": "東日本大震災",
+   "en": "The Great East Japan Earthquake"
+  },
+  "news": {
+   "ja": "3 月 11 日に東日本大震災。関東では計画停電が行われ、ゲームの発売延期やイベントの中止が相次いだ。",
+   "en": "The Great East Japan Earthquake strikes on March 11. Rolling blackouts hit the Kanto region; game releases and events are postponed or canceled."
+  },
+  "src": "東日本大震災",
+  "variants": [
+   {
+    "id": "ev_hs_2011_quake_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "計画停電の時間表が配られた。開発機が落ちる時間を避けて、チームの勤務を 3 交代に組み直した。発売は 2 か月延びた。",
+     "en": "The rolling-blackout schedule arrives. You rebuild the team into three shifts around the outages. Release slips two months."
+    },
+    "effect": {
+     "hp": -5,
+     "network": 5
+    },
+    "tag": [
+     "hist",
+     "work"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_quake_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "計画停電で、ビルドの途中に電気が落ちた。懐中電灯の下で手書きしたバグ票は、翌朝自分でも読めなかった。",
+     "en": "A scheduled blackout cuts power mid-build. The bug reports you hand-write by flashlight are illegible to you the next morning."
+    },
+    "effect": {
+     "hp": -5,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "work"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_quake_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "節電でテスト機が半分になった。残った機械を交代で使ううち、デバッガー同士の会話が増えた。",
+     "en": "Power saving halves the test units. Taking turns on the rest, the testers start talking to each other more."
+    },
+    "effect": {
+     "network": 5
+    },
+    "tag": [
+     "hist",
+     "qa"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_quake_abroad",
+    "when": [
+     "pos=abroad"
+    ],
+    "text": {
+     "ja": "海外の同僚が毎朝「家族は無事か」と聞いてくれた。日本へ送る素材の締切は、黙って 1 週間延びていた。",
+     "en": "Every morning your colleagues abroad ask if your family is safe. The deadline for assets to Japan quietly moves a week."
+    },
+    "effect": {
+     "network": 5,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "abroad"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_quake_any",
+    "text": {
+     "ja": "節電で会社の照明が半分になった。暗いフロアで、みんな少しだけ早く帰り、家に電話をかけた。",
+     "en": "Power saving dims the office to half. On the dark floor, everyone heads home a little early and calls their families."
+    },
+    "effect": {
+     "hp": 3,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "family"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2011_3ds_cut",
+  "year": 2011,
+  "month": 8,
+  "kind": "hardware",
+  "weight": 2,
+  "title": {
+   "ja": "ニンテンドー 3DS が半年で 1 万円値下げ",
+   "en": "The Nintendo 3DS gets a 10,000-yen price cut"
+  },
+  "news": {
+   "ja": "任天堂が発売から約半年のニンテンドー 3DS を 25,000 円から 15,000 円に値下げ。先に買った人には無料のソフトを配った。",
+   "en": "About six months after launch, Nintendo cuts the 3DS from 25,000 to 15,000 yen, giving free games to early buyers."
+  },
+  "src": "ニンテンドー3DS",
+  "variants": [
+   {
+    "id": "ev_hs_2011_3ds_cut_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "値下げ発表の翌朝、役員が言った。「次の携帯機の新作、3DS か年末に出る新しい方か。君が決めろ」。",
+     "en": "The morning after the price cut, an executive says: \"Our next handheld game—3DS, or the new one out this winter? Your call.\""
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2011_cl_3ds",
+      "label": {
+       "ja": "3DS で出す",
+       "en": "Go with 3DS"
+      },
+      "effect": {
+       "fame": 3,
+       "flag": {
+        "hiv_side_3ds": true
+       }
+      },
+      "result": {
+       "ja": "値下げの日、売り場に行列ができた。その列の長さで、企画書が 1 枚で通った。",
+       "en": "On price-cut day, there's a line at the store. Its length gets your pitch approved in one page."
+      }
+     },
+     {
+      "id": "ch_hs_2011_cl_vita",
+      "label": {
+       "ja": "新しい携帯機で出す",
+       "en": "Go with the new handheld"
+      },
+      "effect": {
+       "passion": 5,
+       "flag": {
+        "hiv_side_vita": true
+       }
+      },
+      "result": {
+       "ja": "まだ誰も触ったことのない機械。チームの目が少しだけ輝いた。",
+       "en": "A machine nobody has touched yet. The team's eyes light up a little."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_3ds_cut_dev_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "元請け 2 社から同時に話が来た。3DS の続編と、年末に出る新しい携帯機のロンチ。人は 1 チーム分しかいない。",
+     "en": "Two clients call at once: a 3DS sequel, or a launch title for the new handheld coming this winter. You have one team."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2011_dl_3ds",
+      "label": {
+       "ja": "3DS の続編を受ける",
+       "en": "Take the 3DS sequel"
+      },
+      "effect": {
+       "money": 30,
+       "flag": {
+        "hiv_side_3ds": true
+       }
+      },
+      "result": {
+       "ja": "値下げで本体が売れ、続編の発注本数が 2 倍になった。",
+       "en": "The price cut moves hardware, and the sequel's order doubles."
+      }
+     },
+     {
+      "id": "ch_hs_2011_dl_vita",
+      "label": {
+       "ja": "新しい携帯機のロンチを受ける",
+       "en": "Take the launch title"
+      },
+      "effect": {
+       "skill": 5,
+       "hp": -5,
+       "flag": {
+        "hiv_side_vita": true
+       }
+      },
+      "result": {
+       "ja": "開発機が届くまで 2 か月、資料だけで作り始めた。",
+       "en": "Dev kits won't arrive for two months. You start building from documents alone."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_3ds_cut_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "値下げの日、25,000 円で買った課長が昼休みずっと黙っていた。夕方、無料ソフトの一覧を見て「勝った」とつぶやいた。",
+     "en": "On price-cut day, the section chief who paid 25,000 yen is silent all lunch. In the evening he sees the free games list and mutters, \"I win.\""
+    },
+    "effect": {
+     "passion": 2,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_3ds_cut_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "値下げの前日、会社の経費で 3DS を 5 台買っていた。差額の 5 万円をどう説明するか、経理と 2 時間話した。",
+     "en": "The day before the price cut, you expensed five 3DS units. You spend two hours with accounting explaining the 50,000-yen difference."
+    },
+    "effect": {
+     "passion": -2,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_3ds_cut_any",
+    "text": {
+     "ja": "半年前に 25,000 円で買った 3DS が、今日から 15,000 円。差額の 1 万円は、もらった昔のソフトを全部遊んで取り返した気がした。",
+     "en": "The 3DS you bought for 25,000 yen is now 15,000. You played every free retro game they gave you and felt you'd won the 10,000 back."
+    },
+    "effect": {
+     "passion": 2,
+     "hp": -2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2011_vita",
+  "year": 2011,
+  "month": 12,
+  "kind": "hardware",
+  "weight": 2,
+  "title": {
+   "ja": "PlayStation Vita 発売",
+   "en": "PlayStation Vita launches"
+  },
+  "news": {
+   "ja": "ソニー・コンピュータエンタテインメントが 12 月 17 日に PlayStation Vita を発売。有機 EL 画面と背面タッチ。",
+   "en": "Sony Computer Entertainment launches the PlayStation Vita on December 17, with an OLED screen and a rear touch pad."
+  },
+  "src": "PlayStation Vita",
+  "variants": [
+   {
+    "id": "ev_hs_2011_vita_side_vita",
+    "when": [
+     "flag.hiv_side_vita"
+    ],
+    "text": {
+     "ja": "ロンチに間に合った。背面タッチで操作する仕掛けを入れたら、テストした全員が指をつった。",
+     "en": "You made launch. You added a rear-touch gimmick, and everyone who tested it got a finger cramp."
+    },
+    "effect": {
+     "fame": 5,
+     "hp": -5,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_vita_side_3ds",
+    "when": [
+     "flag.hiv_side_3ds"
+    ],
+    "text": {
+     "ja": "年末商戦、売り場の 3DS の棚が倍になった。社長からの年賀状に、珍しく手書きの一言があった。",
+     "en": "Holiday season: the 3DS shelf space doubles. The boss's New Year's card has a rare handwritten line for you."
+    },
+    "effect": {
+     "network": 3,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_vita_skill",
+    "when": [
+     "stat.skill>=60"
+    ],
+    "text": {
+     "ja": "ロンチの店頭で、自分の作ったステージを知らない子が 3 回遊んだ。4 回目、親に引きはがされていった。",
+     "en": "At a launch-day store demo, a kid you don't know plays your stage three times. On the fourth, a parent pries them away."
+    },
+    "effect": {
+     "passion": 8,
+     "fame": 3
+    },
+    "tag": [
+     "hist",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_vita_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "背面タッチのテストで、1 日 8 時間、機械の裏をなで続けた。夜、布団の裏もなでていた。",
+     "en": "Testing the rear touch pad, you stroke the back of a handheld eight hours a day. That night, you stroke the underside of your futon."
+    },
+    "effect": {
+     "hp": -3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "qa",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_vita_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "新しい携帯機の開発機が届いた。背中にもタッチパネル。仕様書に「背面で何かすること」と 1 行だけ増えた。",
+     "en": "The new handheld's dev kit arrives. There's a touch panel on the back, too. The spec gains one line: \"Do something with the back.\""
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2011_vita_any",
+    "text": {
+     "ja": "家電量販店で有機 EL の画面を 10 分眺めた。黒が黒い。買わずに帰ると、家のテレビの黒が灰色に見えた。",
+     "en": "You stare at the OLED screen in an electronics store for ten minutes. The blacks are black. At home, your TV's blacks look gray."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2012_pazudora",
+  "year": 2012,
+  "month": 2,
+  "until": 2013,
+  "kind": "hit",
+  "weight": 3,
+  "title": {
+   "ja": "『パズル&ドラゴンズ』配信開始",
+   "en": "Puzzle & Dragons launches"
+  },
+  "news": {
+   "ja": "ガンホーがスマホ向け『パズル&ドラゴンズ』を配信。パズルと RPG を混ぜ、スマホゲームの時代を開いた。",
+   "en": "GungHo releases Puzzle & Dragons for smartphones. Mixing puzzles and RPG, it opens the smartphone game era."
+  },
+  "src": "パズル&ドラゴンズ",
+  "variants": [
+   {
+    "id": "ev_hs_2012_pazudora_social",
+    "when": [
+     "flag.hiv_social"
+    ],
+    "text": {
+     "ja": "ケータイのカード部署にいて良かった。スマホに移ると、売上が月ごとに倍になった。ボーナスは図書カードではなく現金だった。",
+     "en": "Good thing you joined the phone card-game team. On smartphones, sales double every month. The bonus is cash, not a book voucher."
+    },
+    "effect": {
+     "money": 80,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "social",
+     "money",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_pazudora_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員会の話題を、よその会社のパズルが独占した。「うちも石を消すやつを。半年で」。",
+     "en": "Another company's puzzle game dominates the board meeting. \"We need one where you clear gems. Six months.\""
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2012_pd_social",
+      "label": {
+       "ja": "スマホ部署を立ち上げる",
+       "en": "Launch a smartphone team"
+      },
+      "effect": {
+       "money": 100,
+       "hp": -10,
+       "flag": {
+        "hiv_social": true
+       }
+      },
+      "result": {
+       "ja": "半年後、石は消えた。休みも一緒に消えた。",
+       "en": "Six months later, the gems clear. So do your days off."
+      }
+     },
+     {
+      "id": "ch_hs_2012_pd_console",
+      "label": {
+       "ja": "据え置きを守る",
+       "en": "Defend consoles"
+      },
+      "effect": {
+       "passion": 8,
+       "network": -5
+      },
+      "result": {
+       "ja": "据え置きの会議室だけ、椅子が毎月 1 つずつ減っていった。",
+       "en": "In the console meeting room, one chair disappears every month."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "social"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_pazudora_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "元請けから来る企画書が、全部「パズル+モンスター」になった。3 本並べると、色だけが違った。",
+     "en": "Every pitch from clients is now \"puzzle + monsters.\" Line three up side by side and only the colors differ."
+    },
+    "effect": {
+     "passion": -5,
+     "money": 30
+    },
+    "tag": [
+     "hist",
+     "social",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_pazudora_celeb",
+    "when": [
+     "stat.fame>=30"
+    ],
+    "text": {
+     "ja": "業界の打ち上げで、のちに世界的に有名になるデザイナーと名刺を交換した。自分の名刺は、角が折れていた。",
+     "en": "At an industry party, you swap business cards with a designer who'll later be world-famous. Yours has a bent corner."
+    },
+    "effect": {
+     "passion": 5,
+     "network": 5
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_pazudora_any",
+    "text": {
+     "ja": "電車で隣の人も向かいの人も、指で石をなぞっていた。自分も、降りる駅を 2 つ過ぎた。",
+     "en": "On the train, the person next to you and the one across are both swiping gems. You miss your stop by two stations, too."
+    },
+    "effect": {
+     "passion": 2,
+     "hp": -1
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2012_kompu",
+  "year": 2012,
+  "month": 5,
+  "kind": "incident",
+  "weight": 3,
+  "title": {
+   "ja": "コンプガチャ規制",
+   "en": "\"Complete gacha\" is banned"
+  },
+  "news": {
+   "ja": "消費者庁が「コンプガチャ」を景品表示法違反と判断。7 月 1 日から規制され、各社が一斉に取りやめた。",
+   "en": "Japan's Consumer Affairs Agency rules \"complete gacha\" illegal under the premiums law. From July 1 it's banned, and companies drop it at once."
+  },
+  "src": "コンプリートガチャ",
+  "variants": [
+   {
+    "id": "ev_hs_2012_kompu_obeyed",
+    "when": [
+     "flag.gacha_obeyed"
+    ],
+    "text": {
+     "ja": "ニュースに社名は出なかった。でも母から「これ、あんたのとこ?」と電話。「違う」と言った声が、少し裏返った。",
+     "en": "The news doesn't name your company, but Mom calls: \"Is this your place?\" Your \"no\" comes out an octave too high."
+    },
+    "effect": {
+     "passion": -10,
+     "fame": -5
+    },
+    "tag": [
+     "hist",
+     "social",
+     "family"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_kompu_social_lead",
+    "when": [
+     "flag.hiv_social",
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "7 月までに全タイトルからコンプ景品を外せ、と通達。徹夜で 40 個のイベントを作り直した。売上の表が一晩で崖になった。",
+     "en": "Order: strip complete-set rewards from every title by July. You rebuild 40 events overnight. The sales chart becomes a cliff by morning."
+    },
+    "effect": {
+     "hp": -15,
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "social",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_kompu_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "元請けから「コンプの絵、全部差し替えで。費用はそちらで」。描いたばかりの 120 枚がごみ箱に入った。",
+     "en": "From the client: \"Replace all the complete-set art. On your dime.\" 120 fresh illustrations go into the trash."
+    },
+    "effect": {
+     "passion": -8,
+     "money": -20
+    },
+    "tag": [
+     "hist",
+     "social"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_kompu_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "据え置きの部署は無関係のはずだった。翌月、ソシャゲ部署の売上が落ち、こっちの予算まで半分になった。",
+     "en": "Your console team had nothing to do with it. Next month, social-game revenue drops and your budget gets halved too."
+    },
+    "effect": {
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "social"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_kompu_any",
+    "text": {
+     "ja": "ニュースで「コンプガチャ」という言葉を覚えた父が、晩ご飯の間ずっと「コンプ」と言っていた。",
+     "en": "Dad learns the phrase \"complete gacha\" from the news and says \"complete\" all through dinner."
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2012_wiiu",
+  "year": 2012,
+  "month": 12,
+  "kind": "hardware",
+  "weight": 2,
+  "title": {
+   "ja": "Wii U 発売",
+   "en": "Wii U launches"
+  },
+  "news": {
+   "ja": "任天堂が 12 月 8 日に Wii U を日本で発売。画面付きのコントローラで 2 画面の遊びを提案した。",
+   "en": "Nintendo launches the Wii U in Japan on December 8, pitching two-screen play with a controller that has its own display."
+  },
+  "src": "Wii U",
+  "variants": [
+   {
+    "id": "ev_hs_2012_wiiu_dev_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "新ハードの担当者が来た。「画面が 2 つあるゲーム、作りませんか」。手元の画面で何をするかは、まだ誰も知らない。",
+     "en": "A rep for the new console visits: \"How about a game with two screens?\" Nobody yet knows what to do with the one in your hands."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2012_wiiu_dl_go",
+      "label": {
+       "ja": "乗る",
+       "en": "Go for it"
+      },
+      "effect": {
+       "fame": 3,
+       "passion": 5,
+       "flag": {
+        "hiv_side_wiiu": true
+       }
+      },
+      "result": {
+       "ja": "手元の画面に地図を出した。テストした全員が「地図だね」と言った。",
+       "en": "You put a map on the controller screen. Every tester says, \"It's a map.\""
+      }
+     },
+     {
+      "id": "ch_hs_2012_wiiu_dl_pass",
+      "label": {
+       "ja": "見送る",
+       "en": "Pass"
+      },
+      "effect": {
+       "money": 20
+      },
+      "result": {
+       "ja": "スマホの受託を 2 本受けた。手元の画面は 1 つで足りた。",
+       "en": "You take two smartphone contracts. One screen is plenty."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_wiiu_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員が新ハードの資料を机に置いた。「ロンチに 1 本。2 画面を活かして」。資料の半分は、手元の画面の写真だった。",
+     "en": "An executive drops the new console's deck on your desk. \"One launch title. Use both screens.\" Half the deck is photos of the controller."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2012_wiiu_cl_go",
+      "label": {
+       "ja": "ロンチに出す",
+       "en": "Ship at launch"
+      },
+      "effect": {
+       "fame": 5,
+       "hp": -10,
+       "flag": {
+        "hiv_side_wiiu": true
+       }
+      },
+      "result": {
+       "ja": "間に合った。年末、売り場の前で 3 回、自分の作品を手に取る人を見た。",
+       "en": "You make it. Over the holidays, you watch three people pick up your game in a store."
+      }
+     },
+     {
+      "id": "ch_hs_2012_wiiu_cl_wait",
+      "label": {
+       "ja": "様子を見る",
+       "en": "Wait and see"
+      },
+      "effect": {
+       "passion": -3,
+       "network": 3
+      },
+      "result": {
+       "ja": "様子を見る会議が、毎月 1 回開かれることになった。",
+       "en": "A monthly \"wait and see\" meeting is added to your calendar."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_wiiu_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "テストのたび、テレビと手元の画面の両方を見る。首を左右に 1 日 3,000 回振った。",
+     "en": "Every test means watching both the TV and the controller screen. You turn your head left and right 3,000 times a day."
+    },
+    "effect": {
+     "hp": -5,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "qa",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_wiiu_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "試作機を 1 台、こっそり家に持ち帰った。家族が気に入り、返す日に子どもが泣いた。返したのは翌月だった。",
+     "en": "You quietly take a prototype home. The family loves it; the kids cry on return day. You return it the following month."
+    },
+    "effect": {
+     "passion": 5,
+     "network": -2
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2012_wiiu_any",
+    "text": {
+     "ja": "家族で手元の画面を取り合った。テレビは父、コントローラは子ども。家族会議は 2 画面で行われた。",
+     "en": "The family fights over the controller screen. The TV for Dad, the controller for the kids. Family meetings now happen on two screens."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2013_kancolle",
+  "year": 2013,
+  "month": 4,
+  "until": 2014,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『艦隊これくしょん -艦これ-』サービス開始",
+   "en": "Kantai Collection launches"
+  },
+  "news": {
+   "ja": "DMM のブラウザゲーム『艦これ』が始まり、登録が殺到して新規の受け付けが抽選になった。",
+   "en": "DMM's browser game Kantai Collection launches; sign-ups flood in and new registrations become a lottery."
+  },
+  "src": "艦隊これくしょん -艦これ-",
+  "variants": [
+   {
+    "id": "ev_hs_2013_kancolle_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "企画会議で 3 人が同じ企画書を出した。「ブラウザで、キャラを集めて、遠征に出すやつ」。",
+     "en": "Three people bring the same pitch to the planning meeting: \"Browser game. Collect characters. Send them on expeditions.\""
+    },
+    "effect": {
+     "passion": -3,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2013_kancolle_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "キャラを集める企画が社内で 5 本立った。絵描きの取り合いで、自分の席に毎日違う部長が来た。",
+     "en": "Five character-collecting projects start in-house. In the scramble for artists, a different department head visits your desk every day."
+    },
+    "effect": {
+     "network": 5,
+     "hp": -5
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2013_kancolle_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "新規登録の抽選に、デバッガー全員で毎朝並んだ。仕事の参考のはずが、全員の昼休みが消えた。",
+     "en": "Every morning, the whole QA team enters the sign-up lottery. It's \"for research.\" Everyone's lunch break vanishes."
+    },
+    "effect": {
+     "hp": -3,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "qa",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2013_kancolle_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "夜中、パートナーが PC の前で「遠征が帰ってくるまで寝られない」と言った。作る側より、遊ぶ側の方が忙しそうだった。",
+     "en": "Late at night, your partner says, \"I can't sleep till the expedition returns.\" Playing looks busier than making."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2013_kancolle_any",
+    "text": {
+     "ja": "ブラウザゲームの登録が抽選になったとニュースで知った。遊ぶのに抽選。自分の作品は、いつでも誰でも入れた。",
+     "en": "The news says signing up for a browser game is now a lottery. A lottery just to play. Anyone could get into yours, anytime."
+    },
+    "effect": {
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2013_monst",
+  "year": 2013,
+  "month": 10,
+  "until": 2014,
+  "kind": "hit",
+  "weight": 3,
+  "title": {
+   "ja": "『モンスターストライク』配信開始",
+   "en": "Monster Strike launches"
+  },
+  "news": {
+   "ja": "ミクシィが『モンスターストライク』を配信。引っぱって弾く操作と、集まって遊ぶ協力プレイで大ヒットした。",
+   "en": "mixi releases Monster Strike. Its pull-and-flick controls and in-person co-op make it a smash hit."
+  },
+  "src": "モンスターストライク",
+  "variants": [
+   {
+    "id": "ev_hs_2013_monst_social",
+    "when": [
+     "flag.hiv_social"
+    ],
+    "text": {
+     "ja": "運用の 24 時間体制が始まった。年末年始もイベントがあるので、正月が仕様書になった。",
+     "en": "Round-the-clock live ops begin. There are New Year's events, so New Year's becomes a spec document."
+    },
+    "effect": {
+     "hp": -10,
+     "money": 40
+    },
+    "tag": [
+     "hist",
+     "social",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_2013_monst_dev_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "元請けの企画書から「据え置き」の文字が消えた。代わりに「引っぱる」「4 人」「来月」。",
+     "en": "The word \"console\" vanishes from client pitches. In its place: \"pull,\" \"four players,\" \"next month.\""
+    },
+    "effect": {
+     "passion": -3,
+     "money": 30
+    },
+    "tag": [
+     "hist",
+     "social"
+    ]
+   },
+   {
+    "id": "ev_hs_2013_monst_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "協力プレイの宣伝の撮影で、テレビでよく見る芸人さんと 4 人で遊んだ。帰り道、ずっとにやけていた。",
+     "en": "At a promo shoot for co-op play, you team up with a comedian from TV. You grin the whole way home."
+    },
+    "effect": {
+     "passion": 8,
+     "fame": 2
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2013_monst_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "自作の順位が一晩で 300 位下がった。上は全部、指で引っぱるゲームだった。悔しいので自分も引っぱった。楽しかった。",
+     "en": "Your game drops 300 places overnight. Everything above it is pull-and-flick. Out of spite, you try one. It's fun."
+    },
+    "effect": {
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "indie"
+    ]
+   },
+   {
+    "id": "ev_hs_2013_monst_any",
+    "text": {
+     "ja": "居酒屋で、隣の大学生 4 人がスマホを机に並べて同時に叫んでいた。作る側にいながら、少しうらやましかった。",
+     "en": "At an izakaya, four college students line up their phones and shout in unison. You make games, yet you're a little jealous."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2014_ps4",
+  "year": 2014,
+  "month": 2,
+  "kind": "hardware",
+  "weight": 2,
+  "title": {
+   "ja": "PlayStation 4 が日本で発売",
+   "en": "PlayStation 4 launches in Japan"
+  },
+  "news": {
+   "ja": "PlayStation 4 が 2 月 22 日に日本で発売。北米より約 3 か月遅れての登場だった。",
+   "en": "PlayStation 4 launches in Japan on February 22, about three months after North America."
+  },
+  "src": "PlayStation 4",
+  "variants": [
+   {
+    "id": "ev_hs_2014_ps4_side_vita",
+    "when": [
+     "flag.hiv_side_vita"
+    ],
+    "text": {
+     "ja": "携帯機で組んだチームが、そのまま PS4 へ移った。同じ陣営にいたおかげで、前の作品の知見がそのまま使えた。",
+     "en": "Your handheld team moves straight to PS4. Staying in the same camp means everything you learned carries over."
+    },
+    "effect": {
+     "skill": 5,
+     "fame": 3
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2014_ps4_social",
+    "when": [
+     "flag.hiv_social"
+    ],
+    "text": {
+     "ja": "スマホ部署の窓から、据え置き部署に新しい開発機が運び込まれるのが見えた。こっちは今日もガチャの看板を作っている。",
+     "en": "From the phone team's window, you watch new dev kits being carried to the console team. You're making gacha banners again today."
+    },
+    "effect": {
+     "passion": -3,
+     "money": 20
+    },
+    "tag": [
+     "hist",
+     "social"
+    ]
+   },
+   {
+    "id": "ev_hs_2014_ps4_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "据え置きの予算書が通った。額はスマホ 3 本分。役員は「HD の時代だ」と言い、スマホ担当の役員は黙った。",
+     "en": "Your console budget is approved: the cost of three phone games. One exec says, \"It's the HD era.\" The phone-games exec says nothing."
+    },
+    "effect": {
+     "fame": 3,
+     "hp": -10
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2014_ps4_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "海外では 3 か月前に出ている。元請けの資料は半分が英語のまま届き、辞書を引きながら徹夜した。",
+     "en": "It's been out abroad for three months. Half the client's docs arrive untranslated, and you pull an all-nighter with a dictionary."
+    },
+    "effect": {
+     "skill": 5,
+     "hp": -5
+    },
+    "tag": [
+     "hist",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_2014_ps4_skill",
+    "when": [
+     "stat.skill>=60"
+    ],
+    "text": {
+     "ja": "海外の展示会で、自分の作った場面を 20 人が並んで遊んだ。1 人が親指を立てた。写真を 40 枚撮った。",
+     "en": "At an overseas expo, 20 people line up to play your level. One gives a thumbs-up. You take 40 photos of it."
+    },
+    "effect": {
+     "passion": 10,
+     "fame": 5
+    },
+    "tag": [
+     "hist",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2014_ps4_any",
+    "text": {
+     "ja": "家電量販店に新しい黒い箱が並んだ。海外のレビューを先に読み終えていたので、驚きの半分は 3 か月前に済んでいた。",
+     "en": "A new black box lines the store shelves. You read the overseas reviews months ago, so half the surprise was used up already."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2015_ue4",
+  "year": 2015,
+  "month": 3,
+  "kind": "work",
+  "weight": 2,
+  "title": {
+   "ja": "Unreal Engine 4 が無料化",
+   "en": "Unreal Engine 4 goes free"
+  },
+  "news": {
+   "ja": "Epic Games がゲームエンジン Unreal Engine 4 を無料で使えるようにした(売上の一部を払う形)。",
+   "en": "Epic Games makes Unreal Engine 4 free to use, taking a share of revenue instead."
+  },
+  "src": "Unreal Engine",
+  "variants": [
+   {
+    "id": "ev_hs_2015_ue4_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "エンジン代の稟議書が 1 枚、要らなくなった。浮いた予算の行き先を決める会議が 3 回開かれた。",
+     "en": "One engine-license approval form is no longer needed. Three meetings are held to decide where the savings go."
+    },
+    "effect": {
+     "passion": 2,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "engine",
+     "gag",
+     "petty"
+    ]
+   },
+   {
+    "id": "ev_hs_2015_ue4_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "海外の大作と同じエンジンが、自分の部屋の PC で動いた。光がきれいすぎて、自分のモデルの粗が全部見えた。",
+     "en": "The same engine as big overseas hits runs on your bedroom PC. The lighting is so pretty it exposes every flaw in your models."
+    },
+    "effect": {
+     "skill": 5,
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "indie",
+     "engine"
+    ]
+   },
+   {
+    "id": "ev_hs_2015_ue4_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "自社エンジンの会議が「廃止」の一言で 5 分で終わった。15 年分のコードの送別会は、焼き鳥屋だった。",
+     "en": "The in-house engine meeting ends in five minutes with one word: \"Retire.\" The farewell for 15 years of code is at a yakitori bar."
+    },
+    "effect": {
+     "passion": -5,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "engine",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2015_ue4_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "エンジンが替わって、バグ票の書き方も替わった。「床が抜ける」が「コリジョンが抜ける」になった。",
+     "en": "New engine, new bug-report jargon. \"Fell through the floor\" becomes \"fell through the collision.\""
+    },
+    "effect": {
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "qa"
+    ]
+   },
+   {
+    "id": "ev_hs_2015_ue4_celeb",
+    "when": [
+     "stat.network>=50"
+    ],
+    "text": {
+     "ja": "海外の講演会で、エンジンを作った会社の有名な人の隣に座った。英語で言えたのは「グッド」だけだった。",
+     "en": "At a talk abroad, you sit next to a famous figure from the engine company. All you manage in English is \"Good.\""
+    },
+    "effect": {
+     "passion": 6,
+     "network": 5
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2015_ue4_any",
+    "text": {
+     "ja": "学生が無料のエンジンで作ったデモが、自分の会社の作品よりきれいだった。その日は早く帰った。",
+     "en": "A student's demo made with the free engine looks better than your company's game. You go home early that day."
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 1
+    },
+    "tag": [
+     "hist",
+     "engine"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2015_undertale",
+  "year": 2015,
+  "month": 9,
+  "until": 2016,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『Undertale』発売",
+   "en": "Undertale is released"
+  },
+  "news": {
+   "ja": "ほぼ 1 人の作者が作った『Undertale』が発売され、世界的なヒットになった。",
+   "en": "Undertale, made almost entirely by one creator, is released and becomes a worldwide hit."
+  },
+  "src": "Undertale",
+  "variants": [
+   {
+    "id": "ev_hs_2015_undertale_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "ほぼ 1 人で作られたゲームに、世界中が泣いていた。作りかけのファイルを開き直すと、夜明けまで手が止まらなかった。",
+     "en": "The world is crying over a game made almost single-handedly. You reopen your half-finished project and don't stop until dawn."
+    },
+    "effect": {
+     "passion": 12,
+     "hp": -5
+    },
+    "tag": [
+     "hist",
+     "indie",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2015_undertale_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員会の議題は「1 人で作ったゲームがなぜ売れるのか」。答えを出すため、40 人のチームが組まれた。",
+     "en": "Board agenda: \"Why does a game made by one person sell?\" A 40-person team is formed to find out."
+    },
+    "effect": {
+     "passion": -3,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2015_undertale_sound",
+    "when": [
+     "job=sound"
+    ],
+    "text": {
+     "ja": "そのゲームの曲を聴き、ボツ曲フォルダから 1 曲だけ救い出した。上司に聞かせたら、3 年目にして初めて採用された。",
+     "en": "Hearing that game's music, you rescue one track from your rejects folder. You play it for your boss. After three years, it's finally accepted."
+    },
+    "effect": {
+     "passion": 10,
+     "fame": 3
+    },
+    "tag": [
+     "hist",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2015_undertale_any",
+    "text": {
+     "ja": "後輩が「誰も倒さなくていいゲームがあるんです」と熱弁した。帰りに、敵を 300 体倒す自分の作品の仕様書を読んだ。",
+     "en": "A junior raves about \"a game where you don't have to defeat anyone.\" On the way home, you reread your spec: defeat 300 enemies."
+    },
+    "effect": {
+     "passion": -2,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2016_pokemongo",
+  "year": 2016,
+  "month": 7,
+  "kind": "hit",
+  "weight": 3,
+  "title": {
+   "ja": "『Pokémon GO』日本で配信開始",
+   "en": "Pokémon GO launches in Japan"
+  },
+  "news": {
+   "ja": "『Pokémon GO』が 7 月 22 日に日本で配信開始。街や公園にスマホを持った人があふれた。",
+   "en": "Pokémon GO launches in Japan on July 22. Streets and parks fill with people holding phones."
+  },
+  "src": "Pokémon GO",
+  "variants": [
+   {
+    "id": "ev_hs_2016_pokemongo_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "全部署に位置情報ゲームの企画書の提出命令。月曜、机に 23 本の「歩いて集める」企画が積まれた。",
+     "en": "Every team is ordered to pitch a location-based game. Monday, 23 \"walk around and collect\" proposals are stacked on your desk."
+    },
+    "effect": {
+     "passion": -5,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_pokemongo_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもに連れられて公園を 3 周した。1 万歩。健康診断の結果が、ゲームのおかげで良くなった。",
+     "en": "Your kid drags you around the park three times. 10,000 steps. Thanks to a game, your health checkup improves."
+    },
+    "effect": {
+     "hp": 8,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "family"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_pokemongo_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "位置情報のテストで、デバッガー全員が外に出された。1 日 2 万歩。バグ票は全部、雨に濡れた。",
+     "en": "For location testing, the whole QA team is sent outside. 20,000 steps a day. Every bug report gets rained on."
+    },
+    "effect": {
+     "hp": 3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "qa",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_pokemongo_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "「位置情報の研究」で交通費を 3 万円精算した。経理に「どこへ?」と聞かれ、「公園です」と答えた。",
+     "en": "You expense 30,000 yen in travel for \"location research.\" Accounting asks where. \"The park,\" you say."
+    },
+    "effect": {
+     "money": 3,
+     "network": -2
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_pokemongo_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "業界を離れたのに、深夜の公園で元同僚に会った。2 人とも同じゲームを開いていた。「戻ってこいよ」と言われた。",
+     "en": "You left the industry, but you run into an old coworker in a park at midnight. Both of you are in the same game. \"Come back,\" they say."
+    },
+    "effect": {
+     "network": 5,
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_pokemongo_any",
+    "text": {
+     "ja": "会社の近くの公園が夜中まで人だらけになった。帰りに 1 匹だけ捕まえるつもりが、終電を逃した。",
+     "en": "The park by the office is packed past midnight. You meant to catch just one on the way home. You miss the last train."
+    },
+    "effect": {
+     "hp": -3,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2016_psvr",
+  "year": 2016,
+  "month": 10,
+  "kind": "hardware",
+  "weight": 2,
+  "title": {
+   "ja": "PlayStation VR 発売、「VR 元年」",
+   "en": "PlayStation VR launches: \"Year One of VR\""
+  },
+  "news": {
+   "ja": "10 月 13 日に PlayStation VR が発売。Oculus Rift・HTC Vive と並び、この年は「VR 元年」と呼ばれた。",
+   "en": "PlayStation VR launches on October 13. Alongside Oculus Rift and HTC Vive, 2016 is dubbed \"Year One of VR.\""
+  },
+  "src": "PlayStation VR",
+  "variants": [
+   {
+    "id": "ev_hs_2016_psvr_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "「VR で 1 本」と役員。試作を 10 分遊んだ役員が真っ青になり、その日の会議は中断した。",
+     "en": "\"One VR title,\" says an exec. After ten minutes with the prototype, he turns pale and the meeting is adjourned."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2016_vr_bet",
+      "label": {
+       "ja": "VR に賭ける",
+       "en": "Bet on VR"
+      },
+      "effect": {
+       "passion": 5,
+       "hp": -5,
+       "flag": {
+        "hiv_vr_bet": true
+       }
+      },
+      "result": {
+       "ja": "企画が通った。会議室に、酔い止めの箱が常備された。",
+       "en": "Approved. Motion-sickness pills are now stocked in the meeting room."
+      }
+     },
+     {
+      "id": "ch_hs_2016_vr_wait",
+      "label": {
+       "ja": "様子を見る",
+       "en": "Wait and see"
+      },
+      "effect": {
+       "network": 2
+      },
+      "result": {
+       "ja": "試作の機械は棚にしまった。年に 1 回、来客の時だけ出てくる。",
+       "en": "The prototype goes on a shelf. It comes out once a year, for visitors."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_psvr_celeb",
+    "when": [
+     "stat.fame>=30"
+    ],
+    "text": {
+     "ja": "展示会で自分の VR デモに 2 時間待ちの行列。のちに世界的に有名になるデザイナーも並び、遊び終えて床に座りこんだ。",
+     "en": "A two-hour line for your VR demo at an expo. A designer who'll later be world-famous waits in it, plays, and sits down on the floor."
+    },
+    "effect": {
+     "passion": 10,
+     "fame": 5
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_psvr_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "VR のテストで、1 日 6 時間、頭に箱をかぶった。家に帰っても、床が少し傾いていた。",
+     "en": "Six hours a day with a box on your head for VR testing. Even at home, the floor feels slightly tilted."
+    },
+    "effect": {
+     "hp": -8,
+     "skill": 5
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_psvr_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "VR の小さなゲームを出した。遊んだ人は少ないが、遊んだ人は全員、床に倒れていた。",
+     "en": "You release a small VR game. Few people play it, but everyone who does ends up on the floor."
+    },
+    "effect": {
+     "fame": 3,
+     "money": -30,
+     "flag": {
+      "hiv_vr_bet": true
+     }
+    },
+    "tag": [
+     "hist",
+     "indie",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_psvr_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "VR の酔いテスト係になった。昼ごはんは、毎日テストの後に食べることにした。",
+     "en": "You're assigned to VR motion-sickness testing. You decide to eat lunch after the tests from now on."
+    },
+    "effect": {
+     "hp": -5,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "qa",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2016_psvr_any",
+    "text": {
+     "ja": "家電量販店の VR 体験コーナーに 1 時間並んだ。5 分遊び、15 分ベンチで休んだ。",
+     "en": "You queue an hour at a store's VR demo. Five minutes of play, fifteen on a bench recovering."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": -2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2017_switch",
+  "year": 2017,
+  "month": 3,
+  "until": 2018,
+  "kind": "hardware",
+  "weight": 3,
+  "title": {
+   "ja": "Nintendo Switch 発売",
+   "en": "Nintendo Switch launches"
+  },
+  "news": {
+   "ja": "任天堂が 3 月 3 日に Nintendo Switch を発売。据え置きと携帯を 1 台でこなす機械が大ヒットした。",
+   "en": "Nintendo launches the Switch on March 3. A single machine for TV and handheld play becomes a huge hit."
+  },
+  "src": "Nintendo Switch",
+  "variants": [
+   {
+    "id": "ev_hs_2017_switch_side_wiiu",
+    "when": [
+     "flag.hiv_side_wiiu"
+    ],
+    "text": {
+     "ja": "Wii U で出した作品の移植の話が来た。同じゲームが、今度は 5 倍売れた。",
+     "en": "You're asked to port your Wii U game. The very same game sells five times as much this time."
+    },
+    "effect": {
+     "fame": 8,
+     "passion": 8
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_switch_side_3ds",
+    "when": [
+     "flag.hiv_side_3ds"
+    ],
+    "text": {
+     "ja": "3DS の頃の担当者から、真っ先に開発機の連絡が来た。前の陣営の人脈が、そのまま切符になった。",
+     "en": "Your contact from the 3DS days is the first to offer you a dev kit. Your old connections become your ticket in."
+    },
+    "effect": {
+     "network": 8,
+     "fame": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_switch_side_vita",
+    "when": [
+     "flag.hiv_side_vita"
+    ],
+    "text": {
+     "ja": "携帯機はもう一方の陣営で戦ってきた。会議は静かだった。誰かが新しい機械を持ってきて、全員で昼まで遊んだ。",
+     "en": "You fought the handheld war on the other side. The meeting is silent. Someone brings in the new machine and everyone plays it till noon."
+    },
+    "effect": {
+     "passion": -3,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_switch_skill",
+    "when": [
+     "stat.skill>=60"
+    ],
+    "text": {
+     "ja": "発売の日、電車で知らない人が自分の作ったゲームを遊んでいた。降りる駅を 3 つ過ぎて、のぞき続けた。",
+     "en": "On launch day, a stranger on the train is playing your game. You ride three stops past yours to keep watching."
+    },
+    "effect": {
+     "passion": 10,
+     "fame": 3
+    },
+    "tag": [
+     "hist",
+     "high",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_switch_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "移植の仕事が 3 本同時に来た。古い作品を新しい機械へ。社長は「ハードが売れると、下請けも売れる」と言った。",
+     "en": "Three port jobs land at once: old games onto the new machine. The boss says, \"When hardware sells, subcontractors sell.\""
+    },
+    "effect": {
+     "money": 30,
+     "hp": -8
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "work"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_switch_any",
+    "text": {
+     "ja": "新幹線で、隣の人がテレビで遊んでいたゲームの続きを膝の上で遊んでいた。家でも外でも同じゲーム。逃げ場がない。",
+     "en": "On the bullet train, the person next to you continues their TV game on their lap. Same game at home and away. No escape."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2017_steam_direct",
+  "year": 2017,
+  "month": 6,
+  "until": 2018,
+  "kind": "work",
+  "weight": 2,
+  "title": {
+   "ja": "Steam Direct 開始",
+   "en": "Steam Direct opens"
+  },
+  "news": {
+   "ja": "Valve が投票制の Greenlight を終え、100 ドルで誰でもゲームを出せる Steam Direct を 6 月 13 日に開始。",
+   "en": "Valve ends the voting-based Greenlight and opens Steam Direct on June 13: anyone can publish a game for $100."
+  },
+  "src": "https://techraptor.net/content/steam-greenlight-closes-today-steam-direct-launches-june-13",
+  "variants": [
+   {
+    "id": "ev_hs_2017_steam_direct_launched",
+    "when": [
+     "flag.steam_launched"
+    ],
+    "text": {
+     "ja": "前に自作を出したストアの棚が、一晩で何倍にも膨らんだ。自分の作品は 14 ページ目に流された。",
+     "en": "The store where you released your game balloons overnight. Your game gets swept to page 14."
+    },
+    "effect": {
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "indie"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_steam_direct_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "100 ドルで、自作を世界に出せるようになった。貯金の残高と、作りかけのファイルを交互に見た。",
+     "en": "For $100, you can now release your game to the world. You look back and forth between your savings and your unfinished project."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2017_direct_ship",
+      "label": {
+       "ja": "出す",
+       "en": "Ship it"
+      },
+      "effect": {
+       "money": -30,
+       "fame": 5,
+       "passion": 10,
+       "flag": {
+        "steam_launched": true
+       }
+      },
+      "result": {
+       "ja": "初日の売上は 7 本。うち 1 本は母だった。",
+       "en": "Day-one sales: 7 copies. One of them was Mom."
+      }
+     },
+     {
+      "id": "ch_hs_2017_direct_polish",
+      "label": {
+       "ja": "まだ磨く",
+       "en": "Keep polishing"
+      },
+      "effect": {
+       "skill": 5,
+       "passion": -3
+      },
+      "result": {
+       "ja": "その間に、似たゲームが 3 本出た。",
+       "en": "Meanwhile, three similar games come out."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "indie"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_steam_direct_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員が「誰でも出せるなら、うちの看板に何の意味がある」と言った。会議は 3 時間、答えは出なかった。",
+     "en": "An exec asks, \"If anyone can publish, what's our brand worth?\" Three hours of meeting. No answer."
+    },
+    "effect": {
+     "passion": -3,
+     "network": 2
+    },
+    "tag": [
+     "hist"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_steam_direct_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "副業は禁止。でも同期は親の名前で自作を出していた。売上は親の口座に入り、親の方が業界に詳しくなった。",
+     "en": "Side gigs are banned, but a coworker releases a game under his parent's name. The revenue goes to the parent, who now knows more about the industry."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_steam_direct_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "同期の {peer} が会社を辞めて 1 人で出すと言った。送別会で「100 ドルで社長になれる」と笑っていた。",
+     "en": "Your peer {peer} quits to go solo. At the farewell party: \"Turns out $100 makes you a CEO.\""
+    },
+    "effect": {
+     "passion": 3,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "peer"
+    ]
+   },
+   {
+    "id": "ev_hs_2017_steam_direct_any",
+    "text": {
+     "ja": "ストアの新着が毎日何十本も並ぶようになった。休日に全部見ようとして、日が暮れた。",
+     "en": "Dozens of new games hit the store every day. You try to browse them all on your day off. The sun sets."
+    },
+    "effect": {
+     "passion": 2,
+     "hp": -2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2018_fortnite",
+  "year": 2018,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『フォートナイト』バトルロイヤルが世界で流行",
+   "en": "Fortnite Battle Royale sweeps the world"
+  },
+  "news": {
+   "ja": "Epic Games の『フォートナイト』のバトルロイヤルが、無料で遊べるゲームとして世界的に大流行した。",
+   "en": "Epic Games' free-to-play Fortnite Battle Royale becomes a worldwide craze."
+  },
+  "src": "フォートナイト",
+  "variants": [
+   {
+    "id": "ev_hs_2018_fortnite_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもが学校で 1 位を取ったと自慢した。バトルロイヤルの話だった。親の作品の名前は、クラスの誰も知らなかった。",
+     "en": "Your kid brags about finishing first at school. In the battle royale, it turns out. Nobody in class knows your game's name."
+    },
+    "effect": {
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2018_fortnite_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "企画会議で「100 人で戦って、最後に 1 人」。会議そのものも、最後の 1 人になるまで続いた。",
+     "en": "Planning meeting: \"100 players fight, one survives.\" The meeting itself runs until one person is left."
+    },
+    "effect": {
+     "hp": -5,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2018_fortnite_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "作りかけのアクションに「建築」と「縮む円」が足された。3 年の計画が、残り 8 か月になった。",
+     "en": "\"Building\" and \"a shrinking circle\" get bolted onto your action game. A three-year plan now has eight months left."
+    },
+    "effect": {
+     "passion": -8,
+     "hp": -5
+    },
+    "tag": [
+     "hist",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_2018_fortnite_abroad",
+    "when": [
+     "pos=abroad"
+    ],
+    "text": {
+     "ja": "海外の同僚が昼休みに全員で踊っていた。ゲームの踊りだと知ったのは 3 日後だった。",
+     "en": "At lunch, all your colleagues abroad are dancing. Three days later, you learn they're game emotes."
+    },
+    "effect": {
+     "network": 5
+    },
+    "tag": [
+     "hist",
+     "abroad",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2018_fortnite_skill",
+    "when": [
+     "stat.skill>=60"
+    ],
+    "text": {
+     "ja": "社内の昼休み大会で優勝した。賞品は社長の私物のお菓子。午後、社長が少しさみしそうだった。",
+     "en": "You win the office lunchtime tournament. The prize: the CEO's personal snacks. That afternoon, the CEO looks a little lonely."
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "high",
+     "petty",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2018_fortnite_any",
+    "text": {
+     "ja": "甥に「無料なのに、お金がかかる」と言われた。説明しようとして、自分の業界の仕組みを 30 分しゃべった。",
+     "en": "Your nephew says, \"It's free, but it costs money.\" Trying to explain, you lecture on your industry's business model for 30 minutes."
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2018_who",
+  "year": 2018,
+  "month": 6,
+  "until": 2019,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "WHO が「ゲーム障害」を疾病分類に",
+   "en": "WHO adds \"gaming disorder\" to its disease classification"
+  },
+  "news": {
+   "ja": "WHO が国際疾病分類 ICD-11 に「ゲーム障害」を入れると公表(2019 年に採択)。",
+   "en": "The WHO announces \"gaming disorder\" will be included in ICD-11 (adopted in 2019)."
+  },
+  "src": "ゲーム障害",
+  "variants": [
+   {
+    "id": "ev_hs_2018_who_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "義理の母が新聞の切り抜きを送ってきた。見出しは「ゲーム障害」。手紙は付いていなかった。",
+     "en": "Your mother-in-law mails you a newspaper clipping. Headline: \"Gaming Disorder.\" No letter."
+    },
+    "effect": {
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2018_who_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "「遊ぶ時間を伸ばせ」の会議の翌週に、「遊びすぎ対策を入れろ」の会議。同じ会議室、同じ顔ぶれだった。",
+     "en": "One week: \"Increase play time.\" The next: \"Add anti-overplay features.\" Same room, same people."
+    },
+    "effect": {
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2018_who_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "1 日 10 時間ゲームをしている。病院の問診票に職業を書いたら、医師がしばらく黙った。",
+     "en": "You play games ten hours a day. You write your job on a clinic form, and the doctor goes quiet for a while."
+    },
+    "effect": {
+     "hp": -2
+    },
+    "tag": [
+     "hist",
+     "qa",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2018_who_any",
+    "text": {
+     "ja": "親戚の集まりで「人をはまらせる仕事」と言われた。言い返したかったが、自分の作品は 2 時間で飽きられていた。",
+     "en": "At a family gathering: \"You make people addicted.\" You wanted to object, but players got bored of your game in two hours."
+    },
+    "effect": {
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2019_workstyle",
+  "year": 2019,
+  "month": 4,
+  "until": 2020,
+  "kind": "work",
+  "weight": 2,
+  "title": {
+   "ja": "働き方改革関連法の施行",
+   "en": "Japan's work-style reform laws take effect"
+  },
+  "news": {
+   "ja": "働き方改革関連法が 4 月から施行され、残業時間に上限ができた(中小企業は 2020 年 4 月から)。",
+   "en": "Japan's work-style reform laws take effect in April, capping overtime (from April 2020 for smaller firms)."
+  },
+  "src": "働き方改革関連法",
+  "variants": [
+   {
+    "id": "ev_hs_2019_workstyle_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "元請けの残業が減った。その分の仕事が、金曜の夕方に下請けへ降ってきた。",
+     "en": "The client's overtime goes down. The leftover work lands on subcontractors on Friday evenings."
+    },
+    "effect": {
+     "hp": -10,
+     "money": 20
+    },
+    "tag": [
+     "hist",
+     "crunch",
+     "gag",
+     "petty"
+    ]
+   },
+   {
+    "id": "ev_hs_2019_workstyle_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "残業の上限で、マスターアップ前の 1 か月が計算上「足りない」。仕事ではなく、工程表の方を直した。",
+     "en": "With the overtime cap, the month before gold master is \"impossible\" on paper. You fix the schedule, not the workload."
+    },
+    "effect": {
+     "hp": 5,
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "work"
+    ]
+   },
+   {
+    "id": "ev_hs_2019_workstyle_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "22 時に照明が自動で消えるようになった。暗い中、モニターの光だけで書き続けていたら、警備員に見つかった。",
+     "en": "Now the lights turn off automatically at 10 p.m. You keep coding by monitor light until a security guard finds you."
+    },
+    "effect": {
+     "hp": -2,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2019_workstyle_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "残業が減り、残業代も減った。代わりに、会社の冷蔵庫のプリンを誰が食べたかで 1 時間の会議が開かれた。",
+     "en": "Less overtime, less overtime pay. Instead, an hour-long meeting is held over who ate the pudding in the office fridge."
+    },
+    "effect": {
+     "hp": 5,
+     "money": -10
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2019_workstyle_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "定時に帰れる日が増えた。玄関で子どもに「お客さん?」と聞かれ、名刺を渡した。",
+     "en": "You start getting home on time. At the door, your kid asks, \"Are you a visitor?\" You hand over a business card."
+    },
+    "effect": {
+     "passion": 5,
+     "hp": 3
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2019_workstyle_any",
+    "text": {
+     "ja": "定時のチャイムが鳴るようになった。帰り道で夕焼けを見たのは、入社以来だった。",
+     "en": "A quitting-time chime starts ringing. It's the first sunset you've seen on the way home since you joined."
+    },
+    "effect": {
+     "hp": 5
+    },
+    "tag": [
+     "hist",
+     "work"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2019_stadia",
+  "year": 2019,
+  "month": 11,
+  "until": 2020,
+  "kind": "hardware",
+  "weight": 1,
+  "title": {
+   "ja": "Google Stadia 開始",
+   "en": "Google Stadia launches"
+  },
+  "news": {
+   "ja": "Google がクラウドで遊ぶゲームサービス Stadia を欧米で開始(日本では提供されなかった)。",
+   "en": "Google launches Stadia, a cloud gaming service, in North America and Europe (it never launched in Japan)."
+  },
+  "src": "Google Stadia",
+  "variants": [
+   {
+    "id": "ev_hs_2019_stadia_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "海外の大手から、クラウドで遊ぶ新しい窓口への移植の誘い。「機械はいらない。回線だけ」。",
+     "en": "A global tech giant invites you to port to its new cloud service. \"No hardware needed. Just a connection.\""
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2019_stadia_cl_go",
+      "label": {
+       "ja": "移植する",
+       "en": "Port it"
+      },
+      "effect": {
+       "fame": 3,
+       "passion": 5,
+       "flag": {
+        "hiv_stadia": true
+       }
+      },
+      "result": {
+       "ja": "発表会で自分の作品の名前が英語で読み上げられた。日本では誰も遊べない。",
+       "en": "Your game's title is read out in English at the announcement. Nobody in Japan can play it."
+      }
+     },
+     {
+      "id": "ch_hs_2019_stadia_cl_pass",
+      "label": {
+       "ja": "断る",
+       "en": "Decline"
+      },
+      "effect": {
+       "network": -3
+      },
+      "result": {
+       "ja": "「先見の明が無い」と言われた。言った人の名刺は、もう使われていない。",
+       "en": "Someone says you lack vision. Their business card is no longer in use."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2019_stadia_dev_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "移植の見積もりを頼まれた。「どの機械で動くんですか」「機械はありません」。見積書の機材の欄が空になった。",
+     "en": "You're asked to quote a port. \"What hardware does it run on?\" \"There isn't any.\" The equipment line on your quote stays blank."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2019_stadia_dl_go",
+      "label": {
+       "ja": "受ける",
+       "en": "Take the job"
+      },
+      "effect": {
+       "money": 40,
+       "skill": 3,
+       "flag": {
+        "hiv_stadia": true
+       }
+      },
+      "result": {
+       "ja": "納品は回線の向こう。納品した実感だけが無かった。",
+       "en": "Delivery happens somewhere down the line. Only the feeling of delivery is missing."
+      }
+     },
+     {
+      "id": "ch_hs_2019_stadia_dl_pass",
+      "label": {
+       "ja": "断る",
+       "en": "Turn it down"
+      },
+      "effect": {
+       "passion": 2
+      },
+      "result": {
+       "ja": "手で触れる箱の仕事を続けた。",
+       "en": "You stick with work you can hold in your hands."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2019_stadia_abroad",
+    "when": [
+     "pos=abroad"
+    ],
+    "text": {
+     "ja": "海外の会社でクラウド版の担当になった。回線が遅い日は、ジャンプの 0.2 秒後に着地した。",
+     "en": "Abroad, you're assigned to the cloud version. On slow-connection days, you land 0.2 seconds after you jump."
+    },
+    "effect": {
+     "skill": 5,
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "abroad",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2019_stadia_any",
+    "text": {
+     "ja": "機械がいらないゲームのニュースを見た。日本では始まらないと知り、少しだけほっとした。",
+     "en": "You read about games that need no console. Learning it won't launch in Japan, you feel a little relieved."
+    },
+    "effect": {
+     "passion": 1
+    },
+    "tag": [
+     "hist"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2020_corona",
+  "year": 2020,
+  "month": 4,
+  "kind": "work",
+  "weight": 3,
+  "title": {
+   "ja": "新型コロナで緊急事態宣言、開発は在宅へ",
+   "en": "COVID-19 state of emergency; development moves home"
+  },
+  "news": {
+   "ja": "新型コロナウイルスの流行で 4 月に緊急事態宣言。多くのゲーム会社が在宅勤務に切り替えた。",
+   "en": "COVID-19 brings a state of emergency in April. Many game companies switch to working from home."
+  },
+  "src": "新型コロナウイルス感染症緊急事態宣言",
+  "variants": [
+   {
+    "id": "ev_hs_2020_corona_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "在宅勤務の会議中、子どもが画面に入ってきて、自分の作品を指さし「これ、つまんないやつ?」。参加者 12 人が黙った。",
+     "en": "During a video call from home, your kid wanders into frame, points at your game, and asks, \"Is this the boring one?\" Twelve people go silent."
+    },
+    "effect": {
+     "passion": -3,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_corona_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "在宅勤務 3 か月目。パートナーに「仕事中ずっと独り言を言ってる」と言われた。全部、バグへの文句だった。",
+     "en": "Month three working from home. Your partner says you talk to yourself all day. It's all complaints about bugs."
+    },
+    "effect": {
+     "passion": -2,
+     "hp": 3
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_corona_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "全員が在宅勤務に。会議は 1 日 9 本。マイクを切り忘れ、カップ麺をすする音が 40 人の会議に流れた。",
+     "en": "Everyone works from home. Nine meetings a day. You forget to mute, and 40 people hear you slurp instant noodles."
+    },
+    "effect": {
+     "hp": -3,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_corona_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "テスト機を家に持ち帰ることになった。段ボール 3 つを抱えて電車に乗り、家のテレビの前が会社になった。",
+     "en": "You're told to take test units home. You ride the train hugging three boxes, and the space in front of your TV becomes the office."
+    },
+    "effect": {
+     "skill": 2,
+     "hp": -2
+    },
+    "tag": [
+     "hist",
+     "qa"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_corona_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "在宅のため、会社の椅子を持ち帰ってよいことになった。いちばん高い椅子が、初日の朝 8 時に消えた。",
+     "en": "You're allowed to take office chairs home for work. The most expensive one vanishes at 8 a.m. on day one."
+    },
+    "effect": {
+     "hp": 3
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_corona_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "会社の寝袋が要らなくなった。代わりに、ベッドから仕事机まで 2 歩になった。",
+     "en": "No more sleeping bag at the office. Instead, your desk is now two steps from your bed."
+    },
+    "effect": {
+     "hp": -3,
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "crunch",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_corona_any",
+    "text": {
+     "ja": "通勤が無くなった。浮いた 2 時間で、昔の自分の作品を遊び直した。思ったより面白かった。",
+     "en": "No more commute. With two spare hours, you replay your old games. They're better than you remembered."
+    },
+    "effect": {
+     "passion": 5,
+     "hp": 3
+    },
+    "tag": [
+     "hist"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2020_atsumori",
+  "year": 2020,
+  "month": 3,
+  "kind": "hit",
+  "weight": 3,
+  "title": {
+   "ja": "『あつまれ どうぶつの森』発売",
+   "en": "Animal Crossing: New Horizons launches"
+  },
+  "news": {
+   "ja": "『あつまれ どうぶつの森』が 3 月 20 日に発売。外出を控える中、島で人と会えるゲームとして大ヒットした。",
+   "en": "Animal Crossing: New Horizons launches March 20. With people staying in, its islands become a place to meet, and it's a smash hit."
+  },
+  "src": "あつまれ どうぶつの森",
+  "variants": [
+   {
+    "id": "ev_hs_2020_atsumori_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "パートナーと島で待ち合わせをした。同じ家にいるのに。",
+     "en": "You arrange to meet your partner on an island. You live in the same house."
+    },
+    "effect": {
+     "network": 3,
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_atsumori_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員会で、島の話が 40 分続いた。議題は来期の予算だった。",
+     "en": "The board talks about their islands for 40 minutes. The agenda was next year's budget."
+    },
+    "effect": {
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_atsumori_celeb",
+    "when": [
+     "stat.fame>=30"
+    ],
+    "text": {
+     "ja": "自分の島に、国民的 RPG の作曲家がたまたま遊びに来た。名乗れないまま、カブだけ売った。",
+     "en": "By chance, the composer of the nation's biggest RPG visits your island. Too starstruck to introduce yourself, you just sell them turnips."
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_atsumori_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "業界を離れたのに、元同僚の島に招かれた。島の役場の前で、久しぶりに仕事の話をした。",
+     "en": "You've left the industry, but an old coworker invites you to their island. Outside the town hall, you talk shop for the first time in years."
+    },
+    "effect": {
+     "network": 8,
+     "passion": 3
+    },
+    "tag": [
+     "hist"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_atsumori_any",
+    "text": {
+     "ja": "実家の母がゲームを始め、カブの値段を毎朝電話で聞いてくる。親子の会話が 10 年ぶりに増えた。",
+     "en": "Mom starts playing and calls every morning to ask about turnip prices. You talk more than you have in ten years."
+    },
+    "effect": {
+     "network": 2,
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "family"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2020_ps5",
+  "year": 2020,
+  "month": 11,
+  "until": 2021,
+  "kind": "hardware",
+  "weight": 2,
+  "title": {
+   "ja": "PlayStation 5 発売",
+   "en": "PlayStation 5 launches"
+  },
+  "news": {
+   "ja": "PlayStation 5 が 11 月 12 日に日本で発売。品薄と転売が社会問題になった。",
+   "en": "PlayStation 5 launches in Japan on November 12. Shortages and scalping become a social issue."
+  },
+  "src": "PlayStation 5",
+  "variants": [
+   {
+    "id": "ev_hs_2020_ps5_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "ロンチタイトルを出した。肝心の本体は、社内でも抽選だった。",
+     "en": "You ship a launch title. The console itself is a lottery even inside the company."
+    },
+    "effect": {
+     "fame": 5,
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_ps5_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "開発機は届いた。家の分は抽選に 7 回外れた。作ったゲームを、家では遊べない。",
+     "en": "The dev kit arrived. For home, you lose the lottery seven times. You can't play your own game at home."
+    },
+    "effect": {
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_ps5_skill",
+    "when": [
+     "stat.skill>=60"
+    ],
+    "text": {
+     "ja": "ロンチの作品で、自分の担当した光の表現が海外のレビューで褒められた。その 1 行を印刷して、冷蔵庫に貼った。",
+     "en": "Overseas reviewers praise the lighting you did for a launch title. You print that one line and stick it on your fridge."
+    },
+    "effect": {
+     "passion": 10,
+     "fame": 5
+    },
+    "tag": [
+     "hist",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_ps5_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "移植を納品した日、元請けの担当が「本体、余ってない?」と聞いてきた。こっちが聞きたかった。",
+     "en": "The day you deliver the port, the client's rep asks, \"Got a spare console?\" You were about to ask him."
+    },
+    "effect": {
+     "network": 2,
+     "money": 20
+    },
+    "tag": [
+     "hist",
+     "gag",
+     "petty"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_ps5_any",
+    "text": {
+     "ja": "近所の店の抽選に 5 回外れ、6 回目で当たった。箱を開ける手が少し震えた。",
+     "en": "You lose the local store's lottery five times and win on the sixth. Your hands shake a little opening the box."
+    },
+    "effect": {
+     "passion": 5,
+     "money": -6
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2020_kagawa",
+  "year": 2020,
+  "month": 4,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "香川県のゲーム条例が施行",
+   "en": "Kagawa's gaming ordinance takes effect"
+  },
+  "news": {
+   "ja": "香川県のネット・ゲーム依存症対策条例が施行。子どものゲームは平日 1 日 60 分が目安とされた。",
+   "en": "Kagawa Prefecture's internet and game addiction ordinance takes effect, suggesting kids play 60 minutes a day on weekdays."
+  },
+  "src": "香川県ネット・ゲーム依存症対策条例",
+  "variants": [
+   {
+    "id": "ev_hs_2020_kagawa_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "実家から「1 日 60 分なんだって」と電話。子どもと話し合い、我が家は 61 分にした。",
+     "en": "Your parents call: \"They say 60 minutes a day.\" After a family discussion, your household settles on 61."
+    },
+    "effect": {
+     "passion": 2,
+     "network": 1
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_kagawa_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "60 分で区切れるように作れ、と通達。全ステージに「キリのいいところ」が足された。",
+     "en": "Order: make it easy to stop at 60 minutes. Every stage gets a \"good place to stop.\""
+    },
+    "effect": {
+     "skill": 3,
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "work"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_kagawa_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "「60 分で区切れるか」のテスト担当になった。ストップウォッチを手に、1 日 8 回、60 分ずつ遊んだ。",
+     "en": "You're put on \"can you stop at 60 minutes\" testing. Stopwatch in hand, you play eight 60-minute sessions a day."
+    },
+    "effect": {
+     "hp": -2,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "qa",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2020_kagawa_any",
+    "text": {
+     "ja": "ニュースで「1 日 60 分」と聞いた。自分は 1 日 14 時間ゲームを作っている。それは何分に数えるのだろう。",
+     "en": "The news says \"60 minutes a day.\" You spend 14 hours a day making games. How many minutes does that count as?"
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2021_nft",
+  "year": 2021,
+  "until": 2022,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "NFT ゲームのブーム",
+   "en": "The NFT game boom"
+  },
+  "news": {
+   "ja": "NFT を使った「遊んで稼ぐ」ゲームがブームに。翌年、暗号資産の値下がりで多くが失速した。",
+   "en": "\"Play-to-earn\" games using NFTs boom. The next year, a crypto downturn stalls most of them."
+  },
+  "src": "非代替性トークン",
+  "variants": [
+   {
+    "id": "ev_hs_2021_nft_rider",
+    "when": [
+     "flag.nft_rider"
+    ],
+    "text": {
+     "ja": "前に乗った Web3 の話で、仮想の土地を 30 万円で買った。翌年、その土地は 3,000 円になった。",
+     "en": "Riding that Web3 pitch, you bought virtual land for 300,000 yen. A year later it's worth 3,000."
+    },
+    "effect": {
+     "money": -30,
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "money",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2021_nft_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "「あなたのゲームのキャラを NFT に」とメールが来た。手数料はこちら持ち、利益は山分けだという。",
+     "en": "An email: \"Let's turn your game's characters into NFTs.\" You pay the fees; profits split down the middle."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2021_nft_yes",
+      "label": {
+       "ja": "乗る",
+       "en": "Go for it"
+      },
+      "effect": {
+       "money": -20,
+       "passion": 3
+      },
+      "result": {
+       "ja": "翌年、相手のメールアドレスごと消えていた。",
+       "en": "A year later, they're gone, email address and all."
+      }
+     },
+     {
+      "id": "ch_hs_2021_nft_no",
+      "label": {
+       "ja": "断る",
+       "en": "Pass"
+      },
+      "effect": {
+       "passion": 3
+      },
+      "result": {
+       "ja": "翌年、断ったことだけが自慢になった。",
+       "en": "A year later, saying no is your proudest achievement."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "indie"
+    ]
+   },
+   {
+    "id": "ev_hs_2021_nft_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員が「NFT」と 3 回言った会議で、企画が 1 本通った。翌年、その企画書の話を誰もしなくなった。",
+     "en": "In a meeting where an exec says \"NFT\" three times, a project is approved. A year later, nobody mentions it."
+    },
+    "effect": {
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2021_nft_any",
+    "text": {
+     "ja": "親戚から「ゲームで稼げるって本当?」と電話。ゲームで稼いだことは、まだ一度もない。",
+     "en": "A relative calls: \"Is it true you can earn money playing games?\" You've never earned money from games yet."
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2022_eldenring",
+  "year": 2022,
+  "month": 2,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『ELDEN RING』発売",
+   "en": "ELDEN RING is released"
+  },
+  "news": {
+   "ja": "フロム・ソフトウェアの『ELDEN RING』が 2 月 25 日に発売。歯ごたえのあるゲームが世界的なヒットになった。",
+   "en": "FromSoftware's ELDEN RING launches on February 25. A notoriously tough game becomes a global hit."
+  },
+  "src": "ELDEN RING",
+  "variants": [
+   {
+    "id": "ev_hs_2022_eldenring_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "「難しいのが売れるなら」と役員。社内の新作の敵が全部 3 倍硬くなった。テストした新人が 2 人、無口になった。",
+     "en": "\"If hard games sell...\" says an exec. Every enemy in your new game gets three times tougher. Two junior testers stop talking."
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_eldenring_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "参考資料として遊ぶよう指示された。勤務時間内に 300 回倒れた。全部、仕事だった。",
+     "en": "You're told to play it \"for reference.\" You die 300 times on the clock. All of it was work."
+    },
+    "effect": {
+     "hp": -3,
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "qa",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_eldenring_skill",
+    "when": [
+     "stat.skill>=60"
+    ],
+    "text": {
+     "ja": "社内で誰も倒せないボスを最初に倒した。翌日から「先輩」と呼ばれた。年下の上司にも。",
+     "en": "You're the first in the office to beat the boss nobody can. From the next day, everyone calls you \"senpai\"—even your younger boss."
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "high",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_eldenring_partner",
+    "when": [
+     "flag.partner"
+    ],
+    "text": {
+     "ja": "夜中にパートナーが叫んだ。ボスを倒したらしい。ゲームを作って何年もたつが、この家で一番うまいのは自分ではなかった。",
+     "en": "Your partner screams at midnight. They beat the boss. After years in games, you're not the best player in this house."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_eldenring_any",
+    "text": {
+     "ja": "昼休みに、全員が同じ地下墓地の話をしていた。誰も攻略法は教えてくれない。「自分で見つけろ」が合言葉だった。",
+     "en": "At lunch, everyone is talking about the same catacomb. Nobody will tell you the trick. \"Find it yourself\" is the motto."
+    },
+    "effect": {
+     "passion": 3,
+     "network": 2
+    },
+    "tag": [
+     "hist"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2022_imagegen",
+  "year": 2022,
+  "month": 8,
+  "until": 2023,
+  "kind": "ai",
+  "weight": 3,
+  "title": {
+   "ja": "画像生成 AI「Stable Diffusion」公開",
+   "en": "Image-generation AI Stable Diffusion is released"
+  },
+  "news": {
+   "ja": "画像生成 AI「Stable Diffusion」が一般に公開され、誰でも文章から絵を作れるようになった。",
+   "en": "The image-generation AI Stable Diffusion is released to the public; anyone can now make pictures from text."
+  },
+  "src": "Stable Diffusion",
+  "variants": [
+   {
+    "id": "ev_hs_2022_imagegen_artist",
+    "when": [
+     "job=artist"
+    ],
+    "text": {
+     "ja": "社内チャットに、AI で作った背景が 100 枚貼られた。自分が 1 枚 3 日かけている背景だった。",
+     "en": "Someone posts 100 AI-made backgrounds in the team chat. You spend three days on each one of those."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2022_ig_art_use",
+      "label": {
+       "ja": "使ってみる",
+       "en": "Try using it"
+      },
+      "effect": {
+       "skill": 3,
+       "passion": -5,
+       "flag": {
+        "hiv_ai_early": true
+       }
+      },
+      "result": {
+       "ja": "100 枚から 1 枚を選び、3 日かけて直した。結局 3 日だった。",
+       "en": "You pick one of the 100 and spend three days fixing it. Still three days."
+      }
+     },
+     {
+      "id": "ch_hs_2022_ig_art_draw",
+      "label": {
+       "ja": "描き続ける",
+       "en": "Keep drawing"
+      },
+      "effect": {
+       "passion": 5,
+       "hp": -5,
+       "flag": {
+        "hiv_human_only": true
+       }
+      },
+      "result": {
+       "ja": "その夜、鉛筆を 1 本削った。",
+       "en": "That night, you sharpen a pencil."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "ai"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_imagegen_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員が「背景、AI でいける?」と聞いた。絵描きのチーム 12 人が、こっちを見ていた。",
+     "en": "An exec asks, \"Can AI handle the backgrounds?\" The 12-person art team is looking at you."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2022_ig_cl_try",
+      "label": {
+       "ja": "試してみる",
+       "en": "Give it a try"
+      },
+      "effect": {
+       "hp": 5,
+       "network": -8,
+       "flag": {
+        "hiv_ai_early": true
+       }
+      },
+      "result": {
+       "ja": "工程表が 2 か月縮んだ。絵描きの飲み会に呼ばれなくなった。",
+       "en": "The schedule shrinks by two months. The artists stop inviting you to drinks."
+      }
+     },
+     {
+      "id": "ch_hs_2022_ig_cl_keep",
+      "label": {
+       "ja": "人の手で描く",
+       "en": "Keep it hand-drawn"
+      },
+      "effect": {
+       "network": 8,
+       "hp": -5,
+       "flag": {
+        "hiv_human_only": true
+       }
+      },
+      "result": {
+       "ja": "工程表はそのまま。絵描きから、手描きの年賀状が 12 枚届いた。",
+       "en": "The schedule stays. You get 12 hand-drawn New Year's cards from the artists."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "ai"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_imagegen_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "1 人で作っていて、絵だけが描けなかった。文字を打つと絵が出た。嬉しさと後ろめたさが半々だった。",
+     "en": "Working solo, art was the one thing you couldn't do. Type some words and a picture appears. Half joy, half guilt."
+    },
+    "effect": {
+     "passion": 5,
+     "skill": 2,
+     "flag": {
+      "hiv_ai_early": true
+     }
+    },
+    "tag": [
+     "hist",
+     "indie",
+     "ai"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_imagegen_any",
+    "text": {
+     "ja": "後輩が「AI で描きました」と絵を見せた。指が 6 本あった。少し安心して、少し不安になった。",
+     "en": "A junior shows you a picture: \"AI made it.\" The hand has six fingers. You feel a little relieved, and a little uneasy."
+    },
+    "effect": {
+     "passion": -1
+    },
+    "tag": [
+     "hist",
+     "ai"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2022_chatgpt",
+  "year": 2022,
+  "month": 11,
+  "until": 2023,
+  "kind": "ai",
+  "weight": 3,
+  "title": {
+   "ja": "ChatGPT 公開",
+   "en": "ChatGPT is released"
+  },
+  "news": {
+   "ja": "OpenAI が対話型 AI「ChatGPT」を 11 月 30 日に公開。2 か月ほどで利用者 1 億人に達したとされる。",
+   "en": "OpenAI releases the conversational AI ChatGPT on November 30. It reportedly reaches 100 million users in about two months."
+  },
+  "src": "ChatGPT",
+  "variants": [
+   {
+    "id": "ev_hs_2022_chatgpt_planner",
+    "when": [
+     "job=planner"
+    ],
+    "text": {
+     "ja": "企画書を AI に頼んだ。10 秒で出てきて、3 年前の自分の企画書とほぼ同じ。「盗作では」と聞くと「よくある企画です」。",
+     "en": "You ask an AI for a pitch. Ten seconds later: nearly identical to yours from three years ago. \"Plagiarism?\" you ask. \"It's a common idea.\""
+    },
+    "effect": {
+     "passion": -8
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_chatgpt_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "AI にバグの直し方を聞いたら、自信たっぷりに存在しない関数を教えてくれた。新人の頃の自分を見ている気がした。",
+     "en": "You ask the AI how to fix a bug. It confidently recommends a function that doesn't exist. It's like watching your rookie self."
+    },
+    "effect": {
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_chatgpt_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもの作文を AI が書いていた。叱ろうとして、今日の自分の仕様書も AI だったことを思い出した。",
+     "en": "Your kid had AI write their essay. About to scold them, you remember AI wrote your spec today, too."
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_chatgpt_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "AI に手伝わせたら、3 年止まっていた自作が 1 か月で完成した。その夜、1 人で乾杯した。缶チューハイは 2 本目だった。",
+     "en": "With AI help, the game stalled for three years is done in a month. That night you toast alone. It's your second can."
+    },
+    "effect": {
+     "passion": 10,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "high",
+     "ai"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_chatgpt_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "業界を離れたのに、AI に「ゲームを作って」と打ってみた。30 秒で動いた。少しだけ戻りたくなった。",
+     "en": "You've left the industry, but you type \"make me a game\" into an AI. It runs in 30 seconds. You kind of want to go back."
+    },
+    "effect": {
+     "passion": 8
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_chatgpt_any",
+    "text": {
+     "ja": "会議で誰かが「AI に聞いてみたら」と言った。その日から、会議の結論を誰も自分では決めなくなった。",
+     "en": "Someone in a meeting says, \"Let's ask the AI.\" From that day on, nobody decides anything themselves."
+    },
+    "effect": {
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2022_stadia_end",
+  "year": 2022,
+  "month": 9,
+  "kind": "incident",
+  "weight": 1,
+  "title": {
+   "ja": "Google Stadia 終了を発表",
+   "en": "Google announces Stadia's shutdown"
+  },
+  "news": {
+   "ja": "Google が Stadia の終了を発表。2023 年 1 月 18 日に終わり、購入代金は払い戻された。",
+   "en": "Google announces Stadia will shut down on January 18, 2023, refunding purchases."
+  },
+  "src": "Google Stadia",
+  "variants": [
+   {
+    "id": "ev_hs_2022_stadia_end_ported",
+    "when": [
+     "flag.hiv_stadia"
+    ],
+    "text": {
+     "ja": "移植したあの作品が、窓口ごと消えることになった。遊んだ人には全額払い戻し。移植費の請求書は払い戻されなかった。",
+     "en": "The game you ported will vanish along with the service. Players get full refunds. Your porting invoice does not."
+    },
+    "effect": {
+     "passion": -10,
+     "fame": -3
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_stadia_end_abroad",
+    "when": [
+     "pos=abroad"
+    ],
+    "text": {
+     "ja": "クラウド版のチームが解散した。最後の日、全員でゲームの中のかくれんぼをして、誰も見つからなかった。",
+     "en": "The cloud team is disbanded. On the last day, everyone plays hide-and-seek in-game. Nobody is ever found."
+    },
+    "effect": {
+     "network": 3,
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "abroad"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_stadia_end_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員が「あのクラウドの話、前に断ったよな」と言った。断ったのは自分だ。初めて、何もしないことで褒められた。",
+     "en": "An exec says, \"We turned down that cloud thing, right?\" You did. For the first time, you're praised for doing nothing."
+    },
+    "effect": {
+     "fame": 2,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2022_stadia_end_any",
+    "text": {
+     "ja": "ゲームの窓口がまるごと終わると知った。念のため、自分の作品の画面を全部撮っておいた。8 枚で終わった。",
+     "en": "An entire game platform is shutting down. Just in case, you screenshot every game you've made. It takes eight shots."
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "hist"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2023_unity_fee",
+  "year": 2023,
+  "month": 9,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "Unity「Runtime Fee」騒動",
+   "en": "The Unity Runtime Fee uproar"
+  },
+  "news": {
+   "ja": "Unity がインストール数に応じて料金を取る「Runtime Fee」を発表。開発者の強い反発で見直され、2024 年に撤回された。",
+   "en": "Unity announces a per-install \"Runtime Fee.\" Fierce developer backlash forces a revision, and it's scrapped in 2024."
+  },
+  "src": "Unity (ゲームエンジン)",
+  "variants": [
+   {
+    "id": "ev_hs_2023_unity_fee_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "料金の試算をした。無料で配った自作が 3 万回入れられていた。電卓の数字が、貯金を超えた。",
+     "en": "You run the numbers. Your free game has been installed 30,000 times. The calculator shows more than your savings."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2023_fee_move",
+      "label": {
+       "ja": "別のエンジンに乗り換える",
+       "en": "Switch engines"
+      },
+      "effect": {
+       "skill": 5,
+       "hp": -10
+      },
+      "result": {
+       "ja": "3 か月かけて移した。移し終えた週、料金は見直された。",
+       "en": "The move takes three months. The week you finish, the fee is revised."
+      }
+     },
+     {
+      "id": "ch_hs_2023_fee_wait",
+      "label": {
+       "ja": "様子を見る",
+       "en": "Wait and see"
+      },
+      "effect": {
+       "passion": -5
+      },
+      "result": {
+       "ja": "毎朝、ニュースを開くのが日課になった。",
+       "en": "Checking the news every morning becomes your routine."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "indie",
+     "engine"
+    ]
+   },
+   {
+    "id": "ev_hs_2023_unity_fee_dev_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "全社でエンジンの乗り換え会議。3 年分の資産をどうするか、誰も答えられないうちに料金が見直された。",
+     "en": "A company-wide meeting on switching engines. Before anyone can say what to do with three years of assets, the fee is revised."
+    },
+    "effect": {
+     "passion": -5,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "engine"
+    ]
+   },
+   {
+    "id": "ev_hs_2023_unity_fee_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "週末、別のエンジンの入門書を買った。月曜、料金は見直された。入門書は枕になった。",
+     "en": "Over the weekend, you buy a beginner's book for another engine. Monday, the fee is revised. The book becomes a pillow."
+    },
+    "effect": {
+     "skill": 3,
+     "money": -1
+    },
+    "tag": [
+     "hist",
+     "engine",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2023_unity_fee_any",
+    "text": {
+     "ja": "取引先から「うちのゲーム、何かお金かかります?」と電話。答えを知っている人は、まだ世界のどこにもいなかった。",
+     "en": "A client calls: \"Is our game going to cost us something?\" Nobody in the world knows the answer yet."
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "engine"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2023_layoffs",
+  "year": 2023,
+  "until": 2024,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "ゲーム業界の大量レイオフ",
+   "en": "Mass layoffs across the game industry"
+  },
+  "news": {
+   "ja": "世界のゲーム業界で大規模なレイオフが続き、2023 年だけで 1 万人以上が職を失ったとされる。",
+   "en": "Large-scale layoffs sweep the global game industry; over 10,000 people are estimated to have lost jobs in 2023 alone."
+  },
+  "src": "https://www.videogameschronicle.com/news/over-5000-games-industry-workers-have-already-lost-their-jobs-in-2024/",
+  "variants": [
+   {
+    "id": "ev_hs_2023_layoffs_abroad",
+    "when": [
+     "pos=abroad"
+    ],
+    "text": {
+     "ja": "月曜の朝、社員証がゲートを通らなかった。15 分後にメール。帰りに、会社のボールペンを 3 本もらって帰った。",
+     "en": "Monday morning, your badge won't open the gate. The email comes 15 minutes later. On the way out, you pocket three company pens."
+    },
+    "effect": {
+     "passion": -10,
+     "network": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "tag": [
+     "hist",
+     "abroad",
+     "job",
+     "petty"
+    ]
+   },
+   {
+    "id": "ev_hs_2023_layoffs_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "本社から「人員を 1 割減らせ」。名簿を上から数えたら、自分がちょうど 1 割目だった。そっと下から数え直した。",
+     "en": "HQ orders a ten percent cut. Counting down the roster, you land exactly on your own name. You quietly recount from the bottom."
+    },
+    "effect": {
+     "passion": -10,
+     "network": -5
+    },
+    "tag": [
+     "hist",
+     "job"
+    ]
+   },
+   {
+    "id": "ev_hs_2023_layoffs_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "海外のスタジオが減った分、日本の下請けに仕事が流れてきた。皮肉にも、今年は忙しい。",
+     "en": "With studios abroad shrinking, work flows to subcontractors in Japan. Ironically, it's a busy year."
+    },
+    "effect": {
+     "money": 30,
+     "hp": -8
+    },
+    "tag": [
+     "hist",
+     "work"
+    ]
+   },
+   {
+    "id": "ev_hs_2023_layoffs_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "解雇された海外の作り手たちが、次々と 1 人で作り始めた。ストアのライバルが全員ベテランになった。",
+     "en": "Laid-off developers abroad start going solo, one after another. Every rival on the store is now a veteran."
+    },
+    "effect": {
+     "passion": -5,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "indie"
+    ]
+   },
+   {
+    "id": "ev_hs_2023_layoffs_any",
+    "text": {
+     "ja": "SNS で、海外の作り手が「仕事を探しています」と書いていた。思わず「うちに来ませんか」と送った。採用の権限は無い。",
+     "en": "A developer abroad posts, \"Looking for work.\" Before you know it, you reply, \"Join us!\" You have no hiring authority."
+    },
+    "effect": {
+     "passion": -3,
+     "network": 2
+    },
+    "tag": [
+     "hist"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2024_palworld",
+  "year": 2024,
+  "month": 1,
+  "kind": "hit",
+  "weight": 3,
+  "title": {
+   "ja": "『パルワールド』早期アクセス開始",
+   "en": "Palworld enters early access"
+  },
+  "news": {
+   "ja": "ポケットペアの『パルワールド』が 1 月 19 日に早期アクセスを開始。1 か月ほどで 2,500 万人が遊ぶ大ヒットに。",
+   "en": "Pocketpair's Palworld enters early access on January 19 and draws about 25 million players within a month."
+  },
+  "src": "パルワールド",
+  "variants": [
+   {
+    "id": "ev_hs_2024_palworld_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "小さな会社のゲームが世界を席巻した。「自分も」と思った夜と、「自分には」と思った朝が交互に来た。",
+     "en": "A small studio's game takes over the world. Nights of \"I could too\" alternate with mornings of \"not me.\""
+    },
+    "effect": {
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "indie"
+    ]
+   },
+   {
+    "id": "ev_hs_2024_palworld_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員会で「なぜうちは思いつかなかった」。思いついた人は 3 年前、企画会議で笑われていた。",
+     "en": "Board meeting: \"Why didn't we think of this?\" Someone did, three years ago. They were laughed out of the planning meeting."
+    },
+    "effect": {
+     "passion": -3,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2024_palworld_skill",
+    "when": [
+     "stat.skill>=60"
+    ],
+    "text": {
+     "ja": "海外の取材で「あの手のゲームの元祖は?」と聞かれた。15 年前の自分の作品の名前を言ってみた。記者は知っていた。",
+     "en": "A foreign reporter asks, \"What started this kind of game?\" You name your own game from 15 years ago. The reporter knows it."
+    },
+    "effect": {
+     "passion": 10,
+     "fame": 5
+    },
+    "tag": [
+     "hist",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2024_palworld_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "企画書に「〇〇ワールド」と名の付くものが 4 本来た。全部、1 か月後に消えた。",
+     "en": "Four pitches come in with \"World\" in the title. All of them vanish a month later."
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2024_palworld_any",
+    "text": {
+     "ja": "甥が夢中でモンスターと拠点を作るゲームの話をしていた。説明を聞くうちに、自分も遊んでいた。",
+     "en": "Your nephew can't stop talking about a game where you build bases with monsters. Halfway through his explanation, you're playing too."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "family"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2024_patent",
+  "year": 2024,
+  "month": 9,
+  "until": 2025,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "任天堂などが『パルワールド』の開発元を特許で提訴",
+   "en": "Nintendo and The Pokémon Company sue Palworld's developer over patents"
+  },
+  "news": {
+   "ja": "任天堂と株式会社ポケモンが 9 月 19 日、『パルワールド』の開発元を特許権侵害で東京地裁に提訴した。",
+   "en": "On September 19, Nintendo and The Pokémon Company sue Palworld's developer for patent infringement in the Tokyo District Court."
+  },
+  "src": "パルワールド",
+  "variants": [
+   {
+    "id": "ev_hs_2024_patent_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "社内に特許の勉強会ができた。「投げて捕まえる」仕組みを書くたび、法務の人が後ろに立つようになった。",
+     "en": "Patent study sessions start at work. Every time you code a \"throw to capture\" mechanic, someone from legal stands behind you."
+    },
+    "effect": {
+     "passion": -5,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2024_patent_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "自社の特許の棚卸しが始まった。20 年前の自分の名前の特許が見つかった。中身を覚えていなかった。",
+     "en": "The company audits its patents. You find one with your name on it from 20 years ago. You don't remember what it's for."
+    },
+    "effect": {
+     "fame": 3
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2024_patent_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "自作の仕組みが、どこかの特許に似ていないか一晩調べた。調べ終わると朝で、何も作っていなかった。",
+     "en": "You spend a night checking whether your mechanics resemble any patent. By the time you finish, it's morning and you've built nothing."
+    },
+    "effect": {
+     "passion": -5,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "indie"
+    ]
+   },
+   {
+    "id": "ev_hs_2024_patent_any",
+    "text": {
+     "ja": "ニュースで「特許」と聞いた母が「あんたも何か持ってるの?」。持っているのは社員証だけだ。",
+     "en": "Hearing \"patent\" on the news, Mom asks, \"Do you own any?\" All you own is an employee badge."
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2025_switch2",
+  "year": 2025,
+  "month": 6,
+  "until": 2026,
+  "kind": "hardware",
+  "weight": 3,
+  "title": {
+   "ja": "Nintendo Switch 2 発売",
+   "en": "Nintendo Switch 2 launches"
+  },
+  "news": {
+   "ja": "任天堂が 6 月 5 日に Nintendo Switch 2 を発売。発売から 4 日で世界 350 万台を売った。",
+   "en": "Nintendo launches the Switch 2 on June 5, selling 3.5 million units worldwide in four days."
+  },
+  "src": "Nintendo Switch 2",
+  "variants": [
+   {
+    "id": "ev_hs_2025_switch2_side_3ds",
+    "when": [
+     "flag.hiv_side_3ds"
+    ],
+    "text": {
+     "ja": "3DS の頃から任天堂の機械で出し続けてきた。新しい機械のロンチ一覧に、また自分の会社の名前があった。",
+     "en": "You've shipped on Nintendo hardware since the 3DS days. Your company's name is on the launch lineup again."
+    },
+    "effect": {
+     "fame": 5,
+     "network": 5
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2025_switch2_celeb",
+    "when": [
+     "stat.fame>=40",
+     "works>=1"
+    ],
+    "text": {
+     "ja": "発表会で、のちに伝説と呼ばれるゲームデザイナーに「あれ遊びましたよ」と言われた。{work} のことだった。3 日眠れなかった。",
+     "en": "At the reveal, a game designer who'll be called a legend tells you, \"I played that one.\" They mean {work}. You don't sleep for three days."
+    },
+    "effect": {
+     "passion": 12,
+     "fame": 5
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2025_switch2_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "「ロンチに間に合わせろ」。この業界で何度聞いた言葉だろう。カレンダーの 6 月に赤い丸が付いた。",
+     "en": "\"Make the launch.\" How many times have you heard that in this business? A red circle appears on June."
+    },
+    "effect": {
+     "hp": -10,
+     "fame": 5
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_2025_switch2_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "前の機械向けと新しい機械向けの移植が同時に来た。同じゲームを、同じ月に 2 回納品した。",
+     "en": "Ports for the old machine and the new one arrive together. You deliver the same game twice in one month."
+    },
+    "effect": {
+     "money": 30,
+     "hp": -8
+    },
+    "tag": [
+     "hist",
+     "work"
+    ]
+   },
+   {
+    "id": "ev_hs_2025_switch2_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもに毎日「抽選、当たった?」と聞かれる。作る側にも、抽選は平等だった。",
+     "en": "Every day your kid asks, \"Did you win the lottery?\" Even for game makers, the lottery is fair."
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2025_switch2_any",
+    "text": {
+     "ja": "抽選に当たった。前の機械のソフトも遊べる。棚の古いカートリッジが、少しうれしそうに見えた。",
+     "en": "You win the lottery. It plays your old games too. The old cartridges on your shelf look a little happier."
+    },
+    "effect": {
+     "passion": 5,
+     "money": -5
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2026_8billion",
+  "year": 2026,
+  "month": 10,
+  "kind": "hit",
+  "weight": 2,
+  "title": {
+   "ja": "『80億分の1』が世界で流行",
+   "en": "\"1 in 8 Billion\" goes viral worldwide"
+  },
+  "news": {
+   "ja": "統計で生まれ方が決まる人生シミュレーション『80億分の1』が公開され、SNS で話題に。AI を使い約 4 時間で作られたとされる。",
+   "en": "\"1 in 8 Billion,\" a life sim where statistics decide your birth, goes viral on social media. It was reportedly built with AI in about four hours."
+  },
+  "src": "https://automaton-media.com/articles/newsjp/20261013-473180/",
+  "variants": [
+   {
+    "id": "ev_hs_2026_8billion_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "4 時間で作られた人生ゲームが世界でバズった。うちのチームの企画会議は、今日で 4 か月目だ。",
+     "en": "A life game made in four hours goes viral worldwide. Your team's planning meetings enter their fourth month today."
+    },
+    "effect": {
+     "passion": -8
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2026_8billion_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "4 時間でバズった作品を見て、自分も 4 時間で何か作った。ちょうど 4 時間分の反応があった。",
+     "en": "Inspired by the four-hour hit, you make something in four hours too. It gets exactly four hours' worth of attention."
+    },
+    "effect": {
+     "passion": 3,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "indie",
+     "ai",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2026_8billion_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "昼休みに 4 時間の人生ゲームを遊んだら、同僚も全員遊んでいた。全員が、自分の人生の方が面白いと言い張った。",
+     "en": "You play the four-hour life game at lunch. So does everyone else. Each insists their own life is more interesting."
+    },
+    "effect": {
+     "passion": 5,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2026_8billion_age",
+    "when": [
+     "age>=50"
+    ],
+    "text": {
+     "ja": "人生を引くゲームを 3 回やった。3 回とも、ゲーム会社に入る人生は引けなかった。自分の人生は案外珍しい。",
+     "en": "You roll three lives. Not one of them ends up in a game company. Your own life is rarer than you thought."
+    },
+    "effect": {
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2026_8billion_any",
+    "text": {
+     "ja": "ゲームで別の国に生まれ、別の人生を 10 分で終えた。画面を閉じ、自分の人生の続きの仕様書を開いた。",
+     "en": "In a game, you're born in another country and live another life in ten minutes. You close it and open the spec for the rest of yours."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2027_ai_debug",
+  "year": 2027,
+  "until": 2028,
+  "kind": "future",
+  "weight": 3,
+  "title": {
+   "ja": "AI がデバッグの大半を担う(架空)",
+   "en": "AI takes over most debugging (fiction)"
+  },
+  "news": {
+   "ja": "(架空)大手各社が、テストプレイとバグ報告の大半を AI に任せ始める。",
+   "en": "(Fiction) Major studios begin handing most playtesting and bug reporting to AI."
+  },
+  "src": "架空",
+  "variants": [
+   {
+    "id": "ev_hs_2027_ai_debug_qa",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "AI が 1 晩で 4 万件のバグ票を出した。自分の仕事は、その中から「人間が気にするもの」を選ぶことになった。",
+     "en": "The AI files 40,000 bug reports overnight. Your new job: pick out the ones a human would actually care about."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2027_qa_stay",
+      "label": {
+       "ja": "選ぶ係を続ける",
+       "en": "Stay on as the picker"
+      },
+      "effect": {
+       "skill": 5,
+       "passion": -5
+      },
+      "result": {
+       "ja": "1 日 4 万件を「気にしない」に振り分けた。押すボタンは 1 つだけだった。",
+       "en": "You sort 40,000 a day into \"don't care.\" There is only one button."
+      }
+     },
+     {
+      "id": "ch_hs_2027_qa_move",
+      "label": {
+       "ja": "企画の席に移る",
+       "en": "Move to game design"
+      },
+      "effect": {
+       "passion": 8,
+       "money": -20,
+       "job": "planner"
+      },
+      "result": {
+       "ja": "給料は下がった。初めて、自分のバグを自分で作る側になった。",
+       "en": "Your pay drops. For the first time, you're the one creating the bugs."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "ai",
+     "future"
+    ]
+   },
+   {
+    "id": "ev_hs_2027_ai_debug_sub",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "デバッグの受託が全部止まった。元請けいわく「AI が夜のうちに」。空いた机 20 個で、社長が卓球を始めた。",
+     "en": "All QA contracts stop. The client: \"The AI does it overnight.\" On the twenty empty desks, the boss starts playing ping-pong."
+    },
+    "effect": {
+     "money": -30,
+     "passion": -8
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future"
+    ]
+   },
+   {
+    "id": "ev_hs_2027_ai_debug_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "マスターアップ前の徹夜が消えた。代わりに、AI が出した「直すべきか迷う」の山を前に、毎晩 1 人で迷った。",
+     "en": "No more all-nighters before gold master. Instead, every night you agonize alone over the AI's pile of \"unsure if worth fixing.\""
+    },
+    "effect": {
+     "hp": 8,
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future"
+    ]
+   },
+   {
+    "id": "ev_hs_2027_ai_debug_any",
+    "text": {
+     "ja": "昔のデバッグ部屋にはカップ麺の匂いがあった。こっそり持ち込んだら、AI が「異臭」とバグ票を切った。",
+     "en": "The old QA room smelled of instant noodles. You sneak one in, and the AI files a bug report: \"Foreign odor.\""
+    },
+    "effect": {
+     "passion": -2
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2028_glass_war",
+  "year": 2028,
+  "until": 2029,
+  "kind": "future",
+  "weight": 2,
+  "title": {
+   "ja": "眼鏡型ゲーム機と据え置き機の新戦争(架空)",
+   "en": "A new war: game glasses vs. home consoles (fiction)"
+  },
+  "news": {
+   "ja": "(架空)眼鏡のようにかける新しいゲーム機が出て、据え置き機の陣営と市場を二分する。",
+   "en": "(Fiction) A new game machine you wear like glasses splits the market with the home-console camp."
+  },
+  "src": "架空",
+  "variants": [
+   {
+    "id": "ev_hs_2028_glass_war_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員会で「次は眼鏡か、箱か」。どちらの陣営も、うちに独占の契約書を持ってきた。",
+     "en": "Board meeting: \"Glasses or the box?\" Both camps have brought you exclusive contracts."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2028_cl_glass",
+      "label": {
+       "ja": "眼鏡に賭ける",
+       "en": "Bet on the glasses"
+      },
+      "effect": {
+       "passion": 8,
+       "hp": -5,
+       "flag": {
+        "hiv_side_glass": true
+       }
+      },
+      "result": {
+       "ja": "試作をかけて会議に出たら、役員の顔の上にメニューが重なった。",
+       "en": "You wear the prototype to the meeting. A menu floats over the executives' faces."
+      }
+     },
+     {
+      "id": "ch_hs_2028_cl_box",
+      "label": {
+       "ja": "据え置きを選ぶ",
+       "en": "Stick with the box"
+      },
+      "effect": {
+       "money": 30,
+       "flag": {
+        "hiv_side_box": true
+       }
+      },
+      "result": {
+       "ja": "箱の陣営は、手付金を先に振り込んでくれた。",
+       "en": "The box camp pays the deposit up front."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "hardware",
+     "future"
+    ]
+   },
+   {
+    "id": "ev_hs_2028_glass_war_dev_lead",
+    "when": [
+     "pos=dev_lead"
+    ],
+    "text": {
+     "ja": "眼鏡の陣営から試作機が 10 台届いた。チームの半分は酔い、半分は帰ってこなかった。",
+     "en": "Ten prototype glasses arrive from the glasses camp. Half the team gets motion sick; the other half never takes them off."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_2028_dl_glass",
+      "label": {
+       "ja": "眼鏡で作る",
+       "en": "Build for glasses"
+      },
+      "effect": {
+       "skill": 5,
+       "passion": 5,
+       "flag": {
+        "hiv_side_glass": true
+       }
+      },
+      "result": {
+       "ja": "会社の床に、見えない宝箱が 40 個置かれた。",
+       "en": "Forty invisible treasure chests now sit on the office floor."
+      }
+     },
+     {
+      "id": "ch_hs_2028_dl_box",
+      "label": {
+       "ja": "箱で作る",
+       "en": "Build for the box"
+      },
+      "effect": {
+       "money": 20,
+       "flag": {
+        "hiv_side_box": true
+       }
+      },
+      "result": {
+       "ja": "試作機 10 台は、社長の老眼鏡の隣に並べられた。",
+       "en": "The ten prototypes end up next to the boss's reading glasses."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "hardware",
+     "future"
+    ]
+   },
+   {
+    "id": "ev_hs_2028_glass_war_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "孫に新しい眼鏡のゲーム機をかけてもらった。景色の中で、30 年前の自分の作品のキャラが手を振った。",
+     "en": "Your grandkid puts the new game glasses on you. In the scenery, a character from your game 30 years ago waves at you."
+    },
+    "effect": {
+     "passion": 8
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "family",
+     "future"
+    ]
+   },
+   {
+    "id": "ev_hs_2028_glass_war_any",
+    "text": {
+     "ja": "電車の乗客の半分が眼鏡をかけて、何もない空中を指でつついていた。昔、みんなが下を向いていた頃が懐かしい。",
+     "en": "Half the train wears game glasses and pokes at thin air. You miss the days when everyone just stared down at their phones."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "future"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2029_all_ai",
+  "year": 2029,
+  "kind": "future",
+  "weight": 3,
+  "title": {
+   "ja": "「全部 AI」の大作が炎上(架空)",
+   "en": "The \"all-AI\" blockbuster sparks outrage (fiction)"
+  },
+  "news": {
+   "ja": "(架空)企画から絵・音・コードまで「全部 AI で作った」大作が発売され、大きな炎上になる。",
+   "en": "(Fiction) A blockbuster made \"entirely by AI\"—design, art, sound, and code—launches to a massive backlash."
+  },
+  "src": "架空",
+  "variants": [
+   {
+    "id": "ev_hs_2029_all_ai_early",
+    "when": [
+     "flag.hiv_ai_early"
+    ],
+    "text": {
+     "ja": "炎上記事に、7 年前の自分のインタビューが引用された。「AI で背景を試しています」。小さく太字だった。",
+     "en": "An article about the backlash quotes your interview from seven years ago: \"We're testing AI for backgrounds.\" In small bold type."
+    },
+    "effect": {
+     "fame": -8,
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future"
+    ]
+   },
+   {
+    "id": "ev_hs_2029_all_ai_human",
+    "when": [
+     "flag.hiv_human_only"
+    ],
+    "text": {
+     "ja": "「人の手で描き続けた会社」として取材が 3 件来た。7 年前に削った鉛筆が、写真の真ん中に置かれた。",
+     "en": "Three interviews come in about \"the studio that kept drawing by hand.\" The pencil you sharpened seven years ago is centered in the photo."
+    },
+    "effect": {
+     "fame": 8,
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2029_all_ai_celeb",
+    "when": [
+     "stat.fame>=40"
+    ],
+    "text": {
+     "ja": "討論番組に呼ばれ、国民的 RPG の作曲家の隣に座った。「人間の味方」役として、終始うなずいた。",
+     "en": "You're booked on a TV debate, seated next to the composer of the nation's biggest RPG. Playing \"the human side,\" you mostly nod."
+    },
+    "effect": {
+     "fame": 5,
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2029_all_ai_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "炎上した大作のクレジットは 1 行だけだった。うちの新作のクレジットは 400 行。誰も最後まで見なかった。",
+     "en": "The infamous blockbuster's credits are one line long. Your new game's are 400 lines. Nobody watches to the end."
+    },
+    "effect": {
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2029_all_ai_any",
+    "text": {
+     "ja": "全部 AI の大作は炎上で 1 億回話題になった。同じ週に出た自分の新作は、炎上すらしなかった。",
+     "en": "The all-AI blockbuster gets talked about 100 million times. Your game, out the same week, couldn't even get a backlash."
+    },
+    "effect": {
+     "passion": -5
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2030_human_label",
+  "year": 2030,
+  "until": 2031,
+  "kind": "future",
+  "weight": 2,
+  "title": {
+   "ja": "「人間が作った」ラベルが売り文句に(架空)",
+   "en": "\"Made by Humans\" labels become a selling point (fiction)"
+  },
+  "news": {
+   "ja": "(架空)「人間が作った」と認められたゲームにラベルが付き、売り文句になる。",
+   "en": "(Fiction) Games certified as human-made get a label, and it becomes a selling point."
+  },
+  "src": "架空",
+  "variants": [
+   {
+    "id": "ev_hs_2030_human_label_human",
+    "when": [
+     "flag.hiv_human_only"
+    ],
+    "text": {
+     "ja": "審査のため、2 年分の作業風景の録画を提出した。そこには、寝落ちする自分が 300 回映っていた。",
+     "en": "For certification, you submit two years of footage of your work. It shows you nodding off 300 times."
+    },
+    "effect": {
+     "fame": 5,
+     "money": 50
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future",
+     "gag",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2030_human_label_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "1 人で作った自作にラベルが付いた。売上は 3 倍。ただ、審査料が売上の半分だった。",
+     "en": "Your solo game earns the label. Sales triple. The certification fee eats half of them."
+    },
+    "effect": {
+     "fame": 5,
+     "money": 20,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "indie",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2030_human_label_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "ラベルのために、AI に作らせた部分を人が描き直すことになった。人が描いたように見える AI の絵を、人が真似して描いた。",
+     "en": "To earn the label, humans must redraw the AI parts. People trace AI art that was made to look human-drawn."
+    },
+    "effect": {
+     "hp": -10,
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2030_human_label_any",
+    "text": {
+     "ja": "スーパーで「人間が作った」シールの付いたゲームを見た。隣の棚の野菜には「生産者の顔」が付いていた。",
+     "en": "At the supermarket you see a game with a \"Made by Humans\" sticker. The vegetables next to it show the farmer's face."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "future",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2031_reappraisal",
+  "year": 2031,
+  "until": 2032,
+  "kind": "future",
+  "weight": 2,
+  "title": {
+   "ja": "「全部 AI」の大作が再評価される(架空)",
+   "en": "The all-AI blockbuster is reappraised (fiction)"
+  },
+  "news": {
+   "ja": "(架空)炎上した「全部 AI」の大作が、数年たって「逆にすごい」と再評価される。",
+   "en": "(Fiction) A few years on, the infamous all-AI blockbuster is reappraised as \"weirdly great.\""
+  },
+  "src": "架空",
+  "variants": [
+   {
+    "id": "ev_hs_2031_reappraisal_early",
+    "when": [
+     "flag.hiv_ai_early"
+    ],
+    "text": {
+     "ja": "2 年前に炎上記事で引用された自分のインタビューが、今度は「先見の明」として引用された。同じ文章だった。",
+     "en": "The interview quoted in that backlash article two years ago is quoted again—this time as \"visionary.\" Same exact words."
+    },
+    "effect": {
+     "fame": 8,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future",
+     "gag",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2031_reappraisal_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "役員が「やはり AI だ」と言った。2 年前に「やはり人だ」と言った人と、同じ人だった。",
+     "en": "An exec declares, \"AI was the answer after all.\" Same person who said \"humans after all\" two years ago."
+    },
+    "effect": {
+     "passion": -3
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2031_reappraisal_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "業界の外から見ていると、褒める人と怒る人が 2 年ごとに入れ替わっていた。自分が辞めた理由も、たぶんそれだった。",
+     "en": "From outside the industry, you watch praise and outrage swap places every two years. That's probably why you left, too."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "future"
+    ]
+   },
+   {
+    "id": "ev_hs_2031_reappraisal_any",
+    "text": {
+     "ja": "あの大作をセールで買って遊んだ。確かに面白かった。くやしいので、誰にも言わなかった。",
+     "en": "You buy that blockbuster on sale and play it. It's genuinely good. Out of spite, you tell no one."
+    },
+    "effect": {
+     "passion": 2,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2032_creators",
+  "year": 2032,
+  "until": 2033,
+  "kind": "future",
+  "weight": 2,
+  "title": {
+   "ja": "ゲームの作り手が 1500 万人に(架空)",
+   "en": "Game creators reach 15 million (fiction)"
+  },
+  "news": {
+   "ja": "(架空)AI の道具が行き渡り、ゲームを作って公開した人が世界で 1500 万人を超える。",
+   "en": "(Fiction) With AI tools everywhere, people who've made and released a game pass 15 million worldwide."
+  },
+  "src": "架空",
+  "variants": [
+   {
+    "id": "ev_hs_2032_creators_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "同業者が 1500 万人になった。新作はその日に出た 9 万本の 1 本。母が買ってくれた。9 万本から見つけたらしい。",
+     "en": "15 million creators now. Your new game is one of 90,000 released that day. Mom bought it. She found it among 90,000."
+    },
+    "effect": {
+     "passion": 3,
+     "network": 1
+    },
+    "tag": [
+     "hist",
+     "indie",
+     "future"
+    ]
+   },
+   {
+    "id": "ev_hs_2032_creators_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "新卒採用の面接で、全員が「自作が 30 本あります」と言った。自分は 20 年で 9 本だ。",
+     "en": "At graduate interviews, every candidate says, \"I've made 30 games.\" You've made nine in twenty years."
+    },
+    "effect": {
+     "passion": -3,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2032_creators_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもが自分で作ったゲームを見せてくれた。遊び終えると、改善点を 3 つ聞かれた。仕事より緊張した。",
+     "en": "Your kid shows you a game they made. After you play, they ask for three improvements. You're more nervous than at work."
+    },
+    "effect": {
+     "passion": 8,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "future",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2032_creators_any",
+    "text": {
+     "ja": "母がゲームを作った。親戚 14 人に遊ばれ、全員から感想が届いた。自分の作品には一度も届いていない。",
+     "en": "Mom made a game. Fourteen relatives played it and every one sent feedback. Yours never got any."
+    },
+    "effect": {
+     "passion": -2,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "future",
+     "gag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2033_ai_remake",
+  "year": 2033,
+  "until": 2036,
+  "kind": "future",
+  "weight": 3,
+  "title": {
+   "ja": "昔のゲームの AI リメイクが当たり前に(架空)",
+   "en": "AI remakes of old games become routine (fiction)"
+  },
+  "news": {
+   "ja": "(架空)昔のゲームを AI がリメイクするのが当たり前になる。原作者の欄は空欄のまま。",
+   "en": "(Fiction) AI remakes of old games become routine. The original-creator field stays blank."
+  },
+  "src": "架空",
+  "variants": [
+   {
+    "id": "ev_hs_2033_ai_remake_outside",
+    "when": [
+     "pos=outside",
+     "works>=1"
+    ],
+    "text": {
+     "ja": "引退後、孫が「おじいちゃんのゲーム」を見せてくれた。{work} の AI リメイクだった。原作者の欄は空欄だった。",
+     "en": "After you retire, your grandkid shows you \"your game.\" It's an AI remake of {work}. The original-creator field is blank."
+    },
+    "allow": [],
+    "choices": [
+     {
+      "id": "ch_hs_2033_remake_claim",
+      "label": {
+       "ja": "名乗り出る",
+       "en": "Come forward"
+      },
+      "effect": {
+       "fame": 10,
+       "hp": -5
+      },
+      "result": {
+       "ja": "書き込みは 3 件の「いいね」。1 件は孫だった。",
+       "en": "Your post gets three likes. One is from your grandkid."
+      }
+     },
+     {
+      "id": "ch_hs_2033_remake_quiet",
+      "label": {
+       "ja": "黙って遊ぶ",
+       "en": "Just play quietly"
+      },
+      "effect": {
+       "passion": 8
+      },
+      "result": {
+       "ja": "35 年前に入れた隠しコマンドが、まだ効いた。",
+       "en": "The secret code you hid 35 years ago still works."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "choice",
+     "ai",
+     "future",
+     "afterlife"
+    ]
+   },
+   {
+    "id": "ev_hs_2033_ai_remake_celeb",
+    "when": [
+     "stat.fame>=50"
+    ],
+    "text": {
+     "ja": "AI リメイクの発表会に「原作の人」として呼ばれた。壇上の席は、のちに世界的に有名になるデザイナーの隣。名札は手書きだった。",
+     "en": "You're invited to an AI remake's launch as \"the original creator.\" Your seat is next to a designer soon to be world-famous. Your name tag is handwritten."
+    },
+    "effect": {
+     "fame": 8,
+     "passion": 8
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2033_ai_remake_works",
+    "when": [
+     "works>=3"
+    ],
+    "text": {
+     "ja": "{work} が AI でリメイクされて売れた。社員だったので、1 円も入らない。2 回目なので、もう驚かない。",
+     "en": "{work} gets an AI remake and sells well. You were an employee, so you get nothing. Second time now; you're not even surprised."
+    },
+    "effect": {
+     "passion": -3,
+     "fame": 3
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2033_ai_remake_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "自作を AI が勝手にリメイクしていた。原作より評価が高かった。感想欄に「原作は粗い」と書かれていた。",
+     "en": "Someone's AI remade your game without asking. It's rated higher than the original. A review says, \"The original is rough.\""
+    },
+    "effect": {
+     "passion": -8,
+     "fame": 3
+    },
+    "tag": [
+     "hist",
+     "indie",
+     "ai",
+     "future"
+    ]
+   },
+   {
+    "id": "ev_hs_2033_ai_remake_any",
+    "text": {
+     "ja": "子どもの頃に遊んだゲームの AI リメイクを遊んだ。きれいになっていたが、あの頃のバグまで直っていて少し寂しかった。",
+     "en": "You play an AI remake of a game from your childhood. It's gorgeous, but they fixed the old bugs, and you miss them a little."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "ai",
+     "future"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2035_glass_end",
+  "year": 2035,
+  "until": 2036,
+  "kind": "future",
+  "weight": 2,
+  "title": {
+   "ja": "眼鏡と箱の戦争に決着(架空)",
+   "en": "The glasses-vs-box war ends (fiction)"
+  },
+  "news": {
+   "ja": "(架空)眼鏡型ゲーム機が若い世代を取り、据え置き機は「家族の箱」として残る形で、新戦争が落ち着く。",
+   "en": "(Fiction) The new console war settles: game glasses win the young, and the box survives as \"the family machine.\""
+  },
+  "src": "架空",
+  "variants": [
+   {
+    "id": "ev_hs_2035_glass_end_glass",
+    "when": [
+     "flag.hiv_side_glass"
+    ],
+    "text": {
+     "ja": "眼鏡に賭けて正解だった。ただ、自分の老眼が進み、自分の作ったゲームの文字が読めなくなっていた。",
+     "en": "Betting on the glasses paid off. But your eyesight has aged, and you can no longer read the text in your own game."
+    },
+    "effect": {
+     "fame": 10,
+     "passion": 5,
+     "hp": -3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "future",
+     "gag",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2035_glass_end_box",
+    "when": [
+     "flag.hiv_side_box"
+    ],
+    "text": {
+     "ja": "据え置きは「家族の箱」になった。正月、親戚 12 人が自分の作ったゲームの前に集まった。初めて自慢できた。",
+     "en": "The box becomes \"the family machine.\" At New Year's, twelve relatives gather around your game. You finally get to brag."
+    },
+    "effect": {
+     "network": 8,
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "family",
+     "future",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2035_glass_end_age",
+    "when": [
+     "age>=60"
+    ],
+    "text": {
+     "ja": "孫に眼鏡のゲーム機を勧められた。かけたまま 5 分で眠った。夢の中まで、ゲームの続きだった。",
+     "en": "Your grandkid hands you the game glasses. You fall asleep in five minutes with them on. The game continues in your dream."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": 2
+    },
+    "tag": [
+     "hist",
+     "family",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2035_glass_end_any",
+    "text": {
+     "ja": "ハードの戦争はまた終わった。勝った陣営も負けた陣営も、次の戦争の企画書をもう書いていた。",
+     "en": "Another console war ends. Winners and losers alike are already writing pitches for the next one."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "future"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2037_school",
+  "year": 2037,
+  "until": 2038,
+  "kind": "future",
+  "weight": 1,
+  "title": {
+   "ja": "ゲームづくりが小学校の必修に(架空)",
+   "en": "Game-making becomes required in elementary school (fiction)"
+  },
+  "news": {
+   "ja": "(架空)小学校で、ゲームを作って発表する授業が必修になる。",
+   "en": "(Fiction) Making and presenting a game becomes a required elementary school subject."
+  },
+  "src": "架空",
+  "variants": [
+   {
+    "id": "ev_hs_2037_school_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "孫の小学校に「昔のゲームクリエイター」として呼ばれた。仕様変更の話をしたら、一番うけた。",
+     "en": "Your grandkid's school invites you as a \"game creator from the old days.\" Your story about spec changes gets the biggest laugh."
+    },
+    "effect": {
+     "fame": 5,
+     "passion": 8
+    },
+    "tag": [
+     "hist",
+     "family",
+     "future",
+     "gag",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2037_school_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "教科書会社から監修の依頼が来た。「締切は守る」の章を担当してほしいという。一番自信の無い章だった。",
+     "en": "A textbook publisher asks you to supervise. They want you on the chapter \"Meeting Deadlines.\" It's the one you're least sure about."
+    },
+    "effect": {
+     "fame": 3,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2037_school_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもの通知表に「ゲームづくり:たいへんよくできました」。自分の人事評価より、ずっと良かった。",
+     "en": "Your kid's report card: \"Game-making: Excellent.\" Far better than any performance review you ever got."
+    },
+    "effect": {
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "family",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2037_school_any",
+    "text": {
+     "ja": "ニュースで、小学生の作ったゲームが紹介された。最初の作品の自分より、ずっとうまかった。",
+     "en": "The news features a game made by a grade-schooler. It's much better than your first game."
+    },
+    "effect": {
+     "passion": -2,
+     "skill": 1
+    },
+    "tag": [
+     "hist",
+     "future"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2038_last_package",
+  "year": 2038,
+  "until": 2039,
+  "kind": "future",
+  "weight": 2,
+  "title": {
+   "ja": "最後のゲームのパッケージ生産が終わる(架空)",
+   "en": "The last physical game package is produced (fiction)"
+  },
+  "news": {
+   "ja": "(架空)国内で最後まで残っていたゲームのパッケージ生産が終わり、すべてがダウンロードになる。",
+   "en": "(Fiction) Japan's last remaining production of physical game packages ends; everything is now downloads."
+  },
+  "src": "架空",
+  "variants": [
+   {
+    "id": "ev_hs_2038_last_package_outside",
+    "when": [
+     "pos=outside",
+     "works>=1"
+    ],
+    "text": {
+     "ja": "押し入れから、{work} のパッケージが出てきた。説明書のスタッフ欄の小さな文字に、自分の名前があった。",
+     "en": "You find the box for {work} in the closet. In the manual's tiny staff credits, there's your name."
+    },
+    "effect": {
+     "passion": 8
+    },
+    "tag": [
+     "hist",
+     "future",
+     "afterlife",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2038_last_package_client_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "最後のパッケージの見本が会社に届いた。マスター ROM を抱えて走った若い頃のことを、少しだけ思い出した。",
+     "en": "A sample of the last physical package arrives. You remember, briefly, running across town clutching a master ROM."
+    },
+    "effect": {
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "future"
+    ]
+   },
+   {
+    "id": "ev_hs_2038_last_package_client",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "最後のパッケージの見本が会社に 10 個届いた。会議室に置いた 10 個が、翌朝 6 個になっていた。",
+     "en": "Ten samples of the last physical package arrive at the office. By the next morning, the meeting room has six."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2038_last_package_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "記念に自作を 100 本だけ箱で刷った。97 本が自分の部屋に残り、部屋は倉庫になった。",
+     "en": "To mark the occasion, you print 100 boxed copies of your game. 97 stay in your room. Your room becomes a warehouse."
+    },
+    "effect": {
+     "money": -20,
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "indie",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2038_last_package_any",
+    "text": {
+     "ja": "最後のパッケージを買いに行った。店員に「何に使うんですか」と聞かれた。飾るためだ。",
+     "en": "You go buy the last physical package. The clerk asks, \"What's it for?\" For display."
+    },
+    "effect": {
+     "passion": 3,
+     "money": -1
+    },
+    "tag": [
+     "hist",
+     "future"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2040_life_game",
+  "year": 2040,
+  "kind": "future",
+  "weight": 2,
+  "title": {
+   "ja": "人生の記録から AI が自伝ゲームを作る時代(架空)",
+   "en": "AI turns your life records into an autobiography game (fiction)"
+  },
+  "news": {
+   "ja": "(架空)人生の記録を渡すと、AI がその人の自伝をゲームにするサービスが広まる。",
+   "en": "(Fiction) Services spread that turn a person's life records into an autobiographical game with AI."
+  },
+  "src": "架空",
+  "variants": [
+   {
+    "id": "ev_hs_2040_life_game_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "自分の人生をゲームにしてもらった。遊び終えるまで 6 分。いちばん長い場面は、仕様変更だった。",
+     "en": "You have your life turned into a game. It takes six minutes to finish. The longest scene is a spec change."
+    },
+    "effect": {
+     "passion": 8,
+     "fame": 3
+    },
+    "tag": [
+     "hist",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2040_life_game_age",
+    "when": [
+     "age>=60"
+    ],
+    "text": {
+     "ja": "自伝ゲームの試作を見た。AI は自分の徹夜の回数を数え間違えていた。実際はその 3 倍だった。",
+     "en": "You see the draft of your autobiography game. The AI miscounted your all-nighters. The real number is triple."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2040_life_game_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもが親の人生のゲームを遊んで、「この選択、間違ってない?」と言った。間違っていた。",
+     "en": "Your kid plays the game of your life and asks, \"Wasn't this choice a mistake?\" It was."
+    },
+    "effect": {
+     "passion": 2,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "family",
+     "future",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2040_life_game_any",
+    "text": {
+     "ja": "知らない人の人生のゲームを遊んだ。ゲーム会社に入り、仕様変更で泣いていた。どこかで見たことがある。",
+     "en": "You play a stranger's life game. They join a game company and cry over spec changes. It looks familiar."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "future",
+     "gag"
+    ]
+   }
+  ]
+ }
+]
