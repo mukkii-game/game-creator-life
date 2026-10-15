@@ -96,6 +96,9 @@ export interface Inner {
   startJob: Job;
   prevJob: Job;
   histDone: string[];
+  pitAt: number; peakAt: number; pitDone: boolean; peakDone: boolean;
+  bondAt: number; bondDone: boolean; // 人生に一度の大物との縁
+  nextBig: number;                     // 次の大きな選択が来る年
   highs: { year: number; age: number; text: Text; w: number }[]; // テンションが上がった瞬間(最後に思い出す)        // この人生で起きた歴史の事件(hs_id)
 }
 

@@ -18,8 +18,11 @@ export const KNOBS: Knob[] = [
   { key: 'hist.second', label: '歴史の事件が 1 年に 2 本来る確率', value: 0.35, min: 0, max: 1, step: 0.05, aim: '毎年 1 本は業界の大事件が自分に降ってくる' },
   { key: 'hist.newBoost', label: 'まだ触れていない事件の出やすさ', value: 4, min: 1, max: 20, step: 0.5, unit: '倍', aim: '何周しても「また同じか」にならない' },
   { key: 'hist.newPosBoost', label: '触れた事件を別の立場で受ける出やすさ', value: 1.5, min: 0.5, max: 10, step: 0.5, unit: '倍', aim: '同じ事件でも立場が違えば別の話になる(適度に混ぜる)' },
+  { key: 'choice.bigMin', label: '大きな選択の間隔(最短)', value: 3, min: 1, max: 10, step: 1, unit: '年', aim: '数年に一回、すごく悩む選択が来る' },
+  { key: 'choice.bigMax', label: '大きな選択の間隔(最長)', value: 5, min: 1, max: 15, step: 1, unit: '年' },
   // 業界入り
   { key: 'gacha.age18', label: '18 歳で入る割合', value: 0.3, min: 0, max: 1, step: 0.05 },
+  { key: 'gacha.age50', label: '50 すぎ(50〜57 歳)で入る割合', value: 0.06, min: 0, max: 0.5, step: 0.01, aim: 'ひいひい言いながらついていく人生' },
   { key: 'gacha.lateBloomer', label: '遅咲き(26〜35 歳)の割合', value: 0.2, min: 0, max: 1, step: 0.05 },
   // 毎年の変化
   { key: 'year.hp', label: '体力の上限の年ごとの下がり', value: 0.8, min: 0, max: 3, step: 0.1, unit: '点/年', aim: '40 歳からは 1.5 倍。70 歳で上限が 50 前後' },

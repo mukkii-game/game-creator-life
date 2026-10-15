@@ -36,6 +36,7 @@ function gachaAge(r: Rng): number {
   const x = r.next();
   if (x < tune('gacha.age18')) return 18;
   if (x < tune('gacha.age18') + tune('gacha.lateBloomer')) return r.int(26, 35);
+  if (x < tune('gacha.age18') + tune('gacha.lateBloomer') + tune('gacha.age50')) return r.int(50, 57); // 50 すぎで業界入り(ひいひい言いながら)
   return 22;
 }
 type Entry = { size: CompanySize; text: Text; w: (age: number, year: number) => number; indie?: boolean };
@@ -46,7 +47,9 @@ const ENTRIES: Entry[] = [
   { size: 'sub', text: { ja: '下請けの開発会社', en: 'contract dev shop' }, w: () => 2.5 },
   { size: 'mid', text: { ja: 'アーケードのメーカー', en: 'arcade maker' }, w: (_a, y) => (y < 2000 ? 2 : 0.3) },
   { size: 'indie', text: { ja: '同人上がり', en: 'from doujin circles' }, w: (a, y) => (y >= 1982 ? (a === 18 ? 1.5 : 0.6) : 0.2), indie: true },
-  { size: 'small', text: { ja: '異業種からの転職組', en: 'career change' }, w: (a) => (a >= 26 ? 5 : 0) },
+  { size: 'small', text: { ja: '異業種からの転職組', en: 'career change' }, w: (a) => (a >= 26 && a < 50 ? 5 : 0) },
+  { size: 'sub', text: { ja: '早期退職からの再出発組', en: 'second career after early retirement' }, w: (a) => (a >= 50 ? 6 : 0) },
+  { size: 'indie', text: { ja: '定年前に一念発起した独学組', en: 'self-taught late starter' }, w: (a) => (a >= 50 ? 2 : 0), indie: true },
   { size: 'abroad', text: { ja: '海外のスタジオ', en: 'overseas studio' }, w: (_a, y) => (y >= 1990 ? 0.6 : 0.2) },
 ];
 const JOBS: [Job, number][] = [['programmer', 30], ['planner', 20], ['artist', 20], ['sound', 7], ['qa', 15], ['sales', 6]];
@@ -76,7 +79,7 @@ export function init(seed: number, options: InitOptions = {}): State {
   const age = options.age ?? gachaAge(r);
   const entry = wpick(r, ENTRIES, (e) => e.w(age, year));
   const job = wpick(r, JOBS, ([, w]) => w)[0];
-  const base = age <= 18 ? [80, 90, 10, 5, 10] : age <= 24 ? [70, 80, 25, 15, 30] : [60, 95, 15, 10, 100];
+  const base = age <= 18 ? [80, 90, 10, 5, 10] : age <= 24 ? [70, 80, 25, 15, 30] : age < 50 ? [60, 95, 15, 10, 100] : [50, 95, 10, 30, 600];
   const company: Company = entry.indie ? { id: 'co_indie_self', name: { ja: '自室', en: 'your bedroom' }, size: 'indie' }
     : peerOf && peerOf.company.size !== 'indie' ? peerOf.company : newCompany(r, entry.size, year);
   const s: State = {
@@ -89,6 +92,9 @@ export function init(seed: number, options: InitOptions = {}): State {
       used: [], seen: {}, uses: {}, queue: [], nextWorkYear: year + r.int(tune('work.everyMin'), tune('work.everyMax')), companyYears: 0, searchFails: 0,
       leftYear: 0, otherJob: null, counts: {}, lastTag: '', choicesMade: 0, peerStates: [], isPeer: !!peerOf, bot: peerOf?.bot ?? '',
       workTarget: -1, startJob: job, prevJob: job, histDone: [], highs: [],
+      // 人生に一度の大挫折と大成功(業界に入って何年目に来るか)
+      pitAt: r.int(2, 12), peakAt: r.int(5, 24), pitDone: false, peakDone: false,
+      bondAt: r.int(3, 18), bondDone: false, nextBig: year + r.int(2, 4),
     },
   };
   if (!peerOf) {
@@ -242,13 +248,27 @@ function beginYear(s: State, out: string[]) {
       else if (!s.inner.used.includes('ev_sys_comeback') && r.chance(tune('job.comeback') + s.stat.network / 400)) sys.push('ev_sys_comeback');
     } else if (s.year > s.inner.leftYear) sys.push('@search');
   }
+  // 人生に一度の大挫折と大成功(当てはまる話が無ければ翌年に持ち越す)
+  const turning: string[] = [];
+  for (const [tag, at, done] of [['pit', 'pitAt', 'pitDone'], ['peak', 'peakAt', 'peakDone'], ['bond', 'bondAt', 'bondDone']] as const) {
+    if (s.inner[done] || s.year - s.startYear < s.inner[at] || s.status === 'left') continue;
+    const pool = POOL.filter((e) => e.tag?.includes(tag) && eligible(s, e));
+    if (!pool.length) continue;
+    s.inner[done] = true;
+    turning.push(draw(r, pool, 1)[0].id);
+  }
+  // 数年に一回の大きな選択(すごく悩むやつ)
+  if (s.year >= s.inner.nextBig && s.status !== 'left') {
+    const pool = POOL.filter((e) => e.tag?.includes('big') && e.choices && eligible(s, e, 99));
+    if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextBig = s.year + r.int(tune<number>('choice.bigMin'), tune<number>('choice.bigMax')); }
+  }
   // 歴史の事件(その年の業界の大事件が、今の立場で自分に降ってくる)
   const hist = pickHist(s);
   // データのイベント
   const n = r.int(tune('life.eventsMin'), tune('life.eventsMax')) - (q.length > 0 ? 1 : 0) - hist.length;
-  const sysChoice = [...sys, ...q, ...hist].some((id) => EVENT_BY_ID.get(id)?.choices);
+  const sysChoice = [...sys, ...q, ...hist, ...turning].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
-  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime));
+  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && !['pit', 'peak', 'bond', 'big'].some((t) => e.tag?.includes(t)));
   let picked = draw(r, pool, Math.max(1, n));
   // 選択は 1 年に 1 本まで、作品の後日談も 1 年に 1 本まで
   let seenChoice = false, seenAfter = false;
@@ -261,7 +281,7 @@ function beginYear(s: State, out: string[]) {
   const rel = q.indexOf('@release');
   if (rel >= 0) { q.splice(rel, 1); ids.splice(r.int(0, ids.length), 0, '@release'); }
   // 歴史の事件は頭に(その年の空気を最初に)
-  s.inner.queue = [...hist, ...q, ...ids, ...sys];
+  s.inner.queue = [...hist, ...turning, ...q, ...ids, ...sys];
 }
 
 /** その年に起きる歴史の事件から、今の立場で受ける版を選ぶ。年表図鑑でまだ触れていない事件・立場ほど出やすい */
@@ -369,7 +389,7 @@ function runItem(s: State, id: string, out: string[]) {
 /** テンションが上がった瞬間を覚えておく(最後の 1 行に使う) */
 function remember(s: State, ev: GameEvent, memory?: Text) {
   const t = ev.tag ?? [];
-  const w = t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
+  const w = t.includes('peak') ? 6 : t.includes('bond') ? 5 : t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
   if (!w) return;
   const first = (x: string, sep: RegExp) => x.split(sep)[0];
   const text = memory ? fill(s, memory) : (() => { const f = fill(s, ev.text); return { ja: first(f.ja, /。/), en: first(f.en, /\. /) }; })();
