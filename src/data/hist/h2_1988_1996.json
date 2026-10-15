@@ -77,6 +77,32 @@
     ]
    },
    {
+    "id": "ev_hs_1988_dq3_celeb",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "発売日の打ち上げに紛れ込んだ。トイレの手洗い場で隣になったのは、国民的 RPG の作曲家だった。ハンカチを貸した。",
+     "en": "You crashed a launch party. At the restroom sink, next to you: the composer of the nation's RPG. You lent him your handkerchief."
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high"
+    ],
+    "memory": {
+     "ja": "国民的 RPG の作曲家にハンカチを貸した",
+     "en": "Lent a handkerchief to the nation's RPG composer"
+    },
+    "allow": [
+     "RPG"
+    ]
+   },
+   {
     "id": "ev_hs_1988_dq3_any",
     "text": {
      "ja": "国民的 RPG の 3 作目で、日本中が行列になった。同じ日に出たうちのソフトの売上は、行列の 1 人分くらいだった。",
@@ -114,6 +140,109 @@
   },
   "src": "メガドライブ",
   "variants": [
+   {
+    "id": "ev_hs_1988_md_h1sega",
+    "when": [
+     "flag.h1_side_sega"
+    ],
+    "text": {
+     "ja": "4 年前からのセガ派。黒い 16 ビットの資料が届いた日、社内で「セガのことはあの人に」と言われはじめた。初めての二つ名だ。",
+     "en": "A Sega loyalist for four years. The day the 16-bit docs arrived, people started saying, \"Ask them about Sega.\" Your first nickname."
+    },
+    "effect": {
+     "passion": 8,
+     "fame": 2,
+     "skill": 2,
+     "flag": {
+      "w_two_side_md": true
+     }
+    },
+    "tag": [
+     "hist",
+     "high",
+     "war"
+    ],
+    "memory": {
+     "ja": "「セガのことはあの人に」と呼ばれた",
+     "en": "Became \"the one to ask about Sega\""
+    }
+   },
+   {
+    "id": "ev_hs_1988_md_h1nin",
+    "when": [
+     "flag.h1_side_nintendo"
+    ],
+    "text": {
+     "ja": "ずっと任天堂派。黒い 16 ビットの噂で社内が騒ぐ中、余裕でお茶をすすった。熱すぎて、少しむせた。",
+     "en": "Nintendo all the way. While the office buzzed about the black 16-bit box, you calmly sipped your tea. Too hot. You coughed a little."
+    },
+    "effect": {
+     "network": 4,
+     "passion": 2,
+     "flag": {
+      "w_two_side_nin": true
+     }
+    },
+    "tag": [
+     "hist",
+     "war",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1988_md_h1msx",
+    "when": [
+     "flag.h1_side_msx"
+    ],
+    "text": {
+     "ja": "パソコン育ちのあなたに、セガと任天堂の両方の陣営から声がかかった。人生で初めて、取り合いをされた。",
+     "en": "Raised on home computers, you get calls from both the Sega and Nintendo camps. For the first time in your life, you're in demand."
+    },
+    "choices": [
+     {
+      "id": "ch_hs_1988_msx_sega",
+      "label": {
+       "ja": "セガの陣営へ",
+       "en": "Join Sega's camp"
+      },
+      "effect": {
+       "passion": 7,
+       "skill": 3,
+       "flag": {
+        "w_two_side_md": true
+       }
+      },
+      "result": {
+       "ja": "パソコンの 68000 の本が、そのまま役に立った。本棚で一番えらい本になった。",
+       "en": "Your computer-era 68000 book was useful as-is. It became the proudest book on your shelf."
+      }
+     },
+     {
+      "id": "ch_hs_1988_msx_nin",
+      "label": {
+       "ja": "任天堂の陣営へ",
+       "en": "Join Nintendo's camp"
+      },
+      "effect": {
+       "network": 5,
+       "money": 15,
+       "flag": {
+        "w_two_side_nin": true
+       }
+      },
+      "result": {
+       "ja": "入社祝いに、パソコンのキーボードを額に入れて飾った。もう打たない。",
+       "en": "To celebrate, you framed your old computer keyboard. You won't type on it again."
+      }
+     }
+    ],
+    "tag": [
+     "hist",
+     "war",
+     "choice",
+     "high"
+    ]
+   },
    {
     "id": "ev_hs_1988_md_lead",
     "when": [
@@ -213,6 +342,25 @@
     ]
    },
    {
+    "id": "ev_hs_1988_md_petty",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "セガの説明会の販促ジャンパーは L しかなく、誰も着ない。3 着もらって帰った。その冬は、それで越した。",
+     "en": "Sega's promo jackets only came in L, and nobody wanted one. You took three home. They got you through the winter."
+    },
+    "effect": {
+     "passion": 2,
+     "money": 1
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_1988_md_any",
     "text": {
      "ja": "黒くて大きいゲーム機が出た。弟が「16 ビットってすごいの?」と聞き、説明したら 8 ビット分しか伝わらなかった。",
@@ -246,6 +394,33 @@
   },
   "src": "CD-ROM2",
   "variants": [
+   {
+    "id": "ev_hs_1988_cdrom2_h1nec",
+    "when": [
+     "flag.h1_side_nec"
+    ],
+    "text": {
+     "ja": "去年 PC エンジンに乗り換えたのを笑った同期が、CD のゲームの作り方を聞きに来た。缶コーヒー 1 本で教えた。",
+     "en": "The peer who laughed when you switched to PC Engine last year came asking how to make CD games. You taught him for one can of coffee."
+    },
+    "effect": {
+     "passion": 8,
+     "fame": 2,
+     "skill": 2,
+     "flag": {
+      "w_two_side_pce": true
+     }
+    },
+    "tag": [
+     "hist",
+     "high",
+     "war"
+    ],
+    "memory": {
+     "ja": "乗り換えを笑った同期に CD を教えた",
+     "en": "Taught CD games to the peer who laughed at my switch"
+    }
+   },
    {
     "id": "ev_hs_1988_cdrom2_sound",
     "when": [
@@ -338,6 +513,28 @@
     ]
    },
    {
+    "id": "ev_hs_1988_cdrom2_high",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "社内で初めて CD のゲームを動かしたのはあなた。生の音が鳴った瞬間、フロアの全員が拍手した。",
+     "en": "You were the first in the company to boot a CD game. When real audio played, the whole floor applauded."
+    },
+    "effect": {
+     "passion": 8,
+     "fame": 3
+    },
+    "tag": [
+     "hist",
+     "high"
+    ],
+    "memory": {
+     "ja": "CD から初めて音が鳴った日、フロアが拍手した",
+     "en": "The day the first CD audio played and the floor applauded"
+    }
+   },
+   {
     "id": "ev_hs_1988_cdrom2_any",
     "text": {
      "ja": "ゲーム機に CD が乗る時代が来た。同僚が「ROM の容量で悩む日々も終わり」と言った。悩みは容量からロード時間に変わった。",
@@ -376,8 +573,8 @@
      "job=artist"
     ],
     "text": {
-     "ja": "白黒 4 階調、画面は緑っぽい。カラーで 3 か月かけた主人公を、4 色に減らした夜、少し泣いた。",
-     "en": "Four shades of greenish gray. You spent three months on a color hero. Cutting him to four shades, you cried a little."
+     "ja": "白黒 4 階調。カラーで 3 か月かけた主人公を 4 色に減らした夜、少し泣いた。4 色版の方が評判がよかった。",
+     "en": "Four shades of gray. Cutting your three-month color hero down to four, you cried a little. The four-shade version got better reviews."
     },
     "effect": {
      "skill": 5,
@@ -427,6 +624,25 @@
     ]
    },
    {
+    "id": "ev_hs_1989_gb_petty",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "「動作確認用」に会社の携帯機を 1 台持ち帰った。動作確認は、落ちものパズルで毎晩 3 時間続いた。",
+     "en": "You took an office handheld home \"for testing.\" The testing ran three hours a night, all of it falling blocks."
+    },
+    "effect": {
+     "passion": 4,
+     "hp": -2
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_1989_gb_any",
     "text": {
      "ja": "通勤電車で、背広の人が落ちものパズルを積んでいた。ゲームを作っていると言ったら、初めて親戚に尊敬された。",
@@ -467,8 +683,8 @@
      "flag.partner"
     ],
     "text": {
-     "ja": "相手の両親へのあいさつ。「お仕事は?」に「ゲームを」と答えたら、お茶が一杯分、ぬるくなった気がした。",
-     "en": "Meeting your partner's parents. \"Your job?\" \"I make games.\" The tea seemed to go one cup colder."
+     "ja": "相手の両親へのあいさつ。「お仕事は?」「ゲームを」でお茶がぬるくなった。帰り際、父親が小声で「で、裏技は?」。",
+     "en": "Meeting your partner's parents. \"I make games.\" The tea went cold. At the door, the father whispered, \"So... any cheat codes?\""
     },
     "effect": {
      "passion": -5,
@@ -515,10 +731,32 @@
     ]
    },
    {
+    "id": "ev_hs_1989_otaku_high",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "取材の記者にゲームの作り方を 2 時間語った。記事にはならなかった。記者は帰りに、子どもの分の体験版を持って帰った。",
+     "en": "You spent two hours explaining game-making to a reporter. No article ran. He left with a demo disk for his kid."
+    },
+    "effect": {
+     "passion": 5,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "high"
+    ],
+    "memory": {
+     "ja": "記者が子どもの分の体験版を持って帰った",
+     "en": "A reporter took a demo home for his kid"
+    }
+   },
+   {
     "id": "ev_hs_1989_otaku_any",
     "text": {
-     "ja": "世間の目が冷たくなった。会社の名刺から「ゲーム」の字が消え、「ソフトウェア開発」になった。仕事は 1 行も変わらない。",
-     "en": "Public opinion turned cold. Your business card dropped the word \"games\" for \"software development.\" Not one line of the work changed."
+     "ja": "世間の目が冷たくなり、名刺の「ゲーム」が「ソフトウェア開発」に。母はその名刺を、親戚中に配って回った。",
+     "en": "Public opinion turned cold; your card now says \"software development.\" Mom handed those cards to every relative she had."
     },
     "effect": {
      "passion": -4,
@@ -600,6 +838,24 @@
     "tag": [
      "hist",
      "money",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_tax_petty",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "値札の貼り替えを手伝ったら、余ったシールを「好きに使って」と言われた。家の冷蔵庫に今も「5,974 円」が貼ってある。",
+     "en": "You helped re-tag prices and got the leftover stickers. Your fridge at home still says \"5,974 yen.\""
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "petty",
      "gag"
     ]
    },
@@ -698,10 +954,36 @@
     ]
    },
    {
+    "id": "ev_hs_1990_dq4_celeb",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "発売記念のパーティーで、国民的 RPG の絵を描く漫画家とエレベーターで 2 人きり。言えたのは「何階ですか」だけだった。",
+     "en": "At the launch party, alone in an elevator with the manga artist who draws the nation's RPG. All you managed: \"Which floor?\""
+    },
+    "effect": {
+     "passion": 7,
+     "network": 1
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high"
+    ],
+    "memory": {
+     "ja": "国民的 RPG の絵の漫画家に「何階ですか」と聞いた",
+     "en": "Asked the nation's RPG artist \"Which floor?\""
+    },
+    "allow": [
+     "RPG"
+    ]
+   },
+   {
     "id": "ev_hs_1990_dq4_any",
     "text": {
-     "ja": "国民的 RPG の新作は日曜発売になった。休日出勤のあなたは、昼休みに会社の前の行列を眺めた。",
-     "en": "The nation's RPG moved to a Sunday launch. Working that Sunday, you watched the line outside the office at lunch."
+     "ja": "国民的 RPG は日曜発売に。休日出勤の昼、行列の小学生に「おじさん、これ作った人?」。うなずいてしまった。",
+     "en": "The nation's RPG launches on Sunday. Working that day, a kid in line asks, \"Mister, did you make this?\" You nodded."
     },
     "effect": {
      "passion": -2,
@@ -741,8 +1023,8 @@
      "flag.w_two_side_md"
     ],
     "text": {
-     "ja": "灰色の新型が出た夜、セガ担当の机でだけ電話が鳴らなかった。あなたの机のことだ。",
-     "en": "The night the gray machine launched, only the Sega team's phones stayed silent. Your phone, specifically."
+     "ja": "灰色の新型が出た夜、セガ班の電話だけ鳴らなかった。代わりに出前を頼み、セガ班だけ特上にした。",
+     "en": "The night the gray machine launched, only the Sega team's phones stayed silent. So the Sega team ordered the deluxe sushi."
     },
     "effect": {
      "passion": -5,
@@ -775,6 +1057,54 @@
     ]
    },
    {
+    "id": "ev_hs_1990_sfc_h1nin",
+    "when": [
+     "flag.h1_side_nintendo"
+    ],
+    "text": {
+     "ja": "赤白の頃からの任天堂派に、灰色の新型の開発機が真っ先に届いた。箱を開ける手つきが、ほとんど儀式だった。",
+     "en": "Nintendo loyal since the red-and-white days, you get the new gray dev kit first. You opened the box like it was a ceremony."
+    },
+    "effect": {
+     "passion": 7,
+     "network": 3,
+     "flag": {
+      "w_two_side_nin": true
+     }
+    },
+    "tag": [
+     "hist",
+     "high",
+     "war"
+    ],
+    "memory": {
+     "ja": "任天堂の新型の開発機が真っ先に届いた",
+     "en": "Got Nintendo's new dev kit before anyone else"
+    }
+   },
+   {
+    "id": "ev_hs_1990_sfc_h1sega",
+    "when": [
+     "flag.h1_side_sega"
+    ],
+    "text": {
+     "ja": "灰色の新型の行列を横目に、昔からのセガ派は黒い 16 ビットの新作を仕上げた。行列の 1 人が、うちのチラシを持っていた。",
+     "en": "Passing the lines for the gray machine, the longtime Sega fan finished a black 16-bit title. One person in line held our flyer."
+    },
+    "effect": {
+     "passion": 6,
+     "skill": 2,
+     "flag": {
+      "w_two_side_md": true
+     }
+    },
+    "tag": [
+     "hist",
+     "war",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_1990_sfc_sub",
     "when": [
      "pos=sub"
@@ -792,6 +1122,30 @@
      "hardware",
      "crunch"
     ]
+   },
+   {
+    "id": "ev_hs_1990_sfc_high",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "新型の開発機で、最初に画面の回転と拡大を動かしたのはあなた。床のタイルがぐるぐる回り、見に来た部長が酔った。",
+     "en": "You were first to get rotation and scaling running on the new kit. The floor tiles spun, and the manager who came to look got seasick."
+    },
+    "effect": {
+     "passion": 8,
+     "skill": 4,
+     "fame": 2
+    },
+    "tag": [
+     "hist",
+     "high",
+     "gag"
+    ],
+    "memory": {
+     "ja": "新型の回転機能で部長を酔わせた",
+     "en": "Made the manager seasick with the new rotation trick"
+    }
    },
    {
     "id": "ev_hs_1990_sfc_any",
@@ -864,6 +1218,47 @@
      "hist",
      "hardware"
     ]
+   },
+   {
+    "id": "ev_hs_1990_gg_petty",
+    "when": [
+     "pos=sub"
+    ],
+    "text": {
+     "ja": "試作機の電池代を経費にしたら「家で遊んだ分は自腹」。領収書の単 3 電池 48 本が、急に多く見えた。",
+     "en": "You expensed batteries for the prototype. \"Home play is on you.\" The 48 AAs on the receipt suddenly looked like a lot."
+    },
+    "effect": {
+     "passion": 1,
+     "money": -1
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1990_gg_high",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "電池が何時間もつか測る係になった。記録は 3 時間 12 分。その数字が、そのままゲーム雑誌に載った。",
+     "en": "You were assigned to time the battery life. Result: 3 hours 12 minutes. That exact number ran in a game magazine."
+    },
+    "effect": {
+     "passion": 5,
+     "fame": 1
+    },
+    "tag": [
+     "hist",
+     "high"
+    ],
+    "memory": {
+     "ja": "自分の測った電池の時間が雑誌に載った",
+     "en": "My battery-life number ran in a magazine"
+    }
    },
    {
     "id": "ev_hs_1990_gg_any",
@@ -958,6 +1353,30 @@
     ]
    },
    {
+    "id": "ev_hs_1991_sf2_celeb",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "対戦台の向かいに座っていたのは、その格闘ゲームを作った側の人だった。負けた。「いい腕だね」と言われた。",
+     "en": "The player across the cabinet turned out to be one of the fighting game's creators. You lost. He said, \"Nice hands.\""
+    },
+    "effect": {
+     "passion": 8,
+     "network": 2,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high"
+    ],
+    "memory": {
+     "ja": "格闘ゲームの作り手に「いい腕だね」と言われた",
+     "en": "A fighting-game creator told me \"Nice hands\""
+    }
+   },
+   {
     "id": "ev_hs_1991_sf2_any",
     "text": {
      "ja": "ゲーセンに人が戻ってきた。昼休みに同僚と対戦し、負けた方が午後の仕様変更を伝えに行くことになった。",
@@ -1017,8 +1436,8 @@
      "pos=sub"
     ],
     "text": {
-     "ja": "元請けの経費が締まった。「単価は据え置き、本数は倍」。机の上の仕様書が、2 冊重なった。",
-     "en": "The client tightens budgets: \"Same rate, twice the titles.\" Two spec binders now sit stacked on your desk."
+     "ja": "元請けの経費が締まった。「単価は据え置き、本数は倍」。机に重なった仕様書 2 冊は、枕にちょうどいい高さだった。",
+     "en": "The client tightens budgets: \"Same rate, twice the titles.\" The two stacked spec binders made a pillow of perfect height."
     },
     "effect": {
      "money": -10,
@@ -1048,6 +1467,24 @@
      "hist",
      "money",
      "crunch"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_bubble_petty",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "経費削減の翌日、会社のボールペンを家に持ち帰る人が続出。あなたも 3 本。棚卸しの係は、あなただった。",
+     "en": "The day after the cost cuts, office pens started walking home. You took three. You're also the one who does inventory."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
     ]
    },
    {
@@ -1141,6 +1578,28 @@
      "hit",
      "war"
     ]
+   },
+   {
+    "id": "ev_hs_1991_sonic_high",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "海外の雑誌に、うちのゲームが小さく載った。英語は読めないが、星が 4 つ付いていた。額に入れた。",
+     "en": "Our game got a small write-up in a foreign magazine. You can't read English, but it had four stars. You framed it."
+    },
+    "effect": {
+     "passion": 7,
+     "fame": 4
+    },
+    "tag": [
+     "hist",
+     "high"
+    ],
+    "memory": {
+     "ja": "海外の雑誌で星 4 つをもらった",
+     "en": "Got four stars in a foreign magazine"
+    }
    },
    {
     "id": "ev_hs_1991_sonic_any",
@@ -1237,6 +1696,24 @@
     ]
    },
    {
+    "id": "ev_hs_1991_megacd_petty",
+    "when": [
+     "pos=qa"
+    ],
+    "text": {
+     "ja": "デバッグ用の試作 CD が山ほど余った。1 枚もらってベランダに吊るし、カラスよけにした。今もそこで回っている。",
+     "en": "Test discs piled up from debugging. You hung one on your balcony to scare off crows. It's still spinning there."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_1991_megacd_any",
     "text": {
      "ja": "ゲーム機の上にもう 1 段、CD の箱が載る時代。机の上の開発機のタワーが、天井の蛍光灯にあと 20 cm になった。",
@@ -1325,6 +1802,28 @@
      "hit",
      "crunch"
     ]
+   },
+   {
+    "id": "ev_hs_1992_sf2sfc_high",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "社内の対戦大会で優勝した。賞品は社長の 6 ボタンのコントローラ。翌週から、あだ名が「師範」になった。",
+     "en": "You won the office tournament. Prize: the CEO's six-button controller. From the next week, everyone called you \"Sensei.\""
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "high"
+    ],
+    "memory": {
+     "ja": "社内の格闘ゲーム大会で優勝した",
+     "en": "Won the office fighting-game tournament"
+    }
    },
    {
     "id": "ev_hs_1992_sf2sfc_any",
@@ -1420,6 +1919,25 @@
     ]
    },
    {
+    "id": "ev_hs_1992_mk_petty",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "会社の 1 本を週末だけ家に持ち帰る当番ができた。あなたの番は、なぜかいつも連休の前だった。",
+     "en": "A rota let staff take the office copy home on weekends. Your turn somehow always fell before a long weekend."
+    },
+    "effect": {
+     "passion": 3,
+     "network": -1
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_1992_mk_any",
     "text": {
      "ja": "4 人で遊べるレースが流行った。同期の飲み会がなくなり、同期の家でコントローラを取り合う会になった。",
@@ -1511,6 +2029,32 @@
     ]
    },
    {
+    "id": "ev_hs_1992_dq5_celeb",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "業界のパーティーで、国民的 RPG の生みの親の隣に座った。名刺を出す手が震え、エビが 1 匹落ちた。拾ってくれた。",
+     "en": "At an industry party, you sat beside the creator of the nation's RPG. Your hand shook with your card; a shrimp fell. He picked it up."
+    },
+    "effect": {
+     "passion": 10,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high"
+    ],
+    "memory": {
+     "ja": "国民的 RPG の生みの親が、落としたエビを拾ってくれた",
+     "en": "The nation's RPG creator picked up my dropped shrimp"
+    },
+    "allow": [
+     "RPG"
+    ]
+   },
+   {
     "id": "ev_hs_1992_dq5_any",
     "text": {
      "ja": "国民的 RPG の 5 作目。月曜の朝礼で、課長が「昨日は徹夜で」と言い、仕事の話だと思った全員が感心した。",
@@ -1553,8 +2097,8 @@
      "job=artist"
     ],
     "text": {
-     "ja": "10 年かけて磨いたドット絵の腕が、ゲーセンの 1 台で古くなった。帰りに、方眼紙と三角定規を買った。",
-     "en": "Ten years of pixel craft, outdated by one arcade cabinet. On the way home, you bought graph paper and a set square."
+     "ja": "10 年磨いたドット絵の腕が、ゲーセンの 1 台で古くなった。帰りに方眼紙を買ったら「夏休みの宿題ですか」と聞かれた。",
+     "en": "Ten years of pixel craft, outdated by one arcade cabinet. Buying graph paper on the way home, the clerk asked if it was for summer homework."
     },
     "effect": {
      "passion": -5,
@@ -1604,6 +2148,28 @@
      "hit",
      "3d"
     ]
+   },
+   {
+    "id": "ev_hs_1993_vf_high",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "社内で初めて、画面の中で立方体を回したのはあなた。少しへこんでいたが、フロアの全員が見に来た。",
+     "en": "You were the first in the building to spin a cube on screen. It was a bit dented, but the whole floor came to watch."
+    },
+    "effect": {
+     "passion": 8,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "high"
+    ],
+    "memory": {
+     "ja": "社内で初めて立方体を回した",
+     "en": "First in the company to spin a 3D cube"
+    }
    },
    {
     "id": "ev_hs_1993_vf_any",
@@ -1692,6 +2258,24 @@
     },
     "tag": [
      "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1993_hearing_petty",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "海外版のために会社が 72 色の色鉛筆を買った。減ったのは緑だけ。残りの 71 色は、そっと家に持ち帰った。",
+     "en": "The company bought 72 colored pencils for the overseas build. Only the green got used. The other 71 quietly went home with you."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "petty",
      "gag"
     ]
    },
@@ -1785,6 +2369,29 @@
     ]
    },
    {
+    "id": "ev_hs_1994_3do_celeb",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "説明会に、海外の有名なゲームの生みの親が来ていた。握手した手を、その日は洗わずにキーボードを打った。",
+     "en": "A famous overseas game creator came to the briefing. You shook his hand and typed all day without washing it."
+    },
+    "effect": {
+     "passion": 7,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high"
+    ],
+    "memory": {
+     "ja": "海外の有名な作り手と握手した",
+     "en": "Shook hands with a famous overseas game creator"
+    }
+   },
+   {
     "id": "ev_hs_1994_3do_any",
     "text": {
      "ja": "家電メーカーのゲーム機が出た。親が「それなら電器屋で買える」と喜んだ。値札を見て、静かに棚に戻した。",
@@ -1870,6 +2477,25 @@
     "tag": [
      "hist",
      "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_1994_ngcd_petty",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "「ロード中は休憩してよい」と社内で決まった。全員がこっそり、ロードを長くする方法を研究しはじめた。",
+     "en": "A new rule: you may rest during loads. Everyone began secretly researching how to make loads longer."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": 2
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
     ]
    },
    {
@@ -2126,6 +2752,29 @@
     ]
    },
    {
+    "id": "ev_hs_1994_pcfx_high",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "アニメの絵がゲーム機の上で動いた。自分で作った 10 秒の動画を、帰ってから家族に 30 回見せた。",
+     "en": "Anime-style video ran on a console. You showed your ten-second clip to your family thirty times that night."
+    },
+    "effect": {
+     "passion": 7,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "high",
+     "family"
+    ],
+    "memory": {
+     "ja": "自分の作ったアニメが 10 秒動いた",
+     "en": "My ten seconds of animation ran on a console"
+    }
+   },
+   {
     "id": "ev_hs_1994_pcfx_any",
     "text": {
      "ja": "ひと月で新型が 3 台出た。お年玉を握った甥に「どれがいい?」と聞かれ、答えに 3 週間かかった。",
@@ -2214,6 +2863,28 @@
      "hist",
      "hit"
     ]
+   },
+   {
+    "id": "ev_hs_1994_tokimemo_celeb",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "収録スタジオの廊下で、人気声優に「おつかれさまです」と言われた。言い返した声が、思いきり裏返った。",
+     "en": "In the studio hallway, a popular voice actor said, \"Good work today.\" Your reply came out in a squeak."
+    },
+    "effect": {
+     "passion": 8
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high"
+    ],
+    "memory": {
+     "ja": "人気声優に「おつかれさまです」と言われた",
+     "en": "A famous voice actor told me \"Good work today\""
+    }
    },
    {
     "id": "ev_hs_1994_tokimemo_any",
@@ -2306,10 +2977,29 @@
     ]
    },
    {
+    "id": "ev_hs_1995_vb_petty",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "目の検査の名目で、会社が目薬を箱で買った。年末までに、半分があなたの引き出しに移っていた。",
+     "en": "For \"eye safety,\" the company bought eye drops by the case. By year's end, half had migrated to your drawer."
+    },
+    "effect": {
+     "passion": 2,
+     "hp": 2
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_1995_vb_any",
     "text": {
-     "ja": "のぞき込む立体のゲーム機が出た。店の試遊台で遊んだ後、ずっと目の前に赤い線が残っていた。",
-     "en": "A peer-into-it 3D console is out. After the store demo, a red line floated in front of your eyes for hours."
+     "ja": "のぞき込む立体のゲーム機を店で試した。店員に「目、大丈夫ですか」と聞かれた。店員の目も赤かった。",
+     "en": "You tried the goggle console at the store. The clerk asked if your eyes were okay. His were red too."
     },
     "effect": {
      "passion": 1,
@@ -2395,6 +3085,28 @@
      "hardware",
      "gag"
     ]
+   },
+   {
+    "id": "ev_hs_1995_win95_high",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "社内で一番先にパソコンをインターネットにつないだ。海外の知らない人から、うちのゲームの感想が届いた。1 行「cool」。",
+     "en": "First in the company to get a PC on the internet. A stranger overseas sent feedback on our game. One line: \"cool.\""
+    },
+    "effect": {
+     "passion": 8,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "high"
+    ],
+    "memory": {
+     "ja": "海外から「cool」と 1 行届いた",
+     "en": "A stranger overseas wrote one line: \"cool\""
+    }
    },
    {
     "id": "ev_hs_1995_win95_any",
@@ -2489,6 +3201,28 @@
     ]
    },
    {
+    "id": "ev_hs_1995_bs_celeb",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "生放送のゲームに出た人気タレントが、休憩中にあなたのゲームを遊んでいた。「これ面白いね」。録音しておけばよかった。",
+     "en": "During a break, the TV star hosting the live broadcast played your game. \"This is fun.\" You wish you'd recorded it."
+    },
+    "effect": {
+     "passion": 9
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high"
+    ],
+    "memory": {
+     "ja": "人気タレントが休憩中に自分のゲームを遊んでいた",
+     "en": "A TV star played my game on a break"
+    }
+   },
+   {
     "id": "ev_hs_1995_bs_any",
     "text": {
      "ja": "ゲームを空から配る時代。カセットを店に運ぶ営業の人が、空を見上げて少し不安そうだった。",
@@ -2549,8 +3283,8 @@
      "pos=sub"
     ],
     "text": {
-     "ja": "スタッフロールに有名な名前が並ぶゲームを見た。下請けの会社名は 1 行もない。うちの仕事も、たぶんどこかで同じだ。",
-     "en": "The credits are full of famous names, and not one subcontractor. Our work, somewhere, probably ends the same way."
+     "ja": "有名な名前が並ぶスタッフロール。下請けの名は 1 行もない。悔しくて、うちの次の作品のロールに飼い猫の名前を入れた。",
+     "en": "The credits are full of famous names, no subcontractors. Out of spite, you slipped your cat's name into our next game's credits."
     },
     "effect": {
      "passion": -4,
@@ -2580,6 +3314,31 @@
     "tag": [
      "hist",
      "hit"
+    ]
+   },
+   {
+    "id": "ev_hs_1995_chrono_high",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "時を旅する RPG に勇気をもらい、ボツになった企画を出し直した。通った。廊下で小さくガッツポーズした。",
+     "en": "Inspired by the time-travel RPG, you resubmitted a rejected pitch. It passed. You fist-pumped quietly in the hallway."
+    },
+    "effect": {
+     "passion": 8,
+     "fame": 2
+    },
+    "tag": [
+     "hist",
+     "high"
+    ],
+    "memory": {
+     "ja": "ボツ企画を出し直して通した",
+     "en": "Resubmitted a rejected pitch and got it through"
+    },
+    "allow": [
+     "RPG"
     ]
    },
    {
@@ -2675,10 +3434,29 @@
     ]
    },
    {
+    "id": "ev_hs_1995_puri_petty",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "「ゲーセンの調査」でシールの機械の代金を経費にした。領収書に貼った証拠写真では、課長が一番いい顔をしていた。",
+     "en": "You expensed a sticker booth as \"arcade research.\" In the proof photo on the receipt, the section chief looked happiest."
+    },
+    "effect": {
+     "passion": 3,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_1995_puri_any",
     "text": {
-     "ja": "ゲーセンの一角が、写真をシールにする機械で埋まった。格闘ゲームの台が 1 台、そのために片付けられた。",
-     "en": "A corner of the arcade fills with photo-sticker booths. A fighting cabinet was cleared away to make room."
+     "ja": "ゲーセンの一角がシールの機械で埋まり、格闘ゲームの台が 1 台はみ出した。その台は会社の休憩室に来て、社内大会が始まった。",
+     "en": "Sticker booths take over the arcade, and a fighting cabinet gets bumped. It landed in our break room. The office league began."
     },
     "effect": {
      "passion": -1
@@ -2764,6 +3542,29 @@
      "family",
      "gag"
     ]
+   },
+   {
+    "id": "ev_hs_1996_poke_celeb",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "モンスター集めの作り手の講演に行った。質問の時間に当てられ、緊張して自分の名前を聞いてしまった。",
+     "en": "You attended a talk by the monster-collecting game's creator. Picked for a question, you nervously asked him your own name."
+    },
+    "effect": {
+     "passion": 8,
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high"
+    ],
+    "memory": {
+     "ja": "モンスター集めの作り手に質問した(自分の名前を)",
+     "en": "Asked the monster game's creator a question (my own name)"
+    }
    },
    {
     "id": "ev_hs_1996_poke_any",
@@ -2867,8 +3668,8 @@
      "flag.w_two_side_ss"
     ],
     "text": {
-     "ja": "3 台目の新型が出た。サターンの陣営の会議で、議題は「新作」から「残るか移るか」になった。",
-     "en": "A third new console arrives. In the Saturn camp's meeting, the agenda changed from \"new title\" to \"stay or switch.\""
+     "ja": "3 台目の新型が出た。サターン陣営の会議の議題は「残るか移るか」。結論は出ず、弁当の注文だけが決まった。",
+     "en": "A third new console. The Saturn camp's meeting agenda: stay or switch. No decision was reached, except the lunch order."
     },
     "effect": {
      "passion": -4,
@@ -2886,8 +3687,8 @@
      "job=artist"
     ],
     "text": {
-     "ja": "ROM の容量が足りず、描いた絵の色数を半分にしろと言われた。CD の陣営に行った同期は、ムービーを 40 分作っている。",
-     "en": "Not enough ROM, so halve your colors. A peer in the CD camp is making 40 minutes of movies."
+     "ja": "ROM が足りず、絵の色数を半分にしろと言われた。CD 陣営に行った同期は、40 分のムービーを作って 3 キロやせた。",
+     "en": "Not enough ROM, so halve your colors. A peer in the CD camp made 40 minutes of movies and lost three kilos."
     },
     "effect": {
      "skill": 4,
@@ -2897,6 +3698,25 @@
      "hist",
      "hardware",
      "war"
+    ]
+   },
+   {
+    "id": "ev_hs_1996_n64_petty",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "新型の発表会のお土産で、コントローラを 2 個もらった。1 個は展示用だったと翌日わかった。返さなかった。",
+     "en": "You got two controllers as launch-event souvenirs. Next day you learned one was a display unit. You kept it."
+    },
+    "effect": {
+     "passion": 3,
+     "network": -1
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
     ]
    },
    {
@@ -3030,6 +3850,28 @@
     ]
    },
    {
+    "id": "ev_hs_1996_ff7_high",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "ライバル陣営の発表の夜、社長が全員に焼肉をおごった。理由は「悔しいから」。人生で一番うまい焼肉だった。",
+     "en": "The night of the rival's big announcement, the boss bought everyone barbecue. Reason: \"Because it stings.\" Best barbecue of your life."
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3
+    },
+    "tag": [
+     "hist",
+     "high"
+    ],
+    "memory": {
+     "ja": "悔しい夜の焼肉が人生で一番うまかった",
+     "en": "The best barbecue of my life, on a bitter night"
+    }
+   },
+   {
     "id": "ev_hs_1996_ff7_any",
     "text": {
      "ja": "人気 RPG の新作が新しい陣営へ移ると発表された。その日、業界の名刺入れの中身が一斉に入れ替わった気がした。",
@@ -3126,6 +3968,24 @@
     ]
    },
    {
+    "id": "ev_hs_1996_bio_petty",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "怖いゲームの研究で、経費でお化け屋敷へ。領収書の但し書きは「資料代」。入口で引き返した。",
+     "en": "For horror research, you expensed a haunted house. Receipt note: \"reference materials.\" You turned back at the entrance."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "petty",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_1996_bio_any",
     "text": {
      "ja": "洋館のホラーゲームが流行った。会社の古いビルのエレベーターが止まった夜、あなたは階段で弾の数を数えていた。",
@@ -3218,6 +4078,28 @@
     ]
    },
    {
+    "id": "ev_hs_1996_sakura_celeb",
+    "when": [
+     "pos=client"
+    ],
+    "text": {
+     "ja": "発表会で、主題歌を歌う歌手と同じエレベーターに乗った。降りる階を通り過ぎても、降りられなかった。",
+     "en": "At the press event, you shared an elevator with the theme-song singer. You rode right past your floor."
+    },
+    "effect": {
+     "passion": 8
+    },
+    "tag": [
+     "hist",
+     "celeb",
+     "high"
+    ],
+    "memory": {
+     "ja": "主題歌の歌手と同じエレベーターで階を通り過ぎた",
+     "en": "Rode past my floor in an elevator with the theme singer"
+    }
+   },
+   {
     "id": "ev_hs_1996_sakura_any",
     "text": {
      "ja": "サターンから大ヒットが出た。陣営の勝ち負けの話は、ヒット 1 本でまた振り出しに戻った気がした。少しだけ。",
@@ -3308,6 +4190,29 @@
      "family",
      "gag"
     ]
+   },
+   {
+    "id": "ev_hs_1996_tama_high",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "品薄の卵を社内でただ 1 人持っていた。課長、部長、社長の順に頭を下げに来た。人生で一番えらかった 1 週間。",
+     "en": "You owned the only sold-out egg pet in the company. The chief, the manager, then the CEO came bowing. Your most powerful week ever."
+    },
+    "effect": {
+     "passion": 7,
+     "network": 4
+    },
+    "tag": [
+     "hist",
+     "high",
+     "gag"
+    ],
+    "memory": {
+     "ja": "品薄の卵を持っていて社長に頭を下げられた",
+     "en": "The CEO bowed to me for a sold-out egg pet"
+    }
    },
    {
     "id": "ev_hs_1996_tama_any",
