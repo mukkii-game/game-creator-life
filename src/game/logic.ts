@@ -73,7 +73,7 @@ export function init(seed: number, options: InitOptions = {}): State {
   const s: State = {
     seed, year, age, startAge: age, startYear: year, era: eraOf(year), job, status: entry.indie ? 'indie' : 'employed',
     name: personName(r), entry: entry.text, region: entry.size === 'abroad' ? { ja: '海外', en: 'abroad' } : r.pick(REGIONS),
-    company,
+    company, companies: [{ company, year }], options: { era: options.era, year: options.year, age: options.age },
     stat: { hp: base[0], passion: base[1], skill: base[2], network: base[3], money: base[4], fame: 0 },
     flags: {}, works: [], peers: [], log: [], pending: [], rng: r,
     inner: {
@@ -139,13 +139,14 @@ function apply(s: State, e: Effect | undefined, ctx: string, out: string[]) {
     if (!v) continue;
     if (f === 'do_change_company') {
       const size: CompanySize = s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small', 'sub'] as const);
-      s.company = newCompany(s.rng, size, s.year); s.inner.companyYears = 0; setStatus(s, 'employed');
+      s.company = newCompany(s.rng, size, s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed');
       s.inner.nextWorkYear = s.year + s.rng.int(tune('work.everyMin'), tune('work.everyMax'));
     } else if (f === 'do_go_indie') {
       setStatus(s, 'indie'); s.company = { id: 'co_indie_self', name: { ja: `${s.name.ja.split(' ')[0]}ゲームス`, en: `${s.name.en.split(' ').slice(-1)[0]} Games` }, size: 'indie' };
+      s.companies.push({ company: s.company, year: s.year });
       s.inner.nextWorkYear = s.year + s.rng.int(1, 3);
     } else if (f === 'do_return') {
-      s.job = s.inner.prevJob; s.company = newCompany(s.rng, s.rng.pick(['mid', 'small', 'sub'] as const), s.year);
+      s.job = s.inner.prevJob; s.company = newCompany(s.rng, s.rng.pick(['mid', 'small', 'sub'] as const), s.year); s.companies.push({ company: s.company, year: s.year });
       setStatus(s, 'employed'); s.inner.companyYears = 0; s.inner.leftYear = 0; s.flags.came_back = true;
       s.inner.nextWorkYear = s.year + s.rng.int(1, 3);
     } else if (f === 'do_end') {
@@ -278,7 +279,7 @@ function runItem(s: State, id: string, out: string[]) {
     const p = tune('job.rehire') + (s.stat.skill + s.stat.network) / 250;
     if (r.chance(p)) {
       const size: CompanySize = s.stat.skill >= 65 ? r.pick(['big', 'mid'] as const) : r.pick(['mid', 'small', 'sub', 'sub'] as const);
-      s.company = newCompany(r, size, s.year); s.inner.companyYears = 0;
+      s.company = newCompany(r, size, s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
       logEvent(s, 'ev_sys_rehired', 'event'); apply(s, EVENT_BY_ID.get('ev_sys_rehired')?.effect, id, out);
       s.inner.nextWorkYear = s.year + r.int(1, 3);
     } else { s.inner.searchFails++; logEvent(s, 'ev_sys_search_fail', 'event'); apply(s, EVENT_BY_ID.get('ev_sys_search_fail')?.effect, id, out); }

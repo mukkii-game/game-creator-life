@@ -44,6 +44,10 @@ export interface State {
   era: Era; job: Job; status: Status;
   name: Text; entry: Text; region: Text;
   company: Company;
+  /** 勤めた会社の履歴(入社順。結果画面のスタッフロール用) */
+  companies: { company: Company; year: number }[];
+  /** init に渡した指定(?seed= で同じ人生にするには era も要る) */
+  options: { era?: Era; year?: number; age?: number };
   stat: Stat;
   flags: Record<string, boolean>;
   works: Work[];
