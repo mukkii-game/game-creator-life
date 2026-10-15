@@ -4,7 +4,7 @@
 import { Rng } from '../core/rng';
 import { tune } from '../core/tuning';
 import type { State, InitOptions, Text, Effect, GameEvent, Choice, Job, CompanySize, EndingId, Era, LogLine, Company } from './types';
-import { EVENT_BY_ID, POOL, TIMELINE_BY_YEAR, HIST, HIST_OF, COMPANIES, type CoRow } from './data';
+import { EVENTS, EVENT_BY_ID, POOL, TIMELINE_BY_YEAR, HIST, HIST_OF, COMPANIES, type CoRow } from './data';
 import { eligible, draw, positionOf } from './select';
 
 export { positionOf };
@@ -72,6 +72,7 @@ function nameOf(gacha: Text, typed?: string): Text {
 }
 
 /** その年の社名(社名が変わる会社: 光栄 → コーエー、セガ・エンタープライゼス → セガ …) */
+const EVENTS_ALL = () => EVENTS;
 function nameAt(c: CoRow, year: number): Text {
   let n = c.name;
   for (const [y, t] of c.renames ?? []) if (y <= year) n = t;
@@ -134,6 +135,15 @@ export function init(seed: number, options: InitOptions = {}): State {
   }
   if (entry.segaSub) s.flags.sega_sub = true;
   syncCompany(s);
+  // 前日譚: 業界に入る前の学生時代(黎明期は雑誌への投稿から始まる)。tag "prologue" の話を 1〜2 本
+  if (!peerOf) {
+    const pro = EVENTS_ALL().filter((e) => e.tag?.includes('prologue') && eligible(s, e));
+    for (const ev of draw(r, pro, pro.length && r.chance(0.5) ? 2 : 1)) {
+      log(s, fill(s, ev.text), 'event', ev.tag);
+      applyInner(s, ev.effect ?? {}, ev.id, []);
+      s.inner.used.push(ev.id);
+    }
+  }
   logEvent(s, s.status === 'indie' ? 'ev_sys_start_indie' : 'ev_sys_start', 'event');
   return s;
 }
@@ -319,7 +329,7 @@ function beginYear(s: State, out: string[]) {
   const n = r.int(tune('life.eventsMin'), tune('life.eventsMax')) - (q.length > 0 ? 1 : 0) - hist.length;
   const sysChoice = [...sys, ...q, ...hist, ...turning].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
-  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && !['pit', 'peak', 'bond', 'big', 'gravity'].some((t) => e.tag?.includes(t)));
+  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue'].some((t) => e.tag?.includes(t)));
   let picked = draw(r, pool, Math.max(1, n));
   // 選択は 1 年に 1 本まで、作品の後日談も 1 年に 1 本まで
   let seenChoice = false, seenAfter = false;
