@@ -1,9 +1,8 @@
-name: Deploy to Cloudflare Pages (optional)
+name: Deploy to Cloudflare Workers
 
-# secret CLOUDFLARE_API_TOKEN と CLOUDFLARE_ACCOUNT_ID がある時だけ動く。無ければ黙って終了。
-# 使う場面: repo を private にしたまま公開したい / Workers でサーバー処理を足したい /
-#           ブランチごとのプレビュー URL で複数案を比べたい。
-# 準備(1 回): Cloudflare で Pages プロジェクトを作り、API トークン(Pages 編集権限)を repo secret に入れる。
+# 公開の標準(2026-10-12 Mukkii 決定)。Workers + Static Assets で dist/ を出す。URL は https://<repo名>.mucky-totoro.workers.dev
+# 鍵(CLOUDFLARE_API_TOKEN・CLOUDFLARE_ACCOUNT_ID)は ai-ops の「Enable Claude」が配る。無ければ黙って終了。
+# 事前に Cloudflare 側で作るものは無い(初回の deploy で Worker ができる)。
 
 on:
   push:
@@ -41,11 +40,9 @@ jobs:
         run: npm run build
       - name: Deploy
         if: steps.gate.outputs.go == 'true'
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          PROJECT: ${{ vars.CLOUDFLARE_PROJECT || github.event.repository.name }}
-        run: |
-          # プロジェクトが無ければ作る(初回だけ。既にあれば失敗するので無視)
-          npx --yes wrangler@4 pages project create "$PROJECT" --production-branch main || true
-          npx --yes wrangler@4 pages deploy dist --project-name "$PROJECT" --branch "${GITHUB_REF_NAME}"
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.36.0'
+          command: deploy --name ${{ github.event.repository.name }}
