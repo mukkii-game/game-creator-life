@@ -1,0 +1,2450 @@
+[
+ {
+  "id": "ev_og_title_meeting",
+  "years": [
+   1980,
+   2040
+  ],
+  "text": {
+   "ja": "新作の題名会議。ホワイトボードに候補が 40 個並んだ。3 時間たって、消えた案はまだ 1 つも無い。",
+   "en": "The naming meeting for the new game. Forty candidates on the whiteboard. Three hours in, not a single one has been crossed out."
+  },
+  "when": [
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 1.2,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_title_push",
+    "label": {
+     "ja": "自分の案を押し通す",
+     "en": "Push your own pick"
+    },
+    "effect": {
+     "passion": 5,
+     "network": -3
+    },
+    "result": {
+     "ja": "41 番目の候補として書き足された。会議はあと 2 時間延びた。",
+     "en": "It was added as candidate number 41. The meeting ran two more hours."
+    }
+   },
+   {
+    "id": "ch_og_title_vote",
+    "label": {
+     "ja": "多数決にする",
+     "en": "Put it to a vote"
+    },
+    "effect": {
+     "network": 2
+    },
+    "result": {
+     "ja": "40 人が 40 案に 1 票ずつ入れた。全員、自分の案だった。",
+     "en": "Forty people cast one vote each for forty names. Every one of them voted for their own."
+    }
+   },
+   {
+    "id": "ch_og_title_kid",
+    "label": {
+     "ja": "見学に来ていた社長の孫に聞く",
+     "en": "Ask the president's grandson, who's visiting"
+    },
+    "effect": {
+     "passion": 3,
+     "flag": {
+      "og_kid_title": true
+     }
+    },
+    "result": {
+     "ja": "孫(6 歳)が「これ、つよそう」と指した。誰も反論できず、それに決まった。",
+     "en": "The six-year-old pointed and said, \"That one sounds strong.\" Nobody could argue. Done."
+    },
+    "later": [
+     {
+      "after": 12,
+      "event": "ev_og_kid_grown"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ev_og_kid_grown",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "昔、題名を決めた社長の孫が新卒で入ってきた。配属はあなたのチーム。初日に「あの題名、実は適当でした」と謝られた。",
+   "en": "The president's grandson who once named your game joined as a new hire, on your team. Day one, he apologized: \"I just picked one at random.\""
+  },
+  "when": [
+   "!flag.in_prison"
+  ],
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "network": 4
+  },
+  "memory": {
+   "ja": "題名を決めた 6 歳が、部下になって謝りに来た",
+   "en": "the six-year-old who named our game grew up to join my team"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_sales_subtitle",
+  "years": [
+   1983,
+   2040
+  ],
+  "text": {
+   "ja": "営業部が {work} の箱に副題を 3 つ付けた。「〜伝説の始まり〜」「第一章」「完全版」。まだ 1 作目だ。",
+   "en": "Sales slapped three subtitles on the box for {work}: \"The Legend Begins,\" \"Chapter One,\" and \"Complete Edition.\" It is the first game."
+  },
+  "when": [
+   "works>=1",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": -3,
+   "fame": 2
+  }
+ },
+ {
+  "id": "ev_og_overseas_title",
+  "years": [
+   1986,
+   2040
+  ],
+  "text": {
+   "ja": "{work} の海外版の題名が届いた。原題の単語が 1 つも残っていない。向こうでは、その方が覚えやすいらしい。",
+   "en": "The overseas title for {work} came in. Not one word of the original survived. Apparently it is easier to remember over there."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "fame": 2
+  }
+ },
+ {
+  "id": "ev_og_abbrev",
+  "years": [
+   1997,
+   2040
+  ],
+  "text": {
+   "ja": "{work} の略称が、ファンの間で勝手に決まった。社内で 2 年使っていた略称とは、1 文字も合っていない。",
+   "en": "Fans have settled on their own nickname for {work}. It shares not one letter with the one the team used internally for two years."
+  },
+  "when": [
+   "works>=1",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_abbrev_fan",
+    "label": {
+     "ja": "ファンの略称を公式にする",
+     "en": "Make the fans' nickname official"
+    },
+    "effect": {
+     "network": 6,
+     "fame": 3
+    },
+    "result": {
+     "ja": "公式で使った翌日から、社内の略称を使う人が消えた。社内の略称を考えたのは、あなただった。",
+     "en": "The day it went official, nobody in the office used the old one again. The old one was yours."
+    }
+   },
+   {
+    "id": "ch_og_abbrev_ours",
+    "label": {
+     "ja": "社内の略称を押し通す",
+     "en": "Stick with the internal one"
+    },
+    "effect": {
+     "passion": 3,
+     "fame": -2
+    },
+    "result": {
+     "ja": "公式が押すほど、ファンは使わなくなった。今では感想を探すのに 2 つの略称で検索する。",
+     "en": "The harder the company pushed it, the less fans used it. Now you search two nicknames to find any reviews."
+    }
+   }
+  ],
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_og_title_inn",
+  "years": [
+   1983,
+   2040
+  ],
+  "text": {
+   "ja": "決まりかけた題名を調べたら、北海道の温泉旅館と同じ名前だった。女将は快く許してくれて、宿泊券を 2 枚くれた。",
+   "en": "The title you nearly settled on turned out to be the name of a hot-spring inn in Hokkaido. The owner happily said yes and sent two free stays."
+  },
+  "when": [
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "network": 2
+  },
+  "memory": {
+   "ja": "題名の縁で、温泉旅館の女将と年賀状を交わした",
+   "en": "swapped New Year cards with an inn owner over a game title"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_title_bang",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "発売 2 か月前、題名が海外の小さな会社の商標とかぶった。急いで最後に「!」を足した。以来、シリーズ全部に「!」が付いている。",
+   "en": "Two months before launch, the title clashed with a small overseas trademark. You tacked an exclamation mark on the end. Every sequel has had one since."
+  },
+  "when": [
+   "works>=1",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_og_sequel_three",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "シリーズの 2 作目に、営業が「3」と付けた。「2 は売れない気がする」かららしい。2 作目は、この世のどこにも無い。",
+   "en": "Sales numbered your second game \"3.\" Something about twos not selling. Game two of the series exists nowhere on Earth."
+  },
+  "when": [
+   "works>=2",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "fame": 1
+  }
+ },
+ {
+  "id": "ev_og_sequel_choice",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "{work} の続編の企画書を出した。役員の答えは「続編より、売れている他社の移植をやれ」。",
+   "en": "You pitched a sequel to {work}. The executive said, \"Forget sequels. Port somebody else's hit.\""
+  },
+  "when": [
+   "works>=1",
+   "career>=4",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 1.2,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_sequel_fight",
+    "label": {
+     "ja": "続編を作らせてくれと粘る",
+     "en": "Fight for the sequel"
+    },
+    "effect": {
+     "passion": 10,
+     "network": -4,
+     "flag": {
+      "og_sequel_fight": true
+     }
+    },
+    "result": {
+     "ja": "3 回目の会議で通った。予算は、移植の半分だった。",
+     "en": "It got approved on the third try, with half the budget of the port."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_og_sequel_result"
+     }
+    ]
+   },
+   {
+    "id": "ch_og_sequel_port",
+    "label": {
+     "ja": "移植を引き受ける",
+     "en": "Take the port"
+    },
+    "effect": {
+     "money": 150,
+     "skill": 4,
+     "passion": -8,
+     "flag": {
+      "og_shelved": true
+     }
+    },
+    "result": {
+     "ja": "移植は手堅く売れた。続編の企画書は、引き出しの一番下に入った。",
+     "en": "The port sold reliably. The sequel pitch went into the bottom drawer."
+    },
+    "later": [
+     {
+      "after": 15,
+      "event": "ev_og_shelved_found"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ev_og_sequel_result",
+  "years": [
+   1988,
+   2040
+  ],
+  "text": {
+   "ja": "粘って作った続編が出た。初週の売上は前作と 1 本違い。どっちが 1 本多いかで、会議が 2 時間もめた。",
+   "en": "The sequel you fought for came out. First-week sales differed from the original by one copy. The meeting about which way took two hours."
+  },
+  "when": [
+   "!flag.in_prison"
+  ],
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "粘り勝ちで、自分たちのシリーズに 2 作目を作った",
+   "en": "fought for and got a sequel to our own game"
+  },
+  "tag": [
+   "high"
+  ]
+ },
+ {
+  "id": "ev_og_shelved_found",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "引き出しの一番下から、15 年前の続編の企画書が出てきた。読み返すと、今の流行りにぴったり合っていた。予算の欄だけが古い。",
+   "en": "The sequel pitch from fifteen years ago turned up in the bottom drawer. It fits today's trends perfectly. Only the budget is out of date."
+  },
+  "when": [
+   "!flag.in_prison"
+  ],
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 8
+  },
+  "memory": {
+   "ja": "15 年眠らせた企画書が、まだ面白かった",
+   "en": "a pitch I shelved for fifteen years was still good"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_third_profit",
+  "years": [
+   1988,
+   2040
+  ],
+  "text": {
+   "ja": "シリーズ 3 作目で、初めて黒字になった。社長は 1 作目と 2 作目の赤字を「先行投資」と言い直した。",
+   "en": "The third game in your series finally turned a profit. The president now calls the losses on games one and two \"an investment.\""
+  },
+  "when": [
+   "works>=3",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "weight": 1.2,
+  "once": true,
+  "effect": {
+   "passion": 10,
+   "money": 80,
+   "fame": 5
+  },
+  "memory": {
+   "ja": "自分たちのシリーズが 3 作目で初めて黒字になった",
+   "en": "our own series finally made money on its third game"
+  },
+  "tag": [
+   "high"
+  ]
+ },
+ {
+  "id": "ev_og_series_end",
+  "years": [
+   1988,
+   2040
+  ],
+  "text": {
+   "ja": "シリーズの次回作が会議で消えた。理由は「主人公の名前が覚えにくい」。3 作目まで出して、今それを言うのか。",
+   "en": "The next game in your series died in a meeting. The reason: \"The hero's name is hard to remember.\" After three games, now they say it."
+  },
+  "when": [
+   "works>=3",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": -8
+  }
+ },
+ {
+  "id": "ev_og_mascot_alone",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "{work} の脇役のマスコットが、本編より人気になった。ぬいぐるみの試作が届いた。主人公の分は無かった。",
+   "en": "A side-character mascot in {work} has become more popular than the game. Plush samples arrived. There wasn't one of the hero."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "fame": 4,
+   "passion": 2
+  },
+  "tag": [
+   "high"
+  ]
+ },
+ {
+  "id": "ev_og_anime_offer",
+  "years": [
+   1988,
+   2040
+  ],
+  "text": {
+   "ja": "{work} のアニメ化の話が来た。条件は「主人公を女の子に、舞台を宇宙に、題名も変える」。",
+   "en": "An anime adaptation of {work} is on the table. Conditions: make the hero a girl, move it to outer space, and change the title."
+  },
+  "when": [
+   "works>=1",
+   "career>=3",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_anime_yes",
+    "label": {
+     "ja": "受ける",
+     "en": "Accept"
+    },
+    "effect": {
+     "money": 50,
+     "fame": 3,
+     "flag": {
+      "og_anime_ghost": true
+     }
+    },
+    "result": {
+     "ja": "制作会社が途中で解散して、話ごと消えた。残ったのは宇宙服の主人公の設定画 1 枚。",
+     "en": "The studio folded halfway and the project vanished. All that remains is one design sheet of the hero in a space suit."
+    },
+    "memory": {
+     "ja": "幻のアニメの設定画を、ずっと飾っていた",
+     "en": "kept the one design sheet from an anime that never happened"
+    }
+   },
+   {
+    "id": "ch_og_anime_no",
+    "label": {
+     "ja": "断る",
+     "en": "Turn it down"
+    },
+    "effect": {
+     "passion": 5,
+     "network": -3
+    },
+    "result": {
+     "ja": "その会社は翌月、別のゲームで同じ条件の話を始めた。宇宙の、女の子の話だった。",
+     "en": "Next month the same studio made the same offer to another game. Girl hero. Outer space."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_og_goods_vanish",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "{work} のキーホルダーの見本が届いた。翌月、玩具メーカーの担当が辞めて話ごと消えた。見本は今もあなたの鍵に付いている。",
+   "en": "A sample keychain for {work} arrived. The next month the toy company contact quit and the deal evaporated. The sample is still on your keys."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 3
+  },
+  "memory": {
+   "ja": "世界に 1 つの自作キーホルダーを鍵に付けていた",
+   "en": "carried the only keychain of my game ever made"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_ip_rights",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "転職を考えていると漏らしたら、あなたが生んだキャラは会社のものだと念を押された。契約書の 14 条に書いてある。",
+   "en": "You mentioned you might leave. They reminded you the characters you created belong to the company. Clause 14 says so."
+  },
+  "when": [
+   "works>=2",
+   "career>=8",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_ip_leave",
+    "label": {
+     "ja": "キャラは置いていく",
+     "en": "Leave the characters behind"
+    },
+    "effect": {
+     "passion": -4,
+     "network": 3
+    },
+    "result": {
+     "ja": "10 年後、そのキャラがパチンコ台になっていた。1 回だけ打った。当たらなかった。",
+     "en": "Ten years later the character showed up on a pachinko machine. You played it once. No luck."
+    }
+   },
+   {
+    "id": "ch_og_ip_stay",
+    "label": {
+     "ja": "キャラのために残る",
+     "en": "Stay for the characters"
+    },
+    "effect": {
+     "passion": 6,
+     "money": -20
+    },
+    "result": {
+     "ja": "残ってもう 1 本作った。キャラは喜んでいる気がした。給料は据え置きだった。",
+     "en": "You stayed and made one more. The characters seemed happy. Your pay did not change."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_og_remake20",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "20 年前のあなたのオリジナル作品に、リメイクの相談が来た。当時の資料は、あなたの実家の押し入れにしか無かった。",
+   "en": "Someone wants to remake your original game from twenty years ago. The only design documents are in a closet at your parents' house."
+  },
+  "when": [
+   "works>=2",
+   "career>=18",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_remake_supervise",
+    "label": {
+     "ja": "監修で入る",
+     "en": "Join as supervisor"
+    },
+    "effect": {
+     "passion": 10,
+     "network": 5,
+     "hp": -4
+    },
+    "result": {
+     "ja": "新しいチームは、あなたより原作に詳しかった。会議で 3 回、あなたが訂正された。",
+     "en": "The new team knew the original better than you did. You got corrected three times in one meeting."
+    },
+    "memory": {
+     "ja": "20 年前の作品のリメイクを監修した",
+     "en": "supervised the remake of a game I made twenty years earlier"
+    }
+   },
+   {
+    "id": "ch_og_remake_free",
+    "label": {
+     "ja": "好きにしてもらう",
+     "en": "Let them do as they like"
+    },
+    "effect": {
+     "money": 40,
+     "passion": 4
+    },
+    "result": {
+     "ja": "完成品を遊んだ。あなたが泣く泣く削った仕様が、全部入っていた。",
+     "en": "You played the finished remake. Every feature you had tearfully cut was in it."
+    },
+    "memory": {
+     "ja": "20 年前に削った仕様が、リメイクで全部よみがえった",
+     "en": "every feature I cut came back in the remake"
+    }
+   }
+  ],
+  "tag": [
+   "high"
+  ]
+ },
+ {
+  "id": "ev_og_reissue",
+  "years": [
+   2006,
+   2040
+  ],
+  "text": {
+   "ja": "昔のあなたのオリジナル作品が、ダウンロード版で復刻された。説明文に「幻の名作」。「幻」は、売れなかったという意味だ。",
+   "en": "One of your old original games got a digital re-release. The blurb calls it \"a lost classic.\" \"Lost\" means it did not sell."
+  },
+  "when": [
+   "works>=2",
+   "career>=12",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "売れなかった作品が「幻の名作」として復刻された",
+   "en": "our flop came back as \"a lost classic\""
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_reissue_bug",
+  "years": [
+   2006,
+   2040
+  ],
+  "text": {
+   "ja": "復刻版の {work} に、当時のバグがそのまま残っていた。ファンが攻略サイトに「裏技」として載せていたので、消せなくなった。",
+   "en": "The re-release of {work} still has the old bug. Fans had listed it as a secret trick on guide sites, so now it cannot be removed."
+  },
+  "when": [
+   "works>=1",
+   "career>=10",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "fame": 2
+  },
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_og_retro_price",
+  "years": [
+   2015,
+   2040
+  ],
+  "text": {
+   "ja": "レトロゲームの店で、昔のあなたの作品が 1 万 2000 円で売られていた。発売時は 5800 円。あなたの手元には 1 本も無い。",
+   "en": "A retro game shop has your old game for 12,000 yen. It launched at 5,800. You do not own a single copy."
+  },
+  "when": [
+   "works>=2",
+   "career>=20",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "money": -12
+  }
+ },
+ {
+  "id": "ev_og_mario_shelf",
+  "years": [
+   1985,
+   1986
+  ],
+  "text": {
+   "ja": "『スーパーマリオブラザーズ』の年、うちのアクションも出た。棚にマリオの箱が 1 列、うちのは 1 枚。それが売れた日は全員で拍手した。",
+   "en": "The year of Super Mario Bros., your action game came out too. A whole row of Mario boxes, one of yours. When yours sold, the whole team clapped."
+  },
+  "when": [
+   "works>=1",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "memory": {
+   "ja": "棚の 1 枚が売れた日に、全員で拍手した",
+   "en": "the whole team clapped when our one copy on the shelf sold"
+  },
+  "tag": [
+   "warm",
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_dq_shadow",
+  "years": [
+   1986,
+   1987
+  ],
+  "text": {
+   "ja": "新作の RPG を作っていたら『ドラゴンクエスト』が出た。翌朝の会議で、企画書の「新しい」の字が全部消された。",
+   "en": "You were making a new RPG when Dragon Quest came out. At the next morning's meeting, every \"new\" in the design doc got crossed out."
+  },
+  "when": [
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "passion": -4,
+   "skill": 3
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_dq3_day",
+  "years": [
+   1988,
+   1988
+  ],
+  "text": {
+   "ja": "『ドラゴンクエストIII』の発売日、チームの半分が休みを取った。残った半分が作っていたのは、来月出る自分たちの RPG だった。",
+   "en": "On Dragon Quest III's launch day, half the team took the day off. The other half stayed to finish your own RPG, out next month."
+  },
+  "when": [
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "hp": -4,
+   "passion": 2
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_sf2_clone",
+  "years": [
+   1992,
+   1994
+  ],
+  "text": {
+   "ja": "{work} が雑誌に「『ストリートファイターII』の二番煎じ」と書かれた。うちのはパズルゲームだ。記者は箱の裏の技表しか見ていない。",
+   "en": "A magazine called {work} \"a Street Fighter II knockoff.\" It's a puzzle game. The writer only looked at the move list on the back of the box."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "fame": 2,
+   "passion": -2
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_vf_wait",
+  "years": [
+   1994,
+   1995
+  ],
+  "text": {
+   "ja": "『バーチャファイター』の台にゲームセンターの人だかり。うちの新作は、その順番待ちの間に遊ばれるゲームになった。",
+   "en": "Crowds packed the arcades around Virtua Fighter. Your new game became the thing people played while waiting their turn."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "money": 20,
+   "passion": 2
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_ff7_month",
+  "years": [
+   1996,
+   1996
+  ],
+  "text": {
+   "ja": "新作の発売を 1997 年 1 月にした。同じ月に『ファイナルファンタジーVII』が出ると知ったのは、ポスターを刷った後だった。",
+   "en": "You set your new game for January 1997. You learned Final Fantasy VII was coming out that same month after the posters were printed."
+  },
+  "when": [
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 2,
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_ff7_move",
+    "label": {
+     "ja": "3 月にずらす",
+     "en": "Push it to March"
+    },
+    "effect": {
+     "money": -30,
+     "passion": -2
+    },
+    "result": {
+     "ja": "3 月の店頭も、まだ FFVII の箱の山だった。ポスターは日付をシールで隠した。",
+     "en": "In March the stores were still piled with Final Fantasy VII. You covered the poster dates with stickers."
+    }
+   },
+   {
+    "id": "ch_og_ff7_stay",
+    "label": {
+     "ja": "そのまま出す",
+     "en": "Launch as planned"
+    },
+    "effect": {
+     "fame": 2,
+     "passion": 3
+    },
+    "result": {
+     "ja": "店では FFVII の山の陰に 3 本並んだ。1 本は、山と間違えて手に取った人が買った。",
+     "en": "Three copies sat in the shadow of the Final Fantasy VII pile. One sold to someone who grabbed the wrong box."
+    }
+   }
+  ],
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_poke_trade",
+  "years": [
+   1996,
+   1999
+  ],
+  "text": {
+   "ja": "{work} の営業資料に「ポケモンのように集めて交換できる」と書き足された。うちのゲームに、交換の機能は無い。",
+   "en": "Someone added \"Collect and trade, just like Pokémon!\" to the sales sheet for {work}. Your game has no trading."
+  },
+  "when": [
+   "works>=1",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "passion": -3
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_tamagotchi",
+  "years": [
+   1997,
+   1997
+  ],
+  "text": {
+   "ja": "育成ゲームを出したら、店員に「たまごっちの隣でいいですか」と聞かれた。うちのは売り切れなかった。隣は売り切れていた。",
+   "en": "When your raising game launched, the clerk asked if next to Tamagotchi was okay. Yours never sold out. The spot next to it was always sold out."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "passion": -2,
+   "fame": 1
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_brain_box",
+  "years": [
+   2005,
+   2007
+  ],
+  "text": {
+   "ja": "『脳トレ』の大ヒットで、うちのオリジナルの推理ゲームの箱に「脳が鍛えられる(かもしれない)」と刷られた。かっこは法務が足した。",
+   "en": "With Brain Age a smash, your original mystery game's box now says \"Trains your brain (maybe).\" Legal added the \"maybe.\""
+  },
+  "when": [
+   "works>=1",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "money": 30
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_monhan_circle",
+  "years": [
+   2008,
+   2010
+  ],
+  "text": {
+   "ja": "『モンスターハンターポータブル 2nd G』で、ファストフード店が PSP の輪だらけの頃。同じ協力型のうちの新作は、輪の外にいた。",
+   "en": "Fast-food places were full of PSP circles playing Monster Hunter Freedom Unite. Your own co-op game sat outside every circle."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "passion": -3,
+   "skill": 2
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_puzzle_dragon",
+  "years": [
+   2012,
+   2014
+  ],
+  "text": {
+   "ja": "『パズル&ドラゴンズ』の大ヒットで、社長が「うちも竜を足せ」と言った。オリジナルで作っていた釣りゲームで、竜が釣れるようになった。",
+   "en": "After Puzzle & Dragons hit big, the president said, \"Add dragons.\" Your original fishing game can now hook a dragon."
+  },
+  "when": [
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "passion": -2,
+   "money": 20
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_pokego_park",
+  "years": [
+   2016,
+   2017
+  ],
+  "text": {
+   "ja": "『Pokémon GO』の夏、うちの位置情報ゲームも出た。公園で歩きながら遊んでいる人は、全員あちらだった。",
+   "en": "The summer of Pokémon GO, your own location-based game launched too. Everyone walking around the park with a phone was playing theirs."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "passion": -3,
+   "hp": 3
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_atsumori_mom",
+  "years": [
+   2020,
+   2021
+  ],
+  "text": {
+   "ja": "『あつまれ どうぶつの森』の年、うちのスローライフゲームも出た。家族は全員あちらで島作り。母だけがうちのを遊んで、毎日感想をくれた。",
+   "en": "The year of Animal Crossing: New Horizons, your slow-life game came out too. The whole family built islands over there. Only Mom played yours, and reviewed it daily."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "memory": {
+   "ja": "母が毎日、うちのゲームの感想をくれた",
+   "en": "Mom sent me a review of our game every single day"
+  },
+  "tag": [
+   "warm",
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_elden_easy",
+  "years": [
+   2022,
+   2023
+  ],
+  "text": {
+   "ja": "『ELDEN RING』の年、うちの難しいアクションも出た。レビューは「ELDEN RINGの後では簡単すぎる」。開発中は、難しすぎると言われていた。",
+   "en": "The year of Elden Ring, your hard action game came out. Reviews: \"Too easy after Elden Ring.\" During development, everyone said it was too hard."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "passion": -2,
+   "skill": 3
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_palworld_month",
+  "years": [
+   2024,
+   2024
+  ],
+  "text": {
+   "ja": "『パルワールド』が話題をさらった月、うちのモンスター育成も出た。話題は 1 ミリも、こちらに流れてこなかった。",
+   "en": "Palworld swallowed every headline that month, the same month your monster-raising game launched. Not one millimeter of buzz drifted your way."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "weight": 1.5,
+  "once": true,
+  "effect": {
+   "passion": -3
+  },
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_og_overseas_only",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "{work} は日本で 3000 本、なぜか北欧で 20 万本売れた。現地の担当に理由を聞くと「冬が長いから」。",
+   "en": "{work} sold 3,000 copies in Japan and, for some reason, 200,000 in the Nordics. Asked why, the local rep said, \"Long winters.\""
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "money": 120,
+   "fame": 6,
+   "passion": 6
+  },
+  "memory": {
+   "ja": "北欧の長い冬に、自分たちのゲームが遊ばれていた",
+   "en": "our game kept people company through long Nordic winters"
+  },
+  "tag": [
+   "high"
+  ]
+ },
+ {
+  "id": "ev_og_overseas_review",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "海外のレビューで {work} が「日本の隠れた名作」と書かれた。日本では、隠れたまま出てこなかった。",
+   "en": "An overseas review called {work} \"a hidden gem from Japan.\" In Japan it stayed hidden."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "fame": 4,
+   "passion": 3
+  },
+  "tag": [
+   "high"
+  ]
+ },
+ {
+  "id": "ev_og_overseas_cover",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "{work} の海外版の箱絵が届いた。主人公が筋肉質のおじさんになっていた。向こうでは、それで売れた。",
+   "en": "The overseas box art for {work} arrived. The hero is now a muscular middle-aged man. Over there, it sold."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "money": 40,
+   "fame": 2
+  }
+ },
+ {
+  "id": "ev_og_vs_license",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "社長から 2 択。「あなたのオリジナルの新作」か「人気アニメのゲーム化(締切 8 か月)」か。",
+   "en": "The president gives you two options: your own original game, or a tie-in for a popular anime, due in eight months."
+  },
+  "when": [
+   "status=employed",
+   "career>=3",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_lic_orig",
+    "label": {
+     "ja": "オリジナル",
+     "en": "Your original"
+    },
+    "effect": {
+     "passion": 12,
+     "money": -100
+    },
+    "result": {
+     "ja": "企画書に初めて自分の名前が載った。会社の口座の残高も、初めて見た。",
+     "en": "Your name went on a pitch for the first time. So did your first look at the company's bank balance."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_og_orig_paid"
+     }
+    ]
+   },
+   {
+    "id": "ch_og_lic_anime",
+    "label": {
+     "ja": "アニメのゲーム化",
+     "en": "The anime tie-in"
+    },
+    "effect": {
+     "money": 200,
+     "skill": 5,
+     "passion": -10,
+     "flag": {
+      "og_license_done": true
+     }
+    },
+    "result": {
+     "ja": "手堅く売れた。原作者から届いた礼状を、なぜか一番大事にしている。",
+     "en": "It sold steadily. Somehow, the thank-you note from the original creator is what you treasure most."
+    }
+   }
+  ],
+  "tag": [
+   "big"
+  ]
+ },
+ {
+  "id": "ev_og_orig_paid",
+  "years": [
+   1988,
+   2040
+  ],
+  "text": {
+   "ja": "あの時選んだオリジナルが、思い出したように売れ始めた。社長は「最初から信じていた」と言った。言っていなかった。",
+   "en": "The original you chose back then suddenly started selling. The president said, \"I believed in it from day one.\" He did not."
+  },
+  "when": [
+   "!flag.in_prison"
+  ],
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 8,
+   "money": 60,
+   "fame": 4
+  },
+  "memory": {
+   "ja": "オリジナルを選んで、あとから報われた",
+   "en": "chose the original and it paid off in the end"
+  },
+  "tag": [
+   "high"
+  ]
+ },
+ {
+  "id": "ev_og_vs_port",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "他社のヒット作の移植と、自分たちのオリジナルの企画が同じ月に重なった。人は片方の分しかいない。",
+   "en": "A port of another company's hit and your own original pitch landed in the same month. You only have the people for one."
+  },
+  "when": [
+   "company.size!=big",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_port_take",
+    "label": {
+     "ja": "移植を取る",
+     "en": "Take the port"
+    },
+    "effect": {
+     "money": 120,
+     "network": 5,
+     "passion": -6
+    },
+    "result": {
+     "ja": "移植は売れ、元の会社からお礼のお菓子が届いた。オリジナルの班の分は無かった。",
+     "en": "The port sold, and the other company sent thank-you sweets. None for the original team."
+    }
+   },
+   {
+    "id": "ch_og_port_orig",
+    "label": {
+     "ja": "オリジナルを取る",
+     "en": "Go original"
+    },
+    "effect": {
+     "passion": 8,
+     "money": -60
+    },
+    "result": {
+     "ja": "移植は別の会社が取った。その会社の名前が、翌年の業界誌で大きくなった。",
+     "en": "Another studio took the port. Next year their name was in big type in the trade magazines."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_og_vs_sequel7",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "あなたのオリジナルの企画と、売れ筋シリーズの 7 作目。予算はどちらか 1 本。決めるのは、責任者のあなただ。",
+   "en": "Your original pitch, or the seventh entry in a best-selling series. The budget covers one. You are the one in charge."
+  },
+  "when": [
+   "pos=client_lead",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_seq7_sequel",
+    "label": {
+     "ja": "7 作目",
+     "en": "The seventh entry"
+    },
+    "effect": {
+     "money": 300,
+     "fame": 5,
+     "passion": -12,
+     "flag": {
+      "og_chose_sequel": true
+     }
+    },
+    "result": {
+     "ja": "7 作目は手堅く売れた。オリジナルの企画書は後輩が拾い、別の会社で出した。",
+     "en": "The sequel sold reliably. A junior picked up your original pitch and made it at another company."
+    }
+   },
+   {
+    "id": "ch_og_seq7_orig",
+    "label": {
+     "ja": "オリジナル",
+     "en": "Your original"
+    },
+    "effect": {
+     "passion": 15,
+     "fame": 3,
+     "money": -200
+    },
+    "result": {
+     "ja": "役員会で 2 時間説明した。通った理由は、あなたの熱意ではなく予算が少なかったからだ。",
+     "en": "Two hours before the board. It passed, not because of your passion, but because it was cheaper."
+    },
+    "later": [
+     {
+      "after": 5,
+      "event": "ev_og_orig_legacy"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "big"
+  ]
+ },
+ {
+  "id": "ev_og_orig_legacy",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "あの時通したオリジナルが、今年 3 作目が出るシリーズになった。最初の企画書のコーヒーのしみは、社内で聖遺物扱いだ。",
+   "en": "The original you pushed through is now a series with its third game out this year. The coffee stain on the first pitch is treated like a holy relic."
+  },
+  "when": [
+   "!flag.in_prison"
+  ],
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 12,
+   "fame": 8
+  },
+  "memory": {
+   "ja": "自分が通したオリジナルが、シリーズになった",
+   "en": "an original I fought for became a series"
+  },
+  "tag": [
+   "high"
+  ]
+ },
+ {
+  "id": "ev_og_vs_gacha",
+  "years": [
+   2011,
+   2040
+  ],
+  "text": {
+   "ja": "「オリジナルのアクション」か「流行りのガチャのゲーム」か。ガチャの方は、企画書がもう 3 枚目まで書いてあった(社長の字で)。",
+   "en": "An original action game, or a trendy gacha game? The gacha pitch is already three pages long, in the president's handwriting."
+  },
+  "when": [
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_gacha_yes",
+    "label": {
+     "ja": "ガチャの方",
+     "en": "The gacha game"
+    },
+    "effect": {
+     "money": 250,
+     "passion": -8
+    },
+    "result": {
+     "ja": "売上は良く、毎月の会議が「今月の目玉キャラ」の話だけになった。",
+     "en": "Revenue was good. Every monthly meeting became about the featured character of the month."
+    }
+   },
+   {
+    "id": "ch_og_gacha_no",
+    "label": {
+     "ja": "オリジナルのアクション",
+     "en": "The original action game"
+    },
+    "effect": {
+     "passion": 10,
+     "money": -100,
+     "skill": 4
+    },
+    "result": {
+     "ja": "売れ行きは静かだった。遊んだ人の感想は、どれも長かった。",
+     "en": "Sales were quiet. Every review from people who played it was long."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_og_indie_dream",
+  "years": [
+   2010,
+   2040
+  ],
+  "text": {
+   "ja": "独立して作るなら、夢のオリジナルか、すぐ売れそうな流行りの型か。貯金はあと 14 か月分。",
+   "en": "Working on your own: the original of your dreams, or something in a trendy mold that will sell fast? Savings last fourteen months."
+  },
+  "when": [
+   "status=indie",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_indie_dream_yes",
+    "label": {
+     "ja": "夢のオリジナル",
+     "en": "The dream original"
+    },
+    "effect": {
+     "passion": 15,
+     "money": -150
+    },
+    "result": {
+     "ja": "14 か月が 22 か月になった。完成した日、泣いていたのは自分だけ。猫は寝ていた。",
+     "en": "Fourteen months became twenty-two. On launch day, you were the only one crying. The cat was asleep."
+    },
+    "memory": {
+     "ja": "22 か月かけて、夢のオリジナルを完成させた",
+     "en": "spent twenty-two months finishing my dream original"
+    }
+   },
+   {
+    "id": "ch_og_indie_dream_trend",
+    "label": {
+     "ja": "流行りの型",
+     "en": "The trendy one"
+    },
+    "effect": {
+     "money": 200,
+     "passion": -5
+    },
+    "result": {
+     "ja": "3 か月で出して、そこそこ売れた。レビューに「作者の顔が見えない」と書かれた。",
+     "en": "Shipped in three months and sold okay. One review said, \"You can't see the maker in it.\""
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_og_small_bet",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "社員 9 人の会社で、全員でオリジナル 1 本に賭けるか。外れたら、会社は年を越せない。",
+   "en": "Nine employees. Do you bet everything on one original game? If it misses, the company will not make it to New Year."
+  },
+  "when": [
+   "company.size=small",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_bet_yes",
+    "label": {
+     "ja": "賭ける",
+     "en": "Bet it all"
+    },
+    "effect": {
+     "passion": 15,
+     "money": -150,
+     "hp": -6
+    },
+    "result": {
+     "ja": "全員の目が据わった。社長が自分の車を売った。",
+     "en": "Everyone's eyes went steely. The president sold his car."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_og_bet_result"
+     }
+    ]
+   },
+   {
+    "id": "ch_og_bet_no",
+    "label": {
+     "ja": "受託で食いつなぐ",
+     "en": "Survive on contract work"
+    },
+    "effect": {
+     "money": 60,
+     "passion": -8
+    },
+    "result": {
+     "ja": "会社は年を越した。オリジナルの企画書は、忘年会のビンゴの景品になった。",
+     "en": "The company survived the year. The original pitch became a bingo prize at the year-end party."
+    }
+   }
+  ],
+  "tag": [
+   "big"
+  ]
+ },
+ {
+  "id": "ev_og_bet_result",
+  "years": [
+   1987,
+   2040
+  ],
+  "text": {
+   "ja": "全員で賭けたオリジナルが出た。売れ行きは年は越せるが、春は越せない程度。春も、なんとか越した。",
+   "en": "The original you all bet on came out. Sales were enough to survive winter but not spring. Somehow, you survived spring too."
+  },
+  "when": [
+   "!flag.in_prison"
+  ],
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 8,
+   "network": 6
+  },
+  "memory": {
+   "ja": "9 人で賭けたオリジナルで、会社が冬を越した",
+   "en": "nine of us bet the company on an original and made it through winter"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_qa_pitch",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "デバッグの休憩時間に書いたオリジナルの企画書が、通りかかったプロデューサーの目に留まった。",
+   "en": "A producer walking by noticed the original pitch you scribbled during your debugging break."
+  },
+  "when": [
+   "pos=qa",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_qa_pitch_go",
+    "label": {
+     "ja": "思い切って渡す",
+     "en": "Hand it over"
+    },
+    "effect": {
+     "passion": 10,
+     "job": "planner",
+     "flag": {
+      "og_qa_pitch": true
+     }
+    },
+    "result": {
+     "ja": "「明日から企画に来い」と言われた。デバッグの席には、まだあなたの湯のみがある。",
+     "en": "\"Come to planning tomorrow,\" he said. Your teacup is still at the debugging desk."
+    },
+    "memory": {
+     "ja": "休憩中の落書きの企画書で、企画になった",
+     "en": "a pitch I wrote on break got me into planning"
+    }
+   },
+   {
+    "id": "ch_og_qa_pitch_hide",
+    "label": {
+     "ja": "恥ずかしいので隠す",
+     "en": "Hide it, embarrassed"
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 2
+    },
+    "result": {
+     "ja": "企画書はロッカーにしまった。たまに読み返して、たまに書き足している。",
+     "en": "You put it in your locker. Now and then you reread it and add a line."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_og_sub_secret",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "下請けの合間に、こっそり自社オリジナルを作り始めた。元請けの仕事の時より、みんなの帰りが遅い。",
+   "en": "Between contract jobs, the team quietly started its own original game. Everyone stays later than they ever did for the client."
+  },
+  "when": [
+   "pos=sub",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 8,
+   "hp": -4
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_sub_name",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "下請けの社長が「一度でいいから、自分たちの名前で出したい」と言った。元請けの仕事を 1 本断れば作れる。",
+   "en": "Your subcontractor boss says, \"Just once, I want something out under our own name.\" Turning down one client job would make it possible."
+  },
+  "when": [
+   "pos=sub",
+   "career>=2",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_subname_orig",
+    "label": {
+     "ja": "断ってオリジナルを作る",
+     "en": "Turn it down and go original"
+    },
+    "effect": {
+     "money": -150,
+     "passion": 12
+    },
+    "result": {
+     "ja": "元請けの担当は「後悔するよ」と言った。社長は「もうしてる」と笑った。",
+     "en": "The client said, \"You'll regret this.\" The boss laughed: \"Already do.\""
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_og_sub_box"
+     }
+    ]
+   },
+   {
+    "id": "ch_og_subname_keep",
+    "label": {
+     "ja": "元請けを続ける",
+     "en": "Keep the client work"
+    },
+    "effect": {
+     "money": 100,
+     "network": 5,
+     "passion": -5
+    },
+    "result": {
+     "ja": "大作のスタッフロールに社名が小さく載った。社長はそれを写真に撮って額に入れた。",
+     "en": "Your company's name scrolled by, tiny, in a big game's credits. The boss framed a photo of it."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_og_sub_box",
+  "years": [
+   1987,
+   2040
+  ],
+  "text": {
+   "ja": "初めて自社の名前が箱に載ったオリジナルが出た。売れたのは 4000 本。社長は自分で 40 本買って、親戚に配った。",
+   "en": "Your first original with the company's own name on the box. It sold 4,000 copies. The boss bought forty himself for relatives."
+  },
+  "when": [
+   "!flag.in_prison"
+  ],
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 10,
+   "network": 4
+  },
+  "memory": {
+   "ja": "初めて自分たちの社名が箱に載った",
+   "en": "saw our own company name on a game box for the first time"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_dev_lead_title",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "開発の責任者として題名を提出したら、発注元が「仮題」と書いた紙を返してきた。発売の日まで、ずっと仮題だった。",
+   "en": "As dev lead you submitted the title. The publisher sent it back stamped \"working title.\" It stayed a working title until release day."
+  },
+  "when": [
+   "pos=dev_lead",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": -3
+  }
+ },
+ {
+  "id": "ev_og_client_grandpa",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "発注元の責任者として、新作の題名に最終決定を出す日。前の晩に家族に聞いたら、父が「長い」とだけ言った。短くした。",
+   "en": "As the publisher-side lead, today you sign off on the title. Last night you asked the family. Your father just said, \"Too long.\" You shortened it."
+  },
+  "when": [
+   "pos=client_lead",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 2,
+   "network": 1
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_programmer_logo",
+  "years": [
+   1983,
+   2040
+  ],
+  "text": {
+   "ja": "題名が決まらないまま、タイトル画面のロゴを 6 種類作った。残ったのは、仮置きの「タイトル未定」の字体だけだった。",
+   "en": "With no title decided, you built six versions of the title-screen logo. The only thing that survived was the font of your \"TITLE TBD\" placeholder."
+  },
+  "when": [
+   "job=programmer",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "skill": 3,
+   "passion": -2
+  }
+ },
+ {
+  "id": "ev_og_artist_mascot",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "メモ帳の端に描いた生き物が {work} のマスコットになった。権利は会社のものだと、契約書の 14 条に書いてあった。",
+   "en": "A critter you doodled in a notebook margin became the mascot of {work}. Clause 14 says the rights belong to the company."
+  },
+  "when": [
+   "job=artist",
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "fame": 4,
+   "passion": 4
+  },
+  "memory": {
+   "ja": "落書きの生き物が、作品の顔になった",
+   "en": "a doodle of mine became the face of our game"
+  },
+  "tag": [
+   "high"
+  ]
+ },
+ {
+  "id": "ev_og_sound_wedding",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "{work} のテーマ曲を、ファンが結婚式の入場に使ったと聞いた。あなたが締切の朝に 20 分で作った曲だった。",
+   "en": "A fan used the theme from {work} for their wedding entrance. You wrote it in twenty minutes on deadline morning."
+  },
+  "when": [
+   "job=sound",
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 8
+  },
+  "memory": {
+   "ja": "20 分で作った曲が、誰かの結婚式で流れた",
+   "en": "a tune I wrote in twenty minutes played at a stranger's wedding"
+  },
+  "tag": [
+   "warm",
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_og_sales_subtitle_fame",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "営業のあなたが付けた副題が、題名より有名になった。開発チームはまだ口をきいてくれない。",
+   "en": "The subtitle you, the salesperson, tacked on is now more famous than the title. The dev team still will not speak to you."
+  },
+  "when": [
+   "job=sales",
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "fame": 4,
+   "network": -3
+  }
+ },
+ {
+  "id": "ev_og_planner_hero_name",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "主人公の名前で 2 週間もめた。決まった名前は、最初の日にあなたが冗談で言った名前だった。",
+   "en": "Two weeks of arguing over the hero's name. The winner was the one you said as a joke on day one."
+  },
+  "when": [
+   "job=planner",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 3
+  }
+ },
+ {
+  "id": "ev_og_abroad_japanese",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "海外の会社で、オリジナル作品の題名の「日本っぽさ」の監修を頼まれた。あなたの案は、社内で「呪文」と呼ばれている。",
+   "en": "At your overseas studio, you were asked to make an original game's title sound \"more Japanese.\" Your suggestion is known around the office as \"the spell.\""
+  },
+  "when": [
+   "pos=abroad",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "network": 4,
+   "passion": 2
+  }
+ },
+ {
+  "id": "ev_og_teacher_show",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "授業で昔のあなたのオリジナル作品を見せた。学生の 1 人は「親が持っていました」。もう 1 人は「中古で 10 円でした」。",
+   "en": "You showed your old original game in class. One student said, \"My parents had it.\" Another said, \"It was ten yen used.\""
+  },
+  "when": [
+   "pos=teacher",
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 4
+  },
+  "memory": {
+   "ja": "教え子が、親の持っていた私のゲームを覚えていた",
+   "en": "a student remembered my game from their parents' shelf"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_late_last",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "若手が「最後にオリジナルを 1 本」と企画書を持ってきた。表紙にあなたの名前と「最後の」が並んでいて、少し複雑だった。",
+   "en": "The young staff brought you a pitch: \"One last original.\" Your name and the words \"one last\" side by side on the cover. Mixed feelings."
+  },
+  "when": [
+   "age>=55",
+   "career>=20",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 10
+  },
+  "memory": {
+   "ja": "若手が「最後のオリジナル」を一緒に作ろうと言ってくれた",
+   "en": "the young team asked me to make one last original with them"
+  },
+  "tag": [
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_quick_original",
+  "years": [
+   1980,
+   2040
+  ],
+  "text": {
+   "ja": "入って 1 年目、いきなりオリジナルの企画に入れられた。先輩いわく「誰もやりたがらないから」。",
+   "en": "First year on the job, you were thrown onto an original project. A senior explained: \"Nobody else wanted it.\""
+  },
+  "when": [
+   "career<=1",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "skill": 3
+  }
+ },
+ {
+  "id": "ev_og_late_start_orig",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "50 すぎで業界に入ったあなたのオリジナルの企画が、若手の会議で通った。理由は「親世代に刺さりそう」。親世代はあなただ。",
+   "en": "Your original pitch, as a newcomer past fifty, got approved by the young team. Reason: \"Might appeal to our parents' generation.\" That is you."
+  },
+  "when": [
+   "age>=50",
+   "career<=5",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 8
+  },
+  "memory": {
+   "ja": "50 すぎの新人の企画が通った",
+   "en": "my pitch as a fifty-something rookie got approved"
+  },
+  "tag": [
+   "late",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_og_box_dragon",
+  "years": [
+   1983,
+   2005
+  ],
+  "text": {
+   "ja": "{work} の箱絵を有名な絵師に頼んだら、ゲームに出てこない竜が描かれていた。申し訳なくて、次回作で竜を出した。",
+   "en": "You commissioned box art for {work} from a famous illustrator. It featured a dragon that is not in the game. Out of guilt, you put one in the sequel."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "fame": 2,
+   "passion": 2
+  }
+ },
+ {
+  "id": "ev_og_wiki_legend",
+  "years": [
+   2005,
+   2040
+  ],
+  "text": {
+   "ja": "ネットの百科事典の {work} の項目に、知らない開発秘話が載っていた。実話より面白いので、直さないでおいた。",
+   "en": "The online encyclopedia entry for {work} has a behind-the-scenes story you've never heard. It's better than the real one, so you leave it."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "fame": 2
+  }
+ },
+ {
+  "id": "ev_og_doujin",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "{work} の同人誌が出ていた。即売会で買ったら、作者に「原作も遊んでください」と言われた。作りました、とは言えなかった。",
+   "en": "There is a fan comic of {work}. You bought one at a fan event. The artist said, \"Please play the original too.\" You could not say you made it."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 7
+  },
+  "memory": {
+   "ja": "自分の作品の同人誌を、こっそり買った",
+   "en": "secretly bought a fan comic of my own game"
+  },
+  "tag": [
+   "warm",
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_og_doujin_legal",
+  "years": [
+   1992,
+   2040
+  ],
+  "text": {
+   "ja": "{work} の二次創作が増えて、法務が「止めるべきか」と聞いてきた。決めるのはあなただ。",
+   "en": "Fan works of {work} keep multiplying. Legal asks whether to shut them down. It is your call."
+  },
+  "when": [
+   "works>=1",
+   "pos=client_lead",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "choices": [
+   {
+    "id": "ch_og_doujin_watch",
+    "label": {
+     "ja": "黙って見守る",
+     "en": "Quietly let them be"
+    },
+    "effect": {
+     "network": 8,
+     "fame": 3,
+     "flag": {
+      "og_fan_friendly": true
+     }
+    },
+    "result": {
+     "ja": "ファンは増え、次回作の予約が倍になった。法務は今も不満そうだ。",
+     "en": "The fanbase grew and preorders for the next game doubled. Legal is still grumpy about it."
+    }
+   },
+   {
+    "id": "ch_og_doujin_stop",
+    "label": {
+     "ja": "止める",
+     "en": "Shut them down"
+    },
+    "effect": {
+     "money": 20,
+     "passion": -5,
+     "fame": -3
+    },
+    "result": {
+     "ja": "即売会から {work} が消えた。翌年、ファンレターも消えた。",
+     "en": "{work} vanished from the fan events. The next year, so did the fan letters."
+    }
+   }
+  ],
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_og_cosplay",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "イベント会場で {work} の主人公のコスプレの人を見た。背中の模様まで設定画の通り。背中は、ゲームでは一度も映らない。",
+   "en": "At an event you saw someone cosplaying the hero of {work}. Even the pattern on the back matched your design sheet. The back is never shown in the game."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 8,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "設定画しか知らない背中を、コスプレの人が着ていた",
+   "en": "a cosplayer wore the back of a costume only the design sheet showed"
+  },
+  "tag": [
+   "high",
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_og_fan_letter_typo",
+  "years": [
+   1983,
+   1998
+  ],
+  "text": {
+   "ja": "{work} のファンレターが届いた。主人公の名前が 3 か所とも違う。でも、最後の台詞は一字一句合っていた。",
+   "en": "A fan letter for {work} arrived. The hero's name was misspelled all three times. But the final line was quoted word for word."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "memory": {
+   "ja": "名前は違うのに台詞は完璧なファンレターをもらった",
+   "en": "got a fan letter with every name wrong and every line right"
+  },
+  "tag": [
+   "warm",
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_og_fan_site",
+  "years": [
+   1997,
+   2008
+  ],
+  "text": {
+   "ja": "{work} のファンサイトを見つけた。攻略の表は社内の資料より正確だった。こっそり印刷して、次回作の調整に使った。",
+   "en": "You found a fan site for {work}. Its strategy tables were more accurate than the internal docs. You quietly printed them for tuning the next game."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "skill": 3,
+   "passion": 3
+  },
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_og_fan_anniv",
+  "years": [
+   2010,
+   2040
+  ],
+  "text": {
+   "ja": "昔のあなたのオリジナル作品の 10 周年を、ファンが SNS で勝手に祝っていた。会社は誰も覚えていなかった。あなたもだ。",
+   "en": "Fans were celebrating the tenth anniversary of your old original game online. Nobody at the company remembered. Neither did you."
+  },
+  "when": [
+   "works>=2",
+   "career>=10",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 7,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "忘れていた 10 周年を、ファンが祝ってくれた",
+   "en": "fans remembered our tenth anniversary when we forgot"
+  },
+  "tag": [
+   "warm",
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_og_fan_wedding",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "「{work} がきっかけで結婚しました」という手紙が届いた。そのゲームに、通信の機能は無い。",
+   "en": "A letter: \"We got married because of {work}.\" That game has no multiplayer whatsoever."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 7
+  },
+  "memory": {
+   "ja": "自分の作品がきっかけで結婚した人がいた",
+   "en": "someone got married thanks to our game"
+  },
+  "tag": [
+   "warm",
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_og_fan_kid_name",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "{work} の主人公から名前をもらった子が小学校に上がった、と手紙が来た。その主人公は序盤で村を焼かれる。",
+   "en": "A letter says the child named after the hero of {work} just started school. That hero's village burns down in the first hour."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 5
+  },
+  "memory": {
+   "ja": "主人公の名前をもらった子どもがいた",
+   "en": "a child was named after our hero"
+  },
+  "tag": [
+   "warm",
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_og_speedrun",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "{work} の最速クリアの記録が、海外で 1 時間を切った。開発中、あなたは一度も最後まで遊べなかった。",
+   "en": "Someone overseas beat {work} in under an hour. During development, you never once made it to the end."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "fame": 3,
+   "passion": 4
+  },
+  "tag": [
+   "fan",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_og_junior_interview",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "新人の面接で「子どもの頃に遊んだ、御社のあのオリジナル作品で」と言われた。面接官全員が、あなたの方を見た。",
+   "en": "At a job interview, the candidate said, \"I got into games because of that original game of yours I played as a kid.\" Every interviewer turned to look at you."
+  },
+  "when": [
+   "works>=2",
+   "career>=15",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 10,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "子どもの頃に私のゲームを遊んだ人が、後輩になった",
+   "en": "a kid who grew up on my game became my junior"
+  },
+  "tag": [
+   "high",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_junior_director",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "取引先の若いディレクターが、名刺と一緒にあなたの昔のソフトを出してきた。「サインを」。打ち合わせは 5 分、思い出話は 2 時間。",
+   "en": "A young director from a partner company handed you his business card and a copy of your old game. \"Could you sign this?\" Five-minute meeting. Two hours of memories."
+  },
+  "when": [
+   "works>=2",
+   "career>=20",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 9,
+   "network": 5
+  },
+  "memory": {
+   "ja": "昔のソフトに、初めてサインを頼まれた",
+   "en": "signed a copy of my old game for the first time"
+  },
+  "tag": [
+   "high",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_og_fan_tribute",
+  "years": [
+   2014,
+   2040
+  ],
+  "text": {
+   "ja": "あなたのオリジナル作品に影響を受けたという個人の新作が出た。遊んでみたら、あなたが削った仕様が全部入っていた。",
+   "en": "An indie game \"inspired by\" your original came out. You played it. Every feature you had cut was in there."
+  },
+  "when": [
+   "works>=2",
+   "career>=12",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 8
+  },
+  "memory": {
+   "ja": "自分の作品に影響を受けたゲームが生まれた",
+   "en": "someone made a game inspired by ours"
+  },
+  "tag": [
+   "warm",
+   "fan"
+  ]
+ }
+]
