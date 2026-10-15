@@ -5,3 +5,5 @@ assets/inbox/
 .env
 .DS_Store
 tools/.dbg*
+tools/.sim-entry.ts
+tools/.replay-entry.ts
