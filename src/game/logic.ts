@@ -849,7 +849,7 @@ function arcName(s: State, r: Rng, lo: number, hi: number, born: number): Text {
 function arcOn(s: State, r: Rng, kind: string, pre: string): boolean {
   const k = (s.inner.arcOn ??= {});
   // どの人生にも長い筋を 1 本は通す(第 34 回まで: 筋の通った人生は 8 点、無い人生は「部品の寄せ集め」)。直近で見ていない種類を優先
-  if (k.must === undefined) { const all: [string, string][] = [['fan', 'ev_fa_'], ['rival', 'ev_rv_'], ['mentor', 'ev_mt_'], ['mentee', 'ev_me_']]; const fresh = all.filter(([, p]) => !s.inner.recent?.some((id) => id.startsWith(p))); (k as Record<string, boolean | string>).must = r.pick(fresh.length ? fresh : all)[0]; }
+  if (k.must === undefined) { const all: [string, string][] = [['fan', 'ev_fa_'], ['rival', 'ev_rv_'], ['mentor', 'ev_mt_'], ['mentee', 'ev_me_']]; const fresh = all.filter(([, p]) => !s.inner.recent?.some((id) => id.startsWith(p))); const age = ([, p]: [string, string]) => { const i = s.inner.recent?.findIndex((id) => id.startsWith(p)) ?? -1; return i < 0 ? 1e9 : i; }; const oldest = [...all].sort((a, b) => age(b) - age(a))[0]; (k as Record<string, boolean | string>).must = fresh.length ? r.pick(fresh)[0] : oldest[0]; } // 全部見ていたら、いちばん前に見た種類(recent は新しい人生が先頭。第 41 回: ライバルの企画コンペが 3 人生とも)
   if ((k as Record<string, boolean | string>).must === kind) return true;
   if (k[kind] === undefined) k[kind] = s.inner.recent?.some((id) => id.startsWith(pre)) ? false : !r.chance(0.1); // 直近の人生で通った筋は、決め打ちの 1 本でなければ通さない(第 36 回: ファンの子の筋が 2 人生続けて) // 第 20 回: ファンの子の筋が 2 人生続けて → 0.9 // 第 15 回ペルソナ: まだ続けて来る → 0.6 から 0.8
   return k[kind];
@@ -923,7 +923,8 @@ function kidsReturn(s: State, id: EndingId) {
   const nmEn = bud ? bud.name.en.split(' ').slice(-1)[0] : arc ? arc.name.en : '';
   let p = nmJa ? `${rel.ja}${nmJa}` : rel.ja.replace(/の$/, ''), pe = `${rel.en} ${nmEn}`.trim();
   // ファンの子の筋が最後まで通った人生は、半分はその子と締める(第 36 回: 1 回しか出ない同期より、筋の相手)
-  if (s.inner.fan && s.inner.fan.step >= 4 && !s.flags.in_prison && id !== 'end_arrest' && s.rng.chance(0.5)) { p = s.inner.fan.name.ja; pe = s.inner.fan.name.en; }
+  let fanTalk = false;
+  if (s.inner.fan && s.inner.fan.step >= 4 && !s.flags.in_prison && id !== 'end_arrest' && s.rng.chance(0.5)) { p = s.inner.fan.name.ja; pe = s.inner.fan.name.en; fanTalk = true; }
   const jail = s.flags.in_prison || id === 'end_arrest';
   const where: Partial<Record<EndingId, Text>> = {
     end_restart: s.rng.pick([
@@ -951,7 +952,12 @@ function kidsReturn(s: State, id: EndingId) {
   // 2 回目からは、直近に名台詞で締めていたら半分は普通の掛け合いで(第 25 回まで: 毎回名台詞で 3 回目に読める。仮決め・QUESTIONS.md)
   const plainOk = !!s.inner.recent?.some((x) => x.startsWith('line:finale:')) && s.rng.chance(0.5);
   let finale: Text;
-  if (plainOk) finale = freshLine(s, [
+  if (fanTalk) finale = freshLine(s, [ // ファンだった子との締め。同期の口調(「なあ、俺たち」「バカヤロー」)は使わない(第 41 回)
+    { ja: '「あの時の返事、まだ持ってます」\nあなたは、何て書いたか思い出せなかった。それでいいと思った。', en: '"I still have the reply you sent me back then."\nYou couldn\'t remember what you\'d written. That felt right.' },
+    { ja: '「次は、私のゲームを遊んでください」\n「難易度は、下げなくていいからな」', en: '"Next time, play one of mine."\n"Don\'t you dare lower the difficulty."' },
+    { ja: '「ずっと、追いかけてました」\n「追い越していいぞ。もう、とっくに」', en: '"I\'ve been chasing you all this time."\n"You can pass me. You already did."' },
+  ], 'fanfin');
+  else if (plainOk) finale = freshLine(s, [
     { ja: '「次、何作る?」\n「まだ決めてない。決めてないのが、いちばん楽しい」', en: '"What are you making next?"\n"Haven\'t decided. That\'s the best part."' },
     { ja: '「後悔してる?」\n「セーブデータは、全部残してある」', en: '"Any regrets?"\n"I kept every save file."' },
     { ja: '「疲れたな」\n「ああ。でも、もう 1 面だけ」', en: '"Tired?"\n"Yeah. Just one more stage."' },
