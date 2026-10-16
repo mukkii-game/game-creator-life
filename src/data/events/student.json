@@ -1,0 +1,742 @@
+[
+ {
+  "id": "ev_st_arcade_staff",
+  "years": [
+   1977,
+   2015
+  ],
+  "text": {
+   "ja": "学生時代はゲーセンでバイトしていた。両替機の小銭の音で目が覚める体になった。閉店後、基板の裏をこっそり覗くのが日課だった。",
+   "en": "As a student you worked at an arcade. The coin-changer's jingle became your alarm clock. After closing, you'd sneak a look at the back of the boards."
+  },
+  "effect": {
+   "skill": 3,
+   "passion": 6
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ]
+ },
+ {
+  "id": "ev_st_arcade_regulars",
+  "years": [
+   1978,
+   2010
+  ],
+  "text": {
+   "ja": "ゲーセンのバイトでは、常連のハイスコアを毎晩ノートに写していた。そのノートは今でも実家の押し入れにある。",
+   "en": "At the arcade job you copied the regulars' high scores into a notebook every night. It's still in your parents' closet."
+  },
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ]
+ },
+ {
+  "id": "ev_st_game_shop",
+  "years": [
+   1983,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代はゲームショップでバイトしていた。発売日の朝は行列の整理。買えなかった子の顔を、今でも少し覚えている。",
+   "en": "You worked at a game shop. Launch mornings meant managing the queue. You still half-remember the faces of the kids who didn't get one."
+  },
+  "effect": {
+   "money": 20,
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ]
+ },
+ {
+  "id": "ev_st_game_shop_used",
+  "years": [
+   1985,
+   2035
+  ],
+  "text": {
+   "ja": "ゲームショップのバイトで中古の買い取りをしていた。持ち込まれる名作の数で、世の中の流行りが分かった。持ち込まれるクソゲーの数で、世の中の優しさが分かった。",
+   "en": "At the game shop you handled used trade-ins. The masterpieces told you what was trending; the stinkers told you how kind people were."
+  },
+  "effect": {
+   "skill": 2,
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ]
+ },
+ {
+  "id": "ev_st_debug_arbeit",
+  "years": [
+   1986,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代、ゲーム会社のデバッグのバイトに行った。同じ壁に 8 時間ぶつかり続けて時給 700 円。それでも「ゲーム会社の中」に入れたのが嬉しかった。",
+   "en": "As a student you took a debugging gig at a game company. Eight hours running into the same wall for 700 yen an hour. Still, you were inside a game company."
+  },
+  "effect": {
+   "skill": 3,
+   "network": 4,
+   "passion": 3
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ]
+ },
+ {
+  "id": "ev_st_electronics_store",
+  "years": [
+   1980,
+   2035
+  ],
+  "text": {
+   "ja": "家電量販店のゲーム売り場でバイトしていた。試遊台の前から動かない小学生と、毎日同じ勝負をしていた。",
+   "en": "You worked the game corner at an electronics store. Every day the same kid camped at the demo unit, and every day you played him."
+  },
+  "effect": {
+   "passion": 4,
+   "money": 15
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ]
+ },
+ {
+  "id": "ev_st_pc_shop",
+  "years": [
+   1978,
+   1995
+  ],
+  "text": {
+   "ja": "学生時代はパソコンショップでバイトしていた。店頭のマイコンに勝手にゲームを打ち込んで、店長に怒られて、次の日には店長も遊んでいた。",
+   "en": "You worked at a computer shop. You typed games into the demo micro without asking. The manager yelled; the next day he was playing too."
+  },
+  "effect": {
+   "skill": 4,
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ],
+  "when": [
+   "year<=1995"
+  ]
+ },
+ {
+  "id": "ev_st_convenience",
+  "years": [
+   1985,
+   2035
+  ],
+  "text": {
+   "ja": "コンビニの深夜バイトで、レジの合間にゲームの企画をレシートの裏に書いていた。店長に見つかって「これ面白いじゃん」と言われたのが最初の評価だった。",
+   "en": "On the convenience-store night shift you scribbled game ideas on receipt backs. The manager found one: \"Hey, this is fun.\" Your first review."
+  },
+  "effect": {
+   "passion": 5,
+   "money": 15
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ]
+ },
+ {
+  "id": "ev_st_karaoke",
+  "years": [
+   1990,
+   2035
+  ],
+  "text": {
+   "ja": "カラオケ店のバイトで、部屋から漏れるゲーム音楽の歌を聴いていた。ドラクエのテーマを歌う客がいた日、少し泣いた。",
+   "en": "Working at a karaoke place, you heard game songs leaking from the rooms. The day someone sang the Dragon Quest theme, you teared up a little."
+  },
+  "effect": {
+   "passion": 4,
+   "money": 10
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ]
+ },
+ {
+  "id": "ev_st_test_player",
+  "years": [
+   1995,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代、ゲーム会社のモニターのバイトで新作を遊んで感想を書いた。「難しすぎる」と書いたら、発売版でちゃんと簡単になっていた。世界を動かした気がした。",
+   "en": "As a paid playtester you wrote feedback on unreleased games. You wrote \"too hard\", and the retail version was easier. You'd moved the world."
+  },
+  "effect": {
+   "passion": 6,
+   "network": 3
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ]
+ },
+ {
+  "id": "ev_st_tutor",
+  "years": [
+   1977,
+   2035
+  ],
+  "text": {
+   "ja": "家庭教師のバイトで、生徒とゲームの話ばかりしていた。生徒の成績は上がらなかったが、生徒のスコアは上がった。",
+   "en": "As a private tutor you mostly talked games with your student. His grades didn't rise; his high scores did."
+  },
+  "effect": {
+   "passion": 4,
+   "money": 15
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ]
+ },
+ {
+  "id": "ev_st_allnighter",
+  "years": [
+   1980,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代は、ただのゲーマーだった。徹夜でクリアして、そのまま 1 限に出て、そのまま寝た。単位と引き換えに、エンディングをたくさん見た。",
+   "en": "As a student you were just a gamer. All night to the credits, straight to first period, straight to sleep. You traded credits for credits."
+  },
+  "effect": {
+   "passion": 8,
+   "hp": -3
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_invader_boom",
+  "years": [
+   1978,
+   1981
+  ],
+  "text": {
+   "ja": "学生の頃、喫茶店のインベーダーで 100 円玉を積み上げていた。名古屋撃ちを覚えた日、人生で一番頭が良くなった気がした。",
+   "en": "As a student you stacked 100-yen coins on a café Invaders table. The day you learned the Nagoya Attack, you felt like a genius."
+  },
+  "effect": {
+   "passion": 8,
+   "money": -10
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_famicom_days",
+  "years": [
+   1984,
+   1992
+  ],
+  "text": {
+   "ja": "学生時代、友だちの家のファミコンに毎日通った。自分の番は 1 日 15 分。その 15 分のために生きていた。",
+   "en": "As a student you went to a friend's house every day for his Famicom. Your turn was fifteen minutes a day. You lived for those fifteen minutes."
+  },
+  "effect": {
+   "passion": 8
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_strategy_guide",
+  "years": [
+   1986,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代、攻略本を読むのが好きだった。遊ぶより読むほうが長かった。データの表を眺めていると、作った人の顔が見える気がした。",
+   "en": "You loved strategy guides — read more than you played. Staring at the data tables, you felt you could see the developers' faces."
+  },
+  "effect": {
+   "skill": 3,
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_fighting_center",
+  "years": [
+   1991,
+   2005
+  ],
+  "text": {
+   "ja": "学生時代、格闘ゲームのためにゲーセンに住んでいた。知らない人と 100 回戦って、名前も知らないまま友だちになった。",
+   "en": "As a student you practically lived at the arcade for fighting games. A hundred matches with a stranger; friends without ever learning his name."
+  },
+  "effect": {
+   "passion": 7,
+   "network": 3
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_rpg_save",
+  "years": [
+   1987,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代、RPG のデータが消えて 3 日寝込んだ。4 日目に最初からやり直した。この粘り強さが、のちの仕事で役に立った。",
+   "en": "As a student your RPG save got wiped and you were bedridden for three days. On day four you started over. That stubbornness paid off later at work."
+  },
+  "effect": {
+   "passion": 6,
+   "hp": -2
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_net_game",
+  "years": [
+   1999,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代はネトゲの中で暮らしていた。現実の単位は落としたが、ギルドの幹部にはなった。履歴書には書けなかった。",
+   "en": "As a student you lived inside an online game. Failed real classes, made guild officer. Couldn't put that on a résumé."
+  },
+  "effect": {
+   "passion": 7,
+   "network": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_speedrun",
+  "years": [
+   2005,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代、RTA の練習で同じ 3 分を 1000 回やり直した。記録は世界 214 位。誰にも自慢できない数字が、一番誇らしかった。",
+   "en": "As a student you replayed the same three minutes a thousand times for speedruns. World rank 214. The most private number you were ever proud of."
+  },
+  "effect": {
+   "skill": 3,
+   "passion": 6
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_tournament",
+  "years": [
+   1985,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代、ゲームの大会に出て地区予選で負けた。帰りの電車で、負けた理由を 40 個ノートに書いた。半分はゲームの作りの話だった。",
+   "en": "As a student you lost a tournament in the regional qualifier. On the train home you listed forty reasons. Half were about how the game was designed."
+  },
+  "effect": {
+   "skill": 2,
+   "passion": 6
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_stream_viewer",
+  "years": [
+   2010,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代、ゲーム実況ばかり見ていた。自分で遊ぶより、人が遊ぶのを見る時間のほうが長かった。どこで人が笑うか、自然と覚えた。",
+   "en": "As a student you mostly watched game streams. You learned, without trying, exactly where players laugh."
+  },
+  "effect": {
+   "skill": 2,
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_univ_cs",
+  "years": [
+   1977,
+   2035
+  ],
+  "text": {
+   "ja": "大学では情報工学を専攻した。授業より、計算機室で遊んでいる時間のほうが学ぶことが多かった。",
+   "en": "You majored in computer science. You learned more playing in the computer lab than in class."
+  },
+  "effect": {
+   "skill": 6
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ]
+ },
+ {
+  "id": "ev_st_univ_club",
+  "years": [
+   1980,
+   2035
+  ],
+  "text": {
+   "ja": "大学のゲーム研究会に入った。部室には先輩が残した謎の基板と、誰も終わらせていない企画書が山になっていた。",
+   "en": "You joined the university game club. The club room held mystery boards left by seniors and a pile of proposals nobody had finished."
+  },
+  "effect": {
+   "network": 4,
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ]
+ },
+ {
+  "id": "ev_st_senmon",
+  "years": [
+   1986,
+   2035
+  ],
+  "text": {
+   "ja": "ゲームの専門学校に通った。同級生 40 人のうち、卒業まで作り続けたのは 12 人。その 12 人とは今でも年賀状を出し合っている。",
+   "en": "You attended a game vocational school. Of forty classmates, twelve kept making games to graduation. You still exchange New Year cards with those twelve."
+  },
+  "effect": {
+   "skill": 5,
+   "network": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ]
+ },
+ {
+  "id": "ev_st_art_school",
+  "years": [
+   1980,
+   2035
+  ],
+  "text": {
+   "ja": "美大に通っていた。教授には「ゲームの絵は芸術じゃない」と言われた。卒業制作はドット絵で出した。教授は 5 分間、黙って見ていた。",
+   "en": "You went to art school. The professor said game art wasn't art. Your graduation piece was pixel art. He stared at it in silence for five minutes."
+  },
+  "effect": {
+   "skill": 5,
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ]
+ },
+ {
+  "id": "ev_st_music_school",
+  "years": [
+   1980,
+   2035
+  ],
+  "text": {
+   "ja": "音楽の学校に通いながら、FM 音源で曲を作っていた。クラシックの課題を、なぜかピコピコの音色で提出した。",
+   "en": "At music school you composed on FM synths on the side. You turned in a classical assignment in chiptune, somehow."
+  },
+  "effect": {
+   "skill": 5,
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ]
+ },
+ {
+  "id": "ev_st_thesis_game",
+  "years": [
+   1985,
+   2035
+  ],
+  "text": {
+   "ja": "卒業論文のテーマを「ゲームの難易度曲線」にした。指導教員は最後まで意味が分からなかったが、判子は押してくれた。",
+   "en": "Your thesis topic was \"difficulty curves in games\". Your advisor never quite got it, but stamped it anyway."
+  },
+  "effect": {
+   "skill": 4,
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ]
+ },
+ {
+  "id": "ev_st_job_hunt",
+  "years": [
+   1985,
+   2035
+  ],
+  "text": {
+   "ja": "就職活動ではゲーム会社ばかり受けた。面接で好きなゲームを聞かれて 20 分話した。その会社は落ちた。次の会社では 3 分で止めた。",
+   "en": "Job hunting, you applied only to game companies. Asked your favourite game, you talked for twenty minutes. Rejected. Next interview, you stopped at three."
+  },
+  "effect": {
+   "network": 2,
+   "passion": 3
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ]
+ },
+ {
+  "id": "ev_st_lab_night",
+  "years": [
+   1977,
+   2035
+  ],
+  "text": {
+   "ja": "研究室に泊まり込んで、夜中に研究用の計算機でゲームを作っていた。教授には見つかったが、翌週には教授がハイスコアを持っていた。",
+   "en": "You camped in the lab, building games on the research computer at night. The professor caught you; a week later he held the high score."
+  },
+  "effect": {
+   "skill": 5,
+   "passion": 3
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ]
+ },
+ {
+  "id": "ev_st_doujin_circle",
+  "years": [
+   1984,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代、同人サークルでゲームを作っていた。徹夜明けの即売会で、最初に買ってくれた人の顔は一生忘れない。",
+   "en": "As a student you made games in a doujin circle. You'll never forget the face of the first person who bought one at the morning-after convention."
+  },
+  "effect": {
+   "skill": 4,
+   "passion": 6
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_dev"
+  ]
+ },
+ {
+  "id": "ev_st_flash_game",
+  "years": [
+   2000,
+   2015
+  ],
+  "text": {
+   "ja": "学生時代、Flash のゲームを作ってネットに上げていた。掲示板で「神」と書かれた日、親にも見せられない画面を親に見せた。",
+   "en": "As a student you put Flash games online. The day a forum called you \"god\", you showed your parents a screen you shouldn't have."
+  },
+  "effect": {
+   "skill": 4,
+   "passion": 6
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_dev"
+  ]
+ },
+ {
+  "id": "ev_st_unity_solo",
+  "years": [
+   2012,
+   2035
+  ],
+  "text": {
+   "ja": "学生時代、ゲームエンジンで 1 人でゲームを作っていた。チュートリアルを 30 本見て、自分のゲームは 1 本も終わらなかった。31 本目で終わった。",
+   "en": "As a student you built games alone in an engine. Thirty tutorials, zero finished games. The thirty-first finished."
+  },
+  "effect": {
+   "skill": 5,
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_dev"
+  ]
+ },
+ {
+  "id": "ev_st_bowling",
+  "years": [
+   1970,
+   1980
+  ],
+  "text": {
+   "ja": "学生時代はボウリング場でバイトしていた。ブームが去ってレーンが静かになった頃、隅に置かれたテレビゲームの機械にだけ、まだ人が群がっていた。",
+   "en": "You worked at a bowling alley as a student. When the boom faded and the lanes went quiet, only the TV game machine in the corner still drew a crowd."
+  },
+  "effect": {
+   "passion": 6,
+   "money": 10
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
+  ]
+ },
+ {
+  "id": "ev_st_pinball",
+  "years": [
+   1970,
+   1980
+  ],
+  "text": {
+   "ja": "学生時代、ゲームセンターのピンボールに入り浸っていた。台を揺らしすぎて「TILT」が光るたび、店員と目が合った。",
+   "en": "As a student you haunted the pinball machines. Every time you nudged too hard and TILT lit up, you locked eyes with the attendant."
+  },
+  "effect": {
+   "passion": 7,
+   "money": -5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_tv_tennis",
+  "years": [
+   1973,
+   1980
+  ],
+  "text": {
+   "ja": "学生の頃、喫茶店に置かれた白い四角が行き来するだけのテレビゲームに夢中になった。打ち返すたびに鳴る「ポン」が、人生の BGM になった。",
+   "en": "As a student you got hooked on a café TV game where a white square bounced back and forth. That \"pong\" sound became the soundtrack of your life."
+  },
+  "effect": {
+   "passion": 8
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_mainframe",
+  "years": [
+   1970,
+   1985
+  ],
+  "text": {
+   "ja": "大学の大型計算機で、紙テープに穴を開けてプログラムを流していた。順番待ちの合間に、こっそり三目並べを作った。計算機に負けた日、少し感動した。",
+   "en": "At university you fed paper tape into the mainframe. While waiting your turn, you secretly wrote tic-tac-toe. The day the computer beat you, you were oddly moved."
+  },
+  "effect": {
+   "skill": 6
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ]
+ },
+ {
+  "id": "ev_st_tk80",
+  "years": [
+   1976,
+   1980
+  ],
+  "text": {
+   "ja": "学生時代、マイコンのキットを組み立てた。数字の表示が光っただけで、部屋で 1 人で拍手した。そこにゲームを入れるまで、あと 3 か月かかった。",
+   "en": "As a student you built a microcomputer kit. When the digit display lit up, you applauded alone in your room. Getting a game onto it took three more months."
+  },
+  "effect": {
+   "skill": 6,
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_dev"
+  ]
+ }
+]

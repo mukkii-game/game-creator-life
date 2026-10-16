@@ -119,7 +119,10 @@
     },
     "effect": {
       "passion": -10,
-      "status": "left"
+      "status": "left",
+      "flag": {
+        "wm_oldco_gone": true
+      }
     },
     "tag": [
       "system",
@@ -429,8 +432,8 @@
     ],
     "weight": 0,
     "text": {
-      "ja": "同期の{peer}から飲み会の誘い。行ってみたら、知らない会社の人事が 2 人座っていた。「年収は 1.5 倍」。",
-      "en": "{peer} invites you for drinks. Two HR people from a company you've never heard of are already seated. \"1.5x salary.\""
+      "ja": "同期の{peer}から飲み会の誘い。行ってみたら、知らない会社の人事が 2 人座っていた。「給料は今と同じです。ただ、企画は全部あなたに任せます」。",
+      "en": "{peer}, from your year, invited you for drinks. Two HR people from a company you didn't know were waiting. \"Same salary. But every project would be yours to plan.\""
     },
     "choices": [
       {
@@ -483,8 +486,8 @@
     ],
     "weight": 0,
     "text": {
-      "ja": "展示会のブースで名刺交換。裏に手書きで「年収は今の 1.5 倍」。表はきれいなロゴだった。",
-      "en": "A business card swapped at a trade-show booth. Handwritten on the back: \"1.5x your salary.\" The front had a lovely logo."
+      "ja": "展示会のブースで名刺交換。裏に手書きで「うちなら定時で帰れます」。表はきれいなロゴだった。一番ぐらっときた誘い文句だった。",
+      "en": "Swapping cards at a trade-show booth. On the back, handwritten: \"Here, you go home on time.\" A neat logo on the front. The most tempting pitch you'd ever heard."
     },
     "choices": [
       {
@@ -622,6 +625,30 @@
       "job",
       "choice",
       "indie"
+    ]
+  },
+  {
+    "id": "ev_sys_prison_out",
+    "years": [
+      1970,
+      2040
+    ],
+    "weight": 0,
+    "text": {
+      "ja": "出所の日。門の前で空を見上げた。手元に残ったのは、中で方眼紙に描きためた 200 枚のゲームの企画。",
+      "en": "Release day. You look up at the sky outside the gate. All you kept: 200 game ideas drawn on graph paper inside."
+    },
+    "effect": {
+      "passion": 30,
+      "hp": 10,
+      "flag": {
+        "in_prison": false,
+        "do_go_indie": true
+      }
+    },
+    "tag": [
+      "system",
+      "milestone"
     ]
   }
 ]

@@ -10,22 +10,27 @@ import { load } from '../core/save';
 import type { State, LogLine, Work, Era, Choice } from '../game/types';
 import { tune } from '../core/tuning';
 import { t, lang } from '../core/i18n';
-import { sfx } from '../core/audio';
+import { sfx, playSe, playBgm, bgmOfYear, duckBgm, toggleMuted, isMuted, type SeId } from '../core/audio';
 import { expose } from '../core/demo';
 import type { Recorder, Player } from '../core/replay';
 import { h, tf, tx, lookOf, setLook, money, FocusRing } from './util';
 import { onTap, type Cmd } from './input';
+import { emo, faceEl, faceOf, type EmoName } from './art';
+import { pickOpts, type StartPick } from './start';
+import type { OtherLife } from '../game/people';
 
 export type Speed = 1 | 2 | 4 | 'fast';
 const SPEEDS: Speed[] = [1, 2, 4, 'fast'];
 
 export interface PlayOptions {
   seed: number;
-  era: Era | '';
+  era: StartPick;
   /** 年表図鑑(init に渡す。URL で決まる人生では undefined) */
   seen?: string[];
   /** 自分の名前(空・undefined = おまかせ) */
   name?: string;
+  /** 他の人の人生(サーバーから) */
+  others?: OtherLife[];
   omakase: boolean;
   speed: Speed;
   recorder: Recorder;
@@ -47,9 +52,21 @@ export interface PlayScreen {
 
 const JOB_ICON: Record<string, string> = { programmer: '💻', planner: '📝', artist: '🎨', sound: '🎵', qa: '🐛', sales: '📞', director: '🎬', producer: '💼', other: '🌾' };
 const KIND_ICON: Record<string, string> = { event: '💬', work: '📦', peer: '👥', choice: '🙋', ask: '❓' };
+const KIND_EMO: Record<string, EmoName> = { event: 'event', work: 'work', peer: 'peer', choice: 'choice', ask: 'ask' };
 const KIND_WHO: Record<string, string> = { event: 'fromEvent', work: 'fromWork', peer: 'fromPeer', choice: 'fromChoice', ask: 'fromAsk' };
 /** 歴史の事件の見た目: テレビの速報風(tv)か新聞の号外風(paper) */
 export const HIST_ICON: Record<string, string> = { hardware: '🎮', hit: '🏆', incident: '📰', work: '💼', ai: '🤖', future: '🚀' };
+/** 歴史の事件の種類 → ぴぽやのアイコン(読めない時は HIST_ICON の絵文字) */
+export const HIST_EMO: Record<string, EmoName> = { hardware: 'hardware', hit: 'hit', incident: 'incident', work: 'biz', ai: 'ai', future: 'future' };
+export const histIcon = (kind: string, cls = 'who-ic') => emo(HIST_EMO[kind] ?? 'incident', HIST_ICON[kind] ?? '📰', cls);
+const kindIcon = (kind: string) => emo(KIND_EMO[kind] ?? 'event', KIND_ICON[kind] ?? '💬', 'who-ic');
+/** 作品の結果の印(伝説 = 王冠、ヒット = 星、爆死 = 汗) */
+function resultMark(w: Work, scale = 1): HTMLElement | null {
+  if (w.result === 'legend') return emo('legend', '👑', 'work-mark', scale);
+  if (w.result === 'hit') return emo('star', '⭐', 'work-mark', scale);
+  if (w.result === 'flop') return emo('flop', '💦', 'work-mark', scale);
+  return null;
+}
 const HIST_STYLE: Record<string, 'tv' | 'paper'> = { hardware: 'tv', ai: 'tv', future: 'tv', hit: 'paper', incident: 'paper', work: 'paper' };
 
 /** 作品棚の形: カセット → CD → DL → アプリ(時代と機種で) */
@@ -63,7 +80,7 @@ export function shapeOf(w: Work): 'cart' | 'cd' | 'dl' | 'app' {
 const initial = (w: Work) => (tx(w.name).replace(/^[『「"“\s]+/, '').charAt(0) || '?');
 
 export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
-  const s = init(o.seed, { ...(o.era ? { era: o.era } : {}), ...(o.seen ? { seen: o.seen } : {}), ...(o.name ? { name: o.name } : {}) });
+  const s = init(o.seed, { ...pickOpts(o.era), ...(o.others?.length ? { others: o.others } : {}), ...(o.seen ? { seen: o.seen } : {}), ...(o.name ? { name: o.name } : {}) });
   // 「NEW」「別の立場で」の印は、この端末の図鑑と比べる(URL で決まる人生でも印は出す。中身は変えない)
   const known = new Set(load().chronicle);
   const knownHist = new Set([...known].map((k) => k.split(':')[0]));
@@ -94,7 +111,11 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   onTap(pauseB, () => togglePause());
   onTap(autoB, () => setOmakase(!omakase));
   const pausedTag = h('span', 'paused-tag', t('paused'));
-  bar.append(pauseB, ...speedBs, autoB);
+  // 音の入り切り(プレイ中もいつでも押せる)
+  const muteB = h('button', 'tb tb-mute', isMuted() ? '🔇' : '🔊');
+  muteB.title = t('mute');
+  onTap(muteB, () => { toggleMuted(); muteB.textContent = isMuted() ? '🔇' : '🔊'; });
+  bar.append(pauseB, ...speedBs, autoB, muteB);
 
   const chat = h('main', 'chat');
   const chatInner = h('div', 'chat-inner');
@@ -126,7 +147,13 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   const ring = new FocusRing();
 
   const yearMs = () => (speed === 'fast' ? tune('ui.fast') : tune('life.yearSec') / speed) * 1000;
-  const lineMs = () => Math.max(60, yearMs() / Math.max(2, batchN));
+  // 効果音: 「一気に」の時は大事な音(伝説・ヒット・選択・人生の終わり)だけにして、同じ音の間も空ける
+  const se = (id: SeId, big = false) => {
+    if (speed === 'fast' && !big) return;
+    playSe(id, { minGap: speed === 'fast' ? 0.8 : speed === 4 ? 0.3 : 0.1 });
+  };
+  // 1 行の長さ: 1 年を行数で割る。ただし読み切れるように、1 行の最短(ui.lineMin 秒 ÷ 速度)を下回らない
+  const lineMs = () => Math.max(60, yearMs() / Math.max(2, batchN), speed === 'fast' ? 0 : tune('ui.lineMin') * 1000 / (speed as number));
 
   function paintBar() {
     speedBs.forEach((b, i) => b.classList.toggle('on', SPEEDS[i] === speed));
@@ -137,11 +164,14 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   }
 
   function setTicker(year: number, age: number) {
+    const wasStudent = curYear < s.startYear;
     curYear = year; curAge = age;
+    if (wasStudent !== curYear < s.startYear) paintCard(); // 就職前は学生証、入社の年から社員証
     yearEl.textContent = lang() === 'ja' ? `${year}` : `${year}`;
     yearEl.dataset.unit = t('yearUnit');
     ageEl.textContent = `${age}${lang() === 'ja' ? ' 歳' : ' y/o'}`;
     setLook(app, lookOf(year));
+    playBgm(bgmOfYear(year)); // 時代が変わったら曲も変わる(同じ曲なら何もしない)
     expose('score', age);
   }
   function setTape() {
@@ -167,18 +197,36 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   }
   function paintCard() {
     card.innerHTML = '';
+    if (curYear < s.startYear) { paintStudent(); return; }
     const head = h('div', 'card-head');
     head.append(h('span', 'card-badge', t('idCard')), h('span', 'card-pos', tx(POS_TEXT[positionOf(s)])), h('span', 'card-co', tx(s.company.name)));
     const body = h('div', 'card-body');
-    const photo = h('div', 'card-photo', JOB_ICON[s.job] ?? '👤');
+    const photo = h('div', 'card-photo');
+    photo.dataset.e = JOB_ICON[s.job] ?? '👤';
+    photo.append(faceEl(faceOf(s.seed, s.age), 'face'));
     const who = h('div', 'card-who');
-    who.append(h('div', 'card-name', tx(s.name)), h('div', 'card-job', `${tx(JOB_TEXT[s.job])} · ${t(`st_${s.status}`)}`));
+    const jobLine = h('div', 'card-job');
+    jobLine.append(emo((s.job in JOB_ICON ? s.job : 'other') as EmoName, JOB_ICON[s.job] ?? '', 'job-ic', 1.5), h('span', '', `${tx(JOB_TEXT[s.job])} · ${t(`st_${s.status}`)}`));
+    who.append(h('div', 'card-name', tx(s.name)), jobLine);
     const m = h('div', `card-money${s.stat.money < 0 ? ' neg' : ''}`);
     m.append(h('span', 'g-lab', t('money')), h('b', '', money(s.stat.money)));
     body.append(photo, who, m);
     const gs = h('div', 'gauges');
     for (const k of ['hp', 'passion', 'skill', 'network'] as const) gs.append(gauge(k, s.stat[k]));
     card.append(head, body, gs);
+  }
+  // 就職より前(学生時代の前日譚)は社員証ではなく学生証
+  function paintStudent() {
+    const head = h('div', 'card-head');
+    head.append(h('span', 'card-badge', t('studentCard')), h('span', 'card-pos', t(curAge <= 17 ? 'stHigh' : 'stCollege')), h('span', 'card-co', t('stBefore')));
+    const body = h('div', 'card-body');
+    const photo = h('div', 'card-photo');
+    photo.append(faceEl(faceOf(s.seed, curAge), 'face'));
+    const who = h('div', 'card-who');
+    const path = (['st_arbeit', 'st_dev', 'st_gamer', 'st_school'] as const).find((k) => s.flags[k]) ?? 'st_school';
+    who.append(h('div', 'card-name', tx(s.name)), h('div', 'card-job', t(path)));
+    body.append(photo, who);
+    card.append(head, body);
   }
   let shelfCount = -1;
   function paintShelf(force = false) {
@@ -191,6 +239,8 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     s.works.forEach((w) => {
       const b = h('button', `work shape-${shapeOf(w)} r-${w.result}`);
       b.append(h('span', 'work-ch', initial(w)));
+      const mk = resultMark(w);
+      if (mk) b.append(mk);
       b.title = `${tx(w.name)} (${w.year})`;
       if (w.history.length) b.classList.add('has-history');
       onTap(b, () => openWork(w));
@@ -228,6 +278,8 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const box = h('div', `modal-box work-detail r-${w.result}`);
     const icon = h('div', `work big shape-${shapeOf(w)} r-${w.result}`);
     icon.append(h('span', 'work-ch', initial(w)));
+    const mk = resultMark(w, 2);
+    if (mk) icon.append(mk);
     box.append(icon, h('h3', '', tx(w.name)), h('div', 'wd-meta', `${w.year} · ${w.platform} · ${t(`role_${w.role}`)} · ${t(`res_${w.result}`)}`));
     box.append(h('div', 'wd-lab', t('history')));
     const ul = h('ul', 'wd-hist');
@@ -248,7 +300,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   function bubble(kind: string, text: string, year: number): HTMLElement {
     const msg = h('div', `msg k-${kind}`);
     const who = h('div', 'who');
-    who.append(h('span', 'who-ic', KIND_ICON[kind] ?? '💬'), h('span', 'who-nm', t(KIND_WHO[kind] ?? 'fromEvent')), h('span', 'who-yr', String(year)));
+    who.append(kindIcon(kind), h('span', 'who-nm', t(KIND_WHO[kind] ?? 'fromEvent')), h('span', 'who-yr', String(year)));
     msg.append(who, h('div', 'bubble', text));
     chatInner.append(msg);
     // 古い吹き出しは捨てる(DOM を軽く)
@@ -267,7 +319,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const msg = h('div', `msg k-${l.kind} hist hist-${style} pop`);
     msg.dataset.hist = hs;
     const who = h('div', 'who');
-    who.append(h('span', 'who-ic', HIST_ICON[hd.kind] ?? '📰'), h('span', 'who-nm', t(style === 'tv' ? 'histTv' : 'histPaper')), h('span', 'who-yr', hd.month ? tf('ym', { y: l.year, m: hd.month }) : String(l.year)));
+    who.append(histIcon(hd.kind), h('span', 'who-nm', t(style === 'tv' ? 'histTv' : 'histPaper')), h('span', 'who-yr', hd.month ? tf('ym', { y: l.year, m: hd.month }) : String(l.year)));
     if (mark) who.append(h('span', `hist-mark m-${mark}`, t(mark === 'new' ? 'histNew' : 'histOtherPos')));
     const head = h('div', 'hist-head');
     head.append(h('span', 'hist-tag', t(style === 'tv' ? 'histTvTag' : 'histPaperTag')), h('span', 'hist-news', tx(hd.news)));
@@ -278,7 +330,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     requestAnimationFrame(() => { chat.scrollTop = chat.scrollHeight; });
     tickerLines.push(`${t('histTvTag')} ${tx(hd.news)}`);
     setTape();
-    sfx.score();
+    se(style === 'tv' ? 'tv' : 'paper');
     return msg;
   }
 
@@ -295,12 +347,26 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const m = (l.hist && histBubble(l, l.hist)) || bubble(l.kind, tx(l.text), l.year);
     if (l.kind === 'work') {
       m.classList.add('pop');
-      if (/発売|ships/.test(l.text.ja + l.text.en) && !(l.tag ?? []).includes('afterlife')) sfx.score();
+      if ((l.tag ?? []).includes('afterlife')) se('after');
+      else if (/発売|ships/.test(l.text.ja + l.text.en)) {
+        // 発売の結果で音を変える(伝説 > ヒット > そこそこ > 爆死)
+        const w = [...s.works].reverse().find((x) => l.text.ja.includes(x.name.ja));
+        const r = w?.result ?? 'ok';
+        se(r === 'legend' ? 'legend' : r === 'hit' ? 'hit' : r === 'flop' ? 'flop' : 'ok', r === 'legend' || r === 'hit');
+      }
+    } else if (!l.hist) {
+      const tg = l.tag ?? [];
+      if (tg.includes('high') || tg.includes('peak')) se('high');
+      else if (tg.includes('celeb')) se('celeb');
+      else if (tg.includes('pit')) se('pit');
     }
     if ((l.tag ?? []).includes('afterlife')) m.classList.add('afterlife');
     // テンションが上がった瞬間・有名人に会った瞬間は少し明るく(後味を良くする)
-    if ((l.tag ?? []).includes('high')) m.classList.add('t-high');
-    if ((l.tag ?? []).includes('celeb')) m.classList.add('t-celeb');
+    const tgs = l.tag ?? [];
+    if (tgs.includes('high') || tgs.includes('celeb')) {
+      m.classList.add(tgs.includes('celeb') ? 't-celeb' : 't-high');
+      m.querySelector('.who')?.append(tgs.includes('celeb') ? emo('celeb', '🌟', 'who-mark') : emo('high', '✨', 'who-mark'));
+    } else if (tgs.includes('pit')) m.querySelector('.who')?.append(emo('pit', '💦', 'who-mark'));
     paintAll();
     return true;
   }
@@ -357,7 +423,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
       msg.className = `${msg.className.replace(/\bk-\w+/g, '').replace(/\bpop\b/g, '').trim()} k-ask pop`;
       if (!msg.dataset.hist) {
         const nm = msg.querySelector('.who-nm'); if (nm) nm.textContent = t('fromAsk');
-        const ic = msg.querySelector('.who-ic'); if (ic) ic.textContent = KIND_ICON.ask;
+        const ic = msg.querySelector('.who-ic'); if (ic) ic.replaceWith(kindIcon('ask'));
       }
     } else {
       msg = bubble('ask', tx(c.text), curYear);
@@ -377,7 +443,8 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const toEnd = () => { chat.scrollTop = chat.scrollHeight; };
     requestAnimationFrame(toEnd);
     setTimeout(toEnd, 350);
-    sfx.ui();
+    se('ask', true);
+    duckBgm(true);
     // replay → おまかせ の順で自動で選ぶ
     const fromReplay = o.player ? o.player.input(choiceFrame) : '';
     if (fromReplay && c.choices.some((x) => x.id === fromReplay)) {
@@ -404,6 +471,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     o.recorder.push(choiceFrame, id);
     choiceFrame++;
     sfx.tap();
+    duckBgm(false);
     choose(s, id);
     for (; shown < s.log.length; shown++) queue.push(s.log[shown]);
     batchN = queue.filter((l) => l.kind !== 'timeline').length || 1;
@@ -420,6 +488,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const e = s.ending!;
     setTicker(e.year, e.age);
     sfx.over();
+    playBgm(null, 1500); // 終わりのジングルを聞かせる
     const ov = h('div', 'ending');
     const box = h('div', 'ending-box');
     box.append(h('div', 'ending-head', t('endHead')), h('div', 'ending-when', tf('endAt', { year: e.year, age: e.age })), h('div', 'ending-cause', tx(e.cause)), h('div', 'ending-tap', t('toResult')));

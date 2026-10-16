@@ -2,18 +2,21 @@
 import { t, toggleLang } from '../core/i18n';
 import { toggleMuted, isMuted, sfx } from '../core/audio';
 import type { Era } from '../game/types';
+
 import { h, tf, setLook, FocusRing } from './util';
 import { load, save } from '../core/save';
 import { HIST } from '../game/data';
 import { onTap, type Cmd } from './input';
+import { emo, personEl, LINEAGES } from './art';
+import { YEAR_MIN, YEAR_MAX, type StartPick } from './start';
 
 export interface TitleScreen { onCmd: (c: Cmd) => void }
 
-const ERAS: (Era | '')[] = ['', 'era1', 'era2', 'era3'];
+const ERAS: (Era | '')[] = ['', 'era1', 'era2', 'era3', 'era4'];
 
-export function showTitle(app: HTMLElement, era: Era | '', onStart: (era: Era | '') => void, onChronicle: () => void): TitleScreen {
+export function showTitle(app: HTMLElement, era: StartPick, onStart: (era: StartPick) => void, onChronicle: () => void): TitleScreen {
   let cur: TitleScreen = render(app, era, onStart, onChronicle, (e) => { cur = showTitleInner(e); });
-  const showTitleInner = (e: Era | ''): TitleScreen => render(app, e, onStart, onChronicle, (e2) => { cur = showTitleInner(e2); });
+  const showTitleInner = (e: StartPick): TitleScreen => render(app, e, onStart, onChronicle, (e2) => { cur = showTitleInner(e2); });
   return { onCmd: (c) => cur.onCmd(c) };
 }
 
@@ -23,14 +26,18 @@ export function chronicleCount(keys: string[]): number {
   return new Set(keys.map((k) => k.split(':')[0]).filter((id) => ids.has(id))).size;
 }
 
-function render(app: HTMLElement, era: Era | '', onStart: (era: Era | '') => void, onChronicle: () => void, relang: (era: Era | '') => void): TitleScreen {
+function render(app: HTMLElement, era: StartPick, onStart: (era: StartPick) => void, onChronicle: () => void, relang: (era: StartPick) => void): TitleScreen {
   app.innerHTML = '';
   setLook(app, 'dot');
   app.dataset.scene = 'title';
-  let pick: Era | '' = era;
+  let pick: StartPick = era;
   const wrap = h('div', 'title');
   const logo = h('div', 'title-logo');
   logo.append(h('div', 'title-num', '12,000,000'), h('h1', 'title-main', t('title')));
+  // 1200 万人のうちの何人か(ぴぽやの人物。若手・中堅・ベテランを混ぜて並べる。並びは固定)
+  const crowd = h('div', 'title-crowd');
+  [0, 12, 3, 15, 7, 20, 10, 17].forEach((li, i) => crowd.append(personEl(LINEAGES[li][i % 3], 'person')));
+  logo.append(crowd);
   const sub = h('p', 'title-sub', t('titleSub'));
   const line = h('p', 'title-tag', t('tagline'));
 
@@ -41,13 +48,25 @@ function render(app: HTMLElement, era: Era | '', onStart: (era: Era | '') => voi
   for (const e of ERAS) {
     const b = h('button', 'chip', t(e || 'eraAny'));
     b.dataset.era = e;
-    onTap(b, () => { pick = e; paintChips(); sfx.ui(); });
+    onTap(b, () => { pick = e; yearSel.value = ''; paintChips(); sfx.ui(); });
     chipEls.push(b);
     chips.append(b);
   }
-  const paintChips = () => chipEls.forEach((b) => b.classList.toggle('on', b.dataset.era === pick));
+  // 開始年を 1 年単位で指定(1977〜2000)。選ぶと時代のチップは外れる
+  const yearSel = h('select', 'year-sel');
+  yearSel.setAttribute('aria-label', t('yearPick'));
+  yearSel.append(new Option(t('yearAny'), ''));
+  for (let y = YEAR_MIN; y <= YEAR_MAX; y++) yearSel.append(new Option(tf('yearOpt', { v: y }), String(y)));
+  yearSel.value = pick.startsWith('y') ? pick.slice(1) : '';
+  yearSel.addEventListener('change', () => { pick = yearSel.value ? `y${yearSel.value}` : ''; paintChips(); sfx.ui(); });
+  const paintChips = () => {
+    chipEls.forEach((b) => b.classList.toggle('on', b.dataset.era === pick));
+    yearSel.classList.toggle('on', pick.startsWith('y'));
+  };
   paintChips();
-  eraBox.append(chips);
+  const yearRow = h('div', 'year-row');
+  yearRow.append(h('span', 'title-label', t('yearPick')), yearSel);
+  eraBox.append(chips, yearRow);
 
   // 名前(空 = おまかせ。save に残して次回も入っている)
   const nameBox = h('div', 'title-name');
@@ -68,12 +87,13 @@ function render(app: HTMLElement, era: Era | '', onStart: (era: Era | '') => voi
   onTap(diceB, () => { nameIn.value = ''; keep(); sfx.ui(); });
   nameBox.append(h('label', 'title-label', t('nameLabel')), h('div', 'name-row'));
   nameBox.lastElementChild!.append(nameIn, diceB);
+  nameBox.append(h('p', 'name-note', t('nameNote')));
 
   const go = h('button', 'gacha', t('gacha'));
   onTap(go, () => { keep(); onStart(pick); });
 
   const chronB = h('button', 'chron-btn');
-  chronB.append(h('span', 'chron-ic', '📜'), h('span', '', tf('chronBtn', { n: chronicleCount(load().chronicle), all: HIST.length })));
+  chronB.append(emo('book', '📜', 'chron-ic'), h('span', '', tf('chronBtn', { n: chronicleCount(load().chronicle), all: HIST.length })));
   onTap(chronB, () => { sfx.ui(); onChronicle(); });
 
   const tools = h('div', 'title-tools');
@@ -81,7 +101,8 @@ function render(app: HTMLElement, era: Era | '', onStart: (era: Era | '') => voi
   onTap(langB, () => { toggleLang(); relang(pick); });
   const muteB = h('button', 'mini', isMuted() ? t('unmute') : t('mute'));
   onTap(muteB, () => { toggleMuted(); muteB.textContent = isMuted() ? t('unmute') : t('mute'); });
-  tools.append(langB, muteB);
+  // 魔王魂の規約: 著作表記が必要(CREDITS.md)
+  tools.append(langB, muteB, h('span', 'title-credit', t('soundCredit')));
 
   const help = h('p', 'title-help', t('controlsHelp'));
   const note = h('p', 'title-note', t('note12m'));
@@ -89,12 +110,19 @@ function render(app: HTMLElement, era: Era | '', onStart: (era: Era | '') => voi
   app.append(wrap);
 
   // フォーカス順: ガチャ → 時代 → 年表 → 言語・音
-  const ring = new FocusRing([go, ...chipEls, chronB, nameIn, diceB, langB, muteB], 0);
+  const ring = new FocusRing([go, ...chipEls, yearSel, chronB, nameIn, diceB, langB, muteB], 0);
   return {
     onCmd(c) {
       if (c.type === 'up' || c.type === 'left') ring.move(-1);
       else if (c.type === 'down' || c.type === 'right') ring.move(1);
-      else if (c.type === 'ok') { if (ring.current === nameIn) nameIn.focus(); else ring.current?.click(); }
+      else if (c.type === 'ok') {
+        if (ring.current === nameIn) nameIn.focus();
+        else if (ring.current === yearSel) { // パッドでは決定のたびに 1 年進める(最後の次はおまかせ)
+          const i = yearSel.selectedIndex + 1;
+          yearSel.selectedIndex = i >= yearSel.options.length ? 0 : i;
+          yearSel.dispatchEvent(new Event('change'));
+        } else ring.current?.click();
+      }
       else if (c.type === 'pick') { const b = chipEls[c.n - 1]; if (b) b.click(); }
     },
   };

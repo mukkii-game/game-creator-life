@@ -1,0 +1,703 @@
+[
+ {
+  "id": "ev_wk_promote_ask",
+  "years": [
+   1977,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "部長に呼ばれた。「来月から、チームをまとめてくれないか」。管理職だ。給料は上がる。作る時間は、たぶん減る。",
+   "en": "Your boss called you in: \"From next month, would you lead the team?\" Management. More pay. Probably less time making things."
+  },
+  "choices": [
+   {
+    "id": "ch_wk_promote_yes",
+    "label": {
+     "ja": "昇進する",
+     "en": "Accept the promotion"
+    },
+    "effect": {
+     "money": 40,
+     "network": 5,
+     "passion": -4,
+     "flag": {
+      "do_promote": true
+     }
+    },
+    "result": {
+     "ja": "引き受けた。最初の仕事は、自分がいちばん嫌いだった週報のフォーマットを作ることだった。",
+     "en": "You accepted. Your first task: designing the weekly-report format you'd always hated."
+    }
+   },
+   {
+    "id": "ch_wk_promote_no",
+    "label": {
+     "ja": "断って現場に残る",
+     "en": "Decline and stay hands-on"
+    },
+    "effect": {
+     "passion": 8,
+     "skill": 3
+    },
+    "result": {
+     "ja": "断った。「作る人でいたいんです」と言ったら、部長は少しだけ羨ましそうな顔をした。",
+     "en": "You declined: \"I want to keep making things.\" Your boss looked a little envious."
+    }
+   }
+  ],
+  "tag": [
+   "choice",
+   "big"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_wk_title_old",
+  "years": [
+   1980,
+   2007
+  ],
+  "text": {
+   "ja": "新作のタイトル会議。ホワイトボードに候補が 3 つ。英語の横文字、漢字 4 文字、そして社長が持ってきた「〇〇大作戦」。",
+   "en": "Title meeting for the new game. Three candidates on the whiteboard: something in English, a weighty four-kanji phrase, and the CEO's own \"Operation Something\"."
+  },
+  "when": [
+   "status=employed",
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_wk_tt_eng",
+    "label": {
+     "ja": "横文字でかっこよく",
+     "en": "Cool English title"
+    },
+    "effect": {
+     "passion": 4
+    },
+    "result": {
+     "ja": "横文字にした。営業が読めなかった。発売まで「あれ」と呼ばれた。",
+     "en": "English it was. Sales couldn't pronounce it; they called it \"that one\" until launch."
+    }
+   },
+   {
+    "id": "ch_wk_tt_kanji",
+    "label": {
+     "ja": "漢字 4 文字で重厚に",
+     "en": "Weighty four-kanji title"
+    },
+    "effect": {
+     "skill": 2,
+     "passion": 3
+    },
+    "result": {
+     "ja": "漢字 4 文字にした。重厚すぎて、パッケージの絵が負けた。",
+     "en": "Four kanji. So heavy the box art couldn't keep up."
+    }
+   },
+   {
+    "id": "ch_wk_tt_ceo",
+    "label": {
+     "ja": "社長の「大作戦」",
+     "en": "The CEO's \"Operation\""
+    },
+    "effect": {
+     "money": 20,
+     "network": 3
+    },
+    "result": {
+     "ja": "社長案にした。社長の機嫌が 3 か月よかった。それはそれで大事だった。",
+     "en": "You went with the CEO's pick. He was in a good mood for three months. That mattered too."
+    }
+   }
+  ],
+  "tag": [
+   "choice",
+   "worklife"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_wk_title_new",
+  "years": [
+   2008,
+   2040
+  ],
+  "text": {
+   "ja": "新作のタイトル会議。「検索で見つかる名前に」「長くて中身が分かる名前に」「略して呼べる名前に」。3 案で 2 時間揉めた。",
+   "en": "Title meeting. \"Something searchable.\" \"Something long that explains itself.\" \"Something with a catchy abbreviation.\" Two hours, three camps."
+  },
+  "when": [
+   "status=employed",
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_wk_tn_long",
+    "label": {
+     "ja": "長くて中身が分かる名前",
+     "en": "Long, self-explaining title"
+    },
+    "effect": {
+     "passion": 4
+    },
+    "result": {
+     "ja": "長い名前にした。ストアの画面で途中が「…」になった。いちばん大事な部分だった。",
+     "en": "You picked the long one. The store page cut it off with \"...\" — right at the important part."
+    }
+   },
+   {
+    "id": "ch_wk_tn_abbr",
+    "label": {
+     "ja": "略して呼べる名前",
+     "en": "Catchy abbreviation"
+    },
+    "effect": {
+     "network": 4
+    },
+    "result": {
+     "ja": "略せる名前にした。発売前から SNS で略称が勝手に決まっていた。社内の案とは違った。",
+     "en": "You picked the abbreviation-friendly one. Social media chose its own abbreviation before launch. Not yours."
+    }
+   },
+   {
+    "id": "ch_wk_tn_seo",
+    "label": {
+     "ja": "検索で見つかる名前",
+     "en": "Searchable title"
+    },
+    "effect": {
+     "skill": 2,
+     "money": 10
+    },
+    "result": {
+     "ja": "検索向きの名前にした。検索すると、同じ名前の歯医者が先に出た。",
+     "en": "You picked the searchable one. Searching it brought up a dentist's office first."
+    }
+   }
+  ],
+  "tag": [
+   "choice",
+   "worklife"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_wk_sequel_or_new",
+  "years": [
+   1983,
+   2040
+  ],
+  "text": {
+   "ja": "次の企画。前の作品の続編か、まったくの新作か。続編は数字が読める。新作は、誰も読めない。",
+   "en": "Next project: a sequel to the last one, or something brand new? Sequels have predictable numbers. New ideas have none."
+  },
+  "when": [
+   "status=employed",
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside",
+   "works>=1"
+  ],
+  "choices": [
+   {
+    "id": "ch_wk_seq",
+    "label": {
+     "ja": "続編を作る",
+     "en": "Make the sequel"
+    },
+    "effect": {
+     "money": 30,
+     "passion": -3
+    },
+    "result": {
+     "ja": "続編にした。「前作より全部 2 倍」が合言葉。2 倍にできなかったのは締め切りだけだった。",
+     "en": "Sequel. The motto: \"Twice everything.\" The only thing that didn't double was the deadline."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_wk_fu_sequel"
+     }
+    ]
+   },
+   {
+    "id": "ch_wk_new",
+    "label": {
+     "ja": "新作に賭ける",
+     "en": "Bet on something new"
+    },
+    "effect": {
+     "passion": 10,
+     "money": -10
+    },
+    "result": {
+     "ja": "新作にした。企画書の 1 行目に「誰も見たことのないゲーム」と書いた。2 行目は空白だった。",
+     "en": "Something new. Line one of the proposal: \"A game no one has ever seen.\" Line two was blank."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_wk_fu_newip"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "choice",
+   "big",
+   "worklife"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_wk_fu_sequel",
+  "years": [
+   1986,
+   2040
+  ],
+  "text": {
+   "ja": "続編は手堅く売れた。ファンから「前のほうがよかった」と「今回のほうがいい」が同じ数届いた。それが続編というものらしい。",
+   "en": "The sequel sold steadily. Equal numbers of fans wrote \"the first was better\" and \"this one's better\". That, apparently, is what sequels are."
+  },
+  "effect": {
+   "money": 30
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_wk_fu_newip",
+  "years": [
+   1986,
+   2040
+  ],
+  "text": {
+   "ja": "新作は、売れたかどうかより先に「あれ作った人?」と聞かれるようになった。名前のついた仕事をした、という感じがした。",
+   "en": "With the new game, before anyone asked how it sold, they asked: \"You made that?\" It felt like work with your name on it."
+  },
+  "effect": {
+   "passion": 8,
+   "network": 4
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_wk_team_pick",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "チーム替え。100 人の大作チームか、5 人の新規チームか。大作は安心で、新規は面白そう。どっちも同じ廊下の端と端にあった。",
+   "en": "Team shuffle: the 100-person blockbuster team, or a 5-person new project? One felt safe, one felt fun. They sat at opposite ends of the same hallway."
+  },
+  "when": [
+   "status=employed",
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_wk_tm_big",
+    "label": {
+     "ja": "大作チームへ",
+     "en": "Join the blockbuster"
+    },
+    "effect": {
+     "skill": 5,
+     "money": 20
+    },
+    "result": {
+     "ja": "大作チームに入った。自分の担当は、宝箱の開く音の 0.3 秒だった。その 0.3 秒に半年かけた。",
+     "en": "You joined the blockbuster. Your job: the 0.3 seconds of a treasure chest opening. You spent six months on those 0.3 seconds."
+    }
+   },
+   {
+    "id": "ch_wk_tm_small",
+    "label": {
+     "ja": "少人数の新規チームへ",
+     "en": "Join the small new team"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 2
+    },
+    "result": {
+     "ja": "5 人のチームに入った。企画もデバッグも電話番も全員でやった。誰が何の担当か、最後まで誰も分かっていなかった。",
+     "en": "You joined the five. Everyone planned, debugged and answered phones. Nobody ever figured out who was in charge of what."
+    }
+   },
+   {
+    "id": "ch_wk_tm_port",
+    "label": {
+     "ja": "移植チームへ",
+     "en": "Join the porting team"
+    },
+    "effect": {
+     "skill": 6
+    },
+    "result": {
+     "ja": "移植チームに入った。人のコードを読む毎日。3 か月で、知らない誰かの癖がすっかり分かるようになった。",
+     "en": "You joined porting. Reading other people's code all day. In three months you knew a stranger's habits by heart."
+    }
+   }
+  ],
+  "tag": [
+   "choice",
+   "worklife"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_wk_engine",
+  "years": [
+   2010,
+   2040
+  ],
+  "text": {
+   "ja": "次の作品のエンジン選び。何年も育ててきた自社エンジンか、みんなが使っている市販エンジンか。自社エンジンの作者は、会議の間ずっと腕を組んでいた。",
+   "en": "Picking the engine: the in-house one you've nurtured for years, or the off-the-shelf one everybody uses? The in-house engine's author sat with arms folded the whole meeting."
+  },
+  "when": [
+   "status=employed",
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_wk_eng_own",
+    "label": {
+     "ja": "自社エンジンで",
+     "en": "In-house engine"
+    },
+    "effect": {
+     "skill": 4,
+     "passion": 4
+    },
+    "result": {
+     "ja": "自社エンジンにした。作者が泣いて喜んだ。そして、その日から作者の残業が倍になった。",
+     "en": "In-house. Its author wept with joy — and their overtime doubled from that day."
+    }
+   },
+   {
+    "id": "ch_wk_eng_ext",
+    "label": {
+     "ja": "市販エンジンで",
+     "en": "Off-the-shelf engine"
+    },
+    "effect": {
+     "money": 20,
+     "skill": 2
+    },
+    "result": {
+     "ja": "市販エンジンにした。困ったら検索すれば答えが出る。出ない時は、海外の掲示板で同じ質問をしている人が 3 年前から待っていた。",
+     "en": "Off-the-shelf. Stuck? Search it. When nothing came up, someone on an overseas forum had been waiting three years with the same question."
+    }
+   }
+  ],
+  "tag": [
+   "choice",
+   "worklife"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_wk_delay_or_cut",
+  "years": [
+   1980,
+   2040
+  ],
+  "text": {
+   "ja": "発売日まであと 2 か月。どう見ても間に合わない。発売を延ばすか、目玉の機能を 1 つ削るか。",
+   "en": "Two months to launch. No way it's making it. Delay the release, or cut a headline feature?"
+  },
+  "when": [
+   "status=employed",
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_wk_delay",
+    "label": {
+     "ja": "発売を延ばす",
+     "en": "Delay the release"
+    },
+    "effect": {
+     "passion": 4,
+     "money": -30
+    },
+    "result": {
+     "ja": "延期にした。お詫びの文を 3 日かけて書いた。「より良いものをお届けするために」。本当にそうなった。たぶん。",
+     "en": "You delayed. The apology took three days to write: \"to deliver a better experience\". It did. Probably."
+    }
+   },
+   {
+    "id": "ch_wk_cut",
+    "label": {
+     "ja": "機能を削って間に合わせる",
+     "en": "Cut a feature and ship"
+    },
+    "effect": {
+     "money": 20,
+     "passion": -4
+    },
+    "result": {
+     "ja": "削った。削った機能は、5 年後の続編の目玉になった。社内では「5 年遅れの新機能」と呼ばれた。",
+     "en": "You cut it. The feature became the headline of the sequel five years later. Internally: \"the five-years-late new feature\"."
+    }
+   }
+  ],
+  "tag": [
+   "choice",
+   "worklife"
+  ]
+ },
+ {
+  "id": "ev_wk_overseas",
+  "years": [
+   1986,
+   2040
+  ],
+  "text": {
+   "ja": "海外版を出すか聞かれた。翻訳、文化チェック、あちらの審査。手間は国内版の半分。売上は、誰にも分からない。",
+   "en": "Should you do an overseas version? Translation, culture checks, foreign ratings boards. Half the effort of the domestic version again. Sales: anybody's guess."
+  },
+  "when": [
+   "status=employed",
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside",
+   "works>=1"
+  ],
+  "choices": [
+   {
+    "id": "ch_wk_os_yes",
+    "label": {
+     "ja": "海外版を出す",
+     "en": "Release overseas"
+    },
+    "effect": {
+     "network": 5,
+     "money": -10
+    },
+    "result": {
+     "ja": "出した。海外のレビューで、日本では誰も気づかなかった小ネタが一番褒められた。",
+     "en": "You did. Overseas reviews praised a tiny joke nobody in Japan had noticed."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_wk_fu_overseas"
+     }
+    ]
+   },
+   {
+    "id": "ch_wk_os_no",
+    "label": {
+     "ja": "国内だけにする",
+     "en": "Japan only"
+    },
+    "effect": {
+     "money": 10
+    },
+    "result": {
+     "ja": "国内だけにした。数年後、海外のファンが勝手に翻訳パッチを作っていた。あなたより丁寧な訳だった。",
+     "en": "Japan only. Years later, overseas fans made their own translation patch. Better than you'd have done."
+    }
+   }
+  ],
+  "tag": [
+   "choice",
+   "worklife"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_wk_fu_overseas",
+  "years": [
+   1988,
+   2040
+  ],
+  "text": {
+   "ja": "海外版のおかげで、外国の知らない人から英語の手紙が来るようになった。辞書を引きながら読んだら、全部「ありがとう」だった。",
+   "en": "Thanks to the overseas version, letters in English arrived from strangers. Dictionary in hand, you found every one said \"thank you\"."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ },
+ {
+  "id": "ev_wk_restructure_a",
+  "years": [
+   1998,
+   2003
+  ],
+  "text": {
+   "ja": "会社の業績が悪い。人事に呼ばれた。「希望退職を募っています。それとも、カスタマーセンターに移りますか」。開発の席には、もう誰かの段ボールが積んである。",
+   "en": "Business is bad. HR called you in: \"We're taking voluntary resignations. Or would you transfer to the customer support center?\" Someone's boxes were already stacked at your desk."
+  },
+  "when": [
+   "status=employed",
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside",
+   "career>=8"
+  ],
+  "choices": [
+   {
+    "id": "ch_wk_rs_quit_a",
+    "label": {
+     "ja": "希望退職に応じる(退職金を上乗せ)",
+     "en": "Take voluntary retirement (with a bonus payout)"
+    },
+    "effect": {
+     "money": 150,
+     "passion": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "応じた。退職金の上乗せは思ったより多かった。最後の日、守衛さんが「またゲーム作ってよ」と言った。",
+     "en": "You took it. The bonus was bigger than expected. On your last day, the security guard said, \"Make more games, okay?\""
+    }
+   },
+   {
+    "id": "ch_wk_rs_call_a",
+    "label": {
+     "ja": "カスタマーセンターに移る",
+     "en": "Transfer to customer support"
+    },
+    "effect": {
+     "passion": -12,
+     "money": 20,
+     "flag": {
+      "callcenter": true
+     }
+    },
+    "result": {
+     "ja": "残った。カスタマーセンターで、毎日ユーザーの電話を取った。自分の作ったゲームの苦情も来た。名乗れなかった。",
+     "en": "You stayed. At customer support you took players' calls all day — including complaints about your own game. You couldn't say who you were."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_wk_fu_callcenter"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "choice",
+   "big",
+   "worklife"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_wk_restructure_b",
+  "years": [
+   2009,
+   2013
+  ],
+  "text": {
+   "ja": "会社の業績が悪い。人事に呼ばれた。「希望退職を募っています。それとも、カスタマーセンターに移りますか」。開発の席には、もう誰かの段ボールが積んである。",
+   "en": "Business is bad. HR called you in: \"We're taking voluntary resignations. Or would you transfer to the customer support center?\" Someone's boxes were already stacked at your desk."
+  },
+  "when": [
+   "status=employed",
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside",
+   "career>=8"
+  ],
+  "choices": [
+   {
+    "id": "ch_wk_rs_quit_b",
+    "label": {
+     "ja": "希望退職に応じる(退職金を上乗せ)",
+     "en": "Take voluntary retirement (with a bonus payout)"
+    },
+    "effect": {
+     "money": 150,
+     "passion": 3,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "応じた。退職金の上乗せは思ったより多かった。最後の日、守衛さんが「またゲーム作ってよ」と言った。",
+     "en": "You took it. The bonus was bigger than expected. On your last day, the security guard said, \"Make more games, okay?\""
+    }
+   },
+   {
+    "id": "ch_wk_rs_call_b",
+    "label": {
+     "ja": "カスタマーセンターに移る",
+     "en": "Transfer to customer support"
+    },
+    "effect": {
+     "passion": -12,
+     "money": 20,
+     "flag": {
+      "callcenter": true
+     }
+    },
+    "result": {
+     "ja": "残った。カスタマーセンターで、毎日ユーザーの電話を取った。自分の作ったゲームの苦情も来た。名乗れなかった。",
+     "en": "You stayed. At customer support you took players' calls all day — including complaints about your own game. You couldn't say who you were."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_wk_fu_callcenter"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "choice",
+   "big",
+   "worklife"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_wk_fu_callcenter",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "2 年後、開発に戻された。毎日ユーザーの声を聞いたおかげで、あなたの書くチュートリアルは社内でいちばん分かりやすくなった。電話の向こうの「分からない」は、全部覚えていた。",
+   "en": "Two years later you were sent back to development. After all those calls, your tutorials became the clearest in the company. You remembered every \"I don't get it\" from the other end of the line."
+  },
+  "effect": {
+   "passion": 12,
+   "skill": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after"
+  ]
+ }
+]

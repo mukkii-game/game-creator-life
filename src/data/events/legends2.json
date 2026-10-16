@@ -1,0 +1,1527 @@
+[
+ {
+  "id": "ev_l2_kutaragi_launch",
+  "years": [
+   1994,
+   1996
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "1994 年 12 月、久夛良木健さんが率いた PlayStation が出た。発売日に買い、箱を開ける前に会社の机で 10 分拝んだ。",
+   "en": "December 1994: the PlayStation, led by Ken Kutaragi, came out. You bought one on day one and bowed to the box at your desk for ten minutes before opening it."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 8
+  },
+  "memory": {
+   "ja": "PlayStation の発売日に箱を拝んだ",
+   "en": "bowed to a PlayStation box on launch day"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_kutaragi_platform",
+  "years": [
+   1995,
+   2006
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "久夛良木健さんの PlayStation で、自社初の 3D ソフトを出した。箱の裏の小さなロゴを、親戚全員に見せて回った。",
+   "en": "Your company put out its first 3D game on Ken Kutaragi's PlayStation. You showed the tiny logo on the back of the box to every relative you have."
+  },
+  "when": [
+   "status=employed",
+   "company.size!=big"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 4,
+   "network": 3
+  },
+  "memory": {
+   "ja": "久夛良木健さんの PlayStation で自分の作品が出た",
+   "en": "my game came out on Ken Kutaragi's PlayStation"
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "bond"
+  ]
+ },
+ {
+  "id": "ev_l2_kutaragi_ps2",
+  "years": [
+   1999,
+   2001
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "PlayStation 2 を語る久夛良木健さんの記事を切り抜き、机に貼った。隣の先輩の机にも、同じ記事が貼ってあった。",
+   "en": "You clipped a magazine article of Ken Kutaragi talking about the PlayStation 2 and taped it to your desk. The senior next to you had taped up the same one."
+  },
+  "when": [
+   "status=employed",
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 2
+  },
+  "memory": {
+   "ja": "久夛良木健さんの記事を机に貼った",
+   "en": "taped a Ken Kutaragi article to my desk"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_uemura_hw",
+  "years": [
+   1984,
+   1990
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "上村雅之さんが開発を率いたファミコンで、初めて自分の関わったソフトが出た。箱に名前は無い。それでも店で箱を撫でた。",
+   "en": "Your first game came out on the Famicom, whose development Masayuki Uemura led. Your name isn't on the box. You stroked it in the store anyway."
+  },
+  "when": [
+   "status=employed",
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 12,
+   "skill": 3
+  },
+  "memory": {
+   "ja": "上村雅之さんのファミコンで自分のソフトが出た",
+   "en": "my game came out on Masayuki Uemura's Famicom"
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "bond"
+  ]
+ },
+ {
+  "id": "ev_l2_uemura_lecture",
+  "years": [
+   2005,
+   2021
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "上村雅之さんの講演を、客席のいちばん後ろで聞いた。メモが 12 ページになり、帰りの電車で読み返して 1 駅乗り過ごした。",
+   "en": "You heard Masayuki Uemura give a talk from the very back row. Your notes ran to twelve pages. Rereading them on the train home, you missed your stop."
+  },
+  "effect": {
+   "passion": 8,
+   "skill": 3
+  },
+  "memory": {
+   "ja": "上村雅之さんの講演を客席で聞いた",
+   "en": "heard Masayuki Uemura speak from the back row"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_uemura_obit",
+  "years": [
+   2021,
+   2023
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "上村雅之さんの訃報を新聞で知った。押し入れからファミコンを出し、赤と白の本体を黙って拭いた。",
+   "en": "You read of Masayuki Uemura's passing in the paper. You took the Famicom out of the closet and quietly wiped down its red and white body."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "memory": {
+   "ja": "押し入れのファミコンを拭いた",
+   "en": "wiped down the old Famicom from the closet"
+  },
+  "tag": [
+   "celeb",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_l2_sakaguchi_ff1",
+  "years": [
+   1987,
+   1990
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "『ファイナルファンタジー』を遊び、手帳に坂口博信さんの名前を書いた。下に「打倒」と書き、すぐ「目標」に書き直した。",
+   "en": "After playing Final Fantasy you wrote Hironobu Sakaguchi's name in your planner. Under it you wrote \"to beat,\" then quickly changed it to \"to aim for.\""
+  },
+  "effect": {
+   "passion": 8
+  },
+  "memory": {
+   "ja": "手帳に坂口博信さんの名前を書いた",
+   "en": "wrote Hironobu Sakaguchi's name in my planner"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_sakaguchi_sub",
+  "years": [
+   2006,
+   2012
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "坂口博信さんのミストウォーカーの作品の外注で、背景の岩を 40 個作った。スタッフロールの終わり近くに、自分の名前が一瞬出た。",
+   "en": "As an outside contractor on a Mistwalker game, Hironobu Sakaguchi's studio, you made 40 background rocks. Near the end of the credits, your name flashed by."
+  },
+  "when": [
+   "pos=sub"
+  ],
+  "effect": {
+   "passion": 12,
+   "skill": 3,
+   "network": 4
+  },
+  "memory": {
+   "ja": "坂口博信さんの会社の作品に名前が載った",
+   "en": "my name was in the credits of a Hironobu Sakaguchi studio game"
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "bond"
+  ]
+ },
+ {
+  "id": "ev_l2_sakaguchi_award",
+  "years": [
+   1997,
+   1998
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ピコピコ通信読者大賞で、自分の作品が坂口博信さんの『FFVII』と同じ部門に並んだ。票は 3 万対 41。41 票は宝だ。",
+   "en": "In the Pico Pico Times Readers' Awards, your game sat in the same category as Hironobu Sakaguchi's Final Fantasy VII. The vote: 30,000 to 41. Those 41 are treasure."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "『FFVII』と同じ部門にノミネートされた",
+   "en": "was nominated in the same category as Final Fantasy VII"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_endo_hidden",
+  "years": [
+   1983,
+   1986
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "遠藤雅伸さんの『ゼビウス』の隠れキャラに憧れ、企画書に「隠し要素あり」と書いた。隠れていたのは、予算の方だった。",
+   "en": "Inspired by the hidden secrets in Masanobu Endo's Xevious, you wrote \"has hidden secrets\" in your proposal. The thing that stayed hidden was the budget."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_endo_druaga",
+  "years": [
+   1984,
+   1988
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "遠藤雅伸さんの『ドルアーガの塔』の 60 階の宝の出し方を、仲間と手帳で回して全部出した。その手帳は、のちに企画書の下書きになった。",
+   "en": "You and your friends passed a notebook around until you'd found all the treasures in the 60 floors of Masanobu Endo's Tower of Druaga. That notebook later became your first proposal draft."
+  },
+  "effect": {
+   "passion": 8,
+   "skill": 3
+  },
+  "memory": {
+   "ja": "『ドルアーガの塔』の宝を仲間と全部出した",
+   "en": "found every treasure in the Tower of Druaga with friends"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_endo_rival",
+  "years": [
+   1985,
+   1995
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "勝手に遠藤雅伸さんをライバル視し、机に『ゼビウス』の切り抜きを貼った。課長に「誰と戦ってるの」と聞かれ、答えられなかった。",
+   "en": "You decided Masanobu Endo was your rival and taped a Xevious clipping to your desk. When your manager asked who you were fighting, you couldn't answer."
+  },
+  "when": [
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 2
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_l2_nagoshi_bar",
+  "years": [
+   2005,
+   2008
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "名越稔洋さんの『龍が如く』を遊び、自分の企画書の町に飲み屋を 1 軒足した。会議で消され、自販機だけが残った。",
+   "en": "After playing Toshihiro Nagoshi's Yakuza, you added a bar to the town in your proposal. The meeting cut it. A vending machine survived."
+  },
+  "when": [
+   "job=planner"
+  ],
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_nagoshi_sub",
+  "years": [
+   2006,
+   2020
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "『龍が如く』の外注で、町の看板を 30 枚描いた。発売後、ゲームの中の自分の看板の前で、主人公が派手に喧嘩していた。",
+   "en": "As an outside contractor on Yakuza, you painted 30 street signs. After release, the hero was brawling right in front of one of yours."
+  },
+  "when": [
+   "pos=sub"
+  ],
+  "effect": {
+   "passion": 12,
+   "skill": 3,
+   "network": 3
+  },
+  "memory": {
+   "ja": "『龍が如く』の町に自分の看板が立った",
+   "en": "my signs stood in the streets of Yakuza"
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "bond"
+  ]
+ },
+ {
+  "id": "ev_l2_nagoshi_monkey",
+  "years": [
+   2001,
+   2003
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "名越稔洋さんの『スーパーモンキーボール』で、昼休みの社内大会が始まった。3 週続けて優勝し、仕事より名が売れた。",
+   "en": "Toshihiro Nagoshi's Super Monkey Ball started a lunchtime tournament at work. You won three weeks running and became better known for that than your work."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 6,
+   "network": 3
+  },
+  "memory": {
+   "ja": "社内のモンキーボール大会で 3 連覇した",
+   "en": "won the office Monkey Ball tournament three weeks running"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_inafune_rockman",
+  "years": [
+   1987,
+   1992
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "稲船敬二さんが描いた『ロックマン』の絵を毎晩模写した。100 枚目で、自分の主人公も少しだけ青くなった。",
+   "en": "Every night you copied Keiji Inafune's Mega Man artwork. By the 100th drawing, your own hero had turned a little bit blue."
+  },
+  "when": [
+   "job=artist"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 4
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_inafune_onimusha",
+  "years": [
+   2001,
+   2004
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "稲船敬二さんがプロデュースした『鬼武者』の外注で、鎧の金具を 1 つ作った。発売日、その金具を画面の前で 20 分探した。",
+   "en": "As an outside contractor on Onimusha, produced by Keiji Inafune, you made one buckle for a suit of armor. On launch day you spent 20 minutes hunting for it on screen."
+  },
+  "when": [
+   "pos=sub"
+  ],
+  "effect": {
+   "passion": 12,
+   "skill": 2,
+   "network": 3
+  },
+  "memory": {
+   "ja": "『鬼武者』の鎧の金具を作った",
+   "en": "made a buckle for the armor in Onimusha"
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "bond"
+  ]
+ },
+ {
+  "id": "ev_l2_inafune_award",
+  "years": [
+   2006,
+   2008
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ピコピコ通信読者大賞に、自分の作品が稲船敬二さんの『デッドライジング』と並んでノミネートされた。記念にその号を 10 冊買った。",
+   "en": "Your game was nominated in the Pico Pico Times Readers' Awards alongside Keiji Inafune's Dead Rising. You bought ten copies of that issue."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "『デッドライジング』と並んでノミネートされた",
+   "en": "was nominated alongside Dead Rising"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_itoi_mother",
+  "years": [
+   1989,
+   1993
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "糸井重里さんの『MOTHER』を遊び、企画書に「町の人のせりふを全部面白く」と書いた。書いたのは自分なので、全部自分で書くことになった。",
+   "en": "After playing Shigesato Itoi's Mother, you wrote \"every townsperson's line must be funny\" in your proposal. Since you wrote it, you got to write all of them."
+  },
+  "when": [
+   "job=planner"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 3
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_itoi_copy",
+  "years": [
+   1994,
+   1996
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "『MOTHER2』の「大人も子供も、おねーさんも。」に打たれ、自社の宣伝文を 100 本書いた。採用は営業部長の「とにかく面白い」だった。",
+   "en": "Struck by Shigesato Itoi's tagline for Mother 2, \"For adults, kids, and big sisters too,\" you wrote 100 slogans for your own game. They picked the sales chief's: \"It's really fun.\""
+  },
+  "effect": {
+   "passion": 6,
+   "skill": 2
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_itoi_mother3",
+  "years": [
+   2006,
+   2006
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "糸井重里さんの『MOTHER3』の発売日、昼休みに会社を抜けて買いに走った。帰りの階段で、12 年待った自分を少しほめた。",
+   "en": "On the day Shigesato Itoi's Mother 3 came out, you ran out on your lunch break to buy it. Climbing the stairs back, you praised yourself a little for waiting twelve years."
+  },
+  "effect": {
+   "passion": 10
+  },
+  "memory": {
+   "ja": "『MOTHER3』を昼休みに買いに走った",
+   "en": "ran out on my lunch break to buy Mother 3"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_meijin_shuwatch",
+  "years": [
+   1986,
+   1988
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ハドソンのシュウォッチで、高橋名人の 16 連射に挑んだ。最高は 9 回。翌朝、キーボードを打つ指が震えていた。",
+   "en": "With Hudson's Shu-watch you took on Takahashi Meijin's 16 shots a second. Your best was nine. The next morning your fingers shook on the keyboard."
+  },
+  "effect": {
+   "passion": 6,
+   "hp": -1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_meijin_island",
+  "years": [
+   1986,
+   1990
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "『高橋名人の冒険島』に影響され、自社の主人公に帽子をかぶせた。会議で「ただの帽子です」と 3 回説明した。",
+   "en": "Inspired by Takahashi Meijin's Adventure Island, you put a cap on your company's hero. In the meeting you explained three times that it was just a cap."
+  },
+  "when": [
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_yamauchi_clip",
+  "years": [
+   1983,
+   2002
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "新聞で任天堂の山内溥社長の記事を読み、切り抜いて机に貼った。じっくり読んだのは 3 行目までで、あとは株価の表を見ていた。",
+   "en": "You clipped a newspaper article about Nintendo president Hiroshi Yamauchi and taped it to your desk. You read it closely up to line three. Then you looked at the stock table."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 4,
+   "network": 1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_yamauchi_license",
+  "years": [
+   1985,
+   1994
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "山内溥社長の任天堂から、自社のファミコンソフトの発売の許しが下りた。社長が封筒を額に入れ、トイレの前に飾った。",
+   "en": "Hiroshi Yamauchi's Nintendo approved your company's Famicom game for release. Your boss framed the envelope and hung it outside the bathroom."
+  },
+  "when": [
+   "status=employed",
+   "company.size!=big"
+  ],
+  "effect": {
+   "passion": 12,
+   "network": 3,
+   "fame": 2
+  },
+  "memory": {
+   "ja": "任天堂から発売の許しが下りた",
+   "en": "Nintendo approved our Famicom game"
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "bond"
+  ]
+ },
+ {
+  "id": "ev_l2_yamauchi_obit",
+  "years": [
+   2013,
+   2015
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "山内溥さんの訃報を新聞で知った。昔、机に貼った切り抜きを出してきて、黄ばんだ写真にそっと頭を下げた。",
+   "en": "You read of Hiroshi Yamauchi's passing in the paper. You dug out the old clipping from your desk and bowed quietly to the yellowed photo."
+  },
+  "effect": {
+   "passion": 3
+  },
+  "memory": {
+   "ja": "山内溥さんの古い切り抜きに頭を下げた",
+   "en": "bowed to an old clipping of Hiroshi Yamauchi"
+  },
+  "tag": [
+   "celeb",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_l2_nakayama_md",
+  "years": [
+   1988,
+   1993
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "中山隼雄社長のセガが出したメガドライブで、自社の初ソフトが出た。社内にセガ派が 1 人増え、昼の口論が 1 人分長くなった。",
+   "en": "Your company's first game came out on the Mega Drive, from Hayao Nakayama's Sega. The office gained one more Sega fan, and the lunchtime arguments got one person longer."
+  },
+  "when": [
+   "status=employed",
+   "company.size!=big"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 2,
+   "network": 3
+  },
+  "memory": {
+   "ja": "メガドライブで自社の初ソフトが出た",
+   "en": "our first game came out on the Mega Drive"
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "bond"
+  ]
+ },
+ {
+  "id": "ev_l2_nakayama_share",
+  "years": [
+   1994,
+   1998
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "セガサターンの年、中山隼雄社長の記事を雑誌で読み、勝手に経営を学んだ。部下に「シェア」と言ったら、お菓子を分けてくれた。",
+   "en": "The year of the Sega Saturn, you read a magazine piece on Sega president Hayao Nakayama and taught yourself management. You told your team \"market share.\" They shared their snacks."
+  },
+  "when": [
+   "job=producer"
+  ],
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_iino_dtable",
+  "years": [
+   1995,
+   1997
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "飯野賢治さんの『Dの食卓』を遊び、企画書に「映画のようなゲーム」と書いた。予算の欄で、映画は紙芝居になった。",
+   "en": "After playing Kenji Eno's D, you wrote \"a game like a movie\" in your proposal. At the budget section, the movie became a picture-card show."
+  },
+  "when": [
+   "job=planner"
+  ],
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_iino_wind",
+  "years": [
+   1997,
+   2000
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "飯野賢治さんの『風のリグレット』の、画面の無いゲームに衝撃を受けた。自分も目を閉じて仕様書を書き、誤字が 40 個出た。",
+   "en": "Kenji Eno's Real Sound, a game with no picture at all, blew you away. You wrote a design doc with your eyes closed. It had 40 typos."
+  },
+  "effect": {
+   "passion": 8,
+   "skill": 2
+  },
+  "memory": {
+   "ja": "『風のリグレット』に衝撃を受けた",
+   "en": "Real Sound blew me away"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_iino_obit",
+  "years": [
+   2013,
+   2016
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "飯野賢治さんの訃報を新聞で知った。棚の奥から『Dの食卓』の箱を出し、その夜は何も作らずに眺めていた。",
+   "en": "You read of Kenji Eno's passing in the paper. You took the box of D from the back of the shelf and spent that night just looking at it, making nothing."
+  },
+  "effect": {
+   "passion": 3
+  },
+  "memory": {
+   "ja": "『Dの食卓』の箱を一晩眺めた",
+   "en": "spent a night looking at my old copy of D"
+  },
+  "tag": [
+   "celeb",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_l2_kamiya_dmc",
+  "years": [
+   2001,
+   2004
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "神谷英樹さんの『デビル メイ クライ』に痺れ、自社のアクションに空中の連続攻撃を足した。敵が落ちてこなくなり、面が終わらない。",
+   "en": "Thrilled by Hideki Kamiya's Devil May Cry, you added air combos to your company's action game. Now enemies never come down, and no stage ever ends."
+  },
+  "when": [
+   "job=programmer"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 3
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_kamiya_award",
+  "years": [
+   2009,
+   2010
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ピコピコ通信読者大賞で、自分の作品が神谷英樹さんの『ベヨネッタ』と同じ部門のページに並んだ。その号は今も 3 冊ある。",
+   "en": "In the Pico Pico Times Readers' Awards, your game was on the same category page as Hideki Kamiya's Bayonetta. You still own three copies of that issue."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "『ベヨネッタ』と同じページに並んだ",
+   "en": "shared a page with Bayonetta"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_kamiya_sub",
+  "years": [
+   2013,
+   2023
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "神谷英樹さんのいたプラチナゲームズの作品の外注で、効果音を 1 つ作った。スタッフロールのずっと下に、自分の名前が小さく載った。",
+   "en": "As an outside contractor for PlatinumGames, Hideki Kamiya's studio, you made one sound effect. Far down the credits, your name appeared in small type."
+  },
+  "when": [
+   "pos=sub"
+  ],
+  "effect": {
+   "passion": 12,
+   "skill": 2,
+   "network": 3
+  },
+  "memory": {
+   "ja": "プラチナゲームズの作品に名前が載った",
+   "en": "my name was in the credits of a PlatinumGames title"
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "bond"
+  ]
+ },
+ {
+  "id": "ev_l2_kawazu_saga",
+  "years": [
+   1989,
+   1992
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "河津秋敏さんの『魔界塔士 Sa・Ga』をゲームボーイで遊び、通勤のバスを 2 回乗り過ごした。3 回目は、乗り過ごすつもりで乗った。",
+   "en": "Playing Akitoshi Kawazu's The Final Fantasy Legend on the Game Boy, you missed your bus stop twice. The third time, you boarded planning to miss it."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_kawazu_free",
+  "years": [
+   1992,
+   1996
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "『ロマンシング サ・ガ』に影響され、企画書に「どこから遊んでもいい」と書いた。テストの後輩は、どこから遊んでも迷った。",
+   "en": "Inspired by Akitoshi Kawazu's Romancing SaGa, you wrote \"play it in any order\" in your proposal. Your junior tester got lost in every order."
+  },
+  "when": [
+   "job=planner"
+  ],
+  "effect": {
+   "passion": 5,
+   "skill": 2
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_kawazu_formula",
+  "years": [
+   1995,
+   2015
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "勝手に河津秋敏さんをライバル視し、戦闘の計算式を 3 か月いじった。最後は元の式に戻り、それが一番面白かった。",
+   "en": "You decided Akitoshi Kawazu was your rival and tinkered with your battle formulas for three months. In the end you went back to the original. It was the most fun."
+  },
+  "when": [
+   "job=programmer"
+  ],
+  "effect": {
+   "passion": 5,
+   "skill": 4
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_l2_nomura_belts",
+  "years": [
+   1997,
+   1999
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "野村哲也さんが描いた『FFVII』のキャラに憧れ、自社の主人公にベルトを 4 本巻いた。上司に「どこで止めるの」と聞かれた。",
+   "en": "Inspired by Tetsuya Nomura's character designs for Final Fantasy VII, you gave your hero four belts. Your boss asked where you planned to stop."
+  },
+  "when": [
+   "job=artist"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 2
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_nomura_kh",
+  "years": [
+   2002,
+   2005
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "野村哲也さんの『キングダム ハーツ』を遊び、自社の主人公の鍵の形の武器を考えた。会議で「それはもう有る」と即答された。",
+   "en": "After playing Tetsuya Nomura's Kingdom Hearts, you designed a key-shaped weapon for your hero. The meeting replied instantly: \"That already exists.\""
+  },
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_nomura_sub",
+  "years": [
+   2005,
+   2020
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "スクウェア・エニックスの外注で、背景の木を 200 本作った。野村哲也さんの絵が並ぶ世界の片隅で、自分の木が揺れていた。",
+   "en": "As an outside contractor for Square Enix, you made 200 background trees. In a corner of a world full of Tetsuya Nomura's characters, your trees swayed."
+  },
+  "when": [
+   "pos=sub",
+   "job=artist"
+  ],
+  "effect": {
+   "passion": 12,
+   "skill": 3,
+   "network": 3
+  },
+  "memory": {
+   "ja": "野村哲也さんの絵の世界の片隅に自分の木が立った",
+   "en": "my trees stood in a corner of Tetsuya Nomura's world"
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "bond"
+  ]
+ },
+ {
+  "id": "ev_l2_koshiro_ys",
+  "years": [
+   1987,
+   1990
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "古代祐三さんの『イース』の曲を、PC-8801 の音源で 1 か月耳コピした。完成した曲は、なぜか演歌になっていた。",
+   "en": "You spent a month copying Yuzo Koshiro's Ys music by ear on a PC-8801. Somehow the finished piece came out as enka."
+  },
+  "when": [
+   "job=sound"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 4
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_koshiro_bk",
+  "years": [
+   1991,
+   1994
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "『ベア・ナックル』の古代祐三さんの曲を聴き、自社のアクションに踊れる曲を頼んだ。サウンド担当は一晩で盆踊りを作った。",
+   "en": "After hearing Yuzo Koshiro's Bare Knuckle music, you asked for a danceable track for your action game. The sound guy made a festival folk dance overnight."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_koshiro_award",
+  "years": [
+   2007,
+   2012
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ピコピコ通信読者大賞の音楽部門で、自分の曲が古代祐三さんの『世界樹の迷宮』と同じページに載った。家族がそのページを冷蔵庫に貼った。",
+   "en": "In the music category of the Pico Pico Times Readers' Awards, your track was on the same page as Yuzo Koshiro's Etrian Odyssey. Your family taped that page to the fridge."
+  },
+  "when": [
+   "job=sound",
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 12,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "古代祐三さんと同じページに自分の曲が載った",
+   "en": "my music shared a page with Yuzo Koshiro's"
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "bond"
+  ]
+ },
+ {
+  "id": "ev_l2_kondo_jump",
+  "years": [
+   1985,
+   1988
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "近藤浩治さんの『スーパーマリオブラザーズ』の音を聴き、自分の効果音を全部作り直した。ジャンプの音だけで 3 日かかった。",
+   "en": "After hearing Koji Kondo's sounds in Super Mario Bros., you remade all your sound effects. The jump alone took three days."
+  },
+  "when": [
+   "job=sound"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 4
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_kondo_hum",
+  "years": [
+   1986,
+   2040
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "帰り道、気づけば近藤浩治さんの地上の曲を口ずさんでいた。隣の知らない人も、同じところで口ずさんでいた。",
+   "en": "On the way home you caught yourself humming Koji Kondo's overworld theme. The stranger next to you was humming the same bar."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "memory": {
+   "ja": "知らない人とマリオの曲を一緒に口ずさんだ",
+   "en": "hummed the Mario theme along with a stranger"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_kondo_zelda",
+  "years": [
+   1986,
+   1990
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "近藤浩治さんの『ゼルダの伝説』の曲に影響され、自社の RPG に勇ましい曲を頼んだ。勇ましすぎて、村人まで行進していた。",
+   "en": "Inspired by Koji Kondo's Legend of Zelda music, you asked for a heroic theme in your company's RPG. It was so heroic that even the villagers were marching."
+  },
+  "when": [
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_okamoto_1942",
+  "years": [
+   1984,
+   1987
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "岡本吉起さんの『1942』をゲームセンターで遊び、宙返りのボタンを覚えた。会議で詰められるたび、心の中で宙返りした。",
+   "en": "Playing Yoshiki Okamoto's 1942 at the arcade, you learned the loop button. Every time a meeting cornered you, you looped in your head."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_okamoto_sf2",
+  "years": [
+   1991,
+   1994
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "岡本吉起さんがプロデュースした『ストII』に、昼休みのゲームセンターで 300 円溶かした。午後の会議の手つきが、波動拳だった。",
+   "en": "You blew 300 yen on Street Fighter II, produced by Yoshiki Okamoto, at the arcade on your lunch break. In the afternoon meeting, your hand gestures were Hadokens."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 6,
+   "money": -1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_okamoto_rival",
+  "years": [
+   1992,
+   1997
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "勝手に岡本吉起さんをライバル視し、格闘ゲームの企画書を書いた。キャラは 8 人、予算は 1 人分だった。",
+   "en": "You decided Yoshiki Okamoto was your rival and wrote a fighting game proposal. Eight characters. A budget for one."
+  },
+  "when": [
+   "job=producer"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 2
+  },
+  "tag": [
+   "celeb",
+   "high",
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_l2_suda_silver",
+  "years": [
+   1999,
+   2002
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "須田剛一さんの『シルバー事件』を遊び、企画書の文体が急に硬くなった。課長は余白に「読みにくい」とだけ書いた。",
+   "en": "After playing Goichi Suda's The Silver Case, the prose in your proposals turned hard-boiled overnight. Your manager wrote one word in the margin: \"Unreadable.\""
+  },
+  "when": [
+   "job=planner"
+  ],
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_suda_nmh",
+  "years": [
+   2007,
+   2010
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "須田剛一さんの『ノーモア★ヒーローズ』で Wii リモコンを刀にして振った。翌日、肩が上がらず、会議で挙手できなかった。",
+   "en": "You swung the Wii Remote like a katana in Goichi Suda's No More Heroes. The next day your shoulder wouldn't lift, and you couldn't raise your hand in the meeting."
+  },
+  "effect": {
+   "passion": 6,
+   "hp": -1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_suda_award",
+  "years": [
+   2008,
+   2020
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ピコピコ通信読者大賞の「尖ったゲーム部門」で、自分の作品が須田剛一さんの作品と並んだ。尖っていると言われ、初めて素直に喜べた。",
+   "en": "In the Pico Pico Times Readers' Awards \"Edgy Games\" category, your game sat beside one by Goichi Suda. Called edgy, you were happy about it for once."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 10,
+   "fame": 3
+  },
+  "memory": {
+   "ja": "須田剛一さんの作品と同じ部門に並んだ",
+   "en": "was nominated beside a Goichi Suda game"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_masuda_tengai",
+  "years": [
+   1992,
+   1995
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "桝田省治さんの『天外魔境II 卍MARU』を遊ぶため、ボーナスで CD-ROM² を買った。家族には「仕事の資料」と言い、本当に資料になった。",
+   "en": "To play Shoji Masuda's Tengai Makyo II, you bought a CD-ROM² with your bonus. You told the family it was research material. It really became research material."
+  },
+  "effect": {
+   "passion": 6,
+   "money": -5,
+   "skill": 2
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_masuda_linda",
+  "years": [
+   1995,
+   1998
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "桝田省治さんの『リンダキューブ』の、動物をつがいで集める箱舟に心をつかまれた。企画書に「つがい」と書き、会議で 2 回聞き返された。",
+   "en": "Shoji Masuda's Linda Cube, with its ark of animals collected in pairs, grabbed your heart. You wrote \"in pairs\" in your proposal and were asked to repeat it twice."
+  },
+  "when": [
+   "job=planner"
+  ],
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_masuda_oreshika",
+  "years": [
+   1999,
+   2002
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "桝田省治さんの『俺の屍を越えてゆけ』で、一族が 2 年で代替わりする重さを知った。気づけば自分の部署も、2 年で全員入れ替わっていた。",
+   "en": "Shoji Masuda's Ore no Shikabane o Koete Yuke taught you the weight of a clan that turns over every two years. You noticed your own department had too."
+  },
+  "effect": {
+   "passion": 7
+  },
+  "memory": {
+   "ja": "『俺の屍を越えてゆけ』で世代交代の重さを知った",
+   "en": "learned the weight of passing the torch from Ore no Shikabane"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_martinet_64",
+  "years": [
+   1996,
+   1999
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "『スーパーマリオ64』を起動したら、チャールズ・マーティネーさんの「It's-a me, Mario!」が鳴った。翌朝、職場の全員が同じ声で挨拶した。",
+   "en": "You booted up Super Mario 64 and heard Charles Martinet's \"It's-a me, Mario!\" The next morning, everyone at work greeted each other in that voice."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 6,
+   "network": 2
+  },
+  "memory": {
+   "ja": "職場の全員がマリオの声で挨拶した",
+   "en": "the whole office greeted each other in Mario's voice"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_martinet_voice",
+  "years": [
+   1997,
+   2023
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "マリオの声のチャールズ・マーティネーさんに憧れ、自社のキャラの声を自分で録った。テストの後輩に「誰ですか」と聞かれ、言えなかった。",
+   "en": "Inspired by Charles Martinet, the voice of Mario, you recorded your company's character voice yourself. Your junior tester asked who it was. You couldn't say."
+  },
+  "when": [
+   "job=sound"
+  ],
+  "effect": {
+   "passion": 5,
+   "skill": 2
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_martinet_ambassador",
+  "years": [
+   2023,
+   2026
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "チャールズ・マーティネーさんが「マリオ大使」になったと知り、自分の名刺に「自社ゲーム大使」と書き足した。まだ誰にも渡せていない。",
+   "en": "Hearing Charles Martinet had become the Mario Ambassador, you added \"Ambassador of My Company's Games\" to your business card. You haven't handed one out yet."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_henk_onyx",
+  "years": [
+   1984,
+   1987
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ヘンク・ロジャースさんの『ザ・ブラックオニキス』を遊び、日本の RPG はここから始まるのかと震えた。自分の RPG は、まだ方眼紙の上だった。",
+   "en": "Playing Henk Rogers's The Black Onyx, you trembled at the thought that Japanese RPGs would start here. Yours was still on graph paper."
+  },
+  "effect": {
+   "passion": 8,
+   "skill": 2
+  },
+  "memory": {
+   "ja": "『ザ・ブラックオニキス』に震えた",
+   "en": "The Black Onyx made me tremble"
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ],
+  "allow": [
+   "RPG"
+  ]
+ },
+ {
+  "id": "ev_l2_henk_moscow",
+  "years": [
+   1989,
+   1991
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ヘンク・ロジャースさんがモスクワまで行き『テトリス』の権利を取ってきたと読んだ。同じ週、自分は会議室の予約を取り損ねた。",
+   "en": "You read that Henk Rogers had gone all the way to Moscow and come back with the rights to Tetris. That same week, you failed to book a meeting room."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_henk_movie",
+  "years": [
+   2023,
+   2025
+  ],
+  "weight": 0.6,
+  "once": true,
+  "text": {
+   "ja": "ヘンク・ロジャースさんの『テトリス』の権利の話が映画になった。観た夜、昔の自分の契約書を読み返し、判子の位置の間違いを見つけた。",
+   "en": "Henk Rogers's fight for the Tetris rights became a movie. That night you reread your own old contracts and found a seal stamped in the wrong spot."
+  },
+  "effect": {
+   "passion": 5,
+   "skill": 1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ }
+]

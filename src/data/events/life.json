@@ -1,0 +1,3165 @@
+[
+ {
+  "id": "ev_lv_big_grandpa",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "祖父が危篤と電話が来た。こちらはマスター提出の 3 日前で、提出の手順を知っているのは自分だけだ。",
+   "en": "A call: Grandpa is failing. You are three days from submitting the master, and you are the only one who knows the procedure."
+  },
+  "when": [
+   "age<=42",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_grandpa_go",
+    "label": {
+     "ja": "新幹線に飛び乗る",
+     "en": "Jump on the bullet train"
+    },
+    "effect": {
+     "network": -5,
+     "hp": -5,
+     "passion": 5
+    },
+    "result": {
+     "ja": "間に合った。祖父は最後に「で、ゲームはできたのか」と聞いた。",
+     "en": "You made it. Grandpa's last question was: \"So, is the game done?\""
+    },
+    "later": [
+     {
+      "after": 1,
+      "event": "ev_lv_grandpa_funeral_brag"
+     }
+    ],
+    "memory": {
+     "ja": "祖父の最後の質問は「ゲームはできたのか」",
+     "en": "grandpa's last question was whether the game was done"
+    }
+   },
+   {
+    "id": "ch_lv_grandpa_stay",
+    "label": {
+     "ja": "現場に残る",
+     "en": "Stay at the office"
+    },
+    "effect": {
+     "skill": 5,
+     "network": 5,
+     "passion": -8
+    },
+    "result": {
+     "ja": "マスターは出た。新幹線の時刻表を、机の引き出しにしまった。",
+     "en": "The master went out. You put the train timetable away in your desk drawer."
+    },
+    "later": [
+     {
+      "after": 1,
+      "event": "ev_lv_grandpa_grave"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "life",
+   "big",
+   "warm",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_grandpa_funeral_brag",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "祖父の葬儀で、親戚のおじさんがあなたのゲームの箱を祭壇の横に並べ、参列者に自慢していた。値札が付いたままだった。",
+   "en": "At Grandpa's funeral, an uncle lined up your game boxes by the altar and bragged to every mourner. The price tags were still on."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 8,
+   "network": 3
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "祖父の葬儀で、親戚が自分の作品を自慢していた",
+   "en": "at grandpa's funeral, a relative bragged about your games"
+  }
+ },
+ {
+  "id": "ev_lv_grandpa_grave",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "発売された箱を持って祖父の墓参りに行った。墓前に供えたら、従兄弟の子が「もらっていい?」と持って帰った。祖父も笑っていると思う。",
+   "en": "You brought the finished box to Grandpa's grave. A cousin's kid asked, \"Can I have it?\" and took it home. Grandpa would laugh."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 10
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "祖父の墓前にソフトを供えた",
+   "en": "leaving your game at grandpa's grave"
+  }
+ },
+ {
+  "id": "ev_lv_big_father",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "発売前夜の最終チェック中に、母から「お父さんが」と電話。病院まで 4 時間。チェック項目はあと 200 個。",
+   "en": "Mid final check on launch eve, Mom calls: \"It's your father.\" The hospital is four hours away. 200 checklist items left."
+  },
+  "when": [
+   "age>=33",
+   "age<=62",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_father_go",
+    "label": {
+     "ja": "病院へ走る",
+     "en": "Run to the hospital"
+    },
+    "effect": {
+     "network": -5,
+     "passion": 5
+    },
+    "result": {
+     "ja": "父の最後の言葉は「仕事は」。「終わらせてきた」と嘘をついた。父は笑った。",
+     "en": "Dad's last words: \"And work?\" You lied: \"All done.\" He smiled."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_lv_father_shelf"
+     }
+    ]
+   },
+   {
+    "id": "ch_lv_father_check",
+    "label": {
+     "ja": "チェックを終わらせてから行く",
+     "en": "Finish the check, then go"
+    },
+    "effect": {
+     "skill": 5,
+     "passion": -5
+    },
+    "result": {
+     "ja": "朝 5 時に終えて走った。父はまだ待っていて、「バグは?」と聞いた。",
+     "en": "You finished at 5 a.m. and ran. Dad had waited. He asked: \"Any bugs?\""
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_lv_father_memorial"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "life",
+   "big",
+   "warm",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_father_shelf",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "父の書斎を片付けたら、あなたの作品が発売順に全部並んでいた。どれも 2 本ずつ。保存用と、布教用だった。",
+   "en": "Clearing out Dad's study, you found every game you made, in release order. Two of each: one to keep, one to lend out."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 12
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "父の書斎に、自分の作品が 2 本ずつ並んでいた",
+   "en": "dad kept two copies of every game you made"
+  }
+ },
+ {
+  "id": "ev_lv_father_memorial",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "父の三回忌。お経の最中、従兄弟の子のゲーム機から自分のゲームの起動音が鳴った。住職が「いい曲ですね」と言った。",
+   "en": "Dad's memorial service. Mid-sutra, a cousin's kid's game started up with your game's jingle. The priest said: \"Nice tune.\""
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 10
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "父の法要で、住職が自分のゲームの曲をほめた",
+   "en": "the priest at dad's memorial liked your game's music"
+  }
+ },
+ {
+  "id": "ev_lv_big_mother_last",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "母が「最後に、あんたのゲームをちゃんと遊びたい」と言った。会社は今、新作の発表会の準備で大騒ぎだ。",
+   "en": "Mom said: \"Before the end, I want to really play one of your games.\" The office is in chaos prepping a new game's reveal."
+  },
+  "when": [
+   "age>=42",
+   "age<=66",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_mother_play",
+    "label": {
+     "ja": "休んで母と遊ぶ",
+     "en": "Take leave and play with Mom"
+    },
+    "effect": {
+     "network": -5,
+     "passion": 10,
+     "hp": 5
+    },
+    "result": {
+     "ja": "1 週間かけて一緒にクリアした。エンディングで母は「長いねえ」と笑った。",
+     "en": "You beat it together over a week. At the ending, Mom laughed: \"That was long.\""
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_lv_mother_save"
+     }
+    ]
+   },
+   {
+    "id": "ch_lv_mother_event",
+    "label": {
+     "ja": "発表会を終えてから帰る",
+     "en": "Finish the reveal, then go home"
+    },
+    "effect": {
+     "fame": 5,
+     "passion": -3
+    },
+    "result": {
+     "ja": "発表会の映像を病室で見せた。母は画面の端の我が子を指さして、看護師さんに自慢した。",
+     "en": "You showed her the reveal video. Mom pointed at you in the corner and bragged to the nurse."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_lv_mother_video"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "life",
+   "big",
+   "warm",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_mother_save",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "母の遺品の携帯ゲーム機に、セーブデータが 1 つ残っていた。名前は「おかん」。プレイ時間 312 時間。",
+   "en": "Among Mom's things, a handheld with one save file. Name: \"MOM.\" Play time: 312 hours."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 12
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "母のセーブデータは 312 時間だった",
+   "en": "mom's save file had 312 hours on it"
+  }
+ },
+ {
+  "id": "ev_lv_mother_video",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "母の遺品の中に、発表会の映像を録ったテープがあった。ラベルに母の字で「うちの子 4 秒」。",
+   "en": "Among Mom's things, a tape of that reveal event. On the label, in her writing: \"My kid, 4 seconds.\""
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 12
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "母のテープのラベルは「うちの子 4 秒」",
+   "en": "mom's tape label: \"my kid, 4 seconds\""
+  }
+ },
+ {
+  "id": "ev_lv_mother_care",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "母の介護が始まった。会社の机と実家の台所を、週に 3 往復している。",
+   "en": "Mom needs care now. You shuttle between your office desk and her kitchen three times a week."
+  },
+  "when": [
+   "age>=42",
+   "age<=64",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_care_leave",
+    "label": {
+     "ja": "介護休業を取る",
+     "en": "Take caregiver leave"
+    },
+    "effect": {
+     "hp": 5,
+     "passion": 5,
+     "money": -50,
+     "network": -3
+    },
+    "result": {
+     "ja": "休業中、母とすごろくを作った。テストプレイも、バランス調整も母だった。",
+     "en": "On leave, you made a board game with Mom. She did the playtesting and the balancing."
+    },
+    "memory": {
+     "ja": "母とすごろくを作った",
+     "en": "making a board game with mom"
+    }
+   },
+   {
+    "id": "ch_lv_care_both",
+    "label": {
+     "ja": "両方こなす",
+     "en": "Do both"
+    },
+    "effect": {
+     "hp": -10,
+     "skill": 3
+    },
+    "result": {
+     "ja": "新幹線の中でバグ票を書く技を覚えた。車内販売の人に顔を覚えられた。",
+     "en": "You learned to write bug reports on the train. The snack cart lady learned your face."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_grandma_handheld",
+  "years": [
+   1989,
+   2040
+  ],
+  "text": {
+   "ja": "入院中の祖母に携帯ゲーム機を貸したら、看護師さんまで夢中に。退院の日、祖母はハイスコアの紙を病室に貼って帰った。",
+   "en": "You lent your hospitalized grandma a handheld; the nurses got hooked too. When discharged, she taped her high score to the wall."
+  },
+  "when": [
+   "age<=40",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "祖母が病室にハイスコアを貼って帰った",
+   "en": "grandma left her high score taped to the hospital wall"
+  }
+ },
+ {
+  "id": "ev_lv_grandpa_question",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "祖父に「ゲームで食べていけるのか」と聞かれた。給与明細を見せたら、黙ってお年玉をくれた。",
+   "en": "Grandpa asked if games could feed you. You showed him your pay stub. Silently, he handed you New Year money."
+  },
+  "when": [
+   "age<=30",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "money": 1,
+   "passion": 2
+  },
+  "tag": [
+   "life",
+   "gag",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_uncle_funeral",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "大叔父の葬儀で、喪服のポケットからバグ票が出てきた。焼香の順番を待つ間に、原因が 2 つ分かった。",
+   "en": "At a great-uncle's funeral, a bug report fell out of your mourning suit. Waiting your turn at the incense, you found two causes."
+  },
+  "when": [
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "skill": 2,
+   "network": -1
+  },
+  "tag": [
+   "life",
+   "gag",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_parent_doubt",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "親戚の集まりで、母があなたの仕事を「パソコンの修理」と紹介していた。訂正に 30 分かけて、諦めた。",
+   "en": "At a family gathering, Mom introduced your job as \"fixing computers.\" You spent 30 minutes correcting her, then gave up."
+  },
+  "when": [
+   "age<=35",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": -2,
+   "flag": {
+    "lv_parent_doubt": true
+   }
+  },
+  "tag": [
+   "life",
+   "gag",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_parent_understood",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "母から電話。「近所の子が、あんたのゲームの話をしてた」。その日から紹介が「ゲームの偉い人」になった。偉くはない。",
+   "en": "Mom called: \"The neighbor's kid was talking about your game.\" Since then she calls you \"a big shot in games.\" You are not."
+  },
+  "when": [
+   "flag.lv_parent_doubt",
+   "works>=2",
+   "age>=33",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 10
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "母がやっと自分の仕事を分かってくれた",
+   "en": "mom finally understood what you do"
+  }
+ },
+ {
+  "id": "ev_lv_parent_office",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "両親が会社見学に来た。寝袋だらけのフロアを見て、母は黙って差し入れの量を倍にした。",
+   "en": "Your parents toured the office. Seeing the floor full of sleeping bags, Mom silently doubled the snack deliveries."
+  },
+  "when": [
+   "works>=1",
+   "age<=40",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "hp": 3
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "母が差し入れを倍にしてくれた",
+   "en": "mom doubled the care packages"
+  }
+ },
+ {
+  "id": "ev_lv_parent_store",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "父が近所のゲーム屋で、あなたのゲームを目立つ棚に勝手に移していた。店長に注意され、1 本買って帰った。",
+   "en": "Dad was caught moving your game to the best shelf at the local shop. Scolded by the manager, he bought a copy."
+  },
+  "when": [
+   "works>=1",
+   "age<=50",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 5,
+   "money": 0
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "父がこっそり自分のゲームを売り込んでいた",
+   "en": "dad secretly promoted your game at the shop"
+  }
+ },
+ {
+  "id": "ev_lv_family_biz",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "実家の和菓子屋を継げと父から手紙。同封の新作まんじゅうの名前が「ドット」だった。",
+   "en": "Dad wrote: come home and take over the sweet shop. The enclosed new bun was named \"Pixel.\""
+  },
+  "when": [
+   "age>=28",
+   "age<=48",
+   "status!=left",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_biz_no",
+    "label": {
+     "ja": "断ってゲームを続ける",
+     "en": "Decline and keep making games"
+    },
+    "effect": {
+     "passion": 5,
+     "network": -2
+    },
+    "result": {
+     "ja": "断りの電話のあと、店の新作は「バグ」という名前になった。よく売れているらしい。",
+     "en": "After you said no, the shop's next bun was named \"Bug.\" It sells well, apparently."
+    }
+   },
+   {
+    "id": "ch_lv_biz_take",
+    "label": {
+     "ja": "店を継ぐ",
+     "en": "Take over the shop"
+    },
+    "effect": {
+     "flag": {
+      "do_switch": true
+     }
+    },
+    "result": {
+     "ja": "のれんをくぐった初日、まんじゅうの焼き色を 16 段階で管理し始めた。",
+     "en": "On day one, you started grading the buns' browning on a 16-level scale."
+    },
+    "cause": {
+     "ja": "実家の和菓子屋を継ぐ。看板商品は、ドット絵の焼き印のまんじゅうだった",
+     "en": "took over the family sweet shop. The best seller was a bun branded with pixel art"
+    }
+   },
+   {
+    "id": "ch_lv_biz_weekend",
+    "label": {
+     "ja": "週末だけ手伝う",
+     "en": "Help out on weekends only"
+    },
+    "effect": {
+     "hp": -5,
+     "money": 20,
+     "flag": {
+      "lv_family_biz": true
+     }
+    },
+    "result": {
+     "ja": "店番の合間に企画書を書いた。包装紙の裏が全部企画書になった。",
+     "en": "You wrote pitches between customers. Every sheet of wrapping paper got a pitch on the back."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_moving",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "引っ越しの荷造り。段ボール 20 箱のうち 12 箱がゲームと資料。業者さんに「お仕事、何ですか」と 2 回聞かれた。",
+   "en": "Moving day. Of 20 boxes, 12 were games and reference books. The movers asked twice what you do for a living."
+  },
+  "when": [
+   "!flag.in_prison"
+  ],
+  "effect": {
+   "hp": -3,
+   "passion": 2
+  },
+  "tag": [
+   "life",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_lv_house",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "家を買うか悩む。不動産屋に勤め先を言ったら、ローン審査の書類が 1 枚増えた。",
+   "en": "Thinking of buying a house. When you told the realtor where you work, the loan paperwork grew by one page."
+  },
+  "when": [
+   "age>=32",
+   "age<=50",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_house_buy",
+    "label": {
+     "ja": "買う",
+     "en": "Buy it"
+    },
+    "effect": {
+     "money": -300,
+     "passion": 3,
+     "flag": {
+      "lv_house": true
+     }
+    },
+    "result": {
+     "ja": "35 年ローン。仕事部屋の壁紙だけ、こっそり防音にした。",
+     "en": "A 35-year loan. You quietly soundproofed the walls of your work room."
+    }
+   },
+   {
+    "id": "ch_lv_house_rent",
+    "label": {
+     "ja": "借りたままでいる",
+     "en": "Keep renting"
+    },
+    "effect": {
+     "money": 20
+    },
+    "result": {
+     "ja": "更新料を払った。いつでも辞められる自由の値段だと思うことにした。",
+     "en": "You paid the lease renewal fee. You call it the price of being free to quit."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_hometown",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "親の足腰が弱ってきた。地元に戻って、地方のゲーム会社に入る手もある。",
+   "en": "Your parents are getting frail. You could move home and join a regional game studio."
+  },
+  "when": [
+   "age>=40",
+   "age<=60",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_home_stay",
+    "label": {
+     "ja": "都会に残る",
+     "en": "Stay in the city"
+    },
+    "effect": {
+     "passion": 3,
+     "money": 10
+    },
+    "result": {
+     "ja": "毎週日曜に電話するようになった。話題は 9 割が天気、1 割が新作の発売日。",
+     "en": "You started calling every Sunday. Ninety percent weather, ten percent your release dates."
+    }
+   },
+   {
+    "id": "ch_lv_home_go",
+    "label": {
+     "ja": "地元に戻る",
+     "en": "Move back home"
+    },
+    "effect": {
+     "hp": 10,
+     "network": -5,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "地元の会社は、昼休みに全員が家に帰ってご飯を食べる会社だった。",
+     "en": "At the hometown studio, everyone goes home for lunch."
+    },
+    "memory": {
+     "ja": "地元に戻って、昼ご飯を家で食べた",
+     "en": "moving home and eating lunch at home again"
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "family",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_lv_sibling_qa",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "妹にテストを頼んだら、報告書は誤字だらけ。でも指摘はプロより的確で、翌年、妹は QA の会社に就職した。",
+   "en": "You asked your sister to test your game. Her reports were full of typos but sharper than the pros'. Next year she joined a QA firm."
+  },
+  "when": [
+   "works>=1",
+   "age<=45",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "skill": 3,
+   "network": 2
+  },
+  "tag": [
+   "life",
+   "gag",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_big_birth",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "パートナーの予定日とマスターアップの日が同じ週。どちらも延びる可能性があり、どちらも延びなかった。",
+   "en": "Your partner's due date and master-up fall in the same week. Either could slip. Neither did."
+  },
+  "when": [
+   "flag.partner",
+   "!flag.child",
+   "age>=24",
+   "age<=46",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_birth_hospital",
+    "label": {
+     "ja": "病院で待つ",
+     "en": "Wait at the hospital"
+    },
+    "effect": {
+     "flag": {
+      "child": true
+     },
+     "passion": 12,
+     "network": -5
+    },
+    "result": {
+     "ja": "生まれた。最初に抱いた時、手が ROM カセットを持つ形になっていた。",
+     "en": "Born. The first time you held the baby, your hands were shaped to hold a cartridge."
+    },
+    "memory": {
+     "ja": "子どもが生まれた日、病院にいた",
+     "en": "being at the hospital the day your child was born"
+    }
+   },
+   {
+    "id": "ch_lv_birth_office",
+    "label": {
+     "ja": "会社で待機して、呼ばれたら走る",
+     "en": "Wait at the office, run when called"
+    },
+    "effect": {
+     "flag": {
+      "child": true
+     },
+     "skill": 3,
+     "hp": -10,
+     "passion": 8
+    },
+    "result": {
+     "ja": "タクシーで走り、生まれる 7 分前に着いた。マスターも子どもも、無事に出た。",
+     "en": "You raced over by taxi and arrived seven minutes early. The master and the baby both came out fine."
+    },
+    "memory": {
+     "ja": "マスターアップの週に子どもが生まれた",
+     "en": "your child was born in master-up week"
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "big",
+   "warm",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_recital",
+  "years": [
+   1980,
+   2040
+  ],
+  "text": {
+   "ja": "子どものピアノ発表会と、ゲームの体験会が同じ日曜。子どもの曲目は、あなたのゲームのテーマ曲だ。",
+   "en": "Your kid's piano recital and a demo event fall on the same Sunday. Your kid is playing your game's theme."
+  },
+  "when": [
+   "flag.child",
+   "age<=55",
+   "status!=left",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_recital_go",
+    "label": {
+     "ja": "発表会へ行く",
+     "en": "Go to the recital"
+    },
+    "effect": {
+     "passion": 8,
+     "network": -3
+    },
+    "result": {
+     "ja": "3 小節目で間違えて、最初から弾き直した。本番のバグ対応として満点だった。",
+     "en": "Your kid flubbed bar three and started over. A perfect live bug fix."
+    },
+    "memory": {
+     "ja": "子どもが発表会で自分の曲を弾いた",
+     "en": "your kid played your theme at the recital"
+    }
+   },
+   {
+    "id": "ch_lv_recital_demo",
+    "label": {
+     "ja": "体験会へ行く",
+     "en": "Go to the demo event"
+    },
+    "effect": {
+     "network": 5,
+     "fame": 2
+    },
+    "result": {
+     "ja": "体験会でも同じ曲が流れた。夜に録画を見たら、子どもは 3 小節目で間違え、弾き直していた。",
+     "en": "The same tune played at the demo. That night, on the recording, your kid flubbed bar three and started over."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_sports_video",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "運動会のビデオ係を任された。子どもの徒競走より、カメラのコマ落ちが気になった。子どもは 2 位だった。",
+   "en": "You were the sports-day camera operator. You worried more about dropped frames than the race. Your kid came second."
+  },
+  "when": [
+   "flag.child",
+   "age<=55",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 3
+  },
+  "tag": [
+   "life",
+   "gag",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_kid_debug",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "子どもに開発中のゲームを遊ばせた。3 分で、QA が 1 か月見つけられなかったバグを見つけた。お小遣いを 100 円上げた。",
+   "en": "You let your kid play the build. In three minutes they found a bug QA missed for a month. You raised their allowance by 100 yen."
+  },
+  "when": [
+   "flag.child",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "skill": 2,
+   "money": -1
+  },
+  "tag": [
+   "life",
+   "high",
+   "family"
+  ],
+  "memory": {
+   "ja": "子どもが 3 分で大バグを見つけた",
+   "en": "your kid found the big bug in three minutes"
+  }
+ },
+ {
+  "id": "ev_lv_kid_teen",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "思春期の子どもに「親のゲーム、古い」と言われた。翌月、子ども部屋からこっそり遊ぶ音がした。",
+   "en": "Your teenager said your games are \"old.\" A month later, you heard them playing one behind their door."
+  },
+  "when": [
+   "flag.child",
+   "age>=40",
+   "age<=58",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "子ども部屋から自分のゲームの音がした",
+   "en": "hearing your game through your teen's door"
+  }
+ },
+ {
+  "id": "ev_lv_kid_names",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "子どもが自分のゲームの主人公に、自分の名前をつけて遊んでいた。親の名前は、すぐやられる脇役につけられていた。",
+   "en": "Your kid named the hero of your game after themselves. Your name went to the sidekick who dies first."
+  },
+  "when": [
+   "flag.child",
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 3
+  },
+  "tag": [
+   "life",
+   "gag",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_school_visit",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "授業参観で将来の夢の発表。子どもは「親みたいにゲームを作る人」。帰り道に「やっぱり、よく寝られる人にする」と言い直した。",
+   "en": "At open class, your kid's dream job: \"a game maker, like my parent.\" On the way home: \"Actually, someone who gets to sleep.\""
+  },
+  "when": [
+   "flag.child",
+   "works>=2",
+   "age<=55",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "hp": -1
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "子どもの将来の夢が「ゲームを作る人」だった",
+   "en": "your kid said they wanted to make games"
+  }
+ },
+ {
+  "id": "ev_lv_kid_samples",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "子どもに「見本のソフト、友達に配っていい?」と聞かれた。手元には見本盤が 10 本。",
+   "en": "Your kid asks: \"Can I give your sample copies to my friends?\" You have ten."
+  },
+  "when": [
+   "flag.child",
+   "works>=1",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_samples_give",
+    "label": {
+     "ja": "配らせる",
+     "en": "Let them"
+    },
+    "effect": {
+     "network": 3,
+     "passion": 5
+    },
+    "result": {
+     "ja": "翌週、子どもはクラスの英雄に。あなたには 10 人分の質問の手紙が届いた。",
+     "en": "Next week your kid was a class hero. You got ten letters full of questions."
+    },
+    "memory": {
+     "ja": "子どもがクラスの英雄になった",
+     "en": "your kid became a class hero"
+    }
+   },
+   {
+    "id": "ch_lv_samples_keep",
+    "label": {
+     "ja": "取っておく",
+     "en": "Keep them"
+    },
+    "effect": {
+     "money": 5
+    },
+    "result": {
+     "ja": "20 年後、未開封の見本盤にプレミアが付いた。子どもは、まだ根に持っている。",
+     "en": "Twenty years on, the sealed samples are collector's items. Your kid still holds a grudge."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "family",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_lv_kid_job",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "子どもがゲーム会社の内定をもらった。「やめとけ」と言いかけて、「寝袋はいいのを買え」と言った。",
+   "en": "Your kid got an offer from a game company. You almost said \"don't.\" Instead: \"Buy a good sleeping bag.\""
+  },
+  "when": [
+   "flag.child",
+   "age>=47",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 10,
+   "network": 3
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "子どもがゲーム業界に入った",
+   "en": "your kid went into games too"
+  }
+ },
+ {
+  "id": "ev_lv_grandchild",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "孫ができた。最初に買ってあげたのは、自分が作ったゲームの中古。300 円だった。",
+   "en": "You became a grandparent. Your first gift: a used copy of a game you made. 300 yen."
+  },
+  "when": [
+   "flag.child",
+   "age>=56",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 8,
+   "money": -1
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "孫に自分のゲームを 300 円で買った",
+   "en": "buying your grandkid your own game for 300 yen"
+  }
+ },
+ {
+  "id": "ev_lv_grandkid_sports",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "孫の運動会。子どもの運動会に行けなかった分を取り返そうと、カメラを 4 台回して先生に怒られた。",
+   "en": "Your grandkid's sports day. Making up for the ones you missed, you ran four cameras and got scolded by a teacher."
+  },
+  "when": [
+   "flag.child",
+   "age>=58",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "hp": -2
+  },
+  "tag": [
+   "life",
+   "warm",
+   "family"
+  ],
+  "memory": {
+   "ja": "孫の運動会でカメラを 4 台回した",
+   "en": "four cameras at your grandkid's sports day"
+  }
+ },
+ {
+  "id": "ev_lv_big_dumped",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "恋人から「仕事と私、どっちが大事?」。聞かれた時、手元ではちょうどビルドが走っていた。",
+   "en": "Your partner asks: \"Your work or me?\" At that exact moment, a build is running."
+  },
+  "when": [
+   "flag.partner",
+   "!flag.lv_married",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_dumped_close",
+    "label": {
+     "ja": "「君だよ」とモニターを消す",
+     "en": "\"You,\" and switch off the monitor"
+    },
+    "effect": {
+     "skill": -3,
+     "passion": 5,
+     "flag": {
+      "lv_married": true
+     }
+    },
+    "result": {
+     "ja": "消した瞬間、ビルドが失敗した音がした。恋人は笑って、その年に籍を入れた。",
+     "en": "The moment you did, the build-failed chime rang out. Your partner laughed. You married that year."
+    },
+    "memory": {
+     "ja": "ビルドより恋人を選んだ",
+     "en": "choosing your partner over a build"
+    }
+   },
+   {
+    "id": "ch_lv_dumped_wait",
+    "label": {
+     "ja": "「ビルドが終わるまで待って」",
+     "en": "\"Wait till the build finishes\""
+    },
+    "effect": {
+     "passion": -10,
+     "skill": 3,
+     "flag": {
+      "partner": false
+     }
+    },
+    "result": {
+     "ja": "ビルドは 40 分で終わった。恋人は 20 分で帰った。",
+     "en": "The build took 40 minutes. Your partner left after 20."
+    },
+    "later": [
+     {
+      "after": 6,
+      "event": "ev_lv_ex_card"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "life",
+   "big",
+   "love",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_lv_ex_card",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "元恋人から年賀状。「あなたのゲーム、うちの子が遊んでる。スタッフロールで名前を見つけて笑った」。家族写真付きだった。",
+   "en": "A New Year card from your ex: \"My kid plays your game. I laughed when I saw your name in the credits.\" With a family photo."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "life",
+   "warm",
+   "love"
+  ],
+  "memory": {
+   "ja": "元恋人の子が、自分のゲームを遊んでいた",
+   "en": "your ex's kid plays your game"
+  }
+ },
+ {
+  "id": "ev_lv_dumped_dinner",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "記念日のディナーを、バグ対応で 4 回延期した。5 回目の予約の電話で、店の人に「お一人様ですね」と確認された。",
+   "en": "You postponed the anniversary dinner four times for bug fixes. Calling to book a fifth, the restaurant confirmed: \"Table for one?\""
+  },
+  "when": [
+   "flag.partner",
+   "!flag.lv_married",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": -8,
+   "flag": {
+    "partner": false
+   }
+  },
+  "tag": [
+   "life",
+   "gag",
+   "love"
+  ]
+ },
+ {
+  "id": "ev_lv_net_meet",
+  "years": [
+   1997,
+   2040
+  ],
+  "text": {
+   "ja": "ネットワークゲームのデバッグ中、毎晩同じ酒場にいるプレイヤーが気になった。バグ報告より先に挨拶を打っていた。",
+   "en": "Debugging an online game, you noticed a player in the same tavern every night. You typed hello before your bug report."
+  },
+  "when": [
+   "!flag.partner",
+   "age<=45",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_net_offline",
+    "label": {
+     "ja": "会ってみたいと伝える",
+     "en": "Ask to meet in person"
+    },
+    "effect": {
+     "passion": 8,
+     "flag": {
+      "lv_net_love": true
+     }
+    },
+    "result": {
+     "ja": "待ち合わせの目印は、ゲームの中と同じ赤いマフラー。冬でよかった。",
+     "en": "The sign to find each other: a red scarf, same as in the game. Lucky it was winter."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_lv_net_love_wed"
+     }
+    ]
+   },
+   {
+    "id": "ch_lv_net_log",
+    "label": {
+     "ja": "仕事なので黙ってログを取る",
+     "en": "It's work. Just log it"
+    },
+    "effect": {
+     "skill": 5
+    },
+    "result": {
+     "ja": "黙ってログを取った。翌週、その人のバグ報告が一番正確だったと分かった。",
+     "en": "You logged it quietly. Next week, that player's bug reports turned out to be the most accurate."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "love"
+  ]
+ },
+ {
+  "id": "ev_lv_net_love_wed",
+  "years": [
+   1997,
+   2040
+  ],
+  "text": {
+   "ja": "ネットワークゲームで出会った人と結婚した。式のプロフィール映像は、二人のキャラが酒場に並ぶゲームの画面だった。",
+   "en": "You married the person you met in the online game. The wedding slideshow was your two characters side by side in the tavern."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 15,
+   "flag": {
+    "partner": true,
+    "lv_married": true
+   }
+  },
+  "tag": [
+   "life",
+   "warm",
+   "love"
+  ],
+  "memory": {
+   "ja": "ゲームの酒場で出会った人と結婚した",
+   "en": "marrying the one you met in a game tavern"
+  }
+ },
+ {
+  "id": "ev_lv_net_gm",
+  "years": [
+   1999,
+   2040
+  ],
+  "text": {
+   "ja": "運営の GM として巡回中、迷っていた初心者を街まで案内した。半年後、その人と駅前の喫茶店で会っていた。ゲームの話は 5 分だけ。",
+   "en": "On patrol as a game master, you guided a lost newbie to town. Six months later, you met them at a cafe. Games came up for five minutes."
+  },
+  "when": [
+   "!flag.partner",
+   "age<=50",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 10,
+   "flag": {
+    "partner": true
+   }
+  },
+  "tag": [
+   "life",
+   "warm",
+   "love"
+  ],
+  "memory": {
+   "ja": "迷子の初心者を案内したら、恋人になった",
+   "en": "the lost newbie you guided became your partner"
+  }
+ },
+ {
+  "id": "ev_lv_net_found_partner",
+  "years": [
+   1999,
+   2040
+  ],
+  "text": {
+   "ja": "仕事で接続ログを調べていたら、パートナーのキャラがいた。キャラの名前は、あなたのあだ名だった。",
+   "en": "Checking connection logs for work, you found your partner's character. Its name was your nickname."
+  },
+  "when": [
+   "flag.partner",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 8
+  },
+  "tag": [
+   "life",
+   "warm",
+   "love"
+  ],
+  "memory": {
+   "ja": "パートナーのキャラ名が自分のあだ名だった",
+   "en": "your partner named their character after you"
+  }
+ },
+ {
+  "id": "ev_lv_office_love",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "隣の席の同僚と、終電を逃す回数がやたら合う。今夜も 2 人だけ、タクシー代を割り勘している。",
+   "en": "You and the coworker next to you keep missing the last train together. Tonight, again, you split a cab."
+  },
+  "when": [
+   "!flag.partner",
+   "age>=22",
+   "age<=42",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_office_ask",
+    "label": {
+     "ja": "付き合ってほしいと言う",
+     "en": "Ask them out"
+    },
+    "effect": {
+     "passion": 10,
+     "flag": {
+      "partner": true
+     }
+    },
+    "result": {
+     "ja": "付き合った。社内には秘密にしたが、翌週バグ票の担当欄で全員にばれた。",
+     "en": "You started dating. You kept it secret; next week the bug tracker's assignee field gave you away."
+    },
+    "memory": {
+     "ja": "終電を逃す仲間が恋人になった",
+     "en": "the last-train buddy became your partner"
+    }
+   },
+   {
+    "id": "ch_lv_office_friend",
+    "label": {
+     "ja": "戦友のままでいる",
+     "en": "Stay comrades"
+    },
+    "effect": {
+     "network": 6
+    },
+    "result": {
+     "ja": "その後もいい戦友だった。数年後、結婚式のスピーチを頼まれた。",
+     "en": "They stayed a great comrade. Years later, they asked you to speak at their wedding."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "love",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_lv_omiai",
+  "years": [
+   1988,
+   2040
+  ],
+  "text": {
+   "ja": "親が勝手に申し込んだお見合い。釣書の職業欄に、母の字で「パソコン関係」と書いてあった。",
+   "en": "Your parents set up an arranged meeting. On your profile, in Mom's writing: \"Occupation: something with computers.\""
+  },
+  "when": [
+   "!flag.partner",
+   "age>=29",
+   "age<=46",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_omiai_true",
+    "label": {
+     "ja": "正直に「ゲームを作っています」",
+     "en": "Be honest: \"I make games\""
+    },
+    "effect": {
+     "passion": 8,
+     "flag": {
+      "partner": true
+     }
+    },
+    "result": {
+     "ja": "相手の目が光った。相手は格闘ゲームの全国大会の出場者だった。",
+     "en": "Their eyes lit up. They had played in a national fighting-game tournament."
+    },
+    "memory": {
+     "ja": "お見合いの相手がゲームの猛者だった",
+     "en": "your arranged date was a tournament gamer"
+    }
+   },
+   {
+    "id": "ch_lv_omiai_pc",
+    "label": {
+     "ja": "「パソコン関係」で通す",
+     "en": "Stick with \"computers\""
+    },
+    "effect": {
+     "network": 2
+    },
+    "result": {
+     "ja": "帰り際に「パソコンの何を?」と聞かれ、説明に 2 時間かかった。友達にはなれた。",
+     "en": "On the way out they asked what exactly. Explaining took two hours. You did become friends."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "love",
+   "family",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_lv_wedding_skit",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "結婚式の余興で、同僚が二人の出会いをゲームにして上映した。バグで新郎新婦が壁にめり込んだ。一番受けた。",
+   "en": "At your wedding, coworkers made a game of how you two met. A bug sank the couple into a wall. It got the biggest laugh."
+  },
+  "when": [
+   "flag.partner",
+   "!flag.lv_married",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 12,
+   "network": 5,
+   "flag": {
+    "lv_married": true
+   }
+  },
+  "tag": [
+   "life",
+   "warm",
+   "love"
+  ],
+  "memory": {
+   "ja": "結婚式で、壁にめり込む二人のゲームが上映された",
+   "en": "your wedding game where the couple got stuck in a wall"
+  }
+ },
+ {
+  "id": "ev_lv_wedding_bug",
+  "years": [
+   2006,
+   2040
+  ],
+  "text": {
+   "ja": "結婚式の前日、発売済みの作品に止まるバグが見つかった。直せるのは自分だけで、更新データの締め切りは式の最中だ。",
+   "en": "The day before your wedding, a crash bug turns up in your released game. Only you can fix it, and the patch deadline is mid-ceremony."
+  },
+  "when": [
+   "flag.partner",
+   "!flag.lv_married",
+   "status=employed",
+   "job!=teacher",
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_wb_ceremony",
+    "label": {
+     "ja": "式に集中する",
+     "en": "Focus on the wedding"
+    },
+    "effect": {
+     "passion": 10,
+     "network": -3,
+     "flag": {
+      "lv_married": true
+     }
+    },
+    "result": {
+     "ja": "式は最高だった。バグは後輩が直し、祝電に「直しました」と届いた。",
+     "en": "The wedding was perfect. A junior fixed the bug and sent a congratulatory telegram: \"Fixed it.\""
+    },
+    "memory": {
+     "ja": "結婚式に「直しました」の祝電が届いた",
+     "en": "a \"bug fixed\" telegram at your wedding"
+    }
+   },
+   {
+    "id": "ch_lv_wb_laptop",
+    "label": {
+     "ja": "控え室にノート PC を持ち込む",
+     "en": "Bring a laptop to the dressing room"
+    },
+    "effect": {
+     "skill": 4,
+     "passion": 5,
+     "flag": {
+      "lv_married": true
+     }
+    },
+    "result": {
+     "ja": "お色直しの 20 分で直した。入場が 5 分遅れ、司会が「ただ今、最終調整中です」と言った。",
+     "en": "You fixed it during the 20-minute outfit change. The entrance ran five minutes late; the MC said: \"Final adjustments underway.\""
+    },
+    "memory": {
+     "ja": "お色直しの間にバグを直した",
+     "en": "fixing the bug during the wedding outfit change"
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "love",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_lv_propose_game",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "自分のゲームの隠しステージに、プロポーズの言葉を仕込んだ。恋人にクリアしてもらうしかない。",
+   "en": "You hid a marriage proposal in a secret stage of your game. Now your partner has to beat it."
+  },
+  "when": [
+   "flag.partner",
+   "!flag.lv_married",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_pg_hand",
+    "label": {
+     "ja": "完成前の版を恋人に渡す",
+     "en": "Hand your partner a build"
+    },
+    "effect": {
+     "passion": 10,
+     "flag": {
+      "lv_married": true
+     }
+    },
+    "result": {
+     "ja": "恋人は 3 面で詰まった。結局、横で答えを全部言った。返事は「はい」だった。",
+     "en": "Your partner got stuck on stage three. You ended up saying the whole thing aloud. The answer was yes."
+    },
+    "memory": {
+     "ja": "自分のゲームの中でプロポーズした",
+     "en": "proposing inside your own game"
+    }
+   },
+   {
+    "id": "ch_lv_pg_ship",
+    "label": {
+     "ja": "隠しのまま発売する",
+     "en": "Ship it hidden"
+    },
+    "effect": {
+     "fame": 5,
+     "passion": 6,
+     "flag": {
+      "lv_married": true
+     }
+    },
+    "result": {
+     "ja": "恋人より先に、全国の攻略班が見つけた。返事は雑誌の読者欄で見た。「はい」だった。",
+     "en": "Strategy hunters found it before your partner did. You read the answer in a magazine's letters page: yes."
+    },
+    "later": [
+     {
+      "after": 5,
+      "event": "ev_lv_propose_legend"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "life",
+   "love",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_lv_propose_legend",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "あの隠しプロポーズが、ファンの間で「伝説の裏技」になっていた。今でも毎年、あのステージで誰かがプロポーズしている。",
+   "en": "That hidden proposal has become a legendary secret among fans. Every year, someone still proposes on that stage."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "fame": 8,
+   "passion": 10
+  },
+  "tag": [
+   "life",
+   "high",
+   "love"
+  ],
+  "memory": {
+   "ja": "自分の隠しプロポーズが伝説の裏技になった",
+   "en": "your hidden proposal became a legendary secret"
+  }
+ },
+ {
+  "id": "ev_lv_partner_tester",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "パートナーにテストプレイを頼んだら、開始 10 分で「これ、何が楽しいの?」。翌日、企画書の 3 ページ目が消えた。",
+   "en": "You asked your partner to playtest. Ten minutes in: \"What's the fun part?\" Next day, page three of the design doc was gone."
+  },
+  "when": [
+   "flag.partner",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "skill": 3,
+   "passion": -2
+  },
+  "tag": [
+   "life",
+   "gag",
+   "love"
+  ]
+ },
+ {
+  "id": "ev_lv_partner_credit",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "スタッフロールの最後の「スペシャルサンクス」に、パートナーの名前を入れた。友人一同より 1 行上に。",
+   "en": "You put your partner's name in the Special Thanks of the credits. One line above \"All Our Friends.\""
+  },
+  "when": [
+   "flag.partner",
+   "works>=1",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "life",
+   "warm",
+   "love"
+  ],
+  "memory": {
+   "ja": "スタッフロールにパートナーの名前を入れた",
+   "en": "putting your partner in the credits"
+  }
+ },
+ {
+  "id": "ev_lv_partner_cat",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "3 か月泊まり込んで帰ったら、パートナーが猫を飼っていた。家での序列は、猫のほうが上になっていた。",
+   "en": "Home after three months of sleeping at the office: your partner got a cat. In the household ranking, the cat is above you."
+  },
+  "when": [
+   "flag.partner",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "hp": -3,
+   "passion": 2
+  },
+  "tag": [
+   "life",
+   "gag",
+   "love"
+  ]
+ },
+ {
+  "id": "ev_lv_partner_earns",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "独立して 2 年。家計を支えているのはパートナーの稼ぎ。食卓では、パートナーを「出資者さま」と呼んでいる。",
+   "en": "Two years indie. Your partner's paycheck keeps the house going. At dinner you address them as \"our investor.\""
+  },
+  "when": [
+   "flag.partner",
+   "status=indie",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 4,
+   "money": 20
+  },
+  "tag": [
+   "life",
+   "warm",
+   "love"
+  ],
+  "memory": {
+   "ja": "パートナーが一番の出資者だった",
+   "en": "your partner was your biggest investor"
+  }
+ },
+ {
+  "id": "ev_lv_anniversary",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "結婚 10 年目。記念日のケーキに、パートナーが自分のゲームのドット絵を描いてくれた。1 ドットずれていたが、黙っていた。",
+   "en": "Tenth anniversary. Your partner iced your game's pixel hero onto the cake. One pixel was off. You said nothing."
+  },
+  "when": [
+   "flag.partner",
+   "flag.lv_married",
+   "age>=32",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 8
+  },
+  "tag": [
+   "life",
+   "warm",
+   "love"
+  ],
+  "memory": {
+   "ja": "記念日のケーキに自分のドット絵があった",
+   "en": "your pixel hero on the anniversary cake"
+  }
+ },
+ {
+  "id": "ev_lv_divorce",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "離婚が決まった。財産分与で一番もめたのは、限定版のゲーム機だった。",
+   "en": "The divorce is settled, except for one thing: the limited-edition console."
+  },
+  "when": [
+   "flag.partner",
+   "age>=33",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_div_give",
+    "label": {
+     "ja": "限定版を譲る",
+     "en": "Let them have it"
+    },
+    "effect": {
+     "money": -30,
+     "passion": -5,
+     "flag": {
+      "partner": false,
+      "lv_divorced": true,
+      "lv_married": false
+     }
+    },
+    "result": {
+     "ja": "半年後に届いた写真に、それで遊ぶ子どもたちが写っていた。いい買い物だった。",
+     "en": "Six months later, a photo arrived: kids playing on it. Money well spent."
+    }
+   },
+   {
+    "id": "ch_lv_div_keep",
+    "label": {
+     "ja": "限定版だけは渡さない",
+     "en": "Keep the console"
+    },
+    "effect": {
+     "passion": -8,
+     "flag": {
+      "partner": false,
+      "lv_divorced": true,
+      "lv_married": false
+     }
+    },
+    "result": {
+     "ja": "手元に残った。電源を入れたら、元の連れ合いのセーブデータだけが残っていた。",
+     "en": "You kept it. You powered it on. The only save file left was your ex's."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "love",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_remarry",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "再婚相手は、昔あなたのゲームのサポート窓口に苦情を 3 回送った人だった。全部、正しい指摘だった。",
+   "en": "Your new spouse once sent three complaints to your game's support line. All three were correct."
+  },
+  "when": [
+   "flag.lv_divorced",
+   "!flag.partner",
+   "age>=38",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 12,
+   "flag": {
+    "partner": true,
+    "lv_married": true
+   }
+  },
+  "tag": [
+   "life",
+   "warm",
+   "love"
+  ],
+  "memory": {
+   "ja": "苦情を 3 回くれた人と再婚した",
+   "en": "remarrying the person who filed three complaints"
+  }
+ },
+ {
+  "id": "ev_lv_love50",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "業界の同窓会で、昔の協力会社の人と再会した。帰りに、二人だけ別の店に寄った。",
+   "en": "At an industry reunion, you met someone from an old partner studio. On the way home, just you two stopped at another bar."
+  },
+  "when": [
+   "!flag.partner",
+   "age>=50",
+   "age<=66",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_l50_again",
+    "label": {
+     "ja": "また会う約束をする",
+     "en": "Promise to meet again"
+    },
+    "effect": {
+     "passion": 12,
+     "flag": {
+      "partner": true
+     }
+    },
+    "result": {
+     "ja": "50 代の恋は、待ち合わせに老眼鏡を忘れるところから始まった。",
+     "en": "Love in your fifties began with both of you forgetting your reading glasses."
+    },
+    "memory": {
+     "ja": "50 代で恋をした",
+     "en": "falling in love in your fifties"
+    }
+   },
+   {
+    "id": "ch_lv_l50_night",
+    "label": {
+     "ja": "いい夜だったと思うだけにする",
+     "en": "Just call it a good night"
+    },
+    "effect": {
+     "passion": 5,
+     "network": 4
+    },
+    "result": {
+     "ja": "翌朝、相手から「昨日のバグの話、続きを」とメールが来た。",
+     "en": "Next morning they wrote: \"About that bug story, tell me the rest.\""
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "love",
+   "warm"
+  ],
+  "allow": [
+   "メール"
+  ]
+ },
+ {
+  "id": "ev_lv_dating_app",
+  "years": [
+   2015,
+   2040
+  ],
+  "text": {
+   "ja": "マッチングアプリのプロフィールに「ゲーム開発」と書いた。来るメッセージは全部「何のゲーム?」で、全部そこで終わった。",
+   "en": "You wrote \"game developer\" on a dating app profile. Every message asked \"Which games?\" Every chat ended there."
+  },
+  "when": [
+   "!flag.partner",
+   "age>=24",
+   "age<=55",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": -3
+  },
+  "tag": [
+   "life",
+   "gag",
+   "love"
+  ]
+ },
+ {
+  "id": "ev_lv_big_friend_legacy",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "開発中に亡くなった親友のノートが届いた。最後のページに「最強の相棒」の設定と、「強すぎたら弱くして」の走り書き。",
+   "en": "Your best friend died during development. Their notebook arrived. The last page: \"the strongest partner,\" and a scrawl: \"nerf if too strong.\""
+  },
+  "when": [
+   "age>=24",
+   "age<=60",
+   "job!=teacher",
+   "status!=left",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_fl_strong",
+    "label": {
+     "ja": "そのまま入れる。弱くしない",
+     "en": "Put it in as written. No nerf"
+    },
+    "effect": {
+     "passion": 12,
+     "flag": {
+      "lv_friend_partner": true
+     }
+    },
+    "result": {
+     "ja": "テスターは全員「強すぎる」と書いた。あなたは全部「仕様です」と返した。",
+     "en": "Every tester wrote \"too strong.\" You answered each one: \"Working as intended.\""
+    },
+    "later": [
+     {
+      "after": 4,
+      "event": "ev_lv_friend_partner_fans"
+     }
+    ],
+    "memory": {
+     "ja": "親友の相棒を、弱くしないで入れた",
+     "en": "putting your friend's partner in, un-nerfed"
+    }
+   },
+   {
+    "id": "ch_lv_fl_dot",
+    "label": {
+     "ja": "名前だけ、1 ドットで残す",
+     "en": "Just leave their name, in one pixel row"
+    },
+    "effect": {
+     "passion": 8
+    },
+    "result": {
+     "ja": "セーブ画面の隅に、親友の名前を小さく入れた。誰にも言わなかった。",
+     "en": "You tucked your friend's name into a corner of the save screen. You told no one."
+    },
+    "later": [
+     {
+      "after": 8,
+      "event": "ev_lv_friend_dot_found"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "life",
+   "big",
+   "warm",
+   "friend"
+  ]
+ },
+ {
+  "id": "ev_lv_friend_partner_fans",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "ファンの間で「あの強すぎる謎の相棒は誰?」がずっと議論されている。正解は誰も当てていない。親友なら当てる。",
+   "en": "Fans still argue over who that absurdly strong mystery partner is. No one has guessed right. Your friend would have."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "fame": 10,
+   "passion": 12
+  },
+  "tag": [
+   "life",
+   "high",
+   "warm",
+   "friend"
+  ],
+  "memory": {
+   "ja": "親友の相棒が、ファンの間で伝説になった",
+   "en": "your friend's partner became a fan legend"
+  }
+ },
+ {
+  "id": "ev_lv_friend_dot_found",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "セーブ画面の隅の名前を見つけたファンが、雑誌に投稿した。「この人は誰?」。親友の母から、お礼の手紙が来た。",
+   "en": "A fan found the name in the save-screen corner and wrote to a magazine: \"Who is this?\" Your friend's mother sent you a thank-you letter."
+  },
+  "weight": 0,
+  "once": true,
+  "effect": {
+   "passion": 12,
+   "fame": 3
+  },
+  "tag": [
+   "life",
+   "warm",
+   "friend"
+  ],
+  "memory": {
+   "ja": "親友の名前をファンが見つけてくれた",
+   "en": "a fan found your friend's hidden name"
+  }
+ },
+ {
+  "id": "ev_lv_friend_visit",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "入院中の友人に開発中のゲームを持っていった。病室で 3 時間遊んで、バグを 7 個見つけてくれた。看護師さんに 2 回怒られた。",
+   "en": "You brought a build to a friend in the hospital. In three hours they found seven bugs. The nurse scolded you both twice."
+  },
+  "when": [
+   "job!=teacher",
+   "age>=22",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "skill": 2
+  },
+  "tag": [
+   "life",
+   "warm",
+   "friend"
+  ],
+  "memory": {
+   "ja": "病室で友人とバグを 7 個見つけた",
+   "en": "finding seven bugs with a friend in a hospital room"
+  }
+ },
+ {
+  "id": "ev_lv_mentor_funeral",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "恩師の葬儀。棺には、恩師が最初に作ったゲームのテープが入れられた。もう再生できる機械は無い。それでいいと皆が笑った。",
+   "en": "Your mentor's funeral. Into the coffin went the tape of their first game. No machine can play it now. Everyone laughed: fitting."
+  },
+  "when": [
+   "age>=38",
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 6,
+   "network": 3
+  },
+  "tag": [
+   "life",
+   "warm",
+   "friend"
+  ],
+  "memory": {
+   "ja": "恩師の棺に、最初のゲームのテープが入った",
+   "en": "your mentor's first game, sent off with them"
+  }
+ },
+ {
+  "id": "ev_lv_old_crew",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "昔の会社の仲間と 20 年ぶりに集まった。話題の 7 割が健康診断の数値、3 割が当時のバグだった。",
+   "en": "You reunited with an old studio crew after 20 years. Seventy percent health checkup numbers, thirty percent old bugs."
+  },
+  "when": [
+   "age>=52",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 8,
+   "network": 5
+  },
+  "tag": [
+   "life",
+   "warm",
+   "friend"
+  ],
+  "memory": {
+   "ja": "20 年ぶりに昔の仲間と飲んだ",
+   "en": "drinks with the old crew after 20 years"
+  }
+ },
+ {
+  "id": "ev_lv_friend_speech",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "親友の結婚式のスピーチを頼まれた。式の前日が、ちょうどα版の締め切りだ。",
+   "en": "Your best friend asks you to speak at their wedding. The day before is your alpha deadline."
+  },
+  "when": [
+   "age>=23",
+   "age<=45",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_fs_both",
+    "label": {
+     "ja": "徹夜で両方やる",
+     "en": "Pull an all-nighter and do both"
+    },
+    "effect": {
+     "hp": -10,
+     "network": 6,
+     "passion": 5
+    },
+    "result": {
+     "ja": "スピーチは「本日のビルドは…」で始まり、会場が一瞬静まった。新郎新婦だけ笑っていた。",
+     "en": "Your speech opened with \"Today's build...\" The hall fell silent. Only the couple laughed."
+    },
+    "memory": {
+     "ja": "親友の結婚式でビルドの話をした",
+     "en": "talking about builds at your friend's wedding"
+    }
+   },
+   {
+    "id": "ch_lv_fs_no",
+    "label": {
+     "ja": "スピーチは断って出席だけ",
+     "en": "Decline the speech, just attend"
+    },
+    "effect": {
+     "network": -3,
+     "hp": -3
+    },
+    "result": {
+     "ja": "代わりにスピーチした人も、ゲーム会社の人だった。1 行目は「本日のビルドは…」。",
+     "en": "The person who spoke instead also worked in games. Their first line: \"Today's build...\""
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "friend",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_lv_friend_reunion",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "同級生の結婚式で、高校の頃一緒にゲームを作った友人と再会。名刺を交換したら、2 人とも同じ業界にいた。",
+   "en": "At a classmate's wedding, you ran into the friend you made games with in high school. Swapping cards: both of you are in the industry."
+  },
+  "when": [
+   "age>=25",
+   "age<=40",
+   "status!=left",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "network": 10,
+   "passion": 5
+  },
+  "tag": [
+   "life",
+   "warm",
+   "friend"
+  ],
+  "memory": {
+   "ja": "高校の頃の相棒と、業界で再会した",
+   "en": "meeting your high school game partner in the industry"
+  }
+ },
+ {
+  "id": "ev_lv_class_reunion",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "同窓会で作品名を言ったら、誰も知らなかった。1 人だけ知っていて、その人は全クリしていた。",
+   "en": "At the class reunion, nobody knew your games. Except one person, who had beaten every one."
+  },
+  "when": [
+   "age>=30",
+   "age<=50",
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "life",
+   "warm",
+   "friend"
+  ],
+  "memory": {
+   "ja": "同窓会で 1 人だけ全クリしていた",
+   "en": "one classmate had beaten all your games"
+  }
+ },
+ {
+  "id": "ev_lv_teacher_letter",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "中学の恩師から「教え子のゲームを遊びたい」と手紙。退職して、目が悪くなったらしい。",
+   "en": "Your old middle school teacher writes: \"I want to play my student's game.\" Retired now, eyesight failing."
+  },
+  "when": [
+   "works>=1",
+   "age>=30",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_tl_big",
+    "label": {
+     "ja": "文字を大きくした特別版を作って送る",
+     "en": "Make a big-text special edition"
+    },
+    "effect": {
+     "skill": 3,
+     "passion": 8,
+     "hp": -3
+    },
+    "result": {
+     "ja": "文字を 2 倍にしたら、画面に 3 文字しか入らなかった。恩師は 3 か月かけてクリアした。",
+     "en": "Doubling the text left room for three characters per screen. Your teacher beat it in three months."
+    },
+    "memory": {
+     "ja": "恩師のために大きな字の特別版を作った",
+     "en": "a big-text edition for your old teacher"
+    }
+   },
+   {
+    "id": "ch_lv_tl_retail",
+    "label": {
+     "ja": "製品版を送る",
+     "en": "Send a retail copy"
+    },
+    "effect": {
+     "passion": 2
+    },
+    "result": {
+     "ja": "お礼のはがきが来た。「字が小さくて読めなかったが、音楽がいい」。",
+     "en": "A thank-you postcard: \"Couldn't read the text, but the music is lovely.\""
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "friend",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_lv_newyear_kid",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "正月、親戚の子に「これ作ったの、親戚の人なんでしょ。クソゲーだね」と言われた。その子のプレイ時間は 100 時間だった。",
+   "en": "New Year's. A relative's kid said: \"You made this? It's trash.\" Their play time was 100 hours."
+  },
+  "when": [
+   "works>=1",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "life",
+   "gag",
+   "family"
+  ]
+ },
+ {
+  "id": "ev_lv_checkup",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "健康診断で「要精密検査」が 3 つ。医者に「生活を変えないと」と言われ、手帳を見たら来月はクランチだ。",
+   "en": "Your checkup flagged three items for follow-up. The doctor said change your lifestyle. Your planner says crunch next month."
+  },
+  "when": [
+   "age>=35",
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_cu_change",
+    "label": {
+     "ja": "生活を変える",
+     "en": "Change your lifestyle"
+    },
+    "effect": {
+     "hp": 15,
+     "passion": -3,
+     "skill": -2
+    },
+    "result": {
+     "ja": "朝のジョギングを始めた。3 日目に会社の前まで走り、そのまま出社した。",
+     "en": "You started jogging. On day three you ran to the office and just went in."
+    }
+   },
+   {
+    "id": "ch_lv_cu_later",
+    "label": {
+     "ja": "クランチ明けに考える",
+     "en": "Think about it after crunch"
+    },
+    "effect": {
+     "hp": -10,
+     "skill": 3
+    },
+    "result": {
+     "ja": "クランチ明け、要精密検査は 4 つに増えていた。考えることも増えた。",
+     "en": "After crunch, the flagged items were up to four. So was the list of things to think about."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "body"
+  ]
+ },
+ {
+  "id": "ev_lv_hospital_idea",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "入院中、点滴の落ちる速さを見ていたら、新作の仕組みを思いついた。退院の日、企画書が 30 枚できていた。",
+   "en": "In the hospital, watching your IV drip, a new game mechanic came to you. By discharge day you had a 30-page pitch."
+  },
+  "when": [
+   "status!=left",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "hp": 10,
+   "skill": 4,
+   "passion": 12
+  },
+  "tag": [
+   "life",
+   "high",
+   "body"
+  ],
+  "memory": {
+   "ja": "点滴を見ていて新作を思いついた",
+   "en": "dreaming up a game while watching an IV drip"
+  }
+ },
+ {
+  "id": "ev_lv_hospital_roommate",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "入院先の同室のおじいさんが、毎晩あなたのゲームを遊んでいた。退院の日、攻略のコツを 30 分教わった。作者だとは言えなかった。",
+   "en": "The old man in your hospital room played your game every night. On discharge day he gave you 30 minutes of tips. You never said you made it."
+  },
+  "when": [
+   "works>=1",
+   "age>=28",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "hp": 8,
+   "passion": 8
+  },
+  "tag": [
+   "life",
+   "warm",
+   "body"
+  ],
+  "memory": {
+   "ja": "病室の隣の人が自分のゲームの達人だった",
+   "en": "your hospital roommate had mastered your game"
+  }
+ },
+ {
+  "id": "ev_lv_back_desk",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "腰痛がひどくなった。スタンディングデスクを買うか、光るゲーミングチェアを買うか。",
+   "en": "Your back is getting worse. Buy a standing desk, or a glowing gaming chair?"
+  },
+  "when": [
+   "age>=36",
+   "status!=left",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_bd_stand",
+    "label": {
+     "ja": "スタンディングデスク",
+     "en": "Standing desk"
+    },
+    "effect": {
+     "hp": 8,
+     "money": -8
+    },
+    "result": {
+     "ja": "立って会議に出たら、会議が 15 分短くなった。座っている人は誰も気づかなかった。",
+     "en": "You stood through meetings and they ended 15 minutes early. No one sitting noticed why."
+    }
+   },
+   {
+    "id": "ch_lv_bd_chair",
+    "label": {
+     "ja": "ゲーミングチェア",
+     "en": "Gaming chair"
+    },
+    "effect": {
+     "hp": 3,
+     "passion": 5,
+     "money": -6
+    },
+    "result": {
+     "ja": "光る椅子が届いた。腰は治らないが、光っている間は治った気がする。",
+     "en": "The glowing chair arrived. Your back isn't better, but while it glows, it feels better."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "body"
+  ]
+ },
+ {
+  "id": "ev_lv_reading_glasses",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "老眼が来た。ドットの 1 ピクセルのずれが見えなくなり、後輩の「ずれてます」の声がよく聞こえるようになった。",
+   "en": "Reading glasses time. You can no longer see a one-pixel offset. You can hear your juniors say \"it's off\" just fine."
+  },
+  "when": [
+   "age>=43",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "skill": -2,
+   "network": 2
+  },
+  "tag": [
+   "life",
+   "gag",
+   "body"
+  ]
+ },
+ {
+  "id": "ev_lv_rest_order",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "医者に「3 か月休みなさい」と言われた。会社に伝えたら「1 か月でどう?」と値切られた。",
+   "en": "The doctor ordered three months off. Your company countered: \"How about one?\""
+  },
+  "when": [
+   "stat.hp<35",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_ro_three",
+    "label": {
+     "ja": "3 か月休む",
+     "en": "Take three months"
+    },
+    "effect": {
+     "hp": 25,
+     "passion": 6,
+     "network": -5
+    },
+    "result": {
+     "ja": "休んで初めて、自分のゲームを最初から遊んだ。思ったより面白かった。",
+     "en": "For the first time, you played your own game from the start. It was better than you thought."
+    },
+    "memory": {
+     "ja": "休んで自分のゲームを遊んだら面白かった",
+     "en": "resting and finding your own game was fun"
+    }
+   },
+   {
+    "id": "ch_lv_ro_one",
+    "label": {
+     "ja": "1 か月で手を打つ",
+     "en": "Settle for one"
+    },
+    "effect": {
+     "hp": 10
+    },
+    "result": {
+     "ja": "1 か月後、机の上に「お帰りなさい」の付箋と、バグ票 80 枚。",
+     "en": "A month later: a \"welcome back\" sticky note on your desk, and 80 bug reports."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "body",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_lv_wisdom_tooth",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "親知らずを抜いて 3 日休んだ。その間にプロジェクトの方向が変わり、親知らずより大きなものを失った。",
+   "en": "You took three days off to have a wisdom tooth pulled. The project changed direction meanwhile. You lost more than a tooth."
+  },
+  "when": [
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "passion": -4,
+   "hp": 2
+  },
+  "tag": [
+   "life",
+   "gag",
+   "body"
+  ]
+ },
+ {
+  "id": "ev_lv_gym",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "会社の近くのジムに入会した。行ったのは 2 回。会員証は、キーボードの傾きを直す道具になった。",
+   "en": "You joined a gym near work. You went twice. The membership card now props up one side of your keyboard."
+  },
+  "when": [
+   "age>=28",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {
+   "money": -10,
+   "hp": 1
+  },
+  "tag": [
+   "life",
+   "gag",
+   "body"
+  ]
+ },
+ {
+  "id": "ev_lv_cat",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "飼い猫がキーボードの上で寝て、止まっていたビルドが 1 回通った。猫をスタッフロールに入れるか、本気で会議した。",
+   "en": "Your cat napped on the keyboard and somehow got a stuck build through. A real meeting was held about crediting the cat."
+  },
+  "when": [
+   "status=employed",
+   "job!=teacher",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_cat_in",
+    "label": {
+     "ja": "入れる",
+     "en": "Credit the cat"
+    },
+    "effect": {
+     "fame": 2,
+     "passion": 5
+    },
+    "result": {
+     "ja": "「スペシャルサンクス: タマ」。発売後、猫好きのファンから手紙が 3 通来た。",
+     "en": "\"Special Thanks: Tama.\" After launch, three cat lovers sent fan mail."
+    },
+    "memory": {
+     "ja": "猫の名前をスタッフロールに入れた",
+     "en": "putting your cat in the credits"
+    }
+   },
+   {
+    "id": "ch_lv_cat_out",
+    "label": {
+     "ja": "入れない",
+     "en": "Don't"
+    },
+    "effect": {
+     "passion": -1
+    },
+    "result": {
+     "ja": "その夜、猫はキーボードの上で吐いた。",
+     "en": "That night, the cat threw up on your keyboard."
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "gag",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_lv_big_partner_move",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "パートナーの転勤が決まった。ついて行けば、新しい街で仕事を探し直し。残れば、週末だけの家族だ。",
+   "en": "Your partner is being transferred. Follow, and you start your job hunt over. Stay, and you're a weekend family."
+  },
+  "when": [
+   "flag.partner",
+   "age>=28",
+   "age<=52",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_pm_stay",
+    "label": {
+     "ja": "残る",
+     "en": "Stay"
+    },
+    "effect": {
+     "passion": -5,
+     "money": 30,
+     "skill": 3
+    },
+    "result": {
+     "ja": "金曜の新幹線の中で、仕様書の誤字が一番よく見つかるようになった。",
+     "en": "Friday trains became where you caught the most typos in design docs."
+    }
+   },
+   {
+    "id": "ch_lv_pm_follow",
+    "label": {
+     "ja": "ついて行く",
+     "en": "Follow your partner"
+    },
+    "effect": {
+     "network": -5,
+     "passion": 8,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "新しい街の小さな会社に入った。面接官が自分のゲームのファンだった。",
+     "en": "You joined a small studio in the new city. The interviewer was a fan of your game."
+    },
+    "memory": {
+     "ja": "パートナーについて行った街で、ファンに会った",
+     "en": "following your partner and meeting a fan"
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "big",
+   "family",
+   "warm"
+  ]
+ },
+ {
+  "id": "ev_lv_big_indie_family",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "独立して自分のゲームを作りたい。通帳を見せたら、パートナーは電卓を 2 回叩いて「3 年」と言った。",
+   "en": "You want to go indie. You showed your partner the bankbook. They tapped the calculator twice: \"Three years.\""
+  },
+  "when": [
+   "flag.partner",
+   "age>=30",
+   "age<=52",
+   "status=employed",
+   "!flag.in_prison"
+  ],
+  "once": true,
+  "effect": {},
+  "choices": [
+   {
+    "id": "ch_lv_if_stay",
+    "label": {
+     "ja": "会社に残る",
+     "en": "Stay at the company"
+    },
+    "effect": {
+     "money": 30,
+     "passion": -5
+    },
+    "result": {
+     "ja": "残った。その夜、企画書は引き出しの 2 段目へ。1 段目は、まだ空けてある。",
+     "en": "You stayed. That night, the pitch went into the second drawer. The first stays empty, just in case."
+    }
+   },
+   {
+    "id": "ch_lv_if_go",
+    "label": {
+     "ja": "3 年で勝負する",
+     "en": "Bet the three years"
+    },
+    "effect": {
+     "passion": 15,
+     "flag": {
+      "do_go_indie": true
+     }
+    },
+    "result": {
+     "ja": "退職届を出した帰り、パートナーがケーキを買ってきた。ろうそくは 3 本だった。",
+     "en": "The day you quit, your partner brought home a cake. Three candles."
+    },
+    "memory": {
+     "ja": "独立の日、ろうそく 3 本のケーキ",
+     "en": "the three-candle cake on your first indie day"
+    }
+   }
+  ],
+  "tag": [
+   "life",
+   "big",
+   "family",
+   "high"
+  ]
+ }
+]

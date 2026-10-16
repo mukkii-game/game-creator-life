@@ -2,12 +2,12 @@
 import type { Rng } from '../core/rng';
 
 export interface Text { ja: string; en: string }
-export type Job = 'programmer' | 'planner' | 'artist' | 'sound' | 'qa' | 'sales' | 'director' | 'producer' | 'other';
+export type Job = 'programmer' | 'planner' | 'artist' | 'sound' | 'qa' | 'sales' | 'director' | 'producer' | 'teacher' | 'other';
 export type Status = 'employed' | 'indie' | 'left' | 'retired' | 'ended';
 export type Era = 'era1' | 'era2' | 'era3' | 'era4' | 'era5' | 'era6';
 export type Role = 'junior' | 'core' | 'lead' | 'solo';
 export type WorkResult = 'flop' | 'ok' | 'hit' | 'legend';
-export type CompanySize = 'big' | 'mid' | 'small' | 'sub' | 'indie' | 'abroad' | 'none';
+export type CompanySize = 'big' | 'mid' | 'small' | 'sub' | 'indie' | 'abroad' | 'school' | 'none';
 export type StatKey = 'hp' | 'passion' | 'skill' | 'network' | 'money' | 'fame';
 
 export interface WorkEffect {
@@ -29,6 +29,8 @@ export interface GameEvent {
   cause?: Text;
   /** 最後に思い出す時の短い 1 行(tag high / celeb の時。無ければ本文の 1 文目) */
   memory?: Text;
+  /** この版を出すのに先に出ている必要がある版(メンターの話の伏線回収) */
+  needs?: string;
 }
 export type TimelineKind = 'hardware' | 'hit' | 'incident' | 'work' | 'ai' | 'future';
 export interface TimelineEntry { id: string; year: number; month?: number; kind: TimelineKind; text: Text; use: string; src: string; unverified?: boolean }
@@ -40,13 +42,13 @@ export interface Hist {
   variants: Omit<GameEvent, 'years'>[];
 }
 /** 立場。歴史の事件の受け止め方が変わる */
-export type Pos = 'client_lead' | 'client' | 'dev_lead' | 'dev' | 'sub' | 'qa' | 'indie' | 'abroad' | 'outside';
+export type Pos = 'client_lead' | 'client' | 'dev_lead' | 'dev' | 'sub' | 'qa' | 'indie' | 'abroad' | 'teacher' | 'prison' | 'outside';
 
 export interface Stat { hp: number; passion: number; skill: number; network: number; money: number; fame: number }
 export interface Work { id: string; name: Text; year: number; platform: string; role: Role; result: WorkResult; history: { year: number; text: Text }[] }
 export interface Peer { name: string; bot: string; summary: Text }
-export type EndingId = 'end_burnout' | 'end_body' | 'end_debt' | 'end_blacklist' | 'end_retire' | 'end_pen_down' | 'end_ai_seat' | 'end_arrest';
-export interface Ending { id: EndingId; age: number; year: number; cause: Text; summary: Text; /** 最後の 1 行(一番テンションが上がった瞬間 +「いいゲーム人生だった」) */ epitaph: Text }
+export type EndingId = 'end_burnout' | 'end_body' | 'end_debt' | 'end_blacklist' | 'end_retire' | 'end_pen_down' | 'end_ai_seat' | 'end_arrest' | 'end_switch' | 'end_restart';
+export interface Ending { id: EndingId; age: number; year: number; cause: Text; summary: Text; /** 最後の 1 行(一番テンションが上がった瞬間 +「いいゲーム人生だった」) */ epitaph: Text; /** 引退時の最後の台詞(有名な台詞のパロディ。lastwords.json) */ lastWord?: Text }
 export type LogKind = 'event' | 'timeline' | 'choice' | 'work' | 'peer';
 export interface LogLine { year: number; age: number; text: Text; kind: LogKind; tag?: string[]; hist?: string }
 export interface Company { id: string; name: Text; size: CompanySize }
@@ -90,6 +92,17 @@ export interface Inner {
   lastTag: string;           // 直近の悪いイベントのタグ
   choicesMade: number;       // 何番目の選択か(replay の frame)
   peerStates: State[];       // 同期 3 人の中身(peer 自身は空)
+  others?: import('./people').OtherLife[]; // 他の人の人生(先輩・同期・後輩・記事で出る)
+  othersShown?: number;
+  othersSeen?: string[];
+  /** 社風の一言を出した会社 */
+  coShown?: string[];
+  /** 同期の話を何回したか(種類ごと) */
+  peerTold?: Record<string, number>;
+  /** 直属の先輩(メンター)と、自分が面倒を見る後輩(メンティー)。人生に 1 人ずつ */
+  mentor?: Arc;
+  mentee?: Arc;
+  menteeAt?: number;
   isPeer: boolean;
   bot: string;               // peer の時: 動かすボット名
   workTarget: number;        // afterlife のイベントが指す作品の番号(-1 = 直近)
@@ -97,12 +110,21 @@ export interface Inner {
   prevJob: Job;
   histDone: string[];
   pitAt: number; peakAt: number; pitDone: boolean; peakDone: boolean;
-  bondAt: number; bondDone: boolean; // 人生に一度の大物との縁
-  nextBig: number;                     // 次の大きな選択が来る年
-  highs: { year: number; age: number; text: Text; w: number }[]; // テンションが上がった瞬間(最後に思い出す)        // この人生で起きた歴史の事件(hs_id)
+  bondAt: number; bondDone: boolean;
+  gravAt: number; gravDone: boolean;  // セガの引力(入らなかった人生でも一度) // 人生に一度の大物との縁
+  nextBig: number;
+  /** 次にハードの選択を出してよい年 */
+  nextHw?: number;
+  /** 次に仕事の選択を出してよい年 */
+  nextWk?: number;
+  prisonUntil: number;                 // 服役が明ける年(0 = なし)                     // 次の大きな選択が来る年
+  highs: { year: number; age: number; text: Text; w: number; kind?: string }[]; // テンションが上がった瞬間(最後に思い出す)        // この人生で起きた歴史の事件(hs_id)
 }
 
+export interface Arc { name: Text; step: number; next: number; used: string[] }
 export interface InitOptions {
+  /** 他の人の人生(サーバーから。名前を入れた人だけ。URL で決まる人生には渡さない) */
+  others?: import('./people').OtherLife[];
   /** 業界入りの年(未指定はガチャ) */
   year?: number;
   /** 業界入りの年齢(未指定はガチャ) */

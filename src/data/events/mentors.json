@@ -1,0 +1,560 @@
+[
+ {
+  "id": "ev_mt_1a",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "配属先で、{mentor}の下につくことになった。最初に渡されたのは仕様書ではなく、{mentor}の書いた手書きの「この会社で生き残る 10 か条」だった。",
+   "en": "You were placed under {mentor}. The first thing handed to you wasn't a spec but {mentor}'s handwritten \"Ten Rules for Surviving This Company\"."
+  },
+  "effect": {
+   "skill": 2,
+   "network": 2
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_1b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "直属の先輩は{mentor}。初日に「分からないことは 3 回までは聞いていい。4 回目からは一緒に調べる」と言われた。4 回目はその日の夕方に来た。",
+   "en": "Your direct senior was {mentor}. Day one: \"You can ask me anything three times. From the fourth, we look it up together.\" The fourth came that evening."
+  },
+  "effect": {
+   "skill": 2,
+   "passion": 2
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_1c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}が教育係になった。机の引き出しには、のど飴と胃薬とドライバーが同じ数だけ入っていた。全部、あなたのために使われることになる。",
+   "en": "{mentor} became your trainer. Their drawer held throat lozenges, antacids and screwdrivers in equal number. All would be used on you."
+  },
+  "effect": {
+   "passion": 3
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_2a",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}にコードを見てもらった。赤ペンで 1 か所だけ丸がついていた。「ここはいい」。残りは全部、黙って書き直されていた。",
+   "en": "{mentor} reviewed your code. One spot circled in red: \"this is good\". Everything else had been quietly rewritten."
+  },
+  "effect": {
+   "skill": 5
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_2b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}に「面白いかどうかは、作った人がいちばん最後に分かる」と言われた。意味は分からなかったが、手帳に書いた。10 年後に分かった。",
+   "en": "{mentor} said, \"The person who made it is the last to know if it's fun.\" You didn't get it, but wrote it down. Ten years later, you did."
+  },
+  "effect": {
+   "skill": 3,
+   "passion": 4
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_2c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}が、あなたの企画書を自分の名前で会議に出してくれた。通った後、全員の前で「書いたのはこいつです」と言った。顔から火が出た。",
+   "en": "{mentor} took your proposal into the meeting under their own name. Once it passed, they said in front of everyone, \"This kid wrote it.\" Your face burned."
+  },
+  "effect": {
+   "passion": 6,
+   "network": 3
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_3a",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "大きなバグを出した夜、{mentor}は何も言わずに隣に座った。朝 4 時に直った。帰り道、牛丼をおごってくれて「俺は 3 回やった」とだけ言った。",
+   "en": "The night you shipped a huge bug, {mentor} just sat down beside you. Fixed by 4 a.m. On the way home they bought you a beef bowl and only said, \"I did it three times.\""
+  },
+  "effect": {
+   "passion": 5,
+   "hp": -3
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_3b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}に初めて本気で怒られた。理由は、テストプレイを人に任せたこと。「自分で遊ばないやつに、面白さは作れない」。その日から毎日遊んだ。",
+   "en": "{mentor} truly yelled at you for the first time: you'd left playtesting to others. \"If you don't play it yourself, you can't make it fun.\" You played every day after that."
+  },
+  "effect": {
+   "skill": 4,
+   "passion": 3
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_3c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "上の人とぶつかった日、{mentor}が間に入ってくれた。会議室を出た後、「お前の言ってることは正しい。言い方が 3 割まずい」と言われた。",
+   "en": "The day you clashed with management, {mentor} stepped in. Outside the meeting room: \"You're right. Your delivery is 30% off.\""
+  },
+  "effect": {
+   "network": 4
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_4a",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}が会社を辞めた。送別会の最後に、例の 10 か条の紙を返された。11 条目が書き足してあった。「次はお前が教えろ」。",
+   "en": "{mentor} left the company. At the farewell they handed back the Ten Rules — with an eleventh added: \"Your turn to teach.\""
+  },
+  "effect": {
+   "passion": 5
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ],
+  "needs": "ev_mt_1a"
+ },
+ {
+  "id": "ev_mt_4b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}が独立して小さなスタジオを作った。「来るか」とは言われなかった。言われなかったことが、少し嬉しくて、少し寂しかった。",
+   "en": "{mentor} went independent and started a small studio. They didn't ask you to come. You were a little glad, and a little lonely."
+  },
+  "effect": {
+   "passion": 3,
+   "network": 3
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_4c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}が別の部署の部長になった。廊下ですれ違うと、今でも「ちゃんと遊んでるか」と聞かれる。",
+   "en": "{mentor} became head of another department. Passing in the hall, they still ask, \"Are you playing it yourself?\""
+  },
+  "effect": {
+   "network": 4
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_5a",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "久しぶりに{mentor}と飲んだ。白髪が増えていた。「お前の作ったやつ、孫とやったぞ」。それ以上の褒め言葉を、あなたは知らない。",
+   "en": "A drink with {mentor} after many years. More grey hair. \"Played your game with my grandkid.\" You know no higher praise."
+  },
+  "effect": {
+   "passion": 8
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_5b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "気がつくと、後輩に「分からないことは 3 回までは聞いていい」と言っていた。{mentor}の言葉だった。少し笑った。",
+   "en": "You caught yourself telling a junior, \"You can ask me anything three times.\" {mentor}'s words. You laughed a little."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ],
+  "needs": "ev_mt_1b"
+ },
+ {
+  "id": "ev_mt_5c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}が業界を引退した。最後の挨拶状に、あなたの名前が 1 行だけ書いてあった。その 1 行を、何度も読んだ。",
+   "en": "{mentor} retired from the industry. Their farewell note mentioned you in a single line. You read that line many times."
+  },
+  "effect": {
+   "passion": 7
+  },
+  "weight": 0,
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_me_1a",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "新人の{mentee}の教育係になった。自分が新人の頃に{mentor}に教わったことを全部伝えようとして、半分しか思い出せなかった。",
+   "en": "You became trainer to the new hire {mentee}. You tried to pass on everything {mentor} once taught you, and could only remember half."
+  },
+  "effect": {
+   "network": 2
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_1b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "後輩の{mentee}が直属についた。挨拶が自分の新人の頃より 3 倍ちゃんとしていた。時代を感じた。",
+   "en": "{mentee} joined directly under you. Their greeting was three times more polished than yours ever was. Times change."
+  },
+  "effect": {
+   "passion": 2
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_1c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}の面倒を見ることになった。机の引き出しに、のど飴と胃薬を補充した。",
+   "en": "You were put in charge of {mentee}. You restocked your drawer with lozenges and antacids."
+  },
+  "effect": {
+   "passion": 2
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_2a",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}が大きなバグを出した。何も言わずに隣に座った。朝 4 時に直った。帰りに牛丼をおごった。「俺も 3 回やった」と言うつもりが、「5 回」と正直に言っていた。",
+   "en": "{mentee} shipped a huge bug. You sat down beside them without a word. Fixed by 4 a.m. Beef bowl on you. You meant to say \"I did it three times\" and honestly said \"five\"."
+  },
+  "effect": {
+   "passion": 5,
+   "hp": -3
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ],
+  "needs": "ev_mt_3a"
+ },
+ {
+  "id": "ev_me_2b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}のコードを見た。自分より読みやすかった。赤ペンを持ったまま、しばらく動けなかった。",
+   "en": "You reviewed {mentee}'s code. Cleaner than yours. You sat holding the red pen, frozen."
+  },
+  "effect": {
+   "skill": 3
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_2c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}の企画を自分の名前で会議に出し、通った後で「書いたのはこいつです」と言った。言ってみると、言う側のほうが気持ちいいと分かった。",
+   "en": "You took {mentee}'s proposal into the meeting under your name and, once it passed, said \"they wrote it\". Turns out saying it feels even better."
+  },
+  "effect": {
+   "passion": 6,
+   "network": 3
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ],
+  "needs": "ev_mt_2c"
+ },
+ {
+  "id": "ev_me_3a",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}が初めてチーフになった作品が出た。発売日、本人より先に店に並んだ。",
+   "en": "The first game {mentee} led came out. On launch day you were at the shop before they were."
+  },
+  "effect": {
+   "passion": 7
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_3b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}に言い負かされた。仕様の話で、完全に向こうが正しかった。悔しいより先に、嬉しかった。",
+   "en": "{mentee} won an argument against you, about the spec. They were completely right. You felt proud before you felt annoyed."
+  },
+  "effect": {
+   "passion": 5,
+   "skill": 2
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_3c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}が辞めたいと相談に来た。2 時間話を聞いて、1 つだけ言った。「自分で遊んでるか」。翌週、{mentee}は少し元気になっていた。",
+   "en": "{mentee} came to you wanting to quit. You listened for two hours and said one thing: \"Are you playing it yourself?\" A week later they were a bit brighter."
+  },
+  "effect": {
+   "network": 3,
+   "passion": 3
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_4a",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}が独立してスタジオを作った。「来ませんか」と言われた。行かなかったが、その一言で 1 年分元気が出た。",
+   "en": "{mentee} started their own studio and asked, \"Want to join us?\" You didn't go, but that question powered you for a year."
+  },
+  "effect": {
+   "passion": 8,
+   "network": 4
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_4b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}がインタビューで「教えてくれた先輩がいて」と話していた。名前は出ていなかった。でも、分かった。",
+   "en": "In an interview, {mentee} mentioned \"a senior who taught me\". No name given. But you knew."
+  },
+  "effect": {
+   "passion": 8
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_4c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}があなたの上司になった。最初の会議で、目が合って 2 人とも笑ってしまった。",
+   "en": "{mentee} became your boss. At the first meeting you caught each other's eye and both burst out laughing."
+  },
+  "effect": {
+   "network": 3,
+   "passion": 3
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_5a",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}から手紙が来た。「先輩に教わったこと、自分の後輩用に書き出しました」。同封の紙には 14 か条あった。全部、身に覚えがあった。",
+   "en": "A letter from {mentee}: \"I wrote down what you taught me, for my own juniors.\" Fourteen rules enclosed. You recognised every one."
+  },
+  "effect": {
+   "passion": 8
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_5b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}の後輩が、あなたの口癖を真似していた。会ったこともない子が、あなたの言葉で育っていた。",
+   "en": "{mentee}'s own junior was repeating your catchphrase. A kid you'd never met, raised on your words."
+  },
+  "effect": {
+   "passion": 8
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_5c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}の結婚式でスピーチを頼まれた。用意した原稿の半分が、昔のバグの話だった。会場の業界人だけが大笑いした。",
+   "en": "{mentee} asked you to speak at their wedding. Half your speech was old bug stories. Only the industry people in the room roared."
+  },
+  "effect": {
+   "passion": 7,
+   "network": 2
+  },
+  "weight": 0,
+  "tag": [
+   "mentee"
+  ]
+ }
+]

@@ -52,3 +52,16 @@
 .rs-epitaph { margin: 40px auto 8px; max-width: 26em; font-size: 19px; line-height: 1.8; color: #fff4d6; letter-spacing: .03em; text-align: center; }
 .rs-epitaph-panel { margin: 4px 0 14px; padding: 12px 6px; font-size: 17px; border-top: 1px solid rgba(255,244,214,.25); border-bottom: 1px solid rgba(255,244,214,.25); animation: rsEpi 2.4s ease-out both; }
 @keyframes rsEpi { from { opacity: 0; } to { opacity: 1; } }
+
+/* 引退時の最後の台詞(有名な台詞のパロディ) */
+.rs-lastword { margin: 10px 0 4px; font-size: 17px; font-weight: bold; text-align: center; color: #ffd36b; }
+/* 人生の記録をぜんぶ(結果のパネルの中で開く。中だけスクロール) */
+.rs-log { margin: 0 0 14px; text-align: left; border: 1px solid rgba(255,255,255,.2); border-radius: 8px; background: rgba(0,0,0,.25); }
+.rs-log summary { cursor: pointer; padding: 10px 12px; font-size: 14px; color: #fff4d6; list-style: none; }
+.rs-log summary::-webkit-details-marker { display: none; }
+.rs-log[open] summary { border-bottom: 1px solid rgba(255,255,255,.15); }
+.rs-log-list { max-height: 60vh; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; padding: 4px 12px 12px; }
+.rs-log-year { position: sticky; top: 0; margin: 10px -12px 4px; padding: 3px 12px; font-size: 12px; color: #0ff; background: #111a2a; }
+.rs-log-line { margin: 0 0 6px; font-size: 13px; line-height: 1.6; color: #e6e9f0; }
+.rs-log-timeline { color: #8fa0bb; font-size: 12px; }
+.rs-log-choice { color: #ffd76a; }

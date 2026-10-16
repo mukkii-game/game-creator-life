@@ -1,0 +1,989 @@
+{
+  "_readme": "会社ごとの作風(genres: その会社で出す作品のジャンルの寄せ先。titles.json の genre.ja と同じ語)と社風の一言(lines: 入社した年に 1 本出る)。",
+  "co_nintendo": {
+    "genres": [
+      "アクション",
+      "パーティ",
+      "パズル"
+    ],
+    "lines": [
+      {
+        "ja": "京都の本社。昔は花札を作っていた会社だと聞き、あなたは妙に背筋が伸びた。",
+        "en": "HQ in Kyoto. Hearing it once made hanafuda cards, you stood up a little straighter."
+      },
+      {
+        "ja": "企画会議で「それ、遊んで面白い?」と聞かれ、あなたは答えに詰まった。",
+        "en": "In a pitch meeting someone asked, 'But is it fun to play?' You had no answer."
+      }
+    ]
+  },
+  "co_sega": {
+    "genres": [
+      "アクション",
+      "レース",
+      "スポーツ"
+    ],
+    "lines": [
+      {
+        "ja": "社歌より先に、起動時のあの声を覚えた。",
+        "en": "You learned the boot-up voice before the company song."
+      },
+      {
+        "ja": "「攻めた企画を出せ」と言われ、攻めすぎて通らなかった。",
+        "en": "Told to pitch something bold, you went too bold. Rejected."
+      }
+    ]
+  },
+  "co_sony": {
+    "genres": [
+      "アクションアドベンチャー",
+      "アクション",
+      "レース"
+    ],
+    "lines": [
+      {
+        "ja": "親会社は電機メーカー。机の上の機材がやたら高そうで、触るのが怖い。",
+        "en": "The parent makes electronics. The gear on your desk looks so pricey you're afraid to touch it."
+      },
+      {
+        "ja": "名刺に横文字が多すぎて、あなたは自分の肩書きを読み上げられなかった。",
+        "en": "Your business card had so much English you couldn't read your own title aloud."
+      }
+    ]
+  },
+  "co_capcom": {
+    "genres": [
+      "アクション",
+      "格闘",
+      "ハンティングアクション"
+    ],
+    "lines": [
+      {
+        "ja": "大阪の会社。あなたのツッコミは、まだ半拍遅い。",
+        "en": "An Osaka company. Your comebacks still land half a beat late."
+      },
+      {
+        "ja": "休憩室に対戦台がある。昼休みは静かな戦場だ。",
+        "en": "There's a versus cabinet in the break room. Lunch hour is a quiet battlefield."
+      }
+    ]
+  },
+  "co_konami": {
+    "genres": [
+      "アクション",
+      "音ゲー",
+      "スポーツ"
+    ],
+    "lines": [
+      {
+        "ja": "隠しコマンドの話をすると、先輩の目が少しだけ優しくなる。",
+        "en": "Mention secret button codes and your seniors' eyes soften a little."
+      },
+      {
+        "ja": "部署が多すぎて、あなたは隣の島が何を作っているか知らない。",
+        "en": "So many departments that you have no idea what the next row of desks is making."
+      }
+    ]
+  },
+  "co_namco": {
+    "genres": [
+      "レース",
+      "アクション",
+      "RPG"
+    ],
+    "lines": [
+      {
+        "ja": "遊園地の運営もする会社らしく、社内の空気がどこかお祭りだ。",
+        "en": "The company runs amusement spots too, and the office feels a bit like a festival."
+      },
+      {
+        "ja": "黄色い丸いものを見ると、なぜか追いかけたくなる社風だ。",
+        "en": "Something in the culture makes you want to chase anything round and yellow."
+      }
+    ]
+  },
+  "co_square": {
+    "genres": [
+      "RPG",
+      "オープンワールドRPG",
+      "アクションRPG"
+    ],
+    "lines": [
+      {
+        "ja": "会議室にムービー用の大きなモニタ。予算の話は小声でする。",
+        "en": "A huge monitor for cutscenes in every meeting room. Budgets are discussed in whispers."
+      },
+      {
+        "ja": "「最後の作品のつもりで作れ」と言われた。毎年言われる。",
+        "en": "'Make it like it's our last game,' they said. They say it every year."
+      }
+    ]
+  },
+  "co_enix": {
+    "genres": [
+      "RPG",
+      "アドベンチャー"
+    ],
+    "lines": [
+      {
+        "ja": "自社で作らず、外の才能と組む会社。あなたは電話番から始まった。",
+        "en": "They don't build in-house; they team up with outside talent. You started on phone duty."
+      },
+      {
+        "ja": "コンテスト出身の天才の話を、社内で毎日のように聞く。",
+        "en": "You hear about contest-discovered geniuses almost every day."
+      }
+    ]
+  },
+  "co_taito": {
+    "genres": [
+      "シューティング",
+      "パズル",
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "侵略してくる何かの話をすると、古株が遠い目をする。",
+        "en": "Mention things invading from above and the veterans get a faraway look."
+      },
+      {
+        "ja": "ゲームセンターも持つ会社。休日に店舗の両替を手伝った。",
+        "en": "They run arcades too. You spent a day off helping at a change machine."
+      }
+    ]
+  },
+  "co_hudson": {
+    "genres": [
+      "アクション",
+      "パーティ",
+      "シューティング"
+    ],
+    "lines": [
+      {
+        "ja": "札幌生まれの会社。冬の通勤で、あなたは連射より速く足踏みした。",
+        "en": "Born in Sapporo. On winter commutes, you stomp your feet faster than any rapid-fire."
+      },
+      {
+        "ja": "夏が近づくと全国大会の準備で、社内が合宿の空気になる。",
+        "en": "As summer nears, tournament prep turns the office into a training camp."
+      }
+    ]
+  },
+  "co_koei": {
+    "genres": [
+      "シミュレーション",
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "歴史の本が棚に並ぶ。昼休みの雑談が、いつの間にか合戦になる。",
+        "en": "History books line the shelves. Lunch chats somehow turn into battles."
+      },
+      {
+        "ja": "あなたの能力も数値で評価された。統率 52。",
+        "en": "Your abilities got rated in numbers too. Leadership: 52."
+      }
+    ]
+  },
+  "co_snk": {
+    "genres": [
+      "格闘",
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "対戦台の前で後輩が叫ぶ。あなたは静かにコマンドを練習した。",
+        "en": "Juniors yell at the versus cabinet. You quietly practice your inputs."
+      },
+      {
+        "ja": "容量の大きさが自慢の会社。会議資料も同じくらい分厚い。",
+        "en": "They brag about big memory. The meeting handouts are just as thick."
+      }
+    ]
+  },
+  "co_bandai": {
+    "genres": [
+      "アクション",
+      "育成",
+      "アクションアドベンチャー"
+    ],
+    "lines": [
+      {
+        "ja": "おもちゃの会社。打ち合わせの机に、なぜか毎回試作の人形がいる。",
+        "en": "A toy company. There's always a prototype figure sitting at the meeting table."
+      },
+      {
+        "ja": "版権元の確認で、あなたのセリフ案は 3 往復した。",
+        "en": "Your dialogue draft bounced back from the licensor three times."
+      }
+    ]
+  },
+  "co_atlus": {
+    "genres": [
+      "RPG"
+    ],
+    "lines": [
+      {
+        "ja": "悪魔の資料集と学校の参考書が、同じ棚に並んでいる。",
+        "en": "Demon encyclopedias and school study guides share the same shelf."
+      },
+      {
+        "ja": "おしゃれな画面を求められ、あなたの企画書の余白まで斜めになった。",
+        "en": "Asked for stylish UI, even the margins of your proposal went diagonal."
+      }
+    ]
+  },
+  "co_tecmo": {
+    "genres": [
+      "アクション",
+      "格闘",
+      "ホラー"
+    ],
+    "lines": [
+      {
+        "ja": "手ごわく作れ、が合言葉。あなたは社内テストで 30 回倒された。",
+        "en": "'Make it tough' is the motto. You died 30 times in internal testing."
+      },
+      {
+        "ja": "心霊写真の資料が回覧されてきた。あなたは夜の残業を控えた。",
+        "en": "A folder of spirit photos was passed around. You cut back on late nights."
+      }
+    ]
+  },
+  "co_falcom": {
+    "genres": [
+      "RPG",
+      "アクションRPG"
+    ],
+    "lines": [
+      {
+        "ja": "社内に音楽チームがいる。あなたの残業中、どこかで名曲が生まれていた。",
+        "en": "There's an in-house music team. Somewhere during your overtime, a classic was born."
+      },
+      {
+        "ja": "長く続く物語を作る会社。あなたの担当は、その 1 章の 1 つの村だ。",
+        "en": "They make sagas that run for years. You're in charge of one village in one chapter."
+      }
+    ]
+  },
+  "co_cygames": {
+    "genres": [
+      "ソーシャルゲーム",
+      "RPG"
+    ],
+    "lines": [
+      {
+        "ja": "「最高のコンテンツを」と壁にある。あなたの最初の担当はボタンの影だった。",
+        "en": "'The best content' is on the wall. Your first task was a button's drop shadow."
+      },
+      {
+        "ja": "絵のうまい人しかいない。あなたの棒人間は、会議資料から消された。",
+        "en": "Everyone draws beautifully. Your stick figures were removed from the slides."
+      }
+    ]
+  },
+  "co_gree": {
+    "genres": [
+      "ソーシャルゲーム",
+      "カジュアル"
+    ],
+    "lines": [
+      {
+        "ja": "Tシャツとパーカーの職場。あなたのスーツは初日で浮いた。",
+        "en": "A T-shirt-and-hoodie office. Your suit stood out on day one."
+      },
+      {
+        "ja": "数字の会議が毎朝ある。あなたは昨日の継続率を暗記して出社した。",
+        "en": "Metrics meeting every morning. You memorize yesterday's retention on the way in."
+      }
+    ]
+  },
+  "co_dena": {
+    "genres": [
+      "ソーシャルゲーム",
+      "野球"
+    ],
+    "lines": [
+      {
+        "ja": "会議が驚くほど速い。あなたの資料は 3 枚目から読まれなかった。",
+        "en": "Meetings here are startlingly fast. Nobody read your slides past page three."
+      },
+      {
+        "ja": "朝会で数字を言えない人はいない。あなたは言えなかった。",
+        "en": "No one at standup fails to quote the numbers. You did."
+      }
+    ]
+  },
+  "co_fromsoft": {
+    "genres": [
+      "アクションRPG",
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "テストプレイで 40 回死んだ。上司は「まだ優しい」と言った。",
+        "en": "You died 40 times in playtesting. Your boss said, 'Still too gentle.'"
+      },
+      {
+        "ja": "説明は少なく、と言われた。あなたの企画書も 3 行に削られた。",
+        "en": "'Explain less,' they said. Your proposal was cut to three lines."
+      }
+    ]
+  },
+  "co_level5": {
+    "genres": [
+      "RPG",
+      "アドベンチャー",
+      "育成"
+    ],
+    "lines": [
+      {
+        "ja": "福岡の会社。昼の店選びで、あなたは麺の硬さを聞かれた。",
+        "en": "A Fukuoka company. Choosing lunch, you were asked how firm you like your noodles."
+      },
+      {
+        "ja": "アニメも漫画もおもちゃも同時に、と言われ、あなたは手帳を 2 冊にした。",
+        "en": "Anime, manga and toys all at once. You switched to two planners."
+      }
+    ]
+  },
+  "co_kemoko": {
+    "genres": [
+      "RPG",
+      "アドベンチャー"
+    ],
+    "lines": [
+      {
+        "ja": "手頃で長く遊べる RPG を次々出す。あなたの担当は今年 3 人目の魔王。",
+        "en": "Affordable, long RPGs, one after another. You're on this year's third Demon Lord."
+      },
+      {
+        "ja": "スマホの画面に収まる剣と魔法。あなたの書いた村人は 2 行しか喋れない。",
+        "en": "Swords and sorcery sized for a phone. Your villagers get two lines each."
+      }
+    ]
+  },
+  "co_deta_east": {
+    "genres": [
+      "アクション",
+      "スポーツ"
+    ],
+    "lines": [
+      {
+        "ja": "変な企画ほど通る会議室。あなたの真面目な案は「普通だね」で終わった。",
+        "en": "Odd pitches win in this room. Your serious one got 'Kind of normal.'"
+      },
+      {
+        "ja": "ハンバーガーを積む試作のせいで、今日の昼ごはんが決まった。",
+        "en": "A burger-stacking prototype decided today's lunch for you."
+      }
+    ]
+  },
+  "co_jarecon": {
+    "genres": [
+      "アクション",
+      "野球"
+    ],
+    "lines": [
+      {
+        "ja": "社員の野球談義が熱い。あなたの企画も、なぜか 9 回まである。",
+        "en": "The staff argue baseball hotly. Even your proposal somehow has nine innings."
+      },
+      {
+        "ja": "パッケージの絵が派手だ。あなたの企画書の表紙も劇画調になった。",
+        "en": "The box art is loud. Even your proposal's cover went full comic-drama."
+      }
+    ]
+  },
+  "co_airemo": {
+    "genres": [
+      "シューティング",
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "異形のボスの資料が廊下に貼ってある。あなたは当たり判定の夢を見た。",
+        "en": "Grotesque boss sketches line the hallway. You dreamed about hitboxes."
+      },
+      {
+        "ja": "4 月 1 日の冗談の準備が、本業と同じくらい真剣だ。",
+        "en": "Prep for the April Fools' joke is as serious as the actual work."
+      }
+    ]
+  },
+  "co_sanden_ko": {
+    "genres": [
+      "パズル",
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "本業は電子機器。ゲームの島の机だけ、やけにカラフルだ。",
+        "en": "The main business is electronics. Only the game team's desks are colorful."
+      },
+      {
+        "ja": "部品と基板が同じ倉庫にある。あなたは何度も迷子になった。",
+        "en": "Parts and game boards share one warehouse. You got lost in it more than once."
+      }
+    ]
+  },
+  "co_natsumeg": {
+    "genres": [
+      "アクション",
+      "シューティング"
+    ],
+    "lines": [
+      {
+        "ja": "小さな会社で、うるさいほど作り込んだアクションを作る。",
+        "en": "A small studio making action games polished to the point of fussiness."
+      },
+      {
+        "ja": "ドット 1 枚に 1 日かける先輩がいる。あなたは 1 時間で出して叱られた。",
+        "en": "A senior spends a day per sprite. You turned yours in after an hour and got scolded."
+      }
+    ]
+  },
+  "co_tonkichi_house": {
+    "genres": [
+      "パズル",
+      "シミュレーション"
+    ],
+    "lines": [
+      {
+        "ja": "親会社は教科書の出版社らしい。あなたの企画書に赤ペンが入った。",
+        "en": "The parent apparently publishes textbooks. Your proposal came back in red ink."
+      },
+      {
+        "ja": "将棋も麻雀もクイズも出す。あなたは 1 年で雑学に強くなった。",
+        "en": "Shogi, mahjong, quizzes, all of it. A year in, you're great at trivia."
+      }
+    ]
+  },
+  "co_humaso": {
+    "genres": [
+      "スポーツ",
+      "ホラー",
+      "アドベンチャー"
+    ],
+    "lines": [
+      {
+        "ja": "社内に学校があり、先週の生徒が今週の先輩になる。",
+        "en": "There's a school inside the company. Last week's student is this week's senior."
+      },
+      {
+        "ja": "プロレスの資料とホラー映画が同じ棚に。あなたは両方見て眠れなかった。",
+        "en": "Wrestling tapes and horror films on one shelf. You watched both and couldn't sleep."
+      }
+    ]
+  },
+  "co_nichibutsu": {
+    "genres": [
+      "麻雀",
+      "シューティング"
+    ],
+    "lines": [
+      {
+        "ja": "麻雀牌の音が、どの部署からも聞こえてくる。",
+        "en": "The clack of mahjong tiles drifts from every department."
+      },
+      {
+        "ja": "シューティングの企画も通る。ただし牌は持ち込むな、と言われた。",
+        "en": "Shooter pitches get approved too. Just don't bring the tiles, they said."
+      }
+    ]
+  },
+  "co_compile_cho": {
+    "genres": [
+      "パズル",
+      "シューティング"
+    ],
+    "lines": [
+      {
+        "ja": "落ちものの試作で、あなたは 4 つ並ぶと消える夢を見た。",
+        "en": "After the falling-block prototype, you dreamed of things vanishing in fours."
+      },
+      {
+        "ja": "社内で饅頭の話が出た。ゲーム会社なのに。",
+        "en": "Someone at work brought up steamed buns. At a game company."
+      }
+    ]
+  },
+  "co_sunson": {
+    "genres": [
+      "アクション",
+      "パズル"
+    ],
+    "lines": [
+      {
+        "ja": "音源の限界に挑む先輩が、毎晩ベースの音を鳴らしている。",
+        "en": "A senior pushing the sound chip to its limit plays bass lines every night."
+      },
+      {
+        "ja": "変な主人公ほど愛される。あなたの描いた丸いキャラも採用された。",
+        "en": "The weirder the hero, the more beloved. Your round little doodle got approved."
+      }
+    ]
+  },
+  "co_meshiya": {
+    "genres": [
+      "シューティング",
+      "シミュレーション",
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "真面目な戦記物の隣の机で、筋肉の試作画面が回っている。",
+        "en": "Next to the serious war saga, a muscle-filled prototype is running."
+      },
+      {
+        "ja": "あなたの企画書に「もっと濃く」と赤字が入った。",
+        "en": "Your proposal came back marked: 'Make it thicker.'"
+      }
+    ]
+  },
+  "co_game_artsarts": {
+    "genres": [
+      "RPG",
+      "シューティング"
+    ],
+    "lines": [
+      {
+        "ja": "ハードの限界に挑む技術屋ぞろい。雑談の半分が分からない。",
+        "en": "A crew of tech wizards pushing hardware limits. You follow half the small talk."
+      },
+      {
+        "ja": "起動デモが本編より長い試作を見せられた。",
+        "en": "They showed you a prototype whose intro was longer than the game."
+      }
+    ]
+  },
+  "co_quintetto": {
+    "genres": [
+      "アクションRPG",
+      "RPG"
+    ],
+    "lines": [
+      {
+        "ja": "創造と破壊の話が昼休みの話題。あなたは弁当の配置を考え直した。",
+        "en": "Creation and destruction are lunch topics. You rethought your bento layout."
+      },
+      {
+        "ja": "小さな会社で大きな世界を作る。あなたの担当は大陸ひとつ。",
+        "en": "A small team making a big world. You're in charge of one continent."
+      }
+    ]
+  },
+  "co_treasuren": {
+    "genres": [
+      "アクション",
+      "シューティング"
+    ],
+    "lines": [
+      {
+        "ja": "少人数で、見たことのない動きを作る。あなたの歩きは 3 回作り直された。",
+        "en": "A tiny team making moves no one's seen. Your walk cycle was redone three times."
+      },
+      {
+        "ja": "ボスの数が企画書の倍になっていた。誰も驚いていない。",
+        "en": "There are twice as many bosses as the plan said. Nobody's surprised."
+      }
+    ]
+  },
+  "co_chunchun": {
+    "genres": [
+      "RPG",
+      "アドベンチャー",
+      "ローグライク"
+    ],
+    "lines": [
+      {
+        "ja": "毎回形の変わる迷宮で、あなたは毎回同じところで倒れた。",
+        "en": "The dungeon changes every time. You fall at the same spot every time."
+      },
+      {
+        "ja": "読むゲームの効果音のため、ドアの音を 40 種類録った。",
+        "en": "For a game you read, you recorded 40 different door sounds."
+      }
+    ]
+  },
+  "co_nihon_ni": {
+    "genres": [
+      "RPG",
+      "シミュレーション"
+    ],
+    "lines": [
+      {
+        "ja": "ダメージの桁が多すぎて、あなたの表計算ソフトが落ちた。",
+        "en": "The damage numbers had so many digits your spreadsheet crashed."
+      },
+      {
+        "ja": "倉庫に謎の鳥の着ぐるみがある。誰のものかは聞くな。",
+        "en": "There's a mystery bird costume in storage. Don't ask whose."
+      }
+    ]
+  },
+  "co_arc_sys": {
+    "genres": [
+      "格闘",
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "手描きに見える 3D の部署で、あなたは 1 コマ単位で直された。",
+        "en": "In the 3D-that-looks-hand-drawn team, you got corrected frame by frame."
+      },
+      {
+        "ja": "入社 1 週間で、フレーム表の読み方を叩き込まれた。",
+        "en": "Within a week, frame data tables were drilled into you."
+      }
+    ]
+  },
+  "co_acquire_r": {
+    "genres": [
+      "アクション",
+      "アクションアドベンチャー"
+    ],
+    "lines": [
+      {
+        "ja": "忍び足の研究で、社内の床のよく鳴る場所をみんな知っている。",
+        "en": "From stealth research, everyone knows which floorboards creak."
+      },
+      {
+        "ja": "電気街の取材と称して、先輩が毎日いない。",
+        "en": "Your senior is out every day 'researching' the electronics district."
+      }
+    ]
+  },
+  "co_kairon": {
+    "genres": [
+      "経営",
+      "シミュレーション"
+    ],
+    "lines": [
+      {
+        "ja": "画面の中の小さな社員たちが、今日も働く。あなたもだ。",
+        "en": "The tiny pixel staff on screen are working again today. So are you."
+      },
+      {
+        "ja": "少人数の会社。気づけば企画も絵も音も、あなたの担当だった。",
+        "en": "A tiny company. Somehow planning, art and sound all became your job."
+      }
+    ]
+  },
+  "co_cc3": {
+    "genres": [
+      "アクション",
+      "格闘",
+      "アクションRPG"
+    ],
+    "lines": [
+      {
+        "ja": "アニメの再現に命をかける。あなたは原作の 1 コマを 100 回見た。",
+        "en": "They live to recreate anime. You watched one frame of the source 100 times."
+      },
+      {
+        "ja": "演出会議で「ここで泣かせる」と全員が言い切った。",
+        "en": "In the direction meeting, everyone declared: 'This is where they cry.'"
+      }
+    ]
+  },
+  "co_gust_resto": {
+    "genres": [
+      "RPG"
+    ],
+    "lines": [
+      {
+        "ja": "山の見える会社。窓の外を見ながら、あなたは素材の調合表を作った。",
+        "en": "A studio with a mountain view. Gazing out, you drafted an ingredient-mixing chart."
+      },
+      {
+        "ja": "主人公の服のボタンの数で、会議が 1 時間続いた。",
+        "en": "A meeting ran an hour over how many buttons the heroine's outfit has."
+      }
+    ]
+  },
+  "co_platinum_silver": {
+    "genres": [
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "敵をかっこよく倒す方法の会議が、毎日ある。",
+        "en": "There's a meeting every day on how to defeat enemies more stylishly."
+      },
+      {
+        "ja": "スロー演出を入れすぎて、あなたの 1 年もゆっくり過ぎた。",
+        "en": "Too much slow motion went in. Your year passed slowly too."
+      }
+    ]
+  },
+  "co_tose_tosee": {
+    "genres": [
+      "カジュアル",
+      "パズル",
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "名前の出ない仕事ばかり。あなたの作品はスタッフロールにも載らない。",
+        "en": "All uncredited work. Your games don't even make the staff roll."
+      },
+      {
+        "ja": "今年は 7 社の作品を同時に手伝った。どれも口外禁止だ。",
+        "en": "This year you helped on games for seven companies at once. All under NDA."
+      }
+    ]
+  },
+  "co_alpha_dream": {
+    "genres": [
+      "RPG"
+    ],
+    "lines": [
+      {
+        "ja": "大手の看板キャラを預かる小さな会社。ギャグは全部確認が入る。",
+        "en": "A small studio entrusted with a giant's mascots. Every joke gets reviewed."
+      },
+      {
+        "ja": "兄弟のように仲のいい職場。2 つのボタンで息を合わせる練習をした。",
+        "en": "Close as brothers. You practiced syncing up on two buttons."
+      }
+    ]
+  },
+  "co_inti_create": {
+    "genres": [
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "2D アクションに一途な会社。あなたのジャンプは 1 ドット単位で直された。",
+        "en": "Devoted to 2D action. Your jump was tuned one pixel at a time."
+      },
+      {
+        "ja": "請けの仕事も自社の作品も、全部横スクロールだった。",
+        "en": "Contract work, original work: all side-scrollers."
+      }
+    ]
+  },
+  "co_media_vision2": {
+    "genres": [
+      "RPG"
+    ],
+    "lines": [
+      {
+        "ja": "荒野と口笛の似合う RPG を作る。あなたは西部劇を 10 本見させられた。",
+        "en": "They make RPGs fit for wastelands and whistling. You were assigned ten westerns."
+      },
+      {
+        "ja": "大手の仕事を手伝う日々。あなたの名前は小さく、でも確かに載った。",
+        "en": "Days of helping the big names. Your credit is tiny, but it's there."
+      }
+    ]
+  },
+  "co_cave_in": {
+    "genres": [
+      "シューティング"
+    ],
+    "lines": [
+      {
+        "ja": "廊下まで弾幕の試作画面。あなたは 1 画面 500 発で目を回した。",
+        "en": "Bullet-hell prototypes all the way down the hall. 500 shots on screen made you dizzy."
+      },
+      {
+        "ja": "「隙間はある」が口癖の職場だ。",
+        "en": "'There's always a gap' is the office catchphrase."
+      }
+    ]
+  },
+  "co_mobage_para": {
+    "genres": [
+      "位置情報ゲーム",
+      "ソーシャルゲーム",
+      "RPG"
+    ],
+    "lines": [
+      {
+        "ja": "歩いた距離が話題になる職場。あなたの歩数計も成果に数えられた。",
+        "en": "Steps walked are a hot topic here. Even your pedometer counted as output."
+      },
+      {
+        "ja": "指 1 本で遊べるか、が会議の決まり文句だ。",
+        "en": "'Can you play it with one finger?' is the standard meeting question."
+      }
+    ]
+  },
+  "co_akatsuki_dawn": {
+    "genres": [
+      "ソーシャルゲーム",
+      "RPG"
+    ],
+    "lines": [
+      {
+        "ja": "社内で「気持ち」の話をよくする。あなたの感想は 3 回深掘りされた。",
+        "en": "Feelings come up a lot here. Your impressions got dug into three times."
+      },
+      {
+        "ja": "毎月のイベント表に、あなたは住んでいる。",
+        "en": "You basically live inside the monthly event calendar."
+      }
+    ]
+  },
+  "co_jupitel": {
+    "genres": [
+      "パズル",
+      "カジュアル"
+    ],
+    "lines": [
+      {
+        "ja": "京都の会社。マス目を塗るパズルを、昼休みに 30 問作った。",
+        "en": "A Kyoto studio. You made 30 grid-filling puzzles over lunch."
+      },
+      {
+        "ja": "請けの仕事で、ピンボール台の跳ね方を 1 年調整した。",
+        "en": "On a contract job, you tuned a pinball table's bounce for a whole year."
+      }
+    ]
+  },
+  "co_dimple": {
+    "genres": [
+      "格闘",
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "格闘の請け仕事で、あなたは他社のキャラの技を全部覚えた。",
+        "en": "Contract fighting games taught you every other company's special moves."
+      },
+      {
+        "ja": "大阪の会社。1 フレームの差を、お笑いの間で説明された。",
+        "en": "An Osaka studio. One frame of difference was explained via comedy timing."
+      }
+    ]
+  },
+  "co_matryoshka": {
+    "genres": [
+      "RPG",
+      "アクションRPG"
+    ],
+    "lines": [
+      {
+        "ja": "昔の名作を作り直す仕事。あなたは古い仕様書を発掘した。",
+        "en": "Remaking old classics. You excavated ancient design docs."
+      },
+      {
+        "ja": "他社の看板 RPG を預かる。手は抜くな、名前は出すな。",
+        "en": "You're entrusted with someone else's flagship RPG. Don't cut corners; don't expect credit."
+      }
+    ]
+  },
+  "co_nowpro": {
+    "genres": [
+      "アクション",
+      "シューティング"
+    ],
+    "lines": [
+      {
+        "ja": "大手の名作の移植を、静かに仕上げる職場だ。",
+        "en": "A quiet place that finishes ports of big-name classics."
+      },
+      {
+        "ja": "あなたの作ったステージは、別の会社の名前で店に並んだ。",
+        "en": "The stage you built hit store shelves under another company's name."
+      }
+    ]
+  },
+  "co_tamtam": {
+    "genres": [
+      "格闘",
+      "アクション"
+    ],
+    "lines": [
+      {
+        "ja": "武器で戦う格闘の試作のため、あなたは剣の振り方を研究した。",
+        "en": "For a weapons fighter prototype, you studied how to swing a sword."
+      },
+      {
+        "ja": "予算は小さく、見せ場は大きく。あなたの残業も大きくなった。",
+        "en": "Small budget, big highlights. Your overtime got big too."
+      }
+    ]
+  },
+  "co_hachiing": {
+    "genres": [
+      "シューティング",
+      "格闘"
+    ],
+    "lines": [
+      {
+        "ja": "撃つ部署と殴り合う部署が、同じフロアで張り合っている。",
+        "en": "The shooting team and the punching team compete on the same floor."
+      },
+      {
+        "ja": "他社の名作の続編を預かる。あなたは原作を 100 周した。",
+        "en": "Handed a sequel to someone else's classic, you played the original 100 times."
+      }
+    ]
+  },
+  "co_hunex": {
+    "genres": [
+      "アドベンチャー",
+      "恋愛"
+    ],
+    "lines": [
+      {
+        "ja": "ノベルゲームの移植で、あなたは改行位置を 1 万か所直した。",
+        "en": "Porting visual novels, you fixed line breaks in 10,000 places."
+      },
+      {
+        "ja": "画面の女の子のまばたきの間で、会議が 2 時間続いた。",
+        "en": "A meeting ran two hours over the timing of a heroine's blink."
+      }
+    ]
+  },
+  "co_toaplan_t": {
+    "genres": [
+      "シューティング"
+    ],
+    "lines": [
+      {
+        "ja": "撃って撃って撃ちまくる会社。試作の自機を 1 日 200 回爆発させた。",
+        "en": "Shoot, shoot, shoot. You blew up the prototype ship 200 times a day."
+      },
+      {
+        "ja": "英語の誤訳が、なぜか社内で名言として愛されている。",
+        "en": "A botched English translation is somehow cherished here as a famous quote."
+      }
+    ]
+  },
+  "co_sas_sakata": {
+    "genres": [
+      "スポーツ",
+      "パズル"
+    ],
+    "lines": [
+      {
+        "ja": "小さな会社で何でも作る。今年は野球とパズルとクイズを作った。",
+        "en": "A small shop that makes anything. This year: baseball, puzzles and a quiz."
+      },
+      {
+        "ja": "移植の仕事で、他社のゲームを基板から覚え直した。",
+        "en": "Porting work had you relearn other companies' games from the circuit board up."
+      }
+    ]
+  },
+  "co_cattle": {
+    "genres": [
+      "RPG",
+      "シミュレーション"
+    ],
+    "lines": [
+      {
+        "ja": "荒野を戦車で走る RPG の資料が山積み。あなたも免許が欲しくなった。",
+        "en": "Piles of notes for a tank-driving wasteland RPG. You kind of want a license now."
+      },
+      {
+        "ja": "少人数で長い物語を作る。あなたの台詞は 2000 行あった。",
+        "en": "A small team, a long story. Your dialogue ran 2,000 lines."
+      }
+    ]
+  }
+}

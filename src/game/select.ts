@@ -3,6 +3,8 @@ import type { GameEvent, State, Pos } from './types';
 
 /** 立場(歴史の事件の受け止め方が変わる) */
 export function positionOf(s: State): Pos {
+  if (s.flags.in_prison) return 'prison';
+  if (s.job === 'teacher') return 'teacher';
   if (s.status === 'left' || s.status === 'retired' || s.status === 'ended') return 'outside';
   if (s.status === 'indie') return 'indie';
   if (s.company.size === 'abroad') return 'abroad';

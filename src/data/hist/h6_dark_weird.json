@@ -184,7 +184,6 @@
   "id": "hs_dark_1985_program_law",
   "year": 1985,
   "month": 6,
-  "until": 1986,
   "kind": "incident",
   "weight": 2,
   "title": {
@@ -511,7 +510,6 @@
   "id": "hs_dark_1999_used_split",
   "year": 1999,
   "month": 5,
-  "until": 2000,
   "kind": "incident",
   "weight": 2,
   "title": {
@@ -756,12 +754,12 @@
   "kind": "incident",
   "weight": 2,
   "title": {
-   "ja": "ファイル共有ソフトの開発者が逮捕される(のちに無罪が確定)",
-   "en": "A file-sharing software developer is arrested (later acquitted)"
+   "ja": "『Winny』の開発者・金子勇氏が逮捕される(のちに無罪が確定)",
+   "en": "Winny developer Isamu Kaneko is arrested (later acquitted)"
   },
   "news": {
-   "ja": "5 月、ファイル共有ソフト『Winny』の開発者が著作権法違反のほう助の疑いで逮捕された。2011 年 12 月に最高裁で無罪が確定した。",
-   "en": "In May, the developer of the file-sharing program Winny was arrested on suspicion of aiding copyright infringement. His acquittal became final in December 2011."
+   "ja": "5 月、ファイル共有ソフト『Winny』を作った金子勇氏が著作権法違反のほう助の疑いで逮捕された。2011 年 12 月に最高裁で無罪が確定した。",
+   "en": "In May, Isamu Kaneko, who wrote the file-sharing program Winny, was arrested on suspicion of aiding copyright infringement. His acquittal became final in December 2011."
   },
   "src": "https://gigazine.net/news/20111220-winny/",
   "variants": [
@@ -1417,7 +1415,6 @@
   "id": "hs_dark_2018_savedata_law",
   "year": 2018,
   "month": 11,
-  "until": 2019,
   "kind": "incident",
   "weight": 1,
   "title": {
@@ -1636,8 +1633,8 @@
    "en": "TearRing Saga launches amid a lawsuit with Nintendo"
   },
   "news": {
-   "ja": "2000 年に『エムブレムサーガ』として発表された作品が改題して 5 月 24 日に発売。宣伝の仕方などを巡り、任天堂・インテリジェントシステムズとの訴訟になった。",
-   "en": "Announced in 2000 as Emblem Saga, the game launched retitled on May 24. Its marketing led to litigation with Nintendo and Intelligent Systems."
+   "ja": "『ファイアーエムブレム』の生みの親・加賀昭三が独立して手がけ、2000 年に『エムブレムサーガ』として発表された作品が改題して 5 月 24 日に発売。宣伝の仕方などを巡り、任天堂・インテリジェントシステムズとの訴訟になった。",
+   "en": "Made by Fire Emblem creator Shouzou Kaga after going independent and announced in 2000 as Emblem Saga, the game launched retitled on May 24. Its marketing led to litigation with Nintendo and Intelligent Systems."
   },
   "src": "ティアリングサーガ ユトナ英雄戦記",
   "variants": [
@@ -1731,8 +1728,8 @@
    {
     "id": "ev_hs_dark_2001_saga_any",
     "text": {
-     "ja": "シリーズの生みの親が独立して作った新作を、発売日に買った。どちらの味方でもなく、ただ遊んで徹夜した。",
-     "en": "On launch day you buy the new game by the series' original creator. You take no side; you just play all night."
+     "ja": "『ファイアーエムブレム』の生みの親、加賀昭三さんが独立して作った新作を、発売日に買った。どちらの味方でもなく、ただ遊んで徹夜した。",
+     "en": "On launch day you buy the new game by Shouzou Kaga, Fire Emblem's original creator. You take no side; you just play all night."
     },
     "effect": {
      "hp": -3,
@@ -1833,7 +1830,6 @@
   "id": "hs_dark_2012_fishing_suit",
   "year": 2012,
   "month": 2,
-  "until": 2013,
   "kind": "incident",
   "weight": 2,
   "title": {
@@ -1956,8 +1952,8 @@
    "en": "Flappy Bird is pulled, and clones flood the stores"
   },
   "news": {
-   "ja": "2 月、世界的に流行した無料ゲームを作者が自ら配信停止にした。直後から、そっくりなゲームがストアの上位に並んだ。",
-   "en": "In February, the creator himself pulled the worldwide hit free game. Lookalikes immediately crowded the top of the store charts."
+   "ja": "2 月、ベトナムのドン・グエンが、自作で世界的に流行した無料ゲームを自ら配信停止にした。直後から、そっくりなゲームがストアの上位に並んだ。",
+   "en": "In February, its creator, Vietnam's Dong Nguyen, pulled his worldwide hit free game himself. Lookalikes immediately crowded the top of the store charts."
   },
   "src": "https://en.wikipedia.org/wiki/Flappy_Bird",
   "variants": [
@@ -2072,8 +2068,8 @@
    "en": "2048 goes online, sparking debate over the game it grew from"
   },
   "news": {
-   "ja": "3 月、数字を合わせるパズル『2048』がブラウザで無料公開され大流行。先に出ていた有料の『Threes!』との関係が議論になった。",
-   "en": "In March, the free browser puzzle 2048 became a craze, sparking debate over its relation to the earlier paid game Threes!"
+   "ja": "3 月、イタリアのガブリエレ・チルリが数字を合わせるパズル『2048』をブラウザで無料公開し大流行。先に出ていたアッシャー・ヴォルマーらの有料の『Threes!』との関係が議論になった。",
+   "en": "In March, Italy's Gabriele Cirulli put the free browser puzzle 2048 online. It became a craze, sparking debate over its relation to the earlier paid game Threes! by Asher Vollmer and Greg Wohlwend."
   },
   "src": "https://techcrunch.com/2014/03/24/clones-clones-everywhere-1024-2048-and-other-copies-of-popular-paid-game-threes-fill-the-app-stores",
   "variants": [
@@ -2584,12 +2580,12 @@
   "kind": "hit",
   "weight": 2,
   "title": {
-   "ja": "人気芸人が監修したファミコンソフトが発売、「攻略本なしでは解けない」と話題に",
-   "en": "A Famicom game supervised by a star comedian is called unbeatable without a guide"
+   "ja": "ビートたけし監修の『たけしの挑戦状』発売、「攻略本なしでは解けない」と話題に",
+   "en": "Takeshi's Challenge, supervised by Beat Takeshi, is called unbeatable without a guide"
   },
   "news": {
-   "ja": "12 月 10 日、タイトーが人気芸人の監修したアクションアドベンチャーを発売。常識外れの謎解きで、攻略本なしではクリアできないと言われた。",
-   "en": "On December 10, Taito released an action adventure supervised by a star comedian. Its outlandish puzzles were said to be impossible without a guidebook."
+   "ja": "12 月 10 日、タイトーがビートたけし監修のファミコン用アクションアドベンチャー『たけしの挑戦状』を発売。常識外れの謎解きで、攻略本なしではクリアできないと言われた。",
+   "en": "On December 10, Taito released Takeshi's Challenge, a Famicom action adventure supervised by Beat Takeshi. Its outlandish puzzles were said to be impossible without a guidebook."
   },
   "src": "https://www.famitsu.com/news/202112/10243681.html",
   "variants": [
@@ -2649,8 +2645,8 @@
    {
     "id": "ev_hs_dark_1986_chal_any",
     "text": {
-     "ja": "芸人が監修したゲームが年末の話題をさらった。忘年会で部長がその謎を真似したが、誰にも意味が分からなかった。",
-     "en": "The comedian's game steals the year-end buzz. At the office party, the manager imitates one of its puzzles. No one gets it."
+     "ja": "『たけしの挑戦状』が年末の話題をさらった。忘年会で部長がその謎を真似したが、誰にも意味が分からなかった。",
+     "en": "Takeshi's Challenge steals the year-end buzz. At the office party, the manager imitates one of its puzzles. No one gets it."
     },
     "effect": {
      "passion": 2,
@@ -2852,8 +2848,8 @@
    "en": "Seaman for Dreamcast: a human-faced fish you talk to"
   },
   "news": {
-   "ja": "7 月 29 日、マイクをつないで話しかけ、人の顔をした不思議な生き物を育てる『シーマン』が発売された。",
-   "en": "On July 29, Seaman launched: plug in a microphone and talk to a strange creature with a human face as you raise it."
+   "ja": "7 月 29 日、斎藤由多加が率いるビバリウムが作り、マイクで話しかけて人の顔をした不思議な生き物を育てる『シーマン』をセガが発売した。",
+   "en": "On July 29, Sega released Seaman, made by Yoot Saito's Vivarium: plug in a microphone and talk to a strange human-faced creature as you raise it."
   },
   "src": "https://www.famitsu.com/news/202207/29269925.html",
   "variants": [
@@ -2937,11 +2933,31 @@
    "en": "Shenmue Chapter 1: Yokosuka launches on Dreamcast"
   },
   "news": {
-   "ja": "12 月 29 日、人々が暮らす横須賀の町を歩き回れる大作が発売。制作費は約 70 億円と報じられた。",
-   "en": "On December 29, an epic that let you wander a living Yokosuka was released. Its budget was reported at about 7 billion yen."
+   "ja": "12 月 29 日、鈴木裕が手がけた、人々が暮らす横須賀の町を歩き回れるセガの大作が発売。制作費は約 70 億円と報じられた。",
+   "en": "On December 29, Sega released Yu Suzuki's epic that let you wander a living Yokosuka. Its budget was reported at about 7 billion yen."
   },
   "src": "https://www.famitsu.com/article/202412/28694",
   "variants": [
+   {
+    "id": "ev_hs_dark_1999_shen_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "横須賀の大作が出た。噂の制作費を自分の生涯年収で割ってみたら、30 人分の人生だった。その夜、少し高いビールを買った。",
+     "en": "The Yokosuka epic ships. You divided the rumored budget by your lifetime earnings: thirty of you. That night you bought slightly nicer beer."
+    },
+    "effect": {
+     "passion": 4,
+     "money": -1
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "sega",
+     "gag"
+    ]
+   },
    {
     "id": "ev_hs_dark_1999_shen_client",
     "when": [
@@ -2993,6 +3009,64 @@
     "tag": [
      "weird",
      "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_shenmue_hit_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "同じ月に出した自社のアドベンチャーの売りは「町の人 30 人」。シェンムーの町を見た夜、あなたは自社の 30 人に謝った。",
+     "en": "Your team's adventure, out the same month, boasted \"30 townspeople.\" After seeing Shenmue's town, you apologized to your 30."
+    },
+    "effect": {
+     "passion": -3,
+     "skill": 3
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "rival",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_shenmue_hit_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "港でフォークリフトのバイトに励む主人公を見て、自分のバイト時代を思い出した。翌日、なぜか仕事が少し楽しかった。",
+     "en": "Watching the hero work a forklift job at the harbor reminded you of your own part-time days. Work felt a little better the next day."
+    },
+    "effect": {
+     "passion": 3,
+     "hp": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_dark_1999_shenmue_hit_child",
+    "when": [
+     "flag.child"
+    ],
+    "text": {
+     "ja": "子どもがゲームの中のカプセルトイを回し続けた。中のお金は本物ではないと説明するのに 1 時間かかった。",
+     "en": "Your kid kept cranking the in-game capsule toy machine. Explaining that the money inside wasn't real took an hour."
+    },
+    "effect": {
+     "hp": -1,
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "family"
     ]
    },
    {
@@ -3200,8 +3274,8 @@
    "en": "Final Fantasy XV ships after a delay, ten years after its reveal"
   },
   "news": {
-   "ja": "2006 年に別の名前で発表された作品が、8 月に 9 月 30 日から 11 月 29 日への延期を発表し、ついに発売された。",
-   "en": "First revealed in 2006 under another name, it announced in August a delay from September 30 to November 29, and finally shipped."
+   "ja": "2006 年に『ファイナルファンタジー ヴェルサスXIII』として発表され、2013 年に改題された作品が、8 月に 9 月 30 日から 11 月 29 日への延期を発表し、ついに発売された。",
+   "en": "First revealed in 2006 as Final Fantasy Versus XIII and retitled in 2013, it announced in August a delay from September 30 to November 29, and finally shipped."
   },
   "src": "https://gamebiz.jp/news/167178",
   "variants": [
@@ -3391,6 +3465,111 @@
      "weird",
      "gag"
     ]
+   }
+  ]
+ },
+ {
+  "id": "hs_dark_1992_coyle_patent",
+  "year": 1992,
+  "kind": "incident",
+  "weight": 2,
+  "title": {
+   "ja": "セガ、米国の特許訴訟で巨額の支払い",
+   "en": "Sega pays big in a US patent suit"
+  },
+  "news": {
+   "ja": "米国の発明家ジャン・コイル氏が「音の信号でテレビの色を変える」特許を盾に任天堂とセガを訴えた。任天堂は早々に和解。セガは「技術的に別物」と法廷で争って陪審で敗れ、ジェネシスの販売差し止めを避けるため 4300 万ドル(約 50 億円余り)で和解した。任天堂の和解金は数十万ドルと言われる。",
+   "en": "US inventor Jan Coyle sued Nintendo and Sega over a patent on changing TV colours from audio signals. Nintendo settled early. Sega fought it as technically unrelated, lost before a jury, and settled for $43 million to avoid a Genesis sales injunction. Nintendo's settlement was reportedly a few hundred thousand dollars."
+  },
+  "src": "https://note.com/syosin_kai/n/nf23153a5cc93",
+  "variants": [
+   {
+    "id": "ev_hs_coyle_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "社内に「アメリカで特許の裁判に負けたらしい」と噂が回った。「音で色が変わる特許」と聞いて、全員が自分のゲームの電源ランプを見た。その年の忘年会、ビンゴの景品が 1 つ減っていた。",
+     "en": "Word spread through the office: we'd lost a patent case in America. \"A patent on colours changing with sound.\" Everyone stared at their console's power light. At the year-end party, the bingo had one prize fewer."
+    },
+    "effect": {
+     "passion": -2,
+     "network": 2
+    },
+    "tag": [
+     "sega",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_coyle_exsega",
+    "when": [
+     "flag.ex_sega"
+    ],
+    "text": {
+     "ja": "古巣のセガが、アメリカの特許裁判で巨額を払ったと新聞で読んだ。昔の同僚に電話したら「勝てると思ってたんだよ」と 3 回言った。電話の向こうで、あの頃の会議室の匂いがした。",
+     "en": "You read that your old employer Sega had paid a fortune over a US patent. You called an old colleague; they said \"we thought we'd win\" three times. Through the phone you could smell that meeting room."
+    },
+    "effect": {
+     "network": 3
+    },
+    "tag": [
+     "sega",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_coyle_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "「映像信号に音の成分が混ざっているから特許侵害」という記事を読み、自分の書いた表示ルーチンを夜中にこっそり見直した。何も悪いことはしていない。たぶん。",
+     "en": "An article said mixing audio components into a video signal counted as infringement. Late at night you quietly re-read your own display routine. You'd done nothing wrong. Probably."
+    },
+    "effect": {
+     "skill": 2
+    },
+    "tag": [
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_coyle_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "法務部から「念のため」と分厚い資料が回ってきた。アメリカの特許裁判の話だった。読み終えて企画書に戻ると、「新機能」の欄を 2 つ消していた。",
+     "en": "Legal circulated a thick binder \"just in case\": the American patent case. When you got back to your proposal, you'd crossed out two \"new features\"."
+    },
+    "effect": {
+     "passion": -2,
+     "network": 2
+    },
+    "tag": [
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_coyle_any",
+    "when": [
+     "age>=18"
+    ],
+    "text": {
+     "ja": "セガがアメリカの特許裁判で 50 億円を超える額を払った、と新聞に載った。任天堂は早めに和解して数十万ドルだったらしい。「戦う」より「謝る」が安い時がある。社会の授業では習わなかった。",
+     "en": "The paper said Sega paid over 5 billion yen in a US patent case, while Nintendo settled early for a few hundred thousand dollars. Sometimes settling beats fighting. They never taught that in social studies."
+    },
+    "effect": {
+     "passion": 1
+    },
+    "tag": [
+     "gag"
+    ],
+    "memory": {
+     "ja": "「戦う」より「謝る」が安い時があると知った年",
+     "en": "the year you learned settling can be cheaper than fighting"
+    }
    }
   ]
  }

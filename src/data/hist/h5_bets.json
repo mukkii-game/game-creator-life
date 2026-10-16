@@ -3,7 +3,6 @@
   "id": "hs_1982_pyuta",
   "year": 1982,
   "month": 8,
-  "until": 1983,
   "kind": "hardware",
   "weight": 2,
   "title": {
@@ -22,8 +21,8 @@
      "pos=dev_lead"
     ],
     "text": {
-     "ja": "おもちゃ会社のパソコンが「16 ビット」を名乗った。営業が叫んだ。「すげー! 8 ビットの倍だ!」 次の 1 本、どれで出す?",
-     "en": "A toy company's computer calls itself \"16-bit.\" Sales yells: \"Whoa! Double the 8 bits!\" So, which machine gets the next game?"
+     "ja": "トミーのパソコンが「16 ビット」を名乗った。営業が叫んだ。「すげー! 8 ビットの倍だ!」 次の 1 本、どれで出す?",
+     "en": "Tomy's computer calls itself \"16-bit.\" Sales yells: \"Whoa! Double the 8 bits!\" So, which machine gets the next game?"
     },
     "choices": [
      {
@@ -330,7 +329,6 @@
   "id": "hs_1984_scv",
   "year": 1984,
   "month": 7,
-  "until": 1985,
   "kind": "hardware",
   "weight": 1,
   "title": {
@@ -349,8 +347,8 @@
      "pos=dev_lead"
     ],
     "text": {
-     "ja": "カセット式を当てた会社の新型の資料が届いた。赤と白の箱より、本体が大きい。「大きい方が強い」と社長が言った。",
-     "en": "Docs arrive for the new console from the cartridge pioneer. It's bigger than the red-and-white box. \"Bigger is stronger,\" says the boss."
+     "ja": "エポック社の新型の資料が届いた。赤と白の箱より、本体が大きい。「大きい方が強い」と社長が言った。",
+     "en": "Docs arrive for Epoch's new console. It's bigger than the red-and-white box. \"Bigger is stronger,\" says the boss."
     },
     "choices": [
      {
@@ -489,8 +487,8 @@
      "pos=dev_lead"
     ],
     "text": {
-     "ja": "おもちゃの会社から「アニメで遊ぶ CD の機械で 1 本どう?」。コントローラは手のひらに収まる。企画書も 2 枚で済む。",
-     "en": "A toy company asks: \"Make one for our anime CD machine?\" The controller fits in your palm. The pitch fits on two pages."
+     "ja": "バンダイから「アニメで遊ぶ CD の機械で 1 本どう?」。コントローラは手のひらに収まる。企画書も 2 枚で済む。",
+     "en": "Bandai asks: \"Make one for our anime CD machine?\" The controller fits in your palm. The pitch fits on two pages."
     },
     "choices": [
      {
@@ -655,8 +653,8 @@
      "pos=dev_lead"
     ],
     "text": {
-     "ja": "りんごのマークの会社と組んだ新型の説明会。「これからはインターネットです」。会場で一番大きくうなずいたのは自分だった。",
-     "en": "A launch briefing for a console made with the apple-logo company. \"The future is the internet.\" Nobody nodded harder than you."
+     "ja": "アップルと組んだ新型の説明会。「これからはインターネットです」。会場で一番大きくうなずいたのは自分だった。",
+     "en": "A launch briefing for the console made with Apple. \"The future is the internet.\" Nobody nodded harder than you."
     },
     "choices": [
      {
@@ -1100,7 +1098,6 @@
   "id": "hs_1998_ngp",
   "year": 1998,
   "month": 10,
-  "until": 1999,
   "kind": "hardware",
   "weight": 1,
   "title": {
@@ -1119,8 +1116,8 @@
      "pos=dev_lead"
     ],
     "text": {
-     "ja": "格闘ゲームの会社の携帯機。試作機の小さなレバーが、指先でカチカチ鳴る。この音のためだけに、1 本作りたくなった。",
-     "en": "A handheld from the fighting-game company. Its tiny stick clicks under your thumb. You want to make a game just for that sound."
+     "ja": "SNK の携帯機。試作機の小さなレバーが、指先でカチカチ鳴る。この音のためだけに、1 本作りたくなった。",
+     "en": "A handheld from SNK. Its tiny stick clicks under your thumb. You want to make a game just for that sound."
     },
     "choices": [
      {
@@ -1344,8 +1341,8 @@
    {
     "id": "ev_hs_2000_ngp_exit_any",
     "text": {
-     "ja": "格闘ゲームの会社の携帯機が、海外の店から消えた。日本の店では、まだ小さなレバーがカチカチ鳴っていた。",
-     "en": "The fighting-game company's handheld disappears from stores abroad. In Japanese shops, the little stick is still clicking."
+     "ja": "SNK の携帯機が、海外の店から消えた。日本の店では、まだ小さなレバーがカチカチ鳴っていた。",
+     "en": "SNK's handheld disappears from stores abroad. In Japanese shops, the little stick is still clicking."
     },
     "effect": {
      "passion": 1
@@ -2013,7 +2010,6 @@
   "id": "hs_2021_retro_auction",
   "year": 2021,
   "month": 7,
-  "until": 2022,
   "kind": "incident",
   "weight": 2,
   "title": {
