@@ -528,7 +528,7 @@ function pickHist(s: State): string[] {
     const stale = freshV ? 1 : tune<number>('life.recentPenalty') * 4;
     const novelty = !seenHist.has(h.id) ? tune<number>('hist.newBoost') : !seen.has(`${h.id}:${v.id}`) ? tune<number>('hist.newPosBoost') : 0.5;
     // 前に選んだこと(flag)を回収する版なら、ほぼ必ず出す(陣営・全力・闇の誘いの結末)
-    const callback = (v.when ?? []).some((c) => c.startsWith('flag.')) ? tune<number>('hist.callbackBoost') : 1;
+    const callback = (v.when ?? []).some((c) => c.startsWith('flag.') && !/^flag\.(partner|child|married|sega|ex_sega|ex_prison|real_co)$/.test(c)) && !s.inner.recent?.includes(v.id) ? tune<number>('hist.callbackBoost') : 1; // 状態の印(パートナーがいる等)は回収ではない。直近に見た版は回収でも押さない(第 43 回: 「そこ、弾いて」が 2 人生で一字一句同じ)
     cands.push({ id: v.id, w: (h.weight ?? 1) * novelty * callback * (callback > 1 ? 1 : stale), stale: !freshV && callback === 1 });
   }
   // 直近の人生で見た小ネタしか残っていない年は、無理に出さない(年表には出る。第 9 回ペルソナ: 尽きた年は埋めない方が冷めない)
