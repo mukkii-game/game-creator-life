@@ -66,6 +66,7 @@ ID 重複 / `years` 無し / ja か en が空 / effect が範囲外 / Condition 
 - その他のタグ: `fan`(ファンとの交流)、`rival`(ライバル視・リスペクト)、`quickquit`(すぐ辞める)、`late`(遅咲き)、`allin`(売れなかったハードに全力)、`piracy`、`plagiarism`、`weird`(特殊なソフト)。
 
 ## 10. 人生の分かれ道の命令フラグ(2026-10-15 追加。choice の effect.flag に入れる)
+- `do_promote`: 昇進する(選択肢で「管理職を受ける」時)。職種が一段上がる(プログラマー → ディレクター など)。
 - `do_teach`: 専門学校・大学の先生になる(job=teacher、会社は学校、作品は出なくなる、体力が戻りやすい)。先生の間は `job=teacher` / `pos=teacher` で話を絞れる。ゲーム開発に戻るのは `do_return`(先生になる前の職種で、新しい会社に)。先生のまま定年まで行くと専用の死因。
 - `do_switch` + `cause`: ゲームの外の仕事へ転身して、ゲーム人生を終える(フリーのイラストレーター・造形師・漫画家・ラノベ作家・ゲームコンサル …)。
 - `do_prison`: 服役(3 年。`pos=prison` / `flag.in_prison` で塀の中の話を出せる)。明けたら `ev_sys_prison_out` で個人開発者として再起する。

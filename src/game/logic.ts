@@ -244,6 +244,8 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
     } else if (f === 'do_prison') { // 服役(3 年)。明けたら個人開発者として再起する
       s.inner.prevJob = s.job; s.flags.in_prison = true; s.inner.prisonUntil = s.year + 3;
       setStatus(s, 'left'); s.job = 'other'; s.inner.otherJob = { ja: '塀の中', en: 'prison' };
+    } else if (f === 'do_promote') { // 管理職への昇進を受ける(選択肢から)
+      promote(s);
     } else if (f === 'do_join_sega' && SEGA()) { // セガに入る(PLAN §11)
       s.company = { id: 'co_sega', name: nameAt(SEGA()!, s.year), size: 'big' }; s.companies.push({ company: s.company, year: s.year });
       setStatus(s, 'employed'); s.inner.companyYears = 0;
@@ -316,8 +318,9 @@ function beginYear(s: State, out: string[]) {
     else {
       if (s.year >= s.inner.nextWorkYear && s.job !== 'teacher') q.push('@release');
       const lastOffer = Math.max(s.inner.seen.ev_sys_offer ?? -99, s.inner.seen.ev_sys_offer_b ?? -99, s.inner.seen.ev_sys_offer_c ?? -99);
-      if (!s.flags.age60 && s.inner.companyYears >= 2 && s.age >= 20 && s.year - lastOffer >= 4 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(r.pick(['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
-      else if (canPromote(s) && r.chance(tune('job.promote'))) sys.push(r.pick(['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
+      if (!s.flags.age60 && s.inner.companyYears >= 2 && s.age >= 20 && s.year - lastOffer >= 6 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(r.pick(['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
+      // 昇進: 半分は「受けるか、現場に残るか」の選択(ev_wk_promote_ask)。残りはそのまま辞令
+      else if (canPromote(s) && r.chance(tune('job.promote'))) sys.push(r.chance(0.5) && !s.inner.used.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : r.pick(['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
       if (s.year >= 2027 && !s.inner.used.includes('ev_sys_ai_seat') && r.chance(Math.min(0.6, tune('ai.seat') * (1 + 2 * Math.min(1, (s.year - 2027) / 8)) + Math.max(0, s.year - 2035) * 0.12))) sys.push('ev_sys_ai_seat');
     }
   } else if (s.status === 'indie') {
@@ -343,13 +346,18 @@ function beginYear(s: State, out: string[]) {
   }
   // 数年に一回の大きな選択(すごく悩むやつ)
   if (s.year >= s.inner.nextBig && s.status !== 'left') {
-    const pool = POOL.filter((e) => e.tag?.includes('big') && !e.tag.includes('hardware') && e.choices && eligible(s, e, 99));
+    const pool = POOL.filter((e) => e.tag?.includes('big') && !e.tag.includes('hardware') && !e.tag.includes('worklife') && e.choices && eligible(s, e, 99));
     if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextBig = s.year + r.int(tune<number>('choice.bigMin'), tune<number>('choice.bigMax')); }
   }
   // どのハードに賭けるか(hardware.json。大きな選択と同じ年には出さない)
   if (s.year >= (s.inner.nextHw ?? 0) && !turning.length && (s.status === 'employed' || s.status === 'indie')) {
     const pool = POOL.filter((e) => e.tag?.includes('hardware') && e.choices && eligible(s, e, 99));
     if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextHw = s.year + r.int(tune<number>('choice.hwMin'), tune<number>('choice.hwMax')); }
+  }
+  // 仕事の選択(worklife.json: タイトル・続編か新作か・チーム・エンジン・延期かカットか・海外版・リストラ)。他の大きな選択と同じ年には出さない
+  if (s.year >= (s.inner.nextWk ?? s.startYear + 3) && !turning.length && s.status === 'employed') {
+    const pool = POOL.filter((e) => e.tag?.includes('worklife') && e.choices && eligible(s, e, 99));
+    if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextWk = s.year + r.int(tune<number>('choice.wkMin'), tune<number>('choice.wkMax')); }
   }
   mentorArcs(s, r, out);
   // 他の人の人生(名前を入れて遊んだ誰か)が、先輩・同期・後輩・記事として顔を出す
@@ -363,7 +371,7 @@ function beginYear(s: State, out: string[]) {
   const n = r.int(tune('life.eventsMin'), tune('life.eventsMax')) - (q.length > 0 ? 1 : 0) - hist.length;
   const sysChoice = [...sys, ...q, ...hist, ...turning].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
-  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware'].some((t) => e.tag?.includes(t)));
+  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware', 'worklife'].some((t) => e.tag?.includes(t)));
   let picked = draw(r, pool, Math.max(1, n));
   // 選択は 1 年に 1 本まで、作品の後日談も 1 年に 1 本まで
   let seenChoice = false, seenAfter = false;

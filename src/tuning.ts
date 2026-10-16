@@ -24,6 +24,8 @@ export const KNOBS: Knob[] = [
   { key: 'others.chance', label: '他の人の人生が顔を出す確率', value: 0.18, min: 0, max: 1, step: 0.02, unit: '/年', aim: '名前を入れて遊んだ誰かが、先輩・同期・後輩・記事で時々出る' },
   { key: 'others.max', label: '他の人の人生が出る上限', value: 4, min: 0, max: 20, step: 1, unit: '回/人生' },
   { key: 'choice.hwMin', label: 'ハード選択の間隔(最短)', value: 4, min: 1, max: 15, step: 1, unit: '年', aim: 'セガか他か・据え置きか携帯か・ゲーセンか家庭用か・スマホかコンシューマか、を時々迷う' },
+  { key: 'choice.wkMin', label: '仕事の選択の間隔(最短)', value: 3, min: 1, max: 15, step: 1, unit: '年', aim: 'タイトル・続編か新作か・チーム・延期かカットか・リストラ … を時々迷う' },
+  { key: 'choice.wkMax', label: '仕事の選択の間隔(最長)', value: 5, min: 1, max: 20, step: 1, unit: '年' },
   { key: 'choice.hwMax', label: 'ハード選択の間隔(最長)', value: 6, min: 1, max: 20, step: 1, unit: '年' },
   // 業界入り
   { key: 'gacha.age18', label: '18 歳で入る割合(基本は 22 歳。2026-10-16 Mukkii)', value: 0.08, min: 0, max: 1, step: 0.05 },
@@ -40,7 +42,7 @@ export const KNOBS: Knob[] = [
   { key: 'year.indieCost', label: '独立中の 1 年の持ち出し', value: 90, min: 0, max: 500, step: 10, unit: '万円' },
   { key: 'year.leftCost', label: '無職の 1 年の持ち出し', value: 80, min: 0, max: 300, step: 10, unit: '万円' },
   // 職と転職
-  { key: 'job.offer', label: '引き抜きの誘いの確率', value: 0.07, min: 0, max: 1, step: 0.01, unit: '1 年あたり', aim: '人脈で増える。一度来たら 4 年は来ない' },
+  { key: 'job.offer', label: '引き抜きの誘いの確率', value: 0.04, min: 0, max: 1, step: 0.01, unit: '1 年あたり', aim: '人脈で増える。一度来たら 6 年は来ない(2026-10-16 Mukkii: 年収 1.5 倍の誘いが多すぎる → 0.07 から)' },
   { key: 'job.promote', label: '昇進の確率(条件を満たした時)', value: 0.3, min: 0, max: 1, step: 0.05, unit: '1 年あたり' },
   { key: 'job.bankrupt', label: '会社が潰れる確率(中堅)', value: 0.03, min: 0, max: 0.3, step: 0.01, unit: '1 年あたり', aim: '下請け 2 倍、小さい会社 1.6 倍、大手 0.3 倍。史実の不況年は 2 倍' },
   { key: 'job.rehire', label: '再就職の基本の確率', value: 0.3, min: 0, max: 1, step: 0.05, aim: '腕と人脈で上がる。3 回落ちたら業界を去る' },
