@@ -2943,6 +2943,26 @@
   "src": "https://www.famitsu.com/article/202412/28694",
   "variants": [
    {
+    "id": "ev_hs_dark_1999_shen_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "横須賀の大作が出た。噂の制作費を自分の生涯年収で割ってみたら、30 人分の人生だった。その夜、少し高いビールを買った。",
+     "en": "The Yokosuka epic ships. You divided the rumored budget by your lifetime earnings: thirty of you. That night you bought slightly nicer beer."
+    },
+    "effect": {
+     "passion": 4,
+     "money": -1
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "sega",
+     "gag"
+    ]
+   },
+   {
     "id": "ev_hs_dark_1999_shen_client",
     "when": [
      "pos=client"
