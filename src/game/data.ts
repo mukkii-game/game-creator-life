@@ -34,6 +34,10 @@ export const POOL: GameEvent[] = EVENTS.filter((e) => !e.id.startsWith('ev_sys_'
 export interface CoRow { id: string; name: import('./types').Text; years: [number, number]; weight?: number; size?: string; renames?: [number, import('./types').Text][] }
 const coMod = import.meta.glob('../data/companies.json', { eager: true, import: 'default' }) as Record<string, { real: CoRow[]; parody: CoRow[] }>;
 export const COMPANIES = Object.values(coMod)[0] ?? { real: [], parody: [] };
+// 会社ごとの作風(作品のジャンルの寄せ先)と社風の一言(company_traits.json)
+export interface CoTrait { genres?: string[]; lines?: import('./types').Text[] }
+const ctMod = import.meta.glob('../data/company_traits.json', { eager: true, import: 'default' }) as Record<string, Record<string, CoTrait | string>>;
+export const CO_TRAITS: Record<string, CoTrait> = Object.fromEntries(Object.entries(Object.values(ctMod)[0] ?? {}).filter(([k, v]) => !k.startsWith('_') && typeof v === 'object')) as Record<string, CoTrait>;
 export interface LastWord { id: string; endings: string[]; when?: string[]; text: import('./types').Text }
 const lwMod = import.meta.glob('../data/lastwords.json', { eager: true, import: 'default' }) as Record<string, { lines: LastWord[] }>;
 export const LASTWORDS: LastWord[] = Object.values(lwMod)[0]?.lines ?? [];

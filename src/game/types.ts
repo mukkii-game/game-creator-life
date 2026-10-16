@@ -95,6 +95,8 @@ export interface Inner {
   others?: import('./people').OtherLife[]; // 他の人の人生(先輩・同期・後輩・記事で出る)
   othersShown?: number;
   othersSeen?: string[];
+  /** 社風の一言を出した会社 */
+  coShown?: string[];
   /** 直属の先輩(メンター)と、自分が面倒を見る後輩(メンティー)。人生に 1 人ずつ */
   mentor?: Arc;
   mentee?: Arc;

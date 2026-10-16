@@ -775,6 +775,136 @@
         2010,
         2060
       ]
+    },
+    {
+      "id": "co_jupitel",
+      "name": {
+        "ja": "ジュピテル",
+        "en": "Jupitel"
+      },
+      "size": "sub",
+      "years": [
+        1992,
+        2060
+      ],
+      "based": "ジュピター"
+    },
+    {
+      "id": "co_dimple",
+      "name": {
+        "ja": "ディンプル",
+        "en": "Dimple"
+      },
+      "size": "sub",
+      "years": [
+        2000,
+        2060
+      ],
+      "based": "ディンプス"
+    },
+    {
+      "id": "co_matryoshka",
+      "name": {
+        "ja": "マトリョーシカソフト",
+        "en": "Matryoshka Soft"
+      },
+      "size": "sub",
+      "years": [
+        1994,
+        2060
+      ],
+      "based": "マトリックス"
+    },
+    {
+      "id": "co_nowpro",
+      "name": {
+        "ja": "ナウプロダクトン",
+        "en": "Nowproducton"
+      },
+      "size": "sub",
+      "years": [
+        1985,
+        2060
+      ],
+      "based": "ナウプロダクション"
+    },
+    {
+      "id": "co_tamtam",
+      "name": {
+        "ja": "タムタムソフト",
+        "en": "TamTam Soft"
+      },
+      "size": "sub",
+      "years": [
+        1992,
+        2060
+      ],
+      "based": "タムソフト"
+    },
+    {
+      "id": "co_hachiing",
+      "name": {
+        "ja": "ハッチング",
+        "en": "Hatching"
+      },
+      "size": "sub",
+      "years": [
+        1993,
+        2060
+      ],
+      "based": "エイティング"
+    },
+    {
+      "id": "co_hunex",
+      "name": {
+        "ja": "ヒューネックス堂",
+        "en": "Hunex-do"
+      },
+      "size": "sub",
+      "years": [
+        1998,
+        2060
+      ],
+      "based": "ヒューネックス"
+    },
+    {
+      "id": "co_toaplan_t",
+      "name": {
+        "ja": "トーワプラン",
+        "en": "Towa Plan"
+      },
+      "size": "sub",
+      "years": [
+        1984,
+        1994
+      ],
+      "based": "東亜プラン"
+    },
+    {
+      "id": "co_sas_sakata",
+      "name": {
+        "ja": "サカダSOS",
+        "en": "Sakada SOS"
+      },
+      "size": "sub",
+      "years": [
+        1978,
+        1998
+      ],
+      "based": "サカタSAS"
+    },
+    {
+      "id": "co_cattle",
+      "name": {
+        "ja": "カウベルコール",
+        "en": "Cowbell Call"
+      },
+      "size": "sub",
+      "years": [
+        1999,
+        2060
+      ],
+      "based": "キャトルコール"
     }
   ]
 }

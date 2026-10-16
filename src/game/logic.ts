@@ -6,7 +6,7 @@ import { tune } from '../core/tuning';
 import { callName, fullName, type OtherLife } from './people';
 import type { Arc } from './types';
 import type { State, InitOptions, Text, Effect, GameEvent, Choice, Job, CompanySize, EndingId, Era, LogLine, Company } from './types';
-import { EVENTS, EVENT_BY_ID, POOL, TIMELINE_BY_YEAR, HIST, HIST_OF, COMPANIES, type CoRow } from './data';
+import { CO_TRAITS, EVENTS, EVENT_BY_ID, POOL, TIMELINE_BY_YEAR, HIST, HIST_OF, COMPANIES, type CoRow } from './data';
 import { eligible, draw, positionOf } from './select';
 
 export { positionOf };
@@ -84,7 +84,8 @@ function nameAt(c: CoRow, year: number): Text {
 function newCompany(r: Rng, size: CompanySize, year: number, avoid?: string): Company {
   const rows = size === 'big' ? COMPANIES.real : ['mid', 'small', 'sub'].includes(size) ? COMPANIES.parody.filter((c) => c.size === size) : [];
   const ok = rows.filter((c) => c.years[0] <= year && year <= c.years[1] && c.id !== avoid);
-  if (ok.length && r.chance(0.85)) {
+  // 表が少ない年代は作った名前を混ぜる(同じ会社ばかりにしない)
+  if (ok.length && r.chance(size === 'big' ? 0.85 : Math.min(0.85, 0.2 + 0.12 * ok.length))) {
     const total = ok.reduce((t, c) => t + (c.weight ?? 1), 0);
     let x = r.next() * total;
     const c = ok.find((c) => (x -= c.weight ?? 1) < 0) ?? ok[ok.length - 1];
@@ -360,6 +361,12 @@ function beginYear(s: State, out: string[]) {
     if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextWk = s.year + r.int(tune<number>('choice.wkMin'), tune<number>('choice.wkMax')); }
   }
   mentorArcs(s, r, out);
+  // 入社した年に、その会社の社風の一言(company_traits.json)
+  const trait = CO_TRAITS[s.company.id];
+  if (trait?.lines?.length && s.status === 'employed' && !(s.inner.coShown ??= []).includes(s.company.id)) {
+    s.inner.coShown.push(s.company.id);
+    log(s, r.pick(trait.lines), 'event', ['company']);
+  }
   // 他の人の人生(名前を入れて遊んだ誰か)が、先輩・同期・後輩・記事として顔を出す
   if (s.inner.others?.length && (s.status === 'employed' || s.status === 'indie') && (s.inner.othersShown ?? 0) < tune<number>('others.max') && r.chance(tune('others.chance'))) {
     const line = otherLine(s, r);

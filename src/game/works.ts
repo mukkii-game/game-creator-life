@@ -2,17 +2,21 @@
 import { tune } from '../core/tuning';
 import type { State, Work, Role, WorkResult, Text } from './types';
 import { workName, platformFor } from './names';
+import { CO_TRAITS } from './data';
 
 // あなたのチームの作品の名前(PLAN §12 を 2026-10-15 Mukkii の指示で変更): 実在のヒット作は実名で史実に出し、
 // 自分の作品は「その年のヒット作と雰囲気が似た、チームのオリジナルの造語タイトル」。表は src/data/titles.json。
-interface TitleRow { id: string; years: [number, number]; platforms?: string[]; coined?: Text[]; name?: Text; gag?: Text | Text[] }
+interface TitleRow { id: string; years: [number, number]; platforms?: string[]; genre?: Text; coined?: Text[]; name?: Text; gag?: Text | Text[] }
 const tMod = import.meta.glob('../data/titles.json', { eager: true, import: 'default' }) as Record<string, { titles: TitleRow[] }>;
 const TITLES: TitleRow[] = Object.values(tMod)[0]?.titles ?? [];
 function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | null {
   const used = new Set(s.works.map((w) => w.name.ja));
   const near = TITLES.filter((t) => t.years[0] <= s.year && s.year <= t.years[1] + 1); // 発売前の年には出さない(実名の一言が前年に出ていた)
   const fit = near.filter((t) => !t.platforms || t.platforms.some((p) => platform.includes(p) || p.includes(platform)));
-  for (const pool of [fit, near]) {
+  // 会社の作風(company_traits.json の genres)に合うタイトルを 7 割で優先する(シューティングの会社はシューティングを出しがち)
+  const genres = CO_TRAITS[s.company.id]?.genres;
+  const byGenre = genres?.length && s.rng.chance(0.7) ? [fit, near].map((p) => p.filter((t) => t.genre && genres.includes(t.genre.ja))) : [];
+  for (const pool of [...byGenre, fit, near]) {
     const cands = pool.flatMap((t) => (t.coined ?? (t.name ? [t.name] : [])).filter((n) => !used.has(`『${n.ja}』`) && !used.has(n.ja)).map((n) => ({ n, t })));
     if (!cands.length) continue;
     const { n, t } = s.rng.pick(cands);
