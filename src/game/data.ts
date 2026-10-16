@@ -37,7 +37,6 @@ const KIN: [RegExp, string, string[]][] = [
 ];
 // 「両親」の話は、どちらかを見送った後には出さない(第 27 回: 父を見送った 2 年後に「両親が会社見学」)
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(''); if (/両親|親が(?!倒れ)|父母/.test(tx) && (e.weight ?? 1) > 0) for (const f of ['!flag.father_gone', '!flag.mother_gone']) if (!(e.when ?? []).includes(f)) e.when = [...(e.when ?? []), f]; }
-for (const e of EVENTS) if (e.motif && ['mom_buys', 'oversleep', 'farewell_name', 'boss_fight', 'not_me'].includes(e.motif) && (/^ev_(fa|rv|mt|me)_/.test(e.id) || e.tag?.includes('chain') || e.tag?.includes('followup'))) delete e.motif; // 長い筋・続きの回は小ネタの型で止めない
 for (const e of EVENTS) for (const [re, flag, deaths] of KIN) {
   if (deaths.includes(e.id)) { const put = (x?: import('./types').Effect) => ({ ...(x ?? {}), flag: { ...(x?.flag ?? {}), [flag]: true } }); e.effect = put(e.effect); for (const c of e.choices ?? []) c.effect = put(c.effect); continue; } // 選択のある話は話そのものの effect が使われないので、選択ごとにも立てる(第 19 回: 危篤の祖父が生き返った)
   if ((e.weight ?? 1) > 0 && re.test([e.text, ...(e.alt ?? [])].map((x) => x.ja).join('')) && !(e.when ?? []).includes(`!flag.${flag}`)) e.when = [...(e.when ?? []), `!flag.${flag}`];
@@ -139,7 +138,7 @@ const MOTIFS: [string, RegExp][] = [
   ['train', /電車で.*(知らない人|隣の人|サラリーマン|学生).*(遊んで|遊んでいた|プレイ)|(知らない人|隣の人|サラリーマン).*電車.*(あなたの|自分の)ゲーム/], ['cupmen', /カップ麺/], // 第 25 回: 電車で自分のゲームを遊ぶ人が 5 回、カップ麺が 3 回
   ['train', /(電車|新幹線|車両).*(自分の|あなたの|うちの)(ゲーム|作品|作った)|(自分の|あなたの)(ゲーム|作品).*(電車|新幹線)/],
   ['hospital', /入院|病室/],
-  ['major', /専攻した|美大に通って|専門学校に通って/], ['qa_tries', /テストの席で.{0,40}\d+ 回試した/], ['game_wedding', /きっかけで結婚/], ['title_meeting', /タイトル会議|題名会議|略して呼べる|略せる名前/], ['mom_buys', /は母(だった|が買)|1 つは母|母が \d+ (部|本)|母の 1 件|本は母/], ['oversleep', /乗り過ごし/], ['farewell_name', /送別会.{0,40}下の名前|下の名前.{0,40}送別会/], ['boss_fight', /社長.{0,30}格ゲー|社長室に呼ばれた。用件は/], ['not_me', /違うと言うと.{0,10}がっかり|がっかりされた/], // 第 48 回: 母が買う・乗り過ごし・下の名前の送別会・社長と格ゲーが人生をまたいで続く
+  ['major', /専攻した|美大に通って|専門学校に通って/], ['qa_tries', /テストの席で.{0,40}\d+ 回試した/], ['game_wedding', /きっかけで結婚/], ['title_meeting', /タイトル会議|題名会議|略して呼べる|略せる名前/], ['uchimo', /役員会で「うちも|「うちも.{0,12}を」/], ['mom_buys', /は母(だった|が買)|1 つは母|母が \d+ (部|本)|母の 1 件|本は母/], ['oversleep', /乗り過ごし/], ['farewell_name', /送別会.{0,40}下の名前|下の名前.{0,40}送別会/], ['boss_fight', /社長.{0,30}格ゲー|社長室に呼ばれた。用件は/], ['not_me', /違うと言うと.{0,10}がっかり|がっかりされた/], // 第 48 回: 母が買う・乗り過ごし・下の名前の送別会・社長と格ゲーが人生をまたいで続く
   ['readable_code', /コードの方が読みやすい|自分より読みやすかった/],
   ['vr_sick', /(VR|ゴーグル).*(酔|座り込|壁を探|床で)/],
   ['hunt', /一狩り|狩りに|狩場|狩りをして/],
@@ -172,6 +171,8 @@ const MOTIFS: [string, RegExp][] = [
   ['parent_save', /セーブデータ.*(名前|「)|「(とうちゃん|おかん)」/],
 ];
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; else if (e.tag?.includes('crime') && e.choices) e.motif = 'crime'; if (e.tag?.includes('early_exit') && e.choices) e.motif = 'early_exit'; if (e.choices && !e.id.startsWith('ev_sys_') && !e.motif) { if (/AI/.test(tx) && e.years[1] >= 2022) e.motif = 'ai_choice'; else if (/ケータイ(の)?部署|ソシャゲ(に|へ)(行|移)/.test(tx + (e.choices ?? []).map((c) => c.label.ja).join(''))) e.motif = 'mobile_move'; } } // AI をどう使うか・ケータイへ移るかの選択は 1 人生 1 回 // 早くに去る選択は 1 人生 1 回 // 犯罪の入口(選択)は続けて遊ぶと出にくく
+for (const e of EVENTS) if (e.motif && ['mom_buys', 'oversleep', 'farewell_name', 'boss_fight', 'not_me'].includes(e.motif) && (/^ev_(fa|rv|mt|me)_/.test(e.id) || e.tag?.includes('chain') || e.tag?.includes('followup'))) delete e.motif; // 長い筋・続きの回は小ネタの型で止めない
+for (const e of EVENTS) { if (/^ev_(sys|fa|rv|mt|me)_/.test(e.id) || e.tag?.includes('chain') || e.tag?.includes('followup')) continue; const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const all = [...new Set(MOTIFS.filter(([, re]) => re.test(tx)).map(([m]) => m))].filter((m) => m !== e.motif); if (all.length) e.motifAll = all; } // 2 つ目以降の型も覚える(第 51 回: 電車で自分のゲームが 1 人生に 3 回。最初の型しか見ていなかった)
 // 家族の危機の大きな選択(危篤・倒れた・最後の願い)は 1 人生 1 回、続けて遊んでも出にくく(第 19 回: 3 人生で 5 回)
 for (const e of EVENTS) if (['ev_lv_big_grandpa', 'ev_lv_big_father', 'ev_lv_big_mother_last', 'ev_tn_big_care'].includes(e.id)) e.motif = 'family_crisis';
 // 歴史の事件の「ケータイ部署を引き受けるか」も、ハードの選択と同じ型・同じ印に(第 20 回: 引き受けた後に「ソシャゲに行く?」と聞かれた)
