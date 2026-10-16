@@ -28,7 +28,7 @@
         "result": { "ja": "フォルダの名前を「いつか」に変えた。", "en": "You renamed the folder 'someday.'" } }
     ], "tag": ["choice", "money"] },
   { "id": "ev_era5_steam_year1", "years": [2017, 2024], "weight": 0,
-    "text": { "ja": "自作の 1 年目の売上: 312 本。レビューは「非常に好評(9 件)」。貯金は 0 になった。", "en": "Year one of your game: 312 copies. Reviews: 'Very Positive (9).' Savings: zero." },
+    "text": { "ja": "自作の 1 年目の売上: 312 本。レビューは「非常に好評(11 件)」。貯金は 0 になった。", "en": "Year one of your game: 312 copies. Reviews: 'Very Positive (11).' Savings: zero." },
     "effect": { "passion": 6, "fame": 4, "skill": 5, "money": -30 }, "tag": ["money"] },
   { "id": "ev_era5_steam_bighit", "years": [2017, 2024], "once": true, "weight": 0.3,
     "text": { "ja": "自作が海外の有名な配信者に拾われ、一晩で 10 万本。売上通知の音で眠れない。", "en": "A big overseas streamer picks up your game: 100,000 copies overnight. The sales notifications won't let you sleep." },
