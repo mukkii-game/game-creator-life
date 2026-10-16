@@ -460,7 +460,7 @@ function beginYear(s: State, out: string[]) {
   // 仕事の選択(worklife.json: タイトル・続編か新作か・チーム・エンジン・延期かカットか・海外版・リストラ)。他の大きな選択と同じ年には出さない
   if (s.year >= (s.inner.nextWk ?? s.startYear + 3) && !turning.length && s.status === 'employed') {
     const pool0 = POOL.filter((e) => e.tag?.includes('worklife') && e.choices && eligible(s, e, 99, 1));
-    const fresh = freshOnly(s, pool0); const pool = fresh.length ? fresh : r.chance(0.35) ? pool0 : [];
+    const fresh = freshOnly(s, pool0); const pool = fresh.length ? fresh : r.chance(0.15) ? pool0 : []; // 第 33 回: タイトル会議・名前の 3 案・エンジン選びが人生をまたいで → 0.35 から 0.15
     if (pool0.length && !pool.length) s.inner.nextWk = s.year + r.int(tune<number>('choice.wkMin'), tune<number>('choice.wkMax'));
     if (pool.length) { turning.push(draw(r, pool, 1, wOf(s))[0].id); s.inner.nextWk = s.year + r.int(tune<number>('choice.wkMin'), tune<number>('choice.wkMax')); }
   }
