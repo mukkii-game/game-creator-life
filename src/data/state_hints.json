@@ -1,1 +1,1686 @@
-{}
+{
+ "ev_mo_abroad_box": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mo_arcade_coin": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mo_auction_poster": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mo_bingo_rival": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mo_cel_shmup_master": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_mo_cr_arcade_credit": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mo_cr_modchip": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_mo_cr_pirate": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_mo_cr_rmt": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_mo_cr_rom_dump": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_mo_doujin_cover": {
+  "jobs": [
+   "artist",
+   "director"
+  ]
+ },
+ "ev_mo_launch_line": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mo_leave_grandma": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mo_master_taxi": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mo_night_bus": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mo_premium_used": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mo_qa_free_game": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mo_raised_by": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_mo_staff_discount": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mo_taxi_ticket": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mo_tv_cm": {
+  "jobs": [
+   "artist",
+   "director"
+  ]
+ },
+ "ev_tn_big_abroad": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_tn_big_engine": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_big_flip_phone": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tn_big_rights": {
+  "when": [
+   "works>=1",
+   "status=indie"
+  ]
+ },
+ "ev_tn_big_socialgame": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tn_big_soul_gacha": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_tn_late_allnighter": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_dots": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_early_bird": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_enemy_vote": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_fighting": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_futon": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_jargon": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_karaoke": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_mail": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_mentor_23": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_pension": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_soroban": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_stairs": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_training": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_late_young_boss": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_pit_arcade_loc": {
+  "when": [
+   "status=employed",
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tn_pit_board": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pit_collapse": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_pit_gacha_odds": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_tn_pit_home_lock": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pit_hw_exit": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tn_pit_launch_bug": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pit_merger": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pit_oldman": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_pit_qa_recall": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tn_pit_wagon": {
+  "when": [
+   "works>=1",
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tn_pit_young": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_pk_app_top": {
+  "when": [
+   "works>=1",
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_tn_pk_arcade_line": {
+  "when": [
+   "works>=1",
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tn_pk_award": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_board_god": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_dad": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_essay": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_flip_phone": {
+  "when": [
+   "works>=1",
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_tn_pk_karaoke": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_late": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_letters": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_merch": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_overseas": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_reverse_import": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tn_pk_speedrun": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_textbook": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_tgs": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_train": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_trend": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_pk_tv": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tn_qq_burnout_one": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_qq_lottery": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_qq_motion_sick": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tn_qq_scout": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tr_big_insider_app": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_tr_big_insider_tieup": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_tr_c_boss_hard": {
+  "jobs": [
+   "planner",
+   "programmer",
+   "artist",
+   "director"
+  ]
+ },
+ "ev_tr_c_gacha_rate": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_tr_c_gacha_tease": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_tr_c_kill_char": {
+  "when": [
+   "status=employed"
+  ],
+  "jobs": [
+   "planner",
+   "director"
+  ]
+ },
+ "ev_tr_c_risky_plan": {
+  "when": [
+   "flag.promoted"
+  ]
+ },
+ "ev_tr_c_scarcity": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tr_lk_ad_date_typo": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tr_lk_kid_report": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_tr_lk_lottery_pc": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_tr_lk_rain_launch_queue": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tr_lk_rom_platform": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tr_lk_same_day_title": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tr_lk_school_fad": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tr_lk_school_trip": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_tr_lk_snow": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tr_lk_train_player": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_tr_lk_typhoon": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_tr_lk_typo_onsen": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_wm_pr_rom_drawer": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_wm_pr_wagon_buy": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_wm_ms_shop_owner": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_wm_ms_left_friend": {
+  "jobs": [
+   "artist",
+   "director"
+  ]
+ },
+ "ev_wm_iv_tokyo_branch": {
+  "when": [
+   "flag.promoted"
+  ]
+ },
+ "ev_lf_bond_rpg_composer": {
+  "jobs": [
+   "sound"
+  ]
+ },
+ "ev_lf_bond_ff_creator": {
+  "when": [
+   "works>=3"
+  ]
+ },
+ "ev_lf_bond_meijin": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_lf_bond_president": {
+  "when": [
+   "status=employed",
+   "!flag.promoted"
+  ]
+ },
+ "ev_lf_bond_atari": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_lf_bond_hunting": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_lf_bond_legend_pixel": {
+  "jobs": [
+   "artist",
+   "director"
+  ]
+ },
+ "ev_lf_bond_legend_programmer": {
+  "jobs": [
+   "programmer",
+   "director"
+  ]
+ },
+ "ev_lf_bond_legend_overseas": {
+  "when": [
+   "status=employed",
+   "company.size!=abroad"
+  ]
+ },
+ "ev_lf_rival_legend_mention": {
+  "when": [
+   "status=employed",
+   "company.size!=big"
+  ]
+ },
+ "ev_lf_rival_overseas_poster": {
+  "when": [
+   "status=employed",
+   "company.size!=abroad"
+  ]
+ },
+ "ev_lf_fan_valentine": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_cr_inv_back": {
+  "when": [
+   "status!=left"
+  ]
+ },
+ "ev_cr_inv_prof": {
+  "when": [
+   "status!=left"
+  ]
+ },
+ "ev_cr_inv_reunion": {
+  "when": [
+   "status!=left"
+  ]
+ },
+ "ev_cr_inv_eyes": {
+  "jobs": [
+   "artist",
+   "director"
+  ]
+ },
+ "ev_cr_inv_dean": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_cr_inv_family": {
+  "when": [
+   "career>=20"
+  ]
+ },
+ "ev_cr_inv_burnout": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_cr_illust": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_cr_writer": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_cr_copywriter": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_cr_shop": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_cr_youtuber": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_cr_oldcode": {
+  "jobs": [
+   "programmer"
+  ]
+ },
+ "ev_mg_io_ad": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_io_listing_job": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_bemaga_supersoft": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_login_new_title": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_login_famitsu_spinoff": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_technopolis_shot": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_popcom_visit": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_beep_preview": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_ohx_port": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_famimaga_trick": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_famimaga_million": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_marukatsu": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_pce_fan": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_cross_review": {
+  "when": [
+   "company.size!=abroad",
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mg_cross_review_32": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mg_cross_review_low": {
+  "when": [
+   "company.size!=abroad",
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mg_famitsu_ranking": {
+  "when": [
+   "company.size!=abroad",
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mg_gamest_typo_name": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_gamest_indian": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_gamest_reader_art": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_vjump_strategy": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_saturn_mag": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_dorimaga": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_dengeki_ps": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_demo_disc": {
+  "when": [
+   "company.size!=abroad",
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_mg_game_hihyo": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_reader_postcard": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_beepmd_love": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_mg_beepmd_hw": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_mg_beepmd_race": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_era1_fax_spec": {
+  "when": [
+   "company.size!=big"
+  ]
+ },
+ "ev_era1_sales_explain": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_era1_ch_abroad": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_era1_home_payoff": {
+  "when": [
+   "company.size!=small",
+   "company.size!=sub"
+  ]
+ },
+ "ev_era1_ch_omiai": {
+  "when": [
+   "status!=left"
+  ]
+ },
+ "ev_era1_partner_debug": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_era1_omiai_regret": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_era1_poster_ghost": {
+  "when": [
+   "works>=1",
+   "status=employed"
+  ]
+ },
+ "ev_era1_stay_rush": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_era2_promotion_skipped": {
+  "when": [
+   "!flag.promoted"
+  ]
+ },
+ "ev_era2_fighting_arcade": {
+  "when": [
+   "status!=left"
+  ]
+ },
+ "ev_era2_polygon_reset": {
+  "when": [
+   "career>=8"
+  ]
+ },
+ "ev_era2_sales_wholesale": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_era2_action_cult": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_era2_dot_last": {
+  "jobs": [
+   "artist",
+   "director"
+  ]
+ },
+ "ev_era2_ot_regret": {
+  "when": [
+   "career>=5"
+  ]
+ },
+ "ev_era3_ringtone": {
+  "when": [
+   "career>=8"
+  ]
+ },
+ "ev_era3_manga_cafe": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_era3_mobile_regret": {
+  "when": [
+   "company.size!=small",
+   "company.size!=sub"
+  ]
+ },
+ "ev_era3_indie_reality": {
+  "when": [
+   "status=indie"
+  ]
+ },
+ "ev_era3_ch_sequel": {
+  "jobs": [
+   "planner",
+   "director",
+   "producer",
+   "programmer",
+   "artist",
+   "sound"
+  ]
+ },
+ "ev_era3_ch_dance_final": {
+  "jobs": [
+   "planner",
+   "director",
+   "producer",
+   "programmer",
+   "artist",
+   "sound"
+  ]
+ },
+ "ev_era3_wk_remake": {
+  "jobs": [
+   "artist",
+   "director"
+  ]
+ },
+ "ev_era4_early_bird_promo": {
+  "when": [
+   "!flag.promoted"
+  ]
+ },
+ "ev_era4_brain_flood": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_era4_console_cut": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_era4_quake_blackout": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_era4_producer_secret": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_era4_sales_shelf": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_era4_sns_diary": {
+  "when": [
+   "status!=left"
+  ]
+ },
+ "ev_era4_free_engine": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_era4_child_rival": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_era5_gacha_layoff_list": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_era5_golden_week": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_era5_overseas_offer": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_era5_ops_newyear": {
+  "when": [
+   "!flag.hw_dv_console",
+   "company.size!=abroad"
+  ]
+ },
+ "ev_era5_maintenance": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_era5_addiction_talk": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_era5_lights_out": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_era5_qa_live": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_era5_server_down": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_era5_card_art": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_era5_kpi": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_era5_preorder_bonus": {
+  "when": [
+   "!flag.hw_dv_mobile",
+   "status=employed"
+  ]
+ },
+ "ev_era5_collabs": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_era5_drinks_alert": {
+  "when": [
+   "!flag.hw_dv_console",
+   "status=employed"
+  ]
+ },
+ "ev_era5_partner": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_era5_child": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_era6_60min": {
+  "when": [
+   "status!=left"
+  ]
+ },
+ "ev_era6_million_poly": {
+  "when": [
+   "career>=15"
+  ]
+ },
+ "ev_era6_ai_backgrounds": {
+  "jobs": [
+   "artist",
+   "director",
+   "producer"
+  ]
+ },
+ "ev_era6_ai_voice": {
+  "jobs": [
+   "director",
+   "producer",
+   "sound",
+   "planner"
+  ]
+ },
+ "ev_era6_child_ai_game": {
+  "when": [
+   "kid>=8"
+  ]
+ },
+ "ev_era6_launch_title": {
+  "when": [
+   "career>=15"
+  ]
+ },
+ "ev_era6_peer_streamer": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_era6_reading_glasses": {
+  "when": [
+   "status!=left"
+  ]
+ },
+ "ev_era6_health_check": {
+  "when": [
+   "status!=left"
+  ]
+ },
+ "ev_era6_all_ai_epic": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_era6_15m": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_era6_contract_elder": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_era6_wk_sfx_meme": {
+  "jobs": [
+   "sound",
+   "director"
+  ]
+ },
+ "ev_yf_2009_ecopoint": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_yf_2016_decade_rpg": {
+  "when": [
+   "career>=9"
+  ]
+ },
+ "ev_yf_2016_vertical": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_yf_2017_premium_friday": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_yf_2018_heisei_last": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_yf_2019_new_era_name": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_yf_2019_tax_ten": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_yf_2020_hanko_trip": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_yf_2022_weak_yen": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_yf_2023_onigiri": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_yf_2024_new_bills": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_yf_2023_summary_better": {
+  "jobs": [
+   "planner",
+   "director",
+   "producer"
+  ]
+ },
+ "ev_sl_choberiba": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_qt_slamdunk": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_any_drinks_peer": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_tool_mz80b_tape": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_tool_pc8001": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_tool_pc98_dev": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_tool_x68000": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_tool_apple2": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_tool_nifty": {
+  "when": [
+   "status=employed",
+   "company.size!=abroad"
+  ]
+ },
+ "ev_tool_mac_bomb": {
+  "jobs": [
+   "artist",
+   "director"
+  ]
+ },
+ "ev_tool_win31": {
+  "jobs": [
+   "planner",
+   "director",
+   "producer"
+  ]
+ },
+ "ev_og_title_meeting": {
+  "when": [
+   "company.size!=small"
+  ]
+ },
+ "ev_og_kid_grown": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_og_sales_subtitle": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_og_overseas_title": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_og_overseas_only": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_og_overseas_review": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_og_overseas_cover": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_og_title_inn": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_og_dq_shadow": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_og_dq3_day": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_og_ff7_month": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_og_sequel_choice": {
+  "jobs": [
+   "planner",
+   "director",
+   "producer"
+  ]
+ },
+ "ev_og_vs_license": {
+  "jobs": [
+   "planner",
+   "director",
+   "producer"
+  ]
+ },
+ "ev_og_late_start_orig": {
+  "jobs": [
+   "planner",
+   "director",
+   "producer"
+  ]
+ },
+ "ev_og_pokego_park": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_og_vs_gacha": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_cl_basement": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_cl_meter": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_cl_snow": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_cl_goldfish": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_cl_ferrari": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_cl_3000yen": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_cl_expert_pay": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_cl_cruiser": {
+  "when": [
+   "company.size!=small"
+  ]
+ },
+ "ev_cl_boss_budget": {
+  "when": [
+   "company.size!=small"
+  ]
+ },
+ "ev_cl_order_ratio": {
+  "when": [
+   "company.size!=small"
+  ]
+ },
+ "ev_cl_order_ratio_early": {
+  "when": [
+   "company.size!=small"
+  ]
+ },
+ "ev_cl_cheap_voice": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_cl_franchise_pull": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_cl_home_cabinet": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_cl_solo_again": {
+  "jobs": [
+   "programmer"
+  ]
+ },
+ "ev_lv_grandpa_funeral_brag": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_lv_grandpa_grave": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_lv_father_shelf": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_lv_father_memorial": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_lv_big_mother_last": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_lv_parent_store": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_lv_kid_samples": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_lv_house": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_lv_recital": {
+  "when": [
+   "works>=1",
+   "kid>=5"
+  ]
+ },
+ "ev_lv_sports_video": {
+  "when": [
+   "kid>=4"
+  ]
+ },
+ "ev_lv_school_visit": {
+  "when": [
+   "kid>=7"
+  ]
+ },
+ "ev_lv_net_gm": {
+  "when": [
+   "status=employed",
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_lv_wedding_bug": {
+  "jobs": [
+   "programmer"
+  ]
+ },
+ "ev_lv_propose_game": {
+  "jobs": [
+   "programmer",
+   "planner",
+   "director"
+  ]
+ },
+ "ev_lv_anniversary": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_lv_divorce": {
+  "when": [
+   "flag.lv_married"
+  ]
+ },
+ "ev_lv_friend_visit": {
+  "when": [
+   "status!=left"
+  ]
+ },
+ "ev_lv_reading_glasses": {
+  "jobs": [
+   "artist",
+   "director"
+  ]
+ },
+ "ev_l2_kutaragi_launch": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_l2_kutaragi_platform": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_l2_uemura_hw": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_l2_sakaguchi_sub": {
+  "jobs": [
+   "artist"
+  ]
+ },
+ "ev_l2_nagoshi_sub": {
+  "jobs": [
+   "artist"
+  ]
+ },
+ "ev_l2_inafune_onimusha": {
+  "jobs": [
+   "artist"
+  ]
+ },
+ "ev_l2_endo_hidden": {
+  "jobs": [
+   "planner",
+   "director",
+   "producer"
+  ]
+ },
+ "ev_l2_iino_wind": {
+  "jobs": [
+   "planner",
+   "director"
+  ]
+ },
+ "ev_l2_kamiya_sub": {
+  "jobs": [
+   "sound"
+  ]
+ },
+ "ev_l2_itoi_copy": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_l2_kawazu_saga": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_l2_koshiro_bk": {
+  "when": [
+   "status=employed"
+  ],
+  "jobs": [
+   "planner",
+   "director",
+   "producer"
+  ]
+ },
+ "ev_l2_kondo_zelda": {
+  "jobs": [
+   "planner",
+   "director",
+   "producer"
+  ]
+ },
+ "ev_l2_masuda_tengai": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_l2_masuda_oreshika": {
+  "when": [
+   "status=employed"
+  ]
+ },
+ "ev_l2_martinet_ambassador": {
+  "when": [
+   "status!=left"
+  ]
+ },
+ "ev_vo_pseudonym": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_vo_y2k": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_vo_cross_review": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_vo_telehodai": {
+  "when": [
+   "status=employed",
+   "company.size!=abroad"
+  ]
+ },
+ "ev_vo_hiragana": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_vo_quake": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_vo_three_carriers": {
+  "when": [
+   "company.size!=abroad",
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_vo_sales_tonya": {
+  "when": [
+   "company.size!=abroad"
+  ]
+ },
+ "ev_vo_sales_demo": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_vo_sales_first_ship": {
+  "when": [
+   "!flag.hw_dv_mobile"
+  ]
+ },
+ "ev_vo_sales_collab_ng": {
+  "when": [
+   "!flag.hw_dv_console"
+  ]
+ },
+ "ev_vo_snd_concert": {
+  "when": [
+   "works>=1"
+  ]
+ },
+ "ev_sega_bond_vf": {
+  "jobs": [
+   "artist",
+   "director"
+  ]
+ },
+ "ev_grav_shenmue_sub": {
+  "when": [
+   "company.size!=big"
+  ],
+  "jobs": [
+   "artist"
+  ]
+ }
+}

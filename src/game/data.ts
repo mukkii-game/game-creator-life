@@ -85,7 +85,7 @@ for (const e of EVENTS) {
   if (/義理の(母|父)|義母|義父|妻が|夫が|配偶者/.test(e.text.ja) && !has(e, 'flag.lv_married')) add(e, 'flag.lv_married');
   // ソシャゲ側かコンシューマ側か(第 16 回ペルソナ: 「コンシューマに残った」人に運営とガチャ、ソシャゲに移った人に店の棚)
   if (!HIST_OF.has(e.id) && !e.tag?.includes('hardware')) {
-    if (/ガチャ|運営|イベントを回|障害の|ログイン|排出率|お詫びの石/.test(tx) && !has(e, 'flag.hw_dv_console')) add(e, '!flag.hw_dv_console');
+    if (/ガチャ|運営|運用|イベントを回|障害の|ログイン|排出率|お詫びの石/.test(tx) && !has(e, 'flag.hw_dv_console')) add(e, '!flag.hw_dv_console');
     if (/パッケージ|店の棚|平積み|ワゴン|中古屋|発売日に並|見本盤|箱を/.test(tx) && /(自分|うち|あなた)の/.test(tx) && !has(e, 'flag.hw_dv_mobile')) add(e, '!flag.hw_dv_mobile');
   }
   // 作品名を差し込む話は、作品が出てから(第 18 回ペルソナ: 『まだ名前の無い作品』が賞を取った)
@@ -101,7 +101,7 @@ for (const e of EVENTS) {
   if (ago && +ago[1] >= 5 && !has(e, 'career')) add(e, `career>=${+ago[1]}`);
   if (/入社 ?\d+ ?日目|新人研修|配属初日|入社初日|新入社員/.test(tx) && !has(e, 'career')) add(e, 'career<=1');
   // 自分の作品が前提の話は、作品を 1 本以上出してから(作品 0 本なのに「自分の作品で…」が出ていた)
-  if (/自分の作品|あなたの作品|自分のゲーム|あなたのゲーム|昔作った|発売された箱|自分が作った|自作の|自分の昔の|昔の作品|マスター ROM|過去作|自分の担当した/.test(tx) && !has(e, 'works')) add(e, 'works>=1');
+  if (/自分の作品|あなたの作品|自分のゲーム|あなたのゲーム|昔作った|発売された箱|自分が作った|自作の|自分の昔の|昔の作品|マスター ROM|過去作|自分の担当した|あなたの作った|あなたの新作/.test(tx) && !has(e, 'works')) add(e, 'works>=1');
   // 仕事の書類の話は、無職の間は出さない(独立中は出してよい)
   if (/仕様書|企画書|本業|会社にばれ|勤め先|定時/.test(tx) && !has(e, 'status') && !has(e, 'pos')) add(e, 'status!=left');
   // 親友を見送った後に、その親友が出てくる話は出さない
