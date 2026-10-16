@@ -908,6 +908,8 @@ const FINALES: Finale[] = [
 ];
 /** どの終わり方でも、最後は同期との掛け合い(キッズ・リターンのパロディ)。場面だけ終わり方で変える */
 function kidsReturn(s: State, id: EndingId) {
+  // 2 回目からは、3 回に 1 回は掛け合い無しで、結果画面の 1 行だけで終える(第 42 回まで: 締めの形が毎回同じ。仮決め・QUESTIONS.md)
+  if (s.inner.recent?.some((x) => /^line:(finale|plainfin|fanfin):/.test(x)) && s.rng.chance(0.33)) { s.inner.krNone = true; return; }
   // 相方: まだ業界にいて塀の外の同期。会社に入らず始めた人生なら「昔の仲間」
   const seenName = (x: State) => s.log.some((l) => l.text.ja.includes(x.name.ja.split(' ')[0]));
   const outside = s.inner.peerStates.filter((x) => !x.flags.in_prison && !x.flags.ex_prison && (!x.ending || x.ending.id === 'end_restart')); // 業界を去った同期は相方にしない(第 17 回ペルソナ) // 捕まった同期は相方にしない(第 9 回ペルソナ)
