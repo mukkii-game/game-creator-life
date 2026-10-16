@@ -2022,7 +2022,7 @@
      "flag.w_two_side_md"
     ],
     "text": {
-     "ja": "ライバル機の移植作が大ヒット。セガの陣営の会議は、6 ボタンのコントローラの話だけで 2 時間続いた。",
+     "ja": "ライバル機の移植作が大ヒット。セガの陣営の会議は、コントローラのボタンを何個にするかの話だけで 2 時間続いた。",
      "en": "The rival console's port is a smash. The Sega-camp meeting spent two hours on nothing but six-button controllers."
     },
     "effect": {
@@ -2060,7 +2060,7 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "社内の対戦大会で優勝した。賞品は社長の 6 ボタンのコントローラ。翌週から、あだ名が「師範」になった。",
+     "ja": "社内の対戦大会で優勝した。賞品は社長の連射付きコントローラ。翌週から、あだ名が「師範」になった。",
      "en": "You won the office tournament. Prize: the CEO's six-button controller. From the next week, everyone called you \"Sensei.\""
     },
     "effect": {

@@ -154,6 +154,10 @@
     "effect": {
      "network": -5,
      "passion": 5
+    ,
+     "flag": {
+      "father_gone": true
+     }
     },
     "result": {
      "ja": "父の最後の言葉は「仕事は」。「終わらせてきた」と嘘をついた。父は笑った。",
@@ -175,6 +179,10 @@
     "effect": {
      "skill": 5,
      "passion": -5
+    ,
+     "flag": {
+      "father_gone": true
+     }
     },
     "result": {
      "ja": "朝 5 時に終えて走った。父はまだ待っていて、「バグは?」と聞いた。",
@@ -182,7 +190,7 @@
     },
     "later": [
      {
-      "after": 3,
+      "after": 2,
       "event": "ev_lv_father_memorial"
      }
     ]

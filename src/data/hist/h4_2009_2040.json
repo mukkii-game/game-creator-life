@@ -408,8 +408,8 @@
    {
     "id": "ev_hs_2010_mhp3_any",
     "text": {
-     "ja": "電車で隣の高校生たちが協力プレイをしていた。誘われて竜を 1 匹倒した。別れ際、「おじさん、うまいね」と言われた。",
-     "en": "High schoolers next to you on the train are hunting together. They invite you in. One dragon down. As they left: \"You're good, mister.\""
+     "ja": "電車で隣の高校生たちが協力プレイをしていた。誘われて竜を 1 匹倒した。別れ際、「え、めっちゃうまくないですか」と言われた。",
+     "en": "High schoolers next to you on the train are hunting together. They invite you in. One dragon down. As they left: \"Wait, you're really good.\""
     },
     "effect": {
      "network": 1,
@@ -1119,6 +1119,9 @@
    },
    {
     "id": "ev_hs_2012_kompu_any",
+    "when": [
+     "!flag.father_gone"
+    ],
     "text": {
      "ja": "ニュースで「コンプガチャ」という言葉を覚えた父が、晩ご飯の間ずっと「コンプ」と言っていた。",
      "en": "Dad learns the phrase \"complete gacha\" from the news and says \"complete\" all through dinner."
@@ -4255,8 +4258,8 @@
      "pos=client_lead"
     ],
     "text": {
-     "ja": "役員が「あのクラウドの話、前に断ったよな」と言った。断ったのは自分だ。初めて、何もしないことで褒められた。",
-     "en": "An exec says, \"We turned down that cloud thing, right?\" You did. For the first time, you're praised for doing nothing."
+     "ja": "役員が「うちはクラウドに手を出さなくてよかったな」と言った。手を出す余裕が無かっただけだ。初めて、何もしないことで褒められた。",
+     "en": "An exec says, \"Good thing we stayed out of cloud gaming.\" We just had no budget for it. For the first time, you're praised for doing nothing."
     },
     "effect": {
      "fame": 2,
