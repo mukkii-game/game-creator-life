@@ -7,7 +7,7 @@ export type Lang = 'ja' | 'en';
 const TABLE: Record<string, { ja: string; en: string }> = {
   title: { ja: '5万人のゲームクリエイター人生', en: 'Life as One of 50,000 Game Creators' },
   titleSub: { ja: 'ゲーム業界に入って、作って、ぶっ倒れるまで。', en: 'Join the game industry. Make games. Collapse.' },
-  tagline: { ja: '18〜70 歳。史実の業界あるあるを浴びながら、開発者として死ぬまで。', en: 'Age 18 to 70. Survive real game-industry history until your career dies.' },
+  tagline: { ja: '18〜70 歳。史実の業界あるあるを浴びながら、開発者人生を終えるまで。', en: 'Age 18 to 70. Survive real game-industry history until your career ends.' },
   gacha: { ja: '業界入りガチャを引く', en: 'Pull the Industry Gacha' },
   eraPick: { ja: '業界入りの時代', en: 'Your debut era' },
   eraAny: { ja: 'おまかせ', en: 'Random' },
@@ -69,7 +69,8 @@ const TABLE: Record<string, { ja: string; en: string }> = {
   history: { ja: '後日談', en: 'Afterlife' },
   noHistory: { ja: '(まだ何も起きていない)', en: '(nothing has happened yet)' },
   close: { ja: '閉じる', en: 'Close' },
-  endHead: { ja: '開発者として死亡', en: 'Career over' },
+  endHead: { ja: 'ここで開発者人生を終えた', en: 'Your developer life ends here' }, // 2026-10-16 Mukkii「開発者として死亡はきつい」
+  endHeadGoOn: { ja: '開発者としての闘いはこれからもつづく……', en: 'The developer\'s fight goes on...' }, // 2027 年の区切り(end_restart)
   endAt: { ja: '{year} 年 / {age} 歳', en: '{year} / age {age}' },
   toResult: { ja: 'タップで結果へ', en: 'Tap for results' },
   nameLabel: { ja: 'あなたの名前', en: 'Your name' },

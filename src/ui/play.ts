@@ -493,7 +493,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     playBgm(null, 1500); // 終わりのジングルを聞かせる
     const ov = h('div', 'ending');
     const box = h('div', 'ending-box');
-    box.append(h('div', 'ending-head', t('endHead')), h('div', 'ending-when', tf('endAt', { year: e.year, age: e.age })), h('div', 'ending-cause', tx(e.cause)), h('div', 'ending-tap', t('toResult')));
+    box.append(h('div', 'ending-head', t(e.id === 'end_restart' ? 'endHeadGoOn' : 'endHead')), h('div', 'ending-when', tf('endAt', { year: e.year, age: e.age })), h('div', 'ending-cause', tx(e.cause)), h('div', 'ending-tap', t('toResult')));
     ov.append(box);
     app.append(ov);
     let done = false;

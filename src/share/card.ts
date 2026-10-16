@@ -63,7 +63,7 @@ export function ensureFont(): Promise<void> {
 async function loadGlyphs(s: State, l: Lang) {
   try {
     const text = [TITLE[l], HASHTAG[l], s.name[l], s.company?.name[l] ?? '', s.ending?.cause[l] ?? '', ...s.works.map((w) => w.name[l]),
-      '社員証作品棚開発者としての死因最終職種在籍氏名番号分の万終後日談爆死普通伝説ヒットサ0123456789,./()-–STAFFIDNo.'].join('');
+      '社員証作品棚開発者としての死因人生の終わり方これからもつづく最終職種在籍氏名番号分の万終後日談爆死普通伝説ヒットサ0123456789,./()-–STAFFIDNo.'].join('');
     await Promise.race([document.fonts.load('32px "DotGothic16"', text), new Promise((ok) => setTimeout(ok, 2000))]);
   } catch { /* 代わりの字で描く */ }
 }
@@ -350,7 +350,7 @@ function drawCause(c: CanvasRenderingContext2D, s: State, l: Lang, x: number, y:
   c.fillStyle = C.paper; rr(c, x, y, w, h, 10 * k); c.fill();
   c.fillStyle = C.red; c.fillRect(x, y, 10 * k, h);
   c.fillStyle = C.red; c.font = `${20 * k}px ${DOT}`; c.textBaseline = 'top';
-  c.fillText(l === 'ja' ? '開発者としての死因' : 'CAUSE OF (DEVELOPER) DEATH', x + 30 * k, y + 16 * k);
+  c.fillText(s.ending?.id === 'end_restart' ? (l === 'ja' ? 'これからもつづく' : 'TO BE CONTINUED') : (l === 'ja' ? '開発者人生の終わり方' : 'HOW THE CAREER ENDED'), x + 30 * k, y + 16 * k);
   const cause = s.ending ? tx(s.ending.cause, l) : (l === 'ja' ? 'まだ生きている' : 'Still alive');
   c.fillStyle = C.ink;
   let size = 40 * k, lines: string[] = [];
