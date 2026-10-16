@@ -75,6 +75,11 @@ for (const e of EVENTS) {
   }
   if (/籍を入れ|プロポーズ/.test(t) && !has(e, 'flag.lv_married')) add(e, '!flag.lv_married');
   if (/義理の(母|父)|義母|義父|妻が|夫が|配偶者/.test(e.text.ja) && !has(e, 'flag.lv_married')) add(e, 'flag.lv_married');
+  // ソシャゲ側かコンシューマ側か(第 16 回ペルソナ: 「コンシューマに残った」人に運営とガチャ、ソシャゲに移った人に店の棚)
+  if (!HIST_OF.has(e.id) && !e.tag?.includes('hardware')) {
+    if (/ガチャ|運営|イベントを回|障害の|ログイン|排出率|お詫びの石/.test(tx) && !has(e, 'flag.hw_dv_console')) add(e, '!flag.hw_dv_console');
+    if (/パッケージ|店の棚|平積み|ワゴン|中古屋|発売日に並|見本盤|箱を/.test(tx) && /(自分|うち|あなた)の/.test(tx) && !has(e, 'flag.hw_dv_mobile')) add(e, '!flag.hw_dv_mobile');
+  }
   // 日本の会社・暮らしの話は、海外の会社にいる間は出さない
   if (/元請け|下請け|即売会|節電|社員旅行|忘年会|役員会|朝礼|社内報|電車|新幹線|地元|広報誌|コミケ|居酒屋|定食屋/.test(tx) && !has(e, 'company.size') && !has(e, 'pos')) add(e, 'company.size!=abroad');
   // 会社の中の話は、会社にいる時だけ
