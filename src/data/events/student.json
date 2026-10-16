@@ -86,8 +86,8 @@
    2035
   ],
   "text": {
-   "ja": "学生時代、ゲーム会社のデバッグのバイトに行った。同じ壁に 8 時間ぶつかり続けて時給 700 円。それでも「ゲーム会社の中」に入れたのが嬉しかった。",
-   "en": "As a student you took a debugging gig at a game company. Eight hours running into the same wall for 700 yen an hour. Still, you were inside a game company."
+   "ja": "学生時代、ゲーム会社のデバッグのバイトに行った。同じ壁に 8 時間ぶつかり続けて、時給は最低賃金ぴったり。それでも「ゲーム会社の中」に入れたのが嬉しかった。",
+   "en": "As a student you took a debugging gig at a game company. Eight hours running into the same wall, at exactly minimum wage. Still, you were inside a game company."
   },
   "effect": {
    "skill": 3,
@@ -108,7 +108,7 @@
   ],
   "text": {
    "ja": "家電量販店のゲーム売り場でバイトしていた。試遊台の前から動かない小学生と、毎日同じ勝負をしていた。",
-   "en": "You worked the game corner at an electronics store. Every day the same kid camped at the demo unit, and every day you played him."
+   "en": "You worked the game corner at an electronics store. Every day the same kid camped at the demo unit, and every day you played them."
   },
   "effect": {
    "passion": 4,
@@ -211,7 +211,7 @@
   ],
   "text": {
    "ja": "家庭教師のバイトで、生徒とゲームの話ばかりしていた。生徒の成績は上がらなかったが、生徒のスコアは上がった。",
-   "en": "As a private tutor you mostly talked games with your student. His grades didn't rise; his high scores did."
+   "en": "As a private tutor you mostly talked games with your student. Their grades didn't rise; their high scores did."
   },
   "effect": {
    "passion": 4,
@@ -271,7 +271,7 @@
   ],
   "text": {
    "ja": "学生時代、友だちの家のファミコンに毎日通った。自分の番は 1 日 15 分。その 15 分のために生きていた。",
-   "en": "As a student you went to a friend's house every day for his Famicom. Your turn was fifteen minutes a day. You lived for those fifteen minutes."
+   "en": "As a student you went to a friend's house every day for their Famicom. Your turn was fifteen minutes a day. You lived for those fifteen minutes."
   },
   "effect": {
    "passion": 8
@@ -310,7 +310,7 @@
   ],
   "text": {
    "ja": "学生時代、格闘ゲームのためにゲーセンに住んでいた。知らない人と 100 回戦って、名前も知らないまま友だちになった。",
-   "en": "As a student you practically lived at the arcade for fighting games. A hundred matches with a stranger; friends without ever learning his name."
+   "en": "As a student you practically lived at the arcade for fighting games. A hundred matches with a stranger; friends without ever learning their name."
   },
   "effect": {
    "passion": 7,
@@ -608,8 +608,8 @@
    2015
   ],
   "text": {
-   "ja": "学生時代、Flash のゲームを作ってネットに上げていた。掲示板で「神」と書かれた日、親にも見せられない画面を親に見せた。",
-   "en": "As a student you put Flash games online. The day a forum called you \"god\", you showed your parents a screen you shouldn't have."
+   "ja": "学生時代、Flash のゲームを作ってネットに上げていた。掲示板で「神」と書かれた日、その画面を親に見せた。親は「で、お金になるの?」と言った。",
+   "en": "As a student you put Flash games online. The day a forum called you \"god\", you showed your parents the screen. They asked, \"So, does it pay?\""
   },
   "effect": {
    "skill": 4,
@@ -628,8 +628,8 @@
    2035
   ],
   "text": {
-   "ja": "学生時代、ゲームエンジンで 1 人でゲームを作っていた。チュートリアルを 30 本見て、自分のゲームは 1 本も終わらなかった。31 本目で終わった。",
-   "en": "As a student you built games alone in an engine. Thirty tutorials, zero finished games. The thirty-first finished."
+   "ja": "学生時代、ゲームエンジンで 1 人でゲームを作っていた。チュートリアルを 30 本見ても、自分のゲームは 1 本も終わらなかった。31 本目を見るのをやめた日に、終わった。",
+   "en": "As a student you built games alone in an engine. Thirty tutorials, zero finished games. The day you skipped the thirty-first, you finished one."
   },
   "effect": {
    "skill": 5,

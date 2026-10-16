@@ -118,7 +118,7 @@
    2040
   ],
   "text": {
-   "ja": "大きなバグを出した夜、{mentor}は何も言わずに隣に座った。朝 4 時に直った。帰り道、牛丼をおごってくれて「俺は 3 回やった」とだけ言った。",
+   "ja": "大きなバグを出した夜、{mentor}は何も言わずに隣に座った。朝 4 時に直った。帰り道、牛丼をおごってくれて「自分も 3 回やった」とだけ言った。",
    "en": "The night you shipped a huge bug, {mentor} just sat down beside you. Fixed by 4 a.m. On the way home they bought you a beef bowl and only said, \"I did it three times.\""
   },
   "effect": {
@@ -339,7 +339,7 @@
    2040
   ],
   "text": {
-   "ja": "{mentee}が大きなバグを出した。何も言わずに隣に座った。朝 4 時に直った。帰りに牛丼をおごった。「俺も 3 回やった」と言うつもりが、「5 回」と正直に言っていた。",
+   "ja": "{mentee}が大きなバグを出した。何も言わずに隣に座った。朝 4 時に直った。帰りに牛丼をおごった。「自分も 3 回やった」と言うつもりが、「5 回」と正直に言っていた。",
    "en": "{mentee} shipped a huge bug. You sat down beside them without a word. Fixed by 4 a.m. Beef bowl on you. You meant to say \"I did it three times\" and honestly said \"five\"."
   },
   "effect": {

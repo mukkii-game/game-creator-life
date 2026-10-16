@@ -50,7 +50,11 @@
    "choice",
    "big"
   ],
-  "once": true
+  "once": true,
+  "when": [
+   "status=employed",
+   "career>=3"
+  ]
  },
  {
   "id": "ev_wk_title_old",
@@ -620,8 +624,8 @@
    2013
   ],
   "text": {
-   "ja": "会社の業績が悪い。人事に呼ばれた。「希望退職を募っています。それとも、カスタマーセンターに移りますか」。開発の席には、もう誰かの段ボールが積んである。",
-   "en": "Business is bad. HR called you in: \"We're taking voluntary resignations. Or would you transfer to the customer support center?\" Someone's boxes were already stacked at your desk."
+   "ja": "リーマンショックの後、会社の業績が悪い。人事に呼ばれた。「希望退職を募っています。それとも、カスタマーセンターに移りますか」。開発の席には、もう誰かの段ボールが積んである。",
+   "en": "After the Lehman crash, business is bad. HR called you in: \"We're taking voluntary resignations. Or would you transfer to the customer support center?\" Someone's boxes were already stacked at your desk."
   },
   "when": [
    "status=employed",
