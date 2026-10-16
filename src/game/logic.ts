@@ -403,7 +403,8 @@ function beginYear(s: State, out: string[]) {
     s.flags.ai26 = true;
     const pool = EVENTS_ALL().filter((e) => e.id.startsWith('ev_ai26_') && (e.when ?? []).every((c) => test(s, c)));
     const fresh = pool.filter((e) => !s.inner.recent?.includes(e.id));
-    const pick = draw(r, fresh.length >= 3 ? fresh : pool, 3, () => 1);
+    const nAi = s.inner.recent?.length ? 2 : 3; // 2 回目からは 2 本(第 38 回: 2026 年に AI の行が 4〜5 行並ぶ。立て続けは保つ)
+    const pick = draw(r, fresh.length >= nAi ? fresh : pool, nAi, () => 1);
     q.push(...pick.map((e) => e.id));
   }
   for (const p of due) if (!((EVENT_BY_ID.get(p.event)?.tag?.includes('mega') || /^ev_wk_fu_/.test(p.event)) && p.co && p.co !== s.company.id)) q.push(p.event); // 会社の中の後日談は、同じ会社にいる時だけ
