@@ -156,7 +156,7 @@ export function startApp(container: HTMLElement) {
   function record(s: State, seed: number, player: Player | null, name: string | undefined) {
     if (fixedLife(seed, player) || !s.ending) return;
     // この人生で出た話(歴史の事件と system は除く)を「最近見た話」に
-    addRecent([...s.companies.map((c) => `co:${c.company.id}`), `job:${s.inner.startJob}`, `given:${s.name.ja.split(' ')[1] ?? ''}`, ...s.inner.peerStates.map((x) => `fam:${x.name.ja.split(' ')[0]}`), `fam:${s.name.ja.split(' ')[0]}`, ...s.inner.peerStates.flatMap((x) => x.works.map((w) => `title:${w.name.ja.replace(/^『|』$/g, '')}`)), ...Object.keys(s.inner.seen), ...(s.inner.saidLines ?? []).map((t) => `line:${t}`), ...s.works.map((w) => `title:${w.name.ja.replace(/^『|』$/g, '')}`)]);
+    addRecent([...s.companies.map((c) => `co:${c.company.id}`), `job:${s.inner.startJob}`, `given:${s.name.ja.split(' ')[1] ?? ''}`, ...s.inner.peerStates.map((x) => `fam:${x.name.ja.split(' ')[0]}`), `fam:${s.name.ja.split(' ')[0]}`, `start:${s.startYear}`, ...s.inner.peerStates.flatMap((x) => x.works.map((w) => `title:${w.name.ja.replace(/^『|』$/g, '')}`)), ...Object.keys(s.inner.seen), ...(s.inner.saidLines ?? []).map((t) => `line:${t}`), ...s.works.map((w) => `title:${w.name.ja.replace(/^『|』$/g, '')}`)]);
     const typed = name ? splitName(name) : null;
     const parts = typed ?? splitName(s.name.ja);
     const best = [...s.works].sort((a, b) => rank(b.result) - rank(a.result))[0];

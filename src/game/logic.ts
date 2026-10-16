@@ -120,7 +120,10 @@ export function init(seed: number, options: InitOptions = {}): State {
   const peerOf = options.peerOf;
   if (!peerOf) RECENT_CO = (options.recent ?? []).filter((x) => x.startsWith('co:')).map((x) => x.slice(3));
   if (!peerOf) { RECENT_TITLES.clear(); for (const x of options.recent ?? []) if (x.startsWith('title:')) RECENT_TITLES.add(x.slice(6)); }
-  const year = options.year ?? peerOf?.year ?? gachaYear(r, options.era);
+  const recentStarts = (options.recent ?? []).filter((x) => x.startsWith('start:')).map((x) => +x.slice(6));
+  let year = options.year ?? peerOf?.year ?? gachaYear(r, options.era);
+  // おまかせの始まりは、直近の人生の始まりの年から 5 年以上離す(第 31 回: 開始年が違うと 3 回続けても 6 点、同じだと 4.5 点)
+  if (options.year === undefined && !peerOf) for (let i = 0; i < 8 && recentStarts.some((y) => Math.abs(y - year) < 5); i++) year = gachaYear(r, options.era);
   const age = options.age ?? gachaAge(r);
   const entry = wpick(r, ENTRIES, (e) => e.w(age, year));
   // 直近の人生と同じ職種・同じ下の名前は引きにくく(第 11 回ペルソナ: プランナーの「まい」が 2 回続いた)
