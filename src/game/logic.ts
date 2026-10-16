@@ -830,7 +830,7 @@ function arcName(s: State, r: Rng, lo: number, hi: number, born: number): Text {
     return { ja: callName(o), en: fullName(o) };
   }
   // 同期と同じ苗字は避ける(師匠の小山さんと同期の小山が別人で混乱した)
-  const taken = s.inner.peerStates.map((p) => p.name.ja.split(' ')[0]);
+  const taken = [...s.inner.peerStates.map((p) => p.name.ja.split(' ')[0]), s.name.ja.split(' ')[0], ...[s.inner.mentor, s.inner.mentee].filter(Boolean).map((a) => a!.name.ja.replace(/さん$/, ''))]; // 自分・先輩・後輩とも被らせない(第 32 回: 先輩の福島さんと後輩の福島さん)
   let p = personName(r, born);
   for (let i = 0; i < 5 && taken.includes(p.ja.split(' ')[0]); i++) p = personName(r, born);
   return { ja: `${p.ja.split(' ')[0]}さん`, en: p.en.split(' ').slice(-1)[0] };

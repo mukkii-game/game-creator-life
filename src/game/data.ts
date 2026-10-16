@@ -141,7 +141,7 @@ const MOTIFS: [string, RegExp][] = [
   ['insider', /インサイダー|株を買/],
   ['card_drawer', /名刺.*引き出し/],
   ['wallpaper', /待ち受けにした/],
-  ['sales_graph', /売上(の)?グラフを毎朝|売上を毎朝/],
+  ['sales_graph', /毎朝.{0,12}(売上|ランキング)|(売上|ランキング).{0,12}毎朝/],
   ['bingo', /ビンゴ/],
   ['press_news', /地元の新聞|地元紙/],
   ['no_button_phone', /ボタンの無い電話/],
@@ -160,7 +160,7 @@ const MOTIFS: [string, RegExp][] = [
   ['hd_shift', /HD 化|ハイビジョン|テクスチャ 4 倍/],
   ['gacha_rate', /排出率|確率表記|確率表|小数点を 1 つ/], // 第 23 回: ガチャの確率ネタが 1 人生に 3 回
   ['gym', /ジムに入会|ジムの会員/],
-  ['ai_ban', /生成 ?AI 禁止|AI の使用を禁止|AI 禁止の通達/], ['atami', /熱海/],   ['headhunt', /知らない会社の人事が ?2 人|うちなら定時|残業は月 ?\d+ 時間まで|土日、本当に休み|引き抜きの電話/], ['heater', /暖房(いらず|が要らな)/], ['relatives3', /うち 3 (本|人)は親戚/], ['old_client_call', /昔の取引先から電話/],   ['trend_n', /(ハンター|ワールド)が ?\d+ 本|案 ?\d+ 個、全部|企画 ?\d+ 本|何を飛ばすか/], ['old_co_gone', /昔いた会社が潰れ|前の会社が潰れ|古巣が潰れ/],   ['movie_quote', /アイル・ビー・バック|と共にあらんことを|道なんていらない|運命なんてない|明日は明日の風|立て、立つんだ|まだだ、まだ|倍返し|あきらめたら、?そこで/], ['ai_source', /他社の絵がそのまま|素材がどこから来た|どこから来た絵/], // 第 28 回: 名台詞のもじりが 1 人生に 6 回、AI 素材の盗用が 2 行続く
+  ['ai_ban', /生成 ?AI 禁止|AI の使用を禁止|AI 禁止の通達/], ['atami', /熱海/],   ['headhunt', /人事が ?2 人|うちに来ませんか|うちなら定時|残業は月 ?\d+ 時間まで|土日、本当に休み|引き抜きの電話/], ['heater', /暖房(いらず|が要らな)/], ['relatives3', /うち 3 (本|人)は親戚/], ['old_client_call', /昔の取引先から電話/],   ['trend_n', /(ハンター|ワールド)が ?\d+ 本|案 ?\d+ 個、全部|企画 ?\d+ 本|何を飛ばすか/], ['old_co_gone', /昔いた会社が潰れ|前の会社が潰れ|古巣が潰れ/],   ['movie_quote', /アイル・ビー・バック|と共にあらんことを|道なんていらない|運命なんてない|明日は明日の風|立て、立つんだ|まだだ、まだ|倍返し|あきらめたら、?そこで/], ['ai_source', /他社の絵がそのまま|素材がどこから来た|どこから来た絵/], // 第 28 回: 名台詞のもじりが 1 人生に 6 回、AI 素材の盗用が 2 行続く
   ['sleeping_bag', /寝袋/], ['floor_sleep', /床で寝ていたら|床で段ボール|段ボールを敷いて/], ['boss_lookalike', /昔の自分のボスにそっくり|自分の作ったボスにそっくり/], // 第 24 回: 寝袋・床で寝る・ボスにそっくりが何度も
   ['parent_save', /セーブデータ.*(名前|「)|「(とうちゃん|おかん)」/],
 ];
@@ -173,6 +173,7 @@ for (const e of EVENTS) if (e.choices?.some((c) => c.effect?.flag?.hiv_social)) 
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); if ((e.choices?.some((c) => c.effect?.flag?.life_abroad || c.effect?.flag?.went_abroad) || e.effect?.flag?.went_abroad || /初めての海外|海外出張|海外のスタジオから/.test(tx)) && !has(e, 'company.size')) add(e, 'company.size!=abroad'); }
 for (const e of EVENTS) if (e.tag?.includes('crime') && !has(e, 'career')) add(e, 'career>=2'); // 入って 1 年目に捕まって 22 歳で終わる人生にしない(第 22 回)
 for (const e of EVENTS) if (['ev_era5_vr_team', 'ev_tn_big_vr', 'ev_hs_2016_psvr_client_lead'].includes(e.id)) e.motif = 'vr_move'; // VR 部署に行くかは 1 人生 1 回(第 22 回: 2017 年に断って 2018 年に行く)
+for (const e of EVENTS) if (e.tag?.includes('insider') && e.choices) e.motif = 'insider'; // 株の選択は本文に「株」が無く型が付いていなかった(第 32 回: 3 人生中 2 人生で株→実刑)
 for (const e of EVENTS) if (e.id.startsWith('ev_wk_restructure_')) e.motif = 'restructure'; // 希望退職かカスタマーセンターかは 1 人生 1 回(第 20 回: 2002 と 2009 に 2 回)
 // 選択の後日談(later で来る話)には印を付ける(同じ人生で 2 回出さない)
 for (const e of EVENTS) for (const c of e.choices ?? []) for (const l of c.later ?? []) { const t = EVENTS.find((x) => x.id === l.event); if (t && !t.tag?.includes('followup')) t.tag = [...(t.tag ?? []), 'followup']; }
