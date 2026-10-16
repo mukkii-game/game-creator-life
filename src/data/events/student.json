@@ -550,6 +550,7 @@
   },
   "tag": [
    "prologue",
+   "age>=21",
    "student",
    "st_school"
   ]

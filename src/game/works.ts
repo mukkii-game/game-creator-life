@@ -215,7 +215,7 @@ export function release(s: State): { work: Work; line: Text } {
   const fresh = fresh1.length ? fresh1 : fresh0;
   const pickLine = fresh.length ? r.pick(fresh) : { ja: '', en: '' };
   const solo = role === 'solo' && SOLO_LINES[result] && !said.includes(SOLO_LINES[result]!.ja) && !s.inner.recent?.includes(`line:${SOLO_LINES[result]!.ja}`) ? SOLO_LINES[result]! : null;
-  const gagOk = titled?.gag && !said.includes(titled.gag.ja) && !s.inner.recent?.includes(`line:${titled.gag.ja}`); // 題名の小ネタも直近の人生と被らせない
+  const gagOk = titled?.gag && !(s.job === 'sound' && /音の担当/.test(titled.gag.ja)) && !said.includes(titled.gag.ja) && !s.inner.recent?.includes(`line:${titled.gag.ja}`); // 題名の小ネタも直近の人生と被らせない
   const gag = solo ?? (gagOk && r.chance(0.5) ? titled!.gag! : pickLine);
   if (gag.ja) said.push(gag.ja);
   const gj = gag.ja.replace(/^(大?ヒット|伝説(になった)?|爆死|普通)[!!。]\s*/, ''), ge = gag.en.replace(/^(A (big )?hit|A legend|Legend|A flop|Flop)[!.]\s*/i, ''); // 「結果はヒット。ヒット!」と 2 回言わない(第 20 回)
@@ -274,7 +274,7 @@ const FATES: Fate[] = [
       { ja: 'AI リメイクが出た。紹介文に「原作の魂を受け継ぐ」とある。原作を作った人には、誰も聞いていない。', en: 'An AI remake came out, "carrying the soul of the original." Nobody asked the people who made the original.' },
       { ja: 'AI リメイクが出た。曲だけは、あなたの昔の曲がなぜかそのまま入っていた。', en: 'An AI remake came out. Your old music was in it, untouched, for some reason.' },
     ] },
-  { key: 'rta', test: (w, y) => y >= 2012 && y - w.year >= 8 && (w.result === 'hit' || w.result === 'legend'), chance: 0.05,
+  { key: 'rta', test: (w, y) => y >= 2012 && y - w.year >= 8 && (w.result === 'hit' || w.result === 'legend') && !w.history.some((h) => (h as { key?: string }).key === 'eos'), chance: 0.05,
     text: { ja: 'RTA の定番になった。世界記録は 4 分 12 秒。あなたは 40 時間かけて作った面だ。', en: 'It became a speedrun staple. World record: 4:12. That stage took you 40 hours.' },
     more: [
       { ja: 'RTA の大会で走られた。あなたが 1 か月かけた会話の場面は、0.5 秒で読み飛ばされた。', en: 'It was run at a speedrun marathon. The dialogue scene you spent a month on was skipped in half a second.' },
@@ -312,11 +312,11 @@ export function tickWorks(s: State): { work: Work; text: Text }[] {
       if (!fresh.length && s.rng.chance(0.7)) continue;
       if (fresh.length < texts.length && s.rng.chance(['sequel', 'rta'].includes(f.key) ? 0.85 : 0.6)) continue; // 続編から外される・RTA は特に骨組みに見える(第 46 回) // 同じ種類の後日談を直近の人生で見ていたら、今回はたいてい起こさない(第 29 回: 続編から外される話が 3 人生とも) // 直近の人生で全部の言い回しを見ていたら、たいてい今回は起こさない
       const mOf = (t: Text) => MOTIFS.filter(([, re]) => re.test(t.ja)).map(([m]) => m);
-      const okM = (t: Text) => !mOf(t).some((m) => s.inner.motifs?.includes(m)); // 後日談も小ネタの型を 1 人生 1 回に(第 54 回: AI リメイクの「指が 6 本」が 2 回)
+      const okM = (t: Text) => !mOf(t).some((m) => s.inner.motifs?.includes(m) || (['rta', 'zero_yen', 'fukkoku'].includes(m) && s.inner.recent?.includes(`line:motif:${m}`))); // 後日談も小ネタの型を 1 人生 1 回に(第 54 回: AI リメイクの「指が 6 本」が 2 回)
       const pool = (fresh.length ? fresh : unsaid.length ? unsaid : texts).filter(okM);
       if (!pool.length) continue;
       const ft = s.rng.pick(pool);
-      said.push(ft.ja); (s.inner.motifs ??= []).push(...mOf(ft));
+      said.push(ft.ja); (s.inner.motifs ??= []).push(...mOf(ft)); said.push(...mOf(ft).map((m) => `motif:${m}`));
       fc[f.key] = (fc[f.key] ?? 0) + 1;
       const h = { year: s.year, text: ft, key: f.key } as { year: number; text: Text; key?: string };
       w.history.push(h);

@@ -1759,8 +1759,8 @@
      "pos=indie"
     ],
     "text": {
-     "ja": "昔、あの箱に出すか迷ったのを思い出した。出していたら、今日で消えていた。出さなかった作品も、別の理由で消えていた。",
-     "en": "You remember debating whether to release on that box. If you had, it would vanish today. The game you didn't release vanished anyway, for other reasons."
+     "ja": "あの箱の店が閉じた。知り合いの 1 人は全部をあの箱に出していた。その夜、知り合いから「次、何で出す?」と電話が来た。",
+     "en": "That box's store shut down. A friend had put everything on it. That night the friend called: \"So what do we ship on next?\""
     },
     "effect": {
      "passion": -1,
