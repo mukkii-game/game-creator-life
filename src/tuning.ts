@@ -62,5 +62,5 @@ export const KNOBS: Knob[] = [
   { key: 'ui.lineMin', label: '1 行を読む最短の時間(1 倍速)', value: 3.2, min: 0.5, max: 6, step: 0.1, unit: '秒', aim: '目が追いつく速さ(Mukkii 2026-10-15「もう少しだけ遅く」)。2026-10-16「もう数割遅く」で 2.4 → 3.2。2 倍速なら半分' },
   { key: 'ui.fast', label: '「一気に」の 1 年', value: 0.4, min: 0.05, max: 2, step: 0.05, unit: '秒' },
   { key: 'audio.sfx', label: '効果音の音量', value: 0.3, min: 0, max: 1, step: 0.05, unit: '倍', aim: '控えめから。AI は音を聴かずに大きめを選びがち(2026-10-16 Mukkii: BGM も SE も数割控えめに → 0.45 から 0.3)' },
-  { key: 'audio.bgm', label: 'BGM の音量', value: 0.3, min: 0, max: 1, step: 0.05, unit: '倍' },
+  { key: 'audio.bgm', label: 'BGM の音量', value: 0.15, min: 0, max: 1, step: 0.05, unit: '倍', aim: '2026-10-16 Mukkii「半分くらいに」で 0.3 → 0.15' },
 ];
