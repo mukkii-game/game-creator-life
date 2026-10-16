@@ -65,7 +65,8 @@ export function test(s: State, cond: string): boolean {
 export function eligible(s: State, ev: GameEvent, gap = 0, maxRepeat = 99): boolean {
   if (s.year < ev.years[0] || s.year > ev.years[1]) return false;
   if (ev.once && s.inner.used.includes(ev.id)) return false;
-  if (ev.jobs && !ev.jobs.includes(s.job)) return false; // 本文がほかの職種の作業(絵を描く・コードを書く …)
+  if (ev.jobs && !ev.jobs.includes(s.job)) return false;
+  if (ev.motif && s.inner.motifs?.includes(ev.motif)) return false; // 同じ型のネタは 1 人生 1 回 // 本文がほかの職種の作業(絵を描く・コードを書く …)
   // 同じ小ネタは 1 人生で maxRepeat 回まで(反復ネタは 2 回目で効き、3 回目から飽きる)
   if ((s.inner.uses[ev.id] ?? 0) >= maxRepeat && !ev.tag?.includes('repeatable')) return false;
   const last = s.inner.seen[ev.id];

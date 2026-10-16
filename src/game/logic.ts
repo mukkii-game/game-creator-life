@@ -528,6 +528,11 @@ function runItem(s: State, id: string, out: string[]) {
   if (!ev) return;
   if (ev.years && (s.year < ev.years[0] || s.year > ev.years[1])) return;
   if (ev.once && s.inner.used.includes(ev.id)) return;
+  // 爆死した作品を、てっぺんの話で急にヒットにしない(第 13 回ペルソナ: 中古 50 円の作品が 2 年後に社会現象)
+  if (ev.effect?.work?.last?.result && s.works[s.works.length - 1]?.result === 'flop') return;
+  // 1 年に会社が 2 回変わらない(第 13 回ペルソナ: 地元に帰って会社を作った同じ年に、別の会社に拾われる)
+  const moves = (x: { flag?: Record<string, boolean> } | undefined) => Object.keys(x?.flag ?? {}).some((f) => ['do_change_company', 'do_go_indie', 'do_join_sega', 'life_abroad', 'went_abroad'].includes(f));
+  if ((moves(ev.effect) || ev.choices?.some((c) => moves(c.effect))) && s.companies.length > 1 && s.companies[s.companies.length - 1].year === s.year) return;
   // 同じ後日談は 1 人生に 1 回(第 12 回ペルソナ: 「コンシューマに残った」が選択なしで 2 回)
   if ((ev.weight ?? 1) === 0 && s.inner.seen[ev.id] !== undefined && !ev.tag?.includes('repeatable') && !/^ev_(fa|rv|mt|me|sys)_/.test(ev.id)) return;
   if (ev.id === 'ev_wk_fu_callcenter') s.flags.callcenter = false; // 開発に戻る
@@ -552,6 +557,7 @@ function runItem(s: State, id: string, out: string[]) {
   if (ev.once || ev.id.startsWith('ev_sys_')) s.inner.used.push(ev.id);
   s.inner.seen[ev.id] = s.year;
   s.inner.uses[ev.id] = (s.inner.uses[ev.id] ?? 0) + 1;
+  if (ev.motif) { (s.inner.motifs ??= []).push(ev.motif); (s.inner.saidLines ??= []).push(`motif:${ev.motif}`); }
   count(s, ev);
   if (ev.id.startsWith('ev_sys_promote')) promote(s);
   if (ev.id.startsWith('ev_sys_bankrupt')) (s.inner.deadCos ??= []).push(s.company.id);
@@ -907,7 +913,7 @@ function storyArcs(s: State, r: Rng): string[] {
 function wOf(s: State): (e: GameEvent) => number {
   const rec = s.inner.recent;
   const p = tune<number>('life.recentPenalty');
-  return (e) => (e.weight ?? 1) * (rec?.includes(e.id) ? p : 1) * (e.tag?.includes('insider') ? 0.4 : 1);
+  return (e) => (e.weight ?? 1) * (rec?.includes(e.id) ? p : 1) * (e.motif && rec?.includes(`line:motif:${e.motif}`) ? 0.2 : 1) * (e.tag?.includes('insider') ? 0.4 : 1);
 }
 
 /** 直近の人生で見ていない話だけ(続けて遊んだ時に、人生の大きな筋が被らないように) */

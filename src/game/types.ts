@@ -33,6 +33,8 @@ export interface GameEvent {
   memory?: Text;
   /** この版を出すのに先に出ている必要がある版(メンターの話の伏線回収) */
   needs?: string;
+  /** ネタの型(読み込み時に本文から入る)。同じ型は 1 人生に 1 回、続けて遊んだ時も出にくい */
+  motif?: string;
   /** この話を出してよい職種(job_hints.json から読み込み時に入る。本文が特定の職種の作業を前提にしている話) */
   jobs?: Job[];
 }
@@ -121,6 +123,8 @@ export interface Inner {
   childYear?: number;
   /** 海外から帰ってくる年 */
   abroadUntil?: number;
+  /** この人生で出たネタの型 */
+  motifs?: string[];
   isPeer: boolean;
   bot: string;               // peer の時: 動かすボット名
   workTarget: number;        // afterlife のイベントが指す作品の番号(-1 = 直近)

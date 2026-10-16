@@ -97,6 +97,33 @@ for (const e of EVENTS) {
   if (/\{work\}/.test(tx) && /リマスター|復刻|昔の|移植版|再販/.test(tx) && !e.tag?.includes('afterlife')) e.tag = [...(e.tag ?? []), 'afterlife'];
 }
 
+// ネタの型(第 13 回ペルソナ: 「電車で知らない人が自分のゲームを遊んでいる」が 3 人生で 5 回、など)。同じ型は 1 人生 1 回
+const MOTIFS: [string, RegExp][] = [
+  ['train', /(電車|新幹線|車両).*(自分の|あなたの|うちの)(ゲーム|作品|作った)|(自分の|あなたの)(ゲーム|作品).*(電車|新幹線)/],
+  ['hospital', /入院|病室/],
+  ['readable_code', /コードの方が読みやすい|自分より読みやすかった/],
+  ['vr_sick', /(VR|ゴーグル).*(酔|座り込|壁を探|床で)/],
+  ['hunt', /一狩り|狩りに|狩場|狩りをして/],
+  ['sequel_out', /続編.*(呼ばれ|外さ|新聞で知|一覧に無)/],
+  ['six_fingers', /指が 6 本/],
+  ['insider', /インサイダー|株を買/],
+  ['card_drawer', /名刺.*引き出し/],
+  ['wallpaper', /待ち受けにした/],
+  ['sales_graph', /売上(の)?グラフを毎朝|売上を毎朝/],
+  ['bingo', /ビンゴ/],
+  ['press_news', /地元の新聞|地元紙/],
+  ['no_button_phone', /ボタンの無い電話/],
+  ['partner_play', /パートナーが(後ろで|叫んだ|夜中)/],
+  ['muscle_box', /箱絵.*(筋肉|マッチョ)|筋肉質/],
+  ['zero_yen', /1 円も入らない/],
+  ['cosplay', /コスプレ/],
+  ['hidden_gem', /隠れた名作/],
+  ['rta', /RTA|世界記録/],
+  ['sega_exit', /(セガ|白い機械|ドリキャス|ドリームキャスト).*撤退|撤退.*(セガ|朝礼)/],
+  ['no_home', /家に帰らなかった|鍵の形/],
+  ['bug_trick', /バグ.*裏技|裏技.*バグ/],
+];
+for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; }
 // ハードの選択の後日談は、その選択がまだ生きている時だけ(後で別の陣営を選んだら、前の選択の後日談は出さない)
 {
   const need = new Map<string, Set<string>>();
@@ -118,6 +145,11 @@ for (const e of EVENTS) {
 }
 // てっぺんの話の「作品が」は作品名に(第 11 回ペルソナ: 「作品が 100 万本」がどの作品か分からない)
 for (const e of EVENTS) if (e.id.startsWith('ev_tn_pk_')) for (const t of [e.text, ...(e.alt ?? [])]) { if (t.ja.startsWith('作品が')) { t.ja = t.ja.replace(/^作品が/, '{work}が'); t.en = t.en.replace(/^(Your game|The game)/, '{work}'); } }
+// ハードの選択の印を足す(第 13 回ペルソナ: Switch を選んだのに PS5 で出る。Switch の選択が「コンシューマ」の印しか付けていなかった)
+{
+  const extra: Record<string, Record<string, boolean>> = { 'ev_hw_switch_or_phone/0': { hw_mk_nintendo: true }, 'ev_hw_ds_or_psp/0': { hw_fm_handheld: true }, 'ev_hw_ds_or_psp/1': { hw_fm_handheld: true }, 'ev_hw_handheld_war/1': { hw_fm_handheld: true } };
+  for (const [k, f] of Object.entries(extra)) { const [id, i] = k.split('/'); const c = EVENTS.find((e) => e.id === id)?.choices?.[+i]; if (c) c.effect = { ...c.effect, flag: { ...(c.effect.flag ?? {}), ...f } }; }
+}
 // 題名の選択を、次の作品の名前に効かせる(第 11 回ペルソナ: 「漢字 4 文字」を選んだのに『ぷるぷるパネル』)
 for (const e of EVENTS) for (const c of e.choices ?? []) {
   const st = ({ ch_wk_tt_kanji: 'tt_kanji', ch_wk_tt_ceo: 'tt_ceo', ch_wk_tn_long: 'tt_long' } as Record<string, string>)[c.id];
