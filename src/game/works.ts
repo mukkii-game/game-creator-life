@@ -34,8 +34,7 @@ function styledName(s: State): Text | null {
 export const RECENT_TITLES = new Set<string>();
 function fitName(r: State["rng"], year: number, platform: string): Text {
   let n = workName(r, year);
-  for (let i = 0; i < 6 && !nameFits(n.ja, platform); i++) n = workName(r, year);
-  for (let i = 0; i < 6 && RECENT_TITLES.has(n.ja.replace(/^『|』$/g, '')); i++) n = workName(r, year); // 直近の人生の題名(自分・同期)と被らせない(第 31 回)
+  for (let i = 0; i < 12 && (!nameFits(n.ja, platform) || RECENT_TITLES.has(n.ja.replace(/^『|』$/g, ''))); i++) n = workName(r, year); // 直近の人生の題名(自分・同期)と被らせない(第 31 回)
   return n;
 }
 function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | null {

@@ -352,6 +352,7 @@ function checkEnd(s: State, out: string[]) {
   if (s.ending) return;
   if (s.stat.hp <= 0) {
     if (!s.flags.collapsed && s.age < 45) { s.flags.collapsed = true; s.stat.hp = 30; logEvent(s, 'ev_sys_collapse', 'event'); apply(s, EVENT_BY_ID.get('ev_sys_collapse')?.effect, '', out); }
+    else if (!s.inner.recent?.length && !s.inner.isPeer && s.year - s.startYear < 12) { s.stat.hp = 25; log(s, { ja: 'また倒れた。今度は 2 週間で戻った。医者の目は笑っていなかった。机の上に、誰かが置いたのど飴が 3 袋。', en: 'You collapsed again. Back in two weeks this time. The doctor was not smiling. Someone had left three bags of throat drops on your desk.' }, 'event'); } // 初めての 1 回は、若いうちに体で終わらせない(第 37 回: 1 回目が 25 歳で体を壊して終わり、2 回目を遊んでもらえない)
     else return end(s, 'end_body', out);
   }
   if (s.stat.passion <= 0 && (s.status === 'employed' || s.status === 'indie')) {

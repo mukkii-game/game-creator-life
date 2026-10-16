@@ -81,7 +81,7 @@ for (const e of EVENTS) {
   // 付き合う前の話は結婚前だけ(第 12 回ペルソナ: 籍を入れて子どもが生まれた後に「結婚式の曲が決まった」)
   if (/結婚式の曲|別々の家から|付き合い始め|デート|告白|電話代を見て/.test(tx) && !has(e, 'flag.lv_married')) { add(e, '!flag.lv_married'); if (!has(e, 'flag.child')) add(e, '!flag.child'); }
   // 実在の会社に後ろ暗い話を付けない
-  if (/宝石を売|サクラ|裏金|粉飾|横領|夜逃げ/.test(tx) && !has(e, 'flag.real_co')) add(e, '!flag.real_co');
+  if (/宝石を売|サクラ|裏金|粉飾|横領|夜逃げ|詐欺|出資を募|名刺より先に無くな/.test(tx) && !has(e, 'flag.real_co')) add(e, '!flag.real_co');
   // 自分の子どもの話は、子どもの年齢に合う時だけ(第 9 回ペルソナ: 1 歳でケータイのゲーム、2 歳でナワバリバトル)
   if ((/child|kid/.test(e.id) || /^子どもが|^子どもに|^子どもと/.test(tx)) && !/生まれ/.test(tx) && !/^ev_hs_.*_(any|abroad|client|client_lead)$|ev_sega|boss_kid|fan_parent/.test(e.id) && !has(e, 'kid')) {
     add(e, /就職|内定|ゲーム会社に入|面接|成人|初任給/.test(tx) ? 'kid>=20' : /思春期/.test(tx) ? 'kid>=13' : /学校|作文|宿題|クラス|授業参観|運動会|ノート|定規/.test(tx) ? 'kid>=7' : 'kid>=4'); if (/学校|作文|宿題|クラス|授業参観|運動会|ランドセル|給食/.test(tx) && !/(高校|大学|専門学校)/.test(tx)) add(e, 'kid<=15'); // 第 33 回: 25 歳の子が「学校で 1 位」
@@ -173,7 +173,7 @@ for (const e of EVENTS) if (e.choices?.some((c) => c.effect?.flag?.hiv_social)) 
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); if ((e.choices?.some((c) => c.effect?.flag?.life_abroad || c.effect?.flag?.went_abroad) || e.effect?.flag?.went_abroad || /初めての海外|海外出張|海外のスタジオから/.test(tx)) && !has(e, 'company.size')) add(e, 'company.size!=abroad'); }
 for (const e of EVENTS) if (e.tag?.includes('crime') && !has(e, 'career')) add(e, 'career>=2'); // 入って 1 年目に捕まって 22 歳で終わる人生にしない(第 22 回)
 for (const e of EVENTS) if (['ev_era5_vr_team', 'ev_tn_big_vr', 'ev_hs_2016_psvr_client_lead'].includes(e.id)) e.motif = 'vr_move'; // VR 部署に行くかは 1 人生 1 回(第 22 回: 2017 年に断って 2018 年に行く)
-for (const e of EVENTS) if (e.tag?.includes('insider') && e.choices) e.motif = 'insider';
+for (const e of EVENTS) if (e.tag?.includes('insider') && e.choices) e.motif = 'insider'; else if (e.tag?.includes('crime') && !e.motif) e.motif = 'crime'; // 選択の無い犯罪の小ネタも同じ型(第 37 回: 3 人生中 2 人生で逮捕)
 // 有名人の話は、同じ人は 1 人生 1 回(第 36 回: 上村雅之さんが 2 回、初対面のように出た)
 for (const e of EVENTS) if (e.tag?.includes('celeb') && !e.motif) { const m = /([一-龥ァ-ヶー]{2,8}[一-龥ぁ-ん]{0,4})さん/.exec(e.text.ja); if (m) e.motif = `celeb:${m[1]}`; } // 株の選択は本文に「株」が無く型が付いていなかった(第 32 回: 3 人生中 2 人生で株→実刑)
 for (const e of EVENTS) if (e.id.startsWith('ev_wk_restructure_')) e.motif = 'restructure'; // 希望退職かカスタマーセンターかは 1 人生 1 回(第 20 回: 2002 と 2009 に 2 回)
