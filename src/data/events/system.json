@@ -120,7 +120,7 @@
       "en": "Promoted. More title, and your making time turned into meetings."
     },
     "alt": [
-      { "ja": "昇進した。机が窓際に移った。景色は良くなったが、画面に光が映って見えない。", "en": "Promoted. Your desk moved to the window. Great view; the screen glare makes it unreadable." },
+      { "ja": "昇進した。椅子にひじ掛けが付いた。最初の 1 週間、ひじ掛けの置き場所に困った。", "en": "Promoted. Your chair got armrests. For the first week, you had no idea where to put your arms." },
       { "ja": "昇進した。最初に覚えた新しい仕事は、会議室の予約の取り方だった。", "en": "Promoted. The first new skill you learned: booking meeting rooms." },
       { "ja": "昇進した。部下ができた。部下の書いたコードの方が、自分のより読みやすかった。", "en": "Promoted. Now you have reports. Their code is easier to read than yours." }
     ],
@@ -336,8 +336,8 @@
     ],
     "weight": 0,
     "text": {
-      "ja": "60 歳、定年。人事から封筒が届く。中には 4 つの選択肢と、なぜか社員食堂の割引券。",
-      "en": "Age 60: retirement. HR sends an envelope with four options—and, for some reason, a cafeteria coupon."
+      "ja": "60 歳、定年。人事から封筒が届く。中には 3 つの選択肢と、なぜか社員食堂の割引券。",
+      "en": "Age 60: retirement. HR sends an envelope with three options—and, for some reason, a cafeteria coupon."
     },
     "alt": [
       { "ja": "60 歳、定年。人事に呼ばれた。机の上に紙が並んでいる。どれを選んでも、判子は 1 つで済むらしい。", "en": "Age 60: retirement. HR lays out papers on the desk. Whichever you pick, it apparently takes just one stamp." },
@@ -673,13 +673,13 @@
     ],
     "weight": 0,
     "text": {
-      "ja": "辞令が出た。役職名が長くなり、名刺の文字が小さくなった。",
+      "ja": "昇進の辞令が出た。役職名が長くなり、名刺の文字が小さくなった。",
       "en": "Promotion notice. Your title got longer; the font on your business card got smaller."
     },
     "alt": [
-      { "ja": "辞令が出た。判子が 1 つ増えて、押す書類は山になった。", "en": "Promotion notice. One more stamp in your drawer, and a mountain of forms to stamp." },
-      { "ja": "辞令が出た。社内報に顔写真が載った。10 年前の写真だった。", "en": "Promotion notice. Your photo ran in the company newsletter. It was ten years old." },
-      { "ja": "辞令が出た。同期が拍手してくれた。その日から、同期の飲み会に呼ばれなくなった。", "en": "Promotion notice. Your peers applauded. From then on, they stopped inviting you out for drinks." }
+      { "ja": "昇進の辞令が出た。判子が 1 つ増えて、押す書類は山になった。", "en": "Promotion notice. One more stamp in your drawer, and a mountain of forms to stamp." },
+      { "ja": "昇進の辞令が出た。社内報に顔写真が載った。入社の時の写真だった。", "en": "Promotion notice. Your photo ran in the company newsletter. It was your photo from the day you joined." },
+      { "ja": "昇進の辞令が出た。同期が拍手してくれた。その日から、同期の飲み会に呼ばれなくなった。", "en": "Promotion notice. Your peers applauded. From then on, they stopped inviting you out for drinks." }
     ],
     "effect": {
       "fame": 5,
