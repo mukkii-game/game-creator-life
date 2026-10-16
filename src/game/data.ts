@@ -95,7 +95,7 @@ for (const e of EVENTS) {
   // 親友を見送った後に、その親友が出てくる話は出さない
   if (/親友/.test(tx) && !has(e, 'flag.friend_gone')) add(e, '!flag.friend_gone');
   // 会社が潰れる・営業停止の話は、実在の会社にいる時は出さない(史実に無い倒産)
-  if (/営業を停止|倒産|事務所が空っぽ|会社が潰れ|会社がつぶれ/.test(tx) && !has(e, 'flag.real_co')) add(e, '!flag.real_co');
+  if (/営業を停止|倒産|事務所が空っぽ|会社が潰れ|会社がつぶれ|シャッターが下り|鍵が替わ|差し押さえ|身売り/.test(tx) && !has(e, 'flag.real_co')) add(e, '!flag.real_co');
   // 2020〜21 年は即売会がほぼ開かれなかった
   if (/即売会/.test(tx) && e.years[0] <= 2021 && e.years[1] >= 2020) add(e, 'year!=2020'), add(e, 'year!=2021');
   // 昔の作品の話は、2 年以上前の作品がある時だけ(出したばかりの作品に「リマスター」が来ない)
@@ -129,7 +129,7 @@ const MOTIFS: [string, RegExp][] = [
   ['bug_trick', /バグ.*裏技|裏技.*バグ/],
   ['parent_save', /セーブデータ.*(名前|「)|「(とうちゃん|おかん)」/],
 ];
-for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; else if (e.tag?.includes('crime') && e.choices) e.motif = 'crime'; if (e.tag?.includes('early_exit') && e.choices) e.motif = 'early_exit'; } // 早くに去る選択は 1 人生 1 回 // 犯罪の入口(選択)は続けて遊ぶと出にくく
+for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; else if (e.tag?.includes('crime') && e.choices) e.motif = 'crime'; if (e.tag?.includes('early_exit') && e.choices) e.motif = 'early_exit'; if (e.choices && !e.id.startsWith('ev_sys_') && !e.motif) { if (/AI/.test(tx) && e.years[1] >= 2022) e.motif = 'ai_choice'; else if (/ケータイ(の)?部署|ソシャゲ(に|へ)(行|移)/.test(tx + (e.choices ?? []).map((c) => c.label.ja).join(''))) e.motif = 'mobile_move'; } } // AI をどう使うか・ケータイへ移るかの選択は 1 人生 1 回 // 早くに去る選択は 1 人生 1 回 // 犯罪の入口(選択)は続けて遊ぶと出にくく
 // 選択の後日談(later で来る話)には印を付ける(同じ人生で 2 回出さない)
 for (const e of EVENTS) for (const c of e.choices ?? []) for (const l of c.later ?? []) { const t = EVENTS.find((x) => x.id === l.event); if (t && !t.tag?.includes('followup')) t.tag = [...(t.tag ?? []), 'followup']; }
 // ハードの選択の後日談は、その選択がまだ生きている時だけ(後で別の陣営を選んだら、前の選択の後日談は出さない)

@@ -409,7 +409,7 @@ function beginYear(s: State, out: string[]) {
   for (const [tag, at, done] of [['pit', 'pitAt', 'pitDone'], ['peak', 'peakAt', 'peakDone'], ['bond', 'bondAt', 'bondDone'], ['gravity', 'gravAt', 'gravDone']] as const) {
     if (s.inner[done] || s.year - s.startYear < s.inner[at] || s.status === 'left') continue;
     if (tag === 'gravity' && (s.flags.sega || s.flags.ex_sega)) continue; // セガの引力はセガに入らなかった人生でだけ
-    const pool0 = POOL.filter((e) => e.tag?.includes(tag) && eligible(s, e));
+    const pool0 = POOL.filter((e) => e.tag?.includes(tag) && eligible(s, e) && (!s.inner.isPeer || !e.tag.includes('early_exit')));
     if (!pool0.length) continue;
     s.inner[done] = true;
     // 人生の山場は、直近の人生で見ていないものから。全部見ていたら、今回は山場なし(第 10 回ペルソナ: 毎回同じ年に同じ筋)
@@ -419,7 +419,7 @@ function beginYear(s: State, out: string[]) {
   }
   // 数年に一回の大きな選択(すごく悩むやつ)
   if (s.year >= s.inner.nextBig && s.status !== 'left') {
-    const pool = POOL.filter((e) => e.tag?.includes('big') && !e.tag.includes('hardware') && !e.tag.includes('worklife') && (!e.tag.includes('insider') || !s.inner.counts.insider) && e.choices && eligible(s, e, 99));
+    const pool = POOL.filter((e) => e.tag?.includes('big') && !(s.inner.isPeer && e.tag.includes('early_exit')) && !e.tag.includes('hardware') && !e.tag.includes('worklife') && (!e.tag.includes('insider') || !s.inner.counts.insider) && e.choices && eligible(s, e, 99));
     const fresh = freshOnly(s, pool);
     if (pool.length) { if (fresh.length) turning.push(draw(r, fresh, 1, wOf(s))[0].id); s.inner.nextBig = s.year + r.int(tune<number>('choice.bigMin'), tune<number>('choice.bigMax')); }
   }
@@ -852,7 +852,7 @@ const FINALES: Finale[] = [
 function kidsReturn(s: State, id: EndingId) {
   // 相方: まだ業界にいて塀の外の同期。会社に入らず始めた人生なら「昔の仲間」
   const seenName = (x: State) => s.log.some((l) => l.text.ja.includes(x.name.ja.split(' ')[0]));
-  const outside = s.inner.peerStates.filter((x) => !x.flags.in_prison && !x.flags.ex_prison && x.ending?.id !== 'end_arrest'); // 捕まった同期は相方にしない(第 9 回ペルソナ)
+  const outside = s.inner.peerStates.filter((x) => !x.flags.in_prison && !x.flags.ex_prison && (!x.ending || x.ending.id === 'end_restart')); // 業界を去った同期は相方にしない(第 17 回ペルソナ) // 捕まった同期は相方にしない(第 9 回ペルソナ)
   const rivalSt = s.inner.rival && s.inner.rival.step >= 2 ? outside.find((x) => s.inner.rival!.name.ja.startsWith(x.name.ja.split(' ')[0])) : undefined; // ライバルの同期がいれば、その人と
   const bud = rivalSt ?? outside.find((x) => !x.ending && seenName(x)) ?? outside.find(seenName);
   const indieStart = s.companies[0]?.company.size === 'indie';
