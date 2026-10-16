@@ -16,13 +16,14 @@ import type { Recorder, Player } from '../core/replay';
 import { h, tf, tx, lookOf, setLook, money, FocusRing } from './util';
 import { onTap, type Cmd } from './input';
 import { emo, faceEl, faceOf, type EmoName } from './art';
+import { pickOpts, type StartPick } from './start';
 
 export type Speed = 1 | 2 | 4 | 'fast';
 const SPEEDS: Speed[] = [1, 2, 4, 'fast'];
 
 export interface PlayOptions {
   seed: number;
-  era: Era | '';
+  era: StartPick;
   /** 年表図鑑(init に渡す。URL で決まる人生では undefined) */
   seen?: string[];
   /** 自分の名前(空・undefined = おまかせ) */
@@ -76,7 +77,7 @@ export function shapeOf(w: Work): 'cart' | 'cd' | 'dl' | 'app' {
 const initial = (w: Work) => (tx(w.name).replace(/^[『「"“\s]+/, '').charAt(0) || '?');
 
 export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
-  const s = init(o.seed, { ...(o.era ? { era: o.era } : {}), ...(o.seen ? { seen: o.seen } : {}), ...(o.name ? { name: o.name } : {}) });
+  const s = init(o.seed, { ...pickOpts(o.era), ...(o.seen ? { seen: o.seen } : {}), ...(o.name ? { name: o.name } : {}) });
   // 「NEW」「別の立場で」の印は、この端末の図鑑と比べる(URL で決まる人生でも印は出す。中身は変えない)
   const known = new Set(load().chronicle);
   const knownHist = new Set([...known].map((k) => k.split(':')[0]));

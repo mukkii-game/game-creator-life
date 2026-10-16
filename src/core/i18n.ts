@@ -65,7 +65,10 @@ const TABLE: Record<string, { ja: string; en: string }> = {
   endAt: { ja: '{year} 年 / {age} 歳', en: '{year} / age {age}' },
   toResult: { ja: 'タップで結果へ', en: 'Tap for results' },
   nameLabel: { ja: 'あなたの名前', en: 'Your name' },
-  namePh: { ja: 'おまかせ', en: 'Random' },
+  namePh: { ja: '名前を入力(空=おまかせ)', en: 'Type your name (blank = random)' },
+  yearPick: { ja: '開始年を指定', en: 'Pick a start year' },
+  yearAny: { ja: '指定しない', en: 'Any' },
+  yearOpt: { ja: '{v} 年', en: '{v}' },
   nameRandom: { ja: '🎲 おまかせ', en: '🎲 Random' },
   // 歴史の事件(プレイ中)
   histTv: { ja: 'テレビ', en: 'TV' },

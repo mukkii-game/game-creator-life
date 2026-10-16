@@ -1,0 +1,1292 @@
+[
+ {
+  "id": "ev_hw_arcade_or_fc",
+  "years": [
+   1983,
+   1988
+  ],
+  "text": {
+   "ja": "次の企画、ゲーセン向けか、出たばかりの家庭用か。先輩いわく「家庭用は子どものおもちゃ。本物はゲーセンにある」。基板の上で、ファミコンのカセットがやけに小さく見えた。",
+   "en": "Next project: arcade, or the new home console? Your senior says: \"Home machines are toys. Real games live in arcades.\" Next to the arcade board, the Famicom cartridge looked tiny."
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_ac_arcade",
+    "label": {
+     "ja": "ゲーセンで勝負する",
+     "en": "Go arcade"
+    },
+    "effect": {
+     "skill": 4,
+     "passion": 6,
+     "flag": {
+      "hw_pl_arcade": true
+     }
+    },
+    "result": {
+     "ja": "基板を選んだ。ゲーセンの奥で、知らない高校生があなたのゲームに 100 円を入れた。その背中を 30 分見ていた。",
+     "en": "You chose the board. In the back of an arcade, a high-schooler you'd never met dropped a coin into your game. You watched his back for thirty minutes."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_arcade_pride"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_ac_home",
+    "label": {
+     "ja": "家庭用に賭ける",
+     "en": "Bet on home consoles"
+    },
+    "effect": {
+     "money": 20,
+     "passion": 3,
+     "flag": {
+      "hw_pl_consumer": true
+     }
+    },
+    "result": {
+     "ja": "家庭用にした。先輩には「都落ちだな」と言われた。年末、その先輩の甥っ子があなたのカセットを欲しがった。",
+     "en": "You went home console. Your senior called it a step down. That December, his nephew begged for your cartridge."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_home_boom"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "big",
+   "choice",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_arcade_pride",
+  "years": [
+   1986,
+   2040
+  ],
+  "text": {
+   "ja": "ゲーセン勤めの誇り。家庭用への移植版を見て「色が足りない」「音が違う」と腕を組むのが、この頃のあなたの趣味だった。",
+   "en": "Arcade pride. Folding your arms at the home ports — \"not enough colours\", \"the sound's wrong\" — was your hobby back then."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_home_boom",
+  "years": [
+   1986,
+   2040
+  ],
+  "text": {
+   "ja": "家庭用が化けた。親戚の集まりで「ファミコンの人」と紹介されるようになった。肩書きとしては微妙だが、子どもには神扱いだった。",
+   "en": "Home consoles exploded. At family gatherings you became \"the Famicom guy\". An odd title, but the kids treated you like a god."
+  },
+  "effect": {
+   "money": 30,
+   "passion": 4
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_16bit_war",
+  "years": [
+   1988,
+   1991
+  ],
+  "text": {
+   "ja": "16 ビット戦争。会議室のホワイトボードに「メガドライブ」「PC エンジン」「スーパーファミコン(予定)」と書かれ、どれで出すかで 3 時間揉めた。誰も結論を出したくなかった。",
+   "en": "The 16-bit war. The whiteboard said \"Mega Drive\", \"PC Engine\", \"Super Famicom (coming)\". Three hours of arguing. Nobody wanted to be the one to decide."
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside",
+   "!flag.sega"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_16_sega",
+    "label": {
+     "ja": "メガドライブ(セガ)",
+     "en": "Mega Drive (Sega)"
+    },
+    "effect": {
+     "skill": 4,
+     "passion": 6,
+     "flag": {
+      "hw_mk_sega": true
+     }
+    },
+    "result": {
+     "ja": "セガを選んだ。黒くて、16 ビットと金文字で書いてあって、とにかく速い。理屈はそれで十分だった。",
+     "en": "You picked Sega. Black, \"16-BIT\" in gold, and fast. That was reason enough."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_md_overseas"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_16_nec",
+    "label": {
+     "ja": "PC エンジン(NEC・ハドソン)",
+     "en": "PC Engine (NEC/Hudson)"
+    },
+    "effect": {
+     "skill": 5,
+     "money": -10,
+     "flag": {
+      "hw_mk_nec": true
+     }
+    },
+    "result": {
+     "ja": "PC エンジンにした。小さくて CD-ROM² まで付く。「これが未来だ」と言ったら、未来は値段が高かった。",
+     "en": "PC Engine it was. Tiny, and it took CD-ROM². You said \"this is the future\"; the future was expensive."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_pce_cd"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_16_nin",
+    "label": {
+     "ja": "スーパーファミコンを待つ(任天堂)",
+     "en": "Wait for the Super Famicom (Nintendo)"
+    },
+    "effect": {
+     "money": 15,
+     "flag": {
+      "hw_mk_nintendo": true
+     }
+    },
+    "result": {
+     "ja": "任天堂を待つことにした。待っている間に企画書を 4 回書き直した。",
+     "en": "You waited for Nintendo. While waiting, you rewrote the proposal four times."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_sfc_queue"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "big",
+   "choice",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_md_overseas",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "メガドライブ、国内では渋かったが、海外ではジェネシスとして大暴れ。英語のファンレターが来た。辞書を引きながら 3 日かけて読んだら「もっと速くしろ」だった。",
+   "en": "Mega Drive was slow at home but huge abroad as the Genesis. An English fan letter arrived. Three days with a dictionary: \"make it faster\"."
+  },
+  "effect": {
+   "passion": 6,
+   "network": 3
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_pce_cd",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "PC エンジンの CD-ROM² で、ゲームから人の声が出た。初めて音声が鳴った瞬間、開発室の全員が立ち上がった。誰の声かというと、経理の人だった。",
+   "en": "On the PC Engine CD-ROM², a game spoke. When the first voice played, the whole room stood up. It was the accountant's voice."
+  },
+  "effect": {
+   "passion": 8,
+   "skill": 3
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_sfc_queue",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "スーパーファミコン発売日、店の前の行列を見に行った。あなたのソフトはまだ出ていないのに、なぜか誇らしかった。",
+   "en": "Super Famicom launch day. You went to see the queue outside the shop. None of your games were out yet, and still you felt proud."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_gb_or_home",
+  "years": [
+   1989,
+   1995
+  ],
+  "text": {
+   "ja": "ゲームボーイの企画が回ってきた。画面は白黒、というより緑と黒。据え置き組からは「格下げ?」と笑われた。電池は単三 4 本。",
+   "en": "A Game Boy project landed on your desk. The screen was not even black and white — green and black. The home-console team laughed: \"Demoted?\" Four AA batteries."
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_gb_yes",
+    "label": {
+     "ja": "携帯機をやる",
+     "en": "Do the handheld"
+    },
+    "effect": {
+     "passion": 6,
+     "money": 10,
+     "flag": {
+      "hw_fm_handheld": true
+     }
+    },
+    "result": {
+     "ja": "携帯機を選んだ。通勤電車で、隣のサラリーマンがあなたのゲームを遊んでいた。降りる駅を乗り過ごしていた。勝った。",
+     "en": "Handheld it was. On the train, the salaryman next to you was playing your game. He missed his stop. You won."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_gb_long"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_gb_no",
+    "label": {
+     "ja": "据え置きでカラーにこだわる",
+     "en": "Stay on home consoles, in colour"
+    },
+    "effect": {
+     "skill": 5,
+     "flag": {
+      "hw_fm_home": true
+     }
+    },
+    "result": {
+     "ja": "据え置きに残った。色数の多い画面でドット絵を打ちながら「緑の画面はちょっと…」と言っていた。",
+     "en": "You stayed on home consoles, drawing pixels in glorious colour and muttering \"green screens, though...\""
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_home_color"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "choice",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_gb_long",
+  "years": [
+   1992,
+   2040
+  ],
+  "text": {
+   "ja": "携帯機は寿命が長かった。数年後もまだ現役で、白黒の画面のまま電池を食い続けていた。あなたのゲームも、どこかの子のランドセルの中で生きていた。",
+   "en": "The handheld lived forever. Years later it was still eating batteries in monochrome, and your game lived on in some kid's school bag."
+  },
+  "effect": {
+   "passion": 5,
+   "money": 15
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_home_color",
+  "years": [
+   1992,
+   2040
+  ],
+  "text": {
+   "ja": "据え置きのドット職人として腕が上がった。色を 1 色節約するために 2 日悩む人間になった。誰にも褒められないが、絶対に誰かが気づいていると信じた。",
+   "en": "Your home-console pixel art got sharper. You became the kind of person who agonises for two days to save one colour. Nobody praised it. Someone must have noticed."
+  },
+  "effect": {
+   "skill": 6
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_32bit_war",
+  "years": [
+   1994,
+   1996
+  ],
+  "text": {
+   "ja": "次世代機戦争。セガサターンとプレイステーション、どっちに付くか。家庭用がついにアーケード並みの絵を出すらしい。ゲーセン組が少しだけ焦っていた。",
+   "en": "The next-gen war: Sega Saturn or PlayStation? Home consoles would finally match arcade graphics, they said. The arcade team looked just a little nervous."
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside",
+   "!flag.sega"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_32_saturn",
+    "label": {
+     "ja": "セガサターン",
+     "en": "Sega Saturn"
+    },
+    "effect": {
+     "passion": 8,
+     "skill": 3,
+     "flag": {
+      "hw_mk_sega": true
+     }
+    },
+    "result": {
+     "ja": "サターンに付いた。2D に強い、格闘ゲームが来る、と言い張った。半分は当たっていた。",
+     "en": "You went Saturn. Great at 2D, fighting games were coming, you insisted. Half right."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_saturn_fan"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_32_ps",
+    "label": {
+     "ja": "プレイステーション",
+     "en": "PlayStation"
+    },
+    "effect": {
+     "money": 30,
+     "passion": 3,
+     "flag": {
+      "hw_mk_sony": true
+     }
+    },
+    "result": {
+     "ja": "プレステに付いた。新参のソニーに賭けた。CD は安く刷れる。在庫で倉庫が埋まる心配が減った。",
+     "en": "You went PlayStation, betting on the newcomer Sony. CDs were cheap to press. Fewer nightmares about warehouses full of cartridges."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_ps_wave"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_32_n64",
+    "label": {
+     "ja": "任天堂の次を待つ",
+     "en": "Wait for Nintendo's next"
+    },
+    "effect": {
+     "skill": 4,
+     "flag": {
+      "hw_mk_nintendo": true
+     }
+    },
+    "result": {
+     "ja": "任天堂を待った。ロムカセットの続投と聞いて、少しだけ天井を見上げた。",
+     "en": "You waited for Nintendo. Hearing it would stay on cartridges, you stared at the ceiling for a bit."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_n64_party"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "big",
+   "choice",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_saturn_fan",
+  "years": [
+   1997,
+   2040
+  ],
+  "text": {
+   "ja": "サターン派として生きた。発売日に「バーチャファイター」を買った人の熱を、あなたは今でも覚えている。白いサターンの限定版を見るたび、少し胸が鳴る。",
+   "en": "You lived as a Saturn loyalist. You still remember the heat of launch-day Virtua Fighter buyers. A white limited-edition Saturn still makes your heart jump."
+  },
+  "effect": {
+   "passion": 8,
+   "network": 4
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_ps_wave",
+  "years": [
+   1997,
+   2040
+  ],
+  "text": {
+   "ja": "プレステの波に乗った。発売日には行列、雑誌の広告、テレビ CM。自分のゲームも CM の端に 0.5 秒映った。家族全員で録画を 20 回見た。",
+   "en": "You rode the PlayStation wave. Queues, magazine ads, TV commercials. Your game appeared at the edge of one for half a second. The whole family watched the tape twenty times."
+  },
+  "effect": {
+   "money": 40,
+   "passion": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_n64_party",
+  "years": [
+   1997,
+   2040
+  ],
+  "text": {
+   "ja": "任天堂の新しい機械には、コントローラの差し込み口が 4 つあった。4 人対戦のテストプレイで、開発室の友情が 2 回壊れて 3 回直った。",
+   "en": "Nintendo's new machine had four controller ports. Four-player test sessions broke the team's friendships twice and fixed them three times."
+  },
+  "effect": {
+   "passion": 7,
+   "network": 3
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_arcade_shift",
+  "years": [
+   1997,
+   2001
+  ],
+  "text": {
+   "ja": "家庭用がアーケードとほぼ同じ絵を出すようになった。「移植度 100%」の文字が雑誌に踊る。ゲーセンに残るか、家庭用に移るか。",
+   "en": "Home consoles now looked almost as good as arcades. \"100% faithful port!\" screamed the magazines. Stay in the arcade business, or move home?"
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_shift_stay",
+    "label": {
+     "ja": "ゲーセンに残る",
+     "en": "Stay arcade"
+    },
+    "effect": {
+     "passion": 7,
+     "skill": 3,
+     "flag": {
+      "hw_pl_arcade": true
+     }
+    },
+    "result": {
+     "ja": "ゲーセンに残った。「家で遊べないもの」を作ると決めた。筐体を大きくした。床が抜けかけた。",
+     "en": "You stayed. You decided to make what nobody could play at home. You made the cabinet bigger. The floor nearly gave way."
+    },
+    "later": [
+     {
+      "after": 4,
+      "event": "ev_hw_fu_arcade_body"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_shift_home",
+    "label": {
+     "ja": "家庭用に移る",
+     "en": "Move to consoles"
+    },
+    "effect": {
+     "money": 30,
+     "flag": {
+      "hw_pl_consumer": true
+     }
+    },
+    "result": {
+     "ja": "家庭用に移った。初日、「セーブ機能」の仕様を書きながら、ゲーセンでは客を帰さないことばかり考えていたと気づいた。",
+     "en": "You moved home. On day one, writing a save-game spec, you realised all your arcade years were spent making sure players never left."
+    },
+    "later": [
+     {
+      "after": 4,
+      "event": "ev_hw_fu_home_long"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "choice",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_arcade_body",
+  "years": [
+   2001,
+   2040
+  ],
+  "text": {
+   "ja": "体感ゲーム、音ゲー、プリクラの横で、ゲーセンはまだ戦っていた。あなたの筐体の前に列ができた日、店長が缶コーヒーをおごってくれた。",
+   "en": "Rhythm games, ride-ons, photo booths — the arcade was still fighting. The day a line formed at your cabinet, the manager bought you a canned coffee."
+  },
+  "effect": {
+   "passion": 8,
+   "money": 10
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_home_long",
+  "years": [
+   2001,
+   2040
+  ],
+  "text": {
+   "ja": "家庭用に移って、100 時間遊べるゲームを作った。ゲーセン時代は 3 分で客を殺していたのに。人間、変われる。",
+   "en": "On consoles you made a 100-hour game. In the arcade you used to kill players in three minutes. People can change."
+  },
+  "effect": {
+   "skill": 5,
+   "money": 20
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_dc_or_ps2",
+  "years": [
+   1998,
+   2000
+  ],
+  "text": {
+   "ja": "ドリームキャストかプレイステーション 2 か。ドリキャスにはモデムが付いていて、ネットに繋がる。PS2 には DVD が見られるという噂。",
+   "en": "Dreamcast or PlayStation 2? The Dreamcast had a built-in modem for the internet. The PS2, rumour said, played DVDs."
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside",
+   "!flag.sega"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_dc",
+    "label": {
+     "ja": "ドリームキャスト(セガ)",
+     "en": "Dreamcast (Sega)"
+    },
+    "effect": {
+     "passion": 10,
+     "skill": 4,
+     "flag": {
+      "hw_mk_sega": true
+     }
+    },
+    "result": {
+     "ja": "ドリキャスに付いた。ネットに繋がるゲーム機。夢が詰まりすぎて、企画書が 80 ページになった。",
+     "en": "Dreamcast. A console on the internet. So many dreams the proposal hit 80 pages."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_dc_end"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_ps2",
+    "label": {
+     "ja": "PlayStation 2",
+     "en": "PlayStation 2"
+    },
+    "effect": {
+     "money": 40,
+     "flag": {
+      "hw_mk_sony": true
+     }
+    },
+    "result": {
+     "ja": "PS2 に付いた。発売日、本体は売り切れ。うちの母は DVD プレーヤーとして買った。",
+     "en": "PS2. Launch day, sold out. Your mother bought one as a DVD player."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_ps2_big"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "big",
+   "choice",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_dc_end",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "2001 年、セガはハードから撤退した。ドリキャスで作ったものは、少ない台数のまま伝説になった。今でも中古屋で白い本体を見ると、軽く会釈してしまう。",
+   "en": "In 2001 Sega quit making hardware. What you built for Dreamcast became legend on a small install base. You still nod politely to white consoles in used shops."
+  },
+  "effect": {
+   "passion": 6,
+   "network": 6
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_ps2_big",
+  "years": [
+   2000,
+   2040
+  ],
+  "text": {
+   "ja": "PS2 は売れに売れた。会議で「ハード台数は気にしなくていい」と言われる日が来た。人生で一番楽な会議だった。",
+   "en": "The PS2 sold and sold. A day came when the meeting said, \"Don't worry about the install base.\" Easiest meeting of your life."
+  },
+  "effect": {
+   "money": 50
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_handheld_war",
+  "years": [
+   1999,
+   2002
+  ],
+  "text": {
+   "ja": "携帯機が乱立した。ワンダースワン、ネオジオポケットカラー、そしてゲームボーイアドバンスの噂。営業は「どれでも売れます」と言った。営業はいつもそう言う。",
+   "en": "Handhelds everywhere: WonderSwan, Neo Geo Pocket Color, and whispers of the Game Boy Advance. Sales said \"they'll all sell\". Sales always says that."
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_hh_ws",
+    "label": {
+     "ja": "ワンダースワン",
+     "en": "WonderSwan"
+    },
+    "effect": {
+     "passion": 7,
+     "flag": {
+      "hw_fm_handheld": true
+     }
+    },
+    "result": {
+     "ja": "ワンダースワンにした。縦にも横にも持てる。説明書の図を描くのに 1 週間かかった。",
+     "en": "WonderSwan: hold it upright or sideways. Drawing the manual diagrams took a week."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_ws"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_hh_gba",
+    "label": {
+     "ja": "ゲームボーイアドバンスを待つ",
+     "en": "Wait for the GBA"
+    },
+    "effect": {
+     "money": 30,
+     "flag": {
+      "hw_mk_nintendo": true
+     }
+    },
+    "result": {
+     "ja": "アドバンスを待った。堅実。あまりに堅実で、自分の人生にもう少し冒険が欲しくなった。",
+     "en": "You waited for the GBA. Solid. So solid you wished your life had a bit more adventure."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_gba"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "choice",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_ws",
+  "years": [
+   2001,
+   2040
+  ],
+  "text": {
+   "ja": "ワンダースワンのゲームを出した。台数は少ないけれど、買ってくれた人はみんな熱かった。イベントで「縦持ちで遊びました」と言われ、泣きそうになった。",
+   "en": "Your WonderSwan game shipped. Few units, but every buyer was on fire. At an event someone said \"I played it vertically\", and you nearly cried."
+  },
+  "effect": {
+   "passion": 8,
+   "network": 3
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_gba",
+  "years": [
+   2001,
+   2040
+  ],
+  "text": {
+   "ja": "アドバンスは堅実に売れた。そして画面が暗かった。ライトの下に移動して遊ぶ子どもたちを見て、あなたは静かに頷いた。",
+   "en": "The GBA sold steadily. And its screen was dark. Watching kids shuffle under lamps to play, you nodded quietly."
+  },
+  "effect": {
+   "money": 30
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_ds_or_psp",
+  "years": [
+   2004,
+   2006
+  ],
+  "text": {
+   "ja": "DS と PSP、同じ冬に出る。2 画面でタッチペンか、きれいな画面で UMD か。開発機を両方触った同僚が「どっちも変」と言った。",
+   "en": "DS and PSP, same winter. Two screens and a stylus, or a gorgeous screen and UMDs? A colleague who'd touched both dev kits said, \"Both are weird.\""
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_ds",
+    "label": {
+     "ja": "ニンテンドー DS",
+     "en": "Nintendo DS"
+    },
+    "effect": {
+     "passion": 6,
+     "money": 20,
+     "flag": {
+      "hw_mk_nintendo": true
+     }
+    },
+    "result": {
+     "ja": "DS にした。タッチペンで何ができるか、会議室でペンを振り回しながら考えた。",
+     "en": "DS. You spent meetings waving a stylus around, thinking about what it could do."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_ds"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_psp",
+    "label": {
+     "ja": "PSP",
+     "en": "PSP"
+    },
+    "effect": {
+     "skill": 5,
+     "flag": {
+      "hw_mk_sony": true
+     }
+    },
+    "result": {
+     "ja": "PSP にした。画面がとにかくきれい。ロード時間は、とにかく長かった。",
+     "en": "PSP. That screen. Those loading times."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_psp"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "choice",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_ds",
+  "years": [
+   2006,
+   2040
+  ],
+  "text": {
+   "ja": "DS は脳トレで大人まで取り込んだ。電車の中でおじさんがペンでマス目を埋めている。その横であなたのゲームを遊ぶ中学生がいた。いい車両だった。",
+   "en": "The DS pulled in grown-ups with brain training. On the train, a man filled in grids with a stylus; beside him, a teenager played your game. A good carriage."
+  },
+  "effect": {
+   "money": 40,
+   "passion": 4
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_psp",
+  "years": [
+   2006,
+   2040
+  ],
+  "text": {
+   "ja": "PSP では狩りのゲームで集まって遊ぶのが流行った。ファストフード店の 2 階が狩場になった。あなたのゲームも、その隅で遊ばれていた。",
+   "en": "On PSP, people gathered to hunt together. The upstairs of every burger joint became a hunting ground. Your game was played in the corner too."
+  },
+  "effect": {
+   "passion": 6,
+   "network": 3
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_mobile_or_console",
+  "years": [
+   2010,
+   2014
+  ],
+  "text": {
+   "ja": "スマホとソシャゲの時代。会議で「据え置きは終わる」と言う人と「スマホはゲームじゃない」と言う人が、同じテーブルで目を合わせなかった。",
+   "en": "The smartphone and social-game era. In the meeting, the \"consoles are finished\" camp and the \"phones aren't real games\" camp sat at one table and refused to make eye contact."
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_mobile",
+    "label": {
+     "ja": "スマホに行く",
+     "en": "Go mobile"
+    },
+    "effect": {
+     "money": 50,
+     "passion": -2,
+     "flag": {
+      "hw_dv_mobile": true
+     }
+    },
+    "result": {
+     "ja": "スマホに行った。ガチャの確率表を Excel で組んだ夜、少しだけ自分が怖くなった。",
+     "en": "You went mobile. The night you built the gacha odds in Excel, you scared yourself a little."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_mobile"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_console",
+    "label": {
+     "ja": "コンシューマに残る",
+     "en": "Stay on consoles"
+    },
+    "effect": {
+     "passion": 8,
+     "money": -20,
+     "flag": {
+      "hw_dv_console": true
+     }
+    },
+    "result": {
+     "ja": "コンシューマに残った。パッケージを手に取る重みを信じた。給料は、軽くなった。",
+     "en": "You stayed on consoles, believing in the weight of a boxed game in your hand. Your paycheck got lighter."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_console"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "big",
+   "choice",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_mobile",
+  "years": [
+   2013,
+   2040
+  ],
+  "text": {
+   "ja": "スマホのゲームは運営が続く限り終わらない。正月もお盆もイベントを回した。帰省の新幹線の中でサーバーを再起動した。実家の猫だけが労ってくれた。",
+   "en": "A mobile game never ends while it runs. New Year, Obon: events. You rebooted a server from the bullet train home. Only the family cat comforted you."
+  },
+  "effect": {
+   "money": 40,
+   "hp": -8
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_console",
+  "years": [
+   2013,
+   2040
+  ],
+  "text": {
+   "ja": "コンシューマに残った仲間と、海外のイベントに出展した。英語は通じなかったが、コントローラを渡したら全部通じた。",
+   "en": "With your console comrades, you exhibited at an overseas show. Your English failed; handing someone a controller explained everything."
+  },
+  "effect": {
+   "passion": 10,
+   "network": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_arcade_last",
+  "years": [
+   2014,
+   2019
+  ],
+  "text": {
+   "ja": "家庭用がアーケードを追い越した。PS4 の画面のほうがきれいで、ゲーセンは街から減っていく。それでも、アーケードの新作の話が来た。",
+   "en": "Consoles had overtaken the arcade. The PS4 looked better, and arcades were vanishing from town. Still, an arcade project came your way."
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_last_arcade",
+    "label": {
+     "ja": "最後かもしれないゲーセンに賭ける",
+     "en": "Bet on what may be the last arcade game"
+    },
+    "effect": {
+     "passion": 8,
+     "money": -10,
+     "flag": {
+      "hw_pl_arcade": true
+     }
+    },
+    "result": {
+     "ja": "引き受けた。メダルゲームの隣で、あなたの筐体が光った。常連のおじいさんが毎週来てくれた。",
+     "en": "You took it. Your cabinet glowed next to the medal games. An old regular came every single week."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_arcade_regular"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_last_home",
+    "label": {
+     "ja": "家庭用でやる",
+     "en": "Do it on consoles"
+    },
+    "effect": {
+     "money": 20,
+     "flag": {
+      "hw_pl_consumer": true
+     }
+    },
+    "result": {
+     "ja": "断って家庭用をやった。帰り道、潰れたゲーセンの跡地がコインランドリーになっていた。少しだけ回る洗濯物を眺めた。",
+     "en": "You declined and did consoles. On the way home, a dead arcade had become a laundromat. You watched the clothes spin for a while."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_switch_home"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "choice",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_arcade_regular",
+  "years": [
+   2017,
+   2040
+  ],
+  "text": {
+   "ja": "常連のおじいさんは、あなたのゲームでスコアの全国 1 位を取った。表彰はない。でも店長が、紙に手書きで「1 位」と書いて筐体に貼ってくれた。",
+   "en": "The old regular took the national high score on your game. No trophy — but the manager handwrote \"No. 1\" on paper and taped it to the cabinet."
+  },
+  "effect": {
+   "passion": 10,
+   "network": 3
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_switch_home",
+  "years": [
+   2017,
+   2040
+  ],
+  "text": {
+   "ja": "家で遊べるゲームが、家の外にも持ち出せるようになった。テレビから本体を抜いて電車で続きを遊ぶ人を見て、全部の戦争が一つになった気がした。",
+   "en": "Then home games walked out the door: pull the console from the TV and keep playing on the train. It felt like every hardware war had become one."
+  },
+  "effect": {
+   "passion": 6,
+   "money": 20
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_switch_or_phone",
+  "years": [
+   2017,
+   2025
+  ],
+  "text": {
+   "ja": "次の企画、Switch で出すかスマホで出すか。据え置きにも携帯にもなる機械と、誰のポケットにもある機械。どちらも「携帯機」と言えなくもない。",
+   "en": "Next project: Switch or smartphone? A machine that's both home and handheld, or the one in everybody's pocket. Both are handhelds, in a way."
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_sw",
+    "label": {
+     "ja": "Switch",
+     "en": "Switch"
+    },
+    "effect": {
+     "passion": 6,
+     "money": 10,
+     "flag": {
+      "hw_dv_console": true
+     }
+    },
+    "result": {
+     "ja": "Switch にした。ダウンロード版の売上グラフを毎朝見る癖がついた。",
+     "en": "Switch. You got hooked on checking the download sales graph every morning."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_sw"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_phone",
+    "label": {
+     "ja": "スマホ",
+     "en": "Smartphone"
+    },
+    "effect": {
+     "money": 30,
+     "flag": {
+      "hw_dv_mobile": true
+     }
+    },
+    "result": {
+     "ja": "スマホにした。ストアの審査に 3 回落ちた。理由は全部ちがった。",
+     "en": "Smartphone. Store review rejected you three times, each for a different reason."
+    },
+    "later": [
+     {
+      "after": 3,
+      "event": "ev_hw_fu_phone"
+     }
+    ]
+   }
+  ],
+  "tag": [
+   "choice",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_sw",
+  "years": [
+   2020,
+   2040
+  ],
+  "text": {
+   "ja": "親子で遊ぶ家族の写真が SNS に流れてきた。リビングの床に寝転んで、子どもがあなたのゲームを持っていた。「いいね」を押す指が震えた。",
+   "en": "A family photo scrolled by on social media: a kid on the living-room floor, holding your game. Your finger trembled on the like button."
+  },
+  "effect": {
+   "passion": 8
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_phone",
+  "years": [
+   2020,
+   2040
+  ],
+  "text": {
+   "ja": "スマホ版がひっそり長生きした。数年後、知らない人のレビューで「通勤のお守り」と書かれていた。",
+   "en": "The phone version lived quietly and long. Years later a stranger's review called it \"my commute good-luck charm\"."
+  },
+  "effect": {
+   "money": 25,
+   "passion": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ }
+]

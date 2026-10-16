@@ -100,6 +100,8 @@ export interface Inner {
   bondAt: number; bondDone: boolean;
   gravAt: number; gravDone: boolean;  // セガの引力(入らなかった人生でも一度) // 人生に一度の大物との縁
   nextBig: number;
+  /** 次にハードの選択を出してよい年 */
+  nextHw?: number;
   prisonUntil: number;                 // 服役が明ける年(0 = なし)                     // 次の大きな選択が来る年
   highs: { year: number; age: number; text: Text; w: number; kind?: string }[]; // テンションが上がった瞬間(最後に思い出す)        // この人生で起きた歴史の事件(hs_id)
 }

@@ -79,7 +79,7 @@ export function release(s: State): { work: Work; line: Text } {
   const r = s.rng;
   const role = roleFor(s);
   const result = roll(s, role);
-  const platform = platformFor(r, s.year, role);
+  const platform = platformFor(r, s.year, role, s.flags);
   const titled = role === 'solo' || !r.chance(0.8) ? null : pickTitle(s, platform);
   const work: Work = { id: `wk_${s.works.length + 1}`, name: titled?.name ?? workName(r, s.year), year: s.year, platform, role, result, history: [] };
   s.works.push(work);

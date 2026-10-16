@@ -65,7 +65,46 @@ export function workName(r: Rng, year: number): Text {
 }
 
 /** その年に作る機種(表示用)。実名のハードは史実として出してよい(PLAN §6) */
-export function platformFor(r: Rng, year: number, role: Role): string {
+// ハードの選択(hardware.json の hw_* フラグ)→ そのハードで出しやすくなる
+const HW_PREF: [string, (p: string) => boolean][] = [
+  ['hw_mk_sega', (p) => /メガドライブ|セガサターン|ドリームキャスト/.test(p)],
+  ['hw_mk_nintendo', (p) => /ファミコン|NINTENDO64|ゲームボーイ|DS|Wii|Switch/.test(p)],
+  ['hw_mk_sony', (p) => /PlayStation|PSP|PS\d/.test(p)],
+  ['hw_mk_nec', (p) => /PC エンジン/.test(p)],
+  ['hw_fm_handheld', (p) => /ゲームボーイ|DS|PSP|Switch/.test(p)],
+  ['hw_fm_home', (p) => !/ゲームボーイ|DS|PSP|ケータイ|スマホ|ソシャゲ|業務用/.test(p)],
+  ['hw_pl_arcade', (p) => p === '業務用'],
+  ['hw_pl_consumer', (p) => p !== '業務用'],
+  ['hw_dv_mobile', (p) => /ケータイ|スマホ|ソシャゲ/.test(p)],
+  ['hw_dv_console', (p) => !/ケータイ|スマホ|ソシャゲ|業務用/.test(p)],
+];
+
+export function platformFor(r: Rng, year: number, role: Role, flags: Record<string, boolean> = {}): string {
+  const base = platformBase(r, year, role);
+  if (role === 'solo') return base;
+  const prefs = HW_PREF.filter(([f]) => flags[f]);
+  if (!prefs.length) return base; // 選んでいなければ乱数の使い方も前と同じ(古い replay が変わらない)
+  let list = platformList(year);
+  if (flags.hw_pl_arcade && year < 2030 && !list.includes('業務用')) list = [...list, '業務用']; // ゲーセン組は時代が進んでも業務用を作る
+  for (const [, ok] of prefs) { const f = list.filter(ok); if (f.length) list = f; }
+  return r.chance(0.75) ? r.pick(list) : base;
+}
+
+function platformList(year: number): string[] {
+  for (const [until, list] of TABLE) if (year < until) return list;
+  return ['AI クラウド', 'スマホ'];
+}
+
+const TABLE: [number, string[]][] = [
+  [1978, ['業務用']], [1983, ['業務用', 'PC-8801']], [1986, ['ファミコン', '業務用']], [1990, ['ファミコン', 'メガドライブ', 'PC エンジン', 'ゲームボーイ']],
+  [1994, ['スーパーファミコン', 'メガドライブ', 'ゲームボーイ']], [1998, ['PlayStation', 'セガサターン', 'NINTENDO64']],
+  [2001, ['PlayStation', 'ドリームキャスト', 'PlayStation 2']], [2004, ['PlayStation 2', 'ゲームボーイアドバンス', 'ケータイ']],
+  [2007, ['ニンテンドー DS', 'PSP', 'PlayStation 2', 'ケータイ']], [2010, ['ニンテンドー DS', 'Wii', 'PS3', 'ケータイ']],
+  [2014, ['ソシャゲ', 'スマホ', '3DS', 'PS3']], [2017, ['スマホ', 'PS4', '3DS']], [2021, ['スマホ', 'Switch', 'PS4']],
+  [2025, ['Switch', 'PS5', 'スマホ']], [2040, ['Switch 2', 'PS5', 'スマホ', 'AI クラウド']],
+];
+
+function platformBase(r: Rng, year: number, role: Role): string {
   if (role === 'solo') {
     if (year < 1984) return 'PC-8801';
     if (year < 1995) return r.pick(['PC-9801', 'MSX2', 'X68000']);
@@ -73,15 +112,7 @@ export function platformFor(r: Rng, year: number, role: Role): string {
     if (year < 2016) return r.pick(['Steam', 'iPhone', 'Flash']);
     return r.pick(['Steam', 'itch.io', 'Switch', 'スマホ']);
   }
-  const table: [number, string[]][] = [
-    [1978, ['業務用']], [1983, ['業務用', 'PC-8801']], [1986, ['ファミコン', '業務用']], [1990, ['ファミコン', 'メガドライブ', 'PC エンジン', 'ゲームボーイ']],
-    [1994, ['スーパーファミコン', 'メガドライブ', 'ゲームボーイ']], [1998, ['PlayStation', 'セガサターン', 'NINTENDO64']],
-    [2001, ['PlayStation', 'ドリームキャスト', 'PlayStation 2']], [2004, ['PlayStation 2', 'ゲームボーイアドバンス', 'ケータイ']],
-    [2007, ['ニンテンドー DS', 'PSP', 'PlayStation 2', 'ケータイ']], [2010, ['ニンテンドー DS', 'Wii', 'PS3', 'ケータイ']],
-    [2014, ['ソシャゲ', 'スマホ', '3DS', 'PS3']], [2017, ['スマホ', 'PS4', '3DS']], [2021, ['スマホ', 'Switch', 'PS4']],
-    [2025, ['Switch', 'PS5', 'スマホ']], [2040, ['Switch 2', 'PS5', 'スマホ', 'AI クラウド']],
-  ];
-  for (const [until, list] of table) if (year < until) return r.pick(list);
+  for (const [until, list] of TABLE) if (year < until) return r.pick(list);
   return r.pick(['AI クラウド', 'スマホ']);
 }
 

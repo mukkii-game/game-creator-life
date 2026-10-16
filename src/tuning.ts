@@ -21,6 +21,8 @@ export const KNOBS: Knob[] = [
   { key: 'hist.newPosBoost', label: '触れた事件を別の立場で受ける出やすさ', value: 1.5, min: 0.5, max: 10, step: 0.5, unit: '倍', aim: '同じ事件でも立場が違えば別の話になる(適度に混ぜる)' },
   { key: 'choice.bigMin', label: '大きな選択の間隔(最短)', value: 3, min: 1, max: 10, step: 1, unit: '年', aim: '数年に一回、すごく悩む選択が来る' },
   { key: 'choice.bigMax', label: '大きな選択の間隔(最長)', value: 5, min: 1, max: 15, step: 1, unit: '年' },
+  { key: 'choice.hwMin', label: 'ハード選択の間隔(最短)', value: 4, min: 1, max: 15, step: 1, unit: '年', aim: 'セガか他か・据え置きか携帯か・ゲーセンか家庭用か・スマホかコンシューマか、を時々迷う' },
+  { key: 'choice.hwMax', label: 'ハード選択の間隔(最長)', value: 6, min: 1, max: 20, step: 1, unit: '年' },
   // 業界入り
   { key: 'gacha.age18', label: '18 歳で入る割合', value: 0.3, min: 0, max: 1, step: 0.05 },
   { key: 'gacha.age50', label: '50 すぎ(50〜57 歳)で入る割合', value: 0.06, min: 0, max: 0.5, step: 0.01, aim: 'ひいひい言いながらついていく人生' },

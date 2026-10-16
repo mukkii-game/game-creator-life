@@ -122,7 +122,7 @@ export function init(seed: number, options: InitOptions = {}): State {
       workTarget: -1, startJob: job, prevJob: job, histDone: [], highs: [],
       // 人生に一度の大挫折と大成功(業界に入って何年目に来るか)
       pitAt: r.int(2, 10), peakAt: r.int(4, 16), pitDone: false, peakDone: false,
-      bondAt: r.int(3, 18), bondDone: false, gravAt: r.int(2, 15), gravDone: false, nextBig: year + r.int(2, 4), prisonUntil: 0,
+      bondAt: r.int(3, 18), bondDone: false, gravAt: r.int(2, 15), gravDone: false, nextBig: year + r.int(2, 4), nextHw: year + 2, prisonUntil: 0,
     },
   };
   if (!peerOf) {
@@ -194,7 +194,13 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
   // 普通のフラグを先に立ててから命令(do_*)を実行する(do_end が ai_seat を読むため)
   const flags = Object.entries(e.flag ?? {}).sort(([a], [b]) => Number(a.startsWith('do_')) - Number(b.startsWith('do_')));
   for (const [f, v] of flags) {
-    if (!f.startsWith('do_')) { s.flags[f] = v; continue; }
+    if (!f.startsWith('do_')) {
+      // ハードの好み(hw_<組>_<名>)は組ごとに最後の選択だけ残す(SEGA→PS に乗り換えたら SEGA の好みは消える)
+      const g = /^hw_([a-z]+)_/.exec(f);
+      if (g && v) for (const k of Object.keys(s.flags)) if (k.startsWith(`hw_${g[1]}_`)) delete s.flags[k];
+      s.flags[f] = v;
+      continue;
+    }
     if (!v) continue;
     if (f === 'do_change_company') {
       const size: CompanySize = s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small', 'sub'] as const);
@@ -320,8 +326,13 @@ function beginYear(s: State, out: string[]) {
   }
   // 数年に一回の大きな選択(すごく悩むやつ)
   if (s.year >= s.inner.nextBig && s.status !== 'left') {
-    const pool = POOL.filter((e) => e.tag?.includes('big') && e.choices && eligible(s, e, 99));
+    const pool = POOL.filter((e) => e.tag?.includes('big') && !e.tag.includes('hardware') && e.choices && eligible(s, e, 99));
     if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextBig = s.year + r.int(tune<number>('choice.bigMin'), tune<number>('choice.bigMax')); }
+  }
+  // どのハードに賭けるか(hardware.json。大きな選択と同じ年には出さない)
+  if (s.year >= (s.inner.nextHw ?? 0) && !turning.length && (s.status === 'employed' || s.status === 'indie')) {
+    const pool = POOL.filter((e) => e.tag?.includes('hardware') && e.choices && eligible(s, e, 99));
+    if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextHw = s.year + r.int(tune<number>('choice.hwMin'), tune<number>('choice.hwMax')); }
   }
   // 歴史の事件(その年の業界の大事件が、今の立場で自分に降ってくる)
   const hist = pickHist(s);
@@ -329,7 +340,7 @@ function beginYear(s: State, out: string[]) {
   const n = r.int(tune('life.eventsMin'), tune('life.eventsMax')) - (q.length > 0 ? 1 : 0) - hist.length;
   const sysChoice = [...sys, ...q, ...hist, ...turning].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
-  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue'].some((t) => e.tag?.includes(t)));
+  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware'].some((t) => e.tag?.includes(t)));
   let picked = draw(r, pool, Math.max(1, n));
   // 選択は 1 年に 1 本まで、作品の後日談も 1 年に 1 本まで
   let seenChoice = false, seenAfter = false;

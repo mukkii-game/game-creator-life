@@ -177,7 +177,7 @@ export function showResult(root: HTMLElement, s: State, hooks: ResultHooks) {
   const retry = leave(hooks.retry), again = leave(hooks.again);
   void ensureFont(); // DOM の字も DotGothic16 にする
 
-  const url = lifeUrl(s.seed, s.options?.era);
+  const url = lifeUrl(s.seed, s.options?.era ?? (s.options?.year ? `y${s.options.year}` : undefined));
   const text = shareText(s, l);
   const xUrl = xIntentUrl(text, url);
   // 1 枚絵は先に作り始める(ロールの間に間に合う)

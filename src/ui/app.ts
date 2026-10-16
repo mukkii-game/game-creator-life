@@ -3,7 +3,7 @@
 // AI の口(core/probe): window.__game.state() / act('choose', id) / act('speed', n) / act('pause') / act('omakase', on) / act('start', era?)
 import './style.css';
 import { init, JOB_TEXT } from '../game/logic';
-import type { Era, State } from '../game/types';
+import type { State } from '../game/types';
 import { startSeed } from '../core/rng';
 import { query } from '../core/meta';
 import { t } from '../core/i18n';
@@ -20,6 +20,7 @@ import { load, save, addChronicle } from '../core/save';
 import { startPlay, type PlayScreen, type Speed } from './play';
 import { h, tf, tx, setLook, lookOf, loadFonts } from './util';
 import { installArt } from './art';
+import { validPick, pickOpts, type StartPick } from './start';
 
 const DEMO_SEED = 12000000;
 const ERAS = ['era1', 'era2', 'era3'];
@@ -41,7 +42,7 @@ export function startApp(container: HTMLElement) {
   let recorder = new Recorder(0);
   let firstSeed = true;
   // ?era= で時代の指定(共有 URL の ?seed= と組で同じ人生になる)
-  let lastEra: Era | '' = ERAS.includes(query.get('era') ?? '') ? (query.get('era') as Era) : '';
+  let lastEra: StartPick = validPick(query.get('era')) ? (query.get('era') as StartPick) : '';
 
   setHandler((c) => onCmd(c));
   expose('replay', () => recorder.toString());
@@ -84,13 +85,13 @@ export function startApp(container: HTMLElement) {
   }
 
   // ---- 業界入りガチャの発表(笑いどころ)→ 人生 ----
-  function begin(seed: number, era: Era | '', player: Player | null = null) {
+  function begin(seed: number, era: StartPick, player: Player | null = null) {
     lastEra = era;
     setScene('Reveal');
     // 発表に出す中身は、同じ seed・時代で作った state から読む(play でも同じ seed で init するので同じ人生になる)
     const seen = seenFor(seed, player);
     const name = nameFor(player);
-    const peek: State = init(seed, { ...(era ? { era } : {}), ...(seen ? { seen } : {}), ...(name ? { name } : {}) });
+    const peek: State = init(seed, { ...pickOpts(era), ...(seen ? { seen } : {}), ...(name ? { name } : {}) });
     recorder = new Recorder(seed);
     if (era) recorder.push(-1, `era:${era}`);
     app.innerHTML = '';
@@ -135,7 +136,7 @@ export function startApp(container: HTMLElement) {
     onCmd = (c) => { if (c.type === 'ok' || c.type === 'pause') go(); };
   }
 
-  function run(seed: number, era: Era | '', player: Player | null, seen: string[] | undefined, name: string | undefined) {
+  function run(seed: number, era: StartPick, player: Player | null, seen: string[] | undefined, name: string | undefined) {
     setScene('Play');
     const speed: Speed = query.auto ? 4 : demo ? 2 : player ? 4 : 1;
     play = startPlay(app, {
@@ -146,7 +147,7 @@ export function startApp(container: HTMLElement) {
     onCmd = play.onCmd;
   }
 
-  function result(s: State, era: Era | '') {
+  function result(s: State, era: StartPick) {
     setScene('Result');
     play = null;
     onCmd = () => {};
@@ -171,8 +172,8 @@ export function startApp(container: HTMLElement) {
   });
   action('start', (era?: string) => {
     if (scene !== 'Title') return `start は Title でだけ使える(今は ${scene})`;
-    if (era && !ERAS.includes(era)) return `era は ${ERAS.join(' / ')} のどれか`;
-    begin(newSeed(), (era ?? '') as Era | '');
+    if (era && !validPick(era)) return `era は ${ERAS.join(' / ')} か y1977〜y2000(年の指定)`;
+    begin(newSeed(), era ?? '');
   });
   action('choose', (id: string) => (play && scene === 'Play' ? play.choose(id) : `今は選択できない(scene: ${scene})`));
   action('speed', (n: unknown) => (play && scene === 'Play' ? play.setSpeed(n) : `今は速度を変えられない(scene: ${scene})`));
@@ -181,10 +182,10 @@ export function startApp(container: HTMLElement) {
 
   // ---- 起動 ----
   if (rec0) {
-    let era: Era | '' = '';
+    let era: StartPick = '';
     const player = new Player(rec0);
     const head = player.input(-1);
-    if (head.startsWith('era:')) era = head.slice(4) as Era;
+    if (head.startsWith('era:') && validPick(head.slice(4))) era = head.slice(4);
     firstSeed = false;
     begin(rec0.seed, era, player);
   } else if (auto) {
