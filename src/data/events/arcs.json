@@ -6,8 +6,8 @@
    2040
   ],
   "text": {
-   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「ボスに 50 回負けました。51 回目で勝ちました。大人になったら、ゲームを作る人になります」。",
-   "en": "A {fanmsg} came from {fan}, a grade-schooler, about {fanwork}: \"I lost to the boss 50 times. I won on the 51st. When I grow up, I'll make games.\""
+   "ja": "小学生の{fan}から{fanmsg}が届いた。「{fanwork}のボスに 50 回負けて、51 回目で勝ちました。大人になったら、ゲームを作る人になります」。",
+   "en": "{fan}, a grade-schooler, wrote about {fanwork}: \"I lost to the boss 50 times and won on the 51st. When I grow up, I'll make games.\""
   },
   "effect": {
    "passion": 6
@@ -15,6 +15,12 @@
   "weight": 0,
   "tag": [
    "fan"
+  ],
+  "alt": [
+   {
+    "ja": "{fanwork}の感想が届いた。差出人は{fan}、小学 4 年生。「ラスボスの名前を、うちの犬につけました」。犬の写真まで付いていた。強そうだった。",
+    "en": "Feedback on {fanwork} arrived from {fan}, a fourth-grader: \"I named our dog after the final boss.\" A photo of the dog came too. It looked tough."
+   }
   ]
  },
  {
@@ -24,8 +30,8 @@
    2040
   ],
   "text": {
-   "ja": "{fan}からまた{fanmsg}が来た。もう高校生だという。{fanwork}の主人公の絵が添えてあった。公式の絵より、少しかっこよかった。",
-   "en": "Another {fanmsg} from {fan} — in high school now — with a drawing of the hero of {fanwork}. It was a little cooler than the official art."
+   "ja": "{fan}からまた{fanmsg}。「部活の大会で県 3 位になりました。{fanwork}のボスで鍛えた粘りのおかげです」。ボスにそんな効果は入れていない。",
+   "en": "Another {fanmsg} from {fan}: \"We placed third in the prefecture at our club tournament. {fanwork}'s boss taught me to never give up.\" You never coded that in."
   },
   "effect": {
    "passion": 5
@@ -33,6 +39,12 @@
   "weight": 0,
   "tag": [
    "fan"
+  ],
+  "alt": [
+   {
+    "ja": "{fan}から久しぶりの{fanmsg}。「吹奏楽部で{fanwork}の曲をやりました」。作った本人の想定より、テンポがだいぶ速かった。",
+    "en": "A {fanmsg} from {fan} after a long silence: \"Our school band played the music from {fanwork}.\" The tempo was a good deal faster than the composer intended."
+   }
   ]
  },
  {
@@ -67,7 +79,13 @@
     "result": {
      "ja": "「好きなら、やってみろ。ただし、ちゃんと寝ろ」と書いた。自分に一番言いたい言葉だった。",
      "en": "You wrote: \"If you love it, go for it. But get some sleep.\" It was what you most needed to hear yourself."
-    }
+    },
+    "alt": [
+     {
+      "ja": "「好きなら行け。課題は締め切りの前の日に出せ」と書いた。自分は一度もできたことがない。",
+      "en": "You wrote: \"If you love it, go. Turn in assignments the day before they're due.\" You never once managed that yourself."
+     }
+    ]
    },
    {
     "id": "ch_fa_3_wait",
@@ -81,7 +99,19 @@
     "result": {
      "ja": "「一度、親とちゃんと話せ。それでも作りたかったら、それが答えだ」と書いた。書いてから、自分の親に電話した。",
      "en": "You wrote: \"Talk it through with your parents. If you still want to make games, that's your answer.\" Then you called your own parents."
-    }
+    },
+    "alt": [
+     {
+      "ja": "「親の言うことにも一理ある。それでも作るなら止めない」と書いた。送ってから、昔の自分にも同じことを言われたかったと思った。",
+      "en": "You wrote: \"Your parents have a point. But if you still want to make games, I won't stop you.\" Afterwards you wished someone had told you that."
+     }
+    ]
+   }
+  ],
+  "alt": [
+   {
+    "ja": "{fan}から{fanmsg}。「進路の面談で『ゲームを作りたい』と言ったら、担任が 10 分黙りました」。あなたの時の担任は 15 分だった。",
+    "en": "{fan} wrote: \"When I told my homeroom teacher I want to make games, they went silent for ten minutes.\" Yours had gone fifteen."
    }
   ]
  },
@@ -92,8 +122,8 @@
    2040
   ],
   "text": {
-   "ja": "会社の採用面接に{fan}が来た。履歴書の「好きなゲーム」の欄に、{fanwork}と書いてあった。面接官の中で、手が震えていたのはあなただけだった。",
-   "en": "{fan} walked into your company's hiring interview. Under \"favourite game\" on the résumé: {fanwork}. Of all the interviewers, only your hands were shaking."
+   "ja": "採用面接に{fan}が来た。履歴書の「好きなゲーム」の欄に{fanwork}。面接官の中で、手が震えていたのはあなただけだった。",
+   "en": "{fan} came to your company's hiring interview. Under \"favourite game\" on the résumé: {fanwork}. Of all the interviewers, only your hands were shaking."
   },
   "effect": {},
   "weight": 0,
@@ -118,7 +148,13 @@
     "result": {
      "ja": "強く推した。「身内びいきでは?」と言われ、「身内じゃない。ファンだ」と答えた。会議室が少し笑った。採用が決まった。",
      "en": "You pushed hard. \"Isn't that favouritism?\" \"Not family. A fan.\" The room laughed a little. The hire went through."
-    }
+    },
+    "alt": [
+     {
+      "ja": "推薦の理由を聞かれ、「ボスに 51 回挑んだ人です」と答えた。誰にも通じなかったが、採用は決まった。",
+      "en": "Asked why you recommended them: \"This person challenged the boss 51 times.\" Nobody got it. The hire went through anyway."
+     }
+    ]
    },
    {
     "id": "ch_fa_4_fair",
@@ -136,7 +172,13 @@
     "result": {
      "ja": "黙って、他の面接官に任せた。{fan}は自分の力で受かった。廊下ですれ違った時、深くお辞儀をされた。",
      "en": "You stayed quiet and let the others judge. {fan} got in on merit. Passing in the hall, they bowed deeply."
-    }
+    },
+    "alt": [
+     {
+      "ja": "評価表には何も書かず、他の面接官に任せた。{fan}は自分の力で受かった。入社の日、あなたの席の場所だけ先に聞いていたらしい。",
+      "en": "You left your sheet blank and let the others judge. {fan} got in on merit. On day one, they'd apparently asked where your desk was first."
+     }
+    ]
    }
   ]
  },
@@ -147,7 +189,7 @@
    2040
   ],
   "text": {
-   "ja": "{fan}が初めてリーダーを務めたゲームが出た。スタッフロールの最後の最後、「Special Thanks」にあなたの名前があった。その 1 行のために、エンディングを 3 回見た。",
+   "ja": "{fan}が初めて率いたゲームが出た。スタッフロールの最後、「Special Thanks」にあなたの名前。その 1 行のために、エンディングを 3 回見た。",
    "en": "The first game {fan} led came out. At the very end of the credits, under Special Thanks, was your name. You watched the ending three times for that one line."
   },
   "effect": {
@@ -160,7 +202,17 @@
   "memory": {
    "ja": "{fan}のゲームのスタッフロールに、自分の名前が載っていた",
    "en": "your name in the credits of {fan}'s game"
-  }
+  },
+  "alt": [
+   {
+    "ja": "{fanwork}の続編が出た。ディレクターは{fan}。スタッフロールの最後の最後に、あなたの名前があった。前作の誰より、大きい字で。",
+    "en": "The {fanwork} sequel came out, directed by {fan}. At the very end of the credits was your name — in bigger type than anyone from the original."
+   },
+   {
+    "ja": "ライバル会社の新作。ディレクターは{fan}。最後の「Special Thanks」に、あなたの名前があった。社内で気づいたのは、あなただけだった。",
+    "en": "A rival company's new game, directed by {fan}. Under Special Thanks at the end: your name. At your company, you were the only one who noticed."
+   }
+  ]
  },
  {
   "id": "ev_fa_5b",
@@ -182,7 +234,13 @@
   "memory": {
    "ja": "{fan}の机に、自分の返事が今も貼ってある",
    "en": "your old reply still taped to {fan}'s desk"
-  }
+  },
+  "alt": [
+   {
+    "ja": "{fan}のスタジオに招かれた。社長の机の前の壁に、あの日の返事が額に入れて飾ってあった。社員は全員、内容を暗記していた。",
+    "en": "You were invited to {fan}'s studio. On the wall by the CEO's desk, your old reply hung framed. Every employee knew it by heart."
+   }
+  ]
  },
  {
   "id": "ev_rv_1",
@@ -216,7 +274,13 @@
     "result": {
      "ja": "自分の企画で押し切った。勝った。打ち上げで{rival}が「次は負けない」と言って、あなたのグラスにだけビールを注いだ。",
      "en": "You pushed your own pitch through and won. At the party, {rival} said \"next time I win\" and poured beer only into your glass."
-    }
+    },
+    "alt": [
+     {
+      "ja": "自分の企画で押し切って勝った。翌朝、{rival}の机に「次の企画書」と書いたファイルがもう置いてあった。",
+      "en": "You pushed your pitch through and won. Next morning, a folder marked \"next proposal\" was already on {rival}'s desk."
+     }
+    ]
    },
    {
     "id": "ch_rv_1_merge",
@@ -234,7 +298,13 @@
     "result": {
      "ja": "二人の企画を合わせて出し直した。部長は「最初からそうしろ」と言った。その夜、{rival}と朝まで仕様の話をした。",
      "en": "You merged the pitches and resubmitted. The boss said, \"Should've done that from the start.\" That night you and {rival} talked specs until dawn."
-    }
+    },
+    "alt": [
+     {
+      "ja": "二人の企画を合わせた。タイトルはどちらの案でもない第 3 の名前に決まった。どちらも、少しほっとした。",
+      "en": "You merged the pitches. The title ended up being neither of yours. Both of you were a little relieved."
+     }
+    ]
    }
   ]
  },
@@ -255,6 +325,12 @@
   "weight": 0,
   "tag": [
    "rival"
+  ],
+  "alt": [
+   {
+    "ja": "発売日、店の棚で{rival}のゲームが平積みになっていた。あなたのゲームは、その裏の棚に 2 本。そっと 1 本を前に出して帰った。",
+    "en": "Launch day: {rival}'s game was stacked high at the front of the shop. Yours: two copies on the shelf behind. You nudged one forward and left."
+   }
   ]
  },
  {
@@ -318,7 +394,13 @@
   "memory": {
    "ja": "{rival}も、自分の発売日に店まで見に来ていた",
    "en": "{rival} went to the shop on your launch days too"
-  }
+  },
+  "alt": [
+   {
+    "ja": "久しぶりに{rival}と飲んだ。「お前の新作、発売日に買った。2 本」。あなたも{rival}の新作を 2 本買っていた。1 本は保存用だ。",
+    "en": "Drinks with {rival} after years. \"Bought your new one on launch day. Two copies.\" You'd bought two of theirs, too. One to keep sealed."
+   }
+  ]
  },
  {
   "id": "ev_fa_4b",
@@ -336,6 +418,20 @@
   "weight": 0,
   "tag": [
    "fan"
+  ],
+  "alt": [
+   {
+    "ja": "他社の新作のスタッフロールに、{fan}の名前があった。下から 3 行目。あなたが最初の作品で載った位置と、同じだった。",
+    "en": "In the credits of another company's new game: {fan}. Third line from the bottom — the same spot your name sat in your first game."
+   },
+   {
+    "ja": "展示会の会場で、知らない会社のブースから名刺を差し出された。「覚えてますか」。{fan}だった。名刺の角は、まだ尖っていた。",
+    "en": "At a trade show, someone at an unfamiliar company's booth handed you a card. \"Remember me?\" It was {fan}. The card's corners were still sharp."
+   },
+   {
+    "ja": "{fan}から{fanmsg}。「{fanwork}の続編のチームに入りました」。あなたの手を離れたシリーズを、あの小学生が作ることになった。",
+    "en": "A {fanmsg} from {fan}: \"I joined the team on the {fanwork} sequel.\" The series you left behind was now in the hands of that grade-schooler."
+   }
   ]
  },
  {
@@ -345,8 +441,8 @@
    2040
   ],
   "text": {
-   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「みんなはつまらないって言うけど、ぼくは 3 回クリアしました。3 回目が一番おもしろかったです」。",
-   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}: \"Everyone says it's boring, but I beat it three times. The third time was the most fun.\""
+   "ja": "「みんなはつまらないって言うけど」で始まる{fanmsg}が、小学生の{fan}から来た。{fanwork}を 3 回クリアして、3 回目が一番おもしろかったという。",
+   "en": "The {fanmsg} from {fan}, a grade-schooler, began: \"Everyone says it's boring, but...\" They'd beaten {fanwork} three times. The third was the most fun."
   },
   "effect": {
    "passion": 8
@@ -363,8 +459,8 @@
    2040
   ],
   "text": {
-   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「クラスで一番うまいのはぼくです。作った人より、たぶんうまいです」。",
-   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}: \"I'm the best at it in my class. Probably better than the people who made it.\""
+   "ja": "小学生の{fan}から{fanmsg}。「{fanwork}は、クラスで一番ぼくがうまいです。作った人より、たぶんうまいです」。たぶん本当だった。",
+   "en": "{fan}, a grade-schooler, wrote: \"I'm the best at {fanwork} in my class. Probably better than the people who made it.\" Probably true."
   },
   "effect": {
    "passion": 6
@@ -381,8 +477,8 @@
    2040
   ],
   "text": {
-   "ja": "{fan}からまた{fanmsg}が来た。もう高校生だという。{fanwork}の手書きの攻略ノートが添えてあった。あなたも知らない近道が、3 つ書いてあった。",
-   "en": "Another {fanmsg} from {fan} — in high school now — with a handwritten strategy notebook for {fanwork}. It listed three shortcuts even you didn't know."
+   "ja": "{fan}から{fanmsg}が来た。自分で作ったゲームが付いていた。1 面のボスが{fanwork}のボスにそっくりで、あなたのより少し手強かった。",
+   "en": "Another {fanmsg} from {fan}, this time with a game they'd made themselves. The first boss looked just like {fanwork}'s — and was a bit tougher than yours."
   },
   "effect": {
    "passion": 5
@@ -390,6 +486,12 @@
   "weight": 0,
   "tag": [
    "fan"
+  ],
+  "alt": [
+   {
+    "ja": "{fan}から{fanmsg}。{fanwork}の攻略を自分でまとめたらしい。作ったあなたも知らない近道が、3 つ載っていた。1 つはバグだった。",
+    "en": "{fan} had compiled their own guide to {fanwork}. It listed three shortcuts even you, the maker, didn't know. One was a bug."
+   }
   ]
  },
  {
@@ -422,8 +524,8 @@
      }
     },
     "result": {
-     "ja": "自分の企画で押し切った。勝った。打ち上げで{rival}が「次は負けない」と言って、あなたのグラスにだけビールを注いだ。",
-     "en": "You pushed your own pitch through and won. At the party, {rival} said \"next time I win\" and poured beer only into your glass."
+     "ja": "最終面談で自分の企画を通した。廊下に出ると、{rival}が缶コーヒーをもう 1 本買って、黙ってあなたに投げてよこした。",
+     "en": "You won the final interview with your own pitch. In the hall, {rival} bought one more canned coffee and tossed it to you without a word."
     }
    },
    {
@@ -440,8 +542,8 @@
      }
     },
     "result": {
-     "ja": "二人の企画を合わせて出し直した。部長は「最初からそうしろ」と言った。その夜、{rival}と朝まで仕様の話をした。",
-     "en": "You merged the pitches and resubmitted. The boss said, \"Should've done that from the start.\" That night you and {rival} talked specs until dawn."
+     "ja": "面談の場で「二人でやらせてください」と言った。役員はあきれて、許した。帰りの居酒屋で、コースターの裏に画面の割り振りを描いた。",
+     "en": "\"Let us do it together,\" you said in the interview. The executives sighed and agreed. At the bar after, you sketched the screen layout on a coaster."
     }
    }
   ]
@@ -555,8 +657,8 @@
    2040
   ],
   "text": {
-   "ja": "{rival}が海外のスタジオに移った。空港で「向こうで、お前のゲームの悪口を言いふらしてやる」と言われた。あとで動画を見たら、英語で褒めていた。",
-   "en": "{rival} moved to an overseas studio. At the airport: \"I'll trash-talk your games over there.\" Later you saw a video — they were praising them, in English."
+   "ja": "{rival}が海外のスタジオに移った。空港で「向こうで、お前のゲームの悪口を言いふらしてやる」と言われた。後で向こうの記事を読んだら、褒めていた。",
+   "en": "{rival} moved to an overseas studio. At the airport: \"I'll trash-talk your games over there.\" Later you read an interview from there — they were praising them."
   },
   "effect": {
    "passion": 7
@@ -626,6 +728,12 @@
   "weight": 0,
   "tag": [
    "fan"
+  ],
+  "alt": [
+   {
+    "ja": "{fan}から{fanmsg}。「バイト代で開発用のパソコンを買いました。親には参考書だと言ってあります」。共犯にされた気がした。",
+    "en": "{fan} wrote: \"I bought a computer for making games with my part-time pay. My parents think it's for studying.\" You felt like an accomplice."
+   }
   ]
  },
  {
@@ -648,7 +756,13 @@
   "memory": {
    "ja": "{fan}の受賞のことばの最後の 1 行",
    "en": "the last line of {fan}'s award speech"
-  }
+  },
+  "alt": [
+   {
+    "ja": "{fan}が業界の賞の壇上に立った。「返事をくれた人のゲームで、今も年に 1 回は負けています」。会場で笑ったのは、あなただけだった。",
+    "en": "{fan} took the stage at an industry award: \"I still lose to that person's game once a year.\" You were the only one in the hall who laughed."
+   }
+  ]
  },
  {
   "id": "ev_fa_1b",
@@ -657,8 +771,8 @@
    2040
   ],
   "text": {
-   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「宿題が終わってからと言われているので、宿題を早くやるようになりました。先生にほめられました」。",
-   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}: \"I'm only allowed to play after homework, so now I do my homework fast. My teacher praised me.\""
+   "ja": "{fanwork}の感想が、小学生の{fan}から{fanmsg}で来た。「遊ぶのは宿題の後と決まっているので、宿題が速くなりました」。先生にほめられたらしい。",
+   "en": "By {fanmsg}, {fan}, a grade-schooler, wrote about {fanwork}: \"I can only play after homework, so now my homework is fast.\" Their teacher was impressed, apparently."
   },
   "effect": {
    "passion": 6
@@ -666,6 +780,12 @@
   "weight": 0,
   "tag": [
    "fan"
+  ],
+  "alt": [
+   {
+    "ja": "小学生の{fan}が{fanwork}の感想をくれた。「お父さんと 2 人で遊んで、お父さんが泣きました」。どの場面で泣いたのかは、書いていなかった。",
+    "en": "{fan}, a grade-schooler, sent thoughts on {fanwork}: \"I played it with my dad and he cried.\" Which scene, they didn't say."
+   }
   ]
  },
  {
@@ -675,8 +795,8 @@
    2040
   ],
   "text": {
-   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「中古で 300 円でした。300 円よりずっとおもしろかったです」。",
-   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}: \"I got it used for 300 yen. It was way more fun than 300 yen.\""
+   "ja": "{fanwork}を中古の 300 円で買ったという小学生、{fan}から{fanmsg}。「300 円よりずっとおもしろかったです」。ほめられたのか、少し考えた。",
+   "en": "{fan}, a grade-schooler who got {fanwork} used for 300 yen, wrote: \"It was way more fun than 300 yen.\" You thought about whether that was praise."
   },
   "effect": {
    "passion": 8
@@ -693,8 +813,8 @@
    2040
   ],
   "text": {
-   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「友だちと 3 人で、ひとつのゲーム機を取り合いました。ぼくが一番長く遊びました」。",
-   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}: \"Three of us fought over one console. I played the longest.\""
+   "ja": "{fanwork}のことで、小学生の{fan}から{fanmsg}が来た。「3 人で 1 台のゲーム機を取り合って、ぼくが一番長く遊びました」。勝利の報告だった。",
+   "en": "{fan}, a grade-schooler, wrote about {fanwork}: \"Three of us fought over one console and I played the longest.\" A victory report."
   },
   "effect": {
    "passion": 6
@@ -711,8 +831,8 @@
    2040
   ],
   "text": {
-   "ja": "採用試験の作品審査で、ある応募作のタイトル画面に見覚えがあった。{fanwork}のボスが、少しだけ形を変えて立っていた。応募者の名前は、{fan}だった。",
-   "en": "Reviewing portfolios for hiring, one title screen looked familiar: the boss from {fanwork}, slightly reshaped. The applicant's name was {fan}."
+   "ja": "採用の作品審査で、ある応募作のタイトル画面に見覚えがあった。{fanwork}のボスが少しだけ形を変えて立っている。応募者は{fan}だった。",
+   "en": "Reviewing portfolios for hiring, one title screen looked familiar: {fanwork}'s boss, slightly reshaped. The applicant was {fan}."
   },
   "effect": {},
   "weight": 0,
@@ -735,8 +855,8 @@
      }
     },
     "result": {
-     "ja": "強く推した。「身内びいきでは?」と言われ、「身内じゃない。ファンだ」と答えた。会議室が少し笑った。採用が決まった。",
-     "en": "You pushed hard. \"Isn't that favouritism?\" \"Not family. A fan.\" The room laughed a little. The hire went through."
+     "ja": "審査会で「このボスは本物より強い」と推した。本物を作ったのが誰か、誰も知らなかった。採用が決まった。",
+     "en": "At the review you argued, \"This boss is stronger than the original.\" Nobody knew who made the original. The hire went through."
     }
    },
    {
@@ -753,8 +873,8 @@
      }
     },
     "result": {
-     "ja": "黙って、他の面接官に任せた。{fan}は自分の力で受かった。廊下ですれ違った時、深くお辞儀をされた。",
-     "en": "You stayed quiet and let the others judge. {fan} got in on merit. Passing in the hall, they bowed deeply."
+     "ja": "点数だけ付けて、あとは他の審査員に任せた。{fan}は自分の作品で受かった。あのボスは、配属先の企画書の 1 枚目に載った。",
+     "en": "You gave your score and let the others decide. {fan} got in on their own work. That boss ended up on page one of their team's proposal."
     }
    }
   ]
@@ -766,8 +886,8 @@
    2040
   ],
   "text": {
-   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。字が大きくて、紙の半分は主人公の絵だった。もう半分に「つづきをつくってください」とだけあった。",
-   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}. Big handwriting; half the page was a drawing of the hero. The other half said only: \"Please make a sequel.\""
+   "ja": "{fan}という小学生から{fanmsg}。{fanwork}の主人公の絵が付いていて、顔が枠からはみ出していた。文は「つづきをつくってください」だけ。",
+   "en": "A grade-schooler named {fan} sent a drawing of the hero of {fanwork}, the face spilling out of the frame. The only words: \"Please make a sequel.\""
   },
   "effect": {
    "passion": 7
@@ -775,6 +895,12 @@
   "weight": 0,
   "tag": [
    "fan"
+  ],
+  "alt": [
+   {
+    "ja": "{fan}という小学生から、{fanwork}の「ぼくが考えた 2 面」が届いた。敵が 300 匹いた。処理落ちのことは、まだ教えなくていいと思った。",
+    "en": "A grade-schooler named {fan} sent \"my idea for stage 2\" of {fanwork}. It had 300 enemies. Slowdown could wait to be explained."
+   }
   ]
  },
  {
@@ -784,8 +910,8 @@
    2040
   ],
   "text": {
-   "ja": "{fan}からまた{fanmsg}が来た。もう高校生だという。「文化祭で{fanwork}のまねをした迷路を作ったら、行列ができました」。写真の列は、うちの発売日の列より長かった。",
-   "en": "Another {fanmsg} from {fan}, in high school now: \"I made a maze copying {fanwork} for the school festival, and there was a queue.\" The queue in the photo was longer than your launch-day one."
+   "ja": "{fan}が{fanwork}の同人誌を作ったと知らせてきた。表紙の主人公は、公式の絵より少しかっこよかった。奥付に「原作に感謝」とあった。",
+   "en": "{fan} wrote to say they'd made a fan comic of {fanwork}. The hero on the cover was a little cooler than the official art. The colophon said \"Thanks to the original.\""
   },
   "effect": {
    "passion": 6
@@ -793,6 +919,12 @@
   "weight": 0,
   "tag": [
    "fan"
+  ],
+  "alt": [
+   {
+    "ja": "{fan}から{fanmsg}。「文化祭で{fanwork}の迷路を作ったら、行列ができました」。写真の列は、うちの発売日の列より長かった。",
+    "en": "{fan} wrote: \"I built a {fanwork} maze for the school festival and people queued.\" The queue in the photo was longer than your launch-day one."
+   }
   ]
  },
  {
@@ -802,8 +934,8 @@
    2040
   ],
   "text": {
-   "ja": "{fan}から長い{fanmsg}が来た。「ゲームを作る仕事って、本当に楽しいですか」。正直に書くと長くなる。短く書くと嘘になる。",
-   "en": "A long {fanmsg} from {fan}: \"Is making games really fun as a job?\" The honest answer would be long. A short one would be a lie."
+   "ja": "{fan}から長い{fanmsg}。「大学に受かりました。でも本当は、ゲームの学校に行きたいんです」。合格の知らせのほうが、短かった。",
+   "en": "A long {fanmsg} from {fan}: \"I got into university. But what I really want is game school.\" The acceptance news took up the least space."
   },
   "effect": {},
   "weight": 0,
@@ -825,8 +957,8 @@
      }
     },
     "result": {
-     "ja": "「好きなら、やってみろ。ただし、ちゃんと寝ろ」と書いた。自分に一番言いたい言葉だった。",
-     "en": "You wrote: \"If you love it, go for it. But get some sleep.\" It was what you most needed to hear yourself."
+     "ja": "「好きなら、やってみろ。遠回りしても、たどり着く人はたどり着く」と書いた。自分がまさに遠回りだった。",
+     "en": "You wrote: \"If you love it, try. Some people get there by the long road.\" You were living proof of the long road."
     }
    },
    {
@@ -839,8 +971,8 @@
      "network": 3
     },
     "result": {
-     "ja": "「一度、親とちゃんと話せ。それでも作りたかったら、それが答えだ」と書いた。書いてから、自分の親に電話した。",
-     "en": "You wrote: \"Talk it through with your parents. If you still want to make games, that's your answer.\" Then you called your own parents."
+     "ja": "「一度、親とちゃんと話せ。大学で作ってもいい」と書いた。業界にも、そういう人はいる。たいてい一番寝ない。",
+     "en": "You wrote: \"Talk to your parents properly. You can make games at university, too.\" The industry has people like that. They tend to sleep the least."
     }
    }
   ]
@@ -852,8 +984,8 @@
    2040
   ],
   "text": {
-   "ja": "新卒の面接の部屋に入ってきた若者が、座る前に深く頭を下げた。「{fanmsg}を、何度も読み返しました」。{fan}だった。",
-   "en": "A young applicant entered the interview room and bowed deeply before sitting. \"I reread your {fanmsg} so many times.\" It was {fan}."
+   "ja": "インターンの最終日、学生の 1 人が深く頭を下げた。「昔、{fanmsg}の返事をもらいました」。{fan}だった。採用会議は明日だ。",
+   "en": "On the last day of the internship, one student bowed deeply: \"You wrote back to me once, years ago.\" It was {fan}. The hiring meeting was tomorrow."
   },
   "effect": {},
   "weight": 0,
@@ -876,8 +1008,8 @@
      }
     },
     "result": {
-     "ja": "強く推した。「身内びいきでは?」と言われ、「身内じゃない。ファンだ」と答えた。会議室が少し笑った。採用が決まった。",
-     "en": "You pushed hard. \"Isn't that favouritism?\" \"Not family. A fan.\" The room laughed a little. The hire went through."
+     "ja": "会議で一番に手を挙げた。「インターンで一番、バグを見つけた人です」。本当のことだったので、すぐ決まった。",
+     "en": "You raised your hand first: \"They found the most bugs of any intern.\" It was true, so it was settled fast."
     }
    },
    {
@@ -894,8 +1026,8 @@
      }
     },
     "result": {
-     "ja": "黙って、他の面接官に任せた。{fan}は自分の力で受かった。廊下ですれ違った時、深くお辞儀をされた。",
-     "en": "You stayed quiet and let the others judge. {fan} got in on merit. Passing in the hall, they bowed deeply."
+     "ja": "会議では黙っていた。{fan}は自分の力で受かった。帰り道、コンビニで少し高いアイスを買った。",
+     "en": "You kept quiet in the meeting. {fan} got in on merit. On the way home you bought a slightly expensive ice cream."
     }
    }
   ]

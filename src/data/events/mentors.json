@@ -6,8 +6,8 @@
    2040
   ],
   "text": {
-   "ja": "配属先で、{mentor}の下につくことになった。最初に渡されたのは仕様書ではなく、{mentor}の書いた手書きの「この会社で生き残る 10 か条」だった。",
-   "en": "You were placed under {mentor}. The first thing handed to you wasn't a spec but {mentor}'s handwritten \"Ten Rules for Surviving This Company\"."
+   "ja": "配属先で、{mentor}の下につくことになった。歓迎の印に、{mentor}の書いた手書きの「この会社で生き残る 10 か条」を渡された。",
+   "en": "You were placed under {mentor}. As a welcome, you got {mentor}'s handwritten \"Ten Rules for Surviving This Company\"."
   },
   "effect": {
    "skill": 2,

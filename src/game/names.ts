@@ -91,7 +91,7 @@ export function platformFor(r: Rng, year: number, role: Role, flags: Record<stri
   if (flags.hw_mk_nec && year >= 1995 && year < 1999) list = [...list, 'PC-FX'];
   if (flags.hw_mk_3do && year >= 1994 && year < 1997) list = [...list, '3DO'];
   for (const [, ok] of prefs) { const f = list.filter(ok); if (f.length) list = f; }
-  return r.chance(0.9) ? r.pick(list) : base; // 選んだハードで出す(同じ年に別のハードで出ていた、と通読で指摘)
+  return r.chance(0.97) ? r.pick(list) : base; // 選んだハードで出す(同じ年に別のハードで出ていた、と通読で指摘。第 7 回ペルソナ: PSP を選んだのに DS → 0.9 から 0.97)
 }
 
 function platformList(year: number): string[] {

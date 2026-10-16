@@ -850,8 +850,8 @@
    2040
   ],
   "text": {
-   "ja": "作品が社会現象になり、ニュースで「学校で持ち込み禁止に」と流れた。母から「あんた何したの」と電話。",
-   "en": "Your game became a social phenomenon; the news said schools were banning it. Mom called: \"What did you do?\""
+   "ja": "{work}が社会現象になり、ニュースで「学校で持ち込み禁止に」と流れた。母から「あんた何したの」と電話。",
+   "en": "{work} became a social phenomenon; the news said schools were banning it. Mom called: \"What did you do?\""
   },
   "when": [
    "works>=1"
@@ -867,8 +867,8 @@
    }
   },
   "memory": {
-   "ja": "作品が社会現象になった",
-   "en": "your game became a social phenomenon"
+   "ja": "{work}が社会現象になった",
+   "en": "{work} became a social phenomenon"
   },
   "tag": [
    "peak",
@@ -2433,7 +2433,8 @@
   },
   "when": [
    "status=employed",
-   "career>=6"
+   "career>=6",
+   "!flag.promoted"
   ],
   "choices": [
    {
@@ -2826,7 +2827,8 @@
    "en": "A major wants to buy your little studio. Your three staff would be secure. But they'd decide what you make."
   },
   "when": [
-   "status=indie"
+   "status=indie",
+   "flag.own_co"
   ],
   "choices": [
    {
@@ -3355,7 +3357,7 @@
   "id": "ev_tn_big_hw_team",
   "years": [
    1985,
-   2005
+   2000
   ],
   "text": {
    "ja": "会社が新しいゲーム機を作る。ハード部門へ行けば歴史に名前が残る。たぶん仕様書の欄外に。",

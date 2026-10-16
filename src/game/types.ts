@@ -74,7 +74,7 @@ export interface State {
   log: LogLine[];
   /** この人生で触れた歴史の事件(`hs_id:ev_id`。年表図鑑に足す) */
   chronicle: string[];
-  pending: { year: number; event: string }[];
+  pending: { year: number; event: string; co?: string }[];
   choice?: { eventId: string; choices: Choice[]; text: Text };
   ending?: Ending;
   /** logic の内側だけで使う(画面は読まない) */

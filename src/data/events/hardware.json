@@ -9,6 +9,16 @@
    "ja": "次の企画、ゲーセン向けか、出たばかりの家庭用か。先輩いわく「家庭用は子どものおもちゃ。本物はゲーセンにある」。基板の上で、ファミコンのカセットがやけに小さく見えた。",
    "en": "Next project: arcade, or the new home console? Your senior says: \"Home machines are toys. Real games live in arcades.\" Next to the arcade board, the Famicom cartridge looked tiny."
   },
+  "alt": [
+   {
+    "ja": "次の企画をゲーセンで出すか、家庭用で出すか。ゲーセン組の机には基板が積まれ、家庭用組の机にはテレビとカセットが 1 本。",
+    "en": "Next project: arcade or home? The arcade crew's desks are piled with circuit boards. The home crew has one TV and a single cartridge."
+   },
+   {
+    "ja": "近所のおもちゃ屋でファミコンを買う親子を見た翌日、企画会議があった。部長は「ゲーセンが本流だ」と言った。どちらに賭けるか。",
+    "en": "The day after you saw parents buying a Famicom at the toy shop, there was a planning meeting. Your boss said, \"Arcades are the real thing.\" Where's your bet?"
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -32,6 +42,16 @@
      "ja": "基板を選んだ。ゲーセンの奥で、知らない高校生があなたのゲームに 100 円を入れた。その背中を 30 分見ていた。",
      "en": "You chose the board. In the back of an arcade, a high-schooler you'd never met dropped a coin into your game. You watched his back for thirty minutes."
     },
+    "alt": [
+     {
+      "ja": "基板を選んだ。ロケテストの店で、筐体の前に人だかりができた。店長が缶ジュースを 1 本くれた。",
+      "en": "You chose the board. At the location test, a crowd gathered around your cabinet. The manager handed you a can of juice."
+     },
+     {
+      "ja": "基板を選んだ。筐体に貼る遊び方の説明を 20 回書き直した。プレイヤーは誰も読まずにボタンを連打していた。",
+      "en": "You chose the board. You rewrote the instruction card twenty times. Every player ignored it and mashed buttons."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -56,6 +76,16 @@
      "ja": "家庭用にした。先輩には「都落ちだな」と言われた。年末、その先輩の甥っ子があなたのカセットを欲しがった。",
      "en": "You went home console. Your senior called it a step down. That December, his nephew begged for your cartridge."
     },
+    "alt": [
+     {
+      "ja": "家庭用にした。テレビの前で遊ぶ子のために、難しさを 2 段下げた。それでも日曜の朝、親から苦情の電話が来た。",
+      "en": "You went home console and dialed the difficulty down two notches for kids at the TV. Parents still called to complain on Sunday morning."
+     },
+     {
+      "ja": "家庭用にした。正月、親戚の子どもたちがあなたのカセットに群がった。生まれて初めて「すごい人」扱いされた。",
+      "en": "You went home console. At New Year's, your relatives' kids crowded around your cartridge. For the first time in your life, you were a big deal."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -119,6 +149,16 @@
    "ja": "16 ビット戦争。会議室のホワイトボードに「メガドライブ」「PC エンジン」「スーパーファミコン(予定)」と書かれ、どれで出すかで 3 時間揉めた。誰も結論を出したくなかった。",
    "en": "The 16-bit war. The whiteboard said \"Mega Drive\", \"PC Engine\", \"Super Famicom (coming)\". Three hours of arguing. Nobody wanted to be the one to decide."
   },
+  "alt": [
+   {
+    "ja": "次はどの 16 ビット機で出すか。メガドライブ、PC エンジン、まだ出ていないスーパーファミコン。雑誌の特集をチーム全員で回し読みした。",
+    "en": "Which 16-bit machine next? Mega Drive, PC Engine, or the not-yet-released Super Famicom? The whole team passed one magazine feature around."
+   },
+   {
+    "ja": "営業が 3 機種分の販売予想を持ってきた。メガドライブ、PC エンジン、スーパーファミコン(予定)。数字は 3 つとも、営業の勘だった。",
+    "en": "Sales brought forecasts for three machines: Mega Drive, PC Engine, Super Famicom (coming). All three numbers were gut feelings."
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -143,6 +183,16 @@
      "ja": "セガを選んだ。黒くて、16 ビットと金文字で書いてあって、とにかく速い。理屈はそれで十分だった。",
      "en": "You picked Sega. Black, \"16-BIT\" in gold, and fast. That was reason enough."
     },
+    "alt": [
+     {
+      "ja": "セガを選んだ。開発機が届いた日、全員で黒い本体をしばらく眺めていた。かっこよさは、いい燃料になった。",
+      "en": "You picked Sega. The day the dev kit arrived, everyone just stared at that black casing for a while. Looking cool turned out to be good fuel."
+     },
+     {
+      "ja": "セガを選んだ。音源チップが面白すぎて、BGM 担当が 1 週間帰らなかった。いい曲ができた。",
+      "en": "You picked Sega. The sound chip was so much fun the composer didn't go home for a week. Great tracks came of it."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -167,6 +217,16 @@
      "ja": "PC エンジンで戦うことにした。中身は 8 ビットでも、絵は 16 ビット機と張り合える。CD-ROM² まで付く。「これが未来だ」と言ったら、未来は値段が高かった。",
      "en": "You'd fight on with the PC Engine: 8-bit inside, but its graphics could stand up to the 16-bit machines, and it took CD-ROM². You said \"this is the future\"; the future was expensive."
     },
+    "alt": [
+     {
+      "ja": "PC エンジンにした。8 ビットの CPU で 16 ビット機に勝つため、毎晩 1 行ずつ処理を削った。勝った夜、牛丼を 2 杯食べた。",
+      "en": "PC Engine. To beat the 16-bit machines on an 8-bit CPU, you shaved code one line a night. The night you won, you ate two bowls of gyudon."
+     },
+     {
+      "ja": "PC エンジンにした。CD-ROM² で声が入れられるので、社員が声優をやった。あなたの声は「村人 C」になった。",
+      "en": "PC Engine. CD-ROM² meant voices, so the staff did the acting. You became \"Villager C\"."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -190,6 +250,16 @@
      "ja": "任天堂を待つことにした。待っている間にチームの企画書が 4 回書き直された。",
      "en": "You waited for Nintendo. While waiting, the team's proposal got rewritten four times."
     },
+    "alt": [
+     {
+      "ja": "任天堂を待つことにした。発売日がずれるたび、誰かが「今のうちに」と言って企画を 1 個増やした。",
+      "en": "You waited for Nintendo. Every time the launch slipped, someone said \"while we're at it\" and added one more idea."
+     },
+     {
+      "ja": "任天堂を待つことにした。待つ間、他社のメガドライブの新作を「研究」と称して遊び込んだ。研究はかなり進んだ。",
+      "en": "You waited for Nintendo. Meanwhile you played rivals' Mega Drive games \"for research\". The research went very deep."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -273,6 +343,16 @@
    "ja": "ゲームボーイの企画が回ってきた。画面は白黒、というより緑と黒。据え置き組からは「格下げ?」と笑われた。電池は単三 4 本。",
    "en": "A Game Boy project landed on your desk. The screen was not even black and white — green and black. The home-console team laughed: \"Demoted?\" Four AA batteries."
   },
+  "alt": [
+   {
+    "ja": "携帯機の企画をやらないかと言われた。画面は手のひらサイズで、色は 4 段階の緑。据え置き班は「またおもちゃか」という顔をした。",
+    "en": "You were offered a handheld project. A palm-sized screen in four shades of green. The console team gave you a look: toys again?"
+   },
+   {
+    "ja": "ゲームボーイの開発機が 1 台だけ届いた。画面が小さすぎて、ドット絵の確認は虫めがね。据え置きに残るか、この小さい画面に賭けるか。",
+    "en": "A single Game Boy dev kit arrived. The screen was so small you checked pixel art with a magnifying glass. Stay on home consoles, or bet on this tiny screen?"
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -296,6 +376,16 @@
      "ja": "携帯機を選んだ。通勤電車で、隣のサラリーマンがあなたのゲームを遊んでいた。降りる駅を乗り過ごしていた。勝った。",
      "en": "Handheld it was. On the train, the salaryman next to you was playing your game. He missed his stop. You won."
     },
+    "alt": [
+     {
+      "ja": "携帯機を選んだ。修学旅行のバスで、中学生が通信ケーブルでつないで対戦していた。うるさかった。うれしかった。",
+      "en": "Handheld it was. On a school-trip bus, kids were linked by cable, battling each other. They were loud. You were happy."
+     },
+     {
+      "ja": "携帯機を選んだ。電池の持ちを試すのに、会社の単三を 200 本使った。総務に呼ばれた。",
+      "en": "Handheld it was. Battery testing ate 200 of the office's AA batteries. General Affairs called you in."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -319,6 +409,16 @@
      "ja": "据え置きに残った。色数の多い画面を眺めながら「緑の画面はちょっと…」と言っていた。",
      "en": "You stayed on home consoles, basking in glorious colour and muttering \"green screens, though...\""
     },
+    "alt": [
+     {
+      "ja": "据え置きに残った。大きなテレビで、画面いっぱいのボスを描けた。そのボスの大きさで、少しだけ気が晴れた。",
+      "en": "You stayed on home consoles and drew a boss that filled a big TV screen. The size of that boss was some comfort."
+     },
+     {
+      "ja": "据え置きに残った。その年のクリスマス、甥っ子がもらったのはゲームボーイだった。あなたのソフトではなかった。",
+      "en": "You stayed on home consoles. That Christmas your nephew got a Game Boy. Not your game."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -381,6 +481,16 @@
    "ja": "次世代機戦争。一足先に 3DO が出て、3D とムービーの時代の幕開けを見せた。続いてセガサターン、プレイステーション、NEC の PC-FX。家庭用がついにアーケード並みの絵を出すらしい。どれに付くか。",
    "en": "The next-gen war. 3DO arrived first, showing the dawn of 3D and full-motion video. Then came the Sega Saturn, the PlayStation and NEC's PC-FX. Home consoles would finally match arcade graphics. Which side are you on?"
   },
+  "alt": [
+   {
+    "ja": "次世代機が出そろう年。サターン、プレステ、先に出た 3DO、NEC の PC-FX。どの開発機を申し込むか、今週中に決めろと言われた。",
+    "en": "The year the next-gen consoles all land: Saturn, PlayStation, the early 3DO, NEC's PC-FX. You have to pick a dev kit to apply for by Friday."
+   },
+   {
+    "ja": "雑誌の発売前特集を広げて、4 台の写真を見比べた。サターン、プレステ、3DO、PC-FX。どれにも「最強」と書いてあった。",
+    "en": "You spread out a magazine preview and compared the four photos: Saturn, PlayStation, 3DO, PC-FX. Every one was labelled \"the most powerful\"."
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -405,6 +515,16 @@
      "ja": "サターンに付いた。2D に強い、格闘ゲームが来る、と言い張った。半分は当たっていた。",
      "en": "You went Saturn. Great at 2D, fighting games were coming, you insisted. Half right."
     },
+    "alt": [
+     {
+      "ja": "サターンに付いた。開発機の資料が分厚く、読み終わる頃には企画の半分が決まっていた。",
+      "en": "You went Saturn. The dev documents were so thick that by the time you finished them, half the game was planned."
+     },
+     {
+      "ja": "サターンに付いた。2D の絵を描き込みすぎて、ドット絵担当の目がしょぼしょぼになった。画面は輝いた。",
+      "en": "You went Saturn. The 2D art got so detailed your pixel artist's eyes gave out. The screen sparkled."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -429,6 +549,16 @@
      "ja": "プレステに付いた。新参のソニーに賭けた。CD は安く刷れる。在庫で倉庫が埋まる心配が減った。",
      "en": "You went PlayStation, betting on the newcomer Sony. CDs were cheap to press. Fewer nightmares about warehouses full of cartridges."
     },
+    "alt": [
+     {
+      "ja": "プレステに付いた。初めて 3D のキャラが回った日、全員でモニターの裏に回り込んだ。裏には何も無かった。",
+      "en": "You went PlayStation. The first day a 3D character turned on screen, everyone walked around behind the monitor. Nothing back there, of course."
+     },
+     {
+      "ja": "プレステに付いた。新参のソニーの担当者はスーツで来て、話が早かった。あなたもその日だけスーツで出社した。",
+      "en": "You went PlayStation. The rep from newcomer Sony showed up in a suit and moved fast. You wore a suit to work that day too."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -453,6 +583,16 @@
      "ja": "3DO に付いた。誰より先に、3D とムービーの時代を見た。本体の値段を聞いた親戚は、黙ってお茶を飲んだ。",
      "en": "You went 3DO and saw the 3D and video era before anyone. Hearing the console's price, your relatives sipped their tea in silence."
     },
+    "alt": [
+     {
+      "ja": "3DO に付いた。デモを見た友達が「映画みたい」と言い、値段を聞いて「映画館のほうが安い」と言った。",
+      "en": "You went 3DO. A friend watching the demo said, \"It's like a movie.\" Then heard the price: \"The cinema's cheaper.\""
+     },
+     {
+      "ja": "3DO に付いた。資料が英語ばかりで、会社の辞書が 3 冊増えた。時代の先を、辞書を引きながら歩いた。",
+      "en": "You went 3DO. The documents were all in English, so three more dictionaries joined the office. You walked into the future one look-up at a time."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -477,6 +617,16 @@
      "ja": "PC-FX に付いた。アニメの絵がそのまま動く。ポリゴンは、出ない。「うちは動画で勝負する」と言い切った。",
      "en": "You went PC-FX. Anime footage moved like the real thing. Polygons? None. \"We'll win on video,\" you declared."
     },
+    "alt": [
+     {
+      "ja": "PC-FX に付いた。打ち合わせの相手がアニメ会社ばかりになった。ポリゴンという言葉は、一度も出てこなかった。",
+      "en": "You went PC-FX. Suddenly every meeting was with an anime studio. The word \"polygon\" never came up once."
+     },
+     {
+      "ja": "PC-FX に付いた。本体がパソコンみたいに縦に立つ。机の上でいちばん場所を取らないゲーム機だった。",
+      "en": "You went PC-FX. It stood upright like a PC tower: the console that took up the least room on your desk."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -545,6 +695,16 @@
    "ja": "家庭用がアーケードとほぼ同じ絵を出すようになった。「移植度 100%」の文字が雑誌に踊る。ゲーセンに残るか、家庭用に移るか。",
    "en": "Home consoles now looked almost as good as arcades. \"100% faithful port!\" screamed the magazines. Stay in the arcade business, or move home?"
   },
+  "alt": [
+   {
+    "ja": "雑誌の比較記事で、ゲーセン版と家庭用版の画面写真が並んだ。見分けがつかなかった。ゲーセンに残るか、家庭用に移るか。",
+    "en": "A magazine ran arcade and home screenshots side by side. You couldn't tell them apart. Stay in arcades, or move home?"
+   },
+   {
+    "ja": "行きつけのゲーセンの店長が「客が家で練習してから来るんだよ」とこぼした。家でも同じ絵が出る時代だ。残るか、移るか。",
+    "en": "Your regular arcade's manager grumbled, \"They practice at home before they come in.\" Home machines had the same graphics now. Stay, or move?"
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -569,6 +729,16 @@
      "ja": "ゲーセンに残った。「家で遊べないもの」を作ると決めた。筐体を大きくした。床が抜けかけた。",
      "en": "You stayed. You decided to make what nobody could play at home. You made the cabinet bigger. The floor nearly gave way."
     },
+    "alt": [
+     {
+      "ja": "ゲーセンに残った。家には置けない大きなハンドルとペダルを付けた。家庭用では見られない汗を、客がかいた。",
+      "en": "You stayed. You added a huge wheel and pedals no living room could hold. Players sweated like no home game ever made them."
+     },
+     {
+      "ja": "ゲーセンに残った。筐体を 2 台向かい合わせて、知らない人どうしで戦う作りにした。常連どうしが友達になった。",
+      "en": "You stayed. You built for two cabinets back to back, stranger against stranger. The regulars became friends."
+     }
+    ],
     "later": [
      {
       "after": 4,
@@ -592,6 +762,16 @@
      "ja": "家庭用に移った。初日、「セーブ機能」の仕様を書きながら、ゲーセンでは客を帰さないことばかり考えていたと気づいた。",
      "en": "You moved home. On day one, writing a save-game spec, you realised all your arcade years were spent making sure players never left."
     },
+    "alt": [
+     {
+      "ja": "家庭用に移った。3 分で終わるように作っていたゲームを、40 時間遊べるように作り直した。2 か月、時間の感覚がおかしかった。",
+      "en": "You moved home. A game built to end in three minutes now had to last forty hours. For two months, your sense of time was broken."
+     },
+     {
+      "ja": "家庭用に移った。初めてオプション画面を作った。難易度に「やさしい」を入れる時、ゲーセン時代の自分が少し泣いた。",
+      "en": "You moved home and built your first options menu. Adding an \"Easy\" setting, your arcade self shed a small tear."
+     }
+    ],
     "later": [
      {
       "after": 4,
@@ -655,6 +835,16 @@
    "ja": "ドリームキャストかプレイステーション 2 か。ドリキャスにはモデムが付いていて、ネットに繋がる。PS2 には DVD が見られるという噂。",
    "en": "Dreamcast or PlayStation 2? The Dreamcast had a built-in modem for the internet. The PS2, rumour said, played DVDs."
   },
+  "alt": [
+   {
+    "ja": "次の作品は、ドリキャスか PS2 か。ドリキャスは今ここにあってネットにつながる。PS2 はまだ無いが、噂だけで店が騒いでいる。",
+    "en": "Next game: Dreamcast or PS2? The Dreamcast is here now and goes online. The PS2 doesn't exist yet, but the rumors alone have shops buzzing."
+   },
+   {
+    "ja": "会議室のテレビにドリームキャストがつながっていて、隣に PS2 の発表資料が置いてあった。どちらの未来に乗るか、決める日が来た。",
+    "en": "The meeting-room TV had a Dreamcast plugged in; next to it lay the PS2 announcement papers. Time to pick which future to ride."
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -679,6 +869,16 @@
      "ja": "ドリキャスに付いた。ネットに繋がるゲーム機。夢が詰まりすぎて、チームの企画書が 80 ページになった。",
      "en": "Dreamcast. A console on the internet. So many dreams the team's proposal hit 80 pages."
     },
+    "alt": [
+     {
+      "ja": "ドリキャスに付いた。ネット対戦の試験で、会社の電話代が 1 か月で 8 万円になった。経理の人が真顔だった。",
+      "en": "Dreamcast. Testing online play ran the office phone bill to 80,000 yen in a month. Accounting was not smiling."
+     },
+     {
+      "ja": "ドリキャスに付いた。コントローラに挿す小さな画面に何を出すか、1 週間考えた。結局、キャラの顔がまばたきした。",
+      "en": "Dreamcast. You spent a week deciding what to show on the little screen that plugs into the controller. In the end: a face that blinked."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -702,6 +902,16 @@
      "ja": "PS2 に付いた。発売日、本体は売り切れ。うちの母は DVD プレーヤーとして買った。",
      "en": "PS2. Launch day, sold out. Your mother bought one as a DVD player."
     },
+    "alt": [
+     {
+      "ja": "PS2 に付いた。開発機の力を引き出せず、最初の半年は画面が真っ黒だった。7 か月目に、木が 1 本立った。",
+      "en": "PS2. You couldn't tame the dev kit; for six months the screen stayed black. In month seven, a single tree appeared."
+     },
+     {
+      "ja": "PS2 に付いた。発表会の映像を見た親戚に「あれを作ってるの?」と聞かれた。違うけど、「まあね」と言った。",
+      "en": "PS2. A relative who saw the reveal footage asked, \"Are you making that?\" You weren't, but you said, \"Sort of.\""
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -765,6 +975,16 @@
    "ja": "携帯機が乱立した。ワンダースワン、ネオジオポケット、そして任天堂の次の携帯機の噂。営業は「どれでも売れます」と言った。営業はいつもそう言う。",
    "en": "Handhelds everywhere: WonderSwan, Neo Geo Pocket, and rumours of Nintendo's next handheld. Sales said \"they'll all sell\". Sales always says that."
   },
+  "alt": [
+   {
+    "ja": "携帯機の売り場に、ワンダースワンとネオジオポケットが並んでいた。任天堂の次の携帯機も近いらしい。どれで出すか。",
+    "en": "WonderSwan and Neo Geo Pocket sat side by side on the shelves, and Nintendo's next handheld was supposedly near. Which one for your game?"
+   },
+   {
+    "ja": "ワンダースワンの開発機は軽くて安い。任天堂の新しい携帯機は、まだ噂だけ。電車の中学生は、まだゲームボーイを握っていた。",
+    "en": "The WonderSwan dev kit was light and cheap. Nintendo's new handheld was still a rumor. Kids on the train were still clutching Game Boys."
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -787,6 +1007,16 @@
      "ja": "ワンダースワンにした。縦にも横にも持てる。説明書の図が決まるまで 1 週間かかった。",
      "en": "WonderSwan: hold it upright or sideways. The manual diagrams took a week to settle."
     },
+    "alt": [
+     {
+      "ja": "ワンダースワンにした。単三 1 本で長く遊べる。営業はその話だけで 10 分しゃべれるようになった。",
+      "en": "WonderSwan. One AA battery, and it ran for ages. Sales could talk for ten minutes on that alone."
+     },
+     {
+      "ja": "ワンダースワンにした。白黒の画面で、影の付け方に 3 日悩んだ。悩んだ影は、ちゃんと渋かった。",
+      "en": "WonderSwan. Three days figuring out shadows on a monochrome screen. They came out properly moody."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -810,6 +1040,16 @@
      "ja": "アドバンスを待った。堅実。あまりに堅実で、自分の人生にもう少し冒険が欲しくなった。",
      "en": "You waited for the GBA. Solid. So solid you wished your life had a bit more adventure."
     },
+    "alt": [
+     {
+      "ja": "アドバンスを待った。待つ間に作った試作品が、そのまま発売日の 1 本目になった。待つのも仕事だった。",
+      "en": "You waited for the GBA. The prototype you built while waiting became your launch-day title. Waiting was work too."
+     },
+     {
+      "ja": "アドバンスを待った。出てきた本体は横長だった。縦長だと思って描いた絵を、全部描き直した。",
+      "en": "You waited for the GBA. The machine turned out to be wide, not tall. Every picture drawn for a tall screen had to be redone."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -872,6 +1112,16 @@
    "ja": "DS と PSP、同じ冬に出る。2 画面でタッチペンか、きれいな画面で UMD か。開発機を両方触った同僚が「どっちも変」と言った。",
    "en": "DS and PSP, same winter. Two screens and a stylus, or a gorgeous screen and UMDs? A colleague who'd touched both dev kits said, \"Both are weird.\""
   },
+  "alt": [
+   {
+    "ja": "年末に携帯機が 2 台出る。下の画面を触れる DS と、映画も見られる PSP。両方の資料が、机の上でにらみ合っていた。",
+    "en": "Two handhelds this winter: the DS with its touchable lower screen, and the PSP that plays movies. Both press kits glared at each other on your desk."
+   },
+   {
+    "ja": "企画書の表紙に、機種名を書く欄がある。DS と書くか、PSP と書くか。鉛筆で書いて、消して、また書いた。",
+    "en": "The proposal cover has a box for the platform. DS, or PSP? You wrote it in pencil, erased it, and wrote it again."
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -895,6 +1145,16 @@
      "ja": "DS にした。タッチペンで何ができるか、会議室でペンを振り回しながら考えた。",
      "en": "DS. You spent meetings waving a stylus around, thinking about what it could do."
     },
+    "alt": [
+     {
+      "ja": "DS にした。マイクに息を吹きかける遊びを入れた。テスト中のフロアは、一日中ふーふー言っていた。",
+      "en": "DS. You added a blow-into-the-mic mechanic. The test floor huffed and puffed all day."
+     },
+     {
+      "ja": "DS にした。画面が 2 つあると、描く絵も 2 倍だった。デザイナーの机の栄養ドリンクも 2 倍になった。",
+      "en": "DS. Two screens meant twice the art. The energy drinks on the artists' desks doubled too."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -918,6 +1178,16 @@
      "ja": "PSP にした。画面がとにかくきれい。ロード時間は、とにかく長かった。",
      "en": "PSP. That screen. Those loading times."
     },
+    "alt": [
+     {
+      "ja": "PSP にした。ムービーを入れすぎて UMD に入りきらなかった。オープニングを 10 秒切った。",
+      "en": "PSP. You crammed in so much video it wouldn't fit on the UMD. The opening lost ten seconds."
+     },
+     {
+      "ja": "PSP にした。画面のきれいさを見に、他部署の人が見学に来た。帰りには、みんな本体を予約していた。",
+      "en": "PSP. People from other departments came by just to see the screen. On the way out, every one of them preordered a unit."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -981,6 +1251,16 @@
    "ja": "ソーシャルゲームの時代。会議で「据え置きは終わる」と言う人と「ケータイのはゲームじゃない」と言う人が、同じテーブルで目を合わせなかった。",
    "en": "The social-game era. In the meeting, the \"consoles are finished\" camp and the \"phone games aren't real games\" camp sat at one table and refused to make eye contact."
   },
+  "alt": [
+   {
+    "ja": "隣の部署がケータイのゲームで、去年の会社の利益を 1 か月で稼いだ。うちの部長は「一時の流行だ」と言った。行くか、残るか。",
+    "en": "The team next door earned last year's company profit in one month with a phone game. Your boss said, \"It's a fad.\" Go, or stay?"
+   },
+   {
+    "ja": "求人に「ソーシャルゲーム経験者優遇」が増えた。昔の同期の名刺には「運営」とある。コンシューマに残るか、向こうへ行くか。",
+    "en": "More job ads say \"social-game experience a plus\". An old colleague's business card now reads \"Live Operations\". Stay on consoles, or cross over?"
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -1004,6 +1284,16 @@
      "ja": "ソシャゲに行った。ガチャの確率表がチームの Excel に載った夜、少しだけ自分が怖くなった。",
      "en": "You went social. The night the gacha odds landed in the team's Excel, you scared yourself a little."
     },
+    "alt": [
+     {
+      "ja": "ソシャゲに行った。イベントの日は、売上が分刻みで動く。トイレに行っている間に 100 万円増えていた。",
+      "en": "You went social. On event days, revenue moved minute by minute. It rose a million yen while you were in the restroom."
+     },
+     {
+      "ja": "ソシャゲに行った。毎週、新しいキャラを 1 人作った。半年で、どのキャラが誰だか自分でも怪しくなった。",
+      "en": "You went social. A new character every week. After six months, even you weren't sure who was who."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -1028,6 +1318,16 @@
      "ja": "コンシューマに残った。パッケージを手に取る重みを信じた。給料は、軽くなった。",
      "en": "You stayed on consoles, believing in the weight of a boxed game in your hand. Your paycheck got lighter."
     },
+    "alt": [
+     {
+      "ja": "コンシューマに残った。発売日、店の棚で自分の箱を並べ直した。買っていった人の顔を、今も覚えている。",
+      "en": "You stayed on consoles. On launch day you straightened your boxes on the shop shelf. You still remember the face of the person who bought one."
+     },
+     {
+      "ja": "コンシューマに残った。同窓会で「まだそっちなの」と言われた。帰り道、いちばん売れた自分の作品のサントラを聴いた。",
+      "en": "You stayed on consoles. At a reunion someone said, \"Still doing that?\" On the way home you played the soundtrack of your best seller."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -1092,6 +1392,16 @@
    "ja": "家庭用がアーケードを追い越して、もうずいぶんたつ。ゲーセンは街から減っていく一方だ。それでも、アーケードの新作の話が来た。",
    "en": "Home consoles overtook the arcade long ago, and arcades keep vanishing from town. Still, an arcade project came your way."
   },
+  "alt": [
+   {
+    "ja": "ゲーセンは、全盛期の何分の一になったか分からない。それでもアーケードの新作をやらないかと声がかかった。家庭用の企画も机にある。",
+    "en": "Arcades are a fraction of what they once were. Still, someone asked you to make a new arcade game. A home project is sitting on your desk too."
+   },
+   {
+    "ja": "昔通ったゲーセンに、閉店のお知らせが貼ってあった。その週、アーケードの新作の話が来た。家庭用の企画と、どちらを取るか。",
+    "en": "Your old arcade had a closing notice on the door. That same week, an arcade project came in. That, or the home project?"
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -1116,6 +1426,16 @@
      "ja": "引き受けた。メダルゲームの隣で、あなたの筐体が光った。常連のおじいさんが毎週来てくれた。",
      "en": "You took it. Your cabinet glowed next to the medal games. An old regular came every single week."
     },
+    "alt": [
+     {
+      "ja": "引き受けた。ロケテストの日、昔の常連が白髪になって来てくれた。対戦相手は、その孫だった。",
+      "en": "You took it. On location-test day, an old regular showed up, hair gone white. His opponent was his grandson."
+     },
+     {
+      "ja": "引き受けた。筐体の横に感想ノートを置いた。1 冊埋まった。最後のページは「また来ます」だった。",
+      "en": "You took it. You left a comment notebook by the cabinet. It filled up. The last page said, \"I'll be back.\""
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -1139,6 +1459,16 @@
      "ja": "断って家庭用をやった。帰り道、潰れたゲーセンの跡地がコインランドリーになっていた。少しだけ回る洗濯物を眺めた。",
      "en": "You declined and did consoles. On the way home, a dead arcade had become a laundromat. You watched the clothes spin for a while."
     },
+    "alt": [
+     {
+      "ja": "断って家庭用をやった。ダウンロード版の紹介文に、ゲーセン時代の作品名をこっそり混ぜた。気づいたファンが 3 人いた。",
+      "en": "You declined and did a console game. You slipped an old arcade title's name into the store blurb. Three fans noticed."
+     },
+     {
+      "ja": "断って家庭用をやった。ソファで遊ぶ作品にした。ゲーセンの騒がしさが恋しくて、BGM を少しだけ大きくした。",
+      "en": "You declined and made a console game for the couch. Missing the arcade din, you turned the music up a little."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -1202,6 +1532,16 @@
    "ja": "次の企画、Switch で出すかスマホで出すか。据え置きにも携帯にもなる機械と、誰のポケットにもある機械。どちらも「携帯機」と言えなくもない。",
    "en": "Next project: Switch or smartphone? A machine that's both home and handheld, or the one in everybody's pocket. Both are handhelds, in a way."
   },
+  "alt": [
+   {
+    "ja": "次の機種を決める会議。テレビにもつなげて持ち出せる Switch か、みんなが一日中握っているスマホか。会議の途中、全員のスマホが同時に鳴った。",
+    "en": "Platform meeting. Switch, which docks to the TV and goes out the door with you, or the phone everyone holds all day? Mid-meeting, every phone in the room buzzed at once."
+   },
+   {
+    "ja": "社長は Switch の新作を見て「これだ」と言い、営業はスマホの売上ランキングを見て「これだ」と言った。どちらで出すか。",
+    "en": "The CEO saw a new Switch game and said, \"That's it.\" Sales saw the phone charts and said, \"That's it.\" Which one?"
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -1225,6 +1565,16 @@
      "ja": "Switch にした。ダウンロード版の売上グラフを毎朝見る癖がついた。",
      "en": "Switch. You got hooked on checking the download sales graph every morning."
     },
+    "alt": [
+     {
+      "ja": "Switch にした。発売日、家族でテレビを囲んで遊ぶ写真が SNS に流れてきた。知らない家の居間に、自分の画面があった。",
+      "en": "Switch. On launch day, photos of families gathered round the TV playing it popped up online. Your screen, in strangers' living rooms."
+     },
+     {
+      "ja": "Switch にした。コントローラを 2 人で分けて遊ぶモードを入れた。テスト中、プランナー同士の本気のけんかが 2 回起きた。",
+      "en": "Switch. You put in a mode where two players split the controllers. During testing, the planners got into two genuine fights."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -1248,6 +1598,16 @@
      "ja": "スマホにした。ストアの審査に 3 回落ちた。理由は全部ちがった。",
      "en": "Smartphone. Store review rejected you three times, each for a different reason."
     },
+    "alt": [
+     {
+      "ja": "スマホにした。広告の出し方で売上が 3 倍変わる世界だった。ゲームの中身の話をする日が、週に 1 日も無かった。",
+      "en": "Smartphone. A world where ad strategy could triple your sales. Some weeks, not one day went to talking about the game itself."
+     },
+     {
+      "ja": "スマホにした。電車で、おばあさんがあなたのゲームを遊んでいた。片手で、縦持ちで、とても上手だった。",
+      "en": "Smartphone. On the train, an elderly woman was playing your game: one-handed, phone upright, and very good."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -1310,6 +1670,16 @@
    "ja": "PC エンジンが出た。CPU は 8 ビットなのに、絵は 16 ビット並みにきれい。しかも本体が弁当箱より小さい。王者ファミコンで出すか、新顔に賭けるか。",
    "en": "The PC Engine is out: an 8-bit CPU, but graphics like a 16-bit machine, in a box smaller than a lunchbox. Stick with the champion Famicom, or bet on the newcomer?"
   },
+  "alt": [
+   {
+    "ja": "開発室に PC エンジンの開発機が届いた。小さくて、絵がやけにきれい。でも子どもの家にあるのは、ほとんどファミコンだ。どちらで出すか。",
+    "en": "A PC Engine dev kit arrived. Tiny, with gorgeous graphics. But almost every kid's house had a Famicom. Which one?"
+   },
+   {
+    "ja": "問屋の人に「ファミコンなら初回 10 万本」と言われた。PC エンジンの絵を見せたら「でも本体が売れてない」。どちらに賭けるか。",
+    "en": "A wholesaler said, \"On Famicom, 100,000 for the first run.\" Shown the PC Engine graphics, he said, \"But nobody owns one yet.\" Where's your bet?"
+   }
+  ],
   "when": [
    "pos!=teacher",
    "pos!=prison",
@@ -1337,6 +1707,16 @@
      "ja": "ファミコンに残った。台数は正義。カセットの容量は足りない。いつも足りない。",
      "en": "You stayed with the Famicom. Install base is king. Cartridge space was never enough. Never."
     },
+    "alt": [
+     {
+      "ja": "ファミコンに残った。発売日、近所の子が袋を破ってすぐ遊び始めた。説明書は読んでいなかった。",
+      "en": "You stayed with the Famicom. On launch day, a neighborhood kid tore open the bag and started playing. Didn't read the manual."
+     },
+     {
+      "ja": "ファミコンに残った。使える色が少なく、空の青を 4 回選び直した。最後の青が、いちばんファミコンらしかった。",
+      "en": "You stayed with the Famicom. So few colors to choose from, you picked the sky's blue four times. The last one felt the most Famicom of all."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -1361,6 +1741,16 @@
      "ja": "PC エンジンにした。初めて開発機で絵を出した日、「これ、ゲーセンの絵じゃないか」と声が出た。",
      "en": "You went PC Engine. The first time you put graphics on the dev kit, you blurted, \"That's an arcade picture!\""
     },
+    "alt": [
+     {
+      "ja": "PC エンジンにした。店頭のデモに、ゲーセン帰りの高校生が見入っていた。「これ家で動くの?」と聞かれ、胸を張った。",
+      "en": "PC Engine. High-schoolers fresh from the arcade stared at your in-store demo. \"This runs at home?\" You stood a little taller."
+     },
+     {
+      "ja": "PC エンジンにした。カードみたいに薄いソフトを財布に入れて持ち歩いた。飲み会のたびに見せて、だいたい驚かれた。",
+      "en": "PC Engine. You carried the card-thin game in your wallet and showed it off at every drinking party. People were usually impressed."
+     }
+    ],
     "later": [
      {
       "after": 2,

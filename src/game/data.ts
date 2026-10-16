@@ -32,10 +32,12 @@ for (const t of TIMELINE) {
 const KIN: [RegExp, string, string[]][] = [
   [/(?<![祖叔伯保寮分])母(?![校国艦体])/, 'mother_gone', ['ev_lv_mother_save', 'ev_lv_mother_video']],
   [/(?<![祖叔伯神])父(?![兄])/, 'father_gone', ['ev_lv_father_shelf']],
+  // 第 7 回ペルソナ: 祖父の危篤・墓参りの翌年に「祖父に聞かれた」
+  [/祖父/, 'grandpa_gone', ['ev_lv_big_grandpa', 'ev_lv_grandpa_funeral_brag', 'ev_lv_grandpa_grave']],
 ];
 for (const e of EVENTS) for (const [re, flag, deaths] of KIN) {
   if (deaths.includes(e.id)) { e.effect = { ...(e.effect ?? {}), flag: { ...(e.effect?.flag ?? {}), [flag]: true } }; continue; }
-  if ((e.weight ?? 1) > 0 && re.test(e.text.ja) && !(e.when ?? []).includes(`!flag.${flag}`)) e.when = [...(e.when ?? []), `!flag.${flag}`];
+  if ((e.weight ?? 1) > 0 && re.test([e.text, ...(e.alt ?? [])].map((x) => x.ja).join('')) && !(e.when ?? []).includes(`!flag.${flag}`)) e.when = [...(e.when ?? []), `!flag.${flag}`];
 }
 
 // 職種と話のずれを防ぐ(ペルソナ通読: サウンドなのに絵の話ばかり)。job_hints.json = 本文が特定の職種の作業を前提にしている話 → 出してよい職種
@@ -49,29 +51,31 @@ const has = (e: GameEvent, k: string) => (e.when ?? []).some((c) => c.replace(/^
 const add = (e: GameEvent, c: string) => { e.when = [...(e.when ?? []), c]; };
 for (const e of EVENTS) {
   if ((e.weight ?? 1) <= 0 || e.id.startsWith('ev_sys_')) continue;
-  const t = e.text.ja + (e.choices ?? []).map((c) => c.label.ja + (c.result?.ja ?? '')).join('');
+  // 言い回し違い(alt)のどれが出ても合うように、本文は全部つないで見る
+  const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join('');
+  const t = tx + (e.choices ?? []).map((c) => c.label.ja + (c.result?.ja ?? '') + (c.alt ?? []).map((x) => x.ja).join('')).join('');
   // 家族: 恋人の話は結婚前だけ / 籍を入れる話は結婚前だけ / 義理の親・配偶者の話は結婚後だけ
   if (/恋人/.test(t) && !has(e, 'flag.lv_married')) add(e, '!flag.lv_married');
   if (/籍を入れ|プロポーズ/.test(t) && !has(e, 'flag.lv_married')) add(e, '!flag.lv_married');
   if (/義理の(母|父)|義母|義父|妻が|夫が|配偶者/.test(e.text.ja) && !has(e, 'flag.lv_married')) add(e, 'flag.lv_married');
   // 会社の中の話は、会社にいる時だけ
-  if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み/.test(e.text.ja) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
+  if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み|ボーナス|人事に呼ばれ|辞令/.test(tx) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
   // 年数: 「N 年前」「N 年ぶり」はキャリアが N 年以上 / 入社直後の話はキャリア 1 年目まで
-  const ago = /(\d+) 年(前|ぶり|分|越し|間ずっと)/.exec(e.text.ja);
+  const ago = /(\d+) 年(前|ぶり|分|越し|間ずっと)/.exec(tx);
   if (ago && +ago[1] >= 5 && !has(e, 'career')) add(e, `career>=${+ago[1]}`);
-  if (/入社 ?\d+ ?日目|新人研修|配属初日|入社初日|新入社員/.test(e.text.ja) && !has(e, 'career')) add(e, 'career<=1');
+  if (/入社 ?\d+ ?日目|新人研修|配属初日|入社初日|新入社員/.test(tx) && !has(e, 'career')) add(e, 'career<=1');
   // 自分の作品が前提の話は、作品を 1 本以上出してから(作品 0 本なのに「自分の作品で…」が出ていた)
-  if (/自分の作品|あなたの作品|自分のゲーム|あなたのゲーム|昔作った|発売された箱|自分が作った|自作の/.test(e.text.ja) && !has(e, 'works')) add(e, 'works>=1');
+  if (/自分の作品|あなたの作品|自分のゲーム|あなたのゲーム|昔作った|発売された箱|自分が作った|自作の/.test(tx) && !has(e, 'works')) add(e, 'works>=1');
   // 仕事の書類の話は、無職の間は出さない(独立中は出してよい)
-  if (/仕様書|企画書|本業|会社にばれ|勤め先|定時/.test(e.text.ja) && !has(e, 'status') && !has(e, 'pos')) add(e, 'status!=left');
+  if (/仕様書|企画書|本業|会社にばれ|勤め先|定時/.test(tx) && !has(e, 'status') && !has(e, 'pos')) add(e, 'status!=left');
   // 親友を見送った後に、その親友が出てくる話は出さない
-  if (/親友/.test(e.text.ja) && !has(e, 'flag.friend_gone')) add(e, '!flag.friend_gone');
+  if (/親友/.test(tx) && !has(e, 'flag.friend_gone')) add(e, '!flag.friend_gone');
   // 会社が潰れる・営業停止の話は、実在の会社にいる時は出さない(史実に無い倒産)
-  if (/営業を停止|倒産|事務所が空っぽ|会社が潰れ|会社がつぶれ/.test(e.text.ja) && !has(e, 'flag.real_co')) add(e, '!flag.real_co');
+  if (/営業を停止|倒産|事務所が空っぽ|会社が潰れ|会社がつぶれ/.test(tx) && !has(e, 'flag.real_co')) add(e, '!flag.real_co');
   // 2020〜21 年は即売会がほぼ開かれなかった
-  if (/即売会/.test(e.text.ja) && e.years[0] <= 2021 && e.years[1] >= 2020) add(e, 'year!=2020'), add(e, 'year!=2021');
+  if (/即売会/.test(tx) && e.years[0] <= 2021 && e.years[1] >= 2020) add(e, 'year!=2020'), add(e, 'year!=2021');
   // 昔の作品の話は、2 年以上前の作品がある時だけ(出したばかりの作品に「リマスター」が来ない)
-  if (/\{work\}/.test(e.text.ja) && /リマスター|復刻|昔の|移植版|再販/.test(e.text.ja) && !e.tag?.includes('afterlife')) e.tag = [...(e.tag ?? []), 'afterlife'];
+  if (/\{work\}/.test(tx) && /リマスター|復刻|昔の|移植版|再販/.test(tx) && !e.tag?.includes('afterlife')) e.tag = [...(e.tag ?? []), 'afterlife'];
 }
 
 // ソシャゲへの移籍は 1 回だけ(ハードの選択と時代の話の両方で出ていた)

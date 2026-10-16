@@ -188,7 +188,7 @@ function fill(s: State, t: Text): Text {
     .replace(/\{rival\}/g, s.inner.rival?.name[l] ?? (l === 'ja' ? '同期' : 'your rival'))
     .replace(/\{mentor\}/g, s.inner.mentor?.name[l] ?? (l === 'ja' ? '先輩' : 'your mentor')).replace(/\{mentee\}/g, s.inner.mentee?.name[l] ?? (l === 'ja' ? '後輩' : 'your junior'))
     .replace(/\{peer\}/g, s.inner.rival && /負けたくない|ライバル/.test(t[l]) ? s.inner.rival.name[l] : l === 'ja' ? peer.ja.split(' ')[0] : peer.en.split(' ').slice(-1)[0]).replace(/\{other\}/g, other[l]);
-  return { ja: rep(t.ja, 'ja'), en: rep(t.en, 'en') };
+  return { ja: rep(t.ja, 'ja').replace(/([ぁ-んァ-ヶ一-龠ー])(SNS)/g, '$1 $2'), en: rep(t.en, 'en') };
 }
 function log(s: State, text: Text, kind: LogLine['kind'], tag?: string[]) {
   s.log.push({ year: s.year, age: s.age, text, kind, tag });
@@ -238,7 +238,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
       s.company = newCompany(s.rng, size, s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed');
       s.inner.nextWorkYear = s.year + s.rng.int(tune('work.everyMin'), tune('work.everyMax'));
     } else if (f === 'do_go_indie') {
-      setStatus(s, 'indie'); s.company = { id: 'co_indie_self', name: { ja: `${s.name.ja.split(' ')[0]}ゲームス`, en: `${s.name.en.split(' ').slice(-1)[0]} Games` }, size: 'indie' };
+      setStatus(s, 'indie'); s.flags.own_co = true; s.company = { id: 'co_indie_self', name: { ja: `${s.name.ja.split(' ')[0]}ゲームス`, en: `${s.name.en.split(' ').slice(-1)[0]} Games` }, size: 'indie' };
       s.companies.push({ company: s.company, year: s.year });
       s.inner.nextWorkYear = s.year + s.rng.int(1, 3);
     } else if (f === 'do_return') {
@@ -276,7 +276,7 @@ function setStatus(s: State, st: State['status']) {
   s.status = st;
 }
 function schedule(s: State, later: { after: number; event: string }[] | undefined) {
-  for (const l of later ?? []) s.pending.push({ year: s.year + l.after, event: l.event });
+  for (const l of later ?? []) s.pending.push({ year: s.year + l.after, event: l.event, co: s.company.id });
 }
 function count(s: State, ev: GameEvent) {
   for (const t of ev.tag ?? []) s.inner.counts[t] = (s.inner.counts[t] ?? 0) + 1;
@@ -325,7 +325,8 @@ function beginYear(s: State, out: string[]) {
   // 予約(later)
   const due = s.pending.filter((p) => p.year <= s.year);
   s.pending = s.pending.filter((p) => p.year > s.year);
-  for (const p of due) q.push(p.event);
+  // 会社の中の大作の結末(tag mega)は、同じ会社にいる時だけ(第 7 回ペルソナ: 潰れた会社の巨大作が「やっと出た」)
+  for (const p of due) if (!(EVENT_BY_ID.get(p.event)?.tag?.includes('mega') && p.co && p.co !== s.company.id)) q.push(p.event);
   // 職と年齢の節目
   if (s.year > 2040) { sys.push('@end:end_ai_seat'); }
   else if (s.age >= 70) sys.push('@end:end_pen_down');
@@ -496,7 +497,9 @@ function runItem(s: State, id: string, out: string[]) {
   // 後日談: 発売から 2 年以上たった作品を 1 本選ぶ
   s.inner.workTarget = -1;
   if (ev.tag?.includes('afterlife')) {
-    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= 2);
+    // 運営型の話(サービス終了・ガチャ…)は、配信の作品にだけ(第 7 回ペルソナ: DS や Wii のパッケージに「排出率が全部 100%」)
+    const online = /サービス終了|排出率|ガチャ|運営|ログイン/.test(ev.text.ja);
+    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= 2 && (!online || /スマホ|ケータイ|ソシャゲ|ブラウザ|オンライン|AI クラウド/.test(w.platform)));
     if (!old.length) return;
     s.inner.workTarget = r.pick(old)[1];
   }
@@ -540,6 +543,7 @@ function promote(s: State) {
   const to: Partial<Record<Job, Job>> = { qa: 'planner', programmer: 'director', planner: 'director', artist: 'director', sound: 'director', sales: 'producer', director: 'producer' };
   const next = to[s.job];
   if (next) s.job = next;
+  s.flags.promoted = true;
 }
 
 function endYear(s: State, out: string[]) {

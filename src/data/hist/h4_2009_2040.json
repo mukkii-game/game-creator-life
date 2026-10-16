@@ -1012,8 +1012,8 @@
    {
     "id": "ev_hs_2012_pazudora_any",
     "text": {
-     "ja": "電車で隣の人も向かいの人も、指で石をなぞっていた。自分も、降りる駅を 2 つ過ぎた。",
-     "en": "On the train, the person next to you and the one across are both swiping gems. You miss your stop by two stations, too."
+     "ja": "電車で隣の人も向かいの人も、指で石をなぞっていた。自分の指も、つり革ではなく石をつかんでいた。",
+     "en": "On the train, the person next to you and the one across are both swiping gems. Your own hand is holding gems, not the strap."
     },
     "effect": {
      "passion": 2,
@@ -1102,7 +1102,8 @@
    {
     "id": "ev_hs_2012_kompu_client",
     "when": [
-     "pos=client"
+     "pos=client",
+     "!flag.hw_dv_mobile"
     ],
     "text": {
      "ja": "据え置きの部署は無関係のはずだった。翌月、ソシャゲ部署の売上が落ち、こっちの予算まで半分になった。",
@@ -2371,8 +2372,8 @@
      "stat.skill>=60"
     ],
     "text": {
-     "ja": "発売の日、電車で知らない人が自分の作ったゲームを遊んでいた。降りる駅を 3 つ過ぎて、のぞき続けた。",
-     "en": "On launch day, a stranger on the train is playing your game. You ride three stops past yours to keep watching."
+     "ja": "発売の日、電車で知らない人が自分の作ったゲームを遊んでいた。横から「そこ、右の壁が壊せます」と言いかけて、やめた。",
+     "en": "On launch day, a stranger on the train is playing your game. You almost said \"the right wall breaks,\" and stopped yourself."
     },
     "effect": {
      "passion": 10,

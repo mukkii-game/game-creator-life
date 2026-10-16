@@ -66,7 +66,7 @@
     "text": { "ja": "会社から PHS を持たされた。地下の開発室は圏外。今は、ここが一番安全な場所だ。", "en": "The company gives you a PHS phone. The basement dev room has no signal. It's now the safest place on earth." },
     "when": ["status=employed"], "effect": { "passion": 3 }, "tag": ["gag"] },
   { "id": "ev_era3_memory_card", "years": [1995, 2000],
-    "text": { "ja": "「セーブにメモリーカードを 3 ブロックも使う」と苦情。セーブデータのアイコンを削って 2 ブロックにした。", "en": "Complaints: \"Saves use three memory-card blocks.\" You trimmed the save icon and got it down to two." },
+    "text": { "ja": "セーブデータのアイコンを動かしたい、と絵の担当。動かすとメモリーカードを食う。3 日もめて、まばたきだけにした。", "en": "The artist wants the save icon animated. Animation eats memory-card space. After three days of arguing, it just blinks." },
     "when": ["job=programmer"], "effect": { "skill": 4, "passion": -1 }, "tag": ["gag"] },
   { "id": "ev_era3_demo_disc", "years": [1996, 2002],
     "text": { "ja": "雑誌の付録の体験版 CD に入った。体験版の方が、本編より評判がよかった。", "en": "We made a magazine's demo disc. The demo got better reviews than the full game." },

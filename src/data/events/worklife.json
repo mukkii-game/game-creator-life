@@ -10,6 +10,16 @@
    "ja": "部長に呼ばれた。「来月から、チームをまとめてくれないか」。管理職だ。給料は上がる。作る時間は、たぶん減る。",
    "en": "Your boss called you in: \"From next month, would you lead the team?\" Management. More pay. Probably less time making things."
   },
+  "alt": [
+   {
+    "ja": "「ちょっといいか」と部長に会議室へ呼ばれた。来月から課長を頼みたいという。判子を押す回数が増えて、手を動かす回数は減る。",
+    "en": "\"Got a minute?\" Your boss pulled you into a meeting room: he wants you as section chief next month. More forms to stamp, less time with your hands on the work."
+   },
+   {
+    "ja": "人事面談で、いきなり「マネージャー候補です」と言われた。机は窓際の広い席になる。代わりに、自分の作業机は後輩に渡る。",
+    "en": "At your review, out of nowhere: \"You're on the manager track.\" You'd get the big desk by the window. Your workbench would go to a junior."
+   }
+  ],
   "choices": [
    {
     "id": "ch_wk_promote_yes",
@@ -28,7 +38,17 @@
     "result": {
      "ja": "引き受けた。最初の仕事は、自分がいちばん嫌いだった週報のフォーマットを作ることだった。",
      "en": "You accepted. Your first task: designing the weekly-report format you'd always hated."
-    }
+    },
+    "alt": [
+     {
+      "ja": "引き受けた。初めての部下面談で、相手より自分のほうが緊張していた。名刺の肩書きだけが、先に偉くなった。",
+      "en": "You accepted. At your first one-on-one, you were more nervous than your report. Only your business card got important right away."
+     },
+     {
+      "ja": "引き受けた。会議が週 3 回から週 11 回に増えた。会議中に描く落書きだけが、前よりうまくなった。",
+      "en": "You accepted. Meetings went from three a week to eleven. The only thing that improved was your margin doodles."
+     }
+    ]
    },
    {
     "id": "ch_wk_promote_no",
@@ -46,7 +66,17 @@
     "result": {
      "ja": "断った。「作る人でいたいんです」と言ったら、部長は少しだけ羨ましそうな顔をした。",
      "en": "You declined: \"I want to keep making things.\" Your boss looked a little envious."
-    }
+    },
+    "alt": [
+     {
+      "ja": "断った。帰りの電車で少しだけ後悔した。翌朝、自分の机に向かったら、後悔はもう消えていた。",
+      "en": "You declined. A little regret on the train home. By the next morning, back at your own desk, it was gone."
+     },
+     {
+      "ja": "断った。代わりに課長になった同期が、半年後「お前が正しかった」と缶コーヒーをおごってくれた。",
+      "en": "You declined. The colleague who took the job instead bought you a canned coffee six months later: \"You called it right.\""
+     }
+    ]
    }
   ],
   "tag": [
@@ -71,6 +101,16 @@
    "ja": "新作のタイトル会議。ホワイトボードに候補が 3 つ。英語の横文字、漢字 4 文字、そして社長が持ってきた「〇〇大作戦」。",
    "en": "Title meeting for the new game. Three candidates on the whiteboard: something in English, a weighty four-kanji phrase, and the CEO's own \"Operation Something\"."
   },
+  "alt": [
+   {
+    "ja": "マスターアップが近いのに、まだタイトルが無い。かっこいい横文字か、重い漢字 4 文字か、社長が譲らない「〇〇大作戦」か。",
+    "en": "Master-up is close and the game still has no name. Slick English, four solemn kanji, or the CEO's beloved \"Operation Something\"?"
+   },
+   {
+    "ja": "雑誌広告の締め切りが明日なのに、タイトル欄が空いている。候補は横文字、漢字 4 文字、社長がメモ用紙に書いた「〇〇大作戦」。",
+    "en": "The magazine ad is due tomorrow and the title box is empty. The options: English, four kanji, or \"Operation Something\", scrawled by the CEO on a memo pad."
+   }
+  ],
   "when": [
    "status=employed",
    "pos!=teacher",
@@ -90,7 +130,17 @@
     "result": {
      "ja": "横文字にした。営業が読めなかった。発売まで「あれ」と呼ばれた。",
      "en": "English it was. Sales couldn't pronounce it; they called it \"that one\" until launch."
-    }
+    },
+    "alt": [
+     {
+      "ja": "横文字にした。綴りを 1 文字まちがえたまま、ロゴが刷り上がった。ファンはそれも込みで覚えてくれた。",
+      "en": "English it was. The logo got printed with one letter misspelled. Fans learned it, typo and all."
+     },
+     {
+      "ja": "横文字にした。社長のお母さんが読めないと言うので、箱の隅に小さくカタカナを足した。そこがいちばん目立った。",
+      "en": "English it was. The CEO's mother couldn't read it, so a tiny katakana reading went in the corner of the box. That's what everyone noticed."
+     }
+    ]
    },
    {
     "id": "ch_wk_tt_kanji",
@@ -105,7 +155,17 @@
     "result": {
      "ja": "漢字 4 文字にした。重厚すぎて、パッケージの絵が負けた。",
      "en": "Four kanji. So heavy the box art couldn't keep up."
-    }
+    },
+    "alt": [
+     {
+      "ja": "漢字 4 文字にした。読み方が 3 通りあって、発売後も社内で呼び方が揃わなかった。",
+      "en": "Four kanji. It could be read three ways, and even after launch the staff never agreed on how to say it."
+     },
+     {
+      "ja": "漢字 4 文字にした。書道をやっていた経理の人がロゴを書いてくれた。お礼に、スタッフロールに名前を入れた。",
+      "en": "Four kanji. Someone in accounting who did calligraphy brushed the logo. As thanks, their name went in the credits."
+     }
+    ]
    },
    {
     "id": "ch_wk_tt_ceo",
@@ -120,7 +180,17 @@
     "result": {
      "ja": "社長案にした。社長の機嫌が 3 か月よかった。それはそれで大事だった。",
      "en": "You went with the CEO's pick. He was in a good mood for three months. That mattered too."
-    }
+    },
+    "alt": [
+     {
+      "ja": "社長案にした。発表の日、社長が自作のキャッチコピーまで持ってきた。そっちは全員で止めた。",
+      "en": "The CEO's pick. On announcement day he showed up with his own tagline too. That one, the whole team fought off."
+     },
+     {
+      "ja": "社長案にした。問屋の人に「分かりやすい」と褒められた。初回の注文が、少しだけ増えた。",
+      "en": "The CEO's pick. The wholesalers called it \"easy to get\". The first order went up a little."
+     }
+    ]
    }
   ],
   "tag": [
@@ -139,6 +209,16 @@
    "ja": "新作のタイトル会議。「検索で見つかる名前に」「長くて中身が分かる名前に」「略して呼べる名前に」。3 案で 2 時間揉めた。",
    "en": "Title meeting. \"Something searchable.\" \"Something long that explains itself.\" \"Something with a catchy abbreviation.\" Two hours, three camps."
   },
+  "alt": [
+   {
+    "ja": "タイトルが決まらず、ロゴの発注が止まっている。検索に強い名前か、説明みたいな長い名前か、略して呼べる名前か。弁当が冷めた。",
+    "en": "The logo order is on hold for lack of a title. Search-friendly, long and descriptive, or easy to shorten? Everyone's lunch went cold."
+   },
+   {
+    "ja": "宣伝担当が 3 案を並べた。「検索で出る名前」「全部説明する長い名前」「略して呼べる名前」。ホワイトボードのペンが 2 本切れた。",
+    "en": "Marketing laid out three options: one that shows up in search, a long one that explains everything, one with a nickname built in. Two markers ran dry."
+   }
+  ],
   "when": [
    "status=employed",
    "pos!=teacher",
@@ -158,7 +238,17 @@
     "result": {
      "ja": "長い名前にした。ストアの画面で途中が「…」になった。いちばん大事な部分だった。",
      "en": "You picked the long one. The store page cut it off with \"...\" — right at the important part."
-    }
+    },
+    "alt": [
+     {
+      "ja": "長い名前にした。発表会の司会が 2 回噛んだ。3 回目で言えた時、会場から拍手が起きた。",
+      "en": "You went long. The host at the reveal stumbled over it twice. When they nailed it on the third try, the room applauded."
+     },
+     {
+      "ja": "長い名前にした。ファンは結局、勝手に 4 文字に縮めて呼んだ。長くした理由は、もう誰も覚えていない。",
+      "en": "You went long. Fans shortened it to four characters anyway. Nobody remembers why you made it long."
+     }
+    ]
    },
    {
     "id": "ch_wk_tn_abbr",
@@ -172,7 +262,17 @@
     "result": {
      "ja": "略せる名前にした。発売前から SNS で略称が勝手に決まっていた。社内の案とは違った。",
      "en": "You picked the abbreviation-friendly one. Social media chose its own abbreviation before launch. Not yours."
-    }
+    },
+    "alt": [
+     {
+      "ja": "略せる名前にした。略称がたまたま、ある地方の方言で変な意味だった。その県でだけ妙に売れた。",
+      "en": "You picked the short-form name. The abbreviation happened to mean something odd in one regional dialect. It sold weirdly well in that prefecture."
+     },
+     {
+      "ja": "略せる名前にした。社内のチャットでは初日から略称しか使われず、正式名称を正しく書ける人がいなくなった。",
+      "en": "You picked the short-form name. From day one the team used only the abbreviation in chat. Soon nobody could spell the full title."
+     }
+    ]
    },
    {
     "id": "ch_wk_tn_seo",
@@ -187,7 +287,17 @@
     "result": {
      "ja": "検索向きの名前にした。検索すると、同じ名前の歯医者が先に出た。",
      "en": "You picked the searchable one. Searching it brought up a dentist's office first."
-    }
+    },
+    "alt": [
+     {
+      "ja": "検索向きの名前にした。検索 1 位は取れた。2 位は、そのゲームの攻略を書いた中学生のブログだった。",
+      "en": "The searchable one. You did hit number one. Number two was a middle-schooler's strategy blog about your game."
+     },
+     {
+      "ja": "検索向きの名前にした。覚えやすさは捨てた。社長が 3 回打ちまちがえて、ライバル社のゲームにたどり着いた。",
+      "en": "The searchable one, at the cost of being memorable. The CEO mistyped it three times and landed on a rival's game."
+     }
+    ]
    }
   ],
   "tag": [
@@ -206,6 +316,16 @@
    "ja": "次の企画。前の作品の続編か、まったくの新作か。続編は数字が読める。新作は、誰も読めない。",
    "en": "Next project: a sequel to the last one, or something brand new? Sequels have predictable numbers. New ideas have none."
   },
+  "alt": [
+   {
+    "ja": "営業が前作の売上表を机に置いていった。続編なら、この数字の 8 割は堅い。新作なら、0 から 10 倍まで何でもありだ。",
+    "en": "Sales left the last game's numbers on your desk. A sequel would safely get eighty percent of that. Something new could get anything from zero to ten times."
+   },
+   {
+    "ja": "次に何を作るかの企画会議。前作の続きを望む声と、まだ誰も作っていないものを望む自分の声。会議室の時計がやけにうるさい。",
+    "en": "Planning meeting: what's next? Everyone wants a follow-up; the voice in your head wants something no one's made yet. The wall clock seems very loud."
+   }
+  ],
   "when": [
    "status=employed",
    "pos!=teacher",
@@ -228,6 +348,16 @@
      "ja": "続編にした。「前作より全部 2 倍」が合言葉。2 倍にできなかったのは締め切りだけだった。",
      "en": "Sequel. The motto: \"Twice everything.\" The only thing that didn't double was the deadline."
     },
+    "alt": [
+     {
+      "ja": "続編にした。前作の主人公の髪型を変えるかどうかで 2 週間もめた。結局、少しだけ伸ばした。",
+      "en": "Sequel. Two weeks arguing over whether to change the hero's hair. In the end it grew a little longer."
+     },
+     {
+      "ja": "続編にした。前作の資料を開けたら、昔の自分の雑なメモが出てきた。「あとで直す」。その「あと」が来た。",
+      "en": "Sequel. Digging out the old materials, you found a sloppy note from your past self: \"Fix later.\" Later had arrived."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -249,6 +379,16 @@
      "ja": "新作にした。会議のホワイトボードの 1 行目に「誰も見たことのないゲーム」と書かれた。2 行目は空白だった。",
      "en": "Something new. Line one on the meeting whiteboard: \"A game no one has ever seen.\" Line two was blank."
     },
+    "alt": [
+     {
+      "ja": "新作にした。主人公の名前が決まるまで、仕様書では「とりあえず君」と呼ばれた。打ち上げでも、まだそう呼ばれていた。",
+      "en": "Something new. Until the hero had a name, the design doc called him \"Placeholder Guy\". At the wrap party, people still did."
+     },
+     {
+      "ja": "新作にした。誰に説明しても「つまり何に似てるの?」と聞かれた。似てないのが売りです、と言い続けた。",
+      "en": "Something new. Everyone you pitched asked, \"So what's it like?\" You kept saying that was the whole point."
+     }
+    ],
     "later": [
      {
       "after": 3,
@@ -311,6 +451,16 @@
    "ja": "チーム替え。100 人の大作チームか、5 人の新規チームか。大作は安心で、新規は面白そう。どっちも同じ廊下の端と端にあった。",
    "en": "Team shuffle: the 100-person blockbuster team, or a 5-person new project? One felt safe, one felt fun. They sat at opposite ends of the same hallway."
   },
+  "alt": [
+   {
+    "ja": "期の変わり目、配属の希望を出せと言われた。看板シリーズの大部隊か、会議室を間借りする小さな新規か、地味だが腕が上がる移植班か。",
+    "en": "New fiscal term, new team requests: the flagship series' army, a tiny new project squatting in a meeting room, or the unglamorous porting crew where you learn everything."
+   },
+   {
+    "ja": "部長が配属表を 3 枚見せた。大作の名簿は 2 枚にわたり、新規は 1 行、移植班は余白に手書き。「好きなのを選べ」。",
+    "en": "Your manager showed you three rosters. The big title ran two pages, the new project fit on one line, the porting crew was handwritten in the margin. \"Pick one.\""
+   }
+  ],
   "when": [
    "status=employed",
    "pos!=teacher",
@@ -331,7 +481,17 @@
     "result": {
      "ja": "大作チームに入った。あなたの担当分は、宝箱が開く 0.3 秒だった。その 0.3 秒に半年かけた。",
      "en": "You joined the blockbuster. Your share: the 0.3 seconds of a treasure chest opening. You spent six months on those 0.3 seconds."
-    }
+    },
+    "alt": [
+     {
+      "ja": "大作チームに入った。席が遠すぎて、ディレクターの顔を初めて見たのは打ち上げの日だった。",
+      "en": "You joined the blockbuster. Your desk was so far away you first saw the director's face at the wrap party."
+     },
+     {
+      "ja": "大作チームに入った。担当は、町の人のセリフの句読点チェック。3000 人分の「、」を見た。",
+      "en": "You joined the blockbuster. Your job: checking punctuation in townsfolk dialogue. Commas for three thousand villagers."
+     }
+    ]
    },
    {
     "id": "ch_wk_tm_small",
@@ -346,7 +506,17 @@
     "result": {
      "ja": "5 人のチームに入った。企画もデバッグも電話番も全員でやった。誰が何の担当か、最後まで誰も分かっていなかった。",
      "en": "You joined the five. Everyone planned, debugged and answered phones. Nobody ever figured out who was in charge of what."
-    }
+    },
+    "alt": [
+     {
+      "ja": "少人数チームに入った。全員の机をくっつけたら島になった。お菓子も仕様も、その島で決まった。",
+      "en": "You joined the small team. Push the desks together and it was an island. Snacks and specs alike were decided there."
+     },
+     {
+      "ja": "少人数チームに入った。スタッフロールにあなたの名前が 6 回出てきた。最後の 1 回は「お茶」の欄だった。",
+      "en": "You joined the small team. Your name appeared six times in the credits. The last one was under \"Tea\"."
+     }
+    ]
    },
    {
     "id": "ch_wk_tm_port",
@@ -360,7 +530,17 @@
     "result": {
      "ja": "移植チームに入った。人の仕事の跡をたどる毎日。3 か月で、知らない誰かの癖がすっかり分かるようになった。",
      "en": "You joined porting. Tracing other people's work all day. In three months you knew a stranger's habits by heart."
-    }
+    },
+    "alt": [
+     {
+      "ja": "移植チームに入った。元のチームが残した注釈は全部ダジャレだった。笑いながら半年で読み解いた。",
+      "en": "You joined porting. Every note the original team left was a pun. You laughed your way through decoding them in six months."
+     },
+     {
+      "ja": "移植チームに入った。元の機械にしかない音を新しい機械で鳴らすのに、2 か月かかった。鳴った瞬間、一人で拍手した。",
+      "en": "You joined porting. Getting a sound that only existed on the old hardware to play on the new one took two months. When it played, you applauded alone."
+     }
+    ]
    }
   ],
   "tag": [
@@ -379,6 +559,16 @@
    "ja": "次の作品のエンジン選び。何年も育ててきた自社エンジンか、みんなが使っている市販エンジンか。自社エンジンの作者は、会議の間ずっと腕を組んでいた。",
    "en": "Picking the engine: the in-house one you've nurtured for years, or the off-the-shelf one everybody uses? The in-house engine's author sat with arms folded the whole meeting."
   },
+  "alt": [
+   {
+    "ja": "エンジン選びの会議。自社エンジンには 10 年分の工夫と、10 年分の謎が詰まっている。市販のには、世界中の説明書がある。",
+    "en": "Engine meeting. The in-house engine holds ten years of clever tricks and ten years of mysteries. The commercial one has manuals in every language on earth."
+   },
+   {
+    "ja": "新人はみんな市販エンジンを使えて、自社エンジンは誰も知らない。それでも自社のには、あの代表作の手触りが残っている。",
+    "en": "Every new hire knows the commercial engine; nobody knows yours. Still, the in-house one carries the feel of the game you're proudest of."
+   }
+  ],
   "when": [
    "status=employed",
    "pos!=teacher",
@@ -399,7 +589,17 @@
     "result": {
      "ja": "自社エンジンにした。作者が泣いて喜んだ。そして、その日から作者の残業が倍になった。",
      "en": "In-house. Its author wept with joy — and their overtime doubled from that day."
-    }
+    },
+    "alt": [
+     {
+      "ja": "自社エンジンにした。新人向けの説明会を開いたら、作者の昔話で 2 時間が終わった。資料は 1 枚も進まなかった。",
+      "en": "In-house. You held a training session for new hires; the creator's war stories filled two hours. Not one slide got covered."
+     },
+     {
+      "ja": "自社エンジンにした。よそでは出せない揺れ方の水面ができた。仕組みを説明できる人は、社内に 2 人しかいなかった。",
+      "en": "In-house. You got water that ripples like nobody else's. Only two people in the company could explain how."
+     }
+    ]
    },
    {
     "id": "ch_wk_eng_ext",
@@ -414,7 +614,17 @@
     "result": {
      "ja": "市販エンジンにした。困ったら検索すれば答えが出る。出ない時は、海外の掲示板で同じ質問をしている人が 3 年前から待っていた。",
      "en": "Off-the-shelf. Stuck? Search it. When nothing came up, someone on an overseas forum had been waiting three years with the same question."
-    }
+    },
+    "alt": [
+     {
+      "ja": "市販エンジンにした。ライセンスの契約書が、ゲームの仕様書より分厚かった。法務の人が入社以来はじめて徹夜した。",
+      "en": "Off-the-shelf. The license agreement was thicker than the design doc. The legal team pulled its first all-nighter ever."
+     },
+     {
+      "ja": "市販エンジンにした。求人に書いたら応募が 3 倍になった。面接に、あなたより詳しい学生が来た。",
+      "en": "Off-the-shelf. Mentioning it in the job ad tripled applications. A student at the interview knew it better than you."
+     }
+    ]
    }
   ],
   "tag": [
@@ -433,6 +643,16 @@
    "ja": "発売日まであと 2 か月。どう見ても間に合わない。発売を延ばすか、目玉の機能を 1 つ削るか。",
    "en": "Two months to launch. No way it's making it. Delay the release, or cut a headline feature?"
   },
+  "alt": [
+   {
+    "ja": "マスター提出の日は決まっている。仕上がりは、どう見ても 7 割。延期を頼みに行くか、目玉を 1 つあきらめるか。",
+    "en": "The master submission date is set. The game is seventy percent done, at best. Go beg for a delay, or give up one of the big features?"
+   },
+   {
+    "ja": "進捗会議で残りの作業を書き出したら、模造紙が 3 枚になった。発売を遅らせるか、目玉の機能を 1 つ切るか。",
+    "en": "In the progress meeting, the list of remaining work filled three big sheets of paper. Push back the release, or cut a headline feature?"
+   }
+  ],
   "when": [
    "status=employed",
    "pos!=teacher",
@@ -453,7 +673,17 @@
     "result": {
      "ja": "延期にした。お詫びの文を 3 日かけて書いた。「より良いものをお届けするために」。本当にそうなった。たぶん。",
      "en": "You delayed. The apology took three days to write: \"to deliver a better experience\". It did. Probably."
-    }
+    },
+    "alt": [
+     {
+      "ja": "延期にした。旧い発売日入りの広告がもう刷ってあった。その上に「近日発売」のシールを 1 枚ずつ貼った。",
+      "en": "You delayed. The ads with the old date were already printed. You stuck a \"Coming Soon\" sticker on each one by hand."
+     },
+     {
+      "ja": "延期にした。延びた 3 か月で、バグが 200 個減って、主人公の歩き方が少しよくなった。誰も気づかないが、自分は知っている。",
+      "en": "You delayed. In the extra three months, two hundred bugs vanished and the hero walked a little better. No one noticed. You did."
+     }
+    ]
    },
    {
     "id": "ch_wk_cut",
@@ -468,7 +698,17 @@
     "result": {
      "ja": "削った。削った機能は、5 年後の続編の目玉になった。社内では「5 年遅れの新機能」と呼ばれた。",
      "en": "You cut it. The feature became the headline of the sequel five years later. Internally: \"the five-years-late new feature\"."
-    }
+    },
+    "alt": [
+     {
+      "ja": "削った。説明書の印刷は間に合わず、無い機能の説明が 1 ページ残った。問い合わせが毎週来た。",
+      "en": "You cut it. Too late to fix the manual, which kept a page about a feature that wasn't there. Questions came in every week."
+     },
+     {
+      "ja": "削った。予定どおりに出た。消えた機能の画面は、今もチームの壁に貼ってある。「いつか」の印として。",
+      "en": "You cut it. It shipped on time. A picture of the lost feature still hangs on the team wall, a promise for someday."
+     }
+    ]
    }
   ],
   "tag": [
@@ -486,6 +726,16 @@
    "ja": "海外版を出すか聞かれた。翻訳、文化チェック、あちらの審査。手間は国内版の半分。売上は、誰にも分からない。",
    "en": "Should you do an overseas version? Translation, culture checks, foreign ratings boards. Half the effort of the domestic version again. Sales: anybody's guess."
   },
+  "alt": [
+   {
+    "ja": "海外の販売会社から、向こうで出さないかと話が来た。セリフは全部訳し直し、絵も何枚か描き直し。手間は見えるが、売れる数は見えない。",
+    "en": "An overseas publisher asked if you'd release over there. Retranslate every line, redraw a few pictures. The effort is easy to see. The sales aren't."
+   },
+   {
+    "ja": "「これ、海外でもいけるんじゃないか」と社長が言い出した。まずは翻訳者を探すところからだ。英語が得意な社員は、いない。",
+    "en": "\"This could sell abroad,\" the CEO announced. Step one: find a translator. Nobody on staff is any good at English."
+   }
+  ],
   "when": [
    "status=employed",
    "pos!=teacher",
@@ -508,6 +758,16 @@
      "ja": "出した。海外のレビューで、日本では誰も気づかなかった小ネタが一番褒められた。",
      "en": "You did. Overseas reviews praised a tiny joke nobody in Japan had noticed."
     },
+    "alt": [
+     {
+      "ja": "出した。向こうの箱絵では、主人公がなぜか筋肉質になっていた。それでも売れた。",
+      "en": "You did. On the foreign box art, your hero had somehow gained a lot of muscle. It sold anyway."
+     },
+     {
+      "ja": "出した。台本にダジャレが 40 個あった。翻訳者は、英語で別のダジャレを 40 個考えてくれた。",
+      "en": "You did. The script had forty Japanese puns. The translator came up with forty completely different ones in English."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -527,7 +787,17 @@
     "result": {
      "ja": "国内だけにした。数年後、海外のファンが勝手に翻訳パッチを作っていた。あなたより丁寧な訳だった。",
      "en": "Japan only. Years later, overseas fans made their own translation patch. Better than you'd have done."
-    }
+    },
+    "alt": [
+     {
+      "ja": "国内だけにした。数年後、海外の展示会で知らない人に「なぜ出さなかった」と詰め寄られた。うれしい叱られ方だった。",
+      "en": "Japan only. Years later, a stranger at a trade show abroad demanded to know why you never released it there. A nice way to get scolded."
+     },
+     {
+      "ja": "国内だけにした。そのぶん全員で国内の店頭イベントを回った。ファンの顔を一人ずつ覚えた。",
+      "en": "Japan only. Instead, the whole team toured store events at home. You came to know the fans by face, one at a time."
+     }
+    ]
    }
   ],
   "tag": [
@@ -564,6 +834,16 @@
    "ja": "会社の業績が悪い。人事に呼ばれた。「希望退職を募っています。それとも、カスタマーセンターに移りますか」。開発の席には、もう誰かの段ボールが積んである。",
    "en": "Business is bad. HR called you in: \"We're taking voluntary resignations. Or would you transfer to the customer support center?\" Someone's boxes were already stacked at your desk."
   },
+  "alt": [
+   {
+    "ja": "社内の掲示板に「組織変更のお知らせ」が貼られた。翌日、人事から呼び出し。希望退職か、カスタマーセンターへの異動か。",
+    "en": "A \"Notice of Reorganization\" went up on the office bulletin board. Next day, HR called you in: voluntary retirement, or a transfer to customer support?"
+   },
+   {
+    "ja": "業績悪化で、開発フロアの電気が半分消された。人事の面談で出たのは紙 2 枚。希望退職の案内と、カスタマーセンター行きの辞令案。",
+    "en": "With business down, half the lights on the dev floor went dark. At the HR meeting, two sheets of paper: a voluntary retirement offer and a draft transfer to customer support."
+   }
+  ],
   "when": [
    "status=employed",
    "pos!=teacher",
@@ -588,7 +868,17 @@
     "result": {
      "ja": "応じた。退職金の上乗せは思ったより多かった。最後の日、守衛さんが「またゲーム作ってよ」と言った。",
      "en": "You took it. The bonus was bigger than expected. On your last day, the security guard said, \"Make more games, okay?\""
-    }
+    },
+    "alt": [
+     {
+      "ja": "応じた。送別会で、後輩たちが昔の企画書のコピーに寄せ書きしてくれた。全部ボツになった企画だった。",
+      "en": "You took it. At your farewell party, the juniors wrote messages on copies of your old proposals. Every one had been rejected."
+     },
+     {
+      "ja": "応じた。上乗せの退職金で、何年も我慢していた椅子を買った。次の職場でも、その椅子に座った。",
+      "en": "You took it. With the bonus you bought the chair you'd wanted for years. You sat in it at the next job too."
+     }
+    ]
    },
    {
     "id": "ch_wk_rs_call_a",
@@ -607,6 +897,16 @@
      "ja": "残った。カスタマーセンターで、毎日ユーザーの電話を取った。自分の作ったゲームの苦情も来た。名乗れなかった。",
      "en": "You stayed. At customer support you took players' calls all day — including complaints about your own game. You couldn't say who you were."
     },
+    "alt": [
+     {
+      "ja": "残った。電話で攻略を聞かれ、つい開発者しか知らない近道を教えてしまった。相手は「詳しいですね」と言った。",
+      "en": "You stayed. A caller asked for help and you blurted out a shortcut only the developers knew. They said, \"Wow, you really know this game.\""
+     },
+     {
+      "ja": "残った。電話応対のマニュアルを書き直したら、部署でいちばん分かりやすいと言われた。どの仕様書より褒められた。",
+      "en": "You stayed. You rewrote the phone-support manual, and it was called the clearest in the department. More praise than any spec you ever wrote."
+     }
+    ],
     "later": [
      {
       "after": 2,
@@ -632,6 +932,16 @@
    "ja": "リーマンショックの後、会社の業績が悪い。人事に呼ばれた。「希望退職を募っています。それとも、カスタマーセンターに移りますか」。開発の席には、もう誰かの段ボールが積んである。",
    "en": "After the Lehman crash, business is bad. HR called you in: \"We're taking voluntary resignations. Or would you transfer to the customer support center?\" Someone's boxes were already stacked at your desk."
   },
+  "alt": [
+   {
+    "ja": "リーマンショックから、会社への発注がぱたりと止まった。人事の面談で選べと言われた。上乗せ付きの希望退職か、カスタマーセンターか。",
+    "en": "Since the Lehman crash, orders have dried up. In an HR meeting you were told to choose: voluntary retirement with a bonus, or customer support."
+   },
+   {
+    "ja": "不況で、開発の予定表が真っ白になった。人事からのメールの件名は「今後のキャリアについて」。希望退職か、カスタマーセンターへの異動か。",
+    "en": "The recession left the dev schedule blank. HR's email was titled \"About Your Future Career\": voluntary retirement, or a move to customer support?"
+   }
+  ],
   "when": [
    "status=employed",
    "pos!=teacher",
@@ -656,7 +966,17 @@
     "result": {
      "ja": "応じた。リーマンショックの後の上乗せは、思ったより少なかった。最後の日、机の寝袋を丸めたら、10 年分のほこりが舞った。",
      "en": "You took it. After the Lehman shock, the bonus was smaller than you hoped. On your last day you rolled up the sleeping bag and ten years of dust flew."
-    }
+    },
+    "alt": [
+     {
+      "ja": "応じた。最後の日、社員証を返したら、入館ゲートを通れなくなった。受付の人が笑って手を振ってくれた。",
+      "en": "You took it. On your last day you handed back your ID badge and couldn't get through the gate. The receptionist laughed and waved you out."
+     },
+     {
+      "ja": "応じた。上乗せは少なかったが、時間はたっぷりあった。平日の昼の公園で、子どもがあなたの昔の作品を遊んでいた。",
+      "en": "You took it. The bonus was small, but you had plenty of time. In the park one weekday afternoon, a kid was playing one of your old games."
+     }
+    ]
    },
    {
     "id": "ch_wk_rs_call_b",
@@ -675,6 +995,16 @@
      "ja": "残った。カスタマーセンターで、毎日メールの問い合わせに返事を書いた。いちばん多い質問は「続編はいつですか」だった。答えられなかった。",
      "en": "You stayed. At customer support you answered email inquiries every day. The most common question: \"When's the sequel?\" You couldn't answer."
     },
+    "alt": [
+     {
+      "ja": "残った。毎晩、返信の定型文を磨いた。「お詫び申し上げます」の言い方を 12 通り覚えた。",
+      "en": "You stayed. Every night you polished the stock replies. You learned twelve ways to say \"we sincerely apologize.\""
+     },
+     {
+      "ja": "残った。ユーザーの不具合報告を読むうちに、テスト班より先にバグを見つけるようになった。開発から相談が来るようになった。",
+      "en": "You stayed. Reading user bug reports, you started spotting bugs before QA did. The dev team began coming to you for advice."
+     }
+    ],
     "later": [
      {
       "after": 2,
