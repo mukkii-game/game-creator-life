@@ -439,6 +439,9 @@
    "prologue",
    "student",
    "st_school"
+  ],
+  "when": [
+   "age>=20"
   ]
  },
  {
@@ -459,6 +462,9 @@
    "prologue",
    "student",
    "st_school"
+  ],
+  "when": [
+   "age>=20"
   ]
  },
  {
@@ -479,6 +485,10 @@
    "prologue",
    "student",
    "st_school"
+  ],
+  "when": [
+   "age>=17",
+   "age<=19"
   ]
  },
  {
@@ -499,6 +509,9 @@
    "prologue",
    "student",
    "st_school"
+  ],
+  "when": [
+   "age>=17"
   ]
  },
  {
@@ -579,6 +592,9 @@
    "prologue",
    "student",
    "st_school"
+  ],
+  "when": [
+   "age>=20"
   ]
  },
  {
@@ -717,6 +733,9 @@
    "prologue",
    "student",
    "st_school"
+  ],
+  "when": [
+   "age>=20"
   ]
  },
  {
@@ -737,6 +756,666 @@
    "prologue",
    "student",
    "st_dev"
+  ]
+ },
+ {
+  "id": "ev_st_dept_rooftop",
+  "years": [
+   1977,
+   1992
+  ],
+  "text": {
+   "ja": "子どもの頃、休日はデパートの屋上。1 回 20 円のゲーム機で遊ぶ間、父はベンチで寝ていた。父の休日は、あの屋上にしか無かった。",
+   "en": "As a kid, weekends meant the department-store rooftop. While you played the 20-yen machines, your dad napped on a bench. That rooftop was his only day off."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_board_life",
+  "years": [
+   1977,
+   1995
+  ],
+  "text": {
+   "ja": "子どもの頃、家にあったのはすごろくの箱だけだった。正月に親戚と遊んで、小学 3 年で人生初の借金を背負った。返し方は、まだ分からなかった。",
+   "en": "As a kid, the only game at home was a board game. Playing with relatives at New Year, you went into debt for the first time in third grade."
+  },
+  "effect": {
+   "passion": 4,
+   "money": -5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_arcade_forbidden",
+  "years": [
+   1978,
+   1995
+  ],
+  "text": {
+   "ja": "子どもの頃、ゲームセンターは「不良の行く所」と言われていた。こっそり入った日、両替してくれた店員さんが、町で一番やさしかった。",
+   "en": "As a kid you were told arcades were for delinquents. The day you snuck in, the attendant who changed your coins was the kindest person in town."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_dagashi_10yen",
+  "years": [
+   1980,
+   1995
+  ],
+  "text": {
+   "ja": "子どもの頃、駄菓子屋の前の 10 円ゲームに通った。当たりのメダルは使わずに缶に貯めた。あの缶は、まだ実家の机の中にある。",
+   "en": "As a kid you haunted the 10-yen machine outside the candy shop. You saved the prize tokens in a tin instead of spending them. The tin is still in your old desk."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_lsi_confiscated",
+  "years": [
+   1985,
+   1996
+  ],
+  "text": {
+   "ja": "子どもの頃、手のひらサイズのゲーム機を机の中で遊んで没収された。返してもらう日、先生の机の上でハイスコアが更新されていた。",
+   "en": "As a kid you got a handheld game confiscated for playing it under your desk. On the day you got it back, the high score had been beaten — at the teacher's desk."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_tv_channel",
+  "years": [
+   1986,
+   2002
+  ],
+  "text": {
+   "ja": "テレビは家に 1 台。ゲームをつなぐ時間は、父の野球中継とぶつかった。9 回裏を待つ間に、攻略を全部頭の中で組み立てた。",
+   "en": "One TV in the house. Game time always clashed with your dad's baseball. Waiting through the ninth inning, you planned the whole route in your head."
+  },
+  "effect": {
+   "passion": 4,
+   "skill": 2
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_kitchen_timer",
+  "years": [
+   1988,
+   2002
+  ],
+  "text": {
+   "ja": "家のゲームは 1 日 1 時間の約束。母がキッチンタイマーを置いた。復活の呪文を書き写す前に鳴った日、世界を少し恨んだ。",
+   "en": "One hour of games a day, said Mom, and set a kitchen timer. The day it rang before you could copy down the password, you resented the world a little."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_cartridge_blow",
+  "years": [
+   1988,
+   2005
+  ],
+  "text": {
+   "ja": "子どもの頃、映らないカセットに息を吹きかけていた。効くと信じていた。大人になって効かないと知った。今もたまに吹く。",
+   "en": "As a kid you blew into cartridges that wouldn't boot. You believed it worked. As an adult you learned it doesn't. You still do it sometimes."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_urawaza_rumor",
+  "years": [
+   1988,
+   2008
+  ],
+  "text": {
+   "ja": "「友だちのいとこが言ってた」裏技を、放課後に 3 時間試した。出なかった。次の日、教室では 4 人目のいとこの話になっていた。",
+   "en": "After school you spent three hours trying a secret trick \"a friend's cousin\" swore by. Nothing. The next day the class was on its fourth cousin."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_manual_carsick",
+  "years": [
+   1986,
+   2008
+  ],
+  "text": {
+   "ja": "買ってもらった帰りの車で、説明書を全部読んだ。乗り物酔いした。世界設定のページは、遊んでみた本編より長かった。",
+   "en": "On the drive home from the store, you read the whole manual. You got carsick. The world-lore pages turned out longer than the actual game."
+  },
+  "effect": {
+   "passion": 4,
+   "skill": 1
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_msx_kakeibo",
+  "years": [
+   1987,
+   1998
+  ],
+  "text": {
+   "ja": "子どもの頃、家にパソコンが来た。父は「家計簿をつける」と言った。家計簿のソフトは一度も起動せず、あなたの打ち込んだゲームだけが残った。",
+   "en": "A home computer arrived when you were a kid. Dad said it was for household accounts. The accounting software never ran once; only the games you typed in remained."
+  },
+  "effect": {
+   "skill": 4,
+   "passion": 3
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_dev"
+  ]
+ },
+ {
+  "id": "ev_st_notebook_rpg",
+  "years": [
+   1990,
+   2008
+  ],
+  "text": {
+   "ja": "子どもの頃、ノートに迷路と RPG を描いて、クラスで回していた。いちばん厳しいプレイヤーは、隣の席の子だった。",
+   "en": "As a kid you drew mazes and RPGs in notebooks and passed them around class. Your harshest player was the kid at the next desk."
+  },
+  "effect": {
+   "skill": 3,
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_dev"
+  ]
+ },
+ {
+  "id": "ev_st_link_cable",
+  "years": [
+   1995,
+   2008
+  ],
+  "text": {
+   "ja": "通信ケーブルを持っているのは、クラスで 1 人だけだった。放課後、その子の家の前に行列ができた。あの子は、町で一番の人気者だった。",
+   "en": "Only one kid in class owned a link cable. After school there was a line outside their house. For a while they were the most popular kid in town."
+  },
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_monster_trade",
+  "years": [
+   2001,
+   2010
+  ],
+  "text": {
+   "ja": "子どもの頃、育てたモンスターを友だちと「1 日だけ」交換した。返してもらう約束は、まだ果たされていない。",
+   "en": "As a kid you swapped your raised monster with a friend \"just for a day.\" That promise to trade back has still not been kept."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_mini4wd",
+  "years": [
+   1992,
+   2006
+  ],
+  "text": {
+   "ja": "子どもの頃は、ミニ四駆。モーターを替えるお金で、ゲームのソフトは買えなかった。速さを手で調整する楽しさは、ここで覚えた。",
+   "en": "As a kid it was all toy race cars. The money for motor upgrades meant no money for games. That's where you learned the joy of tuning speed by hand."
+  },
+  "effect": {
+   "skill": 3,
+   "passion": 3
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_memory_card",
+  "years": [
+   1998,
+   2008
+  ],
+  "text": {
+   "ja": "メモリーカードの空きは 1 ブロック。兄のセーブを消すか、自分のセーブを諦めるか。その夜、初めて人生の重い選択をした。",
+   "en": "One free block on the memory card. Delete your brother's save, or give up your own? That night you made your first heavy life decision."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_handheld_pet",
+  "years": [
+   2000,
+   2008
+  ],
+  "text": {
+   "ja": "子どもの頃、学校に持っていくのは禁止の電子ペットを、給食袋に隠して育てた。昼休み、クラスの半分の給食袋が鳴った。",
+   "en": "As a kid you hid a banned virtual pet in your lunch bag at school. At lunch break, half the class's lunch bags started beeping."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_teleho",
+  "years": [
+   1997,
+   2004
+  ],
+  "text": {
+   "ja": "夜 11 時を待って、家の電話回線でインターネットにつないだ。ゲームの攻略サイトを読み込む間に、家族から電話が使えないと苦情が来た。",
+   "en": "You waited for 11 p.m. to dial up the internet. While a game fan site loaded, the family complained they couldn't use the phone."
+  },
+  "effect": {
+   "skill": 2,
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_dev"
+  ]
+ },
+ {
+  "id": "ev_st_keitai_class",
+  "years": [
+   2002,
+   2010
+  ],
+  "text": {
+   "ja": "授業中、机の下でケータイのゲームをしていた。先生に見つかって没収された。放課後に取りに行くと、先生が続きを遊んでいた。",
+   "en": "You played a cellphone game under your desk in class and got it confiscated. When you went to collect it after school, the teacher was still playing."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ]
+ },
+ {
+  "id": "ev_st_hs_trip",
+  "years": [
+   1990,
+   2010
+  ],
+  "text": {
+   "ja": "高校の修学旅行で、旅館の部屋に携帯ゲーム機を持ち込んだ。先生の足音で電源を切る速さだけは、今もプロの腕前だ。",
+   "en": "On the high-school trip, you smuggled handhelds into the inn. Your speed at switching one off at the sound of a teacher's footsteps is still professional-grade."
+  },
+  "effect": {
+   "passion": 5,
+   "network": 2
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ],
+  "when": [
+   "age<=16"
+  ]
+ },
+ {
+  "id": "ev_st_hs_festival",
+  "years": [
+   1977,
+   2035
+  ],
+  "text": {
+   "ja": "高校の文化祭で、クラスの出し物を人間すごろくにした。設計は自分。マスの調整が甘くて、全員が 1 マス目で止まった。",
+   "en": "For the high-school festival your class did a life-size board game. You designed it. The balancing was off — everyone got stuck on square one."
+  },
+  "effect": {
+   "skill": 3,
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ],
+  "when": [
+   "age<=16"
+  ]
+ },
+ {
+  "id": "ev_st_hs_career_talk",
+  "years": [
+   1977,
+   2000
+  ],
+  "text": {
+   "ja": "高校の進路面談で「ゲームを作る人になる」と言った。担任は進路の資料棚を 10 分探した。そんな棚は無かった。",
+   "en": "At the high-school career meeting you said \"I'll make games.\" Your homeroom teacher searched the career files for ten minutes. There was no such file."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ],
+  "when": [
+   "age<=16"
+  ]
+ },
+ {
+  "id": "ev_st_hs_pocketcom",
+  "years": [
+   1982,
+   1995
+  ],
+  "text": {
+   "ja": "高校の授業中、ポケットコンピュータでゲームを打ち込んでいた。電卓のふりは 3 か月もった。見破ったのは数学の先生で、先生も持っていた。",
+   "en": "In high school you typed games into a pocket computer during class. It passed as a calculator for three months. The math teacher caught on — he owned one too."
+  },
+  "effect": {
+   "skill": 4,
+   "passion": 3
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_dev"
+  ],
+  "when": [
+   "age<=16"
+  ]
+ },
+ {
+  "id": "ev_st_sm_team",
+  "years": [
+   1986,
+   2035
+  ],
+  "text": {
+   "ja": "専門学校のチーム制作でリーダーをやった。メンバーの半分が夏休み明けに来なくなった。残りの半分で作ったゲームは、半分だけ面白かった。",
+   "en": "You led a team project at vocational school. Half the team stopped coming after summer break. The game the rest of you made was half fun."
+  },
+  "effect": {
+   "skill": 4,
+   "network": 3
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ],
+  "when": [
+   "age>=17",
+   "age<=19"
+  ]
+ },
+ {
+  "id": "ev_st_sm_dot",
+  "years": [
+   1986,
+   2010
+  ],
+  "text": {
+   "ja": "専門学校のドット絵の課題。先生の見本は 16 色、自分のは 4 色。先生は「制限は才能だ」と言った。たぶん慰めだった。",
+   "en": "A pixel-art assignment at vocational school. The teacher's sample used 16 colors; yours, 4. \"Limits are talent,\" said the teacher. Probably meant as comfort."
+  },
+  "effect": {
+   "skill": 3,
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ],
+  "when": [
+   "age>=17",
+   "age<=19"
+  ]
+ },
+ {
+  "id": "ev_st_sm_jobfair",
+  "years": [
+   1990,
+   2035
+  ],
+  "text": {
+   "ja": "専門学校の会社説明会。大手ゲーム会社の日は、教室の後ろまで椅子が埋まった。次の日の会社の説明会は、前の 3 列だけだった。そこが一番親身だった。",
+   "en": "Company info sessions at vocational school: the big game maker filled the room to the back wall. The next day's company got three rows. They were the most sincere."
+  },
+  "effect": {
+   "network": 4,
+   "passion": 2
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ],
+  "when": [
+   "age>=17",
+   "age<=19"
+  ]
+ },
+ {
+  "id": "ev_st_univ_attendance",
+  "years": [
+   1985,
+   2035
+  ],
+  "text": {
+   "ja": "大学の出席カードを友だちに頼んで、自分は生協で新作を予約していた。単位はぎりぎり、予約の番号は 1 番だった。",
+   "en": "You had a friend sign your attendance card while you pre-ordered a new game at the campus co-op. Barely passed the course. First in the pre-order line."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ],
+  "when": [
+   "age>=20"
+  ]
+ },
+ {
+  "id": "ev_st_univ_cafeteria",
+  "years": [
+   1980,
+   2035
+  ],
+  "text": {
+   "ja": "大学の学食でゲームの話をしていたら、隣の席の人が混ざってきた。3 時間後、二人でサークルを作っていた。部員は卒業まで 2 人だった。",
+   "en": "You were talking games in the university cafeteria when the person beside you joined in. Three hours later, you'd founded a club. Membership stayed at two."
+  },
+  "effect": {
+   "network": 4,
+   "passion": 4
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ],
+  "when": [
+   "age>=20"
+  ]
+ },
+ {
+  "id": "ev_st_univ_geshuku",
+  "years": [
+   1980,
+   2008
+  ],
+  "text": {
+   "ja": "下宿の 4 畳半に 14 型のテレビ。隣の部屋の先輩が壁を叩くのは、ゲームの音ではなく、負けた時のあなたの声のせいだった。",
+   "en": "A tiny rented room with a 14-inch TV. When the senior next door pounded the wall, it wasn't the game noise — it was your voice when you lost."
+  },
+  "effect": {
+   "passion": 5,
+   "hp": -2
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_gamer"
+  ],
+  "when": [
+   "age>=20"
+  ]
+ },
+ {
+  "id": "ev_st_exam_ideas",
+  "years": [
+   1977,
+   2035
+  ],
+  "text": {
+   "ja": "テスト前の夜に限って、新しいゲームを思いつく。ノートの余白は企画書になり、答案の余白にも少しはみ出した。",
+   "en": "The night before every exam, a new game idea struck. Your notebook margins became proposals, and a little spilled onto the answer sheet."
+  },
+  "effect": {
+   "passion": 5,
+   "skill": 1
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_school"
+  ]
+ },
+ {
+  "id": "ev_st_summer_research",
+  "years": [
+   1985,
+   2035
+  ],
+  "text": {
+   "ja": "夏休みの自由研究に、自作のゲームを出した。先生は遊び方が分からず、1 時間付き合ってくれた。賞はもらえなかった。先生の顔は覚えている。",
+   "en": "You turned in a homemade game for your summer project. The teacher couldn't figure out how to play and stuck with it for an hour. No prize. You remember that face."
+  },
+  "effect": {
+   "skill": 3,
+   "passion": 5
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_dev"
+  ]
+ },
+ {
+  "id": "ev_st_restaurant_night",
+  "years": [
+   1980,
+   2035
+  ],
+  "text": {
+   "ja": "ファミレスの深夜バイト。厨房に注文が重なるのを見て、パズルゲームを 1 本思いついた。店長に話したら、皿洗いが 1 本増えた。",
+   "en": "Night shifts at a family restaurant. Watching orders pile up in the kitchen, you came up with a puzzle game. You told the manager; you got one more sink of dishes."
+  },
+  "effect": {
+   "skill": 2,
+   "money": 15
+  },
+  "tag": [
+   "prologue",
+   "student",
+   "st_arbeit"
   ]
  }
 ]

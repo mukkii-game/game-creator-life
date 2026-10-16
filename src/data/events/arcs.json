@@ -252,6 +252,16 @@
    "ja": "社内の企画コンペで、同期の{rival}と最後の 2 案に残った。廊下ですれ違う時、どちらも目を合わせなかった。",
    "en": "In the in-house pitch contest, you and {rival} from your year were the last two standing. Passing in the hall, neither of you made eye contact."
   },
+  "alt": [
+   {
+    "ja": "社内の企画コンペで、同期の{rival}と最後の 2 案に残った。発表の前日、給湯室で鉢合わせて、二人とも黙ってお湯を待った。",
+    "en": "In the in-house pitch contest, you and {rival} from your year were the last two standing. The night before, you met at the kettle and waited for the water in silence."
+   },
+   {
+    "ja": "社内の企画コンペで、同期の{rival}と最後の 2 案に残った。廊下に貼り出された結果発表の紙を、二人とも少し離れた所から見ていた。",
+    "en": "In the in-house pitch contest, you and {rival} from your year were the last two standing. You both read the shortlist on the board from a careful distance."
+   }
+  ],
   "effect": {},
   "weight": 0,
   "tag": [

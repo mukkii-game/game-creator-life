@@ -180,7 +180,9 @@ export function release(s: State): { work: Work; line: Text } {
   const said = (s.inner.saidLines ??= []);
   const digital = /スマホ|ケータイ|ソシャゲ|Steam|itch|AI クラウド/.test(platform);
   const lines = digital && DIGITAL_LINES[result] ? DIGITAL_LINES[result]! : RESULT_LINES[result];
-  const fresh0 = lines.filter((t) => !said.includes(t.ja));
+  // 一人で作った作品・独立中は、会社の人が出てくる一言を出さない(第 7 回ペルソナ: 自室で 1 人なのに「社長が電卓を」)
+  const alone = role === 'solo' || s.status === 'indie';
+  const fresh0 = lines.filter((t) => !said.includes(t.ja) && (!alone || !/社長|上司|部長|課長|営業|チーム|ボーナス|打ち上げ|同僚|社内/.test(t.ja)));
   const fresh1 = fresh0.filter((t) => !s.inner.recent?.includes(`line:${t.ja}`));
   const fresh = fresh1.length ? fresh1 : fresh0;
   const pickLine = fresh.length ? r.pick(fresh) : { ja: '', en: '' };

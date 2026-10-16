@@ -10,6 +10,11 @@
       "ja": "{year} 年、{age} 歳。{company} に入社。配属初日、机の上には先輩の寝袋が置いてあった。",
       "en": "{year}, age {age}. You join {company}. Day one: a senior's sleeping bag is on your desk."
     },
+    "alt": [
+      { "ja": "{year} 年、{age} 歳。{company} に入社。案内された椅子に、先輩の名前が書いてあった。その先輩は 3 年前に辞めていた。", "en": "{year}, age {age}. You join {company}. Your chair has a senior's name written on it. He quit three years ago." },
+      { "ja": "{year} 年、{age} 歳。{company} に入社。初日の仕事は、開発室の時計を合わせることだった。ずれていたのに、誰も気づいていなかった。", "en": "{year}, age {age}. You join {company}. Your first task: setting the dev room clock. It was way off, and nobody had noticed." },
+      { "ja": "{year} 年、{age} 歳。{company} に入社。朝 9 時に出社したら、開発室には誰もいなかった。全員、昼に来た。", "en": "{year}, age {age}. You join {company}. You arrive at 9 a.m. The dev room is empty. Everyone shows up at noon." }
+    ],
     "tag": [
       "system",
       "milestone"
@@ -26,6 +31,11 @@
       "ja": "{year} 年、{age} 歳。会社には入らず、自室で 1 人で作り始めた。親には「バイト」と言ってある。",
       "en": "{year}, age {age}. No company—you start making games alone in your room. Your parents think it's a part-time job."
     },
+    "alt": [
+      { "ja": "{year} 年、{age} 歳。会社には入らず、1 人で作り始めた。机はこたつ。夏も出しっぱなしにする予定だ。", "en": "{year}, age {age}. No company, just you. Your desk is the kotatsu. It's staying out all summer." },
+      { "ja": "{year} 年、{age} 歳。会社には入らず、自室で作り始めた。名刺を 100 枚刷った。渡す相手は、まだいない。", "en": "{year}, age {age}. No company—you start making games in your room. You printed 100 business cards. Nobody to give them to yet." },
+      { "ja": "{year} 年、{age} 歳。会社には入らず、自室で作り始めた。親戚には「自営業」と言った。間違ってはいない。", "en": "{year}, age {age}. No company—you start making games in your room. You tell relatives you're \"self-employed.\" Not wrong." }
+    ],
     "tag": [
       "system",
       "milestone"
@@ -42,6 +52,11 @@
       "ja": "知らない番号から電話。「うちに来ませんか。年収は 1.5 倍出します」。今の作品は発売 3 か月前だ。",
       "en": "A call from an unknown number: \"Join us. We'll pay you 1.5x.\" Your current game ships in three months."
     },
+    "alt": [
+      { "ja": "昼休みに知らない番号から電話。「倍とは言いませんが、今よりかなり出します」。今の作品はマスターアップ直前だ。", "en": "A lunchtime call from an unknown number: \"Not double, but a lot more than now.\" Your current game is about to go gold." },
+      { "ja": "取引先の人に喫茶店へ呼ばれた。「うちに来ませんか。ボーナスは年 3 回です」。今の作品は、もうすぐ発売だ。", "en": "A client asks you to a coffee shop: \"Come work for us. Bonuses three times a year.\" Your current game is almost out." },
+      { "ja": "家に電話。母が「会社の人から」と取り次いだ。違う会社の人だった。「給料、上げますよ」。今の作品は追い込みの最中。", "en": "A call at home. Your mom says it's \"someone from work.\" It's someone from another company: \"We'd pay you more.\" You're mid-crunch." }
+    ],
     "choices": [
       {
         "id": "ch_sys_offer_move",
@@ -60,7 +75,11 @@
         "result": {
           "ja": "送別会は無かった。残した作品のクレジットから名前が消えた。",
           "en": "No farewell party. Your name vanished from the credits you left behind."
-        }
+        },
+        "alt": [
+          { "ja": "移った。前の会社の机には、書きかけのバグ票が残ったままになった。", "en": "You moved. On your old desk, a half-written bug report stayed half-written." },
+          { "ja": "移った。発売された前の作品を店で買った。自分の名前は、どこにも無かった。", "en": "You moved. You bought your old team's game at a shop. Your name wasn't anywhere in it." }
+        ]
       },
       {
         "id": "ch_sys_offer_stay",
@@ -76,7 +95,11 @@
         "result": {
           "ja": "上司が肩を叩いた。「次も頼むな」。給料は変わらない。",
           "en": "Your boss pats your shoulder. \"Count on you next time.\" The salary stays the same."
-        }
+        },
+        "alt": [
+          { "ja": "断った。その夜、上司がラーメンをおごってくれた。チャーシューが 1 枚多かった。", "en": "You declined. That night your boss bought you ramen. One extra slice of pork." },
+          { "ja": "残った。発売日の打ち上げで、社長に名前を呼ばれた。少し間違っていた。", "en": "You stayed. At the launch party, the CEO called out your name. Slightly wrong." }
+        ]
       }
     ],
     "tag": [
@@ -96,6 +119,11 @@
       "ja": "昇進した。肩書きは増えたが、作る時間は会議に変わった。",
       "en": "Promoted. More title, and your making time turned into meetings."
     },
+    "alt": [
+      { "ja": "昇進した。机が窓際に移った。景色は良くなったが、画面に光が映って見えない。", "en": "Promoted. Your desk moved to the window. Great view; the screen glare makes it unreadable." },
+      { "ja": "昇進した。最初に覚えた新しい仕事は、会議室の予約の取り方だった。", "en": "Promoted. The first new skill you learned: booking meeting rooms." },
+      { "ja": "昇進した。部下ができた。部下の書いたコードの方が、自分のより読みやすかった。", "en": "Promoted. Now you have reports. Their code is easier to read than yours." }
+    ],
     "effect": {
       "fame": 5,
       "passion": -5,
@@ -117,6 +145,11 @@
       "ja": "朝、会社のドアに貼り紙。「本日をもって営業を停止します」。机の寝袋だけ持って帰った。",
       "en": "A notice on the office door: \"Operations cease as of today.\" You take only your sleeping bag home."
     },
+    "alt": [
+      { "ja": "朝、会社のシャッターが下りていた。貼り紙は社長の字だった。最後まで字のきれいな人だった。", "en": "The office shutter was down that morning. The notice was in the boss's handwriting. Neat to the very end." },
+      { "ja": "会社が潰れた。弁護士の人が説明している横で、誰かのビルドがまだ回っていた。", "en": "The company folded. While the lawyer explained, someone's build was still running in the corner." },
+      { "ja": "朝出社したら、鍵が替わっていた。中に置いたマグカップは、もう取りに行けない。", "en": "You arrive to find the locks changed. Your mug is still inside. It's staying there." }
+    ],
     "effect": {
       "passion": -10,
       "status": "left",
@@ -141,6 +174,12 @@
       "ja": "再就職が決まった。新しい会社は {company}。入館証の写真は前の会社と同じ顔。",
       "en": "New job at {company}. Your badge photo has the same tired face as the last one."
     },
+    "alt": [
+      { "ja": "再就職が決まった。新しい会社は {company}。初日の自己紹介で、前の会社の名前を言いかけた。", "en": "New job at {company}. In your first-day introduction, you nearly said your old company's name." },
+      { "ja": "再就職が決まった。{company} の開発室は、前の会社と同じ匂いがした。少し安心した。", "en": "New job at {company}. The dev room smells exactly like the last place. Oddly comforting." },
+      { "ja": "再就職が決まった。{company} で隣の席になったのは、前の会社で一緒だった人だった。2 人で笑った。", "en": "New job at {company}. The person at the next desk worked with you at your last place. You both laughed." },
+      { "ja": "再就職が決まった。{company} の社員番号は、前の会社より 3 桁長かった。", "en": "New job at {company}. Your staff number here is three digits longer than at the last place." }
+    ],
     "effect": {
       "passion": 10,
       "status": "employed"
@@ -161,6 +200,11 @@
       "ja": "面接で「ポートフォリオは?」と聞かれ、マスター ROM のコピーを出したら引かれた。不採用。",
       "en": "\"Portfolio?\" asked the interviewer. You pulled out a copy of a master ROM. Rejected."
     },
+    "alt": [
+      { "ja": "面接で「最近遊んだゲームは?」と聞かれ、その会社のライバルの作品を熱く語ってしまった。不採用。", "en": "\"Played anything good lately?\" You raved about a rival company's game. Rejected." },
+      { "ja": "面接に向かう電車で、志望動機を 50 回つぶやいた。本番で、別の会社の名前を言った。不採用。", "en": "On the train you rehearsed your motivation fifty times. In the room, you said the wrong company's name. Rejected." },
+      { "ja": "面接は和やかだった。帰り際、面接官と同じ角度でお辞儀をし合った。不採用。", "en": "The interview went pleasantly. At the door, you and the interviewer bowed at exactly the same angle. Rejected." }
+    ],
     "effect": {
       "passion": -8
     },
@@ -180,6 +224,11 @@
       "ja": "朝、駅の改札で足が止まった。会社に行けない。翌月から{other}で働き始めた。",
       "en": "One morning your feet stopped at the station gate. You couldn't go in. Next month you started working at a {other}."
     },
+    "alt": [
+      { "ja": "朝、布団から出られなかった。3 日たっても出られなかった。翌月から{other}で働き始めた。", "en": "One morning you couldn't get out of bed. Three days later, still couldn't. Next month you started working at a {other}." },
+      { "ja": "会社のビルの前まで来て、そのまま通り過ぎた。海まで歩いた。翌月から{other}で働き始めた。", "en": "You reached the office building and walked right past it, all the way to the sea. Next month you started at a {other}." },
+      { "ja": "開発機の起動音を聞いたら、手が震えた。医者に「休んで」と言われた。翌月から{other}で働き始めた。", "en": "The dev kit's startup sound made your hands shake. The doctor said rest. Next month you started at a {other}." }
+    ],
     "effect": {
       "status": "left",
       "job": "other"
@@ -200,6 +249,11 @@
       "ja": "昔の同僚から連絡。「人が足りない。戻ってこないか」。{other}の仕事にも慣れてきた頃だった。",
       "en": "A former coworker calls: \"We're short-handed. Come back?\" You'd just gotten used to the {other}."
     },
+    "alt": [
+      { "ja": "昔の上司から電話。「お前の作った道具、誰も直せないんだ。戻ってくれ」。{other}の仕事にも慣れてきた頃だった。", "en": "Your old boss calls: \"Nobody can fix the tools you built. Come back.\" You'd just gotten used to the {other}." },
+      { "ja": "{other}の仕事の帰り、ゲーム雑誌に元同僚の名前を見つけた。その夜、本人から電話。「戻ってこないか」。", "en": "Heading home from the {other}, you saw an old coworker's name in a game magazine. That night, they called: \"Come back?\"" },
+      { "ja": "昔の同僚が、わざわざ{other}まで訪ねてきた。「やっぱりここか。人が足りないんだ。戻らないか」。", "en": "An old coworker tracked you down at the {other}. \"Knew it. We're short-handed. Come back?\"" }
+    ],
     "choices": [
       {
         "id": "ch_sys_comeback_yes",
@@ -217,7 +271,11 @@
         "result": {
           "ja": "初日、机に新品の寝袋が置いてあった。",
           "en": "First day back: a brand-new sleeping bag on your desk."
-        }
+        },
+        "alt": [
+          { "ja": "戻った。キーボードの上で、指が勝手にいつもの位置に乗った。", "en": "You went back. Your fingers found their old spots on the keyboard by themselves." },
+          { "ja": "戻った。昔の自分のコードに「これ誰が書いた?」とコメントが付いていた。", "en": "You went back. Your old code had a comment on it: \"Who wrote this?\"" }
+        ]
       },
       {
         "id": "ch_sys_comeback_no",
@@ -233,7 +291,11 @@
         "result": {
           "ja": "電話を切って、{other}の仕事に戻った。",
           "en": "You hang up and go back to work."
-        }
+        },
+        "alt": [
+          { "ja": "電話を切った。{other}の仕事は、締め切りが毎日来て、毎日ちゃんと終わる。", "en": "You hang up. Here, deadlines come every day—and every day they actually end." },
+          { "ja": "断った。その帰り、久しぶりにゲームを 1 本買った。遊ぶだけのために。", "en": "You said no. On the way home, you bought a game for the first time in ages. Just to play it." }
+        ]
       }
     ],
     "tag": [
@@ -253,6 +315,11 @@
       "ja": "徹夜明け、会議室で倒れた。病院のベッドで最初に聞いたのは「ビルドは通った?」だった。",
       "en": "After an all-nighter you collapsed in a meeting room. First words in the hospital bed: \"Did the build pass?\""
     },
+    "alt": [
+      { "ja": "締め切り前日、階段で足がもつれた。救急車の中で最初に言ったのは「セーブしてない」だった。", "en": "The day before deadline, your legs gave out on the stairs. Your first words in the ambulance: \"I didn't save.\"" },
+      { "ja": "徹夜 3 日目、画面が二重に見えた。気づいたら点滴を打たれていた。枕元に仕様書が置いてあった。", "en": "Third all-nighter in a row: the screen doubled. You woke up on a drip, the spec sheet beside your pillow." },
+      { "ja": "会社で倒れた。お見舞いに来た上司が、果物と一緒にバグの一覧を置いていった。", "en": "You collapsed at work. Your boss visited with fruit—and the bug list." }
+    ],
     "effect": {
       "passion": -10
     },
@@ -272,6 +339,11 @@
       "ja": "60 歳、定年。人事から封筒が届く。中には 4 つの選択肢と、なぜか社員食堂の割引券。",
       "en": "Age 60: retirement. HR sends an envelope with four options—and, for some reason, a cafeteria coupon."
     },
+    "alt": [
+      { "ja": "60 歳、定年。人事に呼ばれた。机の上に紙が並んでいる。どれを選んでも、判子は 1 つで済むらしい。", "en": "Age 60: retirement. HR lays out papers on the desk. Whichever you pick, it apparently takes just one stamp." },
+      { "ja": "60 歳、定年。引き出しの奥から、若い頃に書いた「定年まで現役」のメモが出てきた。人事が選択肢の紙を持ってきた。", "en": "Age 60: retirement. Deep in a drawer you find a note from your youth: \"Hands-on until retirement.\" HR brings the options." },
+      { "ja": "60 歳、定年。人事の担当は、あなたのゲームで育った世代だった。説明の途中で、少し声が上ずっていた。", "en": "Age 60: retirement. The HR person grew up on your games. Their voice wobbled a little as they explained the options." }
+    ],
     "choices": [
       {
         "id": "ch_sys_age60_retire",
@@ -287,7 +359,11 @@
         "result": {
           "ja": "送別会のケーキに、あなたが昔描いたドット絵が印刷されていた。",
           "en": "The farewell cake was printed with pixel art you drew decades ago."
-        }
+        },
+        "alt": [
+          { "ja": "引退した。花束を抱えて帰る電車で、席を譲られた。素直に座った。", "en": "You retired. On the train home with your bouquet, someone offered you a seat. You took it." },
+          { "ja": "引退した。最後の日、新人が「ずっと遊んでました」と言いに来た。それだけで十分だった。", "en": "You retired. On your last day a rookie came by to say, \"I grew up playing your games.\" That was enough." }
+        ]
       },
       {
         "id": "ch_sys_age60_rehire",
@@ -305,7 +381,11 @@
         "result": {
           "ja": "給料は半分、仕事は同じ。名刺の肩書きだけ「嘱託」になった。",
           "en": "Half the pay, same work. Your card now says \"contract.\""
-        }
+        },
+        "alt": [
+          { "ja": "再雇用で残った。机は同じで、椅子だけ新しくなった。座り心地は前の方が良かった。", "en": "Rehired. Same desk, new chair. The old one was comfier." },
+          { "ja": "再雇用で残った。元部下が上司になった。最初の面談では、元部下の方が緊張していた。", "en": "Rehired. Your former report is now your boss. At your first one-on-one, they were the nervous one." }
+        ]
       },
       {
         "id": "ch_sys_age60_qa",
@@ -324,7 +404,11 @@
         "result": {
           "ja": "新人の頃以来のバグ票を書く。新人の頃より字がきれいになっていた。",
           "en": "Writing bug reports again after 40 years. Your handwriting got better."
-        }
+        },
+        "alt": [
+          { "ja": "デバッグのバイトを始めた。若い子に「バグの見つけ方がえぐい」と言われた。褒め言葉らしい。", "en": "You started part-time QA. The kids say your bug-hunting is \"brutal.\" Apparently a compliment." },
+          { "ja": "デバッグのバイトを始めた。最初のゲームに、あなたが昔作ったのとそっくりな当たり判定のバグがあった。", "en": "Part-time QA. The very first game had a hitbox bug just like one you wrote long ago." }
+        ]
       }
     ],
     "tag": [
@@ -344,6 +428,11 @@
       "ja": "65 歳。コントローラの十字キーを押す親指が、少しだけ遅れるようになった。",
       "en": "Age 65. Your thumb on the D-pad is now a few frames late."
     },
+    "alt": [
+      { "ja": "65 歳。ゲームの画面の字が小さく見えるようになった。眼鏡を 2 つ持ち歩いている。", "en": "Age 65. The text on game screens looks tiny now. You carry two pairs of glasses." },
+      { "ja": "65 歳。連打の場面で、ゲームより先に手首が音を上げるようになった。", "en": "Age 65. In button-mashing scenes, your wrist gives up before the game does." },
+      { "ja": "65 歳。昔は徹夜で遊んだゲームを、今は 1 日 30 分ずつ遊んでいる。終わるのは来年の春らしい。", "en": "Age 65. Games you once played all night now get thirty minutes a day. This one should be done by next spring." }
+    ],
     "effect": {
       "hp": -10
     },
@@ -363,6 +452,11 @@
       "ja": "部長が言った。「来期から、あなたの作業は AI が 3 分でやります」。引き継ぎ資料も AI が書くそうだ。",
       "en": "The manager says: \"Next term, AI will do your work in three minutes.\" AI will even write the handover doc."
     },
+    "alt": [
+      { "ja": "部長に呼ばれた。「来期から、この部署の作業は AI がやります」。説明の資料も AI 製で、部長の話より分かりやすかった。", "en": "The manager calls you in: \"From next term, AI handles this team's work.\" The AI made the slides too. Clearer than the manager." },
+      { "ja": "朝来たら、今日やるはずの作業が AI の方で終わっていた。部長が「来期の席、どうする?」と聞いてきた。", "en": "You arrive to find today's task already finished by the AI. The manager asks, \"So, about your seat next term...\"" },
+      { "ja": "社内の説明会。「AI で作業時間は 100 分の 1 に」。拍手の中、スライドにあなたの席の番号が映っていた。", "en": "Company briefing: \"AI cuts work time to one hundredth.\" Amid the applause, your seat number was up on the slide." }
+    ],
     "choices": [
       {
         "id": "ch_sys_ai_seat_supervise",
@@ -377,7 +471,11 @@
         "result": {
           "ja": "毎日 AI の出したものに「いいね」を押す仕事になった。",
           "en": "Your job is now clicking \"approve\" on whatever the AI makes."
-        }
+        },
+        "alt": [
+          { "ja": "AI の監督になった。AI に「ここ、直しましょうか」と聞かれて、「お願いします」と答える毎日。", "en": "AI supervisor now. Every day it asks, \"Shall I fix this?\" and you say, \"Yes, please.\"" },
+          { "ja": "AI の監督になった。AI の作ったものの中に、あなたの昔の癖を見つけた。学ばれていたらしい。", "en": "AI supervisor. In the AI's output you spot one of your old habits. It must have learned from you." }
+        ]
       },
       {
         "id": "ch_sys_ai_seat_leave",
@@ -394,7 +492,11 @@
         "result": {
           "ja": "最後の日、AI が送別の言葉を書いてくれた。誤字は無かった。",
           "en": "On your last day the AI wrote you a farewell message. No typos."
-        }
+        },
+        "alt": [
+          { "ja": "席を譲った。片付けた机の上を、AI のサーバーの配線が通っていった。", "en": "You gave up the seat. The AI server's cables now run across your cleared desk." },
+          { "ja": "席を譲った。最後に AI に「お疲れさまでした」と打ったら、すぐに同じ言葉が返ってきた。", "en": "You gave up your seat. You typed \"thanks for everything\" to the AI. The same words came straight back." }
+        ]
       }
     ],
     "tag": [
@@ -414,6 +516,11 @@
       "ja": "会社を辞めて独立した。社名は 3 日悩んで、結局自分の名前にした。",
       "en": "You quit to go indie. Spent three days on a studio name and ended up using your own."
     },
+    "alt": [
+      { "ja": "会社を辞めて独立した。最初に買ったのは、開発機ではなく、座り心地のいい椅子だった。", "en": "You quit to go indie. Your first purchase wasn't a dev kit. It was a really good chair." },
+      { "ja": "会社を辞めて独立した。初日、目覚ましをかけずに寝たら昼まで寝た。2 日目から目覚ましを戻した。", "en": "You quit to go indie. Day one, no alarm: you slept till noon. Day two, the alarm went back on." },
+      { "ja": "会社を辞めて独立した。最後の挨拶で「いつでも戻ってこい」と言われた。少し傷ついて、少しうれしかった。", "en": "You quit to go indie. Your farewell got a \"come back anytime.\" It stung a little, and felt nice a little." }
+    ],
     "effect": {
       "passion": 15,
       "status": "indie"
@@ -435,6 +542,11 @@
       "ja": "同期の{peer}から飲み会の誘い。行ってみたら、知らない会社の人事が 2 人座っていた。「給料は今と同じです。ただ、企画は全部あなたに任せます」。",
       "en": "{peer}, from your year, invited you for drinks. Two HR people from a company you didn't know were waiting. \"Same salary. But every project would be yours to plan.\""
     },
+    "alt": [
+      { "ja": "{peer}に焼き鳥屋へ呼ばれた。奥の席に、知らない会社の人事が 2 人。「給料は同じです。でも、作るものはあなたが決めていい」。", "en": "{peer} took you to a yakitori place. Two HR people from an unknown company sat in the back. \"Same pay. But you decide what to make.\"" },
+      { "ja": "{peer}から「会わせたい人がいる」。喫茶店に、知らない会社の人事が 2 人いた。「待遇は今と同じ。企画は全部、あなたのものです」。", "en": "{peer}: \"Someone wants to meet you.\" At a café, two HR people from a company you'd never heard of. \"Same terms. Every project is yours.\"" },
+      { "ja": "{peer}の誕生日会に行ったら、主役の隣に知らない会社の人事が 2 人。「給料は変わりません。企画は全部任せます」。", "en": "At {peer}'s birthday party, two HR people from an unknown company sat beside the guest of honor. \"Same salary. All the planning is yours.\"" }
+    ],
     "choices": [
       {
         "id": "ch_sys_offer_move_b",
@@ -453,7 +565,11 @@
         "result": {
           "ja": "翌週、机の上の寝袋だけ持って移った。新しい社名を 3 回言い間違えた。",
           "en": "You moved the next week with only the sleeping bag from your desk. You got the new company's name wrong three times."
-        }
+        },
+        "alt": [
+          { "ja": "移った。初日に企画書を出したら、その場で通った。それはそれで怖かった。", "en": "You moved. You pitched on day one and it passed on the spot. That was scary in its own way." },
+          { "ja": "移った。{peer}に礼を言ったら、「紹介料をもらった」と白状された。", "en": "You moved. When you thanked {peer}, they confessed to getting a referral fee." }
+        ]
       },
       {
         "id": "ch_sys_offer_stay_b",
@@ -469,7 +585,11 @@
         "result": {
           "ja": "{peer}が「じゃあ俺が行く」と言った。本当に行った。",
           "en": "{peer} said, \"Then I'll go.\" And actually went."
-        }
+        },
+        "alt": [
+          { "ja": "断った。人事の 2 人は、帰りに{peer}の分まで払っていった。", "en": "You declined. The two HR people still paid for {peer}'s drinks on the way out." },
+          { "ja": "残った。翌月、{peer}の名刺の社名が変わっていた。", "en": "You stayed. Next month, {peer}'s business card had a new company name on it." }
+        ]
       }
     ],
     "tag": [
@@ -489,6 +609,11 @@
       "ja": "展示会のブースで名刺交換。裏に手書きで「うちなら定時で帰れます」。表はきれいなロゴだった。一番ぐらっときた誘い文句だった。",
       "en": "Swapping cards at a trade-show booth. On the back, handwritten: \"Here, you go home on time.\" A neat logo on the front. The most tempting pitch you'd ever heard."
     },
+    "alt": [
+      { "ja": "展示会の通路で声をかけられた。「うちは土日、本当に休みです」。差し出された名刺は、角が少し丸くなっていた。", "en": "Someone stops you in a trade-show aisle: \"Weekends here are actually off.\" The card they hand you is worn at the corners." },
+      { "ja": "展示会の打ち上げで隣の人が名刺の裏を見せた。「残業は月 10 時間まで」。その日いちばんの見出しだった。", "en": "At a trade-show after-party, the person beside you flips their card: \"Overtime capped at 10 hours a month.\" The best headline of the day." },
+      { "ja": "展示会の帰りの電車で、ブースで会った人と隣になった。「うち、夜 7 時には全員帰ります」。時計はもう 10 時だった。", "en": "On the train home from the show, you sit next to someone from a booth: \"We all leave by seven.\" It was already ten." }
+    ],
     "choices": [
       {
         "id": "ch_sys_offer_move_c",
@@ -507,7 +632,11 @@
         "result": {
           "ja": "移った先の最初の仕事は、前の会社の作品のデバッグだった。",
           "en": "Your first job at the new company: debugging your old company's game."
-        }
+        },
+        "alt": [
+          { "ja": "移った。初日の夕方、本当に全員が帰った。あなただけが、何をしていいか分からず残っていた。", "en": "You moved. On the first evening, everyone really did leave. You stayed behind, not sure what to do." },
+          { "ja": "移った。早く帰る暮らしの 1 週目、夕飯の作り方を思い出した。", "en": "You moved. In week one of going home early, you remembered how to cook dinner." }
+        ]
       },
       {
         "id": "ch_sys_offer_stay_c",
@@ -523,7 +652,11 @@
         "result": {
           "ja": "名刺は机の引き出しへ。3 年後に見つけて、また引き出しに戻した。",
           "en": "The card went into a drawer. You found it three years later and put it back."
-        }
+        },
+        "alt": [
+          { "ja": "残った。名刺は財布へ。終電を逃すたびに、ちょっとだけ眺めた。", "en": "You stayed. The card went in your wallet. You looked at it a little every time you missed the last train." },
+          { "ja": "残った。翌年の展示会で同じ人に会った。お互い、目の下のくまが濃くなっていた。", "en": "You stayed. At next year's show you met the same person. You both had darker circles under your eyes." }
+        ]
       }
     ],
     "tag": [
@@ -543,6 +676,11 @@
       "ja": "辞令が出た。役職名が長くなり、名刺の文字が小さくなった。",
       "en": "Promotion notice. Your title got longer; the font on your business card got smaller."
     },
+    "alt": [
+      { "ja": "辞令が出た。判子が 1 つ増えて、押す書類は山になった。", "en": "Promotion notice. One more stamp in your drawer, and a mountain of forms to stamp." },
+      { "ja": "辞令が出た。社内報に顔写真が載った。10 年前の写真だった。", "en": "Promotion notice. Your photo ran in the company newsletter. It was ten years old." },
+      { "ja": "辞令が出た。同期が拍手してくれた。その日から、同期の飲み会に呼ばれなくなった。", "en": "Promotion notice. Your peers applauded. From then on, they stopped inviting you out for drinks." }
+    ],
     "effect": {
       "fame": 5,
       "passion": -5,
@@ -564,6 +702,11 @@
       "ja": "昇進の挨拶で「現場の気持ちを忘れません」と言った。翌日から、現場に行く時間が無くなった。",
       "en": "In your promotion speech you said, \"I'll never forget the floor.\" From the next day, you had no time to visit it."
     },
+    "alt": [
+      { "ja": "昇進の挨拶で「毎日現場に顔を出します」と言った。顔を出すと、全員が急に静かになった。", "en": "In your speech you promised to drop by the floor every day. When you did, everyone went quiet." },
+      { "ja": "昇進祝いに部下が花をくれた。花瓶が無かったので、開発機の箱に挿した。", "en": "Your team gave you flowers for the promotion. No vase, so they went in a dev-kit box." },
+      { "ja": "昇進して、人の給料を決める側に回った。表を見て、昔の自分の給料の安さに少し腹が立った。", "en": "Promoted, you now help set salaries. Looking at the table, you got a little angry about your own old pay." }
+    ],
     "effect": {
       "fame": 5,
       "passion": -5,
@@ -585,6 +728,11 @@
       "ja": "貯金が 2 桁になった頃、昔の取引先から電話。「うちで正社員にならない? ボーナスもあるよ。図書カードだけど」",
       "en": "Savings down to two digits, an old client calls: \"Want a staff job? There's even a bonus. In book vouchers.\""
     },
+    "alt": [
+      { "ja": "家賃の支払い日の朝、昔の取引先から電話。「うちの正社員にならない? 社食もあるよ」。冷蔵庫には水しか無かった。", "en": "Rent-day morning, an old client calls: \"Want a staff job? We have a cafeteria.\" Your fridge holds only water." },
+      { "ja": "米びつの底が見えた頃、昔の取引先から電話。「正社員の枠が 1 つ空いた。あなたなら、と思って」。", "en": "Just as the rice bin hit bottom, an old client calls: \"A staff spot opened up. We thought of you.\"" },
+      { "ja": "財布に小銭しか無い日、昔の取引先が訪ねてきた。手土産と一緒に、雇用契約書を持っていた。", "en": "On a day with only coins in your wallet, an old client visits, bringing snacks and an employment contract." }
+    ],
     "choices": [
       {
         "id": "ch_sys_indie_offer_join",
@@ -602,7 +750,11 @@
         "result": {
           "ja": "入社初日、名刺の肩書きが「CEO」から「主任」になった。少しほっとした。",
           "en": "Day one: your card goes from \"CEO\" to \"Lead.\" Oddly relieving."
-        }
+        },
+        "alt": [
+          { "ja": "会社員に戻った。最初の給料日、通帳の数字を何度も見直した。", "en": "Back on a salary. On the first payday, you checked the balance again and again." },
+          { "ja": "会社員に戻った。朝の満員電車が、思っていたほど嫌ではなかった。", "en": "Back on a salary. The packed morning train wasn't as bad as you remembered." }
+        ]
       },
       {
         "id": "ch_sys_indie_offer_stay",
@@ -617,7 +769,11 @@
         "result": {
           "ja": "電話を切って、もやしを炒めた。自由の味がした。",
           "en": "You hang up and fry bean sprouts. Tastes like freedom."
-        }
+        },
+        "alt": [
+          { "ja": "断った。その日の夕飯は、もらった試供品のカップ麺だった。うまかった。", "en": "You declined. Dinner was a free-sample cup of noodles. Delicious." },
+          { "ja": "独立を続けることにした。電話の後、作りかけのゲームを起動したら、少し面白くなっていた。", "en": "You stayed indie. After the call you booted your work in progress. It had gotten a bit more fun." }
+        ]
       }
     ],
     "tag": [
@@ -638,6 +794,11 @@
       "ja": "出所の日。門の前で空を見上げた。手元に残ったのは、中で方眼紙に描きためた 200 枚のゲームの企画。",
       "en": "Release day. You look up at the sky outside the gate. All you kept: 200 game ideas drawn on graph paper inside."
     },
+    "alt": [
+      { "ja": "出所の日。門の前で深呼吸した。持ち物は、中でノートに書きためたゲームのルールが 3 冊。", "en": "Release day. A deep breath outside the gate. Your belongings: three notebooks of game rules written inside." },
+      { "ja": "出所の日。迎えは誰も来なかった。代わりに、中で考えたボスの名前を 100 個覚えていた。", "en": "Release day. Nobody came to meet you. But you had a hundred boss names memorized from inside." },
+      { "ja": "出所の日。外では、知らない間にゲームが何本も出ていた。全部遊ぶ前に、まず自分の 1 本を作ろうと思った。", "en": "Release day. Plenty of games came out while you were away. Before playing them all, you decide to make your own." }
+    ],
     "effect": {
       "passion": 30,
       "hp": 10,
