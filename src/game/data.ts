@@ -80,6 +80,10 @@ for (const e of EVENTS) {
     if (/ガチャ|運営|イベントを回|障害の|ログイン|排出率|お詫びの石/.test(tx) && !has(e, 'flag.hw_dv_console')) add(e, '!flag.hw_dv_console');
     if (/パッケージ|店の棚|平積み|ワゴン|中古屋|発売日に並|見本盤|箱を/.test(tx) && /(自分|うち|あなた)の/.test(tx) && !has(e, 'flag.hw_dv_mobile')) add(e, '!flag.hw_dv_mobile');
   }
+  // 作品名を差し込む話は、作品が出てから(第 18 回ペルソナ: 『まだ名前の無い作品』が賞を取った)
+  if (/\{work\}/.test(tx) && !has(e, 'works')) add(e, 'works>=1');
+  // 会社が無くなる話は、本当に会社を移る(第 18 回ペルソナ: 事務所が空っぽの翌年も同じ会社で焼肉)
+  if (/事務所が空っぽ|シャッターが下り|鍵が替わっていた/.test(tx) && !e.choices && !e.effect?.flag) e.effect = { ...(e.effect ?? {}), flag: { do_change_company: true } };
   // 日本の会社・暮らしの話は、海外の会社にいる間は出さない
   if (/元請け|下請け|即売会|節電|社員旅行|忘年会|役員会|朝礼|社内報|電車|新幹線|地元|広報誌|コミケ|居酒屋|定食屋/.test(tx) && !has(e, 'company.size') && !has(e, 'pos')) add(e, 'company.size!=abroad');
   // 会社の中の話は、会社にいる時だけ
@@ -127,6 +131,10 @@ const MOTIFS: [string, RegExp][] = [
   ['sega_exit', /(セガ|白い機械|ドリキャス|ドリームキャスト).*撤退|撤退.*(セガ|朝礼)/],
   ['no_home', /家に帰らなかった|鍵の形/],
   ['bug_trick', /バグ.*裏技|裏技.*バグ/],
+  ['brain', /脳年齢|体力年齢|を鍛える/],
+  ['shortage', /品薄|売り切れ続き|家電(店|量販店)に並|抽選に/],
+  ['fc_end', /ファミコン.*(終わ|製造を終)/],
+  ['hd_shift', /HD 化|ハイビジョン|テクスチャ 4 倍/],
   ['parent_save', /セーブデータ.*(名前|「)|「(とうちゃん|おかん)」/],
 ];
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; else if (e.tag?.includes('crime') && e.choices) e.motif = 'crime'; if (e.tag?.includes('early_exit') && e.choices) e.motif = 'early_exit'; if (e.choices && !e.id.startsWith('ev_sys_') && !e.motif) { if (/AI/.test(tx) && e.years[1] >= 2022) e.motif = 'ai_choice'; else if (/ケータイ(の)?部署|ソシャゲ(に|へ)(行|移)/.test(tx + (e.choices ?? []).map((c) => c.label.ja).join(''))) e.motif = 'mobile_move'; } } // AI をどう使うか・ケータイへ移るかの選択は 1 人生 1 回 // 早くに去る選択は 1 人生 1 回 // 犯罪の入口(選択)は続けて遊ぶと出にくく

@@ -261,7 +261,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
     }
     if (!v) continue;
     if (f === 'do_change_company') {
-      s.flags.changed_co = true;
+      s.flags.changed_co = true; s.flags.callcenter = false;
       const size: CompanySize = s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small', 'sub'] as const);
       s.company = newCompany(s.rng, size, s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed');
       // 次の勤め先を一言(第 9 回ペルソナ: 希望退職に応じた後、どこにいるのか分からない)
@@ -373,12 +373,12 @@ function beginYear(s: State, out: string[]) {
     const pick = draw(r, fresh.length >= 3 ? fresh : pool, 3, () => 1);
     q.push(...pick.map((e) => e.id));
   }
-  for (const p of due) if (!(EVENT_BY_ID.get(p.event)?.tag?.includes('mega') && p.co && p.co !== s.company.id)) q.push(p.event);
+  for (const p of due) if (!((EVENT_BY_ID.get(p.event)?.tag?.includes('mega') || /^ev_wk_fu_/.test(p.event)) && p.co && p.co !== s.company.id)) q.push(p.event); // 会社の中の後日談は、同じ会社にいる時だけ
   // 職と年齢の節目
   if (s.year > 2040) { sys.push('@end:end_ai_seat'); }
   else if (s.age >= 70) sys.push('@end:end_pen_down');
   else if (s.age === 65 && (s.status === 'employed' || s.status === 'indie')) sys.push('ev_sys_age65', '@check65');
-  else if (s.age >= 60 && !s.flags.age60 && (s.status === 'employed' || s.status === 'indie')) { s.flags.age60 = true; sys.push('ev_sys_age60'); }
+  else if (s.age >= 60 && !s.flags.age60 && s.status === 'employed') { s.flags.age60 = true; sys.push('ev_sys_age60'); } // 独立した人に定年は来ない(第 18 回ペルソナ)
   if (s.inner.abroadUntil && s.year >= s.inner.abroadUntil && s.status === 'employed' && s.company.size === 'abroad') comeHome(s);
   if (s.status === 'employed') {
     const mult = { big: 0.3, mid: 1, small: 1.6, sub: 2, abroad: 1, indie: 0, school: 0, none: 0 }[s.company.size];
@@ -482,7 +482,7 @@ function pickHist(s: State): string[] {
     const vs = h.variants.map((x) => EVENT_BY_ID.get(x.id)!).filter((ev) => eligible(s, ev) && (!s.flags.in_prison || (ev.when ?? []).some((c) => c.includes('prison'))));
     if (!vs.length) continue;
     // 事件そのものは何度出てもよいが、付いている小ネタの版は直近の人生で見ていないものを(第 8 回ペルソナ: 歴史の小ネタが 3 回続けて同じ文)
-    const freshV = vs.find((ev) => !s.inner.recent?.includes(ev.id));
+    const freshV = vs.find((ev) => !s.inner.recent?.includes(ev.id) && !(ev.motif && (s.inner.recent?.includes(`line:motif:${ev.motif}`) || s.inner.motifs?.includes(ev.motif)))); // ネタの型も見る(第 18 回ペルソナ: 年表への反応の型が毎回同じ)
     const v = freshV ?? vs[0];
     const stale = freshV ? 1 : tune<number>('life.recentPenalty') * 4;
     const novelty = !seenHist.has(h.id) ? tune<number>('hist.newBoost') : !seen.has(`${h.id}:${v.id}`) ? tune<number>('hist.newPosBoost') : 0.5;
@@ -844,9 +844,9 @@ const FINALES: Finale[] = [
   { t: { ja: '「この先、どうなるんだろうな」\n「未来は決まっていない。運命なんてない。自分で作るものだ」', en: '"Wonder what happens now."\n"The future\'s not set. There\'s no fate but what we make for ourselves."' }, fit: (s) => !!(s.flags.shift_hand || s.flags.shift_partner) }, // ターミネーター 2: AI の時代にまだ作る人生に
   { t: { ja: '「人生って、何が出るか分からないな」\n「人生はチョコレートの箱みたいなもんさ。開けてみるまで中身は分からない」', en: '"You never know what life\'ll throw at you."\n"Life is like a box of chocolates. You never know what you\'re gonna get."' }, fit: (s) => s.companies.length >= 4 || !!s.flags.ex_prison }, // フォレスト・ガンプ: 浮き沈みの多い人生に
   { t: { ja: '「まだ行く気か」\n「無限の彼方へ、さあ行くぞ!」', en: '"You\'re still going?"\n"To infinity and beyond!"' }, fit: (s, id) => id === 'end_pen_down' || !!s.flags.shift_partner, parody: /無限の.*彼方/ }, // トイ・ストーリー: まだ作り続ける人生に
-  { t: { ja: '「元気でやってるか」\n「落ち込んだりもしたけれど、私はげんきです」', en: '"Doing okay?"\n"I\'ve had my ups and downs, but I\'m doing fine."' }, fit: (_s, id) => id === 'end_retire' || id === 'end_body' || id === 'end_switch' }, // 魔女の宅急便: 去った後も元気な人生に
+  { t: { ja: '「で、これからどうするんだ」\n「落ち込んだりもしたけれど、私はげんきです」', en: '"So, what now?"\n"I\'ve had my ups and downs, but I\'m doing fine."' }, fit: (_s, id) => id === 'end_retire' || id === 'end_body' || id === 'end_switch' }, // 魔女の宅急便: 去った後も元気な人生に
   { t: { ja: '「もう、さすがに潮時かな」\n「あきらめたら、そこで試合終了ですよ」', en: '"Maybe it\'s time to call it."\n"If you give up, the game is over."' }, fit: (s, id) => id === 'end_pen_down' || !!s.flags.shift_hand, parody: /あきらめたら/ }, // SLAM DUNK: あきらめなかった人生に
-  { t: { ja: '「じゃあ、またどこかで」\n「フォースと共にあらんことを」', en: '"Well, see you around."\n"May the Force be with you."' }, fit: (_s, id) => id === 'end_retire' || id === 'end_switch', parody: /と共にあらんことを/ }, // スター・ウォーズ: 送り出す人生に
+  { t: { ja: '「お前の次の 1 本、楽しみにしてるよ」\n「フォースと共にあらんことを」', en: '"Looking forward to your next one."\n"May the Force be with you."' }, fit: (_s, id) => id === 'end_retire' || id === 'end_switch', parody: /と共にあらんことを/ }, // スター・ウォーズ: 送り出す人生に
 ];
 /** どの終わり方でも、最後は同期との掛け合い(キッズ・リターンのパロディ)。場面だけ終わり方で変える */
 function kidsReturn(s: State, id: EndingId) {
