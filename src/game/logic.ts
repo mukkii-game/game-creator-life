@@ -482,7 +482,8 @@ function beginYear(s: State, out: string[]) {
   const sysChoice = [...sys, ...q, ...hist, ...turning].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
   const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && (!e.tag?.includes('quote') || (s.inner.counts.quote ?? 0) < 1) && (!e.tag?.includes('slang') || (s.inner.counts.slang ?? 0) < 4) && (!s.flags.in_prison || (e.when ?? []).some((c) => c.includes('prison'))) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware', 'worklife'].some((t) => e.tag?.includes(t)));
-  let picked = draw(r, pool, Math.max(1, n), wOf(s));
+  const freshP = freshOnly(s, pool); // 直近の人生で見た話は、新しい話が十分あれば出さない(第 28 回: 人生をまたいで一字一句同じ文が 6 本)
+  let picked = draw(r, freshP.length >= Math.max(1, n) * 3 ? freshP : pool, Math.max(1, n), wOf(s));
   // 選択は 1 年に 1 本まで、作品の後日談も 1 年に 1 本まで
   let seenChoice = false, seenAfter = false;
   picked = picked.filter((e) => {
@@ -609,6 +610,7 @@ function runItem(s: State, id: string, out: string[]) {
     if (!old.length) return;
     s.inner.workTarget = r.pick(old)[1];
   }
+  if (/\{other\}/.test(ev.text.ja) && !s.inner.others?.length) return; // 他の人の名前が無い時に「知人が」で出さない(第 28 回)
   if (ev.choices && isHwChoice(ev)) { if (s.inner.lastHwChoice !== undefined && s.year - s.inner.lastHwChoice < 2) return; s.inner.lastHwChoice = s.year; } // どの機械に付くかの選択は 2 年に 1 回まで(第 23 回: DS か PSP かが同じ年に 2 回、ドリキャスが 2 年続けて)
   if (ev.choices && ev.motif && s.inner.motifs?.includes(ev.motif)) return; // 年の初めに積んだ選択でも、同じ年に同じ型の選択が先に出ていたら出さない(第 20 回: ソシャゲに行くかが 1 年に 2 回)
   const hs = HIST_OF.get(ev.id);
@@ -889,7 +891,9 @@ function kidsReturn(s: State, id: EndingId) {
   const seenName = (x: State) => s.log.some((l) => l.text.ja.includes(x.name.ja.split(' ')[0]));
   const outside = s.inner.peerStates.filter((x) => !x.flags.in_prison && !x.flags.ex_prison && (!x.ending || x.ending.id === 'end_restart')); // 業界を去った同期は相方にしない(第 17 回ペルソナ) // 捕まった同期は相方にしない(第 9 回ペルソナ)
   const rivalSt = s.inner.rival && s.inner.rival.step >= 2 ? outside.find((x) => s.inner.rival!.name.ja.startsWith(x.name.ja.split(' ')[0])) : undefined; // ライバルの同期がいれば、その人と
-  const bud = rivalSt ?? outside.find((x) => !x.ending && seenName(x)) ?? outside.find(seenName);
+  const seenCount = (x: State) => s.log.filter((l) => l.text.ja.includes(x.name.ja.split(' ')[0])).length;
+  const byCount = [...outside].sort((a, b) => seenCount(b) - seenCount(a)); // いちばん多く出てきた同期と締める(第 28 回: 1 回しか出ていない同期が最後の相方)
+  const bud = rivalSt ?? byCount.find((x) => !x.ending && seenName(x)) ?? byCount.find(seenName);
   const indieStart = s.companies[0]?.company.size === 'indie';
   // 一度も出てこなかった同期の名前で締めない(第 9 回ペルソナ: 最後の相方が知らない人)。先輩・後輩がいればその人、いなければ名前を出さない
   const arc = !bud ? (s.inner.mentee ?? s.inner.mentor) : undefined;

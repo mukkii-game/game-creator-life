@@ -107,6 +107,7 @@ for (const e of EVENTS) {
   if (/\{peer\}/.test(tx) && /面談|会議|社内|隣の|チーム|飲み会|椅子|揺り起こ/.test(tx) && !has(e, 'cos')) add(e, 'cos<=1');
   // 「まだ一度も稼いでいない」はヒットが無い時だけ
   if (/(稼いだ|売れた|ヒットした)ことは、?まだ一度も/.test(tx) && !has(e, 'hits')) add(e, 'hits<1');
+  if (/前の会社|前職の/.test(tx) && !has(e, 'cos')) add(e, 'cos>=2'); // 第 28 回: 1 社目なのに「辞めた前の会社のペン」
   // 会社の中の話は、会社にいる時だけ
   if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み|ボーナス|人事に呼ばれ|辞令|うちのチーム|チームの|部下|社員証|社内報|配属|入社以来|新人が|新人の|定時|チャイム|社員食堂|総務|経理|社員旅行|忘年会|送別会|歓迎会|会社の照明|会社のドア|会社の椅子|入館証|採用の権限|隣の部署|隣の島|仕事帰り|同期の|社長は|営業は|営業が|プランナー同士|チーム全員|ヒットのボーナス/.test(tx) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
   // 年数: 「N 年前」「N 年ぶり」はキャリアが N 年以上 / 入社直後の話はキャリア 1 年目まで
@@ -159,7 +160,8 @@ const MOTIFS: [string, RegExp][] = [
   ['hd_shift', /HD 化|ハイビジョン|テクスチャ 4 倍/],
   ['gacha_rate', /排出率|確率表記|確率表|小数点を 1 つ/], // 第 23 回: ガチャの確率ネタが 1 人生に 3 回
   ['gym', /ジムに入会|ジムの会員/],
-  ['ai_ban', /生成 ?AI 禁止|AI の使用を禁止|AI 禁止の通達/], ['atami', /熱海/],   ['sleeping_bag', /寝袋/], ['floor_sleep', /床で寝ていたら|床で段ボール|段ボールを敷いて/], ['boss_lookalike', /昔の自分のボスにそっくり|自分の作ったボスにそっくり/], // 第 24 回: 寝袋・床で寝る・ボスにそっくりが何度も
+  ['ai_ban', /生成 ?AI 禁止|AI の使用を禁止|AI 禁止の通達/], ['atami', /熱海/],   ['headhunt', /知らない会社の人事が ?2 人/], ['heater', /暖房(いらず|が要らな)/], ['relatives3', /うち 3 (本|人)は親戚/], ['old_client_call', /昔の取引先から電話/],   ['movie_quote', /アイル・ビー・バック|と共にあらんことを|道なんていらない|運命なんてない|明日は明日の風|立て、立つんだ|まだだ、まだ|倍返し|あきらめたら、?そこで/], ['ai_source', /他社の絵がそのまま|素材がどこから来た|どこから来た絵/], // 第 28 回: 名台詞のもじりが 1 人生に 6 回、AI 素材の盗用が 2 行続く
+  ['sleeping_bag', /寝袋/], ['floor_sleep', /床で寝ていたら|床で段ボール|段ボールを敷いて/], ['boss_lookalike', /昔の自分のボスにそっくり|自分の作ったボスにそっくり/], // 第 24 回: 寝袋・床で寝る・ボスにそっくりが何度も
   ['parent_save', /セーブデータ.*(名前|「)|「(とうちゃん|おかん)」/],
 ];
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; else if (e.tag?.includes('crime') && e.choices) e.motif = 'crime'; if (e.tag?.includes('early_exit') && e.choices) e.motif = 'early_exit'; if (e.choices && !e.id.startsWith('ev_sys_') && !e.motif) { if (/AI/.test(tx) && e.years[1] >= 2022) e.motif = 'ai_choice'; else if (/ケータイ(の)?部署|ソシャゲ(に|へ)(行|移)/.test(tx + (e.choices ?? []).map((c) => c.label.ja).join(''))) e.motif = 'mobile_move'; } } // AI をどう使うか・ケータイへ移るかの選択は 1 人生 1 回 // 早くに去る選択は 1 人生 1 回 // 犯罪の入口(選択)は続けて遊ぶと出にくく
