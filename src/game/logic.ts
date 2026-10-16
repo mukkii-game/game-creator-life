@@ -181,6 +181,9 @@ function fill(s: State, t: Text): Text {
     .replace(/\{name\}/g, s.name[l]).replace(/\{company\}/g, s.company.name[l])
     .replace(/\{work\}/g, w ? w.name[l] : (l === 'ja' ? '『まだ名前の無い作品』' : '"an untitled game"'))
     .replace(/\{age\}/g, String(s.age)).replace(/\{year\}/g, String(s.year))
+    .replace(/\{fan\}/g, s.inner.fan?.name[l] ?? (l === 'ja' ? 'あのファン' : 'that fan')).replace(/\{fanwork\}/g, s.inner.fan?.work?.[l] ?? (l === 'ja' ? 'あなたのゲーム' : 'your game'))
+    .replace(/\{fanmsg\}/g, l === 'ja' ? (s.year < 1997 ? '手紙' : s.year < 2010 ? 'メール' : 'SNS のメッセージ') : (s.year < 1997 ? 'letter' : s.year < 2010 ? 'email' : 'social-media message'))
+    .replace(/\{rival\}/g, s.inner.rival?.name[l] ?? (l === 'ja' ? '同期' : 'your rival'))
     .replace(/\{mentor\}/g, s.inner.mentor?.name[l] ?? (l === 'ja' ? '先輩' : 'your mentor')).replace(/\{mentee\}/g, s.inner.mentee?.name[l] ?? (l === 'ja' ? '後輩' : 'your junior'))
     .replace(/\{peer\}/g, l === 'ja' ? peer.ja.split(' ')[0] : peer.en.split(' ').slice(-1)[0]).replace(/\{other\}/g, other[l]);
   return { ja: rep(t.ja, 'ja'), en: rep(t.en, 'en') };
@@ -376,6 +379,7 @@ function beginYear(s: State, out: string[]) {
     if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextWk = s.year + r.int(tune<number>('choice.wkMin'), tune<number>('choice.wkMax')); }
   }
   mentorArcs(s, r, out);
+  const arcIds = storyArcs(s, r);
   // 入社した年に、その会社の社風の一言(company_traits.json)
   const trait = CO_TRAITS[s.company.id];
   if (trait?.lines?.length && s.status === 'employed' && !(s.inner.coShown ??= []).includes(s.company.id)) {
@@ -406,7 +410,7 @@ function beginYear(s: State, out: string[]) {
   const rel = q.indexOf('@release');
   if (rel >= 0) { q.splice(rel, 1); ids.splice(r.int(0, ids.length), 0, '@release'); }
   // 歴史の事件は頭に(その年の空気を最初に)
-  s.inner.queue = [...hist, ...turning, ...q, ...ids, ...sys];
+  s.inner.queue = [...hist, ...turning, ...arcIds, ...q, ...ids, ...sys];
 }
 
 /** その年に起きる歴史の事件から、今の立場で受ける版を選ぶ。年表図鑑でまだ触れていない事件・立場ほど出やすい */
@@ -732,7 +736,8 @@ function kidsReturn(s: State, id: EndingId) {
   // 相方: まだ業界にいて塀の外の同期。会社に入らず始めた人生なら「昔の仲間」
   const seenName = (x: State) => s.log.some((l) => l.text.ja.includes(x.name.ja.split(' ')[0]));
   const outside = s.inner.peerStates.filter((x) => !x.flags.in_prison);
-  const bud = outside.find((x) => !x.ending && seenName(x)) ?? outside.find(seenName) ?? outside.find((x) => !x.ending) ?? outside[0] ?? s.inner.peerStates[0];
+  const rivalSt = s.inner.rival && s.inner.rival.step >= 2 ? outside.find((x) => s.inner.rival!.name.ja.startsWith(x.name.ja.split(' ')[0])) : undefined; // ライバルの同期がいれば、その人と
+  const bud = rivalSt ?? outside.find((x) => !x.ending && seenName(x)) ?? outside.find(seenName) ?? outside.find((x) => !x.ending) ?? outside[0] ?? s.inner.peerStates[0];
   const indieStart = s.companies[0]?.company.size === 'indie';
   const rel = indieStart ? { ja: '昔の仲間の', en: 'your old friend' } : { ja: '同期の', en: 'your old peer' };
   const p = `${rel.ja}${bud?.name.ja.split(' ')[0] ?? '相棒'}`, pe = `${rel.en} ${bud?.name.en.split(' ').slice(-1)[0] ?? ''}`.trim();
@@ -747,4 +752,46 @@ function kidsReturn(s: State, id: EndingId) {
   const w = jail ? { ja: `面会室で、${p}がアクリル板ごしに言った。`, en: `In the visiting room, ${pe} said through the acrylic panel:` }
     : where[id] ?? { ja: `最後の日、${p}と並んで歩きながら、${p.replace(/^.*の/, '')}が言った。`, en: `Walking side by side on your last day, ${pe} said:` };
   s.inner.kr = { ja: `${w.ja}\n「なあ、俺たち、もう終わっちゃったのかな」\n「バカヤロー、まだ始まっちゃいねえよ」`, en: `${w.en}\n"Hey... are we finished?"\n"Idiot. We haven't even started yet."` };
+}
+
+// ---- 一人のファンの一生 / ライバルの同期(arcs.json。2026-10-16 Mukkii: 感情移入できる相手を)----
+const STORY_GAP: Record<'fan' | 'rival', [number, number][]> = {
+  fan: [[5, 6], [2, 3], [4, 5], [5, 9]], // 小学生 → 高校生 → 進路の相談 → 就職 → 一本立ち
+  rival: [[2, 4], [3, 6], [3, 6], [6, 10]],
+};
+function storyArcs(s: State, r: Rng): string[] {
+  const outIds: string[] = [];
+  if (s.inner.isPeer || s.flags.in_prison) return outIds;
+  // ファン: 最初の作品が出た後に、子どもから便りが来る
+  const firstWork = s.works.find((w) => w.role !== 'solo') ?? s.works[0];
+  if (!s.inner.fan && firstWork && s.year > firstWork.year && s.year < 2022) {
+    const p = personName(r, s.year - 10);
+    const given = p.ja.split(' ')[1] ?? p.ja;
+    s.inner.fan = { name: { ja: `${given}さん`, en: p.en.split(' ')[0] }, step: 0, next: s.year, used: [], work: firstWork.name };
+  }
+  // ライバル: 同じ会社の同期(本人の同期の 2 人目)
+  const rp = s.inner.peerStates[1];
+  if (!s.inner.rival && rp && s.status === 'employed' && s.year - s.startYear >= 2 && s.company.size !== 'indie')
+    s.inner.rival = { name: { ja: rp.name.ja.split(' ')[0], en: rp.name.en.split(' ').slice(-1)[0] }, step: 0, next: s.year, used: [], co: s.company.id };
+  for (const kind of ['fan', 'rival'] as const) {
+    const a = s.inner[kind];
+    if (!a || a.step >= 5 || s.year < a.next) continue;
+    let id: string | null = null;
+    if (kind === 'fan') {
+      const ids = ['ev_fa_1', 'ev_fa_2', 'ev_fa_3', s.status === 'employed' && s.company.size !== 'indie' ? 'ev_fa_4' : 'ev_fa_4b', r.chance(0.5) ? 'ev_fa_5' : 'ev_fa_5b'];
+      id = ids[a.step];
+    } else {
+      const sameCo = s.status === 'employed' && a.co === s.company.id; // 競う・隣に座る・引き抜かれるは同じ会社の時だけ
+      id = ['ev_rv_1', 'ev_rv_2', 'ev_rv_3', 'ev_rv_4', 'ev_rv_5'][a.step];
+      if ((a.step === 0 || a.step === 2 || a.step === 3) && !sameCo) id = null;
+    }
+    const ev = id ? EVENT_BY_ID.get(id) : undefined;
+    if (ev) {
+      a.used.push(ev.id);
+      outIds.push(ev.id); // 選択のある話もあるので、ほかの話と同じ列に並べる
+    }
+    if (a.step < 4) { const [lo, hi] = STORY_GAP[kind][a.step]; a.next = s.year + r.int(lo, hi); }
+    a.step++;
+  }
+  return outIds;
 }

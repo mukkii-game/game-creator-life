@@ -29,7 +29,7 @@ export const PROPS = {
   '添付': 1995, '.doc': 1995, 'Slack': 2014, '既読': 2011, 'ウィッシュリスト': 2010, 'Discord': 2015, 'クラウドファンディング': 2012, 'ストアページ': 2010,
   '生成AI': 2022, '生成 AI': 2022, 'ChatGPT': 2022, 'AI': 2022, 'プロンプト': 2022, 'prompt': 2022,
 };
-const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other', 'mentor', 'mentee']);
+const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other', 'mentor', 'mentee', 'fan', 'fanwork', 'fanmsg', 'rival']);
 const COND = /^!?(age|year|era|job|status|works|career|pos|company\.size|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z0-9_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
 const JOBS = ['programmer', 'planner', 'artist', 'sound', 'qa', 'sales', 'director', 'producer', 'teacher', 'other'];
 const STATUS = ['employed', 'indie', 'left', 'retired', 'ended'];

@@ -1,0 +1,341 @@
+[
+ {
+  "id": "ev_fa_1",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「ボスに 50 回負けました。51 回目で勝ちました。大人になったら、ゲームを作る人になります」。",
+   "en": "A {fanmsg} came from {fan}, a grade-schooler, about {fanwork}: \"I lost to the boss 50 times. I won on the 51st. When I grow up, I'll make games.\""
+  },
+  "effect": {
+   "passion": 6
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_fa_2",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{fan}からまた{fanmsg}が来た。もう高校生だという。{fanwork}の主人公の絵が添えてあった。公式の絵より、少しかっこよかった。",
+   "en": "Another {fanmsg} from {fan} — in high school now — with a drawing of the hero of {fanwork}. It was a little cooler than the official art."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_fa_3",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{fan}から相談が来た。「ゲームの専門学校に行きたいと言ったら、親に反対されました」。返事を書くのに 3 日かかった。",
+   "en": "{fan} wrote for advice: \"I told my parents I want to go to game school. They said no.\" Your reply took three days to write."
+  },
+  "effect": {},
+  "weight": 0,
+  "tag": [
+   "fan",
+   "choice"
+  ],
+  "choices": [
+   {
+    "id": "ch_fa_3_go",
+    "label": {
+     "ja": "「好きなら、やってみろ」と書く",
+     "en": "Write: \"If you love it, go for it\""
+    },
+    "effect": {
+     "passion": 4,
+     "flag": {
+      "fan_pushed": true
+     }
+    },
+    "result": {
+     "ja": "「好きなら、やってみろ。ただし、ちゃんと寝ろ」と書いた。自分に一番言いたい言葉だった。",
+     "en": "You wrote: \"If you love it, go for it. But get some sleep.\" It was what you most needed to hear yourself."
+    }
+   },
+   {
+    "id": "ch_fa_3_wait",
+    "label": {
+     "ja": "「一度、親とちゃんと話せ」と書く",
+     "en": "Write: \"Talk to your parents properly first\""
+    },
+    "effect": {
+     "network": 3
+    },
+    "result": {
+     "ja": "「一度、親とちゃんと話せ。それでも作りたかったら、それが答えだ」と書いた。書いてから、自分の親に電話した。",
+     "en": "You wrote: \"Talk it through with your parents. If you still want to make games, that's your answer.\" Then you called your own parents."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_fa_4",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "会社の採用面接に{fan}が来た。履歴書の「好きなゲーム」の欄に、{fanwork}と書いてあった。面接官の中で、手が震えていたのはあなただけだった。",
+   "en": "{fan} walked into your company's hiring interview. Under \"favourite game\" on the résumé: {fanwork}. Of all the interviewers, only your hands were shaking."
+  },
+  "effect": {},
+  "weight": 0,
+  "tag": [
+   "fan",
+   "choice"
+  ],
+  "choices": [
+   {
+    "id": "ch_fa_4_push",
+    "label": {
+     "ja": "採用を強く推す",
+     "en": "Push hard to hire"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "fan_hired": true
+     }
+    },
+    "result": {
+     "ja": "強く推した。「身内びいきでは?」と言われ、「身内じゃない。ファンだ」と答えた。会議室が少し笑った。採用が決まった。",
+     "en": "You pushed hard. \"Isn't that favouritism?\" \"Not family. A fan.\" The room laughed a little. The hire went through."
+    }
+   },
+   {
+    "id": "ch_fa_4_fair",
+    "label": {
+     "ja": "公平に、他の面接官に任せる",
+     "en": "Stay fair and let the others decide"
+    },
+    "effect": {
+     "skill": 2,
+     "passion": 5,
+     "flag": {
+      "fan_hired": true
+     }
+    },
+    "result": {
+     "ja": "黙って、他の面接官に任せた。{fan}は自分の力で受かった。廊下ですれ違った時、深くお辞儀をされた。",
+     "en": "You stayed quiet and let the others judge. {fan} got in on merit. Passing in the hall, they bowed deeply."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_fa_5",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{fan}が初めてリーダーを務めたゲームが出た。スタッフロールの最後の最後、「Special Thanks」にあなたの名前があった。その 1 行のために、エンディングを 3 回見た。",
+   "en": "The first game {fan} led came out. At the very end of the credits, under Special Thanks, was your name. You watched the ending three times for that one line."
+  },
+  "effect": {
+   "passion": 12
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ],
+  "memory": {
+   "ja": "{fan}のゲームのスタッフロールに、自分の名前が載っていた",
+   "en": "your name in the credits of {fan}'s game"
+  }
+ },
+ {
+  "id": "ev_fa_5b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{fan}が自分のスタジオを立ち上げた。最初の{fanmsg}には「あの日の返事、まだ机に貼ってあります」と書いてあった。",
+   "en": "{fan} founded their own studio. Their first {fanmsg} said: \"Your reply from back then is still taped to my desk.\""
+  },
+  "effect": {
+   "passion": 12
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ],
+  "memory": {
+   "ja": "{fan}の机に、自分の返事が今も貼ってある",
+   "en": "your old reply still taped to {fan}'s desk"
+  }
+ },
+ {
+  "id": "ev_rv_1",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "社内の企画コンペで、同期の{rival}と最後の 2 案に残った。廊下ですれ違う時、どちらも目を合わせなかった。",
+   "en": "In the in-house pitch contest, you and {rival} from your year were the last two standing. Passing in the hall, neither of you made eye contact."
+  },
+  "effect": {},
+  "weight": 0,
+  "tag": [
+   "rival",
+   "choice"
+  ],
+  "choices": [
+   {
+    "id": "ch_rv_1_fight",
+    "label": {
+     "ja": "自分の企画で勝負する",
+     "en": "Fight with your own pitch"
+    },
+    "effect": {
+     "passion": 8,
+     "flag": {
+      "rv_won": true
+     }
+    },
+    "result": {
+     "ja": "自分の企画で押し切った。勝った。打ち上げで{rival}が「次は負けない」と言って、あなたのグラスにだけビールを注いだ。",
+     "en": "You pushed your own pitch through and won. At the party, {rival} said \"next time I win\" and poured beer only into your glass."
+    }
+   },
+   {
+    "id": "ch_rv_1_merge",
+    "label": {
+     "ja": "二人の企画を合わせて出す",
+     "en": "Merge the two pitches"
+    },
+    "effect": {
+     "network": 5,
+     "skill": 3,
+     "flag": {
+      "rv_merged": true
+     }
+    },
+    "result": {
+     "ja": "二人の企画を合わせて出し直した。部長は「最初からそうしろ」と言った。その夜、{rival}と朝まで仕様の話をした。",
+     "en": "You merged the pitches and resubmitted. The boss said, \"Should've done that from the start.\" That night you and {rival} talked specs until dawn."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_rv_2",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{rival}のゲームが売れた。あなたのゲームの 3 倍売れた。お祝いの言葉は言えた。帰りの電車で、窓に映る自分の顔が知らない人みたいだった。",
+   "en": "{rival}'s game sold. Three times more than yours. You managed to say congratulations. On the train home, your reflection looked like a stranger."
+  },
+  "effect": {
+   "passion": -4,
+   "skill": 3
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_rv_3",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "あなたのチームが炎上した夜、{rival}が黙って隣の席に座った。「自分の仕事は終わったから」と言った。終わっていないのは知っていた。",
+   "en": "The night your team went up in flames, {rival} sat down at the next desk without a word. \"My work's done,\" they said. You knew it wasn't."
+  },
+  "effect": {
+   "passion": 8,
+   "network": 4
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ],
+  "memory": {
+   "ja": "炎上の夜、{rival}が黙って隣に座った",
+   "en": "the night {rival} sat beside you without a word"
+  }
+ },
+ {
+  "id": "ev_rv_4",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{rival}がライバル会社に引き抜かれた。送別会の最後に、{rival}が言った。「今度は外から、お前のゲームを倒しに行く」。",
+   "en": "{rival} was poached by a rival company. At the end of the farewell party: \"Next time, I'm coming to beat your game from the outside.\""
+  },
+  "effect": {
+   "passion": 6
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_rv_5",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "久しぶりに{rival}と飲んだ。3 杯目で{rival}が言った。「お前のゲーム、ずっと意識してたよ。発売日は毎回、店まで見に行った」。あなたも同じことをしていた。",
+   "en": "A drink with {rival} after years. On the third glass: \"I always had your games on my mind. I went to the shop every launch day to check.\" So had you."
+  },
+  "effect": {
+   "passion": 10
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ],
+  "memory": {
+   "ja": "{rival}も、自分の発売日に店まで見に来ていた",
+   "en": "{rival} went to the shop on your launch days too"
+  }
+ },
+ {
+  "id": "ev_fa_4b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{fan}から{fanmsg}が来た。「ゲーム会社に入りました」。名刺の写真が添えてあった。肩書きは、あなたの最初の肩書きと同じだった。",
+   "en": "A {fanmsg} from {fan}: \"I got a job at a game company.\" A photo of the business card was attached. The title was the same as your first one."
+  },
+  "effect": {
+   "passion": 7
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ }
+]

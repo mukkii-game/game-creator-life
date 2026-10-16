@@ -108,6 +108,9 @@ export interface Inner {
   /** 直属の先輩(メンター)と、自分が面倒を見る後輩(メンティー)。人生に 1 人ずつ */
   mentor?: Arc;
   mentee?: Arc;
+  /** 一人のファンの一生と、ライバルの同期(arcs.json) */
+  fan?: Arc & { work?: Text };
+  rival?: Arc;
   menteeAt?: number;
   isPeer: boolean;
   bot: string;               // peer の時: 動かすボット名
