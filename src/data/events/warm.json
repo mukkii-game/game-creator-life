@@ -231,7 +231,8 @@
   },
   "when": [
    "works>=1",
-   "career>=4"
+   "career>=4",
+   "job!=sound"
   ],
   "weight": 0.8,
   "once": true,
@@ -2156,7 +2157,8 @@
    "ja": "孫が友達に「うちの人が作ったゲーム」と自慢して、皆で遊び始めた。3 分後、「普通のゲームやろう」と言われた。",
    "en": "Your grandkid bragged to friends, \"My family made this game!\" They all played it. Three minutes later: \"Let's play a normal game.\""
   },
-  "when": ["flag.child", 
+  "when": [
+   "flag.child",
    "age>=60",
    "works>=2"
   ],

@@ -53,7 +53,9 @@
   "once": true,
   "when": [
    "status=employed",
-   "career>=3"
+   "career>=3",
+   "job!=director",
+   "job!=producer"
   ]
  },
  {

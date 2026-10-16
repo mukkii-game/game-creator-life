@@ -528,5 +528,496 @@
     "director",
     "producer",
     "teacher"
+  ],
+  "ev_era1_poster_ghost": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era5_child_gacha": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_l2_endo_druaga": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lf_bond_shooting_god": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lf_bond_souls": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lv_partner_tester": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_1977_color_tv15_client": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_2011_vita_skill": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_2017_switch_hit_child": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_2022_chatgpt_child": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_dark_1986_conv_any": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_hit_2023_totk_child": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_any_drinks_peer": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era1_fan_letter": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era1_katakana": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era4_board_flame": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era5_gacha_flame": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era5_stream_clip": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era5_wk_rta": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lf_bond_pacman": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lf_fan_bbs_love": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_mo_boss_trauma": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_mo_streamer_scream": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_og_fan_site": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tr_c_boss_hard": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tr_lk_president": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_wm_fm_child_plays": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_wk_fu_callcenter": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_1995_chrono_high": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_vo_rate_table": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era5_gacha_rate": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tr_c_gacha_rate": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tr_c_gacha_tease": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tn_pit_gacha_odds": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tn_pit_young": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tr_c_reviewer": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tr_c_risky_plan": [
+    "director",
+    "producer"
+  ],
+  "ev_l2_koshiro_bk": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_l2_kondo_zelda": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era2_link_cable": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_hs_2011_vita_side_vita": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_hs_dark_1992_gg_abroad": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_era3_rumble": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_era3_wk_sequel_other": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_lf_bond_plumber": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_lf_fan_bbs_lurk": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_mg_famimaga_trick": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_mo_mag_one_line": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_wm_ow_rerelease": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_hs_1980_pacman_sub": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_hs_2004_monhan_online": [
+    "programmer",
+    "planner",
+    "director"
+  ],
+  "ev_tr_c_ex_message": [
+    "programmer",
+    "planner",
+    "sound",
+    "director"
+  ],
+  "ev_lf_fan_doujin": [
+    "planner",
+    "artist",
+    "director"
+  ],
+  "ev_lf_fan_sns_marry": [
+    "planner",
+    "artist",
+    "director"
+  ],
+  "ev_mo_konbini_keychain": [
+    "planner",
+    "artist",
+    "director"
+  ],
+  "ev_tr_lk_movie_cameo": [
+    "planner",
+    "artist",
+    "director"
+  ],
+  "ev_hs_2002_ff11_dev": [
+    "planner",
+    "artist",
+    "director"
+  ],
+  "ev_mo_kid_laugh": [
+    "planner",
+    "artist",
+    "director",
+    "producer"
+  ],
+  "ev_hs_1991_sonic_hit_child": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_2014_ps4_social": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_2015_ue4_indie": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_2020_ps5_skill": [
+    "artist",
+    "director"
+  ],
+  "ev_era1_ashtray": [
+    "artist",
+    "director"
+  ],
+  "ev_era3_rating_green": [
+    "artist",
+    "director"
+  ],
+  "ev_l2_sakaguchi_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_sega_in_shenmue": [
+    "artist",
+    "director"
+  ],
+  "ev_grav_shenmue_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_wm_fm_first_pay": [
+    "programmer",
+    "artist",
+    "director"
+  ],
+  "ev_era2_cdrom_voice": [
+    "planner",
+    "sound",
+    "director",
+    "producer"
+  ],
+  "ev_lv_cat": [
+    "programmer",
+    "director"
+  ],
+  "ev_hs_dark_1985_law_any": [
+    "programmer",
+    "director"
+  ],
+  "ev_lf_bond_invader": [
+    "programmer",
+    "director"
+  ],
+  "ev_mo_cr_arcade_credit": [
+    "programmer",
+    "director"
+  ],
+  "ev_hs_1984_third_party_nintendo": [
+    "programmer",
+    "director"
+  ],
+  "ev_hs_dark_2018_save_cheat": [
+    "programmer",
+    "director"
+  ],
+  "ev_tr_c_bug_spec": [
+    "programmer",
+    "director"
+  ],
+  "ev_cl_fan_phone": [
+    "planner",
+    "qa",
+    "director",
+    "producer"
+  ],
+  "ev_lv_net_gm": [
+    "planner",
+    "qa",
+    "director",
+    "producer"
+  ],
+  "ev_era5_maintenance": [
+    "planner",
+    "qa",
+    "director",
+    "producer"
+  ],
+  "ev_era5_wk_service_end": [
+    "planner",
+    "qa",
+    "director",
+    "producer"
+  ],
+  "ev_hs_2013_monst_social": [
+    "planner",
+    "qa",
+    "director",
+    "producer"
+  ],
+  "ev_mo_cr_rmt": [
+    "planner",
+    "qa",
+    "director",
+    "producer"
+  ],
+  "ev_era4_social_newyear": [
+    "programmer",
+    "planner",
+    "qa",
+    "director",
+    "producer"
+  ],
+  "ev_hw_fu_mobile": [
+    "programmer",
+    "planner",
+    "qa",
+    "director",
+    "producer"
+  ],
+  "ev_hs_2002_ff11_online": [
+    "programmer",
+    "planner",
+    "qa",
+    "director",
+    "producer"
+  ],
+  "ev_era4_child": [
+    "qa",
+    "programmer",
+    "planner"
+  ],
+  "ev_era6_human_bug": [
+    "qa",
+    "programmer",
+    "planner"
+  ],
+  "ev_lv_uncle_funeral": [
+    "qa",
+    "programmer",
+    "planner"
+  ],
+  "ev_wm_jr_letter": [
+    "qa",
+    "programmer",
+    "planner"
+  ],
+  "ev_hs_2011_quake_dev": [
+    "qa",
+    "programmer",
+    "planner"
+  ],
+  "ev_l2_itoi_copy": [
+    "sales",
+    "producer"
+  ],
+  "ev_hs_2014_ps4_skill": [
+    "programmer",
+    "planner",
+    "artist",
+    "sound",
+    "director",
+    "producer"
+  ],
+  "ev_lv_propose_game": [
+    "programmer",
+    "planner",
+    "artist",
+    "sound",
+    "director",
+    "producer"
+  ],
+  "ev_lv_propose_legend": [
+    "programmer",
+    "planner",
+    "artist",
+    "sound",
+    "director",
+    "producer"
+  ],
+  "ev_lv_big_friend_legacy": [
+    "programmer",
+    "planner",
+    "artist",
+    "sound",
+    "director",
+    "producer"
+  ],
+  "ev_cl_credit_steal": [
+    "programmer",
+    "planner",
+    "artist",
+    "sound",
+    "director"
   ]
 }

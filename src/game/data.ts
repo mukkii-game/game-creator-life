@@ -43,6 +43,29 @@ const jhMod = import.meta.glob('../data/job_hints.json', { eager: true, import: 
 const JOB_HINTS = Object.values(jhMod)[0] ?? {};
 for (const e of EVENTS) { const j = JOB_HINTS[e.id]; if (Array.isArray(j) && j.length) e.jobs = j as import('./types').Job[]; }
 
+// 文の中身から、出してよい時を自動で絞る(ペルソナ 3 回目の通読: 家族の順番・無職なのに社内・入社 1 年目に「10 年前」など)。
+// データに同じ種類の条件がもう書いてあれば足さない
+const has = (e: GameEvent, k: string) => (e.when ?? []).some((c) => c.replace(/^!/, '').startsWith(k));
+const add = (e: GameEvent, c: string) => { e.when = [...(e.when ?? []), c]; };
+for (const e of EVENTS) {
+  if ((e.weight ?? 1) <= 0 || e.id.startsWith('ev_sys_')) continue;
+  const t = e.text.ja + (e.choices ?? []).map((c) => c.label.ja + (c.result?.ja ?? '')).join('');
+  // 家族: 恋人の話は結婚前だけ / 籍を入れる話は結婚前だけ / 義理の親・配偶者の話は結婚後だけ
+  if (/恋人/.test(t) && !has(e, 'flag.lv_married')) add(e, '!flag.lv_married');
+  if (/籍を入れ|プロポーズ/.test(t) && !has(e, 'flag.lv_married')) add(e, '!flag.lv_married');
+  if (/義理の(母|父)|義母|義父|妻が|夫が|配偶者/.test(e.text.ja) && !has(e, 'flag.lv_married')) add(e, 'flag.lv_married');
+  // 会社の中の話は、会社にいる時だけ
+  if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み/.test(e.text.ja) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
+  // 年数: 「N 年前」「N 年ぶり」はキャリアが N 年以上 / 入社直後の話はキャリア 1 年目まで
+  const ago = /(\d+) 年(前|ぶり|分|越し|間ずっと)/.exec(e.text.ja);
+  if (ago && +ago[1] >= 5 && !has(e, 'career')) add(e, `career>=${+ago[1]}`);
+  if (/入社 ?\d+ ?日目|新人研修|配属初日|入社初日|新入社員/.test(e.text.ja) && !has(e, 'career')) add(e, 'career<=1');
+  // 2020〜21 年は即売会がほぼ開かれなかった
+  if (/即売会/.test(e.text.ja) && e.years[0] <= 2021 && e.years[1] >= 2020) add(e, 'year!=2020'), add(e, 'year!=2021');
+  // 昔の作品の話は、2 年以上前の作品がある時だけ(出したばかりの作品に「リマスター」が来ない)
+  if (/\{work\}/.test(e.text.ja) && /リマスター|復刻|昔の|移植版|再販/.test(e.text.ja) && !e.tag?.includes('afterlife')) e.tag = [...(e.tag ?? []), 'afterlife'];
+}
+
 /** 普通に抽選されるイベント(system と weight 0 は除く) */
 export const POOL: GameEvent[] = EVENTS.filter((e) => !e.id.startsWith('ev_sys_') && !HIST_OF.has(e.id) && (e.weight ?? 1) > 0);
 

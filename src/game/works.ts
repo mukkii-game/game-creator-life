@@ -9,16 +9,21 @@ import { CO_TRAITS } from './data';
 interface TitleRow { id: string; years: [number, number]; platforms?: string[]; genre?: Text; coined?: Text[]; name?: Text; gag?: Text | Text[] }
 const tMod = import.meta.glob('../data/titles.json', { eager: true, import: 'default' }) as Record<string, { titles: TitleRow[] }>;
 const TITLES: TitleRow[] = Object.values(tMod)[0]?.titles ?? [];
+/** 題名に機種名が入っていたら、その機種の時だけ使う(『〇〇DS』が PS3 で出ていた) */
+function nameFits(name: string, platform: string): boolean {
+  const tags: [RegExp, RegExp][] = [[/DS$|DS[^a-z]/, /DS/], [/アドバンス/, /アドバンス/], [/ポータブル|ポケット/, /PSP|ゲームボーイ|DS|3DS|スマホ|ケータイ/], [/64/, /64/], [/3D$/, /3DS/]];
+  return tags.every(([inName, okPf]) => !inName.test(name) || okPf.test(platform));
+}
 function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | null {
   const used = new Set(s.works.map((w) => w.name.ja));
-  const near = TITLES.filter((t) => t.years[0] <= s.year && s.year <= t.years[1] + 1); // 発売前の年には出さない(実名の一言が前年に出ていた)
+  const near = TITLES.filter((t) => t.years[0] <= s.year && s.year <= t.years[1]); // 発売前の年には出さない。一言に「同じ年」が多いので、終わりの年も延ばさない
   const fit = near.filter((t) => !t.platforms || t.platforms.some((p) => platform.includes(p) || p.includes(platform)));
   // 会社の作風(company_traits.json の genres)に合うタイトルを 7 割で優先する(シューティングの会社はシューティングを出しがち)
   const genres = CO_TRAITS[s.company.id]?.genres;
   const byGenre = genres?.length && s.rng.chance(0.7) ? [fit].map((p) => p.filter((t) => t.genre && genres.includes(t.genre.ja))) : [];
   // 機種の合わない題名は使わない(『おえかきペットDS』がケータイで出ていた)。合う物が無ければ作った名前
   for (const pool of [...byGenre.slice(0, 1), fit]) {
-    const cands = pool.flatMap((t) => (t.coined ?? (t.name ? [t.name] : [])).filter((n) => !used.has(`『${n.ja}』`) && !used.has(n.ja)).map((n) => ({ n, t })));
+    const cands = pool.flatMap((t) => (t.coined ?? (t.name ? [t.name] : [])).filter((n) => !used.has(`『${n.ja}』`) && !used.has(n.ja) && nameFits(n.ja, platform)).map((n) => ({ n, t })));
     if (!cands.length) continue;
     const { n, t } = s.rng.pick(cands);
     const gags = t.gag ? (Array.isArray(t.gag) ? t.gag : [t.gag]) : [];
@@ -79,6 +84,17 @@ const RESULT_LINES: Record<WorkResult, Text[]> = {
     { ja: '社会現象に。あなたの名前はスタッフロールで 0.3 秒だけ流れた。', en: 'A social phenomenon. Your name scrolled by in the credits for 0.3 seconds.' },
   ],
 };
+// 店に並ばない作品(スマホ・ダウンロード)の結果の一言
+const DIGITAL_LINES: Partial<Record<WorkResult, Text[]>> = {
+  flop: [
+    { ja: 'ストアの順位は 3 日で圏外。レビューは 2 件、どちらも身内だった。', en: 'Out of the store charts in three days. Two reviews, both from family.' },
+    { ja: 'ダウンロード数のグラフが、最初の日からずっと横ばいだった。地平線みたいにきれいだった。', en: 'The download graph stayed flat from day one, as clean as a horizon.' },
+  ],
+  ok: [
+    { ja: 'ストアの評価は星 3.8。「普通に遊べる」というレビューが、いちばん多かった。', en: 'Store rating: 3.8 stars. The most common review: "Perfectly playable."' },
+    { ja: '売上は予定どおり。誰も褒めないが、誰も怒らない。', en: 'Sales on target. Nobody praises you; nobody yells.' },
+  ],
+};
 const SOLO_LINES: Partial<Record<WorkResult, Text>> = {
   flop: { ja: '売れたのは 12 本。うち 3 本は親戚。', en: 'Sold 12 copies. Three to relatives.' },
   hit: { ja: '売れた! 初めて自分の口座に印税が入った。手が震えた。', en: 'It sold! Royalties hit your own account for the first time. Your hands shook.' },
@@ -96,7 +112,9 @@ export function release(s: State): { work: Work; line: Text } {
   s.works.push(work);
   // 結果の一言は、この人生でまだ使っていないものから(ペルソナ通読: 社長賞 5000 円が 3 回)
   const said = (s.inner.saidLines ??= []);
-  const fresh = RESULT_LINES[result].filter((t) => !said.includes(t.ja));
+  const digital = /スマホ|ケータイ|ソシャゲ|Steam|itch|AI クラウド/.test(platform);
+  const lines = digital && DIGITAL_LINES[result] ? DIGITAL_LINES[result]! : RESULT_LINES[result];
+  const fresh = lines.filter((t) => !said.includes(t.ja));
   const pickLine = fresh.length ? r.pick(fresh) : { ja: '', en: '' };
   const gag = role === 'solo' && SOLO_LINES[result] ? SOLO_LINES[result]! : titled?.gag && r.chance(0.5) ? titled.gag : pickLine;
   if (gag.ja) said.push(gag.ja);
