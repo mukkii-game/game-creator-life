@@ -122,7 +122,7 @@ export interface Inner {
   /** 子どもが生まれた年 */
   childYear?: number;
   /** 海外から帰ってくる年 */
-  abroadUntil?: number; lastHwChoice?: number; aiqYear?: number;
+  abroadUntil?: number; lastHwChoice?: number; aiqYear?: number; theme?: string;
   /** この人生で出たネタの型 */
   motifs?: string[];
   isPeer: boolean;
