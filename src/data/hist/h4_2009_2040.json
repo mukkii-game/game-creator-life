@@ -408,8 +408,8 @@
    {
     "id": "ev_hs_2010_mhp3_any",
     "text": {
-     "ja": "電車で隣の高校生たちが協力プレイをしていた。誘われて竜を 1 匹倒した。人脈が 1 増えた。",
-     "en": "High schoolers next to you on the train are hunting together. They invite you in. One dragon down. Network +1."
+     "ja": "電車で隣の高校生たちが協力プレイをしていた。誘われて竜を 1 匹倒した。別れ際、「おじさん、うまいね」と言われた。",
+     "en": "High schoolers next to you on the train are hunting together. They invite you in. One dragon down. As they left: \"You're good, mister.\""
     },
     "effect": {
      "network": 1,

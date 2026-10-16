@@ -47,7 +47,7 @@ function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | nul
   const byGenre = genres?.length && s.rng.chance(0.7) ? [fit].map((p) => p.filter((t) => t.genre && genres.includes(t.genre.ja))) : [];
   // 機種の合わない題名は使わない(『おえかきペットDS』がケータイで出ていた)。合う物が無ければ作った名前
   for (const pool of [...byGenre.slice(0, 1), fit]) {
-    const cands = pool.flatMap((t) => (t.coined ?? (t.name ? [t.name] : [])).filter((n) => !used.has(`『${n.ja}』`) && !used.has(n.ja) && nameFits(n.ja, platform) && !s.inner.recent?.includes(`title:${n.ja}`)).map((n) => ({ n, t })));
+    const cands = pool.flatMap((t) => (t.coined ?? (t.name ? [t.name] : [])).filter((n) => !used.has(`『${n.ja}』`) && !used.has(n.ja) && nameFits(n.ja, platform) && !s.inner.recent?.includes(`title:${n.ja}`) && (() => { const m = /'(\d\d)/.exec(n.ja); return !m || Math.abs(1900 + Number(m[1]) - s.year) <= 1; })()) /* 題名の年号と発売年を合わせる(第 52 回: 『熱球ベースボール'84』が 1986 年) */.map((n) => ({ n, t })));
     if (!cands.length) continue;
     const { n, t } = s.rng.pick(cands);
     const gags = t.gag ? (Array.isArray(t.gag) ? t.gag : [t.gag]) : [];

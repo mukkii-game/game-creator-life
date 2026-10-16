@@ -286,7 +286,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
       s.flags.changed_co = true; s.flags.callcenter = false;
       if (s.company.size === 'abroad' && !e.flag?.life_abroad && !e.flag?.went_abroad) { s.flags.life_abroad = false; s.flags.went_abroad = false; s.flags.came_home = true; s.inner.abroadUntil = 0; } // 海外から日本の会社へ移ったら、海外暮らしの話を止める(第 22 回: ナムコに入った後に「海外暮らしが 3 年」)
       const cev = EVENT_BY_ID.get(ctx); const ctxTx = cev ? [cev.text, ...(cev.alt ?? []), ...(cev.choices ?? []).map((c) => c.result ?? { ja: '', en: '' })].map((x) => x.ja).join(' ') : '';
-      const named = /外注先|下請け|元上司の会社|先輩の会社|友人の会社|知り合いの会社|小さな会社|同期の会社/.test(ctxTx); // 本文が行き先を決めている(第 48 回: 「外注先の会社に入った」の直後に「ナムコに移った」)
+      const named = /外注先|下請け|元上司の会社|元上司の新会社|新会社|先輩の会社|友人の会社|知り合いの会社|小さな会社|同期の会社/.test(ctxTx); // 本文が行き先を決めている(第 48 回: 「外注先の会社に入った」の直後に「ナムコに移った」)
       const size: CompanySize = named ? s.rng.pick(['small', 'sub'] as const) : s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small', 'sub'] as const);
       if (e.flag?.life_hometown) { // 地元へ帰ったら、幼なじみと始める小さな会社(第 20 回ペルソナ: 地元へ帰った同じ年に大手へ移った)
         s.company = { id: `co_home_${s.year}`, name: { ja: `${s.rng.pick(['ふるさと', 'みなと', 'やまびこ', 'たんぼ', 'ひだまり'])}ゲームス`, en: `${s.rng.pick(['Hometown', 'Harbor', 'Echo', 'Paddy', 'Sunspot'])} Games` }, size: 'small' };
@@ -608,7 +608,7 @@ function runItem(s: State, id: string, out: string[]) {
   if ((moves(ev.effect) || ev.choices?.some((c) => moves(c.effect))) && s.companies.length > 1 && s.companies[s.companies.length - 1].year === s.year) return;
   if (/^ev_(sys_promote|wk_promote_ask)/.test(ev.id) && (s.status !== 'employed' || s.companies[s.companies.length - 1].year === s.year)) return; // 辞めた・移った年に昇進しない(第 48 回: 独立した年に「人の給料を決める側に回った」)
   if (ev.id.startsWith('ev_sys_bankrupt') && (s.companies[s.companies.length - 1].year === s.year || COMPANIES.real.some((c) => c.id === s.company.id))) return; // 年の初めに決まった倒産でも、その年に移った先(セガなど)は潰さない(第 20 回)
-  if (s.companies.length > 1 && s.companies[s.companies.length - 1].year === s.year && /に拾われ|に入った|に移った|に転職|社員 ?\d+ 人の会社を売/.test([ev.text, ...(ev.alt ?? [])].map((x) => x.ja).join(" "))) return; // 移った年に、本文だけでまた移る話を出さない(第 20 回: 1 年に 3 社)
+  if (s.companies.length > 1 && s.companies[s.companies.length - 1].year === s.year && /に拾われ|に入った|に移った|に転職|に入社|に再就職|社員 ?\d+ 人の会社を売/.test([ev.text, ...(ev.alt ?? [])].map((x) => x.ja).join(" "))) return; // 移った年に、本文だけでまた移る話を出さない(第 20 回: 1 年に 3 社)
   // 同じ後日談は 1 人生に 1 回(第 12 回ペルソナ: 「コンシューマに残った」が選択なしで 2 回)
   if (((ev.weight ?? 1) === 0 || ev.tag?.includes('followup')) && s.inner.seen[ev.id] !== undefined && !ev.tag?.includes('repeatable') && !/^ev_(fa|rv|mt|me|sys)_/.test(ev.id)) return;
   if (ev.id === 'ev_wk_fu_callcenter') s.flags.callcenter = false; // 開発に戻る
@@ -628,13 +628,13 @@ function runItem(s: State, id: string, out: string[]) {
     const bad = /クソゲー|爆死|ワゴン|投げ売り/.test(allTx), good = /名作|大ヒット|伝説|殿堂(?!入りを果たし)|同じハードに|続編|リマスター|父と遊んだ|親子で/.test(allTx) && !bad; // 爆死した作品を新しいハードに出し直さない(第 38 回)
     const hitW = (w: { result: string }) => w.result === 'hit' || w.result === 'legend';
     const gen = /父と遊んだ|親子で|いまは息子|いまは娘/.test(allTx); // 親子二代の話は 15 年以上前の作品だけ(第 43 回: 1 年前の作品で「父と遊んだ」)
-    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= (gen ? 15 : bad ? 4 : 2) && (!online || digital(w)) && (!boxed || !digital(w)) && (!bad || !hitW(w)) && (!good || hitW(w)) && !(/同じハードに/.test(allTx) && /スマホ|ケータイ|ソシャゲ|ブラウザ|iPhone/.test(w.platform)) && !(/日本で \d+ 本/.test(allTx) && hitW(w)) && !(/サービス終了|配信を止め|配信停止/.test(ev.text.ja) && w.history.some((h) => (h as { key?: string }).key === 'eos'))); // ヒット作をクソゲー扱いしない・普通の作品を名作扱いしない(第 21 回)
+    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= (gen ? 15 : bad ? 4 : 2) && (!online || digital(w)) && (!boxed || !digital(w)) && (!bad || !hitW(w)) && (!good || hitW(w)) && !(w.platform === '業務用' && /ワゴン|店頭|店に並|\d+ ?本|万本|携帯機|中古屋|古物屋|ダウンロード版/.test(allTx)) /* 業務用の基板は店で売らない(第 52 回) */ && !(/同じハードに/.test(allTx) && /スマホ|ケータイ|ソシャゲ|ブラウザ|iPhone/.test(w.platform)) && !(/日本で \d+ 本/.test(allTx) && hitW(w)) && !(/サービス終了|配信を止め|配信停止/.test(ev.text.ja) && w.history.some((h) => (h as { key?: string }).key === 'eos'))); // ヒット作をクソゲー扱いしない・普通の作品を名作扱いしない(第 21 回)
     if (!old.length) return;
     s.inner.workTarget = r.pick(old)[1];
   }
   if (/\{other\}/.test(ev.text.ja) && !s.inner.others?.length) return; // 他の人の名前が無い時に「知人が」で出さない(第 28 回)
   if ((s.flags.callcenter || s.status === 'left') && !/^ev_(sys|fa|rv|mt|me)_/.test(ev.id) && !ev.tag?.some((t) => t === 'system' || t === 'hist' || t === 'chain' || t === 'big_after' || t === 'followup') && !(ev.when ?? []).some((c) => /callcenter|status|pos=/.test(c)) && /マスターアップ|締め切り|隣の席|社内|会議室|会議で|続編を|(?<!元)課長|(?<!元)部長|(?<!元)上司|仕様書|企画会議|チームの/.test(ev.text.ja)) return; // 電話の窓口・失業中に開発の席の話を出さない(第 49 回: カスタマーセンターで「今の作品はマスターアップ直前」、失業中に「隣の席の 4 人」)
-  if (s.status === 'indie' && !/^ev_(sys|fa|rv|mt|me)_/.test(ev.id) && !ev.tag?.some((t) => t === 'chain' || t === 'followup' || t === 'big_after') && !(ev.when ?? []).some((c) => /status|pos=|own_co/.test(c)) && /出社|送別会|定年|会社に着|通勤|社員証|人事/.test(ev.text.ja)) return; // ひとりで作っている間に「最後の出社」「送別会」を出さない(第 51 回)
+  if (s.status === 'indie' && !/^ev_(sys|fa|rv|mt|me)_/.test(ev.id) && !ev.tag?.some((t) => t === 'chain' || t === 'followup' || t === 'big_after') && !(ev.when ?? []).some((c) => /status|pos=|own_co/.test(c)) && /出社|送別会|定年|会社に着|通勤|社員証|人事|社長は|おかえり/.test(ev.text.ja)) return; // ひとりで作っている間に「最後の出社」「送別会」を出さない(第 51 回)
   if (s.job === 'teacher' && !ev.tag?.some((t) => t === 'teach' || t === 'teacher' || t === 'system') && !ev.id.startsWith('ev_sys_') && !(ev.when ?? []).some((c) => c.includes('teacher')) && /発売|作品|開発|マスター|チーム|社内|会議|企画|締め切り|仕様/.test(ev.text.ja)) return; // 先生になった後に開発の話を出さない(第 36 回: 塾の講師になって 5 年「開発者の幽霊」)
   if (ev.choices && isHwChoice(ev)) { if (s.inner.lastHwChoice !== undefined && s.year - s.inner.lastHwChoice < 2) return; s.inner.lastHwChoice = s.year; } // どの機械に付くかの選択は 2 年に 1 回まで(第 23 回: DS か PSP かが同じ年に 2 回、ドリキャスが 2 年続けて)
   if (ev.choices && ev.motif && s.inner.motifs?.includes(ev.motif)) return; // 年の初めに積んだ選択でも、同じ年に同じ型の選択が先に出ていたら出さない(第 20 回: ソシャゲに行くかが 1 年に 2 回)
@@ -644,7 +644,7 @@ function runItem(s: State, id: string, out: string[]) {
   s.inner.seen[ev.id] = s.year;
   s.inner.uses[ev.id] = (s.inner.uses[ev.id] ?? 0) + 1;
   if (ev.motif) { (s.inner.motifs ??= []).push(ev.motif); (s.inner.saidLines ??= []).push(`motif:${ev.motif}`); }
-  if (ev.motifAll) (s.inner.motifs ??= []).push(...ev.motifAll);
+  if (ev.motifAll) { (s.inner.motifs ??= []).push(...ev.motifAll); (s.inner.saidLines ??= []).push(...ev.motifAll.map((m) => `motif:${m}`)); }
   count(s, ev);
   if (ev.id.startsWith('ev_sys_promote')) promote(s);
   if (ev.id.startsWith('ev_sys_bankrupt')) (s.inner.deadCos ??= []).push(s.company.id);
@@ -737,7 +737,7 @@ function peersYear(s: State, out: string[]) {
     const said1 = (k: string) => { pc[k] = (pc[k] ?? 0) + 1; };
     const hitL: [string, string][] = [
       [`同期の${nm}の${newHit?.name.ja}が${newHit ? RESULT_TEXT[newHit.result].ja : ''}。飲み会でずっとその話をしていた。`, `Your peer ${en}'s ${newHit?.name.en} was a hit. It was all they talked about at drinks.`],
-      [`同期の${nm}の${newHit?.name.ja}が売れた。お祝いのメールに「おめでとう」と書いて、3 回消して、また書いた。`, `Your peer ${en}'s ${newHit?.name.en} sold well. You typed "congrats", deleted it three times, and typed it again.`],
+      [`同期の${nm}の${newHit?.name.ja}が売れた。${s.year < 1996 ? 'お祝いの手紙' : 'お祝いのメール'}に「おめでとう」と書いて、3 回消して、また書いた。`, `Your peer ${en}'s ${newHit?.name.en} sold well. You typed "congrats", deleted it three times, and typed it again.`],
       [`同期の${nm}の${newHit?.name.ja}が売れた。店で平積みになっているのを見て、1 本だけ向きを直してから帰った。`, `Your peer ${en}'s ${newHit?.name.en} sold well. You saw it stacked in a shop, straightened one copy, and left.`],
       [`同期の${nm}の${newHit?.name.ja}がヒット。社内報の表紙に載った。あなたは同じ号の 14 ページ目、「今月の誕生日」の欄にいた。`, `Your peer ${en}'s ${newHit?.name.en} was a hit and made the cover of the company newsletter. You were on page 14 of the same issue, under "birthdays this month".`],
       [`同期の${nm}の${newHit?.name.ja}が売れた。親戚の集まりで「あの子、すごいのね」と言われた。あなたの話は出なかった。`, `Your peer ${en}'s ${newHit?.name.en} sold well. At a family gathering, a relative said: "That one's really something." You didn't come up.`],

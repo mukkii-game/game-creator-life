@@ -3714,8 +3714,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "名刺の肩書が「嘱託」になった。若手は誰も肩書を見ず、「困った時の{name}さん」と呼んだ。",
-   "en": "Your card now says \"contract staff.\" No one reads it. The young team just calls you \"{name}, for when we're stuck.\""
+   "ja": "嘱託になって 1 年。若手は誰も名刺の肩書を見ず、「困った時の{name}さん」と呼んだ。",
+   "en": "A year on contract. No one reads the title on your card. The young team just calls you \"{name}, for when we're stuck.\""
   },
   "when": [
    "age>=60",
