@@ -101,6 +101,10 @@ export interface Inner {
   coShown?: string[];
   /** 同期の話を何回したか(種類ごと) */
   peerTold?: Record<string, number>;
+  saidLines?: string[];
+  fateCount?: Record<string, number>;
+  deadCos?: string[];
+  kr?: Text;
   /** 直属の先輩(メンター)と、自分が面倒を見る後輩(メンティー)。人生に 1 人ずつ */
   mentor?: Arc;
   mentee?: Arc;
@@ -123,7 +127,7 @@ export interface Inner {
   highs: { year: number; age: number; text: Text; w: number; kind?: string }[]; // テンションが上がった瞬間(最後に思い出す)        // この人生で起きた歴史の事件(hs_id)
 }
 
-export interface Arc { name: Text; step: number; next: number; used: string[] }
+export interface Arc { name: Text; step: number; next: number; used: string[]; co?: string }
 export interface InitOptions {
   /** 他の人の人生(サーバーから。名前を入れた人だけ。URL で決まる人生には渡さない) */
   others?: import('./people').OtherLife[];

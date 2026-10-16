@@ -110,8 +110,9 @@ function buildRoll(s: State, l: Lang): HTMLElement {
   const job = JOB_TEXT[s.job] ?? JOB_TEXT.other;
   box.append(el('p', 'rs-cause', s.ending ? s.ending.cause[l] : ''));
   p(l === 'ja' ? `${s.ending?.year ?? s.year} 年 / 最後の肩書き: ${job.ja}` : `${s.ending?.year ?? s.year} / last title: ${job.en}`, 'rs-small');
-  if (s.ending?.lastWord) box.append(el('p', 'rs-lastword', `「${s.ending.lastWord[l]}」`));
   if (s.ending?.epitaph) box.append(el('p', 'rs-epitaph', s.ending.epitaph[l]));
+  // 最後はキッズ・リターンの掛け合い(「いいゲーム人生だった」の後に、まだ続くと言わせる)
+  if (s.ending?.lastWord) box.append(el('p', 'rs-lastword', s.ending.lastWord[l]));
   box.append(el('p', 'rs-fin', T('fin', l)));
   p(T('oneOf', l), 'rs-small');
   return box;
@@ -228,8 +229,8 @@ export function showResult(root: HTMLElement, s: State, hooks: ResultHooks) {
     panel.append(pin);
     pin.append(el('p', 'rs-ttl rs-dot', T('head', l)));
     pin.append(el('p', 'rs-cause-big rs-dot', s.ending ? s.ending.cause[l] : ''));
-    if (s.ending?.lastWord) pin.append(el('p', 'rs-lastword', `「${s.ending.lastWord[l]}」`));
     if (s.ending?.epitaph) pin.append(el('p', 'rs-epitaph rs-epitaph-panel', s.ending.epitaph[l]));
+    if (s.ending?.lastWord) pin.append(el('p', 'rs-lastword', s.ending.lastWord[l]));
     pin.append(el('p', 'rs-sum', s.ending ? s.ending.summary[l] : ''));
     if (hooks.chronicle) pin.append(chronicleBox(s, hooks.chronicle));
     pin.append(lifeLog(s, l));

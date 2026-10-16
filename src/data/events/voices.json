@@ -513,5 +513,143 @@
   },
   "weight": 4,
   "once": true
+ },
+ {
+  "id": "ev_vo_sales_tonya",
+  "years": [
+   1983,
+   2000
+  ],
+  "text": {
+   "ja": "発売前の問屋回り。初回の注文数を聞くたびに、頭の中で家賃を計算した。",
+   "en": "Pre-launch rounds of the wholesalers. Every time you heard an order number, you did rent math in your head."
+  },
+  "when": [
+   "status=employed",
+   "job=sales"
+  ],
+  "effect": {
+   "network": 4
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_vo_sales_demo",
+  "years": [
+   1985,
+   2010
+  ],
+  "text": {
+   "ja": "店頭のデモ機を設置しに 30 店回った。どの店でも、子どもが一番に電源を抜いた。",
+   "en": "You set up demo units in thirty shops. In every one, a kid pulled the plug first."
+  },
+  "when": [
+   "status=employed",
+   "job=sales"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_vo_sales_first_ship",
+  "years": [
+   1985,
+   2040
+  ],
+  "text": {
+   "ja": "初回出荷数の会議。開発は「10 万」、社長は「30 万」、あなたは「7 万」と言った。結果は 6 万 8000 本。誰にも褒められなかった。",
+   "en": "The first-shipment meeting. Dev said 100,000, the CEO said 300,000, you said 70,000. It sold 68,000. Nobody praised you."
+  },
+  "when": [
+   "status=employed",
+   "job=sales"
+  ],
+  "effect": {
+   "skill": 3
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_vo_sales_ad",
+  "years": [
+   1985,
+   2005
+  ],
+  "text": {
+   "ja": "雑誌の見開き広告を取ってきた。開発には「発売日、本当に守れますか」と 3 回聞いた。",
+   "en": "You landed a two-page magazine spread, then asked dev three times: \"Will you really hit the release date?\""
+  },
+  "when": [
+   "status=employed",
+   "job=sales"
+  ],
+  "effect": {
+   "network": 3
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_vo_sales_collab_ng",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "ソシャゲのコラボ交渉。相手のキャラに「絶対にさせないことリスト」が 40 項目あった。",
+   "en": "A collab negotiation for the social game. The partner's character came with a 40-item \"never make them do this\" list."
+  },
+  "when": [
+   "status=employed",
+   "job=sales"
+  ],
+  "effect": {
+   "network": 4
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_vo_sales_tgs",
+  "years": [
+   1996,
+   2040
+  ],
+  "text": {
+   "ja": "東京ゲームショウのブースで物販。一番売れたのは、ゲームではなくクリアファイルだった。",
+   "en": "Merch duty at the Tokyo Game Show booth. The bestseller wasn't the game — it was the clear file folder."
+  },
+  "when": [
+   "status=employed",
+   "job=sales"
+  ],
+  "effect": {
+   "passion": 3
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 3
  }
 ]

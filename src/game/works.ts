@@ -15,8 +15,9 @@ function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | nul
   const fit = near.filter((t) => !t.platforms || t.platforms.some((p) => platform.includes(p) || p.includes(platform)));
   // 会社の作風(company_traits.json の genres)に合うタイトルを 7 割で優先する(シューティングの会社はシューティングを出しがち)
   const genres = CO_TRAITS[s.company.id]?.genres;
-  const byGenre = genres?.length && s.rng.chance(0.7) ? [fit, near].map((p) => p.filter((t) => t.genre && genres.includes(t.genre.ja))) : [];
-  for (const pool of [...byGenre, fit, near]) {
+  const byGenre = genres?.length && s.rng.chance(0.7) ? [fit].map((p) => p.filter((t) => t.genre && genres.includes(t.genre.ja))) : [];
+  // 機種の合わない題名は使わない(『おえかきペットDS』がケータイで出ていた)。合う物が無ければ作った名前
+  for (const pool of [...byGenre.slice(0, 1), fit]) {
     const cands = pool.flatMap((t) => (t.coined ?? (t.name ? [t.name] : [])).filter((n) => !used.has(`『${n.ja}』`) && !used.has(n.ja)).map((n) => ({ n, t })));
     if (!cands.length) continue;
     const { n, t } = s.rng.pick(cands);
@@ -35,9 +36,15 @@ export const RESULT_TEXT: Record<WorkResult, Text> = {
 
 function roleFor(s: State): Role {
   if (s.status === 'indie') return 'solo';
-  if (s.job === 'director' || s.job === 'producer' || s.stat.skill >= 75) return 'lead';
+  if (s.job === 'director' || s.job === 'producer' || (s.stat.skill >= 75 && s.job !== 'qa' && s.job !== 'sales')) return 'lead';
   if (s.stat.skill >= 35) return 'core';
   return 'junior';
+}
+/** 役割の書き方: デバッガーと営業はリードにならない(ペルソナ通読: QA なのに毎回『リード』) */
+function roleText(s: State, role: Role): Text {
+  if (s.job === 'qa') return role === 'junior' ? { ja: 'テスト担当', en: 'a tester' } : { ja: 'テストのまとめ役', en: 'the test lead' };
+  if (s.job === 'sales') return { ja: '営業担当', en: 'on sales' };
+  return ROLE_TEXT[role];
 }
 
 function roll(s: State, role: Role): WorkResult {
@@ -87,10 +94,15 @@ export function release(s: State): { work: Work; line: Text } {
   const titled = role === 'solo' || !r.chance(0.8) ? null : pickTitle(s, platform);
   const work: Work = { id: `wk_${s.works.length + 1}`, name: titled?.name ?? workName(r, s.year), year: s.year, platform, role, result, history: [] };
   s.works.push(work);
-  const gag = role === 'solo' && SOLO_LINES[result] ? SOLO_LINES[result]! : titled?.gag && r.chance(0.5) ? titled.gag : r.pick(RESULT_LINES[result]);
+  // 結果の一言は、この人生でまだ使っていないものから(ペルソナ通読: 社長賞 5000 円が 3 回)
+  const said = (s.inner.saidLines ??= []);
+  const fresh = RESULT_LINES[result].filter((t) => !said.includes(t.ja));
+  const pickLine = fresh.length ? r.pick(fresh) : { ja: '', en: '' };
+  const gag = role === 'solo' && SOLO_LINES[result] ? SOLO_LINES[result]! : titled?.gag && r.chance(0.5) ? titled.gag : pickLine;
+  if (gag.ja) said.push(gag.ja);
   const line: Text = {
-    ja: `${work.name.ja}(${work.platform})発売。あなたは${ROLE_TEXT[role].ja}。結果は${RESULT_TEXT[result].ja}。${gag.ja}`,
-    en: `${work.name.en} (${work.platform}) ships. You were ${ROLE_TEXT[role].en}. Result: ${RESULT_TEXT[result].en}. ${gag.en}`,
+    ja: `${work.name.ja}(${work.platform})発売。あなたは${roleText(s, role).ja}。結果は${RESULT_TEXT[result].ja}。${gag.ja}`,
+    en: `${work.name.en} (${work.platform}) ships. You were ${roleText(s, role).en}. Result: ${RESULT_TEXT[result].en}. ${gag.en}`,
   };
   const fx = { flop: { passion: -12, fame: 0 }, ok: { passion: 4, fame: 1 }, hit: { passion: 20, fame: 8 }, legend: { passion: 30, fame: 20 } }[result];
   const roleFame = { junior: 0.3, core: 0.7, lead: 1, solo: 1 }[role];
@@ -104,10 +116,11 @@ export function release(s: State): { work: Work; line: Text } {
 export function clamp(v: number) { return Math.max(0, Math.min(100, Math.round(v))); }
 
 // 発売後に勝手に起きること(データのイベントとは別の、機種と年で決まる運命)
-type Fate = { key: string; test: (w: Work, year: number) => boolean; chance: number; text: Text; result?: WorkResult; fame?: number };
+type Fate = { key: string; test: (w: Work, year: number) => boolean; chance: number; text: Text; more?: Text[]; result?: WorkResult; fame?: number };
 const FATES: Fate[] = [
   { key: 'eos', test: (w, y) => ['ケータイ', 'ソシャゲ', 'スマホ'].includes(w.platform) && y - w.year >= 3, chance: 0.35,
-    text: { ja: 'サービス終了。最後の日、ログインしていたのは 41 人だった。', en: 'End of service. On the last day, 41 players were online.' } },
+    text: { ja: 'サービス終了。最後の日、ログインしていたのは 41 人だった。', en: 'End of service. On the last day, 41 players were online.' },
+    more: [{ ja: 'サービス終了。最後のお知らせを書いたのは、最初のお知らせを書いたのと同じ人だった。', en: 'End of service. The final notice was written by the same person who wrote the first one.' }] },
   { key: 'rerelease', test: (w, y) => y >= 2006 && y - w.year >= 15 && w.year < 2000, chance: 0.05,
     text: { ja: 'ダウンロード版で復刻。800 円。あなたに 1 円も入らない。', en: 'Re-released digitally for 800 yen. You get zero.' } },
   { key: 'gem', test: (w, y) => y >= 2016 && y - w.year >= 20 && w.result === 'flop', chance: 0.04, result: 'ok', fame: 4,
@@ -130,12 +143,18 @@ export function tickWorks(s: State): { work: Work; text: Text }[] {
     const w = s.works[(i + off) % n];
     for (const f of FATES) {
       if (done(w, f.key) || !f.test(w, s.year)) continue;
+      // 同じ運命は 1 人生で言い回しの数まで(ペルソナ通読: 「ログイン 41 人」が 5 回)
+      const fc = (s.inner.fateCount ??= {});
+      const texts = [f.text, ...(f.more ?? [])];
+      if ((fc[f.key] ?? 0) >= texts.length) continue;
       if (!s.rng.chance(f.chance * base / 0.06)) continue;
-      const h = { year: s.year, text: f.text, key: f.key } as { year: number; text: Text; key?: string };
+      const ft = texts[fc[f.key] ?? 0];
+      fc[f.key] = (fc[f.key] ?? 0) + 1;
+      const h = { year: s.year, text: ft, key: f.key } as { year: number; text: Text; key?: string };
       w.history.push(h);
       if (f.result) w.result = f.result;
       if (f.fame) s.stat.fame = clamp(s.stat.fame + f.fame);
-      out.push({ work: w, text: { ja: `${w.name.ja}: ${f.text.ja}`, en: `${w.name.en}: ${f.text.en}` } });
+      out.push({ work: w, text: { ja: `${w.name.ja}: ${ft.ja}`, en: `${w.name.en}: ${ft.en}` } });
       break;
     }
     if (out.length >= 1) break; // 1 年に 1 つまで(うるさくしない)

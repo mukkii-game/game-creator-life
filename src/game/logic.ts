@@ -82,9 +82,10 @@ function nameAt(c: CoRow, year: number): Text {
   return n;
 }
 /** 勤め先を表から引く: 大手は実名、中堅・小さい会社・下請けはパロディ名(その年に存在した会社だけ)。無ければ名前を作る */
-function newCompany(r: Rng, size: CompanySize, year: number, avoid?: string): Company {
+function newCompany(r: Rng, size: CompanySize, year: number, avoid?: string | string[]): Company {
+  const av = Array.isArray(avoid) ? avoid : avoid ? [avoid] : [];
   const rows = size === 'big' ? COMPANIES.real : ['mid', 'small', 'sub'].includes(size) ? COMPANIES.parody.filter((c) => c.size === size) : [];
-  const ok = rows.filter((c) => c.years[0] <= year && year <= c.years[1] && c.id !== avoid);
+  const ok = rows.filter((c) => c.years[0] <= year && year <= c.years[1] && !av.includes(c.id));
   // 表が少ない年代は作った名前を混ぜる(同じ会社ばかりにしない)
   if (ok.length && r.chance(size === 'big' ? 0.85 : Math.min(0.85, 0.2 + 0.12 * ok.length))) {
     const total = ok.reduce((t, c) => t + (c.weight ?? 1), 0);
@@ -139,6 +140,7 @@ export function init(seed: number, options: InitOptions = {}): State {
     }
   }
   if (entry.segaSub) s.flags.sega_sub = true;
+  if (entry.text.ja === 'アーケードのメーカー') s.flags.hw_pl_arcade = true; // ゲーセン組(ゲーセンに残るかの選択はこの人にだけ)
   syncCompany(s);
   // 前日譚: 業界に入る前の学生時代(2026-10-16 Mukkii: 基本は 22 歳で入社、それまでは学生として何かしている)。
   // 道をひとつ引く(自主制作 = 雑誌への投稿など / バイト / ただのゲーマー / 学業)→ その道の話 2 本 + 別の道から 0〜1 本。
@@ -169,7 +171,8 @@ export function init(seed: number, options: InitOptions = {}): State {
 // ---- 文の差し込み ----
 function fill(s: State, t: Text): Text {
   const w = s.inner.workTarget >= 0 ? s.works[s.inner.workTarget] : s.works[s.works.length - 1];
-  const peer = s.inner.peerStates.length ? s.inner.peerStates[s.year % s.inner.peerStates.length].name : { ja: '同期', en: 'a peer' };
+  const live = s.inner.peerStates.filter((p) => !p.ending && !p.flags.in_prison); // 引退・服役した同期は出さない
+  const peer = live.length ? live[s.year % live.length].name : { ja: '同期', en: 'a peer' };
   const other = s.inner.otherJob ?? { ja: '別の仕事', en: 'another job' };
   const rep = (str: string, l: 'ja' | 'en') => (l === 'ja' ? str.replace(/ ?\{(peer|company|work|name)\} ?/g, '{$1}') : str)
     .replace(/\{name\}/g, s.name[l]).replace(/\{company\}/g, s.company.name[l])
@@ -410,7 +413,7 @@ function pickHist(s: State): string[] {
   for (const h of HIST) {
     if (h.year > s.year) break;
     if (s.year > (h.until ?? h.year) || s.inner.histDone.includes(h.id)) continue;
-    const v = h.variants.map((x) => EVENT_BY_ID.get(x.id)!).find((ev) => eligible(s, ev));
+    const v = h.variants.map((x) => EVENT_BY_ID.get(x.id)!).find((ev) => eligible(s, ev) && (!s.flags.in_prison || (ev.when ?? []).some((c) => c.includes('prison'))));
     if (!v) continue;
     const novelty = !seenHist.has(h.id) ? tune<number>('hist.newBoost') : !seen.has(`${h.id}:${v.id}`) ? tune<number>('hist.newPosBoost') : 0.5;
     // 前に選んだこと(flag)を回収する版なら、ほぼ必ず出す(陣営・全力・闇の誘いの結末)
@@ -464,7 +467,7 @@ function runItem(s: State, id: string, out: string[]) {
     const p = tune('job.rehire') + (s.stat.skill + s.stat.network) / 250;
     if (r.chance(p)) {
       const size: CompanySize = s.stat.skill >= 65 ? r.pick(['big', 'mid'] as const) : r.pick(['mid', 'small', 'sub', 'sub'] as const);
-      s.company = newCompany(r, size, s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
+      s.company = newCompany(r, size, s.year, s.inner.deadCos); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
       logEvent(s, 'ev_sys_rehired', 'event'); apply(s, EVENT_BY_ID.get('ev_sys_rehired')?.effect, id, out);
       s.inner.nextWorkYear = s.year + r.int(1, 3);
     } else { s.inner.searchFails++; const f = vary(s, ['ev_sys_search_fail', 'ev_sys_search_fail_b', 'ev_sys_search_fail_c']); s.inner.uses[f] = (s.inner.uses[f] ?? 0) + 1; logEvent(s, f, 'event'); apply(s, EVENT_BY_ID.get(f)?.effect, id, out); }
@@ -478,6 +481,7 @@ function runItem(s: State, id: string, out: string[]) {
   if (ev.years && (s.year < ev.years[0] || s.year > ev.years[1])) return;
   if (ev.once && s.inner.used.includes(ev.id)) return;
   if (ev.when && !ev.when.every((c) => test(s, c))) return; // 同じ年のうちに独立・転職・服役した時は出さない
+  if (s.flags.in_prison && ev.id !== 'ev_sys_shift' && !ev.id.includes('prison') && !(ev.when ?? []).some((c) => c.includes('prison'))) return; // 塀の中に社内の話は届かない
   // 後日談: 発売から 2 年以上たった作品を 1 本選ぶ
   s.inner.workTarget = -1;
   if (ev.tag?.includes('afterlife')) {
@@ -492,6 +496,7 @@ function runItem(s: State, id: string, out: string[]) {
   s.inner.uses[ev.id] = (s.inner.uses[ev.id] ?? 0) + 1;
   count(s, ev);
   if (ev.id.startsWith('ev_sys_promote')) promote(s);
+  if (ev.id.startsWith('ev_sys_bankrupt')) (s.inner.deadCos ??= []).push(s.company.id);
   if (ev.id === 'ev_sys_prison_out') s.stat.money = Math.max(s.stat.money, 50); // 出所したら借金は帳消しで再起(罰金・没収は判決で済んでいる)
   if (ev.id.startsWith('ev_sys_offer')) s.inner.seen.ev_sys_offer = s.year; // 言い回し違いの版も同じ 4 年の間隔に数える
   if (ev.choices) {
@@ -688,14 +693,14 @@ function mentorArcs(s: State, r: Rng, out: string[]) {
   if (s.inner.isPeer) return;
   const career = s.year - s.startYear;
   if (!s.inner.mentor && s.status === 'employed' && career <= 3 && s.company.size !== 'indie')
-    s.inner.mentor = { name: arcName(s, r, s.startYear - 15, s.startYear - 3, s.year - s.age - r.int(5, 12)), step: 0, next: s.year, used: [] };
+    s.inner.mentor = { name: arcName(s, r, s.startYear - 15, s.startYear - 3, s.year - s.age - r.int(5, 12)), step: 0, next: s.year, used: [], co: s.company.id };
   if (!s.inner.mentee && s.status === 'employed' && career >= (s.inner.menteeAt ?? 8) && s.age < 62)
-    s.inner.mentee = { name: arcName(s, r, s.year - 2, s.year + 1, s.year - 22), step: 0, next: s.year, used: [] };
+    s.inner.mentee = { name: arcName(s, r, s.year - 2, s.year + 1, s.year - 22), step: 0, next: s.year, used: [], co: s.company.id };
   for (const kind of ['mentor', 'mentee'] as const) {
     const a: Arc | undefined = s.inner[kind];
     if (!a || a.step >= 5 || s.year < a.next || s.flags.in_prison) continue;
     // 2・3 段目は同じ職場にいる時だけ(いなければ飛ばす)
-    if ((a.step === 1 || a.step === 2) && s.status !== 'employed') { a.step++; continue; }
+    if ((a.step === 1 || a.step === 2) && (s.status !== 'employed' || (a.co && a.co !== s.company.id))) { a.step++; continue; }
     const pre = kind === 'mentor' ? 'ev_mt_' : 'ev_me_';
     const used = [...(s.inner.mentor?.used ?? []), ...(s.inner.mentee?.used ?? [])];
     const vs = ['a', 'b', 'c'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)) && (!e.jobs || e.jobs.includes(s.job)));
@@ -718,17 +723,20 @@ function vary(s: State, ids: string[]): string {
 
 /** どの終わり方でも、最後は同期との掛け合い(キッズ・リターンのパロディ)。場面だけ終わり方で変える */
 function kidsReturn(s: State, id: EndingId) {
-  const bud = s.inner.peerStates.find((x) => !x.ending) ?? s.inner.peerStates[0]; // まだ業界にいる同期を優先
-  const p = bud?.name.ja.split(' ')[0] ?? '相棒', pe = bud?.name.en.split(' ').slice(-1)[0] ?? 'your old buddy';
+  // 相方: まだ業界にいて塀の外の同期。会社に入らず始めた人生なら「昔の仲間」
+  const bud = s.inner.peerStates.find((x) => !x.ending && !x.flags.in_prison) ?? s.inner.peerStates.find((x) => !x.flags.in_prison) ?? s.inner.peerStates[0];
+  const indieStart = s.companies[0]?.company.size === 'indie';
+  const rel = indieStart ? { ja: '昔の仲間の', en: 'your old friend' } : { ja: '同期の', en: 'your old peer' };
+  const p = `${rel.ja}${bud?.name.ja.split(' ')[0] ?? '相棒'}`, pe = `${rel.en} ${bud?.name.en.split(' ').slice(-1)[0] ?? ''}`.trim();
+  const jail = s.flags.in_prison || id === 'end_arrest';
   const where: Partial<Record<EndingId, Text>> = {
-    end_restart: { ja: `帰り道、同期の${p}がぽつりと言った。`, en: `On the way home, ${pe}, from your year, said quietly:` },
-    end_arrest: { ja: `面会室で、同期の${p}がアクリル板ごしに言った。`, en: `In the visiting room, ${pe} said through the acrylic panel:` },
-    end_retire: { ja: `送別会の帰り、同期の${p}が言った。`, en: `Leaving the farewell party, ${pe} said:` },
-    end_pen_down: { ja: `70 歳の誕生日、同期の${p}から電話があった。`, en: `On your 70th birthday, ${pe} called:` },
-    end_body: { ja: `病院のベッドの横で、同期の${p}が言った。`, en: `By your hospital bed, ${pe} said:` },
-    end_debt: { ja: `店をたたんだ夜、同期の${p}が缶ビールを持って来て言った。`, en: `The night you closed shop, ${pe} came by with canned beer and said:` },
+    end_restart: { ja: `帰り道、${p}がぽつりと言った。`, en: `On the way home, ${pe} said quietly:` },
+    end_retire: { ja: `送別会の帰り、${p}が言った。`, en: `Leaving the farewell party, ${pe} said:` },
+    end_pen_down: { ja: `70 歳の誕生日、${p}から電話があった。`, en: `On your 70th birthday, ${pe} called:` },
+    end_body: { ja: `病院のベッドの横で、${p}が言った。`, en: `By your hospital bed, ${pe} said:` },
+    end_debt: { ja: `店をたたんだ夜、${p}が缶ビールを持って来て言った。`, en: `The night you closed shop, ${pe} came by with canned beer and said:` },
   };
-  const w = where[id] ?? { ja: `最後の日、同期の${p}と並んで歩きながら、${p}が言った。`, en: `Walking side by side on your last day, ${pe} said:` };
-  log(s, { ja: `${w.ja}「なあ、俺たち、もう終わっちゃったのかな」`, en: `${w.en} "Hey... are we finished?"` }, 'event', ['finale']);
-  log(s, { ja: '「バカヤロー、まだ始まっちゃいねえよ」', en: '"Idiot. We haven\'t even started yet."' }, 'event', ['finale', 'high']);
+  const w = jail ? { ja: `面会室で、${p}がアクリル板ごしに言った。`, en: `In the visiting room, ${pe} said through the acrylic panel:` }
+    : where[id] ?? { ja: `最後の日、${p}と並んで歩きながら、${p.replace(/^.*の/, '')}が言った。`, en: `Walking side by side on your last day, ${pe} said:` };
+  s.inner.kr = { ja: `${w.ja}\n「なあ、俺たち、もう終わっちゃったのかな」\n「バカヤロー、まだ始まっちゃいねえよ」`, en: `${w.en}\n"Hey... are we finished?"\n"Idiot. We haven't even started yet."` };
 }

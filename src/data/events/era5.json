@@ -130,7 +130,7 @@
   { "id": "ev_era5_spec_2015", "years": [2014, 2019], "weight": 2,
     "text": { "ja": "仕様変更のお知らせが Slack で来た。誰かが「了解」の代わりに泣き顔の絵文字を 40 個押していた。", "en": "The spec change notice arrives on Slack. Someone reacted with 40 crying emoji instead of 'OK.'" },
     "when": ["status=employed"], "effect": { "passion": -10 }, "tag": ["spec", "gag"] },
-  { "id": "ev_era5_engine_farewell", "years": [2015, 2018], "once": true,
+  { "id": "ev_era5_engine_farewell", "years": [2015, 2015], "once": true,
     "text": { "ja": "有名な商用エンジンが無料に。10 年かけた自社エンジンの送別会が開かれた。乾杯の音頭は {peer}。", "en": "A major commercial engine went free. A farewell party was held for the in-house engine you spent 10 years on. {peer} gave the toast." },
     "when": ["status=employed"], "effect": { "skill": 5, "passion": -3, "network": 2 }, "tag": ["gag"] },
   { "id": "ev_era5_indie_hit_news", "years": [2015, 2019],

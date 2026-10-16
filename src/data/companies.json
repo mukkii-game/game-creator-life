@@ -204,7 +204,16 @@
         1978,
         2011
       ],
-      "weight": 2
+      "weight": 2,
+      "renames": [
+        [
+          2012,
+          {
+            "ja": "コナミ(旧ハドソン)",
+            "en": "Konami (ex-Hudson)"
+          }
+        ]
+      ]
     },
     {
       "id": "co_koei",
