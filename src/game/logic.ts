@@ -844,7 +844,7 @@ function arcOn(s: State, r: Rng, kind: string, pre: string): boolean {
   // どの人生にも長い筋を 1 本は通す(第 34 回まで: 筋の通った人生は 8 点、無い人生は「部品の寄せ集め」)。直近で見ていない種類を優先
   if (k.must === undefined) { const all: [string, string][] = [['fan', 'ev_fa_'], ['rival', 'ev_rv_'], ['mentor', 'ev_mt_'], ['mentee', 'ev_me_']]; const fresh = all.filter(([, p]) => !s.inner.recent?.some((id) => id.startsWith(p))); (k as Record<string, boolean | string>).must = r.pick(fresh.length ? fresh : all)[0]; }
   if ((k as Record<string, boolean | string>).must === kind) return true;
-  if (k[kind] === undefined) k[kind] = !r.chance(s.inner.recent?.some((id) => id.startsWith(pre)) ? 0.9 : 0.1); // 第 20 回: ファンの子の筋が 2 人生続けて → 0.9 // 第 15 回ペルソナ: まだ続けて来る → 0.6 から 0.8
+  if (k[kind] === undefined) k[kind] = s.inner.recent?.some((id) => id.startsWith(pre)) ? false : !r.chance(0.1); // 直近の人生で通った筋は、決め打ちの 1 本でなければ通さない(第 36 回: ファンの子の筋が 2 人生続けて) // 第 20 回: ファンの子の筋が 2 人生続けて → 0.9 // 第 15 回ペルソナ: まだ続けて来る → 0.6 から 0.8
   return k[kind];
 }
 function mentorArcs(s: State, r: Rng, out: string[]) {
