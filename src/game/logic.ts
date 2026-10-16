@@ -203,6 +203,8 @@ function fill(s: State, t: Text): Text {
   return { ja: rep(t.ja, 'ja').replace(/([ぁ-んァ-ヶ一-龠ー])(SNS)/g, '$1 $2'), en: rep(t.en, 'en').replace(/\b([Aa]) (email|emails?\b)/g, '$1n $2') };
 }
 function log(s: State, text: Text, kind: LogLine['kind'], tag?: string[]) {
+  // 日本語どうしの間の空白は詰める(「グリー に」→「グリーに」。第 14・15 回ペルソナ)
+  text = { ja: text.ja.replace(/([ぁ-んァ-ヶ一-龠ー々」』])[ \u3000]+(?=[ぁ-んァ-ヶ一-龠ー々「『、。])/g, '$1'), en: text.en };
   s.log.push({ year: s.year, age: s.age, text, kind, tag });
 }
 function logEvent(s: State, id: string, kind: LogLine['kind']) {
@@ -550,7 +552,7 @@ function runItem(s: State, id: string, out: string[]) {
   const moves = (x: { flag?: Record<string, boolean> } | undefined) => Object.keys(x?.flag ?? {}).some((f) => ['do_change_company', 'do_go_indie', 'do_join_sega', 'life_abroad', 'went_abroad'].includes(f));
   if ((moves(ev.effect) || ev.choices?.some((c) => moves(c.effect))) && s.companies.length > 1 && s.companies[s.companies.length - 1].year === s.year) return;
   // 同じ後日談は 1 人生に 1 回(第 12 回ペルソナ: 「コンシューマに残った」が選択なしで 2 回)
-  if ((ev.weight ?? 1) === 0 && s.inner.seen[ev.id] !== undefined && !ev.tag?.includes('repeatable') && !/^ev_(fa|rv|mt|me|sys)_/.test(ev.id)) return;
+  if (((ev.weight ?? 1) === 0 || ev.tag?.includes('followup')) && s.inner.seen[ev.id] !== undefined && !ev.tag?.includes('repeatable') && !/^ev_(fa|rv|mt|me|sys)_/.test(ev.id)) return;
   if (ev.id === 'ev_wk_fu_callcenter') s.flags.callcenter = false; // 開発に戻る
   // 選択の後日談(weight 0 で later から来る話)は、直近の人生で見ていたら 7 割で出さない(長い話の続き・大作の結末は除く)
   if ((ev.weight ?? 1) === 0 && !ev.tag?.some((t) => t === 'mega' || t === 'rival') && !/^ev_(fa|rv|mt|me)_/.test(ev.id) && s.inner.recent?.includes(ev.id) && r.chance(0.7)) return;
@@ -783,7 +785,7 @@ function arcName(s: State, r: Rng, lo: number, hi: number, born: number): Text {
 /** 一人の人の長い話(ファン・ライバル・先輩・後輩)をこの人生でやるか。直近の人生でやった話は出にくく(第 8 回ペルソナ: 3 回とも同じ筋で先が読めた) */
 function arcOn(s: State, r: Rng, kind: string, pre: string): boolean {
   const k = (s.inner.arcOn ??= {});
-  if (k[kind] === undefined) k[kind] = !r.chance(s.inner.recent?.some((id) => id.startsWith(pre)) ? 0.6 : 0.1);
+  if (k[kind] === undefined) k[kind] = !r.chance(s.inner.recent?.some((id) => id.startsWith(pre)) ? 0.8 : 0.1); // 第 15 回ペルソナ: まだ続けて来る → 0.6 から 0.8
   return k[kind];
 }
 function mentorArcs(s: State, r: Rng, out: string[]) {
@@ -828,7 +830,7 @@ type Finale = { t: Text; fit?: (s: State, id: EndingId) => boolean; parody?: Reg
 const bad = (id: EndingId) => id === 'end_debt' || id === 'end_burnout' || id === 'end_blacklist' || id === 'end_body';
 const FINALES: Finale[] = [
   { t: { ja: '「なあ、俺たち、もう終わっちゃったのかな」\n「バカヤロー、まだ始まっちゃいねえよ」', en: '"Hey... are we finished?"\n"Idiot. We haven\'t even started yet."' } }, // キッズ・リターン(どの人生にも)
-  { t: { ja: '「明日から、どうする?」\n「明日は明日の風が吹くさ」', en: '"So what about tomorrow?"\n"Tomorrow is another day."' }, fit: (_s, id) => bad(id) || id === 'end_switch' }, // 風と共に去りぬ: うまくいかなかった人生に
+  { t: { ja: '「明日から、どうする?」\n「明日は明日の風が吹くさ」', en: '"So what about tomorrow?"\n"Tomorrow is another day."' } }, // どの人生にも(キッズ・リターンが続かないように) // 風と共に去りぬ: うまくいかなかった人生に
   { t: { ja: '「まだ希望なんて持ってるのか」\n「希望はいいものだ。たぶん最高のものだ。いいものは決して滅びない」', en: '"You still have hope?"\n"Hope is a good thing, maybe the best of things, and no good thing ever dies."' }, fit: (s) => !!(s.flags.ex_prison || s.flags.in_prison) }, // ショーシャンクの空に: 塀の中を通った人生に
   { t: { ja: '「この先、どうなるんだろうな」\n「未来は決まっていない。運命なんてない。自分で作るものだ」', en: '"Wonder what happens now."\n"The future\'s not set. There\'s no fate but what we make for ourselves."' }, fit: (s) => !!(s.flags.shift_hand || s.flags.shift_partner) }, // ターミネーター 2: AI の時代にまだ作る人生に
   { t: { ja: '「人生って、何が出るか分からないな」\n「人生はチョコレートの箱みたいなもんさ。開けてみるまで中身は分からない」', en: '"You never know what life\'ll throw at you."\n"Life is like a box of chocolates. You never know what you\'re gonna get."' }, fit: (s) => s.companies.length >= 4 || !!s.flags.ex_prison }, // フォレスト・ガンプ: 浮き沈みの多い人生に
