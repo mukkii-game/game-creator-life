@@ -12,7 +12,7 @@
     },
     "alt": [
       { "ja": "{year} 年、{age} 歳。{company} に入社。案内された椅子に、先輩の名前が書いてあった。その先輩は 3 年前に辞めていた。", "en": "{year}, age {age}. You join {company}. Your chair has a senior's name written on it. He quit three years ago." },
-      { "ja": "{year} 年、{age} 歳。{company} に入社。初日の仕事は、開発室の時計を合わせることだった。ずれていたのに、誰も気づいていなかった。", "en": "{year}, age {age}. You join {company}. Your first task: setting the dev room clock. It was way off, and nobody had noticed." },
+      { "ja": "{year} 年、{age} 歳。{company} に入社。初日の仕事は開発室の時計合わせ。かなりずれていたのに、誰も気づいていなかった。", "en": "{year}, age {age}. You join {company}. Your first task: setting the dev room clock. It was way off, and nobody had noticed." },
       { "ja": "{year} 年、{age} 歳。{company} に入社。朝 9 時に出社したら、開発室には誰もいなかった。全員、昼に来た。", "en": "{year}, age {age}. You join {company}. You arrive at 9 a.m. The dev room is empty. Everyone shows up at noon." }
     ],
     "tag": [
@@ -539,12 +539,12 @@
     ],
     "weight": 0,
     "text": {
-      "ja": "同期の{peer}から飲み会の誘い。行ってみたら、知らない会社の人事が 2 人座っていた。「給料は今と同じです。ただ、企画は全部あなたに任せます」。",
+      "ja": "同期の{peer}から飲み会の誘い。知らない会社の人事が 2 人座っていた。「給料は今と同じ。ただ、企画は全部あなたに任せます」。",
       "en": "{peer}, from your year, invited you for drinks. Two HR people from a company you didn't know were waiting. \"Same salary. But every project would be yours to plan.\""
     },
     "alt": [
       { "ja": "{peer}に焼き鳥屋へ呼ばれた。奥の席に、知らない会社の人事が 2 人。「給料は同じです。でも、作るものはあなたが決めていい」。", "en": "{peer} took you to a yakitori place. Two HR people from an unknown company sat in the back. \"Same pay. But you decide what to make.\"" },
-      { "ja": "{peer}から「会わせたい人がいる」。喫茶店に、知らない会社の人事が 2 人いた。「待遇は今と同じ。企画は全部、あなたのものです」。", "en": "{peer}: \"Someone wants to meet you.\" At a café, two HR people from a company you'd never heard of. \"Same terms. Every project is yours.\"" },
+      { "ja": "{peer}から「会わせたい人がいる」。喫茶店に、知らない会社の人事が 2 人。「待遇は今と同じ。企画は全部、あなたのものです」。", "en": "{peer}: \"Someone wants to meet you.\" At a café, two HR people from a company you'd never heard of. \"Same terms. Every project is yours.\"" },
       { "ja": "{peer}の誕生日会に行ったら、主役の隣に知らない会社の人事が 2 人。「給料は変わりません。企画は全部任せます」。", "en": "At {peer}'s birthday party, two HR people from an unknown company sat beside the guest of honor. \"Same salary. All the planning is yours.\"" }
     ],
     "choices": [

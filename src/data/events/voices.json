@@ -30,7 +30,7 @@
    2040
   ],
   "text": {
-   "ja": "初めてスタッフロールに本名で載った。実家に電話したら「やっと見つけた」と言われた。昔のポテト山田も、ちゃんとあんただったのにね、とも。",
+   "ja": "初めてスタッフロールに本名で載った。実家に電話したら「やっと見つけた」。昔のポテト山田も、ちゃんとあんただったのにね、とも言われた。",
    "en": "For the first time your real name was in the credits. You called home: \"Finally found you.\" And: \"Potato Yamada was you too, you know.\""
   },
   "when": [
@@ -128,7 +128,7 @@
   ],
   "text": {
    "ja": "セーブに 3 ブロック使うと言ったら、営業ににらまれた。メモリーカードは 15 ブロックしかない。1 ブロックに削った夜、少し誇らしかった。",
-   "en": "You said the save would use three blocks and sales glared at you — a memory card only has fifteen. The night you squeezed it into one, you felt a little proud."
+   "en": "You said the save would use three blocks and sales glared: a memory card only has fifteen. The night you squeezed it into one, you felt a little proud."
   },
   "when": [
    "status=employed",
@@ -377,7 +377,7 @@
    2040
   ],
   "text": {
-   "ja": "運営会議の資料は DAU、ARPPU、継続率ばかり。会議で「面白い」という言葉が出たのは、3 か月で 1 回だけだった。言ったのは新人だった。",
+   "ja": "運営会議の資料は DAU、ARPPU、継続率ばかり。3 か月の会議で「面白い」が出たのは 1 回だけ。言ったのは新人だった。",
    "en": "The live-ops decks were all DAU, ARPPU, retention. In three months of meetings, the word \"fun\" came up once. The new hire said it."
   },
   "when": [
@@ -545,7 +545,7 @@
    2040
   ],
   "text": {
-   "ja": "初回出荷数の会議。開発は「10 万」、社長は「30 万」、あなたは「7 万」と言った。結果は 6 万 8000 本。誰にも褒められなかった。",
+   "ja": "初回出荷数の会議。開発は「10 万」、社長は「30 万」、あなたは「7 万」。結果は 6 万 8000 本。誰にも褒められなかった。",
    "en": "The first-shipment meeting. Dev said 100,000, the CEO said 300,000, you said 70,000. It sold 68,000. Nobody praised you."
   },
   "when": [
@@ -753,7 +753,7 @@
    2040
   ],
   "text": {
-   "ja": "自分の曲がオーケストラのコンサートで演奏された。客席で、知らない人が泣いていた。あの曲は、締め切りの前の晩に 2 時間で書いたものだった。",
+   "ja": "自分の曲がオーケストラのコンサートで演奏された。客席で、知らない人が泣いていた。あの曲は、締め切り前の晩に 2 時間で書いたものだった。",
    "en": "Your music was played at an orchestral concert. In the audience a stranger was crying. You had written that piece in two hours the night before a deadline."
   },
   "when": [
@@ -776,7 +776,7 @@
    2040
   ],
   "text": {
-   "ja": "効果音のライブラリを整理していたら、10 年前に録った自分の咳払いが「威嚇・小」という名前で入っていた。今もどこかのゲームで、敵が咳払いしている。",
+   "ja": "効果音のライブラリを整理していたら、10 年前に録った自分の咳払いが「威嚇・小」の名で入っていた。今もどこかで、敵が咳払いしている。",
    "en": "Sorting the SFX library, you found your own throat-clearing from ten years ago, filed as \"intimidate_small.\" Somewhere, an enemy still clears its throat in your voice."
   },
   "when": [

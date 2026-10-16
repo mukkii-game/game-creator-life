@@ -30,8 +30,8 @@
    "status=employed"
   ],
   "text": {
-   "ja": "新しいプロジェクトの初日、ロードマップはどこかと聞いたら、プロデューサーが言った。「道? これから行く所に、道なんていらない」。本当に無かった。",
-   "en": "Day one of a new project, you asked where the roadmap was. The producer said: \"Roads? Where we're going, we don't need roads.\" There really wasn't one."
+   "ja": "新プロジェクトの初日、ロードマップはどこかと聞くと、プロデューサーは言った。「道? これから行く所に、道なんていらない」。本当に無かった。",
+   "en": "Day one of a new project, you asked where the roadmap was. The producer: \"Roads? Where we're going, we don't need roads.\" There really wasn't one."
   },
   "effect": {
    "passion": 4
@@ -53,7 +53,7 @@
    "status=employed"
   ],
   "text": {
-   "ja": "マスターアップ前夜、もうだめだと誰かが言った。同期の{peer}が立ち上がった。「まだだ、まだマスターアップしとらんよ!」。朝には本当に終わっていた。",
+   "ja": "マスターアップ前夜、もうだめだと誰かが言った。{peer}が立ち上がった。「まだだ、まだマスターアップしとらんよ!」。朝には終わっていた。",
    "en": "The night before master-up, someone said it was hopeless. {peer} stood up: \"Not yet — we haven't hit master-up yet!\" By morning, it was actually done."
   },
   "effect": {
@@ -76,8 +76,8 @@
    "status=employed"
   ],
   "text": {
-   "ja": "運営の方針会議で、ディレクターが拳を突き上げた。「無限のアップデートの彼方へ、さあ行くぞ!」。会議室の全員が、自分の有給の残りを数えた。",
-   "en": "At the live-ops planning meeting, the director raised a fist: \"To infinite updates, and beyond!\" Everyone in the room counted their remaining paid leave."
+   "ja": "運営の方針会議で、ディレクターが拳を突き上げた。「無限のアップデートの彼方へ、さあ行くぞ!」。全員が、自分の有給の残りを数えた。",
+   "en": "At the live-ops planning meeting, the director raised a fist: \"To infinite updates, and beyond!\" Everyone counted their remaining paid leave."
   },
   "effect": {
    "passion": 4
@@ -169,7 +169,7 @@
    "flag.in_prison"
   ],
   "text": {
-   "ja": "同じ房の男が、図書室の古いゲーム雑誌を読みながら言った。「希望はいいものだ。いいものは決して滅びない」。セーブデータもな、と心の中で付け足した。",
+   "ja": "同じ房の男が、図書室の古いゲーム雑誌を読みながら言った。「希望はいいものだ。いいものは決して滅びない」。セーブデータもな、と付け足した。",
    "en": "Your cellmate, reading an old game magazine from the prison library, said: \"Hope is a good thing, and no good thing ever dies.\" Neither does save data, you added silently."
   },
   "effect": {

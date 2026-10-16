@@ -444,8 +444,8 @@
   },
   "alt": [
    {
-    "ja": "新作は、誰にも読めない数字のまま発売された。半年後、同業者の飲み会で「あれ、うちでもやりたかった」と言われた。それが一番の売上報告だった。",
-    "en": "The new game shipped with numbers nobody could predict. Six months later, at an industry drinking night, someone said \"we wanted to make that.\" Best sales report you ever got."
+    "ja": "新作は、誰にも読めない数字のまま発売された。半年後、同業者の飲み会で「あれ、うちでもやりたかった」と言われた。最高の売上報告だった。",
+    "en": "The new game shipped with numbers nobody could predict. Six months later an industry peer said \"we wanted to make that.\" Best sales report you ever got."
    },
    {
     "ja": "新作の主人公の名前が、知らない人のペットの名前になっていた。写真付きの手紙が会社に届いた。",
@@ -576,7 +576,7 @@
    2040
   ],
   "text": {
-   "ja": "次の作品のエンジン選び。何年も育ててきた自社エンジンか、みんなが使っている市販エンジンか。自社エンジンの作者は、会議の間ずっと腕を組んでいた。",
+   "ja": "次の作品のエンジン選び。育ててきた自社エンジンか、みんなが使う市販エンジンか。自社エンジンの作者は、会議の間ずっと腕を組んでいた。",
    "en": "Picking the engine: the in-house one you've nurtured for years, or the off-the-shelf one everybody uses? The in-house engine's author sat with arms folded the whole meeting."
   },
   "alt": [
@@ -861,8 +861,8 @@
    2003
   ],
   "text": {
-   "ja": "会社の業績が悪い。人事に呼ばれた。「希望退職を募っています。それとも、カスタマーセンターに移りますか」。開発の席には、もう誰かの段ボールが積んである。",
-   "en": "Business is bad. HR called you in: \"We're taking voluntary resignations. Or would you transfer to the customer support center?\" Someone's boxes were already stacked at your desk."
+   "ja": "会社の業績が悪い。人事に呼ばれた。「希望退職を募っています。それとも、カスタマーセンターに移りますか」。席には、もう誰かの段ボール。",
+   "en": "Business is bad. HR called you in: \"We're taking voluntary resignations. Or would you transfer to customer support?\" Someone's boxes were already stacked at your desk."
   },
   "alt": [
    {
@@ -959,8 +959,8 @@
    2011
   ],
   "text": {
-   "ja": "リーマンショックの後、会社の業績が悪い。人事に呼ばれた。「希望退職を募っています。それとも、カスタマーセンターに移りますか」。開発の席には、もう誰かの段ボールが積んである。",
-   "en": "After the Lehman crash, business is bad. HR called you in: \"We're taking voluntary resignations. Or would you transfer to the customer support center?\" Someone's boxes were already stacked at your desk."
+   "ja": "リーマンショック後、業績が悪い。人事に呼ばれた。「希望退職を募っています。それとも、カスタマーセンターに移りますか」。席には、もう段ボール。",
+   "en": "After the Lehman crash, business is bad. HR called you in: \"We're taking voluntary resignations. Or would you transfer to customer support?\" Someone's boxes were already stacked at your desk."
   },
   "alt": [
    {
@@ -968,7 +968,7 @@
     "en": "Since the Lehman crash, orders have dried up. In an HR meeting you were told to choose: voluntary retirement with a bonus, or customer support."
    },
    {
-    "ja": "不況で、開発の予定表が真っ白になった。人事からのメールの件名は「今後のキャリアについて」。希望退職か、カスタマーセンターへの異動か。",
+    "ja": "不況で、開発の予定表が真っ白になった。人事からのメールの件名は「今後のキャリアについて」。希望退職か、カスタマーセンターか。",
     "en": "The recession left the dev schedule blank. HR's email was titled \"About Your Future Career\": voluntary retirement, or a move to customer support?"
    }
   ],
@@ -1022,8 +1022,8 @@
      }
     },
     "result": {
-     "ja": "残った。カスタマーセンターで、毎日メールの問い合わせに返事を書いた。いちばん多い質問は「続編はいつですか」だった。答えられなかった。",
-     "en": "You stayed. At customer support you answered email inquiries every day. The most common question: \"When's the sequel?\" You couldn't answer."
+     "ja": "残った。カスタマーセンターで、毎日メールの問い合わせに返事を書いた。いちばん多い質問は「続編はいつですか」。答えられなかった。",
+     "en": "You stayed. At customer support you answered emails every day. The most common question: \"When's the sequel?\" You couldn't answer."
     },
     "alt": [
      {
@@ -1057,7 +1057,7 @@
    2040
   ],
   "text": {
-   "ja": "2 年後、開発に戻された。毎日ユーザーの声を聞いたおかげで、あなたの書くチュートリアルは社内でいちばん分かりやすくなった。電話の向こうの「分からない」は、全部覚えていた。",
+   "ja": "2 年後、開発に戻された。毎日ユーザーの声を聞いたおかげで、チュートリアルは社内一分かりやすくなった。「分からない」は全部覚えていた。",
    "en": "Two years later you were sent back to development. After all those calls, your tutorials became the clearest in the company. You remembered every \"I don't get it\" from the other end of the line."
   },
   "effect": {

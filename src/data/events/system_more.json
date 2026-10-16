@@ -185,13 +185,13 @@
    "big"
   ],
   "text": {
-   "ja": "{year} 年。AI が企画もプログラムも絵も音も、一晩で作るようになった。朝のニュースは「ゲーム開発のパラダイムシフト」。昨日までのやり方が、全部「昔のやり方」になった。……どうする?",
-   "en": "{year}. AI now designs, codes, draws and scores a game overnight. The morning news calls it \"a paradigm shift in game development.\" Everything you did until yesterday became \"the old way.\" ... What now?"
+   "ja": "{year} 年。AI が企画もプログラムも絵も音も、一晩で作るようになった。昨日までのやり方が、全部「昔のやり方」になった。……どうする?",
+   "en": "{year}. AI now designs, codes, draws and scores a game overnight. Everything you did until yesterday became \"the old way.\" ... What now?"
   },
   "alt": [
-   { "ja": "{year} 年。親戚の小学生が夏休みの宿題で、AI とゲームを 1 本作ってきた。あなたの 1 作目より、ちょっと面白かった。……どうする?", "en": "{year}. For a summer homework project, a young relative made a game with AI. It was a little more fun than your first game. ... What now?" },
-   { "ja": "目が覚めたら、AI が作ったゲームがランキングの上を全部埋めていた。{year} 年、昨日までの仕事のやり方が、一晩で昔話になった。……どうする?", "en": "{year}. You wake to find AI-made games filling the top of every chart. Overnight, the way you worked became a story about the old days. ... What now?" },
-   { "ja": "若手が「企画から音まで、AI で一晩でした」とゲームを見せてきた。ちゃんと面白かった。{year} 年、あなたのやり方が、全部「昔のやり方」になった。……どうする?", "en": "{year}. A junior shows you a game: \"Design to sound, one night with AI.\" It's genuinely fun. Your whole way of working just became \"the old way.\" ... What now?" }
+   { "ja": "{year} 年。親戚の小学生が夏休みの宿題で、AI とゲームを作ってきた。あなたの 1 作目より、ちょっと面白かった。……どうする?", "en": "{year}. For a summer homework project, a young relative made a game with AI. It was a little more fun than your first game. ... What now?" },
+   { "ja": "目が覚めたら、AI が作ったゲームがランキングの上を全部埋めていた。{year} 年、昨日までの仕事のやり方が昔話になった。……どうする?", "en": "{year}. You wake to find AI-made games filling the top of every chart. Overnight, the way you worked became a story about the old days. ... What now?" },
+   { "ja": "若手が「企画から音まで、AI で一晩でした」とゲームを見せてきた。ちゃんと面白かった。{year} 年、あなたのやり方は「昔」になった。どうする?", "en": "{year}. A junior shows you a game: \"Design to sound, one night with AI.\" It's genuinely fun. Your whole way of working just became \"the old way.\" ... What now?" }
   ],
   "choices": [
    {
@@ -213,8 +213,8 @@
     },
     "alt": [
      {
-      "ja": "AI を相棒にした。最初の打ち合わせで、AI は 3 秒で企画書を 40 本出した。あなたは 3 時間かけて、そのうち 1 本に赤ペンを入れた。",
-      "en": "You teamed up with the AI. In the first meeting it produced 40 proposals in three seconds. You spent three hours putting red pen on one of them."
+      "ja": "AI を相棒にした。最初の打ち合わせで、AI は 3 秒で企画書を 40 本出した。あなたは 3 時間かけて、1 本に赤ペンを入れた。",
+      "en": "You teamed up with the AI. In the first meeting it produced 40 proposals in three seconds. You spent three hours putting red pen on one."
      },
      {
       "ja": "AI を相棒にした。夜中に「この面、難しすぎませんか」と聞いてきた。昔の自分の上司と同じことを言う。",
@@ -293,9 +293,9 @@
    "en": "{year}, age {age}. You join {company}. The first thing you're handed isn't a spec but the seniors' lunch order sheet."
   },
   "alt": [
-   { "ja": "{year} 年、{age} 歳。{company} に入社。最初に渡されたのは、前任者の残した分厚い資料だった。最後のページに「がんばれ」とだけ書いてあった。", "en": "{year}, age {age}. You join {company}. You're handed your predecessor's thick notes. The last page just says \"Good luck.\"" },
+   { "ja": "{year} 年、{age} 歳。{company} に入社。渡されたのは前任者の残した分厚い資料。最後のページに「がんばれ」とだけあった。", "en": "{year}, age {age}. You join {company}. You're handed your predecessor's thick notes. The last page just says \"Good luck.\"" },
    { "ja": "{year} 年、{age} 歳。{company} に入社。最初に渡されたのは、開発室の鍵と、なぜか消火器の使い方の紙だった。", "en": "{year}, age {age}. You join {company}. First you're handed the dev room key—and, for some reason, fire extinguisher instructions." },
-   { "ja": "{year} 年、{age} 歳。{company} に入社。最初に教わったのは、コピー機の紙詰まりの直し方だった。その日のうちに役に立った。", "en": "{year}, age {age}. You join {company}. The first thing you're taught: fixing paper jams in the copier. It came in handy that same day." }
+   { "ja": "{year} 年、{age} 歳。{company} に入社。最初に教わったのは、コピー機の紙詰まりの直し方。その日のうちに役に立った。", "en": "{year}, age {age}. You join {company}. The first thing you're taught: fixing paper jams in the copier. It came in handy that same day." }
   ],
   "tag": [
    "system",
@@ -314,7 +314,7 @@
    "en": "{year}, age {age}. You join {company}. The person taking your ID photo clearly wanted to talk about games."
   },
   "alt": [
-   { "ja": "{year} 年、{age} 歳。{company} に入社。受付の人に「ゲームを作る人ですか」と聞かれた。「はい」と言うまでに、少し時間がかかった。", "en": "{year}, age {age}. You join {company}. The receptionist asks, \"Do you make games?\" It takes you a moment to say yes." },
+   { "ja": "{year} 年、{age} 歳。{company} に入社。受付の人に「ゲームを作る人ですか」と聞かれた。「はい」と言うまで、間があった。", "en": "{year}, age {age}. You join {company}. The receptionist asks, \"Do you make games?\" It takes you a moment to say yes." },
    { "ja": "{year} 年、{age} 歳。{company} に入社。ビルの警備員さんは、毎朝ゲームの裏技を 1 つ教えてくれる人だった。", "en": "{year}, age {age}. You join {company}. The building's security guard shares one game cheat with you every morning." },
    { "ja": "{year} 年、{age} 歳。{company} に入社。食堂のおばちゃんは、新人の顔と名前を初日で全部覚えていた。社長より早かった。", "en": "{year}, age {age}. You join {company}. The cafeteria lady learned every new hire's face and name on day one. Faster than the CEO." }
   ],
@@ -331,12 +331,12 @@
   ],
   "weight": 0,
   "text": {
-   "ja": "{year} 年、{age} 歳。{company} に入社。歓迎会の自己紹介で好きなゲームを 3 本言ったら、2 本がうちの会社の作品ではなかった。",
+   "ja": "{year} 年、{age} 歳。{company} に入社。歓迎会で好きなゲームを 3 本言ったら、2 本がうちの会社の作品ではなかった。",
    "en": "{year}, age {age}. You join {company}. At the welcome party you named three favourite games. Two weren't made by this company."
   },
   "alt": [
    { "ja": "{year} 年、{age} 歳。{company} に入社。歓迎会で一発芸を頼まれ、ゲームの効果音を口でやった。社長だけが大笑いした。", "en": "{year}, age {age}. You join {company}. Asked for a party trick at the welcome party, you did game sound effects by mouth. Only the CEO roared." },
-   { "ja": "{year} 年、{age} 歳。{company} に入社。歓迎会で「何を作りたい?」と聞かれて正直に答えたら、先輩が全員黙った。去年ボツになった企画だった。", "en": "{year}, age {age}. You join {company}. At the welcome party you said what you wanted to make. The seniors went silent. It was last year's rejected pitch." },
+   { "ja": "{year} 年、{age} 歳。{company} に入社。歓迎会で作りたいものを答えたら、先輩が全員黙った。去年ボツになった企画だった。", "en": "{year}, age {age}. You join {company}. At the welcome party you said what you wanted to make. The seniors went silent. It was last year's rejected pitch." },
    { "ja": "{year} 年、{age} 歳。{company} に入社。歓迎会は会社の向かいの定食屋。先輩たちは 2 次会に行かず、会社に戻った。", "en": "{year}, age {age}. You join {company}. The welcome party was at the diner across the street. Instead of a second round, the seniors went back to the office." }
   ],
   "tag": [

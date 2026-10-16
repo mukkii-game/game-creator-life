@@ -9,7 +9,7 @@
   "once": true,
   "text": {
    "ja": "1994 年 12 月、久夛良木健さんが率いた PlayStation が出た。発売日に買い、箱を開ける前に会社の机で 10 分拝んだ。",
-   "en": "December 1994: the PlayStation, led by Ken Kutaragi, came out. You bought one on day one and bowed to the box at your desk for ten minutes before opening it."
+   "en": "December 1994: Ken Kutaragi's PlayStation came out. You bought one on day one and bowed to the box at your desk for ten minutes before opening it."
   },
   "when": [
    "status=employed",
@@ -278,8 +278,8 @@
   "weight": 0.6,
   "once": true,
   "text": {
-   "ja": "遠藤雅伸さんの『ドルアーガの塔』の 60 階の宝の出し方を、仲間と手帳で回して全部出した。その手帳は、のちに企画書の下書きになった。",
-   "en": "You and your friends passed a notebook around until you'd found all the treasures in the 60 floors of Masanobu Endo's Tower of Druaga. That notebook later became your first proposal draft."
+   "ja": "遠藤雅伸さんの『ドルアーガの塔』60 階の宝を、仲間と手帳を回して全部出した。その手帳は、のちに企画書の下書きになった。",
+   "en": "You and friends passed a notebook around until you'd found every treasure in Masanobu Endo's Tower of Druaga. That notebook later became a proposal draft."
   },
   "effect": {
    "passion": 8,
@@ -492,7 +492,7 @@
   "once": true,
   "text": {
    "ja": "糸井重里さんの『MOTHER』を遊び、企画書に「町の人のせりふを全部面白く」と書いた。書いたのは自分なので、全部自分で書くことになった。",
-   "en": "After playing Shigesato Itoi's Mother, you wrote \"every townsperson's line must be funny\" in your proposal. Since you wrote it, you got to write all of them."
+   "en": "After Shigesato Itoi's Mother, you wrote \"every townsperson's line must be funny\" in your proposal. Since you wrote it, you got to write all of them."
   },
   "when": [
    "job=planner"
@@ -516,7 +516,7 @@
   "once": true,
   "text": {
    "ja": "『MOTHER2』の「大人も子供も、おねーさんも。」に打たれ、自社の宣伝文を 100 本書いた。採用は営業部長の「とにかく面白い」だった。",
-   "en": "Struck by Shigesato Itoi's tagline for Mother 2, \"For adults, kids, and big sisters too,\" you wrote 100 slogans for your own game. They picked the sales chief's: \"It's really fun.\""
+   "en": "Struck by Mother 2's tagline \"For adults, kids, and big sisters too,\" you wrote 100 slogans for your own game. They picked the sales chief's: \"It's really fun.\""
   },
   "effect": {
    "passion": 6,
@@ -892,8 +892,8 @@
   "weight": 0.6,
   "once": true,
   "text": {
-   "ja": "河津秋敏さんの『魔界塔士 Sa・Ga』をゲームボーイで遊び、通勤のバスを 2 回乗り過ごした。3 回目は、乗り過ごすつもりで乗った。",
-   "en": "Playing Akitoshi Kawazu's The Final Fantasy Legend on the Game Boy, you missed your bus stop twice. The third time, you boarded planning to miss it."
+   "ja": "河津秋敏さんの『魔界塔士 Sa・Ga』をゲームボーイで遊び、通勤バスを 2 回乗り過ごした。3 回目は、乗り過ごすつもりで乗った。",
+   "en": "Playing Akitoshi Kawazu's The Final Fantasy Legend on Game Boy, you missed your bus stop twice. The third time, you boarded planning to miss it."
   },
   "effect": {
    "passion": 6
@@ -1322,8 +1322,8 @@
   "weight": 0.6,
   "once": true,
   "text": {
-   "ja": "桝田省治さんの『天外魔境II 卍MARU』を遊ぶため、ボーナスで CD-ROM² を買った。家族には「仕事の資料」と言い、本当に資料になった。",
-   "en": "To play Shoji Masuda's Tengai Makyo II, you bought a CD-ROM² with your bonus. You told the family it was research material. It really became research material."
+   "ja": "桝田省治さんの『天外魔境II 卍MARU』のため、ボーナスで CD-ROM² を買った。家族には「仕事の資料」と言い、本当に資料になった。",
+   "en": "To play Shoji Masuda's Tengai Makyo II, you bought a CD-ROM² with your bonus. You told the family it was research material. It really became research."
   },
   "effect": {
    "passion": 6,
@@ -1345,7 +1345,7 @@
   "once": true,
   "text": {
    "ja": "桝田省治さんの『リンダキューブ』の、動物をつがいで集める箱舟に心をつかまれた。企画書に「つがい」と書き、会議で 2 回聞き返された。",
-   "en": "Shoji Masuda's Linda Cube, with its ark of animals collected in pairs, grabbed your heart. You wrote \"in pairs\" in your proposal and were asked to repeat it twice."
+   "en": "Shoji Masuda's Linda Cube, with its ark of animals collected in pairs, grabbed your heart. You wrote \"in pairs\" in a proposal and were asked to repeat it twice."
   },
   "when": [
    "job=planner"
@@ -1368,7 +1368,7 @@
   "once": true,
   "text": {
    "ja": "桝田省治さんの『俺の屍を越えてゆけ』で、一族が 2 年で代替わりする重さを知った。気づけば自分の部署も、2 年で全員入れ替わっていた。",
-   "en": "Shoji Masuda's Ore no Shikabane o Koete Yuke taught you the weight of a clan that turns over every two years. You noticed your own department had too."
+   "en": "Shoji Masuda's Ore no Shikabane o Koete Yuke taught you the weight of a clan turning over every two years. You noticed your own department had too."
   },
   "effect": {
    "passion": 7
@@ -1391,8 +1391,8 @@
   "weight": 0.6,
   "once": true,
   "text": {
-   "ja": "『スーパーマリオ64』を起動したら、チャールズ・マーティネーさんの「It's-a me, Mario!」が鳴った。翌朝、職場の全員が同じ声で挨拶した。",
-   "en": "You booted up Super Mario 64 and heard Charles Martinet's \"It's-a me, Mario!\" The next morning, everyone at work greeted each other in that voice."
+   "ja": "『スーパーマリオ64』を起動すると、マーティネーさんの「It's-a me, Mario!」が鳴った。翌朝、職場の全員がその声で挨拶した。",
+   "en": "You booted Super Mario 64 and heard Charles Martinet's \"It's-a me, Mario!\" The next morning, everyone at work greeted each other in that voice."
   },
   "when": [
    "status=employed"
@@ -1463,8 +1463,8 @@
   "weight": 0.6,
   "once": true,
   "text": {
-   "ja": "ヘンク・ロジャースさんの『ザ・ブラックオニキス』を遊び、日本の RPG はここから始まるのかと震えた。自分の RPG は、まだ方眼紙の上だった。",
-   "en": "Playing Henk Rogers's The Black Onyx, you trembled at the thought that Japanese RPGs would start here. Yours was still on graph paper."
+   "ja": "ヘンク・ロジャースさんの『ザ・ブラックオニキス』を遊び、日本の RPG はここからかと震えた。自分の RPG は、まだ方眼紙の上だった。",
+   "en": "Playing Henk Rogers's The Black Onyx, you trembled: Japanese RPGs start here. Yours was still on graph paper."
   },
   "effect": {
    "passion": 8,

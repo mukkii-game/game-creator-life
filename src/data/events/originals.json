@@ -705,7 +705,7 @@
    2040
   ],
   "text": {
-   "ja": "レトロゲームの店で、昔のあなたの作品が 1 万 2000 円で売られていた。発売時は 5800 円。あなたの手元には 1 本も無い。",
+   "ja": "レトロゲームの店で、昔の自作が 1 万 2000 円で売られていた。発売時は 5800 円。あなたの手元には 1 本も無い。",
    "en": "A retro game shop has your old game for 12,000 yen. It launched at 5,800. You do not own a single copy."
   },
   "when": [
@@ -726,7 +726,7 @@
    1986
   ],
   "text": {
-   "ja": "『スーパーマリオブラザーズ』の年、うちのアクションも出た。棚にマリオの箱が 1 列、うちのは 1 枚。それが売れた日は全員で拍手した。",
+   "ja": "『スーパーマリオブラザーズ』の年、うちのアクションも出た。棚にマリオの箱が 1 列、うちのは 1 枚。売れた日は全員で拍手した。",
    "en": "The year of Super Mario Bros., your action game came out too. A whole row of Mario boxes, one of yours. When yours sold, the whole team clapped."
   },
   "when": [
@@ -1050,8 +1050,8 @@
    2021
   ],
   "text": {
-   "ja": "『あつまれ どうぶつの森』の年、うちのスローライフゲームも出た。家族は全員あちらで島作り。母だけがうちのを遊んで、毎日感想をくれた。",
-   "en": "The year of Animal Crossing: New Horizons, your slow-life game came out too. The whole family built islands over there. Only Mom played yours, and reviewed it daily."
+   "ja": "『あつまれ どうぶつの森』の年、うちのスローライフゲームも出た。家族は全員あちらで島作り。母だけがうちのを遊び、毎日感想をくれた。",
+   "en": "The year of Animal Crossing: New Horizons, your slow-life game came out too. The family all built islands over there. Only Mom played yours, and reviewed it daily."
   },
   "when": [
    "works>=1",
@@ -1078,7 +1078,7 @@
    2023
   ],
   "text": {
-   "ja": "『ELDEN RING』の年、うちの難しいアクションも出た。レビューは「ELDEN RINGの後では簡単すぎる」。開発中は、難しすぎると言われていた。",
+   "ja": "『ELDEN RING』の年、うちの難しいアクションも出た。レビューは「ELDEN RINGの後では簡単すぎる」。開発中は難しすぎると言われた。",
    "en": "The year of Elden Ring, your hard action game came out. Reviews: \"Too easy after Elden Ring.\" During development, everyone said it was too hard."
   },
   "when": [

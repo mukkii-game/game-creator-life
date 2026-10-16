@@ -6,8 +6,8 @@
    1988
   ],
   "text": {
-   "ja": "次の企画、ゲーセン向けか、出たばかりの家庭用か。先輩いわく「家庭用は子どものおもちゃ。本物はゲーセンにある」。基板の上で、ファミコンのカセットがやけに小さく見えた。",
-   "en": "Next project: arcade, or the new home console? Your senior says: \"Home machines are toys. Real games live in arcades.\" Next to the arcade board, the Famicom cartridge looked tiny."
+   "ja": "次の企画、ゲーセンか家庭用か。先輩は「家庭用はおもちゃ。本物はゲーセンにある」と言う。基板の横で、ファミコンのカセットが小さく見えた。",
+   "en": "Next project: arcade or home console? Your senior: \"Home machines are toys. Real games live in arcades.\" Beside the arcade board, the Famicom cartridge looked tiny."
   },
   "alt": [
    {
@@ -146,17 +146,17 @@
    1990
   ],
   "text": {
-   "ja": "16 ビット戦争。会議室のホワイトボードに「メガドライブ」「PC エンジン」「スーパーファミコン(予定)」と書かれ、どれで出すかで 3 時間揉めた。誰も結論を出したくなかった。",
-   "en": "The 16-bit war. The whiteboard said \"Mega Drive\", \"PC Engine\", \"Super Famicom (coming)\". Three hours of arguing. Nobody wanted to be the one to decide."
+   "ja": "16 ビット戦争。ホワイトボードに「メガドライブ」「PC エンジン」「スーファミ(予定)」。どれで出すか、3 時間揉めた。",
+   "en": "The 16-bit war. The whiteboard read \"Mega Drive\", \"PC Engine\", \"Super Famicom (coming)\". Three hours of arguing. Nobody wanted to decide."
   },
   "alt": [
    {
-    "ja": "次はどの 16 ビット機で出すか。メガドライブ、PC エンジン、まだ出ていないスーパーファミコン。雑誌の特集をチーム全員で回し読みした。",
-    "en": "Which 16-bit machine next? Mega Drive, PC Engine, or the not-yet-released Super Famicom? The whole team passed one magazine feature around."
+    "ja": "次はどの 16 ビット機か。メガドライブ、PC エンジン、未発売のスーパーファミコン。雑誌の特集をチーム全員で回し読みした。",
+    "en": "Which 16-bit machine next? Mega Drive, PC Engine, or the unreleased Super Famicom? The team passed one magazine feature around."
    },
    {
-    "ja": "営業が 3 機種分の販売予想を持ってきた。メガドライブ、PC エンジン、スーパーファミコン(予定)。数字は 3 つとも、営業の勘だった。",
-    "en": "Sales brought forecasts for three machines: Mega Drive, PC Engine, Super Famicom (coming). All three numbers were gut feelings."
+    "ja": "営業が 3 機種の販売予想を持ってきた。メガドライブ、PC エンジン、スーパーファミコン(予定)。数字は 3 つとも営業の勘だった。",
+    "en": "Sales brought forecasts for Mega Drive, PC Engine and Super Famicom (coming). All three numbers were gut feelings."
    }
   ],
   "when": [
@@ -214,12 +214,12 @@
      }
     },
     "result": {
-     "ja": "PC エンジンで戦うことにした。中身は 8 ビットでも、絵は 16 ビット機と張り合える。CD-ROM² まで付く。「これが未来だ」と言ったら、未来は値段が高かった。",
-     "en": "You'd fight on with the PC Engine: 8-bit inside, but its graphics could stand up to the 16-bit machines, and it took CD-ROM². You said \"this is the future\"; the future was expensive."
+     "ja": "PC エンジンで戦う。中身は 8 ビットでも絵は 16 ビット並みで、CD-ROM² まで付く。「これが未来だ」と言ったら、未来は高かった。",
+     "en": "You'd fight on the PC Engine: 8-bit inside, graphics on par with 16-bit machines, plus CD-ROM². You said \"this is the future\"; the future was expensive."
     },
     "alt": [
      {
-      "ja": "PC エンジンにした。8 ビットの CPU で 16 ビット機に勝つため、毎晩 1 行ずつ処理を削った。勝った夜、牛丼を 2 杯食べた。",
+      "ja": "PC エンジンにした。8 ビット CPU で 16 ビット機に勝つため、毎晩 1 行ずつ処理を削った。勝った夜、牛丼を 2 杯食べた。",
       "en": "PC Engine. To beat the 16-bit machines on an 8-bit CPU, you shaved code one line a night. The night you won, you ate two bowls of gyudon."
      },
      {
@@ -281,8 +281,8 @@
    2040
   ],
   "text": {
-   "ja": "メガドライブ、国内では渋かったが、海外ではジェネシスとして大暴れ。英語のファンレターが来た。辞書を引きながら 3 日かけて読んだら「もっと速くしろ」だった。",
-   "en": "Mega Drive was slow at home but huge abroad as the Genesis. An English fan letter arrived. Three days with a dictionary: \"make it faster\"."
+   "ja": "メガドライブは国内では渋かったが、海外ではジェネシスとして大暴れ。英語のファンレターを辞書で 3 日かけて読んだら「もっと速くしろ」だった。",
+   "en": "Mega Drive was slow at home but huge abroad as the Genesis. An English fan letter took three days with a dictionary: \"make it faster\"."
   },
   "effect": {
    "passion": 6,
@@ -301,7 +301,7 @@
    2040
   ],
   "text": {
-   "ja": "PC エンジンの CD-ROM² で、ゲームから人の声が出た。初めて音声が鳴った瞬間、開発室の全員が立ち上がった。誰の声かというと、経理の人だった。",
+   "ja": "PC エンジンの CD-ROM² で、ゲームから人の声が出た。初めて音声が鳴った瞬間、開発室の全員が立ち上がった。声の主は、経理の人だった。",
    "en": "On the PC Engine CD-ROM², a game spoke. When the first voice played, the whole room stood up. It was the accountant's voice."
   },
   "effect": {
@@ -439,8 +439,8 @@
    2040
   ],
   "text": {
-   "ja": "携帯機は寿命が長かった。数年後もまだ現役で、白黒の画面のまま電池を食い続けていた。あなたのゲームも、どこかの子のランドセルの中で生きていた。",
-   "en": "The handheld lived forever. Years later it was still eating batteries in monochrome, and your game lived on in some kid's school bag."
+   "ja": "携帯機は寿命が長かった。数年後も現役で、白黒の画面のまま電池を食い続けた。あなたのゲームも、どこかの子のランドセルの中で生きていた。",
+   "en": "The handheld lived forever. Years later it still ate batteries in monochrome, and your game lived on in some kid's school bag."
   },
   "alt": [
    {
@@ -469,8 +469,8 @@
    2040
   ],
   "text": {
-   "ja": "据え置きの職人として腕が上がった。色を 1 色節約する会議で 2 日粘る人間になった。誰にも褒められないが、絶対に誰かが気づいていると信じた。",
-   "en": "Your home-console craft got sharper. You became the kind of person who argues two days in a meeting to save one colour. Nobody praised it. Someone must have noticed."
+   "ja": "据え置きの職人として腕が上がった。色を 1 色節約する会議で 2 日粘る人間になった。誰にも褒められないが、誰かは気づいていると信じた。",
+   "en": "Your home-console craft sharpened. You became someone who argues two days to save one colour. Nobody praised it. Someone must have noticed."
   },
   "effect": {
    "skill": 6
@@ -488,13 +488,13 @@
    1994
   ],
   "text": {
-   "ja": "次世代機戦争。一足先に 3DO が出て、3D とムービーの時代の幕開けを見せた。続いてセガサターン、プレイステーション、NEC の PC-FX。家庭用がついにアーケード並みの絵を出すらしい。どれに付くか。",
-   "en": "The next-gen war. 3DO arrived first, showing the dawn of 3D and full-motion video. Then came the Sega Saturn, the PlayStation and NEC's PC-FX. Home consoles would finally match arcade graphics. Which side are you on?"
+   "ja": "次世代機戦争。3DO が 3D とムービーの時代を見せ、続いてサターン、プレステ、PC-FX。家庭用がアーケード並みの絵を出す。どれに付く?",
+   "en": "The next-gen war. 3DO showed the dawn of 3D and video; then came Saturn, PlayStation and PC-FX. Home consoles would finally match arcades. Which side are you on?"
   },
   "alt": [
    {
-    "ja": "次世代機が出そろう年。サターン、プレステ、先に出た 3DO、NEC の PC-FX。どの開発機を申し込むか、今週中に決めろと言われた。",
-    "en": "The year the next-gen consoles all land: Saturn, PlayStation, the early 3DO, NEC's PC-FX. You have to pick a dev kit to apply for by Friday."
+    "ja": "次世代機が出そろう年。サターン、プレステ、3DO、PC-FX。どの開発機を申し込むか、今週中に決めろと言われた。",
+    "en": "The year the next-gen consoles all land: Saturn, PlayStation, 3DO, PC-FX. You have to pick a dev kit to apply for by Friday."
    },
    {
     "ja": "雑誌の発売前特集を広げて、4 台の写真を見比べた。サターン、プレステ、3DO、PC-FX。どれにも「最強」と書いてあった。",
@@ -662,8 +662,8 @@
    2040
   ],
   "text": {
-   "ja": "サターン派として生きた。発売日に「バーチャファイター」を買った人の熱を、あなたは今でも覚えている。後期型の白いサターンを見るたび、少し胸が鳴る。",
-   "en": "You lived as a Saturn loyalist. You still remember the heat of launch-day Virtua Fighter buyers. A white late-model Saturn still makes your heart jump."
+   "ja": "サターン派として生きた。発売日に「バーチャファイター」を買った人の熱を、今でも覚えている。白いサターンを見るたび、少し胸が鳴る。",
+   "en": "You lived as a Saturn loyalist. You still remember the heat of launch-day Virtua Fighter buyers. A white Saturn still makes your heart jump."
   },
   "effect": {
    "passion": 8,
@@ -682,8 +682,8 @@
    2040
   ],
   "text": {
-   "ja": "プレステの波に乗った。発売日には行列、雑誌の広告、テレビ CM。自分のゲームも CM の端に 0.5 秒映った。家族全員で録画を 20 回見た。",
-   "en": "You rode the PlayStation wave. Queues, magazine ads, TV commercials. Your game appeared at the edge of one for half a second. The whole family watched the tape twenty times."
+   "ja": "プレステの波に乗った。行列、雑誌広告、テレビ CM。自分のゲームも CM の端に 0.5 秒映り、家族全員で録画を 20 回見た。",
+   "en": "You rode the PlayStation wave: queues, ads, TV commercials. Your game appeared at the edge of one for half a second. The family watched the tape twenty times."
   },
   "effect": {
    "money": 40,
@@ -842,7 +842,7 @@
    1999
   ],
   "text": {
-   "ja": "ドリームキャストかプレイステーション 2 か。ドリキャスにはモデムが付いていて、ネットに繋がる。PS2 には DVD が見られるという噂。",
+   "ja": "ドリームキャストかプレイステーション 2 か。ドリキャスにはモデムが付いてネットに繋がる。PS2 は DVD が見られるという噂。",
    "en": "Dreamcast or PlayStation 2? The Dreamcast had a built-in modem for the internet. The PS2, rumour said, played DVDs."
   },
   "alt": [
@@ -943,8 +943,8 @@
    2040
   ],
   "text": {
-   "ja": "2001 年、セガはハードから撤退した。ドリキャスで作ったものは、少ない台数のまま伝説になった。今でも中古屋で白い本体を見ると、軽く会釈してしまう。",
-   "en": "In 2001 Sega quit making hardware. What you built for Dreamcast became legend on a small install base. You still nod politely to white consoles in used shops."
+   "ja": "2001 年、セガはハードから撤退した。ドリキャスで作ったものは、少ない台数のまま伝説になった。中古屋で白い本体を見ると、会釈してしまう。",
+   "en": "In 2001 Sega quit making hardware. What you built for Dreamcast became legend on a small install base. You still nod to white consoles in used shops."
   },
   "effect": {
    "passion": 6,
@@ -982,8 +982,8 @@
    2000
   ],
   "text": {
-   "ja": "携帯機が乱立した。ワンダースワン、ネオジオポケット、そして任天堂の次の携帯機の噂。営業は「どれでも売れます」と言った。営業はいつもそう言う。",
-   "en": "Handhelds everywhere: WonderSwan, Neo Geo Pocket, and rumours of Nintendo's next handheld. Sales said \"they'll all sell\". Sales always says that."
+   "ja": "携帯機が乱立した。ワンダースワン、ネオジオポケット、任天堂の次の噂。営業は「どれでも売れます」と言った。営業はいつもそう言う。",
+   "en": "Handhelds everywhere: WonderSwan, Neo Geo Pocket, rumours of Nintendo's next. Sales said \"they'll all sell\". Sales always says that."
   },
   "alt": [
    {
@@ -1080,7 +1080,7 @@
    2040
   ],
   "text": {
-   "ja": "ワンダースワンのゲームを出した。台数は少ないけれど、買ってくれた人はみんな熱かった。イベントで「縦持ちで遊びました」と言われ、泣きそうになった。",
+   "ja": "ワンダースワンのゲームを出した。台数は少ないが、買った人はみんな熱かった。イベントで「縦持ちで遊びました」と言われ、泣きそうになった。",
    "en": "Your WonderSwan game shipped. Few units, but every buyer was on fire. At an event someone said \"I played it vertically\", and you nearly cried."
   },
   "effect": {
@@ -1119,8 +1119,8 @@
    2004
   ],
   "text": {
-   "ja": "DS と PSP、同じ冬に出る。2 画面でタッチペンか、きれいな画面で UMD か。開発機を両方触った同僚が「どっちも変」と言った。",
-   "en": "DS and PSP, same winter. Two screens and a stylus, or a gorgeous screen and UMDs? A colleague who'd touched both dev kits said, \"Both are weird.\""
+   "ja": "DS と PSP、同じ冬に出る。2 画面でタッチペンか、きれいな画面で UMD か。両方触った同僚は「どっちも変」と言った。",
+   "en": "DS and PSP, same winter. Two screens and a stylus, or a gorgeous screen and UMDs? A colleague who'd tried both: \"Both are weird.\""
   },
   "alt": [
    {
@@ -1218,7 +1218,7 @@
    2040
   ],
   "text": {
-   "ja": "DS は脳トレで大人まで取り込んだ。電車の中でおじさんがペンでマス目を埋めている。その横であなたのゲームを遊ぶ中学生がいた。いい車両だった。",
+   "ja": "DS は脳トレで大人まで取り込んだ。電車でおじさんがペンでマス目を埋め、その横で中学生があなたのゲームを遊んでいた。いい車両だった。",
    "en": "The DS pulled in grown-ups with brain training. On the train, a man filled in grids with a stylus; beside him, a teenager played your game. A good carriage."
   },
   "alt": [
@@ -1248,7 +1248,7 @@
    2040
   ],
   "text": {
-   "ja": "PSP では狩りのゲームで集まって遊ぶのが流行った。ファストフード店の 2 階が狩場になった。あなたのゲームも、その隅で遊ばれていた。",
+   "ja": "PSP では狩りのゲームで集まって遊ぶのが流行った。ファストフード店の 2 階が狩場になり、あなたのゲームも、その隅で遊ばれていた。",
    "en": "On PSP, people gathered to hunt together. The upstairs of every burger joint became a hunting ground. Your game was played in the corner too."
   },
   "alt": [
@@ -1278,8 +1278,8 @@
    2014
   ],
   "text": {
-   "ja": "ソーシャルゲームの時代。会議で「据え置きは終わる」と言う人と「ケータイのはゲームじゃない」と言う人が、同じテーブルで目を合わせなかった。",
-   "en": "The social-game era. In the meeting, the \"consoles are finished\" camp and the \"phone games aren't real games\" camp sat at one table and refused to make eye contact."
+   "ja": "ソーシャルゲームの時代。会議で「据え置きは終わる」派と「ケータイのはゲームじゃない」派が、同じテーブルで目を合わせなかった。",
+   "en": "The social-game era. In the meeting, the \"consoles are finished\" camp and the \"phone games aren't real games\" camp sat at one table and avoided eye contact."
   },
   "alt": [
    {
@@ -1380,13 +1380,13 @@
    2040
   ],
   "text": {
-   "ja": "スマホのゲームは運営が続く限り終わらない。正月もお盆もイベントを回した。帰省の新幹線の中でも障害の電話が鳴った。実家の猫だけが労ってくれた。",
+   "ja": "スマホのゲームは運営が続く限り終わらない。正月もお盆もイベントを回し、帰省の新幹線でも障害の電話が鳴った。実家の猫だけが労ってくれた。",
    "en": "A mobile game never ends while it runs. New Year, Obon: events. Even on the bullet train home, the outage call came. Only the family cat comforted you."
   },
   "alt": [
    {
-    "ja": "スマホのゲームは毎月が発売日だった。イベントの告知を書き、直し、また書いた。カレンダーの祝日は、全部「繁忙日」と読めるようになった。",
-    "en": "On mobile, every month was launch month. Write the event notice, fix it, write the next. You learned to read every holiday on the calendar as \"peak load\"."
+    "ja": "スマホのゲームは毎月が発売日だった。イベントの告知を書き、直し、また書いた。カレンダーの祝日が、全部「繁忙日」に見えるようになった。",
+    "en": "On mobile, every month was launch month. Write the event notice, fix it, write the next. Every holiday on the calendar began to read as \"peak load\"."
    },
    {
     "ja": "スマホのゲームの運営は終わらない。結婚式の二次会の最中にも、ガチャの表示ミスの連絡が来た。トイレで直して、乾杯に戻った。",
@@ -1415,7 +1415,7 @@
   },
   "alt": [
    {
-    "ja": "あの時コンシューマに残った組で、新しいゲーム機の発表会の中継を、チーム全員で会議室のテレビで見た。拍手のタイミングが全員そろっていた。",
+    "ja": "コンシューマに残った組で、新ハードの発表会の中継を、全員で会議室のテレビで見た。拍手のタイミングが全員そろっていた。",
     "en": "You stayed with consoles. The whole team watched the new hardware reveal on the meeting-room TV. Everyone clapped at exactly the same moment."
    },
    {
@@ -1540,8 +1540,8 @@
    2040
   ],
   "text": {
-   "ja": "常連のおじいさんは、あなたのゲームでスコアの全国 1 位を取った。表彰はない。でも店長が、紙に手書きで「1 位」と書いて筐体に貼ってくれた。",
-   "en": "The old regular took the national high score on your game. No trophy — but the manager handwrote \"No. 1\" on paper and taped it to the cabinet."
+   "ja": "常連のおじいさんが、あなたのゲームでスコア全国 1 位を取った。表彰はない。でも店長が手書きで「1 位」と書いて筐体に貼ってくれた。",
+   "en": "The old regular took the national high score on your game. No trophy, but the manager handwrote \"No. 1\" on paper and taped it to the cabinet."
   },
   "effect": {
    "passion": 10,
@@ -1560,7 +1560,7 @@
    2040
   ],
   "text": {
-   "ja": "家で遊べるゲームが、家の外にも持ち出せるようになった。テレビから本体を抜いて電車で続きを遊ぶ人を見て、全部の戦争が一つになった気がした。",
+   "ja": "家のゲームが、家の外にも持ち出せるようになった。テレビから本体を抜いて電車で続きを遊ぶ人を見て、全部の戦争が一つになった気がした。",
    "en": "Then home games walked out the door: pull the console from the TV and keep playing on the train. It felt like every hardware war had become one."
   },
   "alt": [
@@ -1590,13 +1590,13 @@
    2025
   ],
   "text": {
-   "ja": "次の企画、Switch で出すかスマホで出すか。据え置きにも携帯にもなる機械と、誰のポケットにもある機械。どちらも「携帯機」と言えなくもない。",
+   "ja": "次の企画、Switch かスマホか。据え置きにも携帯にもなる機械と、誰のポケットにもある機械。どちらも「携帯機」と言えなくもない。",
    "en": "Next project: Switch or smartphone? A machine that's both home and handheld, or the one in everybody's pocket. Both are handhelds, in a way."
   },
   "alt": [
    {
-    "ja": "次の機種を決める会議。テレビにもつなげて持ち出せる Switch か、みんなが一日中握っているスマホか。会議の途中、全員のスマホが同時に鳴った。",
-    "en": "Platform meeting. Switch, which docks to the TV and goes out the door with you, or the phone everyone holds all day? Mid-meeting, every phone in the room buzzed at once."
+    "ja": "次の機種を決める会議。テレビにつなげて持ち出せる Switch か、みんなが一日中握っているスマホか。途中で全員のスマホが同時に鳴った。",
+    "en": "Platform meeting: Switch, which docks to the TV and goes out with you, or the phone everyone holds all day? Mid-meeting, every phone in the room buzzed at once."
    },
    {
     "ja": "社長は Switch の新作を見て「これだ」と言い、営業はスマホの売上ランキングを見て「これだ」と言った。どちらで出すか。",
@@ -1689,7 +1689,7 @@
    2040
   ],
   "text": {
-   "ja": "親子で遊ぶ家族の写真が SNS に流れてきた。リビングの床に寝転んで、子どもがあなたのゲームを持っていた。「いいね」を押す指が震えた。",
+   "ja": "親子で遊ぶ家族の写真が SNS に流れてきた。リビングの床で、子どもがあなたのゲームを持っていた。「いいね」を押す指が震えた。",
    "en": "A family photo scrolled by on social media: a kid on the living-room floor, holding your game. Your finger trembled on the like button."
   },
   "alt": [
@@ -1698,7 +1698,7 @@
     "en": "A clip scrolled by: on a stranger's sofa, a parent and kid stumbled at the same spot and laughed at the same spot."
    },
    {
-    "ja": "発売から 1 年、通販サイトのレビューに「祖母と遊んでいます」と書かれていた。あなたは画面をスクリーンショットして、待ち受けにした。",
+    "ja": "発売から 1 年、通販サイトのレビューに「祖母と遊んでいます」とあった。あなたは画面をスクリーンショットして、待ち受けにした。",
     "en": "A year after launch, a store review read \"I play this with my grandma.\" You screenshotted it and made it your lock screen."
    }
   ],
@@ -1723,8 +1723,8 @@
   },
   "alt": [
    {
-    "ja": "スマホ版は地味に長生きした。サービスの数字は小さいまま、毎朝同じ時間にログインする人が 300 人いた。その 300 人の顔を想像して、更新を続けた。",
-    "en": "The phone version lived quietly. The numbers stayed small, but 300 people logged in at the same time every morning. You kept updating it for those faces you imagined."
+    "ja": "スマホ版は地味に長生きした。数字は小さいまま、毎朝同じ時間にログインする人が 300 人いた。その顔を想像して、更新を続けた。",
+    "en": "The phone version lived quietly. Numbers stayed small, but 300 people logged in at the same time every morning. You kept updating it for those imagined faces."
    },
    {
     "ja": "スマホ版はひっそり続いた。ある日の問い合わせは不具合ではなく、「入院中、これで毎日が早く過ぎました」だった。",
@@ -1748,12 +1748,12 @@
    1989
   ],
   "text": {
-   "ja": "PC エンジンが出た。CPU は 8 ビットなのに、絵は 16 ビット並みにきれい。しかも本体が弁当箱より小さい。王者ファミコンで出すか、新顔に賭けるか。",
-   "en": "The PC Engine is out: an 8-bit CPU, but graphics like a 16-bit machine, in a box smaller than a lunchbox. Stick with the champion Famicom, or bet on the newcomer?"
+   "ja": "PC エンジンが出た。CPU は 8 ビットなのに絵は 16 ビット並みで、本体は弁当箱より小さい。王者ファミコンで出すか、新顔に賭けるか。",
+   "en": "The PC Engine is out: an 8-bit CPU, 16-bit-grade graphics, in a box smaller than a lunchbox. Stick with the champion Famicom, or bet on the newcomer?"
   },
   "alt": [
    {
-    "ja": "開発室に PC エンジンの開発機が届いた。小さくて、絵がやけにきれい。でも子どもの家にあるのは、ほとんどファミコンだ。どちらで出すか。",
+    "ja": "開発室に PC エンジンの開発機が届いた。小さくて、絵がやけにきれい。でも子どもの家にあるのは、ほとんどファミコンだ。どちらで出す?",
     "en": "A PC Engine dev kit arrived. Tiny, with gorgeous graphics. But almost every kid's house had a Famicom. Which one?"
    },
    {
@@ -1867,8 +1867,8 @@
    2040
   ],
   "text": {
-   "ja": "PC エンジンは 16 ビット機が出てきても、そこそこ戦った。シューティングとアーケード移植なら負けない。店頭で「これ 8 ビット?」と驚く客を見るのが、ひそかな楽しみだった。",
-   "en": "The PC Engine held its own even when 16-bit machines arrived — unbeatable for shooters and arcade ports. Your secret joy: shoppers gasping \"this is 8-bit?\""
+   "ja": "PC エンジンは 16 ビット機が出ても、そこそこ戦った。シューティングと移植なら負けない。「これ 8 ビット?」と驚く客が楽しみだった。",
+   "en": "The PC Engine held its own against 16-bit machines, unbeatable for shooters and ports. Your secret joy: shoppers gasping \"this is 8-bit?\""
   },
   "effect": {
    "passion": 7
@@ -1886,7 +1886,7 @@
    2040
   ],
   "text": {
-   "ja": "3DO は台数が伸びないまま、静かに道を譲った。でも、ムービーと 3D が当たり前になった頃、「あれを最初に見たのは俺たちだ」と飲み会で 3 回言った。",
+   "ja": "3DO は台数が伸びず、静かに道を譲った。だが 3D が当たり前になると、「あれを最初に見たのは俺たちだ」と飲み会で 3 回言った。",
    "en": "3DO never sold widely and quietly stepped aside. But once 3D and video were everywhere, you said \"we saw it first\" three times at one drinking party."
   },
   "effect": {
@@ -1906,8 +1906,8 @@
    2040
   ],
   "text": {
-   "ja": "PC-FX はつらかった。ポリゴンの時代に、ポリゴンが出ない。店の棚はどんどん端へ追いやられ、営業は「アニメが好きな人には刺さるんです」と言い続けた。言い続けるしかなかった。",
-   "en": "The PC-FX years were hard. A machine without polygons, in the polygon age. Shelf space shrank toward the corner, and sales kept saying \"anime fans love it\". There was nothing else to say."
+   "ja": "PC-FX はつらかった。ポリゴンの時代にポリゴンが出ない。棚は端へ追いやられ、営業は「アニメ好きには刺さる」と言い続けるしかなかった。",
+   "en": "The PC-FX years were hard: no polygons in the polygon age. Shelf space shrank, and sales kept saying \"anime fans love it\". There was nothing else to say."
   },
   "effect": {
    "money": -30,
@@ -1926,8 +1926,8 @@
    2040
   ],
   "text": {
-   "ja": "それでも PC-FX には、アニメの映像を切り替えて戦う格闘ゲーム『バトルヒート』のような、ほかでは作れない一本があった。あの頃、あの機械で、あの映像を動かしていた側にいたこと。それだけは、ずっと誇りだ。",
-   "en": "Still, the PC-FX had things no other machine could do — like Battle Heat, a fighting game that cut between anime clips. Being on the side that made that machine move that footage, back then: that pride never left you."
+   "ja": "それでも PC-FX には、アニメ映像で戦う『バトルヒート』のような、他で作れない一本があった。あの機械を動かす側にいた。今も誇りだ。",
+   "en": "Still, the PC-FX had things no other machine could do, like Battle Heat, a fighter that cut between anime clips. Being on the side that made it move: that pride never left."
   },
   "effect": {
    "passion": 10

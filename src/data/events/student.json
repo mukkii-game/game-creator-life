@@ -66,7 +66,7 @@
    2035
   ],
   "text": {
-   "ja": "ゲームショップのバイトで中古の買い取りをしていた。持ち込まれる名作の数で、世の中の流行りが分かった。持ち込まれるクソゲーの数で、世の中の優しさが分かった。",
+   "ja": "ゲームショップのバイトで中古の買い取りをした。持ち込まれる名作の数で流行りが、クソゲーの数で世の中の優しさが分かった。",
    "en": "At the game shop you handled used trade-ins. The masterpieces told you what was trending; the stinkers told you how kind people were."
   },
   "effect": {
@@ -86,7 +86,7 @@
    2035
   ],
   "text": {
-   "ja": "学生時代、ゲーム会社のデバッグのバイトに行った。同じ壁に 8 時間ぶつかり続けて、時給は最低賃金ぴったり。それでも「ゲーム会社の中」に入れたのが嬉しかった。",
+   "ja": "学生時代、ゲーム会社のデバッグのバイトに行った。同じ壁に 8 時間ぶつかり、時給は最低賃金。それでも「ゲーム会社の中」にいるのが嬉しかった。",
    "en": "As a student you took a debugging gig at a game company. Eight hours running into the same wall, at exactly minimum wage. Still, you were inside a game company."
   },
   "effect": {
@@ -150,7 +150,7 @@
    2035
   ],
   "text": {
-   "ja": "コンビニの深夜バイトで、レジの合間にゲームの企画をレシートの裏に書いていた。店長に見つかって「これ面白いじゃん」と言われたのが最初の評価だった。",
+   "ja": "コンビニの深夜バイトで、レジの合間にゲームの企画をレシートの裏に書いた。店長に見つかり「これ面白いじゃん」。最初の評価だった。",
    "en": "On the convenience-store night shift you scribbled game ideas on receipt backs. The manager found one: \"Hey, this is fun.\" Your first review."
   },
   "effect": {
@@ -190,7 +190,7 @@
    2035
   ],
   "text": {
-   "ja": "学生時代、ゲーム会社のモニターのバイトで新作を遊んで感想を書いた。「難しすぎる」と書いたら、発売版でちゃんと簡単になっていた。世界を動かした気がした。",
+   "ja": "学生時代、ゲーム会社のモニターのバイトで新作の感想を書いた。「難しすぎる」と書くと、発売版で簡単になっていた。世界を動かした気がした。",
    "en": "As a paid playtester you wrote feedback on unreleased games. You wrote \"too hard\", and the retail version was easier. You'd moved the world."
   },
   "effect": {
@@ -474,7 +474,7 @@
    2035
   ],
   "text": {
-   "ja": "ゲームの専門学校に通った。同級生 40 人のうち、卒業まで作り続けたのは 12 人。その 12 人とは今でも年賀状を出し合っている。",
+   "ja": "ゲームの専門学校に通った。同級生 40 人のうち、卒業まで作り続けたのは 12 人。その 12 人とは今も年賀状を出し合っている。",
    "en": "You attended a game vocational school. Of forty classmates, twelve kept making games to graduation. You still exchange New Year cards with those twelve."
   },
   "effect": {
@@ -625,8 +625,8 @@
    2015
   ],
   "text": {
-   "ja": "学生時代、Flash のゲームを作ってネットに上げていた。掲示板で「神」と書かれた日、その画面を親に見せた。親は「で、お金になるの?」と言った。",
-   "en": "As a student you put Flash games online. The day a forum called you \"god\", you showed your parents the screen. They asked, \"So, does it pay?\""
+   "ja": "学生時代、Flash のゲームをネットに上げていた。掲示板で「神」と書かれた日、親に画面を見せた。親は「で、お金になるの?」と言った。",
+   "en": "As a student you put Flash games online. The day a forum called you \"god\", you showed your parents. They asked, \"So, does it pay?\""
   },
   "effect": {
    "skill": 4,
@@ -645,7 +645,7 @@
    2035
   ],
   "text": {
-   "ja": "学生時代、ゲームエンジンで 1 人でゲームを作っていた。チュートリアルを 30 本見ても、自分のゲームは 1 本も終わらなかった。31 本目を見るのをやめた日に、終わった。",
+   "ja": "学生時代、ゲームエンジンで 1 人でゲームを作っていた。チュートリアルを 30 本見ても終わらず、31 本目を見るのをやめた日に終わった。",
    "en": "As a student you built games alone in an engine. Thirty tutorials, zero finished games. The day you skipped the thirty-first, you finished one."
   },
   "effect": {
@@ -665,7 +665,7 @@
    1980
   ],
   "text": {
-   "ja": "学生時代はボウリング場でバイトしていた。ブームが去ってレーンが静かになった頃、隅に置かれたテレビゲームの機械にだけ、まだ人が群がっていた。",
+   "ja": "学生時代はボウリング場でバイトした。ブームが去ってレーンが静かになっても、隅のテレビゲームの機械にだけ、まだ人が群がっていた。",
    "en": "You worked at a bowling alley as a student. When the boom faded and the lanes went quiet, only the TV game machine in the corner still drew a crowd."
   },
   "effect": {
@@ -705,7 +705,7 @@
    1980
   ],
   "text": {
-   "ja": "学生の頃、喫茶店に置かれた白い四角が行き来するだけのテレビゲームに夢中になった。打ち返すたびに鳴る「ポン」が、人生の BGM になった。",
+   "ja": "学生の頃、喫茶店で白い四角が行き来するだけのテレビゲームに夢中になった。打ち返すたびに鳴る「ポン」が、人生の BGM になった。",
    "en": "As a student you got hooked on a café TV game where a white square bounced back and forth. That \"pong\" sound became the soundtrack of your life."
   },
   "effect": {
@@ -724,8 +724,8 @@
    1985
   ],
   "text": {
-   "ja": "大学の大型計算機で、紙テープに穴を開けてプログラムを流していた。順番待ちの合間に、こっそり三目並べを作った。計算機に負けた日、少し感動した。",
-   "en": "At university you fed paper tape into the mainframe. While waiting your turn, you secretly wrote tic-tac-toe. The day the computer beat you, you were oddly moved."
+   "ja": "大学の大型計算機に、紙テープに穴を開けてプログラムを流していた。順番待ちの間に三目並べを作り、計算機に負けた日、少し感動した。",
+   "en": "At university you fed paper tape into the mainframe. While waiting your turn you secretly wrote tic-tac-toe. The day the computer beat you, you were oddly moved."
   },
   "effect": {
    "skill": 6
@@ -746,8 +746,8 @@
    1980
   ],
   "text": {
-   "ja": "学生時代、マイコンのキットを組み立てた。数字の表示が光っただけで、部屋で 1 人で拍手した。そこにゲームを入れるまで、あと 3 か月かかった。",
-   "en": "As a student you built a microcomputer kit. When the digit display lit up, you applauded alone in your room. Getting a game onto it took three more months."
+   "ja": "学生時代、マイコンのキットを組み立てた。数字の表示が光っただけで、1 人で拍手した。ゲームを入れるまで、あと 3 か月かかった。",
+   "en": "As a student you built a microcomputer kit. When the digit display lit up, you applauded alone. Getting a game onto it took three more months."
   },
   "effect": {
    "skill": 6,
@@ -785,7 +785,7 @@
    1995
   ],
   "text": {
-   "ja": "子どもの頃、家にあったのはすごろくの箱だけだった。正月に親戚と遊んで、小学 3 年で人生初の借金を背負った。返し方は、まだ分からなかった。",
+   "ja": "子どもの頃、家にあったのはすごろくの箱だけ。正月に親戚と遊んで、小学 3 年で人生初の借金を背負った。返し方は分からなかった。",
    "en": "As a kid, the only game at home was a board game. Playing with relatives at New Year, you went into debt for the first time in third grade."
   },
   "effect": {
@@ -959,8 +959,8 @@
    1998
   ],
   "text": {
-   "ja": "子どもの頃、家にパソコンが来た。父は「家計簿をつける」と言った。家計簿のソフトは一度も起動せず、あなたの打ち込んだゲームだけが残った。",
-   "en": "A home computer arrived when you were a kid. Dad said it was for household accounts. The accounting software never ran once; only the games you typed in remained."
+   "ja": "子どもの頃、家にパソコンが来た。父は「家計簿をつける」と言ったが、ソフトは一度も起動せず、打ち込んだゲームだけが残った。",
+   "en": "A home computer arrived when you were a kid. Dad said it was for household accounts. The accounting software never ran; only the games you typed in remained."
   },
   "effect": {
    "skill": 4,
@@ -1096,7 +1096,7 @@
    2004
   ],
   "text": {
-   "ja": "夜 11 時を待って、家の電話回線でインターネットにつないだ。ゲームの攻略サイトを読み込む間に、家族から電話が使えないと苦情が来た。",
+   "ja": "夜 11 時を待って、家の電話回線でネットにつないだ。攻略サイトを読み込む間に、家族から電話が使えないと苦情が来た。",
    "en": "You waited for 11 p.m. to dial up the internet. While a game fan site loaded, the family complained they couldn't use the phone."
   },
   "effect": {
@@ -1203,8 +1203,8 @@
    1995
   ],
   "text": {
-   "ja": "高校の授業中、ポケットコンピュータでゲームを打ち込んでいた。電卓のふりは 3 か月もった。見破ったのは数学の先生で、先生も持っていた。",
-   "en": "In high school you typed games into a pocket computer during class. It passed as a calculator for three months. The math teacher caught on — he owned one too."
+   "ja": "高校の授業中、ポケットコンピュータでゲームを打ち込んだ。電卓のふりは 3 か月もった。見破った数学の先生も、持っていた。",
+   "en": "In high school you typed games into a pocket computer during class. It passed as a calculator for three months. The math teacher caught on; he owned one too."
   },
   "effect": {
    "skill": 4,
@@ -1274,8 +1274,8 @@
    2035
   ],
   "text": {
-   "ja": "専門学校の会社説明会。大手ゲーム会社の日は、教室の後ろまで椅子が埋まった。次の日の会社の説明会は、前の 3 列だけだった。そこが一番親身だった。",
-   "en": "Company info sessions at vocational school: the big game maker filled the room to the back wall. The next day's company got three rows. They were the most sincere."
+   "ja": "専門学校の会社説明会。大手ゲーム会社の日は教室が満席だった。翌日の会社は前の 3 列だけ。そこが一番親身だった。",
+   "en": "Company info sessions at vocational school: the big game maker filled the room. The next day's company got three rows. They were the most sincere."
   },
   "effect": {
    "network": 4,
@@ -1320,7 +1320,7 @@
    2035
   ],
   "text": {
-   "ja": "大学の学食でゲームの話をしていたら、隣の席の人が混ざってきた。3 時間後、二人でサークルを作っていた。部員は卒業まで 2 人だった。",
+   "ja": "大学の学食でゲームの話をしていたら、隣の席の人が混ざってきた。3 時間後、サークルを作っていた。部員は卒業まで 2 人だった。",
    "en": "You were talking games in the university cafeteria when the person beside you joined in. Three hours later, you'd founded a club. Membership stayed at two."
   },
   "effect": {
@@ -1386,7 +1386,7 @@
    2035
   ],
   "text": {
-   "ja": "夏休みの自由研究に、自作のゲームを出した。先生は遊び方が分からず、1 時間付き合ってくれた。賞はもらえなかった。先生の顔は覚えている。",
+   "ja": "夏休みの自由研究に自作のゲームを出した。先生は遊び方が分からず、1 時間付き合ってくれた。賞はなし。先生の顔は覚えている。",
    "en": "You turned in a homemade game for your summer project. The teacher couldn't figure out how to play and stuck with it for an hour. No prize. You remember that face."
   },
   "effect": {

@@ -7,8 +7,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "『スペースインベーダー』は西角友宏さんが基板から作ったと知り、自分の配線図を見直した。1 本多かった。配線は 1 本減り、自慢話は 1 本増えた。",
-   "en": "Learning Tomohiro Nishikado built Space Invaders down to the board, you rechecked your own wiring. One wire too many. One less wire, one more story to brag about."
+   "ja": "西角友宏さんが『スペースインベーダー』を基板から作ったと知り、配線図を見直した。1 本多かった。配線は 1 本減り、自慢は 1 本増えた。",
+   "en": "Learning Tomohiro Nishikado built Space Invaders down to the board, you rechecked your wiring. One wire too many. One less wire, one more story to brag about."
   },
   "effect": {
    "passion": 12,
@@ -32,7 +32,7 @@
   ],
   "once": true,
   "text": {
-   "ja": "岩谷徹さんの講演を客席で聞き、『パックマン』の敵 4 匹は性格が違うと知った。翌日、自作の敵 4 匹に名前を付けた。全員、上司の名前だった。",
+   "ja": "岩谷徹さんの講演で、『パックマン』の敵 4 匹は性格が違うと知った。翌日、自作の敵 4 匹に名前を付けた。全員、上司の名前だった。",
    "en": "At Toru Iwatani's talk, you learned the four Pac-Man ghosts each have their own personality. Next day you named your four enemies. All after your bosses."
   },
   "effect": {
@@ -82,7 +82,7 @@
   ],
   "once": true,
   "text": {
-   "ja": "マリオのジャンプを 1 日中遊んで研究した。宮本茂さんの作った着地の気持ちよさを真似し、自分のジャンプの終わりだけ 40 回直した。",
+   "ja": "マリオのジャンプを 1 日中遊んで研究した。宮本茂さんの着地の気持ちよさを真似し、自分のジャンプの終わりだけ 40 回直した。",
    "en": "You studied Mario's jump all day. Chasing the landing feel Shigeru Miyamoto made, you reworked only the end of your own jump. Forty times."
   },
   "effect": {
@@ -107,7 +107,7 @@
   ],
   "once": true,
   "text": {
-   "ja": "『ドラゴンクエスト』の堀井雄二さんのインタビューを全部切り抜いた。ファイルが 3 冊目になったころ、自分の企画書の文が少しだけ短くなった。",
+   "ja": "『ドラゴンクエスト』の堀井雄二さんのインタビューを全部切り抜いた。ファイルが 3 冊目になる頃、自分の企画書の文が少し短くなった。",
    "en": "You clipped every interview with Yuji Horii of Dragon Quest. By the third binder, the sentences in your proposals had gotten a little shorter."
   },
   "effect": {
@@ -155,8 +155,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "『ファイナルファンタジー』は坂口博信さんの最後のつもりの作品だった、と雑誌で読んだ。あなたもその後 5 回「これが最後」と言い、5 回とも次を作った。",
-   "en": "You read that Final Fantasy was meant to be Hironobu Sakaguchi's last game. You said \"this is my last\" five times after that, and made another every time."
+   "ja": "『ファイナルファンタジー』は坂口博信さんの最後のつもりの作品だったと読んだ。あなたも 5 回「これが最後」と言い、5 回とも次を作った。",
+   "en": "You read that Final Fantasy was meant to be Hironobu Sakaguchi's last game. You said \"this is my last\" five times after, and made another every time."
   },
   "effect": {
    "passion": 14,
@@ -285,7 +285,7 @@
   ],
   "once": true,
   "text": {
-   "ja": "『ゼビウス』の遠藤雅伸さんが敵 1 つずつに設定を作ったと知り、自分の弾にも理由を付けた。理由の無い弾が 3 割消え、テストの後輩が泣いて喜んだ。",
+   "ja": "『ゼビウス』の遠藤雅伸さんが敵 1 つずつに設定を作ったと知り、自分の弾にも理由を付けた。理由の無い弾が 3 割消え、後輩が泣いて喜んだ。",
    "en": "Learning Masanobu Endo gave every Xevious enemy a backstory, you gave your bullets reasons too. Thirty percent had none and vanished. Your junior tester wept with joy."
   },
   "effect": {
@@ -334,8 +334,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "『バーチャファイター』の技が本物の拳法をもとにしていると知り、拳法の本を買い込んだ。型を真似して腰を痛めた。鈴木裕さんのせいにはしていない。",
-   "en": "Learning Virtua Fighter's moves came from real martial arts, you bought a stack of kung fu books. Copying the forms, you hurt your back. You don't blame Yu Suzuki."
+   "ja": "『バーチャファイター』の技が本物の拳法由来と知り、拳法の本を買い込んだ。型を真似して腰を痛めた。鈴木裕さんのせいにはしていない。",
+   "en": "Learning Virtua Fighter's moves came from real martial arts, you bought kung fu books. Copying the forms, you hurt your back. You don't blame Yu Suzuki."
   },
   "effect": {
    "passion": 10,
@@ -383,7 +383,7 @@
   ],
   "once": true,
   "text": {
-   "ja": "夜中に一人で『弟切草』を遊び、文字だけでこんなに怖いのかと震えた。企画書に「中村光一さんの弟切草のような」と書いたら、怖すぎると没になった。",
+   "ja": "夜中に一人で『弟切草』を遊び、文字だけでこんなに怖いのかと震えた。企画書に「中村光一さんの弟切草のような」と書くと、怖すぎると没。",
    "en": "Playing Otogirisou alone at night, you shook at how scary pure text could be. You wrote \"like Koichi Nakamura's Otogirisou\" in a proposal. Rejected: too scary."
   },
   "effect": {
@@ -617,7 +617,7 @@
   ],
   "once": true,
   "text": {
-   "ja": "『テトリス』はソ連のアレクセイ・パジトノフさんが作ったと知り、ロシア語の辞書を買った。覚えたのは「ありがとう」だけ。積み上げはうまくなった。",
+   "ja": "『テトリス』のアレクセイ・パジトノフさんがソ連の人と知り、ロシア語の辞書を買った。覚えたのは「ありがとう」だけ。積み上げは上達した。",
    "en": "Learning Alexey Pajitnov made Tetris in the Soviet Union, you bought a Russian dictionary. You only learned \"thank you.\" Your stacking improved."
   },
   "effect": {
@@ -641,8 +641,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "アタリを作ったノーラン・ブッシュネルがピザ屋も始めたと知った。あなたも会社の近くのピザ屋で企画を練り、2 時間ピザの話しかしなかった。",
-   "en": "You learned Nolan Bushnell, Atari's founder, also started a pizza chain. You took your planning to a pizza place near the office and talked only about pizza for two hours."
+   "ja": "アタリを作ったノーラン・ブッシュネルがピザ屋も始めたと知った。あなたも近所のピザ屋で企画を練り、2 時間ピザの話しかしなかった。",
+   "en": "You learned Nolan Bushnell, Atari's founder, also started a pizza chain. You planned at a pizza place near the office and talked only about pizza for two hours."
   },
   "effect": {
    "passion": 10,
@@ -690,8 +690,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "海外の開発者会議で『DOOM』のジョン・カーマックの講演を最前列で聞いた。分かった英単語は 3 つ。ノートは 12 ページ埋まった。",
-   "en": "At a developer conference abroad you heard John Carmack of DOOM speak, from the front row. You understood three English words. You filled twelve pages of notes."
+   "ja": "海外の開発者会議で、『DOOM』のジョン・カーマックの講演を最前列で聞いた。分かった英単語は 3 つ。ノートは 12 ページ埋まった。",
+   "en": "At a developer conference abroad you heard John Carmack of DOOM speak from the front row. You understood three English words. You filled twelve pages of notes."
   },
   "effect": {
    "passion": 10,
@@ -714,8 +714,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "『UNDERTALE』をほぼ一人で作ったトビー・フォックスさんの話を読んだ。勝手に「君も一人で」と言われた気になり、その夜から一人で作り始めた。",
-   "en": "You read how Toby Fox made Undertale almost entirely alone. Feeling, without reason, that he was saying \"you can too,\" you started making a game alone that night."
+   "ja": "『UNDERTALE』をほぼ一人で作ったトビー・フォックスさんの話を読み、「君も一人で」と言われた気になった。その夜から一人で作り始めた。",
+   "en": "You read how Toby Fox made Undertale almost alone. Feeling he was saying \"you can too,\" you started making a game alone that night."
   },
   "effect": {
    "passion": 14,
@@ -762,8 +762,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "出張の新幹線で『モンスターハンター』の辻本良三さんのインタビューを読んだ。3 時間、肉の焼き加減のことだけ考えた。いまでも肉はそこで焼き上げる。",
-   "en": "On a business trip bullet train you read an interview with Ryozo Tsujimoto, producer of Monster Hunter. Three hours thinking only about grilling meat. You still take your meat off at that exact moment."
+   "ja": "出張の新幹線で『モンスターハンター』の辻本良三さんのインタビューを読み、3 時間、肉の焼き加減のことだけ考えた。いまも肉はそこで焼き上げる。",
+   "en": "On a bullet train you read an interview with Ryozo Tsujimoto, producer of Monster Hunter. Three hours thinking only about grilling meat. You still take your meat off at that moment."
   },
   "effect": {
    "passion": 10,
@@ -810,8 +810,8 @@
   ],
   "once": true,
   "text": {
-   "ja": "「名前を聞けば誰でも分かるゲームデザイナー」とエレベーターで 2 人きり。10 階分、何も言えなかった。降り際の「お疲れさまです」で 3 日浮かれた。",
-   "en": "Alone in an elevator with a game designer everyone knows by name. Ten floors, and you said nothing. \"Good work today,\" he said as he left. You floated for three days."
+   "ja": "誰もが名前を知るゲームデザイナーと、エレベーターで 2 人きり。10 階分、何も言えなかった。降り際の「お疲れさまです」で 3 日浮かれた。",
+   "en": "Alone in an elevator with a game designer everyone knows. Ten floors, and you said nothing. \"Good work today,\" he said leaving. You floated for three days."
   },
   "effect": {
    "passion": 10,
@@ -1157,8 +1157,8 @@
   "weight": 0.6,
   "once": true,
   "text": {
-   "ja": "業界紙に、ライバル会社の看板ディレクターの言葉。「{name} にだけは負けたくない」。あなたはその人の名前を知らなかった。慌てて調べた。",
-   "en": "In a trade paper, a rival company's star director said: \"The one person I won't lose to is {name}.\" You'd never heard of him. You looked him up in a panic."
+   "ja": "業界紙に、ライバル会社の看板ディレクターの言葉。「{name} にだけは負けたくない」。あなたはその人を知らず、慌てて調べた。",
+   "en": "In a trade paper, a rival's star director said: \"The one person I won't lose to is {name}.\" You'd never heard of him. You looked him up in a panic."
   },
   "when": [
    "works>=1",
@@ -1215,7 +1215,7 @@
   "weight": 0.6,
   "once": true,
   "text": {
-   "ja": "大ヒット作の開発者が SNS で「ジャンプの感触は {work} が手本」と書いた。3 万いいね。あなたの放置アカウントのフォロワーが 12 人増えた。",
+   "ja": "大ヒット作の開発者が SNS に「ジャンプの感触は {work} が手本」と書いた。3 万いいね。放置した垢のフォロワーが 12 人増えた。",
    "en": "The developer of a smash hit posted: \"Our jump feel was modeled on {work}.\" Thirty thousand likes. Your abandoned account gained twelve followers."
   },
   "when": [
@@ -1359,8 +1359,8 @@
   "weight": 0.6,
   "once": true,
   "text": {
-   "ja": "大物の対談記事で「あの小さい会社のゲーム、いいよね」とあなたの作品に触れていた。会社の電話が 1 日鳴りやまなかった。全部、身内だった。",
-   "en": "In a legend's interview: \"That game from the little company, it's good.\" It was yours. The office phone rang all day. All family members."
+   "ja": "大物の対談記事で「あの小さい会社のゲーム、いいよね」と、あなたの作品が語られた。会社の電話が 1 日鳴りやまなかった。全部、身内だった。",
+   "en": "In a legend's interview: \"That game from the little company, it's good.\" It was yours. The office phone rang all day. All family."
   },
   "when": [
    "works>=1"
@@ -1415,7 +1415,7 @@
   "weight": 0.6,
   "once": true,
   "text": {
-   "ja": "飲み会で同期の {peer} が「お前にだけは負けたくない」。ライバル視されていたとは。あなたは {peer} に一度も勝ったことがない。",
+   "ja": "飲み会で同期の {peer} に「お前にだけは負けたくない」と言われた。ライバル視されていたとは。あなたは一度も勝ったことがない。",
    "en": "At drinks, {peer} said: \"You're the one person I won't lose to.\" You had no idea. You have never once beaten {peer}."
   },
   "when": [
@@ -1472,8 +1472,8 @@
   "weight": 0.5,
   "once": true,
   "text": {
-   "ja": "有名スタジオから「あなたの昔の作品をリメイクさせて」と連絡が来た。権利は前の会社にあり、あなたには何の権限も無い。それでもうれしかった。",
-   "en": "A famous studio asked to remake one of your old games. The rights belong to your old company; you have no say at all. Still, you were thrilled."
+   "ja": "有名スタジオから「昔の作品をリメイクさせて」と連絡が来た。権利は前の会社にあり、あなたに権限は無い。それでもうれしかった。",
+   "en": "A famous studio asked to remake one of your old games. The rights belong to your old company; you have no say. Still, you were thrilled."
   },
   "when": [
    "works>=2"
@@ -1500,7 +1500,7 @@
   "weight": 0.5,
   "once": true,
   "text": {
-   "ja": "ライバル会社の新作の取扱説明書の最後に「{company} のみなさん、次も勝負です」。社内に張り出され、全員の残業が 2 時間増えた。",
+   "ja": "ライバル会社の新作の説明書の最後に「{company} のみなさん、次も勝負です」。社内に張り出され、全員の残業が 2 時間増えた。",
    "en": "The last page of a rival's new manual: \"To everyone at {company}: see you in the next round.\" It went up on the office wall. Everyone's overtime grew two hours."
   },
   "when": [
@@ -1723,8 +1723,8 @@
   "weight": 0.6,
   "once": true,
   "text": {
-   "ja": "ファンレターに写真が 1 枚同封されていた。どきっとして見ると、ハイスコアを出したテレビ画面の写真だった。5 分見つめてから壁に貼った。",
-   "en": "A fan letter came with a photo. Your heart skipped. It was a photo of a TV screen showing a high score. You stared for five minutes, then pinned it to the wall."
+   "ja": "ファンレターに写真が 1 枚入っていた。見ると、ハイスコアを出したテレビ画面の写真だった。5 分見つめてから壁に貼った。",
+   "en": "A fan letter came with a photo: a TV screen showing a high score. You stared for five minutes, then pinned it to the wall."
   },
   "when": [
    "works>=1"

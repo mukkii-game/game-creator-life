@@ -1801,7 +1801,7 @@
    2002
   ],
   "text": {
-   "ja": "雑誌の読者ハガキの期待の新作ランキングで、自社の作品が 19 位に入った。20 位以内を祝って、出前の寿司が 1 人 3 貫ずつ出た。",
+   "ja": "雑誌の読者ハガキの期待の新作ランキングで、自社の作品が 19 位に入った。20 位以内を祝い、出前の寿司が 1 人 3 貫ずつ出た。",
    "en": "Your company's game placed 19th in a magazine's reader-postcard poll of most-wanted titles. To celebrate the top 20, everyone got three pieces of delivery sushi."
   },
   "when": [
@@ -2150,8 +2150,8 @@
    "flag.sega"
   ],
   "text": {
-   "ja": "BEEP! メガドライブに自社の新作が載った。他の雑誌が 2 行のところ、見開き 2 ページ。編集部のセガ愛は、社内の誰よりも濃かった。",
-   "en": "BEEP! Mega Drive covered your new game: a two-page spread where other magazines gave it two lines. The editors loved Sega more than anyone in the building."
+   "ja": "BEEP! メガドライブに自社の新作が載った。他誌が 2 行のところ、見開き 2 ページ。編集部のセガ愛は、社内の誰よりも濃かった。",
+   "en": "BEEP! Mega Drive covered your new game: a two-page spread where others gave it two lines. The editors loved Sega more than anyone in the building."
   },
   "effect": {
    "passion": 6
@@ -2173,8 +2173,8 @@
    "!flag.sega"
   ],
   "text": {
-   "ja": "メガドラで出したゲームが、BEEP! メガドライブで大きく扱われた。他誌では小さかったのに。セガのハードを選んだ人間には、ちゃんと味方がいた。",
-   "en": "Your Mega Drive game got big coverage in BEEP! Mega Drive, though other magazines barely noticed. If you bet on Sega's hardware, you had allies."
+   "ja": "メガドラで出したゲームが、BEEP! メガドライブで大きく扱われた。他誌では小さかったのに。セガのハードを選んだ人間には、味方がいた。",
+   "en": "Your Mega Drive game got big coverage in BEEP! Mega Drive, though others barely noticed. If you bet on Sega's hardware, you had allies."
   },
   "effect": {
    "passion": 6,
@@ -2196,8 +2196,8 @@
    "flag.hw_mk_sega"
   ],
   "text": {
-   "ja": "BEEP! メガドライブの読者レース(読者の採点で順位が付くページ)で、自分たちのゲームが順位を 1 つ上げた。社内の誰より先に、毎月そのページを開くようになった。",
-   "en": "In BEEP! Mega Drive's reader rankings, your game climbed one place. Every month after that, you were the first in the office to open that page."
+   "ja": "BEEP! メガドライブの読者レースで、自分たちのゲームが順位を 1 つ上げた。それから毎月、社内の誰より先にそのページを開くようになった。",
+   "en": "In BEEP! Mega Drive's reader rankings, your game climbed one place. Every month after, you were the first in the office to open that page."
   },
   "effect": {
    "passion": 5
@@ -2218,7 +2218,7 @@
    "!flag.sega"
   ],
   "text": {
-   "ja": "BEEP! メガドライブの読者ページは、メガドラへの愛と、ほかの機種へのやっかみでできていた。読んでいるうちに、持っていないメガドラが欲しくなった。",
+   "ja": "BEEP! メガドライブの読者ページは、メガドラへの愛と、他機種へのやっかみでできていた。読むうちに、持っていないメガドラが欲しくなった。",
    "en": "BEEP! Mega Drive's reader pages were made of love for the Mega Drive and envy of every other machine. Reading them, you wanted a Mega Drive you didn't own."
   },
   "effect": {
