@@ -407,7 +407,7 @@ function beginYear(s: State, out: string[]) {
     const pick = draw(r, fresh.length >= nAi ? fresh : pool, nAi, () => 1);
     q.push(...pick.map((e) => e.id));
   }
-  for (const p of due) if (!((EVENT_BY_ID.get(p.event)?.tag?.includes('mega') || /^ev_wk_fu_|^ev_ch_yonige_(struggle|postcard|payoff)/.test(p.event)) && p.co && p.co !== s.company.id)) q.push(p.event); // 会社の中の後日談は、同じ会社にいる時だけ
+  for (const p of due) if (!((EVENT_BY_ID.get(p.event)?.tag?.includes('mega') || /^ev_wk_fu_|^ev_ch_yonige_(struggle|postcard|payoff)|^ev_ch2_shokudo_(shugyo|test|payoff)/.test(p.event)) && p.co && p.co !== s.company.id)) q.push(p.event); // 会社の中の後日談は、同じ会社にいる時だけ
   // 職と年齢の節目
   if (s.year > 2040) { sys.push(s.status === 'left' ? '@end:end_switch' : '@end:end_ai_seat'); } // 業界を出た人に「AI に席を譲った」は無い(第 26 回)
   else if (s.age >= 70) sys.push('@end:end_pen_down');
