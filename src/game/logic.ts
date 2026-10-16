@@ -148,6 +148,7 @@ export function init(seed: number, options: InitOptions = {}): State {
     const bots = ['think', 'dreamer', 'stable'];
     for (let i = 0; i < 3; i++) {
       const p = init((seed * 31 + i * 7919 + 1) >>> 0, { peerOf: { year, company: s.company, bot: bots[i] }, age: r.pick([18, 22, 22, 24]) });
+      for (let k = 0; k < 6 && options.recent?.includes(`fam:${p.name.ja.split(' ')[0]}`); k++) { const q = personName(r, year - p.age); p.name = { ja: `${q.ja.split(' ')[0]} ${p.name.ja.split(' ')[1] ?? ''}`.trim(), en: `${p.name.en.split(' ')[0]} ${q.en.split(' ').slice(-1)[0]}` }; } // 直近の人生の同期と同じ名字にしない(第 24 回: 長谷川が 2 人生で同期)
       if (p.name.ja.split(' ')[0] === s.name.ja.split(' ')[0]) { const q = personName(r, year - p.age); p.name = { ja: `${q.ja.split(' ')[0]} ${p.name.ja.split(' ')[1] ?? ''}`.trim(), en: `${p.name.en.split(' ')[0]} ${q.en.split(' ').slice(-1)[0]}` }; } // 本人と同じ苗字の同期は紛らわしい
       s.inner.peerStates.push(p);
       s.peers.push({ name: p.name.ja, bot: bots[i], summary: peerSummary(p) });
@@ -229,7 +230,7 @@ function apply(s: State, e: Effect | undefined, ctx: string, out: string[], caus
   try { applyInner(s, e, ctx, out, cause); } finally { syncCompany(s); }
   // 海を渡ったら、勤め先は本当に海外の会社に(第 12 回ペルソナ: 渡った後もずっと日本の下請けの話)。数年で帰ってくる
   if ((e.flag?.life_abroad || e.flag?.went_abroad) && s.status === 'employed' && s.company.size !== 'abroad') {
-    s.company = newCompany(s.rng, 'abroad', s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
+    s.company = newCompany(s.rng, 'abroad', s.year, [s.company.id]); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
     s.inner.abroadUntil = s.year + s.rng.int(4, 7);
   }
 }
@@ -237,7 +238,7 @@ function apply(s: State, e: Effect | undefined, ctx: string, out: string[], caus
 function comeHome(s: State) {
   s.inner.abroadUntil = 0; s.flags.life_abroad = false; s.flags.went_abroad = false; s.flags.came_home = true;
   const size: CompanySize = s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small'] as const);
-  s.company = newCompany(s.rng, size, s.year, s.inner.deadCos); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
+  s.company = newCompany(s.rng, size, s.year, [...(s.inner.deadCos ?? []), s.company.id]); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
   log(s, freshLine(s, [{ ja: `日本に帰ってきた。次の勤め先は ${s.company.name.ja}。空港のうどんが、泣くほどうまかった。`, en: `Back in Japan. Next stop: ${s.company.name.en}. The airport udon was good enough to cry over.` }, { ja: `帰国して ${s.company.name.ja} に入った。最初の会議で、つい英語で相づちを打った。`, en: `Home again, you joined ${s.company.name.en}. At the first meeting you nodded along in English by accident.` }], 'comehome'), 'event');
 }
 function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Text) {
@@ -281,7 +282,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
         s.inner.nextWorkYear = s.year + s.rng.int(tune('work.everyMin'), tune('work.everyMax'));
         continue;
       }
-      s.company = newCompany(s.rng, size, s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed');
+      s.company = newCompany(s.rng, size, s.year, [s.company.id]); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed');
       // 次の勤め先を一言(第 9 回ペルソナ: 希望退職に応じた後、どこにいるのか分からない)
       log(s, freshLine(s, [{ ja: `次の勤め先は ${s.company.name.ja}。`, en: `Next stop: ${s.company.name.en}.` }, { ja: `${s.company.name.ja} に移った。机の引き出しの位置が、前の会社と左右逆だった。`, en: `You moved to ${s.company.name.en}. The desk drawers were on the opposite side from the last place.` }, { ja: `${s.company.name.ja} に拾われた。初日に配られた社員証の写真は、前の会社のを使い回した。`, en: `${s.company.name.en} took you in. For the new ID card, you reused the photo from the last one.` }, { ja: `${s.company.name.ja} に入った。歓迎会で、前の会社の悪口を言うのをこらえた。`, en: `You joined ${s.company.name.en}. At the welcome party, you held back from badmouthing the old place.` }, { ja: `${s.company.name.ja} に移った。最初の 1 週間、前の会社の電話の出方で出てしまった。`, en: `You moved to ${s.company.name.en}. For the first week you kept answering the phone with your old company's greeting.` }, { ja: `${s.company.name.ja} で出直し。新しい机には、前の人の付箋が 1 枚だけ残っていた。「がんばれ」。`, en: `A fresh start at ${s.company.name.en}. The new desk had one sticky note left by the last person: "Hang in there."` }], 'nextco'), 'event');
       s.inner.nextWorkYear = s.year + s.rng.int(tune('work.everyMin'), tune('work.everyMax'));
@@ -290,7 +291,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
       s.companies.push({ company: s.company, year: s.year });
       s.inner.nextWorkYear = s.year + s.rng.int(1, 3);
     } else if (f === 'do_return') {
-      s.job = s.inner.prevJob; s.company = newCompany(s.rng, s.rng.pick(['mid', 'small', 'sub'] as const), s.year); s.companies.push({ company: s.company, year: s.year });
+      s.job = s.inner.prevJob; s.company = newCompany(s.rng, s.rng.pick(['mid', 'small', 'sub'] as const), s.year, [s.company.id]); s.companies.push({ company: s.company, year: s.year });
       setStatus(s, 'employed'); s.inner.companyYears = 0; s.inner.leftYear = 0; s.flags.came_back = true;
       s.inner.nextWorkYear = s.year + s.rng.int(1, 3);
     } else if (f === 'do_end') {
@@ -301,7 +302,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
       end(s, 'end_switch', out, cause);
     } else if (f === 'do_teach') { // 専門学校・大学の先生になる(作品は出なくなる。戻るなら do_return)
       s.inner.prevJob = s.job === 'teacher' ? s.inner.prevJob : s.job; s.job = 'teacher';
-      s.company = newCompany(s.rng, 'school', s.year); s.companies.push({ company: s.company, year: s.year });
+      s.company = newCompany(s.rng, 'school', s.year, [s.company.id]); s.companies.push({ company: s.company, year: s.year });
       setStatus(s, 'employed'); s.inner.companyYears = 0; s.flags.taught = true;
     } else if (f === 'do_prison') { // 服役(3 年)。明けたら個人開発者として再起する
       s.inner.prevJob = s.job; s.flags.in_prison = true; s.inner.prisonUntil = s.year + 3;
@@ -477,7 +478,7 @@ function beginYear(s: State, out: string[]) {
   const n = (s.flags.in_prison ? 1 : r.int(tune('life.eventsMin'), tune('life.eventsMax'))) - (q.length > 0 ? 1 : 0) - hist.length;
   const sysChoice = [...sys, ...q, ...hist, ...turning].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
-  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && (!e.tag?.includes('quote') || (s.inner.counts.quote ?? 0) < 2) && (!e.tag?.includes('slang') || (s.inner.counts.slang ?? 0) < 4) && (!s.flags.in_prison || (e.when ?? []).some((c) => c.includes('prison'))) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware', 'worklife'].some((t) => e.tag?.includes(t)));
+  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && (!e.tag?.includes('quote') || (s.inner.counts.quote ?? 0) < 1) && (!e.tag?.includes('slang') || (s.inner.counts.slang ?? 0) < 4) && (!s.flags.in_prison || (e.when ?? []).some((c) => c.includes('prison'))) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware', 'worklife'].some((t) => e.tag?.includes(t)));
   let picked = draw(r, pool, Math.max(1, n), wOf(s));
   // 選択は 1 年に 1 本まで、作品の後日談も 1 年に 1 本まで
   let seenChoice = false, seenAfter = false;
@@ -564,7 +565,7 @@ function runItem(s: State, id: string, out: string[]) {
     const p = tune('job.rehire') + (s.stat.skill + s.stat.network) / 250 + (s.year - s.startYear < 6 ? 0.4 : 0);
     if (r.chance(p)) {
       const size: CompanySize = s.stat.skill >= 65 ? r.pick(['big', 'mid'] as const) : r.pick(['mid', 'small', 'sub', 'sub'] as const);
-      s.company = newCompany(r, size, s.year, s.inner.deadCos); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
+      s.company = newCompany(r, size, s.year, [...(s.inner.deadCos ?? []), s.company.id]); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
       logEvent(s, 'ev_sys_rehired', 'event'); apply(s, EVENT_BY_ID.get('ev_sys_rehired')?.effect, id, out);
       s.inner.nextWorkYear = s.year + r.int(1, 3);
     } else { s.inner.searchFails++; const f = vary(s, ['ev_sys_search_fail', 'ev_sys_search_fail_b', 'ev_sys_search_fail_c']); s.inner.uses[f] = (s.inner.uses[f] ?? 0) + 1; logEvent(s, f, 'event'); apply(s, EVENT_BY_ID.get(f)?.effect, id, out); }
