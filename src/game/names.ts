@@ -82,6 +82,8 @@ const HW_PREF: [string, (p: string) => boolean][] = [
 export function platformFor(r: Rng, year: number, role: Role, flags: Record<string, boolean> = {}): string {
   const base = platformBase(r, year, role);
   if (role === 'solo') return base;
+  // セガの社員は、ハードから撤退する 2001 年まではセガのハード(と業務用)でしか出さない
+  if (flags.sega && year < 2001) { const own = platformList(year).filter((p) => /メガドライブ|セガサターン|ドリームキャスト|業務用|ゲームギア/.test(p)); return own.length ? r.pick(own) : (year < 1988 ? '業務用' : 'メガドライブ'); }
   const prefs = HW_PREF.filter(([f]) => flags[f]);
   if (!prefs.length) return base; // 選んでいなければ乱数の使い方も前と同じ(古い replay が変わらない)
   let list = platformList(year);
@@ -101,7 +103,7 @@ function platformList(year: number): string[] {
 
 const TABLE: [number, string[]][] = [
   [1978, ['業務用']], [1983, ['業務用', 'PC-8801']], [1986, ['ファミコン', '業務用']], [1990, ['ファミコン', 'メガドライブ', 'PC エンジン', 'ゲームボーイ']],
-  [1994, ['スーパーファミコン', 'メガドライブ', 'ゲームボーイ']], [1998, ['PlayStation', 'セガサターン', 'NINTENDO64']],
+  [1995, ['スーパーファミコン', 'メガドライブ', 'ゲームボーイ']], [1996, ['PlayStation', 'セガサターン', 'スーパーファミコン']], [1998, ['PlayStation', 'セガサターン', 'NINTENDO64']],
   [2001, ['PlayStation', 'ドリームキャスト', 'PlayStation 2']], [2004, ['PlayStation 2', 'ゲームボーイアドバンス', 'ケータイ']],
   [2007, ['ニンテンドー DS', 'PSP', 'PlayStation 2', 'ケータイ']], [2010, ['ニンテンドー DS', 'Wii', 'PS3', 'ケータイ']],
   [2014, ['ソシャゲ', 'スマホ', '3DS', 'PS3']], [2017, ['スマホ', 'PS4', '3DS']], [2021, ['スマホ', 'Switch', 'PS4']],

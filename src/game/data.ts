@@ -27,6 +27,17 @@ for (const t of TIMELINE) {
   if (!TIMELINE_BY_YEAR.has(t.year)) TIMELINE_BY_YEAR.set(t.year, []);
   TIMELINE_BY_YEAR.get(t.year)!.push(t);
 }
+// 家族が亡くなった後に、その人が出てくる話を出さない(ペルソナ通読: 母を見送った 4 年後に「母がゲームを作った」)。
+// 遺品の話が flag を立て、本文に母・父が出てくる話には条件を足す(データを 1 本ずつ直さずに済むよう、読み込み時に)
+const KIN: [RegExp, string, string[]][] = [
+  [/(?<![祖叔伯保寮分])母(?![校国艦体])/, 'mother_gone', ['ev_lv_mother_save', 'ev_lv_mother_video']],
+  [/(?<![祖叔伯神])父(?![兄])/, 'father_gone', ['ev_lv_father_shelf']],
+];
+for (const e of EVENTS) for (const [re, flag, deaths] of KIN) {
+  if (deaths.includes(e.id)) { e.effect = { ...(e.effect ?? {}), flag: { ...(e.effect?.flag ?? {}), [flag]: true } }; continue; }
+  if ((e.weight ?? 1) > 0 && re.test(e.text.ja) && !(e.when ?? []).includes(`!flag.${flag}`)) e.when = [...(e.when ?? []), `!flag.${flag}`];
+}
+
 /** 普通に抽選されるイベント(system と weight 0 は除く) */
 export const POOL: GameEvent[] = EVENTS.filter((e) => !e.id.startsWith('ev_sys_') && !HIST_OF.has(e.id) && (e.weight ?? 1) > 0);
 

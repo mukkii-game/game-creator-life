@@ -7,7 +7,7 @@ import { callName, fullName, type OtherLife } from './people';
 import type { Arc } from './types';
 import type { State, InitOptions, Text, Effect, GameEvent, Choice, Job, CompanySize, EndingId, Era, LogLine, Company } from './types';
 import { CO_TRAITS, EVENTS, EVENT_BY_ID, POOL, TIMELINE_BY_YEAR, HIST, HIST_OF, COMPANIES, type CoRow } from './data';
-import { eligible, draw, positionOf } from './select';
+import { eligible, draw, positionOf, test } from './select';
 
 export { positionOf };
 import { personName, companyName, OTHER_JOBS, JOB_TEXT } from './names';
@@ -222,6 +222,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
     }
     if (!v) continue;
     if (f === 'do_change_company') {
+      s.flags.changed_co = true;
       const size: CompanySize = s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small', 'sub'] as const);
       s.company = newCompany(s.rng, size, s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed');
       s.inner.nextWorkYear = s.year + s.rng.int(tune('work.everyMin'), tune('work.everyMax'));
@@ -300,7 +301,8 @@ function beginYear(s: State, out: string[]) {
   s.era = eraOf(s.year);
   syncCompany(s);
   const r = s.rng;
-  for (const t of TIMELINE_BY_YEAR.get(s.year) ?? []) log(s, t.text, 'timeline', [t.kind]);
+  // 年表は 1 年 2 行まで(3〜4 行並ぶと自分の話が押し流される、とペルソナ通読で指摘)
+  for (const t of (TIMELINE_BY_YEAR.get(s.year) ?? []).slice(0, 2)) log(s, t.text, 'timeline', [t.kind]);
   if ((TIMELINE_BY_YEAR.get(s.year) ?? []).length) out.push('timeline');
   const q: string[] = [];
   const sys: string[] = [];
@@ -316,13 +318,13 @@ function beginYear(s: State, out: string[]) {
   if (s.status === 'employed') {
     const mult = { big: 0.3, mid: 1, small: 1.6, sub: 2, abroad: 1, indie: 0, school: 0, none: 0 }[s.company.size];
     const bad = [1983, 1991, 1992, 2001, 2008, 2009, 2023, 2024].includes(s.year) ? 2 : 1;
-    if (s.job !== 'teacher' && r.chance(tune('job.bankrupt') * mult * bad)) sys.push('ev_sys_bankrupt');
+    if (s.job !== 'teacher' && r.chance(tune('job.bankrupt') * mult * bad)) sys.push(vary(s, ['ev_sys_bankrupt', 'ev_sys_bankrupt_b', 'ev_sys_bankrupt_c']));
     else {
       if (s.year >= s.inner.nextWorkYear && s.job !== 'teacher') q.push('@release');
       const lastOffer = Math.max(s.inner.seen.ev_sys_offer ?? -99, s.inner.seen.ev_sys_offer_b ?? -99, s.inner.seen.ev_sys_offer_c ?? -99);
-      if (!s.flags.age60 && s.inner.companyYears >= 2 && s.age >= 20 && s.year - lastOffer >= 6 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(r.pick(['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
+      if (!s.flags.age60 && s.inner.companyYears >= 2 && s.age >= 20 && s.year - lastOffer >= 6 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(vary(s, ['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
       // 昇進: 半分は「受けるか、現場に残るか」の選択(ev_wk_promote_ask)。残りはそのまま辞令
-      else if (canPromote(s) && r.chance(tune('job.promote'))) sys.push(r.chance(0.5) && !s.inner.used.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : r.pick(['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
+      else if (canPromote(s) && r.chance(tune('job.promote'))) sys.push(r.chance(0.5) && !s.inner.used.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : vary(s, ['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
       if (s.year >= 2027 && !s.inner.used.includes('ev_sys_ai_seat') && r.chance(Math.min(0.6, tune('ai.seat') * (1 + 2 * Math.min(1, (s.year - 2027) / 8)) + Math.max(0, s.year - 2035) * 0.12))) sys.push('ev_sys_ai_seat');
     }
   } else if (s.status === 'indie') {
@@ -379,7 +381,7 @@ function beginYear(s: State, out: string[]) {
   const n = r.int(tune('life.eventsMin'), tune('life.eventsMax')) - (q.length > 0 ? 1 : 0) - hist.length;
   const sysChoice = [...sys, ...q, ...hist, ...turning].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
-  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware', 'worklife'].some((t) => e.tag?.includes(t)));
+  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && (!s.flags.in_prison || (e.when ?? []).some((c) => c.includes('prison'))) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware', 'worklife'].some((t) => e.tag?.includes(t)));
   let picked = draw(r, pool, Math.max(1, n));
   // 選択は 1 年に 1 本まで、作品の後日談も 1 年に 1 本まで
   let seenChoice = false, seenAfter = false;
@@ -460,16 +462,17 @@ function runItem(s: State, id: string, out: string[]) {
       s.company = newCompany(r, size, s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
       logEvent(s, 'ev_sys_rehired', 'event'); apply(s, EVENT_BY_ID.get('ev_sys_rehired')?.effect, id, out);
       s.inner.nextWorkYear = s.year + r.int(1, 3);
-    } else { s.inner.searchFails++; logEvent(s, 'ev_sys_search_fail', 'event'); apply(s, EVENT_BY_ID.get('ev_sys_search_fail')?.effect, id, out); }
+    } else { s.inner.searchFails++; const f = vary(s, ['ev_sys_search_fail', 'ev_sys_search_fail_b', 'ev_sys_search_fail_c']); s.inner.uses[f] = (s.inner.uses[f] ?? 0) + 1; logEvent(s, f, 'event'); apply(s, EVENT_BY_ID.get(f)?.effect, id, out); }
     out.push('event');
     return;
   }
-  if (id === '@rehire_offer') return runItem(s, 'ev_sys_indie_offer', out); // 独立中にお金が尽きかけたら、会社員に戻る誘い
+  if (id === '@rehire_offer') return runItem(s, vary(s, ['ev_sys_indie_offer', 'ev_sys_indie_offer_b']), out); // 独立中にお金が尽きかけたら、会社員に戻る誘い
 
   const ev = EVENT_BY_ID.get(id);
   if (!ev) return;
   if (ev.years && (s.year < ev.years[0] || s.year > ev.years[1])) return;
   if (ev.once && s.inner.used.includes(ev.id)) return;
+  if (ev.when && !ev.when.every((c) => test(s, c))) return; // 同じ年のうちに独立・転職・服役した時は出さない
   // 後日談: 発売から 2 年以上たった作品を 1 本選ぶ
   s.inner.workTarget = -1;
   if (ev.tag?.includes('afterlife')) {
@@ -566,11 +569,19 @@ function peersYear(s: State, out: string[]) {
     const newHit = p.works.slice(before.works).find((w) => w.result === 'hit' || w.result === 'legend');
     let line: Text | null = null;
     const pe = p.ending as State['ending'];
+    // 同期の話は種類ごとに回数を絞る(ヒット 2・独立と昇進は 1 人 1 回・塀の中は 1 人生 1 回)。言い回しも変える
+    const pc = (s.inner.peerTold ??= {});
+    const ok = (k: string, max: number) => (pc[k] ?? 0) < max;
+    const said1 = (k: string) => { pc[k] = (pc[k] ?? 0) + 1; };
+    const hitL: [string, string][] = [
+      [`同期の${nm}の${newHit?.name.ja}が${newHit ? RESULT_TEXT[newHit.result].ja : ''}。飲み会でずっとその話をしていた。`, `Your peer ${en}'s ${newHit?.name.en} was a hit. It was all they talked about at drinks.`],
+      [`同期の${nm}の${newHit?.name.ja}が売れた。お祝いのメールに「おめでとう」と書いて、3 回消して、また書いた。`, `Your peer ${en}'s ${newHit?.name.en} sold well. You typed "congrats", deleted it three times, and typed it again.`],
+    ];
     if (pe) line = { ja: `同期の${nm}: ${pe.cause.ja}。`, en: `Your peer ${en}: ${pe.cause.en}.` };
-    else if (newHit && (newHit.result === 'legend' || s.rng.chance(0.4))) line = { ja: `同期の${nm}の${newHit.name.ja}が${RESULT_TEXT[newHit.result].ja}。飲み会でずっとその話をしていた。`, en: `Your peer ${en}'s ${newHit.name.en} was a ${RESULT_TEXT[newHit.result].en.toLowerCase()}. It was all they talked about at drinks.` };
-    else if (p.status !== before.status && p.status === 'indie') line = { ja: `同期の${nm}が独立した。名刺の肩書きは「CEO」。社員は本人だけ。`, en: `Your peer ${en} went indie. Business card: "CEO." Staff: one.` };
-    else if (p.job !== before.job && (p.job === 'director' || p.job === 'producer')) line = { ja: `同期の${nm}が${JOB_TEXT[p.job].ja}に昇進した。あなたより先に。`, en: `Your peer ${en} was promoted to ${JOB_TEXT[p.job].en}. Before you.` };
-    else if (p.status !== before.status && p.flags.in_prison) line = { ja: `同期の${nm}が塀の中へ。差し入れにゲーム雑誌を送った。付箋だらけで返ってきた。`, en: `Your peer ${en} went to prison. You sent game magazines. They came back covered in sticky notes.` };
+    else if (newHit && ok('hit', 2) && (newHit.result === 'legend' || s.rng.chance(0.4))) { const [ja, enT] = hitL[pc.hit ?? 0]; line = { ja, en: enT }; said1('hit'); }
+    else if (p.status !== before.status && p.status === 'indie' && ok(`indie${i}`, 1)) { said1(`indie${i}`); line = { ja: `同期の${nm}が独立した。名刺の肩書きは「CEO」。社員は本人だけ。`, en: `Your peer ${en} went indie. Business card: "CEO." Staff: one.` }; }
+    else if (p.job !== before.job && (p.job === 'director' || p.job === 'producer') && ok(`promo${i}`, 1)) { said1(`promo${i}`); line = { ja: `同期の${nm}が${JOB_TEXT[p.job].ja}に昇進した。あなたより先に。`, en: `Your peer ${en} was promoted to ${JOB_TEXT[p.job].en}. Before you.` }; }
+    else if (p.status !== before.status && p.flags.in_prison && ok('prison', 1)) { said1('prison'); line = { ja: `同期の${nm}が塀の中へ。差し入れにゲーム雑誌を送った。付箋だらけで返ってきた。`, en: `Your peer ${en} went to prison. You sent game magazines. They came back covered in sticky notes.` }; }
     else if (p.status !== before.status && p.status === 'left' && p.job === 'other') line = { ja: `同期の${nm}が業界を離れ、${p.inner.otherJob?.ja ?? '別の仕事'}へ。年賀状の写真が明るくなった。`, en: `Your peer ${en} left the industry for a ${p.inner.otherJob?.en ?? 'new job'}. Their New Year card looks happier.` };
     s.peers[i].summary = peerSummary(p);
     if (line && (!said || pe)) { said = true; log(s, line, 'peer'); out.push('peer'); }
@@ -662,7 +673,10 @@ function arcName(s: State, r: Rng, lo: number, hi: number, born: number): Text {
     s.inner.others = s.inner.others!.filter((x) => x !== o); // 同じ人が別の役で出ない
     return { ja: callName(o), en: fullName(o) };
   }
-  const p = personName(r, born);
+  // 同期と同じ苗字は避ける(師匠の小山さんと同期の小山が別人で混乱した)
+  const taken = s.inner.peerStates.map((p) => p.name.ja.split(' ')[0]);
+  let p = personName(r, born);
+  for (let i = 0; i < 5 && taken.includes(p.ja.split(' ')[0]); i++) p = personName(r, born);
   return { ja: `${p.ja.split(' ')[0]}さん`, en: p.en.split(' ').slice(-1)[0] };
 }
 function mentorArcs(s: State, r: Rng, out: string[]) {
@@ -674,7 +688,7 @@ function mentorArcs(s: State, r: Rng, out: string[]) {
     s.inner.mentee = { name: arcName(s, r, s.year - 2, s.year + 1, s.year - 22), step: 0, next: s.year, used: [] };
   for (const kind of ['mentor', 'mentee'] as const) {
     const a: Arc | undefined = s.inner[kind];
-    if (!a || a.step >= 5 || s.year < a.next) continue;
+    if (!a || a.step >= 5 || s.year < a.next || s.flags.in_prison) continue;
     // 2・3 段目は同じ職場にいる時だけ(いなければ飛ばす)
     if ((a.step === 1 || a.step === 2) && s.status !== 'employed') { a.step++; continue; }
     const pre = kind === 'mentor' ? 'ev_mt_' : 'ev_me_';
@@ -689,4 +703,10 @@ function mentorArcs(s: State, r: Rng, out: string[]) {
     if (a.step < 4) { const [lo, hi] = ARC_GAP[kind][a.step]; a.next = s.year + r.int(lo, hi); }
     a.step++;
   }
+}
+
+/** 言い回し違いの版から、この人生でまだ出ていないものを先に選ぶ(全部出たら乱数) */
+function vary(s: State, ids: string[]): string {
+  const fresh = ids.filter((id) => EVENT_BY_ID.has(id) && !(s.inner.uses[id] ?? 0));
+  return fresh.length ? fresh[0] : s.rng.pick(ids.filter((id) => EVENT_BY_ID.has(id)));
 }

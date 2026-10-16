@@ -97,6 +97,8 @@ export interface Inner {
   othersSeen?: string[];
   /** 社風の一言を出した会社 */
   coShown?: string[];
+  /** 同期の話を何回したか(種類ごと) */
+  peerTold?: Record<string, number>;
   /** 直属の先輩(メンター)と、自分が面倒を見る後輩(メンティー)。人生に 1 人ずつ */
   mentor?: Arc;
   mentee?: Arc;

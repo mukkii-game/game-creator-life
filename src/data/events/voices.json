@@ -1,0 +1,517 @@
+[
+ {
+  "id": "ev_vo_pseudonym",
+  "years": [
+   1987,
+   1996
+  ],
+  "text": {
+   "ja": "スタッフロールの名前は「ポテト山田」。会社の決まりで本名は出せない。母は、どれがあんたか分からないと言った。",
+   "en": "Your staff-roll credit read \"Potato Yamada\" — company policy forbade real names. Your mother couldn't tell which one was you."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "flag": {
+    "pseudonym": true
+   },
+   "passion": 3
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_vo_realname",
+  "years": [
+   1999,
+   2040
+  ],
+  "text": {
+   "ja": "初めてスタッフロールに本名で載った。実家に電話したら「やっと見つけた」と言われた。昔のポテト山田も、ちゃんとあんただったのにね、とも。",
+   "en": "For the first time your real name was in the credits. You called home: \"Finally found you.\" And: \"Potato Yamada was you too, you know.\""
+  },
+  "when": [
+   "flag.pseudonym"
+  ],
+  "effect": {
+   "passion": 8
+  },
+  "tag": [
+   "aruaru",
+   "high"
+  ],
+  "memory": {
+   "ja": "スタッフロールに初めて本名で載った日",
+   "en": "the first time your real name appeared in the credits"
+  },
+  "weight": 3,
+  "once": true
+ },
+ {
+  "id": "ev_vo_smoking_room",
+  "years": [
+   1985,
+   2002
+  ],
+  "text": {
+   "ja": "仕様は会議室ではなく喫煙所で決まった。吸わないあなたは、翌朝の FAX で知った。",
+   "en": "Specs weren't decided in the meeting room but in the smoking room. As a non-smoker, you found out from the next morning's fax."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "flag": {
+    "smoking_room": true
+   },
+   "passion": -1,
+   "network": 2
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_vo_smoking_gone",
+  "years": [
+   2020,
+   2020
+  ],
+  "text": {
+   "ja": "屋内の喫煙室が無くなった。あの会社でいちばん大事なことが決まっていた場所だった。灰皿のあった壁だけ、少し黄色い。",
+   "en": "Indoor smoking rooms were abolished. That was where everything important at that company got decided. Only the wall where the ashtray stood is still a little yellow."
+  },
+  "when": [
+   "flag.smoking_room"
+  ],
+  "effect": {
+   "passion": 3
+  },
+  "tag": [
+   "aruaru",
+   "high"
+  ],
+  "weight": 4,
+  "once": true
+ },
+ {
+  "id": "ev_vo_master_rom",
+  "years": [
+   1988,
+   1999
+  ],
+  "text": {
+   "ja": "納品のマスター ROM を抱えて新幹線に乗った。網棚には乗せず、ずっと膝の上。トイレにも持って行った。",
+   "en": "You rode the bullet train carrying the master ROM for delivery. Never on the luggage rack — on your lap the whole way. You even took it to the toilet."
+  },
+  "when": [
+   "status=employed",
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 3
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_vo_memcard",
+  "years": [
+   1995,
+   2000
+  ],
+  "text": {
+   "ja": "セーブに 3 ブロック使うと言ったら、営業ににらまれた。メモリーカードは 15 ブロックしかない。1 ブロックに削った夜、少し誇らしかった。",
+   "en": "You said the save would use three blocks and sales glared at you — a memory card only has fifteen. The night you squeezed it into one, you felt a little proud."
+  },
+  "when": [
+   "status=employed",
+   "job=programmer"
+  ],
+  "effect": {
+   "skill": 3
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_vo_y2k",
+  "years": [
+   1999,
+   1999
+  ],
+  "text": {
+   "ja": "サーバー室で年を越した。0 時 0 分、何も起きなかった。年越しそばはのびていた。",
+   "en": "You saw in the new year in the server room. At midnight, nothing happened. The New Year's noodles had gone soggy."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "aruaru",
+   "high"
+  ],
+  "memory": {
+   "ja": "何も起きなかった 2000 年の年越し",
+   "en": "the New Year 2000 when nothing happened"
+  },
+  "weight": 3,
+  "once": true
+ },
+ {
+  "id": "ev_vo_cross_review",
+  "years": [
+   1992,
+   2010
+  ],
+  "text": {
+   "ja": "ファミ通のクロスレビューは 7・7・6・7 の合計 27 点。以来、社内では「殿堂入りまであと 3 点」が口癖になった。",
+   "en": "Famitsu's cross review: 7, 7, 6, 7 — 27 points. Ever since, \"three points short of the Hall of Fame\" has been the office catchphrase."
+  },
+  "when": [
+   "status=employed",
+   "works>=1"
+  ],
+  "effect": {
+   "passion": 3
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_vo_telehodai",
+  "years": [
+   1996,
+   2001
+  ],
+  "text": {
+   "ja": "23 時になると、誰より先に会社を出た。テレホーダイの時間は、締め切りより大事だった。",
+   "en": "At 11 p.m. you left the office before anyone else. Telehodai flat-rate hours mattered more than deadlines."
+  },
+  "when": [
+   "age<=40"
+  ],
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_vo_excel_bugs",
+  "years": [
+   2000,
+   2010
+  ],
+  "text": {
+   "ja": "バグ表は Excel 1 枚。誰かが開いていると「読み取り専用で開きますか」。マスター前夜は、全員が読み取り専用だった。",
+   "en": "The bug list was one Excel file. If anyone had it open: \"Open as read-only?\" On the night before master-up, everyone was read-only."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "skill": 1
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_vo_hiragana",
+  "years": [
+   2003,
+   2008
+  ],
+  "text": {
+   "ja": "ケータイの容量に収めるため、主人公のセリフを全部ひらがなにした。かえって泣けると評判だった。",
+   "en": "To fit the phone's tiny storage, you rewrote all the hero's lines in hiragana. Players said it made them cry even more."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_vo_cell",
+  "years": [
+   2006,
+   2009
+  ],
+  "text": {
+   "ja": "「SPU を使い切れ」と言われた。使い切った人を、社内で一度も見なかった。",
+   "en": "\"Use every SPU,\" they said. You never once met anyone in the company who had."
+  },
+  "when": [
+   "status=employed",
+   "job=programmer"
+  ],
+  "effect": {
+   "skill": 3
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_vo_koty",
+  "years": [
+   2004,
+   2015
+  ],
+  "text": {
+   "ja": "掲示板の本スレで、自分の作品がクソゲーオブザイヤーの候補に挙がった。選評を読んで、思わずうなずいた。",
+   "en": "On the message board, your game was nominated for Kusoge of the Year. Reading the critique, you found yourself nodding."
+  },
+  "when": [
+   "works>=1"
+  ],
+  "effect": {
+   "passion": -2,
+   "skill": 2
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true
+ },
+ {
+  "id": "ev_vo_quake",
+  "years": [
+   2011,
+   2011
+  ],
+  "text": {
+   "ja": "大きな揺れが止まった時、全員がまず開発機とサーバーを見た。それから、少し恥ずかしそうに家族に電話した。",
+   "en": "When the great shaking stopped, everyone first checked the dev kits and the servers. Then, a little sheepishly, they called their families."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "aruaru",
+   "high"
+  ],
+  "weight": 4,
+  "once": true
+ },
+ {
+  "id": "ev_vo_blackout",
+  "years": [
+   2011,
+   2011
+  ],
+  "text": {
+   "ja": "計画停電の夜、ビルドサーバーの UPS を囲んで、懐中電灯でデバッグした。誰も帰ろうと言わなかった。",
+   "en": "During the rolling blackouts, you debugged by flashlight, huddled around the build server's UPS. Nobody suggested going home."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 3
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "weight": 3,
+  "once": true
+ },
+ {
+  "id": "ev_vo_special_thanks",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "辞めた会社の新作のスタッフロールを最後まで見た。自分の名前は Special Thanks の一番下に、小さく残っていた。",
+   "en": "You watched the credits of your old company's new game to the very end. Your name was there, small, at the bottom of Special Thanks."
+  },
+  "when": [
+   "flag.changed_co"
+  ],
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "aruaru",
+   "high"
+  ],
+  "memory": {
+   "ja": "辞めた会社の Special Thanks に残っていた名前",
+   "en": "your name left in an old company's Special Thanks"
+  },
+  "weight": 2,
+  "once": true
+ },
+ {
+  "id": "ev_vo_three_carriers",
+  "years": [
+   2009,
+   2011
+  ],
+  "text": {
+   "ja": "ドコモ、au、ソフトバンク。1 枚の絵を 3 回、別の大きさに縮めた。3 枚とも同じに見えた。",
+   "en": "Docomo, au, SoftBank. You shrank one picture three times to three different sizes. All three looked the same."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "skill": 2
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "weight": 2,
+  "once": true
+ },
+ {
+  "id": "ev_vo_kpi",
+  "years": [
+   2012,
+   2040
+  ],
+  "text": {
+   "ja": "DAU、ARPPU、継続率。会議で「面白い」という言葉が出たのは、3 か月で 1 回だけだった。言ったのは新人だった。",
+   "en": "DAU, ARPPU, retention. In three months of meetings, the word \"fun\" came up once. The new hire said it."
+  },
+  "when": [
+   "flag.hw_dv_mobile"
+  ],
+  "effect": {
+   "passion": -2
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "weight": 3,
+  "once": true
+ },
+ {
+  "id": "ev_vo_friday3pm",
+  "years": [
+   2010,
+   2014
+  ],
+  "text": {
+   "ja": "新ガチャは毎週金曜 15 時。サーバーが落ちるのも、毎週金曜 15 時だった。",
+   "en": "New gacha every Friday at 3 p.m. The servers went down every Friday at 3 p.m., too."
+  },
+  "when": [
+   "flag.hw_dv_mobile"
+  ],
+  "effect": {
+   "hp": -2
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "weight": 3,
+  "once": true
+ },
+ {
+  "id": "ev_vo_rate_table",
+  "years": [
+   2016,
+   2040
+  ],
+  "text": {
+   "ja": "排出率の表で小数点を 1 つずらした。SSR が 30% 出た 6 時間、ユーザーは初めて「神運営」と言った。",
+   "en": "You slipped a decimal in the drop-rate table. For six hours SSRs dropped at 30%, and players called you \"god-tier ops\" for the first time."
+  },
+  "when": [
+   "flag.hw_dv_mobile"
+  ],
+  "effect": {
+   "passion": 3,
+   "money": -20
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "weight": 3,
+  "once": true
+ },
+ {
+  "id": "ev_vo_offline",
+  "years": [
+   2015,
+   2040
+  ],
+  "text": {
+   "ja": "サービス終了の最後のお知らせに「オフライン版を配信します」と書けた。それだけで、5 年が報われた。",
+   "en": "In the final end-of-service notice you got to write: \"An offline version will be released.\" That alone made five years worth it."
+  },
+  "when": [
+   "flag.hw_dv_mobile"
+  ],
+  "effect": {
+   "passion": 10
+  },
+  "tag": [
+   "aruaru",
+   "high"
+  ],
+  "memory": {
+   "ja": "「オフライン版を配信します」と書けた日",
+   "en": "the day you could write \"an offline version will be released\""
+  },
+  "weight": 3,
+  "once": true
+ },
+ {
+  "id": "ev_vo_flash_end",
+  "years": [
+   2020,
+   2020
+  ],
+  "text": {
+   "ja": "学生の頃に作った Flash のゲームが、今日で遊べなくなる。最後に 1 回遊んで、ハイスコアを更新した。",
+   "en": "The Flash game you made as a student stops working today. You played it one last time and beat your high score."
+  },
+  "when": [
+   "flag.st_dev",
+   "age<=46"
+  ],
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "aruaru",
+   "high"
+  ],
+  "memory": {
+   "ja": "Flash が終わる日に更新したハイスコア",
+   "en": "the high score you beat on Flash's last day"
+  },
+  "weight": 4,
+  "once": true
+ }
+]

@@ -1,0 +1,141 @@
+[
+ {
+  "id": "ev_sys_bankrupt_b",
+  "years": [
+   1970,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "給料日に給料が振り込まれなかった。翌日、社長が全員を集めて「今日で解散です」と頭を下げた。最後に、全員で会社のゲームを遊んだ。",
+   "en": "Payday came with no pay. The next day the boss gathered everyone, bowed, and said: \"We dissolve today.\" At the end, everyone played the company's games together."
+  },
+  "effect": {
+   "passion": -10,
+   "status": "left",
+   "flag": {
+    "wm_oldco_gone": true
+   }
+  },
+  "tag": [
+   "system",
+   "job",
+   "layoff"
+  ]
+ },
+ {
+  "id": "ev_sys_bankrupt_c",
+  "years": [
+   1970,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "会社が潰れた。差し押さえの人が開発機に札を貼っていく。「これは動きますか」と聞かれたので、つい起動して見せた。",
+   "en": "The company went under. The bailiffs put tags on the dev kits. \"Does this one work?\" one asked — so you booted it up and showed him."
+  },
+  "effect": {
+   "passion": -10,
+   "status": "left",
+   "flag": {
+    "wm_oldco_gone": true
+   }
+  },
+  "tag": [
+   "system",
+   "job",
+   "layoff"
+  ]
+ },
+ {
+  "id": "ev_sys_search_fail_b",
+  "years": [
+   1970,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "面接で「得意なことは?」と聞かれ、「徹夜です」と答えた。面接官が少しうなずいて、不採用だった。",
+   "en": "\"What are you good at?\" \"All-nighters.\" The interviewer nodded slightly. Rejected."
+  },
+  "effect": {
+   "passion": -8
+  },
+  "tag": [
+   "system",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_sys_search_fail_c",
+  "years": [
+   1970,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "面接の帰り、自分が昔作ったゲームが中古屋のワゴンに 300 円で並んでいた。1 本買って帰った。結果は不採用だった。",
+   "en": "On the way home from an interview, you found your old game in a bargain bin for 300 yen. You bought one. The answer was no."
+  },
+  "effect": {
+   "passion": -6
+  },
+  "tag": [
+   "system",
+   "job"
+  ]
+ },
+ {
+  "id": "ev_sys_indie_offer_b",
+  "years": [
+   1970,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "通帳の残高が電気代を下回った夜、昔の同僚から電話。「うち、人が足りないんだ。来ない?」電話の向こうで、懐かしい締め切りの音がした。",
+   "en": "The night your balance dropped below the electricity bill, an old colleague called: \"We're short-handed. Want to come?\" Behind them you could hear the familiar sound of a deadline."
+  },
+  "choices": [
+   {
+    "id": "ch_sys_indie_offer_b_join",
+    "label": {
+     "ja": "会社員に戻る",
+     "en": "Go back to a salary"
+    },
+    "effect": {
+     "money": 50,
+     "passion": -5,
+     "flag": {
+      "do_change_company": true
+     }
+    },
+    "result": {
+     "ja": "戻った。最初の給料で、まず電気代を払った。",
+     "en": "You went back. Your first paycheck went to the electricity bill."
+    }
+   },
+   {
+    "id": "ch_sys_indie_offer_b_stay",
+    "label": {
+     "ja": "独立を続ける",
+     "en": "Stay indie"
+    },
+    "effect": {
+     "passion": 8,
+     "money": -20
+    },
+    "result": {
+     "ja": "断った。ろうそくを 1 本立てて、続きを書いた。少しだけ雰囲気が出た。",
+     "en": "You declined, lit a candle, and kept writing. It added a little atmosphere."
+    }
+   }
+  ],
+  "tag": [
+   "system",
+   "job",
+   "choice",
+   "indie"
+  ]
+ }
+]

@@ -758,11 +758,11 @@
   "id": "ev_hw_handheld_war",
   "years": [
    1999,
-   2002
+   2000
   ],
   "text": {
-   "ja": "携帯機が乱立した。ワンダースワン、ネオジオポケットカラー、そしてゲームボーイアドバンスの噂。営業は「どれでも売れます」と言った。営業はいつもそう言う。",
-   "en": "Handhelds everywhere: WonderSwan, Neo Geo Pocket Color, and whispers of the Game Boy Advance. Sales said \"they'll all sell\". Sales always says that."
+   "ja": "携帯機が乱立した。ワンダースワン、ネオジオポケット、そして任天堂の次の携帯機の噂。営業は「どれでも売れます」と言った。営業はいつもそう言う。",
+   "en": "Handhelds everywhere: WonderSwan, Neo Geo Pocket, and rumours of Nintendo's next handheld. Sales said \"they'll all sell\". Sales always says that."
   },
   "when": [
    "pos!=teacher",
@@ -796,8 +796,8 @@
    {
     "id": "ch_hw_hh_gba",
     "label": {
-     "ja": "ゲームボーイアドバンスを待つ",
-     "en": "Wait for the GBA"
+     "ja": "任天堂の次の携帯機を待つ",
+     "en": "Wait for Nintendo's next handheld"
     },
     "effect": {
      "money": 30,
@@ -865,7 +865,7 @@
   "id": "ev_hw_ds_or_psp",
   "years": [
    2004,
-   2006
+   2004
   ],
   "text": {
    "ja": "DS と PSP、同じ冬に出る。2 画面でタッチペンか、きれいな画面で UMD か。開発機を両方触った同僚が「どっちも変」と言った。",
@@ -977,8 +977,8 @@
    2014
   ],
   "text": {
-   "ja": "スマホとソシャゲの時代。会議で「据え置きは終わる」と言う人と「スマホはゲームじゃない」と言う人が、同じテーブルで目を合わせなかった。",
-   "en": "The smartphone and social-game era. In the meeting, the \"consoles are finished\" camp and the \"phones aren't real games\" camp sat at one table and refused to make eye contact."
+   "ja": "ソーシャルゲームの時代。会議で「据え置きは終わる」と言う人と「ケータイのはゲームじゃない」と言う人が、同じテーブルで目を合わせなかった。",
+   "en": "The social-game era. In the meeting, the \"consoles are finished\" camp and the \"phone games aren't real games\" camp sat at one table and refused to make eye contact."
   },
   "when": [
    "pos!=teacher",
@@ -989,8 +989,8 @@
    {
     "id": "ch_hw_mobile",
     "label": {
-     "ja": "スマホに行く",
-     "en": "Go mobile"
+     "ja": "ケータイ・スマホのソシャゲに行く",
+     "en": "Go to mobile social games"
     },
     "effect": {
      "money": 50,
@@ -1000,8 +1000,8 @@
      }
     },
     "result": {
-     "ja": "スマホに行った。ガチャの確率表を Excel で組んだ夜、少しだけ自分が怖くなった。",
-     "en": "You went mobile. The night you built the gacha odds in Excel, you scared yourself a little."
+     "ja": "ソシャゲに行った。ガチャの確率表を Excel で組んだ夜、少しだけ自分が怖くなった。",
+     "en": "You went social. The night you built the gacha odds in Excel, you scared yourself a little."
     },
     "later": [
      {
@@ -1088,8 +1088,8 @@
    2019
   ],
   "text": {
-   "ja": "家庭用がアーケードを追い越した。PS4 の画面のほうがきれいで、ゲーセンは街から減っていく。それでも、アーケードの新作の話が来た。",
-   "en": "Consoles had overtaken the arcade. The PS4 looked better, and arcades were vanishing from town. Still, an arcade project came your way."
+   "ja": "家庭用がアーケードを追い越して、もうずいぶんたつ。ゲーセンは街から減っていく一方だ。それでも、アーケードの新作の話が来た。",
+   "en": "Home consoles overtook the arcade long ago, and arcades keep vanishing from town. Still, an arcade project came your way."
   },
   "when": [
    "pos!=teacher",
