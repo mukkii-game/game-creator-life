@@ -1,7 +1,7 @@
 // 作品棚(ひねり、PLAN §3)。作品を出す・結果を引く・発売後も史実に連動して勝手に生き続ける。
 import { tune } from '../core/tuning';
 import type { State, Work, Role, WorkResult, Text } from './types';
-import { workName, platformFor } from './names';
+import { workName, platformFor, partsOf } from './names';
 import { CO_TRAITS } from './data';
 
 // あなたのチームの作品の名前(PLAN §12 を 2026-10-15 Mukkii の指示で変更): 実在のヒット作は実名で史実に出し、
@@ -32,9 +32,10 @@ function styledName(s: State): Text | null {
 /** 作った題名も機種に合わせる(第 8 回ペルソナ: 『伝説の釣りDS』が PS3 で出ていた) */
 /** 直近の人生で見た題名(init で recent から入れる) */
 export const RECENT_TITLES = new Set<string>();
-function fitName(r: State["rng"], year: number, platform: string): Text {
+function fitName(r: State["rng"], year: number, platform: string, mine: string[] = []): Text {
+  const usedParts = new Set(mine.flatMap(partsOf));
   let n = workName(r, year);
-  for (let i = 0; i < 12 && (!nameFits(n.ja, platform) || RECENT_TITLES.has(n.ja.replace(/^『|』$/g, ''))); i++) n = workName(r, year); // 直近の人生の題名(自分・同期)と被らせない(第 31 回)
+  for (let i = 0; i < 16 && (!nameFits(n.ja, platform) || RECENT_TITLES.has(n.ja.replace(/^『|』$/g, '')) || (i < 12 && partsOf(n.ja).some((p) => usedParts.has(p)))); i++) n = workName(r, year); // 直近の人生の題名(自分・同期)と被らせない(第 31 回)
   return n;
 }
 function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | null {
@@ -201,7 +202,7 @@ export function release(s: State): { work: Work; line: Text } {
   const platform = platformFor(r, s.year, role, s.flags, s.status === 'employed' ? s.company.id : undefined);
   const styled = styledName(s);
   const titled = styled ? { name: styled } : role === 'solo' || !r.chance(0.8) ? null : pickTitle(s, platform);
-  const work: Work = { id: `wk_${s.works.length + 1}`, name: titled?.name ?? fitName(r, s.year, platform), year: s.year, platform, role, result, history: [], res0: result };
+  const work: Work = { id: `wk_${s.works.length + 1}`, name: titled?.name ?? fitName(r, s.year, platform, s.works.map((w) => w.name.ja)), year: s.year, platform, role, result, history: [], res0: result };
   s.works.push(work);
   // 結果の一言は、この人生でまだ使っていないものから(ペルソナ通読: 社長賞 5000 円が 3 回)
   const said = (s.inner.saidLines ??= []);

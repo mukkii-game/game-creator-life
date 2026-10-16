@@ -182,7 +182,8 @@ export function init(seed: number, options: InitOptions = {}): State {
     const ageKey = (e: GameEvent) => { const t = e.text.ja; return /子どもの頃|小学|幼|中学/.test(t) ? 0 : /高校/.test(t) ? 1 : 2; };
     picked.sort((a, b) => ageKey(a) - ageKey(b)); // 子どもの頃 → 高校 → 学生時代の順に並べる(第 38 回: 同人サークルの翌年に「中学の頃」)
     picked.forEach((ev, i) => {
-      s.log.push({ year: base.y - off + i, age: base.a - off + i, text: fill(s, evText(s, ev)), kind: 'event', tag: ev.tag });
+      const tx0 = fill(s, evText(s, ev)); const kid0 = ageKey(ev) === 0 && base.a - off + i >= 16; // 19 歳の欄に「子どもの頃」の話は思い出として出す(第 48・50 回)
+      s.log.push({ year: base.y - off + i, age: base.a - off + i, text: kid0 ? { ja: `〔思い出〕${tx0.ja}`, en: `[Memory] ${tx0.en}` } : tx0, kind: 'event', tag: ev.tag });
       applyInner(s, ev.effect ?? {}, ev.id, []);
       s.inner.used.push(ev.id); s.inner.seen[ev.id] = base.y - off + i; if (ev.motif) (s.inner.motifs ??= []).push(ev.motif); // 学生時代の話の型も覚える(第 40 回: 「最初に買ってくれた人の顔」が学生時代と 11 年後に) // seen に入れないと、次の人生で「直近に見た話」として避けられない(第 21 回: 学生時代の同じ文が 3 人生とも)
     });
@@ -631,7 +632,7 @@ function runItem(s: State, id: string, out: string[]) {
     s.inner.workTarget = r.pick(old)[1];
   }
   if (/\{other\}/.test(ev.text.ja) && !s.inner.others?.length) return; // 他の人の名前が無い時に「知人が」で出さない(第 28 回)
-  if ((s.flags.callcenter || s.status === 'left') && !/^ev_(sys|fa|rv|mt|me)_/.test(ev.id) && !ev.tag?.some((t) => t === 'system' || t === 'hist' || t === 'chain' || t === 'big_after' || t === 'followup') && !(ev.when ?? []).some((c) => /callcenter|status|pos=/.test(c)) && /マスターアップ|締め切り|隣の席|社内|会議室|(?<!元)課長|(?<!元)部長|(?<!元)上司|仕様書|企画会議|チームの/.test(ev.text.ja)) return; // 電話の窓口・失業中に開発の席の話を出さない(第 49 回: カスタマーセンターで「今の作品はマスターアップ直前」、失業中に「隣の席の 4 人」)
+  if ((s.flags.callcenter || s.status === 'left') && !/^ev_(sys|fa|rv|mt|me)_/.test(ev.id) && !ev.tag?.some((t) => t === 'system' || t === 'hist' || t === 'chain' || t === 'big_after' || t === 'followup') && !(ev.when ?? []).some((c) => /callcenter|status|pos=/.test(c)) && /マスターアップ|締め切り|隣の席|社内|会議室|会議で|続編を|(?<!元)課長|(?<!元)部長|(?<!元)上司|仕様書|企画会議|チームの/.test(ev.text.ja)) return; // 電話の窓口・失業中に開発の席の話を出さない(第 49 回: カスタマーセンターで「今の作品はマスターアップ直前」、失業中に「隣の席の 4 人」)
   if (s.job === 'teacher' && !ev.tag?.some((t) => t === 'teach' || t === 'teacher' || t === 'system') && !ev.id.startsWith('ev_sys_') && !(ev.when ?? []).some((c) => c.includes('teacher')) && /発売|作品|開発|マスター|チーム|社内|会議|企画|締め切り|仕様/.test(ev.text.ja)) return; // 先生になった後に開発の話を出さない(第 36 回: 塾の講師になって 5 年「開発者の幽霊」)
   if (ev.choices && isHwChoice(ev)) { if (s.inner.lastHwChoice !== undefined && s.year - s.inner.lastHwChoice < 2) return; s.inner.lastHwChoice = s.year; } // どの機械に付くかの選択は 2 年に 1 回まで(第 23 回: DS か PSP かが同じ年に 2 回、ドリキャスが 2 年続けて)
   if (ev.choices && ev.motif && s.inner.motifs?.includes(ev.motif)) return; // 年の初めに積んだ選択でも、同じ年に同じ型の選択が先に出ていたら出さない(第 20 回: ソシャゲに行くかが 1 年に 2 回)

@@ -56,6 +56,8 @@ function tail(r: Rng, year: number): [string, string] {
   if (year < 2020) return r.pick([['ドロップス', ' Drops'], ['〜ガチャ無料〜', ': Free Pulls'], ['ストライク', ' Strike'], ['リバース', ' Rebirth'], ['ラッシュ', ' Rush']]); // VR はハードを選んだ時だけ(第 48 回: 3DS に『〜VR』)
   return r.pick([['リマスター', ' Remastered'], ['サバイバーズ', ' Survivors'], ['ライク', '-like'], ['AI エディション', ' AI Edition'], ['〜人間が作った〜', ': Made by Humans']]);
 }
+/** 題名の部品(頭・体)。1 人生の中で同じ部品を使い回さない(第 50 回: 「麻雀」「魔界」「銀河」が 3 本ずつ) */
+export function partsOf(name: string): string[] { return [...W_HEAD, ...W_BODY].map((x) => x[0]).filter((x) => x && name.includes(x)); }
 export function workName(r: Rng, year: number): Text {
   const h = r.pick(W_HEAD), b = r.pick(W_BODY), t = tail(r, year);
   return { ja: `『${h[0]}${b[0]}${t[0]}』`, en: `"${h[1]}${b[1]}${t[1]}"` };
