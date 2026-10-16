@@ -371,7 +371,10 @@ function beginYear(s: State, out: string[]) {
   syncCompany(s);
   const r = s.rng;
   // 年表は 1 年 2 行まで(3〜4 行並ぶと自分の話が押し流される、とペルソナ通読で指摘)
-  for (const t of (TIMELINE_BY_YEAR.get(s.year) ?? []).slice(0, 2)) log(s, t.text, 'timeline', [t.kind]);
+  const tl = TIMELINE_BY_YEAR.get(s.year) ?? [];
+  // 2 回目からは 1 年 1 行、どれを出すかも散らす(第 33 回: 3 回続けると「同じ新聞を読み返している」)
+  const tlShow = s.inner.recent?.length && !s.inner.isPeer ? (tl.length > 1 ? [tl[r.int(0, Math.min(tl.length, 3) - 1)]] : tl) : tl.slice(0, 2);
+  for (const t of tlShow) log(s, t.text, 'timeline', [t.kind]);
   if ((TIMELINE_BY_YEAR.get(s.year) ?? []).length) out.push('timeline');
   // 2027 年: AI のパラダイムシフトで人生の区切り(2026-10-16 Mukkii)。その年は「どうする?」の選択だけ → キッズ・リターンのパロディで前向きに終わる
   if (s.year >= tune<number>('life.finalYear') && s.age < 70 && !s.flags.in_prison) { s.inner.queue = ['ev_sys_shift']; return; } // 塀の中の間は、出てから(第 14 回ペルソナ: 服役中に「発売日に並ぶ」)
