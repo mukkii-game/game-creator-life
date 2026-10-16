@@ -39,11 +39,11 @@ function causeOf(s: State, id: EndingId): Text {
 // 最後の 1 行(Mukkii: 成功しても失敗しても、最後は必ず「いいゲーム人生だった」と言って引退する余韻)
 // = 一番の思い出 + その時の気持ち(思い出の種類で変える) + 終わり方ごとのひとこと + 「いいゲーム人生だった。」
 const FEELING: Record<string, Text[]> = {
-  peak: [{ ja: 'あれは人生のてっぺんだった', en: 'that was the top of the mountain' }, { ja: 'あの日の打ち上げの味は、今でも覚えている', en: 'I still remember how the wrap party tasted that night' }],
-  celeb: [{ ja: 'あれは一生の自慢になった', en: "I've bragged about it ever since" }, { ja: '孫の代まで語り継ぐつもりだ', en: "I plan to tell it to my grandkids' grandkids" }],
-  warm: [{ ja: '思い出すと、今でも少し泣ける', en: 'it still gets me a little, thinking back' }, { ja: 'あれがあったから続けられた', en: "that's what kept me going" }],
-  work: [{ ja: 'あの時はテンションが上がった', en: 'what a rush that was' }, { ja: '売上表を、こっそり手帳に挟んでいる', en: 'I still keep the sales sheet tucked in my planner' }],
-  high: [{ ja: 'あの時はテンションが上がった', en: 'what a rush that was' }, { ja: '思い出すたびに、にやけてしまう', en: 'I still grin every time I remember it' }, { ja: '小さな話だが、自分には大事件だった', en: 'a small thing, but a big deal to me' }],
+  peak: [{ ja: 'あれは人生のてっぺんだった', en: 'that was the top of the mountain' }, { ja: 'あの日のことは、今でも細かく思い出せる', en: 'I can still recall every detail of that day' }, { ja: 'あの年の手帳は、今も捨てられない', en: "I still can't throw away that year's planner" }, { ja: '何度思い出しても、少し背筋が伸びる', en: 'every time I remember it, I sit up a little straighter' }],
+  celeb: [{ ja: 'あれは一生の自慢になった', en: "I've bragged about it ever since" }, { ja: 'あの話をすると、若い人が少しだけ身を乗り出す', en: 'when I tell that story, the young ones lean in a little' }, { ja: '孫の代まで語り継ぐつもりだ', en: "I plan to tell it to my grandkids' grandkids" }],
+  warm: [{ ja: '思い出すと、今でも少し泣ける', en: 'it still gets me a little, thinking back' }, { ja: 'あの時の顔を、今も時々思い出す', en: 'I still think of the faces from that day' }, { ja: 'あれがあったから続けられた', en: "that's what kept me going" }],
+  work: [{ ja: 'あの時はテンションが上がった', en: 'what a rush that was' }, { ja: 'あの数字は、今でも暗記している', en: 'I still know those numbers by heart' }, { ja: 'あの日の打ち上げの味は、今でも覚えている', en: 'I still remember how the wrap party tasted that night' }, { ja: '売上表を、こっそり手帳に挟んでいる', en: 'I still keep the sales sheet tucked in my planner' }],
+  high: [{ ja: 'あの時はテンションが上がった', en: 'what a rush that was' }, { ja: '思い出すたびに、にやけてしまう', en: 'I still grin every time I remember it' }, { ja: '小さな話だが、自分には大事件だった', en: 'a small thing, but a big deal to me' }, { ja: 'あれだけで 1 年がんばれた', en: 'that alone kept me going for a year' }],
 };
 const AFTER: Partial<Record<EndingId, Text[]>> = {
   end_debt: [{ ja: '借金は 10 年かけて返した。最後の振り込みの日、少しだけ自作を遊んだ。', en: 'It took ten years to pay off the debt. On the last payment day, I played my own game a little.' }, { ja: '借金の返済表は、今見るとハイスコア表に見える。', en: 'The repayment schedule looks like a high-score table now.' }],
@@ -57,18 +57,26 @@ const AFTER: Partial<Record<EndingId, Text[]>> = {
   end_restart: [{ ja: '翌朝、新しい企画書のファイルを作った。名前は「新規ドキュメント(2)」。', en: 'Next morning I made a new proposal file. Its name: "New Document (2)".' }, { ja: 'エンディングの後には、2 周目がある。ゲームの作り手なら、みんな知っている。', en: 'After the ending comes New Game+. Every game maker knows that.' }],
   end_pen_down: [{ ja: '70 年分のセーブデータは、全部ちゃんと残っている。', en: 'Seventy years of save data, all still there.' }],
 };
+/** 結果画面の締めの言葉: 直近の人生で使っていないものから(第 8 回ペルソナ: 締めの文が 3 回とも同じ) */
+function freshPick(s: State, texts: Text[]): Text {
+  const said = (s.inner.saidLines ??= []);
+  const fresh = texts.filter((t) => !s.inner.recent?.includes(`line:${t.ja}`));
+  const t = s.rng.pick(fresh.length ? fresh : texts);
+  said.push(t.ja);
+  return t;
+}
 function epitaphOf(s: State, id: EndingId): Text {
   const r = s.rng;
   const restartAfter: Text | null = id !== 'end_restart' ? null
-    : s.flags.shift_partner ? { ja: 'AI に最初に読ませたのは、30 年分のボツ企画書だった。', en: 'The first thing I showed the AI was thirty years of rejected proposals.' }
-    : s.flags.shift_play ? { ja: '遊ぶ側に回っても、ついクリア後のスタッフロールを最後まで見てしまう。', en: 'Even as a player, I still watch every credits roll to the very end.' }
+    : s.flags.shift_partner ? freshPick(s, [{ ja: 'AI との打ち合わせは、今日も夜中まで長引いている。', en: 'Meetings with the AI still run past midnight.' }, { ja: '相棒の AI は、締め切りを一度も破らない。こっちは破る。', en: 'My AI partner has never missed a deadline. I have.' }])
+    : s.flags.shift_play ? freshPick(s, [{ ja: '遊ぶ側に回っても、ついクリア後のスタッフロールを最後まで見てしまう。', en: 'Even as a player, I still watch every credits roll to the very end.' }, { ja: '遊ぶ側に回っても、バグを見つけると、つい再現手順をメモしてしまう。', en: 'Even as a player, when I find a bug I still write down the repro steps.' }])
     : null;
   const prisonAfter: Text | null = s.flags.ex_prison || s.flags.in_prison ? { ja: '塀の中で方眼紙に描いた迷宮は、今も引き出しの奥にある。', en: 'The maze I drew on graph paper behind bars is still at the back of my drawer.' } : null;
-  const after = prisonAfter ?? restartAfter ?? (AFTER[id] ? r.pick(AFTER[id]!) : { ja: '', en: '' });
+  const after = prisonAfter ?? restartAfter ?? (AFTER[id] ? freshPick(s, AFTER[id]!) : { ja: '', en: '' });
   const hs = s.inner.highs;
   if (!hs.length) return { ja: `大きな事件は何も無かった。${after.ja}それでも、いいゲーム人生だった。`, en: `Nothing big ever happened. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') };
   const best = hs.reduce((a, b) => (b.w >= a.w ? b : a));
-  const f = r.pick(FEELING[best.kind ?? 'high'] ?? FEELING.high);
+  const f = freshPick(s, FEELING[best.kind ?? 'high'] ?? FEELING.high);
   return {
     ja: `${best.year} 年、${best.age} 歳。${best.text.ja}。${f.ja}。${after.ja}いいゲーム人生だった。`,
     en: `${best.year}, age ${best.age}: ${best.text.en.replace(/\.$/, '')}. ${f.en[0].toUpperCase() + f.en.slice(1)}. ${after.en} It was a good game life.`.replace(/  +/g, ' '),

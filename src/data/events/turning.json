@@ -3010,8 +3010,8 @@
    2040
   ],
   "text": {
-   "ja": "昔自分を首にした元上司が、新会社に誘ってきた。「お前しかいない」。前も同じことを言っていた。",
-   "en": "The boss who once fired you invites you to his new company. \"You're the only one.\" He said that last time too."
+   "ja": "昔の会社で自分の企画を全部ボツにした元上司が、新会社に誘ってきた。「お前しかいない」。ボツの時も同じことを言っていた。",
+   "en": "The old boss who once rejected every proposal you wrote invites you to their new company. \"You're the only one.\" They said that when rejecting you, too."
   },
   "when": [
    "career>=8"

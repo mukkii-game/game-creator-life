@@ -228,6 +228,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
       // ハードの好み(hw_<組>_<名>)は組ごとに最後の選択だけ残す(SEGA→PS に乗り換えたら SEGA の好みは消える)
       const g = /^hw_([a-z]+)_/.exec(f);
       if (g && v) for (const k of Object.keys(s.flags)) if (k.startsWith(`hw_${g[1]}_`)) delete s.flags[k];
+      delete s.flags[f]; // 付け直して、新しい選択ほど後ろに並ぶように(platformFor は新しい選択を優先する)
       s.flags[f] = v;
       continue;
     }
@@ -424,12 +425,16 @@ function pickHist(s: State): string[] {
   for (const h of HIST) {
     if (h.year > s.year) break;
     if (s.year > (h.until ?? h.year) || s.inner.histDone.includes(h.id)) continue;
-    const v = h.variants.map((x) => EVENT_BY_ID.get(x.id)!).find((ev) => eligible(s, ev) && (!s.flags.in_prison || (ev.when ?? []).some((c) => c.includes('prison'))));
-    if (!v) continue;
+    const vs = h.variants.map((x) => EVENT_BY_ID.get(x.id)!).filter((ev) => eligible(s, ev) && (!s.flags.in_prison || (ev.when ?? []).some((c) => c.includes('prison'))));
+    if (!vs.length) continue;
+    // 事件そのものは何度出てもよいが、付いている小ネタの版は直近の人生で見ていないものを(第 8 回ペルソナ: 歴史の小ネタが 3 回続けて同じ文)
+    const freshV = vs.find((ev) => !s.inner.recent?.includes(ev.id));
+    const v = freshV ?? vs[0];
+    const stale = freshV ? 1 : tune<number>('life.recentPenalty') * 4;
     const novelty = !seenHist.has(h.id) ? tune<number>('hist.newBoost') : !seen.has(`${h.id}:${v.id}`) ? tune<number>('hist.newPosBoost') : 0.5;
     // 前に選んだこと(flag)を回収する版なら、ほぼ必ず出す(陣営・全力・闇の誘いの結末)
     const callback = (v.when ?? []).some((c) => c.startsWith('flag.')) ? tune<number>('hist.callbackBoost') : 1;
-    cands.push({ id: v.id, w: (h.weight ?? 1) * novelty * callback });
+    cands.push({ id: v.id, w: (h.weight ?? 1) * novelty * callback * (callback > 1 ? 1 : stale) });
   }
   if (!cands.length) return [];
   const n = Math.min(cands.length, s.rng.chance(tune<number>('hist.second')) ? 2 : 1);
@@ -601,6 +606,10 @@ function peersYear(s: State, out: string[]) {
     const hitL: [string, string][] = [
       [`同期の${nm}の${newHit?.name.ja}が${newHit ? RESULT_TEXT[newHit.result].ja : ''}。飲み会でずっとその話をしていた。`, `Your peer ${en}'s ${newHit?.name.en} was a hit. It was all they talked about at drinks.`],
       [`同期の${nm}の${newHit?.name.ja}が売れた。お祝いのメールに「おめでとう」と書いて、3 回消して、また書いた。`, `Your peer ${en}'s ${newHit?.name.en} sold well. You typed "congrats", deleted it three times, and typed it again.`],
+      [`同期の${nm}の${newHit?.name.ja}が売れた。店で平積みになっているのを見て、1 本だけ向きを直してから帰った。`, `Your peer ${en}'s ${newHit?.name.en} sold well. You saw it stacked in a shop, straightened one copy, and left.`],
+      [`同期の${nm}の${newHit?.name.ja}がヒット。社内報の表紙に載った。あなたは同じ号の 14 ページ目、「今月の誕生日」の欄にいた。`, `Your peer ${en}'s ${newHit?.name.en} was a hit and made the cover of the company newsletter. You were on page 14 of the same issue, under "birthdays this month".`],
+      [`同期の${nm}の${newHit?.name.ja}が売れた。親戚の集まりで「あの子、すごいのね」と言われた。あなたの話は出なかった。`, `Your peer ${en}'s ${newHit?.name.en} sold well. At a family gathering, a relative said: "That one's really something." You didn't come up.`],
+      [`同期の${nm}の${newHit?.name.ja}がヒット。こっそり買って、こっそり最後まで遊んだ。悔しいが、面白かった。`, `Your peer ${en}'s ${newHit?.name.en} was a hit. You bought it quietly and played it to the end quietly. Annoyingly, it was good.`],
     ];
     if (pe) line = { ja: `同期の${nm}の知らせ。${pe.cause.ja.replace(/^\d+ 歳、/, '')}。`, en: `News of your peer ${en}: ${pe.cause.en.replace(/^At \d+, /, '')}.` };
     else if (newHit && ok('hit', 2) && !s.works.some((w) => w.name.ja === newHit.name.ja) && (newHit.result === 'legend' || s.rng.chance(0.4))) { line = freshLine(s, hitL.map(([ja, enT]) => ({ ja, en: enT })), 'peerhit'); said1('hit'); }
@@ -708,12 +717,18 @@ function arcName(s: State, r: Rng, lo: number, hi: number, born: number): Text {
   for (let i = 0; i < 5 && taken.includes(p.ja.split(' ')[0]); i++) p = personName(r, born);
   return { ja: `${p.ja.split(' ')[0]}さん`, en: p.en.split(' ').slice(-1)[0] };
 }
+/** 一人の人の長い話(ファン・ライバル・先輩・後輩)をこの人生でやるか。直近の人生でやった話は出にくく(第 8 回ペルソナ: 3 回とも同じ筋で先が読めた) */
+function arcOn(s: State, r: Rng, kind: string, pre: string): boolean {
+  const k = (s.inner.arcOn ??= {});
+  if (k[kind] === undefined) k[kind] = !r.chance(s.inner.recent?.some((id) => id.startsWith(pre)) ? 0.6 : 0.1);
+  return k[kind];
+}
 function mentorArcs(s: State, r: Rng, out: string[]) {
   if (s.inner.isPeer) return;
   const career = s.year - s.startYear;
-  if (!s.inner.mentor && s.status === 'employed' && career <= 3 && s.company.size !== 'indie')
+  if (!s.inner.mentor && s.status === 'employed' && career <= 3 && s.company.size !== 'indie' && arcOn(s, r, 'mentor', 'ev_mt_'))
     s.inner.mentor = { name: arcName(s, r, s.startYear - 15, s.startYear - 3, s.year - s.age - r.int(5, 12)), step: 0, next: s.year, used: [], co: s.company.id };
-  if (!s.inner.mentee && s.status === 'employed' && career >= (s.inner.menteeAt ?? 8) && s.age < 62)
+  if (!s.inner.mentee && s.status === 'employed' && career >= (s.inner.menteeAt ?? 8) && s.age < 62 && arcOn(s, r, 'mentee', 'ev_me_'))
     s.inner.mentee = { name: arcName(s, r, s.year - 2, s.year + 1, s.year - 22), step: 0, next: s.year, used: [], co: s.company.id };
   for (const kind of ['mentor', 'mentee'] as const) {
     const a: Arc | undefined = s.inner[kind];
@@ -786,14 +801,14 @@ function storyArcs(s: State, r: Rng): string[] {
   if (s.inner.isPeer || s.flags.in_prison) return outIds;
   // ファン: 最初の作品が出た後に、子どもから便りが来る
   const firstWork = s.works.find((w) => w.role !== 'solo') ?? s.works[0];
-  if (!s.inner.fan && firstWork && s.year > firstWork.year && s.year < 2022) {
+  if (!s.inner.fan && firstWork && s.year > firstWork.year && s.year < 2022 && arcOn(s, r, 'fan', 'ev_fa_')) {
     const p = personName(r, s.year - 10);
     const given = p.ja.split(' ')[1] ?? p.ja;
     s.inner.fan = { name: { ja: `${given}さん`, en: p.en.split(' ')[0] }, step: 0, next: s.year, used: [], work: firstWork.name };
   }
   // ライバル: 同じ会社の同期(本人の同期の 2 人目)
   const rp = s.inner.peerStates[1];
-  if (!s.inner.rival && rp && s.status === 'employed' && s.year - s.startYear >= 2 && s.company.size !== 'indie')
+  if (!s.inner.rival && rp && s.status === 'employed' && s.year - s.startYear >= 2 && s.company.size !== 'indie' && arcOn(s, r, 'rival', 'ev_rv_'))
     s.inner.rival = { name: { ja: rp.name.ja.split(' ')[0], en: rp.name.en.split(' ').slice(-1)[0] }, step: 0, next: s.year, used: [], co: s.company.id };
   for (const kind of ['fan', 'rival'] as const) {
     const a = s.inner[kind];

@@ -14,6 +14,12 @@ function nameFits(name: string, platform: string): boolean {
   const tags: [RegExp, RegExp][] = [[/DS$|DS[^a-z]/, /^ニンテンドー DS$/], [/アドバンス/, /アドバンス/], [/ポータブル|ポケット/, /PSP|ゲームボーイ|DS|3DS|スマホ|ケータイ/], [/64/, /64/], [/3D$/, /3DS/]];
   return tags.every(([inName, okPf]) => !inName.test(name) || okPf.test(platform));
 }
+/** 作った題名も機種に合わせる(第 8 回ペルソナ: 『伝説の釣りDS』が PS3 で出ていた) */
+function fitName(r: State["rng"], year: number, platform: string): Text {
+  let n = workName(r, year);
+  for (let i = 0; i < 6 && !nameFits(n.ja, platform); i++) n = workName(r, year);
+  return n;
+}
 function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | null {
   const used = new Set(s.works.map((w) => w.name.ja));
   const near = TITLES.filter((t) => t.years[0] <= s.year && s.year <= t.years[1]); // 発売前の年には出さない。一言に「同じ年」が多いので、終わりの年も延ばさない
@@ -174,7 +180,7 @@ export function release(s: State): { work: Work; line: Text } {
   const result = roll(s, role);
   const platform = platformFor(r, s.year, role, s.flags);
   const titled = role === 'solo' || !r.chance(0.8) ? null : pickTitle(s, platform);
-  const work: Work = { id: `wk_${s.works.length + 1}`, name: titled?.name ?? workName(r, s.year), year: s.year, platform, role, result, history: [] };
+  const work: Work = { id: `wk_${s.works.length + 1}`, name: titled?.name ?? fitName(r, s.year, platform), year: s.year, platform, role, result, history: [] };
   s.works.push(work);
   // 結果の一言は、この人生でまだ使っていないものから(ペルソナ通読: 社長賞 5000 円が 3 回)
   const said = (s.inner.saidLines ??= []);
@@ -267,7 +273,7 @@ export function tickWorks(s: State): { work: Work; text: Text }[] {
       // 同じ運命は 1 人生で言い回しの数まで(ペルソナ通読: 「ログイン 41 人」が 5 回)
       const fc = (s.inner.fateCount ??= {});
       const texts = [f.text, ...(f.more ?? [])];
-      if ((fc[f.key] ?? 0) >= texts.length) continue;
+      if ((fc[f.key] ?? 0) >= Math.min(2, texts.length)) continue; // 1 人生に同じ運命は 2 回まで(第 8 回ペルソナ: 「続編が自分抜きで決まる」が 4 回)
       if (!s.rng.chance(f.chance * base / 0.06)) continue;
       // 言い回しは、この人生と直近の人生で使っていないものから(第 7 回ペルソナ: 「41 人」が 3 回続けて出た)
       const said = (s.inner.saidLines ??= []);

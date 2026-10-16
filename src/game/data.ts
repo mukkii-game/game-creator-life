@@ -78,6 +78,16 @@ for (const e of EVENTS) {
   if (/\{work\}/.test(tx) && /リマスター|復刻|昔の|移植版|再販/.test(tx) && !e.tag?.includes('afterlife')) e.tag = [...(e.tag ?? []), 'afterlife'];
 }
 
+// ヒットが前提の話(第 8 回ペルソナ: 「普通」の 1 本しか無いのに「作品が大ヒットし、父が全クリ」がてっぺんに)。
+// てっぺんの話は、その話で直近の作品をヒットにする。それ以外はヒットが 1 本以上ある時だけ
+for (const e of EVENTS) {
+  const t = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join('');
+  if (!/大ヒット|ヒットし|ヒット記念|段ボール 3 箱|ヒットのボーナス/.test(t) || /他社|脳トレ|パズル&|ELDEN|パルワールド|横スクロールの|そっくりなゲーム|大ヒット作の開発者/.test(t)) continue;
+  if (e.id.startsWith('ev_tn_pk_')) {
+    if (!e.effect?.work) { e.effect = { ...(e.effect ?? {}), work: { last: { result: 'hit' } } }; if (!has(e, 'works')) add(e, 'works>=1'); }
+  } else if (!has(e, 'hits')) add(e, 'hits>=1');
+}
+
 // ソシャゲへの移籍は 1 回だけ(ハードの選択と時代の話の両方で出ていた)
 {
   const tr = EVENTS.find((e) => e.id === 'ev_era4_social_transfer');

@@ -115,6 +115,8 @@ export interface Inner {
   fan?: Arc & { work?: Text };
   rival?: Arc;
   menteeAt?: number;
+  /** 長い話をこの人生でやるか(arcOn) */
+  arcOn?: Record<string, boolean>;
   isPeer: boolean;
   bot: string;               // peer の時: 動かすボット名
   workTarget: number;        // afterlife のイベントが指す作品の番号(-1 = 直近)

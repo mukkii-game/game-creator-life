@@ -17,7 +17,6 @@ import { installBuildId } from './build';
 import { showTitle } from './title';
 import { showChronicle } from './chronicle';
 import { load, save, addChronicle, addRecent, recentIds } from '../core/save';
-import { HIST_OF } from '../game/data';
 import { startPlay, type PlayScreen, type Speed } from './play';
 import { h, tf, tx, setLook, lookOf, loadFonts } from './util';
 import { installArt } from './art';
@@ -157,7 +156,7 @@ export function startApp(container: HTMLElement) {
   function record(s: State, seed: number, player: Player | null, name: string | undefined) {
     if (fixedLife(seed, player) || !s.ending) return;
     // この人生で出た話(歴史の事件と system は除く)を「最近見た話」に
-    addRecent([...Object.keys(s.inner.seen).filter((id) => !HIST_OF.has(id)), ...(s.inner.saidLines ?? []).map((t) => `line:${t}`), ...s.works.map((w) => `title:${w.name.ja.replace(/^『|』$/g, '')}`)]);
+    addRecent([...Object.keys(s.inner.seen), ...(s.inner.saidLines ?? []).map((t) => `line:${t}`), ...s.works.map((w) => `title:${w.name.ja.replace(/^『|』$/g, '')}`)]);
     const typed = name ? splitName(name) : null;
     const parts = typed ?? splitName(s.name.ja);
     const best = [...s.works].sort((a, b) => rank(b.result) - rank(a.result))[0];

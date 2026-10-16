@@ -210,7 +210,17 @@
     "result": {
      "ja": "AI に昔の企画書を全部読ませた。「この 3 本目、面白いですね」と言われた。昔ボツになったやつだった。",
      "en": "You fed the AI every old proposal. \"This third one is interesting,\" it said. It was rejected thirty years ago."
-    }
+    },
+    "alt": [
+     {
+      "ja": "AI を相棒にした。最初の打ち合わせで、AI は 3 秒で企画書を 40 本出した。あなたは 3 時間かけて、そのうち 1 本に赤ペンを入れた。",
+      "en": "You teamed up with the AI. In the first meeting it produced 40 proposals in three seconds. You spent three hours putting red pen on one of them."
+     },
+     {
+      "ja": "AI を相棒にした。夜中に「この面、難しすぎませんか」と聞いてきた。昔の自分の上司と同じことを言う。",
+      "en": "You teamed up with the AI. Late at night it asked, \"Isn't this stage too hard?\" Exactly what your old boss used to say."
+     }
+    ]
    },
    {
     "id": "ch_sys_shift_hand",
@@ -229,7 +239,17 @@
     "result": {
      "ja": "手で作ることにした。AI に作れないものが何かは、まだ分からない。分からないから、作ってみるしかない。",
      "en": "You'll make it by hand. What AI can't make, you don't know yet. So the only way is to make it and see."
-    }
+    },
+    "alt": [
+     {
+      "ja": "手で作ることにした。机に方眼紙を広げた。最初の 1 マスを塗るまでに、コーヒーを 2 杯飲んだ。",
+      "en": "You'll make it by hand. You spread graph paper across the desk. Two coffees went by before you filled the first square."
+     },
+     {
+      "ja": "手で作ることにした。AI の速さには勝てない。でも、遅いからこそ入る小ネタがある。それだけは知っている。",
+      "en": "You'll make it by hand. You can't beat the AI's speed. But some jokes only fit because you're slow. That much you know."
+     }
+    ]
    },
    {
     "id": "ch_sys_shift_play",
@@ -247,7 +267,17 @@
     "result": {
      "ja": "遊ぶ側に回った。若い連中が AI で作ったゲームを遊んだら、昔あなたが作ったボスにそっくりなやつが出てきた。",
      "en": "You switched to playing. In a game the young ones made with AI, there was a boss that looked just like one you made long ago."
-    }
+    },
+    "alt": [
+     {
+      "ja": "遊ぶ側に回った。発売日に並ぶのは、30 年ぶりだった。前の人に「どこの会社の方ですか」と聞かれた。",
+      "en": "You switched to playing. Queuing on launch day, for the first time in thirty years. The person ahead asked, \"Which company are you with?\""
+     },
+     {
+      "ja": "遊ぶ側に回った。説明書を読まずに始めて、3 分で詰まった。作る側だった頃の自分に、少し謝った。",
+      "en": "You switched to playing. You skipped the tutorial and got stuck in three minutes. You quietly apologized to your old developer self."
+     }
+    ]
    }
   ]
  },
