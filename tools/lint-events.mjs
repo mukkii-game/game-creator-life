@@ -33,7 +33,7 @@ const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other'
 const COND = /^!?(age|year|era|job|status|works|career|pos|company\.size|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z0-9_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
 const JOBS = ['programmer', 'planner', 'artist', 'sound', 'qa', 'sales', 'director', 'producer', 'teacher', 'other'];
 const STATUS = ['employed', 'indie', 'left', 'retired', 'ended'];
-const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow', 'cause', 'memory', 'needs']);
+const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow', 'cause', 'memory', 'needs', 'alt']);
 const TL_KEYS = new Set(['id', 'year', 'month', 'kind', 'text', 'use', 'src', 'unverified']);
 
 function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
@@ -96,6 +96,7 @@ function checkEvent(ev, w, needYears, histYear) {
     text(w + '.text', ev.text);
     if (ev.cause) text(w + '.cause', ev.cause);
     if (ev.memory) text(w + '.memory', ev.memory);
+    (ev.alt ?? []).forEach((a, i) => text(`${w}.alt[${i}]`, a));
     for (const c of ev.when || []) {
       if (!COND.test(c)) { err(w, `when の語彙外: ${c}`); continue; }
       const m = /^!?(pos|job|status|company\.size)\s*!?=\s*([a-z0-9_-]+)$/.exec(c);
@@ -103,7 +104,7 @@ function checkEvent(ev, w, needYears, histYear) {
       if (m && !VALS[m[1]].includes(m[2])) err(w, `when の値が無い: ${c}(${m[1]} は ${VALS[m[1]].join(' / ')})`);
     }
     effect(w + '.effect', ev.effect);
-    const strs = [ev.text?.ja, ev.text?.en];
+    const strs = [ev.text?.ja, ev.text?.en, ...(ev.alt ?? []).flatMap((a) => [a.ja, a.en])];
     if (ev.choices) {
       nChoice++;
       if (ev.choices.length < 2 || ev.choices.length > 4) err(w, 'choices は 2〜4 個(キーは 1〜4)');
@@ -115,10 +116,11 @@ function checkEvent(ev, w, needYears, histYear) {
         if (c.result) text(cw + '.result', c.result);
         if (c.cause) text(cw + '.cause', c.cause);
         if (c.memory) text(cw + '.memory', c.memory);
-        for (const k of Object.keys(c)) if (!['id', 'label', 'effect', 'later', 'result', 'cause', 'memory'].includes(k)) err(cw, `choice に未知の ${k}`);
+        (c.alt ?? []).forEach((a, i) => text(`${cw}.alt[${i}]`, a));
+        for (const k of Object.keys(c)) if (!['id', 'label', 'effect', 'later', 'result', 'cause', 'memory', 'alt'].includes(k)) err(cw, `choice に未知の ${k}`);
         effect(cw + '.effect', c.effect ?? {});
         if (!c.effect) err(cw, 'effect が無い({} でよい)');
-        strs.push(c.label?.ja, c.label?.en, c.result?.ja, c.result?.en);
+        strs.push(c.label?.ja, c.label?.en, c.result?.ja, c.result?.en, ...(c.alt ?? []).flatMap((a) => [a.ja, a.en]));
       }
     }
     if (ev.effect?.work?.last?.history) strs.push(ev.effect.work.last.history.ja, ev.effect.work.last.history.en);

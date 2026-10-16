@@ -179,7 +179,12 @@ export function tickWorks(s: State): { work: Work; text: Text }[] {
       const texts = [f.text, ...(f.more ?? [])];
       if ((fc[f.key] ?? 0) >= texts.length) continue;
       if (!s.rng.chance(f.chance * base / 0.06)) continue;
-      const ft = texts[fc[f.key] ?? 0];
+      // 言い回しは、この人生と直近の人生で使っていないものから(第 7 回ペルソナ: 「41 人」が 3 回続けて出た)
+      const said = (s.inner.saidLines ??= []);
+      const unsaid = texts.filter((t) => !said.includes(t.ja));
+      const fresh = unsaid.filter((t) => !s.inner.recent?.includes(`line:${t.ja}`));
+      const ft = s.rng.pick(fresh.length ? fresh : unsaid.length ? unsaid : texts);
+      said.push(ft.ja);
       fc[f.key] = (fc[f.key] ?? 0) + 1;
       const h = { year: s.year, text: ft, key: f.key } as { year: number; text: Text; key?: string };
       w.history.push(h);

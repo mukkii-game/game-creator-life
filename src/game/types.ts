@@ -20,9 +20,11 @@ export interface Effect {
   job?: Job; status?: Status; work?: WorkEffect;
 }
 export interface Later { after: number; event: string }
-export interface Choice { id: string; label: Text; effect: Effect; later?: Later[]; result?: Text; cause?: Text; memory?: Text }
+export interface Choice { id: string; label: Text; effect: Effect; later?: Later[]; result?: Text; cause?: Text; memory?: Text; /** result の言い回し違い(続けて遊んだ時に同じ文にしない) */ alt?: Text[] }
 export interface GameEvent {
   id: string; years: [number, number]; text: Text;
+  /** text の言い回し違い(続けて遊んだ時に同じ文にしない。直近の人生とこの人生で使っていないものから選ぶ) */
+  alt?: Text[];
   when?: string[]; weight?: number; once?: boolean;
   effect?: Effect; later?: Later[]; choices?: Choice[]; tag?: string[]; allow?: string[];
   /** この効果で人生が終わる時(do_end / do_arrest)の死因の 1 行 */

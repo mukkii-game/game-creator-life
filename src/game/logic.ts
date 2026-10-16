@@ -86,8 +86,8 @@ function newCompany(r: Rng, size: CompanySize, year: number, avoid?: string | st
   const av = Array.isArray(avoid) ? avoid : avoid ? [avoid] : [];
   const rows = size === 'big' ? COMPANIES.real : ['mid', 'small', 'sub'].includes(size) ? COMPANIES.parody.filter((c) => c.size === size) : [];
   const ok = rows.filter((c) => c.years[0] <= year && year <= c.years[1] && !av.includes(c.id));
-  // 表が少ない年代は作った名前を混ぜる(同じ会社ばかりにしない)
-  if (ok.length && r.chance(size === 'big' ? 0.85 : Math.min(0.85, 0.2 + 0.12 * ok.length))) {
+  // 表に 1 社でもあれば表から(Mukkii が決めた名前を見たい。作った名前は表が空の時だけの保険。2026-10-16 Fable 経由)
+  if (ok.length && r.chance(0.97)) {
     const total = ok.reduce((t, c) => t + (c.weight ?? 1), 0);
     let x = r.next() * total;
     const c = ok.find((c) => (x -= c.weight ?? 1) < 0) ?? ok[ok.length - 1];
@@ -162,7 +162,7 @@ export function init(seed: number, options: InitOptions = {}): State {
     s.flags[path] = true;
     const off = Math.max(0, picked.length - (year - base.y)); // 入社の年にはみ出さない
     picked.forEach((ev, i) => {
-      s.log.push({ year: base.y - off + i, age: base.a - off + i, text: fill(s, ev.text), kind: 'event', tag: ev.tag });
+      s.log.push({ year: base.y - off + i, age: base.a - off + i, text: fill(s, evText(s, ev)), kind: 'event', tag: ev.tag });
       applyInner(s, ev.effect ?? {}, ev.id, []);
       s.inner.used.push(ev.id);
     });
@@ -195,7 +195,7 @@ function log(s: State, text: Text, kind: LogLine['kind'], tag?: string[]) {
 }
 function logEvent(s: State, id: string, kind: LogLine['kind']) {
   const ev = EVENT_BY_ID.get(id);
-  if (ev) log(s, fill(s, ev.text), kind, ev.tag);
+  if (ev) log(s, fill(s, evText(s, ev)), kind, ev.tag);
 }
 
 // ---- 効果 ----
@@ -511,12 +511,12 @@ function runItem(s: State, id: string, out: string[]) {
   if (ev.id === 'ev_sys_prison_out') { s.stat.money = Math.max(s.stat.money, 50); s.flags.ex_prison = true; } // 出所したら借金は帳消しで再起(罰金・没収は判決で済んでいる)
   if (ev.id.startsWith('ev_sys_offer')) s.inner.seen.ev_sys_offer = s.year; // 言い回し違いの版も同じ 4 年の間隔に数える
   if (ev.choices) {
-    s.choice = { eventId: ev.id, choices: ev.choices.map((c) => ({ ...c, label: fill(s, c.label) })), text: fill(s, ev.text) };
+    s.choice = { eventId: ev.id, choices: ev.choices.map((c) => ({ ...c, label: fill(s, c.label) })), text: fill(s, evText(s, ev)) };
     log(s, s.choice.text, 'event', ev.tag); if (hs) s.log[s.log.length - 1].hist = hs;
     out.push('choice');
     return;
   }
-  log(s, fill(s, ev.text), ev.tag?.includes('afterlife') ? 'work' : 'event', ev.tag);
+  log(s, fill(s, evText(s, ev)), ev.tag?.includes('afterlife') ? 'work' : 'event', ev.tag);
   if (hs) s.log[s.log.length - 1].hist = hs;
   if (ev.tag?.includes('afterlife')) out.push('work'); else out.push('event');
   remember(s, ev, ev.memory);
@@ -531,7 +531,7 @@ function remember(s: State, ev: GameEvent, memory?: Text) {
   const w = t.includes('peak') ? 6 : t.includes('bond') ? 5 : t.includes('warm') ? 4 : t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
   if (!w && !memory) return;
   const first = (x: string, sep: RegExp) => x.split(sep)[0];
-  const text = memory ? fill(s, memory) : (() => { const f = fill(s, ev.text); return { ja: first(f.ja, /。/), en: first(f.en, /\. /) }; })();
+  const text = memory ? fill(s, memory) : (() => { const f = s.log[s.log.length - 1]?.text ?? fill(s, ev.text); return { ja: first(f.ja, /。/), en: first(f.en, /\. /) }; })();
   const kind = t.includes('peak') ? 'peak' : t.includes('bond') || t.includes('celeb') ? 'celeb' : t.includes('warm') || t.includes('life') ? 'warm' : 'high';
   s.inner.highs.push({ year: s.year, age: s.age, text, w: (w || 2) + s.rng.next(), kind });
 }
@@ -631,7 +631,7 @@ export function choose(s: State, choiceId: string): string[] {
   const eventId = s.choice.eventId;
   s.choice = undefined;
   s.inner.choicesMade++;
-  log(s, fill(s, c.result ?? c.label), 'choice', ['choice']);
+  log(s, fill(s, c.alt?.length ? freshLine(s, [c.result ?? c.label, ...c.alt]) : c.result ?? c.label), 'choice', ['choice']);
   out.push('chosen');
   const cev = EVENT_BY_ID.get(eventId);
   if (cev && (c.memory || cev.memory || (cev.tag ?? []).some((t) => t === 'high' || t === 'celeb'))) remember(s, cev, c.memory ?? cev.memory);
@@ -725,7 +725,7 @@ function mentorArcs(s: State, r: Rng, out: string[]) {
       const ev = r.pick(vs);
       a.used.push(ev.id);
       s.inner.seen[ev.id] = s.year;
-      log(s, fill(s, ev.text), 'event', ev.tag);
+      log(s, fill(s, evText(s, ev)), 'event', ev.tag);
       apply(s, ev.effect, ev.id, out);
     }
     if (a.step < 4) { const [lo, hi] = ARC_GAP[kind][a.step]; a.next = s.year + r.int(lo, hi); }
@@ -829,6 +829,10 @@ function pickFresh(s: State, r: Rng, ids: string[]): string {
   return r.pick(fresh.length ? fresh : ids);
 }
 
+/** 話の本文: 言い回し違い(alt)があれば、直近の人生とこの人生で使っていないものから */
+function evText(s: State, ev: GameEvent): Text {
+  return ev.alt?.length ? freshLine(s, [ev.text, ...ev.alt]) : ev.text;
+}
 /** 決まった流れの文: 直近の人生とこの人生で使っていない言い回しから選ぶ */
 function freshLine(s: State, texts: Text[]): Text {
   const said = (s.inner.saidLines ??= []);

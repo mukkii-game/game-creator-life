@@ -19,9 +19,8 @@ export function personName(r: Rng, born = 1965): Text {
 export function surname(n: Text): Text { return { ja: n.ja.split(' ')[0], en: n.en.split(' ').slice(-1)[0] }; }
 
 const CO_HEAD: [string, string][] = [
-  ['ピコピコ', 'PicoPico'], ['ドット', 'Dot'], ['ネオ', 'Neo'], ['スーパー', 'Super'], ['ハイパー', 'Hyper'], ['銀河', 'Galaxy'],
-  ['コズミック', 'Cosmic'], ['ブリキ', 'Tin'], ['テクノ', 'Techno'], ['電脳', 'Cyber'], ['まんぼう', 'Sunfish'], ['ちくわ', 'Chikuwa'],
-  ['ラピッド', 'Rapid'], ['エンドレス', 'Endless'], ['ミッドナイト', 'Midnight'], ['カップ麺', 'CupNoodle'], ['徹夜', 'AllNighter'], ['ふじやま', 'Fujiyama'],
+  ['テクノ', 'Techno'], ['電脳', 'Cyber'], ['ネオ', 'Neo'], ['ミッドナイト', 'Midnight'], ['ハイパー', 'Hyper'], ['コズミック', 'Cosmic'],
+  ['ラピッド', 'Rapid'], ['エンドレス', 'Endless'], ['スーパー', 'Super'], ['ギャラクシー', 'Galaxy'], ['アルファ', 'Alpha'], ['ビット', 'Bit'],
 ];
 const CO_TAIL: Record<CompanySize, [string, string][]> = {
   big: [['ゲームス', 'Games'], ['エンタテインメント', 'Entertainment'], ['インタラクティブ', 'Interactive']],
@@ -33,11 +32,10 @@ const CO_TAIL: Record<CompanySize, [string, string][]> = {
   school: [['ゲーム専門学校', 'Game College'], ['クリエイティブ専門学校', 'Creative Academy'], ['芸術大学', 'University of Arts'], ['情報大学', 'Information University']],
   none: [['', '']],
 };
-export function companyName(r: Rng, size: CompanySize, year: number): Text {
+export function companyName(r: Rng, size: CompanySize, _year: number): Text {
   const h = r.pick(CO_HEAD), t = r.pick(CO_TAIL[size]);
   if (size === 'abroad') return { ja: `${h[1]} ${t[0]}`, en: `${h[1]} ${t[1]}` };
-  const pre = year < 1990 ? ['株式会社', ''] : ['', ''];
-  return { ja: `${pre[0]}${h[0]}${t[0]}`, en: `${h[1]} ${t[1]}`.trim() };
+  return { ja: `${h[0]}${t[0]}`, en: `${h[1]} ${t[1]}`.trim() };
 }
 
 // 作品名: 「頭 + 本体 + しっぽ」。時代でしっぽの流行が変わる(副題・数字・〜オンライン・〜の巻 …)
