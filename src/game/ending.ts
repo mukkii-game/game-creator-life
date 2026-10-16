@@ -101,7 +101,7 @@ export function makeEnding(s: State, id: EndingId, custom?: Text): Ending {
   const cause = custom ? { ja: `${s.age} 歳、${custom.ja}`, en: `At ${s.age}, ${custom.en}` } : causeOf(s, id);
   const w = s.works;
   const hit = w.filter((x) => x.result === 'hit' || x.result === 'legend').length;
-  const flop = w.filter((x) => x.result === 'flop').length;
+  const flop = w.filter((x) => (x.res0 ?? x.result) === 'flop').length; // 発売時に爆死なら、後で見直されても爆死に数える(第 26 回: 本文の爆死と結果画面の数が合わない)
   const fates = w.filter((x) => x.history.length > 0).length;
   const job0 = JOB_TEXT[s.inner.startJob];
   const fv = fates ? freshPick(s, [{ ja: '発売後も勝手に生き続けた', en: 'kept living on their own after release' }, { ja: '発売の後で、作った本人の知らない人生を送った', en: 'went on to lives their makers never planned' }, { ja: '店から消えた後も、どこかで遊ばれ続けた', en: 'kept being played somewhere long after leaving the shelves' }]) : null; // 第 20 回: 結果画面の同じ文

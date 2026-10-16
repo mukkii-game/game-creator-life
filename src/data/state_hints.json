@@ -1687,5 +1687,10 @@
   "when": [
    "works>=2"
   ]
+ },
+ "ev_tn_fu_family": {
+  "when": [
+   "kid>=20"
+  ]
  }
 }

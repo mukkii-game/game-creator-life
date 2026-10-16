@@ -395,7 +395,7 @@ function beginYear(s: State, out: string[]) {
   }
   for (const p of due) if (!((EVENT_BY_ID.get(p.event)?.tag?.includes('mega') || /^ev_wk_fu_/.test(p.event)) && p.co && p.co !== s.company.id)) q.push(p.event); // 会社の中の後日談は、同じ会社にいる時だけ
   // 職と年齢の節目
-  if (s.year > 2040) { sys.push('@end:end_ai_seat'); }
+  if (s.year > 2040) { sys.push(s.status === 'left' ? '@end:end_switch' : '@end:end_ai_seat'); } // 業界を出た人に「AI に席を譲った」は無い(第 26 回)
   else if (s.age >= 70) sys.push('@end:end_pen_down');
   else if (s.age === 65 && (s.status === 'employed' || s.status === 'indie')) sys.push('ev_sys_age65', '@check65');
   else if (s.age >= 60 && !s.flags.age60 && s.status === 'employed') { s.flags.age60 = true; sys.push('ev_sys_age60'); } // 独立した人に定年は来ない(第 18 回ペルソナ)
@@ -590,7 +590,7 @@ function runItem(s: State, id: string, out: string[]) {
   if (((ev.weight ?? 1) === 0 || ev.tag?.includes('followup')) && s.inner.seen[ev.id] !== undefined && !ev.tag?.includes('repeatable') && !/^ev_(fa|rv|mt|me|sys)_/.test(ev.id)) return;
   if (ev.id === 'ev_wk_fu_callcenter') s.flags.callcenter = false; // 開発に戻る
   // 選択の後日談(weight 0 で later から来る話)は、直近の人生で見ていたら 7 割で出さない(長い話の続き・大作の結末は除く)
-  if ((ev.weight ?? 1) === 0 && !ev.tag?.some((t) => t === 'mega' || t === 'rival') && !/^ev_(fa|rv|mt|me)_/.test(ev.id) && s.inner.recent?.includes(ev.id) && r.chance(0.7)) return;
+  if ((ev.weight ?? 1) === 0 && !ev.tag?.some((t) => t === 'mega' || t === 'rival') && !/^ev_(fa|rv|mt|me|sys|ai26)_/.test(ev.id) && s.inner.recent?.includes(ev.id) && r.chance(0.7)) return; // 仕組みの話(2027 年の区切りなど)は落とさない(第 26 回: 区切りが 2034 年までずれて 7 年空いた)
   if (ev.when && !ev.when.every((c) => test(s, c))) return; // 同じ年のうちに独立・転職・服役した時は出さない
   if (s.flags.in_prison && ev.id !== 'ev_sys_shift' && !ev.id.startsWith('ev_ai26_') && !ev.id.includes('prison') && !(ev.when ?? []).some((c) => c.includes('prison'))) return; // 塀の中に社内の話は届かない
   // 後日談: 発売から 2 年以上たった作品を 1 本選ぶ

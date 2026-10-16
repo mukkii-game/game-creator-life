@@ -196,7 +196,7 @@ export function release(s: State): { work: Work; line: Text } {
   const platform = platformFor(r, s.year, role, s.flags, s.status === 'employed' ? s.company.id : undefined);
   const styled = styledName(s);
   const titled = styled ? { name: styled } : role === 'solo' || !r.chance(0.8) ? null : pickTitle(s, platform);
-  const work: Work = { id: `wk_${s.works.length + 1}`, name: titled?.name ?? fitName(r, s.year, platform), year: s.year, platform, role, result, history: [] };
+  const work: Work = { id: `wk_${s.works.length + 1}`, name: titled?.name ?? fitName(r, s.year, platform), year: s.year, platform, role, result, history: [], res0: result };
   s.works.push(work);
   // 結果の一言は、この人生でまだ使っていないものから(ペルソナ通読: 社長賞 5000 円が 3 回)
   const said = (s.inner.saidLines ??= []);
