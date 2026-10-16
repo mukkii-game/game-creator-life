@@ -31,6 +31,8 @@ export interface GameEvent {
   memory?: Text;
   /** この版を出すのに先に出ている必要がある版(メンターの話の伏線回収) */
   needs?: string;
+  /** この話を出してよい職種(job_hints.json から読み込み時に入る。本文が特定の職種の作業を前提にしている話) */
+  jobs?: Job[];
 }
 export type TimelineKind = 'hardware' | 'hit' | 'incident' | 'work' | 'ai' | 'future';
 export interface TimelineEntry { id: string; year: number; month?: number; kind: TimelineKind; text: Text; use: string; src: string; unverified?: boolean }

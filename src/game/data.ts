@@ -38,6 +38,11 @@ for (const e of EVENTS) for (const [re, flag, deaths] of KIN) {
   if ((e.weight ?? 1) > 0 && re.test(e.text.ja) && !(e.when ?? []).includes(`!flag.${flag}`)) e.when = [...(e.when ?? []), `!flag.${flag}`];
 }
 
+// 職種と話のずれを防ぐ(ペルソナ通読: サウンドなのに絵の話ばかり)。job_hints.json = 本文が特定の職種の作業を前提にしている話 → 出してよい職種
+const jhMod = import.meta.glob('../data/job_hints.json', { eager: true, import: 'default' }) as Record<string, Record<string, string[] | string>>;
+const JOB_HINTS = Object.values(jhMod)[0] ?? {};
+for (const e of EVENTS) { const j = JOB_HINTS[e.id]; if (Array.isArray(j) && j.length) e.jobs = j as import('./types').Job[]; }
+
 /** 普通に抽選されるイベント(system と weight 0 は除く) */
 export const POOL: GameEvent[] = EVENTS.filter((e) => !e.id.startsWith('ev_sys_') && !HIST_OF.has(e.id) && (e.weight ?? 1) > 0);
 
