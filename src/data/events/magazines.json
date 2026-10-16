@@ -1315,6 +1315,9 @@
    1989,
    1996
   ],
+  "when": [
+   "!flag.sega"
+  ],
   "text": {
    "ja": "PCエンジンFAN に自社のソフトの攻略が 4 ページ載った。開発中に没にした隠し部屋まで、なぜか見つかっていた。",
    "en": "PC Engine FAN ran four pages of strategy for your company's game. Somehow readers had found a secret room you thought you had cut."

@@ -680,7 +680,7 @@ function remember(s: State, ev: GameEvent, memory?: Text) {
 function promote(s: State) {
   const to: Partial<Record<Job, Job>> = { qa: 'planner', programmer: 'director', planner: 'director', artist: 'director', sound: 'director', sales: 'producer', director: 'producer' };
   const next = to[s.job];
-  if (next) s.job = next;
+  if (next) { s.job = next; log(s, { ja: `名刺の職種の欄が「${JOB_TEXT[next].ja}」になった。`, en: `Your business card now says "${JOB_TEXT[next].en}."` }, 'event'); } // 職種が変わったことを書く(第 60 回: 営業なのに「あなたはリード」)
   s.flags.promoted = true;
 }
 

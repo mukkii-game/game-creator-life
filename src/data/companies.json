@@ -632,8 +632,8 @@
     {
       "id": "co_acquire_r",
       "name": {
-        "ja": "アクワイヤー",
-        "en": "Acquirer"
+        "ja": "悪はイヤーん",
+        "en": "Evil-No-Way"
       },
       "based": "アクワイア",
       "size": "small",
@@ -788,8 +788,8 @@
     {
       "id": "co_jupitel",
       "name": {
-        "ja": "ジュピテル",
-        "en": "Jupitel"
+        "ja": "ネプチューン",
+        "en": "Neptune"
       },
       "size": "sub",
       "years": [
@@ -827,8 +827,8 @@
     {
       "id": "co_nowpro",
       "name": {
-        "ja": "ナウプロダクトン",
-        "en": "Nowproducton"
+        "ja": "ナウイプロダクト",
+        "en": "Nowy Product"
       },
       "size": "sub",
       "years": [
@@ -1009,8 +1009,8 @@
     {
       "id": "co_kogado",
       "name": {
-        "ja": "工画堂スタジオス",
-        "en": "Kogado Studios"
+        "ja": "高画像スタジオ",
+        "en": "Hi-Res Studio"
       },
       "size": "small",
       "years": [
@@ -1048,8 +1048,8 @@
     {
       "id": "co_gref",
       "name": {
-        "ja": "グレフグレフ",
-        "en": "Gref Gref"
+        "ja": "グリフォン",
+        "en": "Gryphon"
       },
       "size": "small",
       "years": [
