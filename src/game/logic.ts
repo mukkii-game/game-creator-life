@@ -348,6 +348,14 @@ function beginYear(s: State, out: string[]) {
   const due = s.pending.filter((p) => p.year <= s.year);
   s.pending = s.pending.filter((p) => p.year > s.year);
   // 会社の中の大作の結末(tag mega)は、同じ会社にいる時だけ(第 7 回ペルソナ: 潰れた会社の巨大作が「やっと出た」)
+  // 2026 年: AI 時代の衝撃の事件が立て続けに 3 本(2026-10-16 Mukkii: どのプレイでも 2026 年に)。直近の人生で見ていないものから
+  if (s.year === 2026 && !s.flags.ai26 && !s.inner.isPeer) {
+    s.flags.ai26 = true;
+    const pool = EVENTS_ALL().filter((e) => e.id.startsWith('ev_ai26_') && (e.when ?? []).every((c) => test(s, c)));
+    const fresh = pool.filter((e) => !s.inner.recent?.includes(e.id));
+    const pick = draw(r, fresh.length >= 3 ? fresh : pool, 3, () => 1);
+    q.push(...pick.map((e) => e.id));
+  }
   for (const p of due) if (!(EVENT_BY_ID.get(p.event)?.tag?.includes('mega') && p.co && p.co !== s.company.id)) q.push(p.event);
   // 職と年齢の節目
   if (s.year > 2040) { sys.push('@end:end_ai_seat'); }
@@ -539,7 +547,7 @@ function runItem(s: State, id: string, out: string[]) {
   // 選択の後日談(weight 0 で later から来る話)は、直近の人生で見ていたら 7 割で出さない(長い話の続き・大作の結末は除く)
   if ((ev.weight ?? 1) === 0 && !ev.tag?.some((t) => t === 'mega' || t === 'rival') && !/^ev_(fa|rv|mt|me)_/.test(ev.id) && s.inner.recent?.includes(ev.id) && r.chance(0.7)) return;
   if (ev.when && !ev.when.every((c) => test(s, c))) return; // 同じ年のうちに独立・転職・服役した時は出さない
-  if (s.flags.in_prison && ev.id !== 'ev_sys_shift' && !ev.id.includes('prison') && !(ev.when ?? []).some((c) => c.includes('prison'))) return; // 塀の中に社内の話は届かない
+  if (s.flags.in_prison && ev.id !== 'ev_sys_shift' && !ev.id.startsWith('ev_ai26_') && !ev.id.includes('prison') && !(ev.when ?? []).some((c) => c.includes('prison'))) return; // 塀の中に社内の話は届かない
   // 後日談: 発売から 2 年以上たった作品を 1 本選ぶ
   s.inner.workTarget = -1;
   if (ev.tag?.includes('afterlife')) {
