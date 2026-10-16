@@ -414,6 +414,16 @@
    "ja": "続編は手堅く売れた。ファンから「前のほうがよかった」と「今回のほうがいい」が同じ数届いた。それが続編というものらしい。",
    "en": "The sequel sold steadily. Equal numbers of fans wrote \"the first was better\" and \"this one's better\". That, apparently, is what sequels are."
   },
+  "alt": [
+   {
+    "ja": "続編は手堅く売れた。前作の発売日に生まれた社員の子が、続編のテストに協力してくれた。前作のことは知らなかった。",
+    "en": "The sequel sold steadily. A colleague's kid, born on the original's launch day, helped test it. They had never heard of the original."
+   },
+   {
+    "ja": "続編は手堅く売れた。雑誌の紹介で「前作の良さはそのまま」と書かれた。そのまま、にした部分を作るのに 2 年かかった。",
+    "en": "The sequel sold steadily. A magazine wrote \"everything good about the original is intact.\" Keeping it intact took two years."
+   }
+  ],
   "effect": {
    "money": 30
   },
@@ -432,6 +442,16 @@
    "ja": "新作は、売れたかどうかより先に「あれ作った人?」と聞かれるようになった。名前のついた仕事をした、という感じがした。",
    "en": "With the new game, before anyone asked how it sold, they asked: \"You made that?\" It felt like work with your name on it."
   },
+  "alt": [
+   {
+    "ja": "新作は、誰にも読めない数字のまま発売された。半年後、同業者の飲み会で「あれ、うちでもやりたかった」と言われた。それが一番の売上報告だった。",
+    "en": "The new game shipped with numbers nobody could predict. Six months later, at an industry drinking night, someone said \"we wanted to make that.\" Best sales report you ever got."
+   },
+   {
+    "ja": "新作の主人公の名前が、知らない人のペットの名前になっていた。写真付きの手紙が会社に届いた。",
+    "en": "Your new game's hero became the name of a stranger's pet. A letter with a photo arrived at the office."
+   }
+  ],
   "effect": {
    "passion": 8,
    "network": 4
@@ -816,6 +836,16 @@
    "ja": "海外版のおかげで、外国の知らない人から英語の手紙が来るようになった。辞書を引きながら読んだら、全部「ありがとう」だった。",
    "en": "Thanks to the overseas version, letters in English arrived from strangers. Dictionary in hand, you found every one said \"thank you\"."
   },
+  "alt": [
+   {
+    "ja": "海外版のおかげで、海外の雑誌に自分のゲームの写真が載った。見出しは読めなかったが、星の数は読めた。",
+    "en": "Thanks to the overseas version, your game appeared in a foreign magazine. You couldn't read the headline, but you could count the stars."
+   },
+   {
+    "ja": "海外版を遊んだ外国の子が、大人になって日本に来て、同じ会社に入った。面接の自己紹介で、あなたのゲームの題名を言った。",
+    "en": "A kid abroad who played the overseas version grew up, came to Japan and joined your company. In the interview, they named your game."
+   }
+  ],
   "effect": {
    "passion": 6
   },

@@ -442,6 +442,16 @@
    "ja": "携帯機は寿命が長かった。数年後もまだ現役で、白黒の画面のまま電池を食い続けていた。あなたのゲームも、どこかの子のランドセルの中で生きていた。",
    "en": "The handheld lived forever. Years later it was still eating batteries in monochrome, and your game lived on in some kid's school bag."
   },
+  "alt": [
+   {
+    "ja": "携帯機は息が長かった。何年もたってから、新人が「子どもの頃これで遊びました」とあなたのゲームの題名を言った。歳を数えるのはやめた。",
+    "en": "The handheld lived forever. Years later, a rookie named your game as one they played as a kid. You stopped counting your age."
+   },
+   {
+    "ja": "携帯機は息が長かった。中古屋のワゴンで、自分のゲームのカートリッジに知らない子の名前がマジックで書いてあるのを見つけた。",
+    "en": "The handheld lived forever. In a used-game bin you found your own cartridge with some kid's name written on it in marker."
+   }
+  ],
   "effect": {
    "passion": 5,
    "money": 15
@@ -1211,6 +1221,16 @@
    "ja": "DS は脳トレで大人まで取り込んだ。電車の中でおじさんがペンでマス目を埋めている。その横であなたのゲームを遊ぶ中学生がいた。いい車両だった。",
    "en": "The DS pulled in grown-ups with brain training. On the train, a man filled in grids with a stylus; beside him, a teenager played your game. A good carriage."
   },
+  "alt": [
+   {
+    "ja": "DS で、タッチペンの操作を一から考えた。説明書の「こする」「つつく」「なぞる」の書き分けに 1 週間かかった。",
+    "en": "On DS you designed touch controls from scratch. Choosing between \"rub\", \"tap\" and \"trace\" in the manual took a week."
+   },
+   {
+    "ja": "DS は大人まで連れてきた。実家の父が、あなたのゲームをタッチペンでつついて「これはどこを押すんだ」と電話してきた。",
+    "en": "The DS reached grown-ups. Your father poked your game with the stylus and phoned: \"Where am I supposed to press?\""
+   }
+  ],
   "effect": {
    "money": 40,
    "passion": 4
@@ -1231,6 +1251,16 @@
    "ja": "PSP では狩りのゲームで集まって遊ぶのが流行った。ファストフード店の 2 階が狩場になった。あなたのゲームも、その隅で遊ばれていた。",
    "en": "On PSP, people gathered to hunt together. The upstairs of every burger joint became a hunting ground. Your game was played in the corner too."
   },
+  "alt": [
+   {
+    "ja": "PSP では、集まって遊ぶのが当たり前になった。会社の昼休みも、営業と開発が 4 人で輪になっていた。予算の会議より仲が良かった。",
+    "en": "On PSP, playing together became normal. At lunch, sales and dev sat in a circle of four. They got along better than in any budget meeting."
+   },
+   {
+    "ja": "PSP の画面はきれいだった。きれいすぎて、絵の担当が「ドットの粗が全部見える」と夜中に描き直していた。",
+    "en": "The PSP screen was beautiful. So beautiful the artist stayed up redrawing: \"You can see every rough pixel.\""
+   }
+  ],
   "effect": {
    "passion": 6,
    "network": 3
@@ -1352,6 +1382,16 @@
    "ja": "スマホのゲームは運営が続く限り終わらない。正月もお盆もイベントを回した。帰省の新幹線の中でも障害の電話が鳴った。実家の猫だけが労ってくれた。",
    "en": "A mobile game never ends while it runs. New Year, Obon: events. Even on the bullet train home, the outage call came. Only the family cat comforted you."
   },
+  "alt": [
+   {
+    "ja": "スマホのゲームは毎月が発売日だった。イベントの告知を書き、直し、また書いた。カレンダーの祝日は、全部「繁忙日」と読めるようになった。",
+    "en": "On mobile, every month was launch month. Write the event notice, fix it, write the next. You learned to read every holiday on the calendar as \"peak load\"."
+   },
+   {
+    "ja": "スマホのゲームの運営は終わらない。結婚式の二次会の最中にも、ガチャの表示ミスの連絡が来た。トイレで直して、乾杯に戻った。",
+    "en": "Live ops never end. Mid wedding after-party, a message: the gacha rates were mislabeled. You fixed it in the restroom and made it back for the toast."
+   }
+  ],
   "effect": {
    "money": 40,
    "hp": -8
@@ -1372,6 +1412,16 @@
    "ja": "コンシューマに残った仲間と、海外のイベントに出展した。英語は通じなかったが、コントローラを渡したら全部通じた。",
    "en": "With your console comrades, you exhibited at an overseas show. Your English failed; handing someone a controller explained everything."
   },
+  "alt": [
+   {
+    "ja": "コンシューマに残った。新しいゲーム機の発表会の中継を、チーム全員で会議室のテレビで見た。拍手のタイミングが全員そろっていた。",
+    "en": "You stayed with consoles. The whole team watched the new hardware reveal on the meeting-room TV. Everyone clapped at exactly the same moment."
+   },
+   {
+    "ja": "コンシューマに残った。パッケージの箱を初めて手に取った新人が、匂いをかいでいた。あなたも昔、同じことをした。",
+    "en": "You stayed with consoles. A rookie holding their first boxed game sniffed it. You did the same thing once."
+   }
+  ],
   "effect": {
    "passion": 10,
    "network": 5
@@ -1512,6 +1562,16 @@
    "ja": "家で遊べるゲームが、家の外にも持ち出せるようになった。テレビから本体を抜いて電車で続きを遊ぶ人を見て、全部の戦争が一つになった気がした。",
    "en": "Then home games walked out the door: pull the console from the TV and keep playing on the train. It felt like every hardware war had become one."
   },
+  "alt": [
+   {
+    "ja": "家のゲームが外に出た。旅行先の旅館で、隣の部屋から自分のゲームの効果音が聞こえた。壁越しにガッツポーズをした。",
+    "en": "Home games went outside. At an inn on a trip, you heard your game's sound effects through the wall. You fist-pumped at the wallpaper."
+   },
+   {
+    "ja": "家のゲームを持ち出せる時代になった。新幹線の隣の席の人がテレビから抜いてきた本体で、あなたの作った面をやり直し続けていた。",
+    "en": "Home games went portable. On the bullet train, the passenger beside you kept retrying your stage on a console pulled from their TV."
+   }
+  ],
   "effect": {
    "passion": 6,
    "money": 20
@@ -1631,6 +1691,16 @@
    "ja": "親子で遊ぶ家族の写真が SNS に流れてきた。リビングの床に寝転んで、子どもがあなたのゲームを持っていた。「いいね」を押す指が震えた。",
    "en": "A family photo scrolled by on social media: a kid on the living-room floor, holding your game. Your finger trembled on the like button."
   },
+  "alt": [
+   {
+    "ja": "遊んでいる動画が SNS に流れてきた。知らない家のソファで、親子が同じところでつまずいて、同じところで笑っていた。",
+    "en": "A clip scrolled by: on a stranger's sofa, a parent and kid stumbled at the same spot and laughed at the same spot."
+   },
+   {
+    "ja": "発売から 1 年、通販サイトのレビューに「祖母と遊んでいます」と書かれていた。あなたは画面をスクリーンショットして、待ち受けにした。",
+    "en": "A year after launch, a store review read \"I play this with my grandma.\" You screenshotted it and made it your lock screen."
+   }
+  ],
   "effect": {
    "passion": 8
   },
@@ -1650,6 +1720,16 @@
    "ja": "スマホ版がひっそり長生きした。数年後、知らない人のレビューで「通勤のお守り」と書かれていた。",
    "en": "The phone version lived quietly and long. Years later a stranger's review called it \"my commute good-luck charm\"."
   },
+  "alt": [
+   {
+    "ja": "スマホ版は地味に長生きした。サービスの数字は小さいまま、毎朝同じ時間にログインする人が 300 人いた。その 300 人の顔を想像して、更新を続けた。",
+    "en": "The phone version lived quietly. The numbers stayed small, but 300 people logged in at the same time every morning. You kept updating it for those faces you imagined."
+   },
+   {
+    "ja": "スマホ版はひっそり続いた。ある日の問い合わせは不具合ではなく、「入院中、これで毎日が早く過ぎました」だった。",
+    "en": "The phone version carried on quietly. One day's support ticket wasn't a bug report: \"In the hospital, this made the days go faster.\""
+   }
+  ],
   "effect": {
    "money": 25,
    "passion": 5
