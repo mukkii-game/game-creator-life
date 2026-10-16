@@ -874,7 +874,7 @@
   ]
  },
  {
-  "id": "ev_lv_big_birth", "weight": 12,
+  "id": "ev_lv_big_birth", "alt": [{"ja": "出産予定日とマスターアップが同じ週。「どちらかは延びる」と全員が言った。どちらも延びなかった。", "en": "The due date and master-up landed in the same week. \"One of them will slip,\" everyone said. Neither did."}, {"ja": "予定日は来週。マスターアップも来週。カレンダーの同じマスに、2 つの印が付いた。", "en": "Due date: next week. Master-up: next week. Two marks on the same calendar square."}], "weight": 12,
   "years": [
    1977,
    2040
@@ -896,7 +896,7 @@
   "effect": {},
   "choices": [
    {
-    "id": "ch_lv_birth_hospital",
+    "id": "ch_lv_birth_hospital", "alt": [{"ja": "生まれた。病室で最初にしたのは、バグ票ではなく名前を書くことだった。", "en": "Born. The first thing you wrote in the hospital room was a name, not a bug ticket."}, {"ja": "生まれた。抱き上げた瞬間、マスターアップの連絡が来た。両手がふさがっていたので、返事は翌日にした。", "en": "Born. The moment you lifted the baby, the master-up message arrived. Both hands were full. You replied the next day."}],
     "label": {
      "ja": "病院で待つ",
      "en": "Wait at the hospital"
@@ -918,7 +918,7 @@
     }
    },
    {
-    "id": "ch_lv_birth_office",
+    "id": "ch_lv_birth_office", "alt": [{"ja": "呼ばれて走った。間に合った。マスターは翌日、少し遅れて出た。", "en": "You got the call and ran. You made it. The master shipped the next day, a little late."}, {"ja": "会社で待って、タクシーで走った。到着 5 分前に生まれていた。写真は同僚が先に見ていた。", "en": "You waited at the office, then raced by taxi. The baby arrived five minutes before you did. Your colleagues saw the photo first."}],
     "label": {
      "ja": "会社で待機して、呼ばれたら走る",
      "en": "Wait at the office, run when called"
@@ -2243,7 +2243,7 @@
   ]
  },
  {
-  "id": "ev_lv_big_friend_legacy",
+  "id": "ev_lv_big_friend_legacy", "alt": [{"ja": "開発の途中で亡くなった親友の机から、ノートが 1 冊届いた。最後のページに「最強の相棒」の設定。欄外に「強すぎたら弱くして」。", "en": "A notebook came from the desk of your best friend, who died mid-project. The last page: a design for \"the strongest partner.\" In the margin: \"nerf if too strong.\""}, {"ja": "親友が開発中に亡くなった。遺品のノートの最後の見開きに、まだ名前の無い相棒キャラの設定が描いてあった。", "en": "Your best friend died during development. On the last spread of their notebook was a partner character with no name yet."}],
   "years": [
    1977,
    2040
@@ -2263,7 +2263,7 @@
   "effect": {},
   "choices": [
    {
-    "id": "ch_lv_fl_strong",
+    "id": "ch_lv_fl_strong", "alt": [{"ja": "弱くしなかった。発売後、ファンレターの 3 通に 1 通が「相棒が強すぎる」だった。全部読んだ。", "en": "You didn't nerf it. After launch, one fan letter in three said \"the partner is too strong.\" You read every one."}, {"ja": "そのまま入れた。バランス担当には「仕様です」と 10 回言った。11 回目は言わなくて済んだ。", "en": "You kept it as is. You told the balance team \"working as intended\" ten times. The eleventh wasn't needed."}],
     "label": {
      "ja": "そのまま入れる。弱くしない",
      "en": "Put it in as written. No nerf"
@@ -2291,7 +2291,7 @@
     }
    },
    {
-    "id": "ch_lv_fl_dot",
+    "id": "ch_lv_fl_dot", "alt": [{"ja": "スタッフロールの最後、1 秒だけ親友の名前を出した。気づいた人は 3 人いた。", "en": "At the very end of the credits, your friend's name appeared for one second. Three people noticed."}, {"ja": "相棒のアイテム欄の説明文に、親友の口癖を 1 行入れた。誰にも言わなかった。", "en": "You put your friend's catchphrase into one item description for the partner. You told no one."}],
     "label": {
      "ja": "名前だけ、1 ドットで残す",
      "en": "Just leave their name, in one pixel row"
