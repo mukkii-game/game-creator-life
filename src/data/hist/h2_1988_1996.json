@@ -1085,8 +1085,8 @@
      "pos=client"
     ],
     "text": {
-     "ja": "鳥山明さんが描いた『ドラゴンクエストIV』の箱を、発売日に 2 本買った。1 本は開けずに本棚に飾り、もう 1 本は朝までに開けた。",
-     "en": "On launch day you bought two copies of Dragon Quest IV, box art by Akira Toriyama. One stays sealed on your shelf. The other was open by dawn."
+     "ja": "鳥山明さんの絵の『ドラゴンクエストIV』を、発売日に 2 本買った。1 本は開けずに飾り、もう 1 本は朝までに開けた。",
+     "en": "Launch day: two copies of Dragon Quest IV, box art by Akira Toriyama. One stays sealed on your shelf. The other was open by dawn."
     },
     "effect": {
      "passion": 7,
@@ -2738,8 +2738,8 @@
      "pos=client"
     ],
     "text": {
-     "ja": "3DO の開発機が会社に届いた。エレクトロニック・アーツを作ったトリップ・ホーキンスさんの新しいハードだ。箱を開ける前に手を洗った。",
-     "en": "A 3DO dev kit arrives at the office: the new hardware from Trip Hawkins, founder of Electronic Arts. You washed your hands before opening the box."
+     "ja": "3DO の開発機が届いた。エレクトロニック・アーツを作ったトリップ・ホーキンスさんの新ハードだ。箱を開ける前に手を洗った。",
+     "en": "A 3DO dev kit arrives: new hardware from Trip Hawkins, founder of Electronic Arts. You washed your hands before opening the box."
     },
     "effect": {
      "passion": 7,
@@ -2895,7 +2895,7 @@
   },
   "src": "次世代ゲーム機戦争",
   "variants": [
-      {"id": "ev_hs_1994_nextgen_sega", "when": ["flag.sega"], "text": {"ja": "11 月 22 日、自社の新型の店頭応援に駆り出された。11 日後、同じ店でソニーの行列を偵察し、メモを 3 枚取って黙って帰った。", "en": "November 22: drafted to cheer on your new console at a store. Eleven days later, same store, you scouted Sony's line, filled three pages of notes, and left in silence."}, "effect": {"passion": 6, "network": 3, "flag": {"w_two_side_ss": true}}, "tag": ["hist", "hardware", "war", "sega"]},
+      {"id": "ev_hs_1994_nextgen_sega", "when": ["flag.sega"], "text": {"ja": "11 月 22 日、自社の新型の店頭応援に駆り出された。11 日後、同じ店でソニーの行列を偵察し、メモ 3 枚で黙って帰った。", "en": "November 22: drafted to cheer on your new console at a store. Eleven days later, same store, you scouted Sony's line, took three pages of notes, and left silently."}, "effect": {"passion": 6, "network": 3, "flag": {"w_two_side_ss": true}}, "tag": ["hist", "hardware", "war", "sega"]},
    {
     "id": "ev_hs_1994_nextgen_lead",
     "when": [
@@ -4186,7 +4186,7 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "テストの席で、ゲームの交換機能を 2 台で 1000 回試した。ケーブルを抜く瞬間の致命的な穴を見つけ、ディレクターに名前を覚えられた。",
+     "ja": "テストの席で、交換機能を 2 台で 1000 回試した。ケーブルを抜く瞬間の致命的な穴を見つけ、ディレクターに名前を覚えられた。",
      "en": "Contract testing a trade feature: a thousand trades on two handhelds. You found the fatal bug when the cable is pulled. The client learned your name."
     },
     "effect": {

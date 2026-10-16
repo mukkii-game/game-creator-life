@@ -21,8 +21,8 @@
      "flag.sega"
     ],
     "text": {
-     "ja": "「メガドライブのテトリス、出ない」と社内に回った。ゲーセンで一番人気のうちのテトリスが、うちの機械で出ない。権利は任天堂にあった。倉庫の箱を見に行った人が、黙って戻ってきた。",
-     "en": "Word went round: Mega Drive Tetris isn't coming out. The arcade's most popular Tetris, ours, won't ship on our own machine. Nintendo held the rights. Someone went to look at the boxes in the warehouse and came back without a word."
+     "ja": "「メガドライブのテトリス、出ない」。権利は任天堂にあった。うちの機械でうちの人気作が出ない。倉庫の箱を見に行った人は黙って戻る。",
+     "en": "Word went round: Mega Drive Tetris isn't coming out. Nintendo held the rights. Our own arcade hit won't ship on our own machine. Someone went to check the boxes in the warehouse and came back without a word."
     },
     "effect": {
      "passion": -6,
@@ -43,8 +43,8 @@
      "!flag.sega"
     ],
     "text": {
-     "ja": "メガドライブに賭けた年に、メガドライブのテトリスが消えた。ゲーセンで並んだあのテトリスが、家では任天堂のもの。発売予定表の 1 行に赤い線。あなたの作品の隣の行だった。",
-     "en": "The year you bet on the Mega Drive, Mega Drive Tetris vanished. The Tetris you queued for in the arcade would belong to Nintendo at home. A red line went through one row of the release schedule. The row next to your game."
+     "ja": "メガドライブに賭けた年に、メガドライブのテトリスが消えた。発売予定表の 1 行に赤い線。あなたの作品の隣の行だった。",
+     "en": "The year you bet on the Mega Drive, Mega Drive Tetris vanished. At home, it would belong to Nintendo. A red line went through one row of the release schedule. The row next to your game."
     },
     "effect": {
      "passion": -4,
@@ -61,8 +61,8 @@
      "pos=client_lead"
     ],
     "text": {
-     "ja": "「テトリスの権利、誰が持ってるか分かってなかったらしい」。会議でその話が出た翌日、自分の企画の契約書を初めて最後のページまで読んだ。難しい言葉が 40 個あった。",
-     "en": "\"Apparently nobody knew who held the Tetris rights.\" The day after that came up in a meeting, you read your own project's contract to the last page for the first time. It had forty words you didn't know."
+     "ja": "「テトリスの権利、誰が持ってるか分かってなかったらしい」。翌日、自分の契約書を初めて最後まで読んだ。難しい言葉が 40 個あった。",
+     "en": "\"Apparently nobody knew who held the Tetris rights.\" The next day you read your own project's contract to the last page for the first time. It had forty words you didn't know."
     },
     "effect": {
      "skill": 3,
@@ -78,8 +78,8 @@
      "job=programmer"
     ],
     "text": {
-     "ja": "出来上がったゲームが権利で出なくなる。そんなことがあるのかと知った夜、作りかけのパズルの企画書を引き出しの奥にしまった。落ちるブロック以外の遊びを 1 週間考えた。",
-     "en": "A finished game, killed by rights. The night you learned that could happen, you pushed your own half-built puzzle proposal to the back of the drawer, and spent a week thinking of any mechanic other than falling blocks."
+     "ja": "完成したゲームが権利で出なくなる。そう知った夜、作りかけのパズル企画をしまい、落ちるブロック以外の遊びを 1 週間考えた。",
+     "en": "A finished game, killed by rights. The night you learned that could happen, you shoved your half-built puzzle proposal to the back of the drawer and spent a week thinking of any mechanic but falling blocks."
     },
     "effect": {
      "skill": 2,
@@ -95,8 +95,8 @@
      "pos=outside"
     ],
     "text": {
-     "ja": "ゲーセンで 100 円玉を積んで遊んだテトリスが、家でも遊べると聞いて貯金していた。出なかった。代わりに 6 月、ゲームボーイを買った。貯金はぴったり足りた。",
-     "en": "You'd been saving up because the Tetris you fed 100-yen coins at the arcade was coming home. It didn't. In June you bought a Game Boy instead. Your savings covered it exactly."
+     "ja": "ゲーセンのテトリスが家で遊べると聞き、貯金していた。出なかった。代わりに 6 月、ゲームボーイを買った。貯金はぴったり足りた。",
+     "en": "You'd been saving because the arcade Tetris you fed 100-yen coins was coming home. It didn't. In June you bought a Game Boy instead. Your savings covered it exactly."
     },
     "effect": {
      "passion": 3,
@@ -109,8 +109,8 @@
    {
     "id": "ev_hs_1989_mdtetris_any",
     "text": {
-     "ja": "ゲーセンで一番人気のテトリスの家庭用版が、発売直前に消えた。権利は別の会社にあった。「作れる」と「出せる」は別だと、業界の全員がその週に覚えた。",
-     "en": "The home version of the arcade's most popular Tetris vanished days before release. The rights belonged to someone else. That week the whole industry learned that \"can build it\" and \"can ship it\" are different things."
+     "ja": "人気のテトリスの家庭用版が、発売直前に消えた。権利は別の会社にあった。「作れる」と「出せる」は別だと、業界の全員がその週に覚えた。",
+     "en": "The home version of the popular arcade Tetris vanished days before release. The rights belonged to someone else. That week the whole industry learned that \"can build it\" and \"can ship it\" differ."
     },
     "effect": {
      "skill": 1

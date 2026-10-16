@@ -1895,7 +1895,7 @@
      "pos=sub"
     ],
     "text": {
-     "ja": "下請けで作った釣りゲームの画面が、どちらの会社の注文だったか誰も覚えていない。納品フォルダ名は「fish_final_final」。",
+     "ja": "下請けで作った釣りゲームの画面が、どの会社の注文だったか誰も覚えていない。納品フォルダ名は「fish_final_final」。",
      "en": "No one remembers which company ordered the fishing screens you made. The delivery folder is named \"fish_final_final.\""
     },
     "effect": {
@@ -2220,7 +2220,7 @@
    {
     "id": "ev_hs_dark_2021_pat_any",
     "text": {
-     "ja": "任天堂とコロプラの裁判が 33 億円で和解した、というニュースを家計簿をつけながら読んだ。桁を数えているうちに、今月の赤字を忘れた。",
+     "ja": "任天堂とコロプラの裁判が 33 億円で和解したと、家計簿をつけながら読んだ。桁を数えているうちに、今月の赤字を忘れた。",
      "en": "You read about the 3.3-billion-yen settlement while doing the household budget. Counting the zeros, you forget this month's deficit."
     },
     "effect": {
@@ -3489,8 +3489,8 @@
      "flag.sega"
     ],
     "text": {
-     "ja": "社内に「アメリカで特許の裁判に負けたらしい」と噂が回った。「音で色が変わる特許」と聞いて、全員が自分のゲームの電源ランプを見た。その年の忘年会、ビンゴの景品が 1 つ減っていた。",
-     "en": "Word spread through the office: we'd lost a patent case in America. \"A patent on colours changing with sound.\" Everyone stared at their console's power light. At the year-end party, the bingo had one prize fewer."
+     "ja": "「アメリカで特許の裁判に負けたらしい」と噂が回った。「音で色が変わる特許」と聞き、全員が電源ランプを見た。ビンゴ景品が減った。",
+     "en": "Word spread: we'd lost a patent case in America. \"A patent on colours changing with sound.\" Everyone stared at their power light. At the year-end party, the bingo had one prize fewer."
     },
     "effect": {
      "passion": -2,
@@ -3507,8 +3507,8 @@
      "flag.ex_sega"
     ],
     "text": {
-     "ja": "古巣のセガが、アメリカの特許裁判で巨額を払ったと新聞で読んだ。昔の同僚に電話したら「勝てると思ってたんだよ」と 3 回言った。電話の向こうで、あの頃の会議室の匂いがした。",
-     "en": "You read that your old employer Sega had paid a fortune over a US patent. You called an old colleague; they said \"we thought we'd win\" three times. Through the phone you could smell that meeting room."
+     "ja": "古巣のセガが米国の特許裁判で巨額を払ったと読んだ。昔の同僚は電話で「勝てると思ってたんだよ」と 3 回言った。会議室の匂いがした。",
+     "en": "You read that old employer Sega paid a fortune over a US patent. An old colleague said \"we thought we'd win\" three times on the phone. You could smell that meeting room."
     },
     "effect": {
      "network": 3
@@ -3524,8 +3524,8 @@
      "job=programmer"
     ],
     "text": {
-     "ja": "「映像信号に音の成分が混ざっているから特許侵害」という記事を読み、自分の書いた表示ルーチンを夜中にこっそり見直した。何も悪いことはしていない。たぶん。",
-     "en": "An article said mixing audio components into a video signal counted as infringement. Late at night you quietly re-read your own display routine. You'd done nothing wrong. Probably."
+     "ja": "「映像信号に音の成分が混ざると特許侵害」と読み、自分の表示ルーチンを夜中に見直した。何も悪くない。たぶん。",
+     "en": "An article said mixing audio into a video signal was infringement. Late at night you quietly re-read your display routine. You'd done nothing wrong. Probably."
     },
     "effect": {
      "skill": 2
@@ -3540,8 +3540,8 @@
      "pos=client_lead"
     ],
     "text": {
-     "ja": "法務部から「念のため」と分厚い資料が回ってきた。アメリカの特許裁判の話だった。読み終えて企画書に戻ると、「新機能」の欄を 2 つ消していた。",
-     "en": "Legal circulated a thick binder \"just in case\": the American patent case. When you got back to your proposal, you'd crossed out two \"new features\"."
+     "ja": "法務部から「念のため」と分厚い資料が回ってきた。アメリカの特許裁判の話だった。企画書に戻ると、「新機能」の欄を 2 つ消していた。",
+     "en": "Legal circulated a thick binder \"just in case\": the American patent case. Back at your proposal, you'd crossed out two \"new features\"."
     },
     "effect": {
      "passion": -2,
@@ -3557,8 +3557,8 @@
      "age>=18"
     ],
     "text": {
-     "ja": "セガがアメリカの特許裁判で 50 億円を超える額を払った、と新聞に載った。任天堂は早めに和解して数十万ドルだったらしい。「戦う」より「謝る」が安い時がある。社会の授業では習わなかった。",
-     "en": "The paper said Sega paid over 5 billion yen in a US patent case, while Nintendo settled early for a few hundred thousand dollars. Sometimes settling beats fighting. They never taught that in social studies."
+     "ja": "セガが米国の特許裁判で 50 億円超を払った。任天堂は早く和解して数十万ドル。「戦う」より「謝る」が安い時がある。習わなかった。",
+     "en": "Sega paid over 5 billion yen in a US patent case; Nintendo settled early for a few hundred thousand dollars. Sometimes settling beats fighting. School never taught that."
     },
     "effect": {
      "passion": 1

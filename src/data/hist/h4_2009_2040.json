@@ -391,8 +391,8 @@
      "stat.network>=40"
     ],
     "text": {
-     "ja": "飲み会の 2 次会で、全員が携帯機を出してひと狩り。『モンハン』の辻本良三さんの記事で読んだ「協力」を思い出し、回復は全部こちらがした。",
-     "en": "At the after-party, everyone pulls out a handheld for a hunt. Remembering an interview with Monster Hunter's Ryozo Tsujimoto about teamwork, you did all the healing."
+     "ja": "2 次会で、全員が携帯機を出してひと狩り。『モンハン』の辻本良三さんの記事の「協力」を思い出し、回復は全部こちらがした。",
+     "en": "At the after-party, everyone pulls out a handheld for a hunt. Remembering Monster Hunter's Ryozo Tsujimoto on teamwork, you did all the healing."
     },
     "effect": {
      "passion": 8,
@@ -685,7 +685,7 @@
    {
     "id": "ev_hs_2011_3ds_cut_any",
     "text": {
-     "ja": "半年前に 25,000 円で買った 3DS が、今日から 15,000 円。差額の 1 万円は、もらった昔のソフトを全部遊んで取り返した気がした。",
+     "ja": "半年前に 25,000 円で買った 3DS が、今日から 15,000 円。差額の 1 万円は、昔のソフトで取り返した気分。",
      "en": "The 3DS you bought for 25,000 yen is now 15,000. You played every free retro game they gave you and felt you'd won the 10,000 back."
     },
     "effect": {
@@ -977,8 +977,8 @@
      "pos=client"
     ],
     "text": {
-     "ja": "毎朝ランキングを見る。1 位はパズドラ、自社の『ドラゴン×クリスタル マージブレイブ』は 214 位。今日は 213 位。会議で褒められた。",
-     "en": "Every morning, the charts. No. 1: Puzzle & Dragons. Your team's Dragon × Crystal Merge Brave: No. 214. Today, 213. You got praised in the meeting."
+     "ja": "毎朝ランキング。1 位はパズドラ、自社の『ドラゴン×クリスタル マージブレイブ』は 214 位。今日は 213 位。褒められた。",
+     "en": "Every morning, the charts. No. 1: Puzzle & Dragons. Your Dragon × Crystal Merge Brave: No. 214. Today, 213. The meeting praised you."
     },
     "effect": {
      "passion": 3
@@ -1796,8 +1796,8 @@
      "stat.network>=50"
     ],
     "text": {
-     "ja": "Epic Games のティム・スウィーニーさんが、エンジンを無料にすると発表した。英語の記事で分かった単語は「フリー」だけ。一番大事な単語だった。",
-     "en": "Epic Games' Tim Sweeney announces the engine is now free. The only word you understood in the English article was \"free.\" It was the one that mattered."
+     "ja": "Epic Games のティム・スウィーニーさんがエンジン無料化を発表。英語記事で分かった単語は「フリー」だけ。十分だった。",
+     "en": "Epic Games' Tim Sweeney announces the engine is free. The only word you understood in the English article was \"free.\" It was the one that mattered."
     },
     "effect": {
      "passion": 6,
@@ -1921,7 +1921,7 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "ほぼ 1 人で作られたと聞き、30 人の自社の RPG の会議が静かになった。誰かが「うちは 30 人いる」と言い、もっと静かになった。",
+     "ja": "ほぼ 1 人で作ったと聞き、30 人の自社 RPG の会議が静まった。誰かが「うちは 30 人いる」と言い、もっと静まった。",
      "en": "Hearing it was made almost single-handedly, your 30-person RPG meeting went quiet. Someone said, \"But we have 30 people.\" It got quieter."
     },
     "effect": {
@@ -2205,8 +2205,8 @@
      "stat.fame>=30"
     ],
     "text": {
-     "ja": "展示会で自分の VR デモに 2 時間待ちの行列。隣のブースは水口哲也さんの『Rez Infinite』で、行列はそっちが長かった。それでも光栄だった。",
-     "en": "A two-hour line for your VR demo at an expo. Next door was Tetsuya Mizuguchi's Rez Infinite, with an even longer line. You were honored anyway."
+     "ja": "展示会で自分の VR デモに 2 時間待ち。隣は水口哲也さんの『Rez Infinite』で、そっちはもっと長い。光栄だった。",
+     "en": "A two-hour line for your VR demo at an expo. Next door, Tetsuya Mizuguchi's Rez Infinite had an even longer one. You were honored anyway."
     },
     "effect": {
      "passion": 10,
@@ -3845,8 +3845,8 @@
      "pos=dev"
     ],
     "text": {
-     "ja": "同じ月に自社のアクション『黄昏の灯火と灰の騎士』を出した。順位は ELDEN RING の 38 個下。レビューに「難しい」と書かれて喜んだ。",
-     "en": "Your team's action game, Knight of Ash and the Twilight Lamp, came out the same month, 38 places below ELDEN RING. A review called it \"hard.\" You were thrilled."
+     "ja": "同じ月に自社のアクション『黄昏の灯火と灰の騎士』を出した。順位は ELDEN RING の 38 個下。「難しい」の評に喜んだ。",
+     "en": "Your team's action game, Knight of Ash and the Twilight Lamp, came out that month, 38 places below ELDEN RING. A review called it \"hard.\" You were thrilled."
     },
     "effect": {
      "passion": 4
