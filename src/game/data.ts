@@ -40,6 +40,14 @@ for (const e of EVENTS) for (const [re, flag, deaths] of KIN) {
   if ((e.weight ?? 1) > 0 && re.test([e.text, ...(e.alt ?? [])].map((x) => x.ja).join('')) && !(e.when ?? []).includes(`!flag.${flag}`)) e.when = [...(e.when ?? []), `!flag.${flag}`];
 }
 
+// 話ごとの「出してよい立場」(state_hints.json。第 19 回: 全部の話を読んで、本文が前提にしている立場を条件にした)
+const shMod = import.meta.glob('../data/state_hints.json', { eager: true, import: 'default' }) as Record<string, Record<string, { when?: string[]; jobs?: string[] }>>;
+const STATE_HINTS = Object.values(shMod)[0] ?? {};
+for (const e of EVENTS) {
+  const h = STATE_HINTS[e.id]; if (!h) continue;
+  for (const c of h.when ?? []) if (!(e.when ?? []).includes(c)) e.when = [...(e.when ?? []), c];
+  if (h.jobs?.length && !e.jobs) e.jobs = h.jobs as import('./types').Job[];
+}
 // 本文から職種を読む(第 10 回ペルソナ: プログラマに「自分の描いた木」、営業に開発の話)。job_hints.json に無い話だけ
 const JOB_WORDS: [RegExp, import('./types').Job[]][] = [
   [/自分の描いた|あなたの描いた|自分が描いた|あなたの絵|自分の絵|描き直し|ドット絵を|原画を/, ['artist', 'director']],
@@ -51,7 +59,7 @@ const jobWord = (e: GameEvent) => { const tx = [e.text, ...(e.alt ?? [])].map((x
 // 職種と話のずれを防ぐ(ペルソナ通読: サウンドなのに絵の話ばかり)。job_hints.json = 本文が特定の職種の作業を前提にしている話 → 出してよい職種
 const jhMod = import.meta.glob('../data/job_hints.json', { eager: true, import: 'default' }) as Record<string, Record<string, string[] | string>>;
 const JOB_HINTS = Object.values(jhMod)[0] ?? {};
-for (const e of EVENTS) { const j = JOB_HINTS[e.id]; if (Array.isArray(j) && j.length) e.jobs = j as import('./types').Job[]; else if (!e.id.startsWith('ev_sys_')) { const w = jobWord(e); if (w) e.jobs = w; } }
+for (const e of EVENTS) { const j = JOB_HINTS[e.id]; if (Array.isArray(j) && j.length) e.jobs = j as import('./types').Job[]; else if (!e.id.startsWith('ev_sys_') && !e.jobs) { const w = jobWord(e); if (w) e.jobs = w; } }
 
 // 文の中身から、出してよい時を自動で絞る(ペルソナ 3 回目の通読: 家族の順番・無職なのに社内・入社 1 年目に「10 年前」など)。
 // データに同じ種類の条件がもう書いてあれば足さない
