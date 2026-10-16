@@ -913,7 +913,9 @@ function kidsReturn(s: State, id: EndingId) {
   const rel = arc ? (arc === s.inner.mentee ? { ja: '後輩の', en: 'your old junior' } : { ja: '先輩の', en: 'your old mentor' }) : indieStart ? { ja: '昔の仲間の', en: 'your old friend' } : { ja: '同期の', en: 'your old peer' };
   const nmJa = bud ? bud.name.ja.split(' ')[0] : arc ? arc.name.ja : '';
   const nmEn = bud ? bud.name.en.split(' ').slice(-1)[0] : arc ? arc.name.en : '';
-  const p = nmJa ? `${rel.ja}${nmJa}` : rel.ja.replace(/の$/, ''), pe = `${rel.en} ${nmEn}`.trim();
+  let p = nmJa ? `${rel.ja}${nmJa}` : rel.ja.replace(/の$/, ''), pe = `${rel.en} ${nmEn}`.trim();
+  // ファンの子の筋が最後まで通った人生は、半分はその子と締める(第 36 回: 1 回しか出ない同期より、筋の相手)
+  if (s.inner.fan && s.inner.fan.step >= 4 && !s.flags.in_prison && id !== 'end_arrest' && s.rng.chance(0.5)) { p = s.inner.fan.name.ja; pe = s.inner.fan.name.en; }
   const jail = s.flags.in_prison || id === 'end_arrest';
   const where: Partial<Record<EndingId, Text>> = {
     end_restart: s.rng.pick([
