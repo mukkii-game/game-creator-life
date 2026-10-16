@@ -79,6 +79,7 @@ for (const e of EVENTS) {
   const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join('');
   const t = tx + (e.choices ?? []).map((c) => c.label.ja + (c.result?.ja ?? '') + (c.alt ?? []).map((x) => x.ja).join('')).join('');
   { const m = /(?<![\d.])(\d{1,2}) 年(かけ|がかり)|置き傘を (\d) 年/.exec(tx); const n = m ? Number(m[1] ?? m[3]) : 0; if (n >= 2 && n <= 10 && !e.tag?.some((x) => x === 'prologue' || x === 'student' || x === 'afterlife') && !(e.when ?? []).some((c) => c.startsWith('career'))) add(e, `career>=${n}`); } // 入って 1 年目に「3 年かけた作品」を言わせない(第 50 回)
+  if ((e.when ?? []).includes('flag.child') && !(e.when ?? []).some((c) => c.startsWith('kid')) && /子ども(が|に|は|と)/.test(tx) && /就職|社会人|ゲーム会社に入|成人|大学/.test(tx) && !(e.when ?? []).some((c) => c.startsWith('kid'))) add(e, 'kid>=18'); // 子の就職は 18 歳から(第 62 回: 5 歳の子が「ゲーム会社に入った」)
   if ((e.when ?? []).includes('flag.child') && !(e.when ?? []).some((c) => c.startsWith('kid')) && /子ども(が|に|は|と)/.test(tx) && !/大人|成人|社会人|就職|結婚|孫|大学|上京/.test(tx)) { add(e, 'kid<=16'); if (/子ども(が|に|は|と).{0,30}(「|言|話|聞)/.test(tx)) add(e, 'kid>=5'); } // しゃべる子は 5 歳から(第 57 回: 2 歳が「ここ作った人、性格悪い」) // 子どもの話は 16 歳まで(第 56 回: 22 歳の子が「ゾンビが来ると布団に入る」)
   // 家族: 恋人の話は結婚前だけ / 籍を入れる話は結婚前だけ / 義理の親・配偶者の話は結婚後だけ
   if (/恋人/.test(t) && !has(e, 'flag.lv_married')) add(e, '!flag.lv_married');

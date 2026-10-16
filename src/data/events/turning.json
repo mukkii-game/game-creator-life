@@ -2394,7 +2394,10 @@
      "network": 10,
      "money": 50,
      "passion": -5,
-     "job": "producer"
+     "job": "producer",
+     "flag": {
+      "sub_ceo": true
+     }
     },
     "result": {
      "ja": "名刺に「代表取締役」。最初の仕事はトイレの電球の交換だった。",

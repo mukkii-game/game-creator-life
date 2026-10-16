@@ -11,7 +11,7 @@ const tMod = import.meta.glob('../data/titles.json', { eager: true, import: 'def
 const TITLES: TitleRow[] = Object.values(tMod)[0]?.titles ?? [];
 /** 題名に機種名が入っていたら、その機種の時だけ使う(『〇〇DS』が PS3 で出ていた) */
 function nameFits(name: string, platform: string): boolean {
-  const tags: [RegExp, RegExp][] = [[/DS$|DS[^a-z]/, /^ニンテンドー DS$/], [/アドバンス/, /アドバンス/], [/ポータブル|ポケット/, /PSP|ゲームボーイ|DS|3DS|スマホ|ケータイ/], [/64/, /64/], [/3D$/, /3DS/], [/脳を鍛える|でもいっしょ/, /DS|3DS|Wii|スマホ|Switch/], [/オンライン/, /^(?!アーケード|ゲームボーイ)/]]; // 業務用に「脳を鍛える」は付けない(第 20 回)
+  const tags: [RegExp, RegExp][] = [[/オンライン/, /^(?!業務用).*/], [/DS$|DS[^a-z]/, /^ニンテンドー DS$/], [/アドバンス/, /アドバンス/], [/ポータブル|ポケット/, /PSP|ゲームボーイ|DS|3DS|スマホ|ケータイ/], [/64/, /64/], [/3D$/, /3DS/], [/脳を鍛える|でもいっしょ/, /DS|3DS|Wii|スマホ|Switch/], [/オンライン/, /^(?!アーケード|ゲームボーイ)/]]; // 業務用に「脳を鍛える」は付けない(第 20 回)
   return tags.every(([inName, okPf]) => !inName.test(name) || okPf.test(platform));
 }
 /** 題名の会議で選んだ型(worklife の ch_wk_tt_kanji / ch_wk_tt_ceo / ch_wk_tn_long)を、次の作品の名前にする */
