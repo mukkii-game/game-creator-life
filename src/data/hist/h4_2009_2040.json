@@ -814,8 +814,8 @@
    {
     "id": "ev_hs_2011_vita_any",
     "text": {
-     "ja": "家電量販店で有機 EL の画面を 10 分眺めた。黒が黒い。買わずに帰ると、家のテレビの黒が灰色に見えた。",
-     "en": "You stare at the OLED screen in an electronics store for ten minutes. The blacks are black. At home, your TV's blacks look gray."
+     "ja": "店頭の新しい携帯機で、有機 EL の画面を 10 分眺めた。黒が黒い。買わずに帰ると、家のテレビの黒が灰色に見えた。",
+     "en": "At the store, you stare at the new handheld's OLED screen for ten minutes. The blacks are black. At home, your TV's blacks look gray."
     },
     "effect": {
      "passion": 2
@@ -4322,8 +4322,8 @@
        "hp": -10
       },
       "result": {
-       "ja": "3 か月かけて移した。移し終えた週、料金は見直された。",
-       "en": "The move takes three months. The week you finish, the fee is revised."
+       "ja": "移し始めて 10 日目に、料金は見直された。移しかけのデータが、2 つの形で残った。",
+       "en": "Ten days into the move, the fee is revised. The half-moved project now exists in two formats."
       }
      },
      {

@@ -2,7 +2,7 @@
 import { tune } from '../core/tuning';
 import type { State, Work, Role, WorkResult, Text } from './types';
 import { workName, platformFor, partsOf } from './names';
-import { CO_TRAITS } from './data';
+import { CO_TRAITS, MOTIFS } from './data';
 
 // あなたのチームの作品の名前(PLAN §12 を 2026-10-15 Mukkii の指示で変更): 実在のヒット作は実名で史実に出し、
 // 自分の作品は「その年のヒット作と雰囲気が似た、チームのオリジナルの造語タイトル」。表は src/data/titles.json。
@@ -311,8 +311,12 @@ export function tickWorks(s: State): { work: Work; text: Text }[] {
       const fresh = unsaid.filter((t) => !s.inner.recent?.includes(`line:${t.ja}`));
       if (!fresh.length && s.rng.chance(0.7)) continue;
       if (fresh.length < texts.length && s.rng.chance(['sequel', 'rta'].includes(f.key) ? 0.85 : 0.6)) continue; // 続編から外される・RTA は特に骨組みに見える(第 46 回) // 同じ種類の後日談を直近の人生で見ていたら、今回はたいてい起こさない(第 29 回: 続編から外される話が 3 人生とも) // 直近の人生で全部の言い回しを見ていたら、たいてい今回は起こさない
-      const ft = s.rng.pick(fresh.length ? fresh : unsaid.length ? unsaid : texts);
-      said.push(ft.ja);
+      const mOf = (t: Text) => MOTIFS.filter(([, re]) => re.test(t.ja)).map(([m]) => m);
+      const okM = (t: Text) => !mOf(t).some((m) => s.inner.motifs?.includes(m)); // 後日談も小ネタの型を 1 人生 1 回に(第 54 回: AI リメイクの「指が 6 本」が 2 回)
+      const pool = (fresh.length ? fresh : unsaid.length ? unsaid : texts).filter(okM);
+      if (!pool.length) continue;
+      const ft = s.rng.pick(pool);
+      said.push(ft.ja); (s.inner.motifs ??= []).push(...mOf(ft));
       fc[f.key] = (fc[f.key] ?? 0) + 1;
       const h = { year: s.year, text: ft, key: f.key } as { year: number; text: Text; key?: string };
       w.history.push(h);

@@ -939,16 +939,18 @@ function kidsReturn(s: State, id: EndingId) {
   if (s.inner.fan && s.inner.fan.step >= 4 && !s.flags.in_prison && id !== 'end_arrest' && s.rng.chance(0.5)) { p = s.inner.fan.name.ja; pe = s.inner.fan.name.en; fanTalk = true; }
   const jail = s.flags.in_prison || id === 'end_arrest';
   const where: Partial<Record<EndingId, Text>> = {
-    end_restart: s.rng.pick([
+    end_restart: freshLine(s, [
       { ja: `帰り道、${p}がぽつりと言った。`, en: `On the way home, ${pe} said quietly:` },
       { ja: `打ち上げの後の屋台で、${p}が湯気の向こうで言った。`, en: `At a food stall after the wrap party, ${pe} said through the steam:` },
       ...(s.flags.shift_play ? [{ ja: `ゲーセンの対戦台の向こうから、${p}が言った。`, en: `From across the arcade versus cabinet, ${pe} said:` }] : [{ ja: `夜中の開発室に、ふたりだけ残っていた。${p}がモニターを見たまま言った。`, en: `Only the two of you were left in the dev room at night. ${pe} said, still staring at the monitor:` }]), // 遊ぶ側に回った人生に開発室は出さない
       { ja: `終電を待つホームで、${p}が言った。`, en: `Waiting for the last train, ${pe} said:` },
-    ]),
-    end_retire: s.rng.pick([
+    ], 'krw_restart'), /* 締めの場面も直近の人生と変える(第 51・54 回: 屋台の湯気が一字一句同じ) */
+    end_retire: freshLine(s, [
       { ja: `送別会の帰り、${p}が言った。`, en: `Leaving the farewell party, ${pe} said:` },
       { ja: `最後の出社の日、エレベーターの中で${p}が言った。`, en: `On your last day, in the elevator, ${pe} said:` },
-    ]),
+      { ja: `机の私物を段ボールに詰めていると、${p}が手伝いに来て言った。`, en: `As you packed your desk into a box, ${pe} came to help and said:` },
+      { ja: `社員証を返した帰り、駅前の喫茶店で${p}が言った。`, en: `After returning your ID badge, at the café by the station, ${pe} said:` },
+    ], 'krw_retire'),
     end_pen_down: { ja: `70 歳の誕生日、${p}から電話があった。`, en: `On your 70th birthday, ${pe} called:` },
     end_body: { ja: `病院のベッドの横で、${p}が言った。`, en: `By your hospital bed, ${pe} said:` },
     end_debt: { ja: `店をたたんだ夜、${p}が缶ビールを持って来て言った。`, en: `The night you closed shop, ${pe} came by with canned beer and said:` },

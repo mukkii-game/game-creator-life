@@ -592,7 +592,7 @@
   ],
   "once": true,
   "text": {
-   "ja": "HAL研究所の社長になった岩田聡さんが、今も自分でプログラムを書くと聞いた。平社員のあなたは、まだ自分のバグを先輩に直させていた。",
+   "ja": "HAL研究所の社長の岩田聡さんが、今も自分でプログラムを書くと聞いた。平社員のあなたは、まだ自分のバグを先輩に直させていた。",
    "en": "You heard Satoru Iwata still writes code himself, even as HAL Laboratory's president. Meanwhile, you, a rank-and-file coder, were still having a senior fix your bugs."
   },
   "effect": {

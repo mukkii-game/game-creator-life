@@ -134,11 +134,11 @@ for (const e of EVENTS) {
 }
 
 // ネタの型(第 13 回ペルソナ: 「電車で知らない人が自分のゲームを遊んでいる」が 3 人生で 5 回、など)。同じ型は 1 人生 1 回
-const MOTIFS: [string, RegExp][] = [
+export const MOTIFS: [string, RegExp][] = [
   ['train', /電車で.*(知らない人|隣の人|サラリーマン|学生).*(遊んで|遊んでいた|プレイ)|(知らない人|隣の人|サラリーマン).*電車.*(あなたの|自分の)ゲーム/], ['cupmen', /カップ麺/], // 第 25 回: 電車で自分のゲームを遊ぶ人が 5 回、カップ麺が 3 回
   ['train', /(電車|新幹線|車両).*(自分の|あなたの|うちの)(ゲーム|作品|作った)|(自分の|あなたの)(ゲーム|作品).*(電車|新幹線)/],
   ['hospital', /入院|病室/],
-  ['major', /専攻した|美大に通って|専門学校に通って|専門学校の卒業制作|音楽の学校に通い/], ['qa_tries', /テストの席で.{0,40}\d+ 回試した/], ['game_wedding', /きっかけで結婚/], ['title_meeting', /タイトル会議|題名会議|略して呼べる|略せる名前/], ['uchimo', /役員会で「うちも|「うちも.{0,12}を」/], ['like_shake', /指が震え/], ['shokutaku', /肩書(き)?(だけ)?「?嘱託/], ['sakurai', /桜井政博/], ['patent', /特許の(勉強会|棚卸し)|自分の名前の特許/], ['mom_buys', /は母(だった|が買)|1 つは母|母が \d+ (部|本)|母の 1 件|本は母/], ['oversleep', /乗り過ごし/], ['farewell_name', /送別会.{0,40}下の名前|下の名前.{0,40}送別会/], ['boss_fight', /社長.{0,30}格ゲー|社長室に呼ばれた。用件は/], ['not_me', /違うと言うと.{0,10}がっかり|がっかりされた/], // 第 48 回: 母が買う・乗り過ごし・下の名前の送別会・社長と格ゲーが人生をまたいで続く
+  ['major', /専攻した|美大に通って|専門学校に通って|専門学校の卒業制作|音楽の学校に通い/], ['qa_tries', /テストの席で.{0,40}\d+ 回試した/], ['game_wedding', /きっかけで結婚/], ['title_meeting', /タイトル会議|題名会議|略して呼べる|略せる名前/], ['uchimo', /役員会で「うちも|「うちも.{0,12}を」/], ['like_shake', /指が震え/], ['shokutaku', /肩書(き)?(だけ)?「?嘱託/], ['sakurai', /桜井政博/], ['patent', /特許の(勉強会|棚卸し)|自分の名前の特許/], ['six_finger', /指が ?6 本/], ['sit_beside', /(担当|仕事)は終わった」と.{0,30}(隣|横)/], ['frame_mag', /額に入れ/], ['fukkoku', /復刻/], ['wiki', /百科事典/], ['sign', /サインを(頼まれ|求められ|した|書い)|サイン会/], ['mom_buys', /は母(だった|が買)|1 つは母|母が \d+ (部|本)|母の 1 件|本は母/], ['oversleep', /乗り過ごし/], ['farewell_name', /送別会.{0,40}下の名前|下の名前.{0,40}送別会/], ['boss_fight', /社長.{0,30}格ゲー|社長室に呼ばれた。用件は/], ['not_me', /違うと言うと.{0,10}がっかり|がっかりされた/], // 第 48 回: 母が買う・乗り過ごし・下の名前の送別会・社長と格ゲーが人生をまたいで続く
   ['readable_code', /コードの方が読みやすい|自分より読みやすかった/],
   ['vr_sick', /(VR|ゴーグル).*(酔|座り込|壁を探|床で)/],
   ['hunt', /一狩り|狩りに|狩場|狩りをして/],
@@ -171,7 +171,7 @@ const MOTIFS: [string, RegExp][] = [
   ['parent_save', /セーブデータ.*(名前|「)|「(とうちゃん|おかん)」/],
 ];
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; else if (e.tag?.includes('crime') && e.choices) e.motif = 'crime'; if (e.tag?.includes('early_exit') && e.choices) e.motif = 'early_exit'; if (e.choices && !e.id.startsWith('ev_sys_') && !e.motif) { if (/AI/.test(tx) && e.years[1] >= 2022) e.motif = 'ai_choice'; else if (/ケータイ(の)?部署|ソシャゲ(に|へ)(行|移)/.test(tx + (e.choices ?? []).map((c) => c.label.ja).join(''))) e.motif = 'mobile_move'; } } // AI をどう使うか・ケータイへ移るかの選択は 1 人生 1 回 // 早くに去る選択は 1 人生 1 回 // 犯罪の入口(選択)は続けて遊ぶと出にくく
-for (const e of EVENTS) if (e.motif && ['mom_buys', 'oversleep', 'farewell_name', 'boss_fight', 'not_me'].includes(e.motif) && (/^ev_(fa|rv|mt|me)_/.test(e.id) || e.tag?.includes('chain') || e.tag?.includes('followup'))) delete e.motif; // 長い筋・続きの回は小ネタの型で止めない
+for (const e of EVENTS) if (e.motif && (/^ev_(fa|rv|mt|me)_/.test(e.id) || e.tag?.includes('chain') || e.tag?.includes('followup'))) delete e.motif; // 長い筋・連鎖・続きの回は小ネタの型で止めない(第 54 回: 駄菓子屋の連鎖が全部同じ型で、開幕の後の回が出られなかった)
 for (const e of EVENTS) { if (/^ev_(sys|fa|rv|mt|me)_/.test(e.id) || e.tag?.includes('chain') || e.tag?.includes('followup')) continue; const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const all = [...new Set(MOTIFS.filter(([, re]) => re.test(tx)).map(([m]) => m))].filter((m) => m !== e.motif); if (all.length) e.motifAll = all; } // 2 つ目以降の型も覚える(第 51 回: 電車で自分のゲームが 1 人生に 3 回。最初の型しか見ていなかった)
 // 家族の危機の大きな選択(危篤・倒れた・最後の願い)は 1 人生 1 回、続けて遊んでも出にくく(第 19 回: 3 人生で 5 回)
 for (const e of EVENTS) if (['ev_lv_big_grandpa', 'ev_lv_big_father', 'ev_lv_big_mother_last', 'ev_tn_big_care'].includes(e.id)) e.motif = 'family_crisis';
