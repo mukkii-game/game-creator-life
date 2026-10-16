@@ -208,6 +208,18 @@ function logEvent(s: State, id: string, kind: LogLine['kind']) {
 function apply(s: State, e: Effect | undefined, ctx: string, out: string[], cause?: Text) {
   if (!e) return;
   try { applyInner(s, e, ctx, out, cause); } finally { syncCompany(s); }
+  // 海を渡ったら、勤め先は本当に海外の会社に(第 12 回ペルソナ: 渡った後もずっと日本の下請けの話)。数年で帰ってくる
+  if ((e.flag?.life_abroad || e.flag?.went_abroad) && s.status === 'employed' && s.company.size !== 'abroad') {
+    s.company = newCompany(s.rng, 'abroad', s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
+    s.inner.abroadUntil = s.year + s.rng.int(4, 7);
+  }
+}
+/** 海外から帰ってくる(abroadUntil の年) */
+function comeHome(s: State) {
+  s.inner.abroadUntil = 0; s.flags.life_abroad = false; s.flags.went_abroad = false; s.flags.came_home = true;
+  const size: CompanySize = s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small'] as const);
+  s.company = newCompany(s.rng, size, s.year, s.inner.deadCos); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
+  log(s, freshLine(s, [{ ja: `日本に帰ってきた。次の勤め先は ${s.company.name.ja}。空港のうどんが、泣くほどうまかった。`, en: `Back in Japan. Next stop: ${s.company.name.en}. The airport udon was good enough to cry over.` }, { ja: `帰国して ${s.company.name.ja} に入った。最初の会議で、つい英語で相づちを打った。`, en: `Home again, you joined ${s.company.name.en}. At the first meeting you nodded along in English by accident.` }], 'comehome'), 'event');
 }
 function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Text) {
   for (const k of ['hp', 'passion', 'skill', 'network', 'fame'] as const) if (e[k]) s.stat[k] = clamp(s.stat[k] + e[k]!);
@@ -342,6 +354,7 @@ function beginYear(s: State, out: string[]) {
   else if (s.age >= 70) sys.push('@end:end_pen_down');
   else if (s.age === 65 && (s.status === 'employed' || s.status === 'indie')) sys.push('ev_sys_age65', '@check65');
   else if (s.age >= 60 && !s.flags.age60 && (s.status === 'employed' || s.status === 'indie')) { s.flags.age60 = true; sys.push('ev_sys_age60'); }
+  if (s.inner.abroadUntil && s.year >= s.inner.abroadUntil && s.status === 'employed' && s.company.size === 'abroad') comeHome(s);
   if (s.status === 'employed') {
     const mult = { big: 0.3, mid: 1, small: 1.6, sub: 2, abroad: 1, indie: 0, school: 0, none: 0 }[s.company.size];
     const bad = [1983, 1991, 1992, 2001, 2008, 2009, 2023, 2024].includes(s.year) ? 2 : 1;
@@ -488,6 +501,7 @@ function runItem(s: State, id: string, out: string[]) {
   if (id.startsWith('@end:')) return end(s, id.slice(5) as EndingId, out);
   if (id === '@release') {
     if (s.status !== 'employed' && s.status !== 'indie') return;
+    if (s.flags.callcenter) { s.inner.nextWorkYear = s.year + 1; return; } // カスタマーセンターにいる間は作品を出さない(第 12 回ペルソナ)
     const { line, work } = release(s);
     log(s, line, 'work'); out.push('work');
     if (work.result === 'hit' || work.result === 'legend') s.inner.highs.push({ year: s.year, age: s.age, text: { ja: `${work.name.ja}が${RESULT_TEXT[work.result].ja}になった`, en: `${work.name.en} became a ${RESULT_TEXT[work.result].en.toLowerCase()}` }, w: (work.result === 'legend' ? 9 : 4) + s.rng.next(), kind: 'work' });
@@ -514,6 +528,9 @@ function runItem(s: State, id: string, out: string[]) {
   if (!ev) return;
   if (ev.years && (s.year < ev.years[0] || s.year > ev.years[1])) return;
   if (ev.once && s.inner.used.includes(ev.id)) return;
+  // 同じ後日談は 1 人生に 1 回(第 12 回ペルソナ: 「コンシューマに残った」が選択なしで 2 回)
+  if ((ev.weight ?? 1) === 0 && s.inner.seen[ev.id] !== undefined && !ev.tag?.includes('repeatable') && !/^ev_(fa|rv|mt|me|sys)_/.test(ev.id)) return;
+  if (ev.id === 'ev_wk_fu_callcenter') s.flags.callcenter = false; // 開発に戻る
   // 選択の後日談(weight 0 で later から来る話)は、直近の人生で見ていたら 7 割で出さない(長い話の続き・大作の結末は除く)
   if ((ev.weight ?? 1) === 0 && !ev.tag?.some((t) => t === 'mega' || t === 'rival') && !/^ev_(fa|rv|mt|me)_/.test(ev.id) && s.inner.recent?.includes(ev.id) && r.chance(0.7)) return;
   if (ev.when && !ev.when.every((c) => test(s, c))) return; // 同じ年のうちに独立・転職・服役した時は出さない

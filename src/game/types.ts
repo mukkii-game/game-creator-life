@@ -119,6 +119,8 @@ export interface Inner {
   arcOn?: Record<string, boolean>;
   /** 子どもが生まれた年 */
   childYear?: number;
+  /** 海外から帰ってくる年 */
+  abroadUntil?: number;
   isPeer: boolean;
   bot: string;               // peer の時: 動かすボット名
   workTarget: number;        // afterlife のイベントが指す作品の番号(-1 = 直近)

@@ -65,12 +65,18 @@ for (const e of EVENTS) {
   // 家族: 恋人の話は結婚前だけ / 籍を入れる話は結婚前だけ / 義理の親・配偶者の話は結婚後だけ
   if (/恋人/.test(t) && !has(e, 'flag.lv_married')) add(e, '!flag.lv_married');
   if (/恋人/.test(t) && !/元恋人/.test(t) && !has(e, 'flag.child')) add(e, '!flag.child');
+  // 付き合う前の話は結婚前だけ(第 12 回ペルソナ: 籍を入れて子どもが生まれた後に「結婚式の曲が決まった」)
+  if (/結婚式の曲|別々の家から|付き合い始め|デート|告白|電話代を見て/.test(tx) && !has(e, 'flag.lv_married')) { add(e, '!flag.lv_married'); if (!has(e, 'flag.child')) add(e, '!flag.child'); }
+  // 実在の会社に後ろ暗い話を付けない
+  if (/宝石を売|サクラ|裏金|粉飾|横領|夜逃げ/.test(tx) && !has(e, 'flag.real_co')) add(e, '!flag.real_co');
   // 自分の子どもの話は、子どもの年齢に合う時だけ(第 9 回ペルソナ: 1 歳でケータイのゲーム、2 歳でナワバリバトル)
   if ((/child|kid/.test(e.id) || /^子どもが|^子どもに|^子どもと/.test(tx)) && !/生まれ/.test(tx) && !/^ev_hs_.*_(any|abroad|client|client_lead)$|ev_sega|boss_kid|fan_parent/.test(e.id) && !has(e, 'kid')) {
     add(e, /就職|内定|ゲーム会社に入|面接|成人|初任給/.test(tx) ? 'kid>=20' : /思春期/.test(tx) ? 'kid>=13' : /学校|作文|宿題|クラス|授業参観|運動会|ノート|定規/.test(tx) ? 'kid>=7' : 'kid>=4');
   }
   if (/籍を入れ|プロポーズ/.test(t) && !has(e, 'flag.lv_married')) add(e, '!flag.lv_married');
   if (/義理の(母|父)|義母|義父|妻が|夫が|配偶者/.test(e.text.ja) && !has(e, 'flag.lv_married')) add(e, 'flag.lv_married');
+  // 日本の会社・暮らしの話は、海外の会社にいる間は出さない
+  if (/元請け|下請け|即売会|節電|社員旅行|忘年会|役員会|朝礼|社内報|電車|新幹線|地元|広報誌|コミケ|居酒屋|定食屋/.test(tx) && !has(e, 'company.size') && !has(e, 'pos')) add(e, 'company.size!=abroad');
   // 会社の中の話は、会社にいる時だけ
   if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み|ボーナス|人事に呼ばれ|辞令|うちのチーム|チームの|部下|社員証|社内報|配属|入社以来|新人が|新人の|定時|チャイム|社員食堂|総務|経理|社員旅行|忘年会|送別会|歓迎会|会社の照明|会社のドア|会社の椅子|入館証/.test(tx) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
   // 年数: 「N 年前」「N 年ぶり」はキャリアが N 年以上 / 入社直後の話はキャリア 1 年目まで
@@ -91,6 +97,19 @@ for (const e of EVENTS) {
   if (/\{work\}/.test(tx) && /リマスター|復刻|昔の|移植版|再販/.test(tx) && !e.tag?.includes('afterlife')) e.tag = [...(e.tag ?? []), 'afterlife'];
 }
 
+// ハードの選択の後日談は、その選択がまだ生きている時だけ(後で別の陣営を選んだら、前の選択の後日談は出さない)
+{
+  const need = new Map<string, Set<string>>();
+  for (const e of EVENTS) for (const c of e.choices ?? []) {
+    const fl = Object.entries(c.effect.flag ?? {}).filter(([k, v]) => v && /^hw_/.test(k)).map(([k]) => k).sort().join(',');
+    for (const l of c.later ?? []) { const s0 = need.get(l.event) ?? new Set(); s0.add(fl); need.set(l.event, s0); }
+  }
+  for (const [id, sets] of need) {
+    if (sets.size !== 1) continue;
+    const fl = [...sets][0]; const ev = EVENTS.find((x) => x.id === id);
+    if (ev && fl) for (const f of fl.split(',')) if (!has(ev, `flag.${f}`)) add(ev, `flag.${f}`);
+  }
+}
 // 業界を去る選択(do_end / do_switch)は、入って 5 年たってから(第 11 回ペルソナ: 22 歳のうちに玉の輿で退場、初めての人が「ゲームはどこ?」)
 for (const e of EVENTS) {
   if (e.id.startsWith('ev_sys_') || has(e, 'career')) continue;
