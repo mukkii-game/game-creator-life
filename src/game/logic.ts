@@ -495,7 +495,9 @@ function beginYear(s: State, out: string[]) {
   const rel = q.indexOf('@release');
   if (rel >= 0) { q.splice(rel, 1); ids.splice(r.int(0, ids.length), 0, '@release'); }
   // 歴史の事件は頭に(その年の空気を最初に)
-  s.inner.queue = [...hist, ...turning, ...arcIds, ...q, ...ids, ...sys];
+  const all = [...hist, ...turning, ...arcIds, ...q, ...ids, ...sys];
+  const jailing = (id: string) => !!EVENT_BY_ID.get(id)?.effect?.flag?.do_prison;
+  s.inner.queue = [...all.filter((id) => !jailing(id)), ...all.filter(jailing)]; // 実刑はその年の最後に(第 30 回: 判決の年に「続編は手堅く売れた」「新人が入ってきた」)
 }
 
 /** その年に起きる歴史の事件から、今の立場で受ける版を選ぶ。年表図鑑でまだ触れていない事件・立場ほど出やすい */
