@@ -1366,7 +1366,7 @@
   ]
  },
  {
-  "id": "ev_tn_big_go_indie",
+  "id": "ev_tn_big_go_indie", "alt": [{"ja": "企画がまた通らなかった。帰りの電車で貯金の残高を見たら、1 年なら独立して食える額だった。", "en": "Another proposal rejected. On the train home you checked your savings: enough to go solo for a year."}, {"ja": "3 本続けて企画が落ちた。その夜、独立した知人の事務所の家賃を聞いた。思ったより安かった。", "en": "Three proposals shot down in a row. That night you asked a friend who went indie about their office rent. It was cheaper than you thought."}],
   "years": [
    1980,
    2040
@@ -1381,7 +1381,7 @@
   ],
   "choices": [
    {
-    "id": "ch_tn_go_indie_yes",
+    "id": "ch_tn_go_indie_yes", "alt": [{"ja": "辞めた。最初に作ったのは、会議で一番笑われた企画だった。", "en": "You quit. The first game you made was the proposal that got laughed at hardest."}, {"ja": "独立した。事務所は 6 畳。最初の仕事は、自分の名刺のデザインだった。", "en": "You went solo. The office was six tatami mats. Your first job was designing your own business card."}],
     "label": {
      "ja": "独立する",
      "en": "Go independent"
@@ -1406,7 +1406,7 @@
     }
    },
    {
-    "id": "ch_tn_go_indie_no",
+    "id": "ch_tn_go_indie_no", "alt": [{"ja": "残った。翌週、落ちた企画の一部が別のチームの新作に入っていた。", "en": "You stayed. The next week, part of your rejected proposal turned up in another team's new game."}, {"ja": "残った。貯金は定期預金に移した。独立の話は、定期の満期まで封印した。", "en": "You stayed. The savings went into a fixed deposit. The idea of going solo was sealed until it matured."}],
     "label": {
      "ja": "会社に残る",
      "en": "Stay"
@@ -1551,7 +1551,7 @@
   ]
  },
  {
-  "id": "ev_tn_big_abroad",
+  "id": "ev_tn_big_abroad", "alt": [{"ja": "海外スタジオから手紙。条件は今の倍。英語は、ゲームの中の単語しか知らない。", "en": "A letter from an overseas studio. Double your current terms. Your English is limited to words that appear in games."}, {"ja": "海外の会社に誘われた。面接は国際電話で、通訳は自分のゲームの英語版の説明書だった。", "en": "An overseas studio reached out. The interview was an international phone call. Your interpreter was the English manual of your own game."}],
   "years": [
    1985,
    2040
@@ -1565,7 +1565,7 @@
   ],
   "choices": [
    {
-    "id": "ch_tn_abroad_go",
+    "id": "ch_tn_abroad_go", "alt": [{"ja": "渡った。最初の 1 か月、会議の内容はホワイトボードの絵だけで理解した。", "en": "You went. For the first month you understood meetings entirely from whiteboard drawings."}, {"ja": "渡った。歓迎会で「ゲームオーバー」と言ったら、全員が乾杯した。", "en": "You went. At the welcome party you said \"game over\" and everyone raised a glass."}],
     "label": {
      "ja": "海を渡る",
      "en": "Cross the ocean"
@@ -1591,7 +1591,7 @@
     }
    },
    {
-    "id": "ch_tn_abroad_stay",
+    "id": "ch_tn_abroad_stay", "alt": [{"ja": "残った。断りの手紙は短かった。「Thank you. Game over.」", "en": "You stayed. The refusal letter was short: \"Thank you. Game over.\""}, {"ja": "断った。数年後、その会社のゲームのスタッフロールに、知っている名前が 3 つあった。", "en": "You declined. Years later, that studio's credits had three names you knew."}],
     "label": {
      "ja": "日本に残る",
      "en": "Stay in Japan"
@@ -1612,7 +1612,7 @@
   ]
  },
  {
-  "id": "ev_tn_fu_abroad",
+  "id": "ev_tn_fu_abroad", "alt": [{"ja": "海外 3 年目。夢の中で、英語で仕様変更を言い渡された。寝言で「OK」と答えていた。", "en": "Three years abroad. In a dream, you were handed a spec change in English. You answered \"OK\" in your sleep."}, {"ja": "海外暮らしが 3 年を越えた。締め切りの英語だけ、ネイティブより速く聞き取れる。", "en": "Over three years abroad. The one thing you hear faster than natives: deadlines."}],
   "years": [
    1977,
    2040
@@ -2477,7 +2477,7 @@
   ]
  },
  {
-  "id": "ev_tn_big_anime_tie",
+  "id": "ev_tn_big_anime_tie", "alt": [{"ja": "放送前のアニメのゲーム化が回ってきた。売れる。ただし、締め切りは第 1 話のオンエア日。", "en": "A licensed game for an anime that hasn't aired yet landed on your desk. It will sell. The deadline is the air date of episode one."}, {"ja": "人気アニメの版権ゲーム。営業は「出せば売れる」。開発は「出れば」。締め切りは 7 か月。", "en": "A licensed game for a hit anime. Sales: \"It'll sell if we ship.\" Dev: \"If.\" Seven months."}],
   "years": [
    1990,
    2040
@@ -2491,7 +2491,7 @@
   ],
   "choices": [
    {
-    "id": "ch_tn_anime_yes",
+    "id": "ch_tn_anime_yes", "alt": [{"ja": "受けた。放送の 3 日前に出した。原作者からの手紙は「ゲームの方が面白い」だった。内緒にした。", "en": "You took it and shipped three days before the broadcast. The original author wrote: \"The game is better.\" You kept that quiet."}, {"ja": "7 か月で出した。アニメの放送が 2 か月延びた。", "en": "You shipped in seven months. The anime got delayed by two."}],
     "label": {
      "ja": "受ける",
      "en": "Take it"
@@ -2507,7 +2507,7 @@
     }
    },
    {
-    "id": "ch_tn_anime_no",
+    "id": "ch_tn_anime_no", "alt": [{"ja": "断った。別の会社が出した版は、アニメより先に打ち切られた。", "en": "You passed. The version another studio made was cancelled before the anime was."}, {"ja": "断った。1 年後、そのアニメの続編の話が来た。締め切りは 6 か月だった。", "en": "You passed. A year later, the sequel came around. Six months this time."}],
     "label": {
      "ja": "断る",
      "en": "Pass"
@@ -2872,7 +2872,7 @@
   ]
  },
  {
-  "id": "ev_tn_big_hometown",
+  "id": "ev_tn_big_hometown", "alt": [{"ja": "幼なじみから「地元で会社をやらないか」。家賃は 3 分の 1。人も 3 分の 1。", "en": "A childhood friend: \"Want to start a company back home?\" Rent at a third. So are the people."}, {"ja": "地元の幼なじみが、空き店舗を借りてゲーム会社を始めるという。相棒として呼ばれた。", "en": "Your childhood friend is renting an empty storefront back home to start a game company. They want you as a partner."}],
   "years": [
    1985,
    2040
@@ -2886,7 +2886,7 @@
   ],
   "choices": [
    {
-    "id": "ch_tn_home_town",
+    "id": "ch_tn_home_town", "alt": [{"ja": "帰った。町の広報誌に「ゲームの会社ができました」と載り、翌日に 3 人の高校生が来た。", "en": "You went home. The town newsletter ran \"A game company has opened,\" and three high schoolers showed up the next day."}, {"ja": "帰った。会社の隣は田んぼで、テストプレイの BGM はカエルだった。", "en": "You went home. The office was next to a rice paddy. Playtests were scored by frogs."}],
     "label": {
      "ja": "地元へ帰る",
      "en": "Go home"
@@ -2907,7 +2907,7 @@
     }
    },
    {
-    "id": "ch_tn_home_city",
+    "id": "ch_tn_home_city", "alt": [{"ja": "残った。幼なじみの会社は、3 年後に町で一番の雇い主になっていた。", "en": "You stayed. Three years later your friend's company was the biggest employer in town."}, {"ja": "残った。正月に帰省すると、幼なじみの会社のゲームが実家のテレビで動いていた。", "en": "You stayed. At New Year's, your friend's game was running on your parents' TV."}],
     "label": {
      "ja": "都会に残る",
      "en": "Stay in the city"
@@ -3647,7 +3647,7 @@
   ]
  },
  {
-  "id": "ev_tn_big_patron",
+  "id": "ev_tn_big_patron", "alt": [{"ja": "資産家の知人が「好きなゲームを作っていい」と言う。条件はひとつ、主人公の顔が知人であること。", "en": "A wealthy acquaintance says, \"Make whatever game you want.\" One condition: the hero's face is his."}, {"ja": "スポンサーが現れた。予算は無制限、口出しもしない。ただし主人公の名前は、スポンサーの名前。", "en": "A sponsor appeared. Unlimited budget, no interference. The hero's name, however, is the sponsor's."}],
   "years": [
    1977,
    2040
@@ -3658,7 +3658,7 @@
   },
   "choices": [
    {
-    "id": "ch_tn_pat_yes",
+    "id": "ch_tn_pat_yes", "alt": [{"ja": "受けた。主人公は 40 代の男性で、最終面のボスは主人公の上司だった。", "en": "You accepted. The hero was a man in his forties, and the final boss was his boss."}, {"ja": "受けた。知人の顔のドット絵を 30 回描き直した。「若くして」の一言で、全部やり直した。", "en": "You accepted. You redrew the pixel-art face thirty times. One note, \"make it younger,\" sent you back to the start."}],
     "label": {
      "ja": "受ける",
      "en": "Accept"
@@ -3673,7 +3673,7 @@
     }
    },
    {
-    "id": "ch_tn_pat_no",
+    "id": "ch_tn_pat_no", "alt": [{"ja": "断った。知人は映画を作った。映画も主人公は知人だった。", "en": "You declined. He made a movie instead. He starred in that too."}, {"ja": "断った。知人は後日、別のゲーム会社を買った。その会社の新作の主人公は、もちろん知人だった。", "en": "You declined. Later he bought another game company. Its new hero was, of course, him."}],
     "label": {
      "ja": "断る",
      "en": "Decline"
@@ -3693,7 +3693,7 @@
   ]
  },
  {
-  "id": "ev_tn_big_rest",
+  "id": "ev_tn_big_rest", "alt": [{"ja": "健康診断の結果が真っ赤だった。医者は「半年休め」。チームは「今だけは抜けないで」。", "en": "Your health check came back red all over. The doctor: \"Rest six months.\" The team: \"Not now, please.\""}, {"ja": "階段で息が切れるようになった。医者は半年の休養を勧め、作品はマスターアップの 3 か月前だった。", "en": "You started losing your breath on the stairs. The doctor advised six months off. The game was three months from master-up."}],
   "years": [
    1977,
    2040
@@ -3704,7 +3704,7 @@
   },
   "choices": [
    {
-    "id": "ch_tn_rest_yes",
+    "id": "ch_tn_rest_yes", "alt": [{"ja": "休んだ。復帰した日、机に「おかえり」のメモと、自分の知らない新機能の仕様書があった。", "en": "You rested. On your first day back: a \"welcome back\" note on your desk, and a spec for a feature you'd never heard of."}, {"ja": "休んだ。半年ぶりに触った作品は、自分の担当部分だけが古い色をしていた。", "en": "You rested. Six months later, only your part of the game still looked old."}],
     "label": {
      "ja": "休む",
      "en": "Rest"
@@ -3720,7 +3720,7 @@
     }
    },
    {
-    "id": "ch_tn_rest_no",
+    "id": "ch_tn_rest_no", "alt": [{"ja": "続けた。発売日の翌日、病院のベッドでレビューを読んだ。点数は良かった。", "en": "You kept going. The day after launch, you read the reviews from a hospital bed. The scores were good."}, {"ja": "続けた。マスターアップの日、医者から「半年休め」の 2 回目の手紙が届いた。", "en": "You kept going. On master-up day, a second letter from the doctor arrived: \"Rest six months.\""}],
     "label": {
      "ja": "続ける",
      "en": "Keep going"
@@ -3742,7 +3742,7 @@
   ]
  },
  {
-  "id": "ev_tn_big_ramen",
+  "id": "ev_tn_big_ramen", "alt": [{"ja": "親友が店を出すという。ゲームとは無縁だが、「お前が要る」と言う。物件はもう契約していた。", "en": "Your best friend is opening a shop. Nothing to do with games, but \"I need you,\" they say. The lease is already signed."}, {"ja": "親友から「一緒に店をやろう」。メニューはもう決まっていて、看板のデザインだけが空いていた。", "en": "Your best friend: \"Let's run a shop together.\" The menu was already set. Only the sign was still blank."}],
   "years": [
    1977,
    2040
@@ -3753,7 +3753,7 @@
   },
   "choices": [
    {
-    "id": "ch_tn_ramen_no",
+    "id": "ch_tn_ramen_no", "alt": [{"ja": "断った。開店の日に行くと、店の BGM が自分のゲームの曲だった。", "en": "You declined. On opening day, the shop's background music was from your game."}, {"ja": "断った。店は繁盛した。親友は「常連の半分はお前のゲームのファンだ」と言う。嘘だと思う。", "en": "You declined. The shop thrived. \"Half the regulars are fans of your game,\" your friend says. You don't believe it."}],
     "label": {
      "ja": "断る",
      "en": "Decline"
@@ -3768,7 +3768,7 @@
     }
    },
    {
-    "id": "ch_tn_ramen_go",
+    "id": "ch_tn_ramen_go", "alt": [{"ja": "店をやることにした。看板はドット絵。常連は「ゲームっぽい」と言った。", "en": "You went for the shop. The sign was pixel art. The regulars said it looked \"like a game.\""}, {"ja": "やることにした。メニューの難易度表示は、自分が決めた。辛さが「ハード」「ベリーハード」「ナイトメア」。", "en": "You said yes. You set the difficulty labels on the menu: \"Hard,\" \"Very Hard,\" \"Nightmare.\""}],
     "label": {
      "ja": "店をやる",
      "en": "Open the shop"

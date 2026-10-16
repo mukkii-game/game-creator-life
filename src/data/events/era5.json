@@ -53,14 +53,14 @@
   { "id": "ev_era5_trip_lucky", "years": [2016, 2023], "weight": 0,
     "text": { "ja": "あなたが休んだ年だけ障害が起きなかったと判明。あなたの休みが「縁起物」扱いになった。", "en": "It turns out the only outage-free year was the year you took off. Your vacation is now a lucky charm." },
     "effect": { "network": 5, "passion": 4 }, "tag": ["gag"] },
-  { "id": "ev_era5_vr_team", "years": [2016, 2018], "once": true, "weight": 2,
+  { "id": "ev_era5_vr_team", "alt": [{"ja": "VR の新部署に声がかかった。体験会でゴーグルをかぶり、2 分後に壁を探していた。壁は無かった。", "en": "The new VR team came calling. At the demo you put on the headset and, two minutes in, were feeling for a wall. There was no wall."}, {"ja": "新設の VR チームから誘い。試作を遊んで「すごい」と言った直後、昼ごはんが戻りかけた。", "en": "An invitation from the new VR team. You played the prototype, said \"amazing,\" and nearly lost your lunch."}], "years": [2016, 2018], "once": true, "weight": 2,
     "text": { "ja": "新設の VR 部署に誘われた。試しにゴーグルをかぶったら、3 分で床に座り込んだ。", "en": "You're invited to the new VR team. You tried the headset and sat down on the floor within three minutes." },
     "when": ["status=employed"],
     "choices": [
-      { "id": "ch_era5_vr_go", "label": { "ja": "行く", "en": "Join" }, "effect": { "skill": 6, "hp": -5, "passion": 5 },
+      { "id": "ch_era5_vr_go", "alt": [{"ja": "行った。会議室の机に、酔い止めとビニール袋が常備された。", "en": "You went. Motion-sickness pills and a plastic bag became standard meeting-room equipment."}, {"ja": "行った。最初の 1 か月で、床に座る速さだけが上達した。", "en": "You went. In the first month, the only skill you improved was how fast you could sit down."}], "label": { "ja": "行く", "en": "Join" }, "effect": { "skill": 6, "hp": -5, "passion": 5 },
         "later": [{ "after": 3, "event": "ev_era5_vr_dissolved" }],
         "result": { "ja": "机の引き出しが酔い止めでいっぱいになった。", "en": "Your desk drawer filled with motion-sickness pills." } },
-      { "id": "ch_era5_vr_stay", "label": { "ja": "断る", "en": "Pass" }, "effect": { "hp": 2 },
+      { "id": "ch_era5_vr_stay", "alt": [{"ja": "断った。平らな画面に戻ると、世界がやけに安定して見えた。", "en": "You declined. Back on a flat screen, the world looked remarkably stable."}, {"ja": "断った。VR チームの机の上の酔い止めを見るたび、正しかったと思う。", "en": "You declined. Every time you see the pills on the VR team's desks, you feel vindicated."}], "label": { "ja": "断る", "en": "Pass" }, "effect": { "hp": 2 },
         "later": [{ "after": 4, "event": "ev_era5_vr_peer_star" }],
         "result": { "ja": "床から立ち上がって、平らな画面の仕事に戻った。", "en": "You got up off the floor and went back to flat screens." } }
     ], "tag": ["choice", "hardware"] },

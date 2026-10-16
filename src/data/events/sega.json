@@ -843,7 +843,7 @@
     ]
   },
   {
-    "id": "ev_grav_sega_offer",
+    "id": "ev_grav_sega_offer", "alt": [{"ja": "留守電にセガの人事から伝言。「一度、話を聞いてほしい」。再生を 3 回した。", "en": "A voicemail from Sega's HR: \"We'd like to talk.\" You played it three times."}, {"ja": "展示会で名刺を渡した相手が、翌週セガの名前で電話をかけてきた。給料は同じ。ロゴが違う。", "en": "Someone you handed a business card at a show called back the next week, from Sega. Same salary. Different logo."}],
     "years": [
       1990,
       2012
@@ -862,7 +862,7 @@
     "once": true,
     "choices": [
       {
-        "id": "ch_grav_sega_go",
+        "id": "ch_grav_sega_go", "alt": [{"ja": "行った。初日に渡された社員証の青が、思っていたより濃かった。", "en": "You went. The blue on your first-day ID card was deeper than you'd imagined."}, {"ja": "行った。初出社の朝、ビルの前で 1 分立ち止まった。遅刻の理由は言わなかった。", "en": "You went. On your first morning you stood in front of the building for a full minute. You didn't explain why you were late."}],
         "label": {
           "ja": "行く",
           "en": "Go"
@@ -880,7 +880,7 @@
         }
       },
       {
-        "id": "ch_grav_sega_stay",
+        "id": "ch_grav_sega_stay", "alt": [{"ja": "断った。以来、青い看板を見るたび、ほんの少しだけ別の人生を想像する。", "en": "You declined. Ever since, every blue sign makes you imagine a slightly different life."}, {"ja": "断った。断りの電話の後、なぜかメガドライブの電源を入れた。", "en": "You declined. After the call, for some reason, you switched on the Mega Drive."}],
         "label": {
           "ja": "断る",
           "en": "Decline"
