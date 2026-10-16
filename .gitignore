@@ -10,3 +10,4 @@ tools/.replay-entry.ts
 .wrangler/
 tools/.*-entry.ts
 tools/.cos-entry.ts
+tools/.freq-entry.ts
