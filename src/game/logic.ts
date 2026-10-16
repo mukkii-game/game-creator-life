@@ -554,7 +554,7 @@ function runItem(s: State, id: string, out: string[]) {
   const r = s.rng;
   if (id.startsWith('@end:')) return end(s, id.slice(5) as EndingId, out);
   if (id === '@release') {
-    if (s.status !== 'employed' && s.status !== 'indie') return;
+    if (s.status !== 'employed' && s.status !== 'indie' || s.flags.in_prison) return;
     if (s.flags.callcenter) { s.inner.nextWorkYear = s.year + 1; return; } // カスタマーセンターにいる間は作品を出さない(第 12 回ペルソナ)
     const { line, work } = release(s);
     log(s, line, 'work'); out.push('work');
@@ -565,6 +565,7 @@ function runItem(s: State, id: string, out: string[]) {
   }
   if (id === '@check65') { if (s.stat.hp < 40) end(s, 'end_retire', out); return; }
   if (id === '@search') {
+    if (s.flags.in_prison) return; // 年の初めに積んだ就職活動でも、その年に実刑になったら塀の中(第 29 回: 判決の直後に任天堂へ再就職)
     // 業界に入って数年は拾ってもらいやすい(第 11 回ペルソナ: 25 歳で作品ゼロのまま業界を去る人生が続いた)
     const p = tune('job.rehire') + (s.stat.skill + s.stat.network) / 250 + (s.year - s.startYear < 6 ? 0.4 : 0);
     if (r.chance(p)) {
