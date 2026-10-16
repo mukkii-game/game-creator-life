@@ -30,9 +30,12 @@ function styledName(s: State): Text | null {
   return null;
 }
 /** 作った題名も機種に合わせる(第 8 回ペルソナ: 『伝説の釣りDS』が PS3 で出ていた) */
+/** 直近の人生で見た題名(init で recent から入れる) */
+export const RECENT_TITLES = new Set<string>();
 function fitName(r: State["rng"], year: number, platform: string): Text {
   let n = workName(r, year);
   for (let i = 0; i < 6 && !nameFits(n.ja, platform); i++) n = workName(r, year);
+  for (let i = 0; i < 6 && RECENT_TITLES.has(n.ja.replace(/^『|』$/g, '')); i++) n = workName(r, year); // 直近の人生の題名(自分・同期)と被らせない(第 31 回)
   return n;
 }
 function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | null {

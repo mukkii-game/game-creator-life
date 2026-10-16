@@ -73,7 +73,8 @@ function epitaphOf(s: State, id: EndingId): Text {
     : null;
   const prisonAfter: Text | null = s.flags.ex_prison || s.flags.in_prison ? (s.log.some((l) => /方眼紙/.test(l.text.ja)) ? { ja: '塀の中で方眼紙に描いた迷宮は、今も引き出しの奥にある。', en: 'The maze I drew on graph paper behind bars is still at the back of my drawer.' } : freshPick(s, [{ ja: '塀の中で考えた企画は、今も手帳の最後のページにある。', en: 'The game I planned behind bars is still on the last page of my notebook.' }, { ja: '面会に来てくれた人の名前は、全員スタッフロールに入れるつもりだ。', en: 'Everyone who visited me inside is going in the credits someday.' }])) : null; // 第 21 回: 本文に出ていない方眼紙で締めない
   const shortAfter: Text | null = s.year - s.startYear <= 2 && id === 'end_retire' ? freshPick(s, [{ ja: '社員証は、返す前に 1 枚だけ写真を撮った。', en: 'Before handing back my staff ID, I took one photo of it.' }, { ja: '短い業界暮らしだったが、会社のビルの自販機の並びは今でも全部言える。', en: 'My time in the industry was short, but I can still name every drink in that office vending machine, in order.' }]) : null; // 入って数年で去った人に「机の寝袋」は無い
-  const after = prisonAfter ?? restartAfter ?? shortAfter ?? (AFTER[id] ? freshPick(s, AFTER[id]!) : { ja: '', en: '' });
+  const afterPool = (AFTER[id] ?? []).filter((t) => !/寝袋/.test(t.ja) || s.log.some((l) => /寝袋/.test(l.text.ja))); // 本文に出ていない寝袋で締めない(第 31 回)
+  const after = prisonAfter ?? restartAfter ?? shortAfter ?? (afterPool.length ? freshPick(s, afterPool) : { ja: '', en: '' });
   const hs = s.inner.highs;
   if (!hs.length && ['end_arrest', 'end_body', 'end_debt', 'end_blacklist'].includes(id)) return { ja: `いい時期は短かった。${after.ja}それでも、いいゲーム人生だった。`, en: `The good part was short. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') }; // 捕まった・倒れた人生に「大きな事件は何も無かった」と言わない(第 22 回)
   if (!hs.length) return { ja: `一生の自慢と呼べる 1 本は無かった。${after.ja}それでも、いいゲーム人生だった。`, en: `No single thing to brag about forever. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') };

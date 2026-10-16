@@ -11,7 +11,7 @@ import { eligible, draw, positionOf, test } from './select';
 
 export { positionOf };
 import { personName, companyName, OTHER_JOBS, JOB_TEXT } from './names';
-import { release, tickWorks, clamp, RESULT_TEXT } from './works';
+import { release, tickWorks, clamp, RESULT_TEXT, RECENT_TITLES } from './works';
 import { makeEnding } from './ending';
 import { BOTS } from './bots';
 
@@ -71,7 +71,7 @@ function wpick<T>(r: Rng, items: T[], w: (t: T) => number): T {
 /** 入力された名前があればそれ(乱数の並びは変えない = 同じ seed なら名前以外は同じ人生) */
 function freshName(r: Rng, born: number, recent?: string[]): Text {
   let p = personName(r, born);
-  for (let i = 0; i < 6 && recent?.includes(`given:${p.ja.split(' ')[1]}`); i++) p = personName(r, born);
+  for (let i = 0; i < 6 && (recent?.includes(`given:${p.ja.split(' ')[1]}`) || recent?.includes(`fam:${p.ja.split(' ')[0]}`)); i++) p = personName(r, born); // 名字も直近の人生と被らせない(第 31 回: 松田が 2 回)
   return p;
 }
 function nameOf(gacha: Text, typed?: string): Text {
@@ -119,6 +119,7 @@ export function init(seed: number, options: InitOptions = {}): State {
   const r = new Rng(seed);
   const peerOf = options.peerOf;
   if (!peerOf) RECENT_CO = (options.recent ?? []).filter((x) => x.startsWith('co:')).map((x) => x.slice(3));
+  if (!peerOf) { RECENT_TITLES.clear(); for (const x of options.recent ?? []) if (x.startsWith('title:')) RECENT_TITLES.add(x.slice(6)); }
   const year = options.year ?? peerOf?.year ?? gachaYear(r, options.era);
   const age = options.age ?? gachaAge(r);
   const entry = wpick(r, ENTRIES, (e) => e.w(age, year));
@@ -724,7 +725,7 @@ function peersYear(s: State, out: string[]) {
     else if (pe && pe.id === 'end_restart') { said1('restart'); line = freshLine(s, [{ ja: `同期の${nm}も、AI の騒ぎの中で次の一歩を決めたらしい。年賀状に「まだやる」とだけあった。`, en: `Your peer ${en} chose a next step amid the AI upheaval too. Their New Year card said only: "Still at it."` }, { ja: `同期の${nm}から久しぶりに電話。「お前はどうする」。答える前に、向こうが自分の答えを 30 分しゃべった。`, en: `A call from your peer ${en}, first in ages: "What are you doing?" Before you could answer, they talked about their own plan for thirty minutes.` }], 'peerrestart'); }
     else if ((pe && /arrest|prison/.test(pe.id) || p.status !== before.status && p.flags.in_prison) && ok('prison', 1) && s.inner.recent?.some((x) => x.startsWith('line:peerprison')) && s.rng.chance(0.8)) { said1('prison'); line = null; } // 直近の人生で同期の逮捕を伝えていたら、今回はたいてい伝えない(第 21 回: 3 人生とも同期が逮捕)
     else if (pe && /arrest|prison/.test(pe.id) && !ok('prison', 1)) line = null; // 第 19 回: 同期が捕まった知らせが 2 回
-    else if (pe) { if (/arrest|prison/.test(pe.id)) said1('prison'); line = { ja: `同期の${nm}の知らせ。${pe.cause.ja.replace(/^\d+ 歳、/, '')}。`, en: `News of your peer ${en}: ${pe.cause.en.replace(/^At \d+, /, '')}.` }; }
+    else if (pe) { if (/arrest|prison/.test(pe.id)) { said1('prison'); (s.inner.saidLines ??= []).push('peerprison:end'); /* 次の人生で「直近に同期の逮捕を伝えた」と分かるように */ } line = { ja: `同期の${nm}の知らせ。${pe.cause.ja.replace(/^\d+ 歳、/, '')}。`, en: `News of your peer ${en}: ${pe.cause.en.replace(/^At \d+, /, '')}.` }; }
     else if (newHit && ok('hit', 2) && !p.flags.in_prison && !p.flags.ex_prison && !s.works.some((w) => w.name.ja === newHit.name.ja) && (newHit.result === 'legend' || s.rng.chance(0.4))) { line = freshLine(s, hitL.map(([ja, enT]) => ({ ja, en: enT })), 'peerhit'); said1('hit'); }
     else if (p.status !== before.status && p.status === 'indie' && !p.flags.ex_prison && ok('indie', 1)) { said1('indie'); line = freshLine(s, [{ ja: `同期の${nm}が独立した。名刺の肩書きは「CEO」。社員は本人だけ。`, en: `Your peer ${en} went indie. Business card: "CEO." Staff: one.` }, { ja: `同期の${nm}が会社を辞めて、自分のスタジオを作った。開業祝いに観葉植物を贈ったら、社員より大きかった。`, en: `Your peer ${en} quit to start a studio. The potted plant you sent as a gift was bigger than the staff.` }, { ja: `同期の${nm}が独立した。最初の作品の告知は、あなたにだけ 1 日早く届いた。`, en: `Your peer ${en} went indie. The announcement of their first game reached you a day before anyone else.` }], 'peerindie'); }
     else if (p.job !== before.job && (p.job === 'director' || p.job === 'producer') && !p.flags.ex_prison && !p.flags.in_prison && ok('promo', 1) && !(s.inner.recent?.some((x) => x.startsWith('line:peerpromo')) && s.rng.chance(0.7))) { said1('promo'); line = freshLine(s, [{ ja: `同期の${nm}が${JOB_TEXT[p.job].ja}に昇進した。あなたより先に。`, en: `Your peer ${en} was promoted to ${JOB_TEXT[p.job].en}. Before you.` }, { ja: `同期の${nm}の名刺に「${JOB_TEXT[p.job].ja}」と入った。もらった名刺は、引き出しの一番奥にしまった。`, en: `Your peer ${en}'s new card read "${JOB_TEXT[p.job].en}." You filed it at the very back of your drawer.` }, { ja: `同期の${nm}が${JOB_TEXT[p.job].ja}になった。お祝いの寄せ書きに「次は自分」と書いた。誰も笑わなかった。`, en: `Your peer ${en} became ${JOB_TEXT[p.job].en}. On the congratulations card you wrote "I'm next." Nobody laughed.` }], 'peerpromo'); }
