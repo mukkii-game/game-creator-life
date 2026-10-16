@@ -11,7 +11,7 @@ const tMod = import.meta.glob('../data/titles.json', { eager: true, import: 'def
 const TITLES: TitleRow[] = Object.values(tMod)[0]?.titles ?? [];
 /** 題名に機種名が入っていたら、その機種の時だけ使う(『〇〇DS』が PS3 で出ていた) */
 function nameFits(name: string, platform: string): boolean {
-  const tags: [RegExp, RegExp][] = [[/DS$|DS[^a-z]/, /DS/], [/アドバンス/, /アドバンス/], [/ポータブル|ポケット/, /PSP|ゲームボーイ|DS|3DS|スマホ|ケータイ/], [/64/, /64/], [/3D$/, /3DS/]];
+  const tags: [RegExp, RegExp][] = [[/DS$|DS[^a-z]/, /^ニンテンドー DS$/], [/アドバンス/, /アドバンス/], [/ポータブル|ポケット/, /PSP|ゲームボーイ|DS|3DS|スマホ|ケータイ/], [/64/, /64/], [/3D$/, /3DS/]];
   return tags.every(([inName, okPf]) => !inName.test(name) || okPf.test(platform));
 }
 function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | null {
@@ -90,6 +90,10 @@ const DIGITAL_LINES: Partial<Record<WorkResult, Text[]>> = {
     { ja: 'ストアの順位は 3 日で圏外。レビューは 2 件、どちらも身内だった。', en: 'Out of the store charts in three days. Two reviews, both from family.' },
     { ja: 'ダウンロード数のグラフが、最初の日からずっと横ばいだった。地平線みたいにきれいだった。', en: 'The download graph stayed flat from day one, as clean as a horizon.' },
   ],
+  hit: [
+    { ja: 'ストアのランキングで 1 位になった。スクリーンショットを撮って、待ち受けにした。', en: 'It hit No. 1 in the store charts. You screenshotted it and made it your wallpaper.' },
+    { ja: 'ヒット! 社長賞が出た。中身は金一封 5000 円。社員なので印税は 1 円も無い。', en: "A hit! A company award: 5,000 yen. You're salaried, so royalties: zero." },
+  ],
   ok: [
     { ja: 'ストアの評価は星 3.8。「普通に遊べる」というレビューが、いちばん多かった。', en: 'Store rating: 3.8 stars. The most common review: "Perfectly playable."' },
     { ja: '売上は予定どおり。誰も褒めないが、誰も怒らない。', en: 'Sales on target. Nobody praises you; nobody yells.' },
@@ -116,7 +120,8 @@ export function release(s: State): { work: Work; line: Text } {
   const lines = digital && DIGITAL_LINES[result] ? DIGITAL_LINES[result]! : RESULT_LINES[result];
   const fresh = lines.filter((t) => !said.includes(t.ja));
   const pickLine = fresh.length ? r.pick(fresh) : { ja: '', en: '' };
-  const gag = role === 'solo' && SOLO_LINES[result] ? SOLO_LINES[result]! : titled?.gag && r.chance(0.5) ? titled.gag : pickLine;
+  const solo = role === 'solo' && SOLO_LINES[result] && !said.includes(SOLO_LINES[result]!.ja) ? SOLO_LINES[result]! : null;
+  const gag = solo ?? (titled?.gag && r.chance(0.5) ? titled.gag : pickLine);
   if (gag.ja) said.push(gag.ja);
   const line: Text = {
     ja: `${work.name.ja}(${work.platform})発売。あなたは${roleText(s, role).ja}。結果は${RESULT_TEXT[result].ja}。${gag.ja}`,

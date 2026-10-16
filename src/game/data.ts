@@ -60,10 +60,24 @@ for (const e of EVENTS) {
   const ago = /(\d+) 年(前|ぶり|分|越し|間ずっと)/.exec(e.text.ja);
   if (ago && +ago[1] >= 5 && !has(e, 'career')) add(e, `career>=${+ago[1]}`);
   if (/入社 ?\d+ ?日目|新人研修|配属初日|入社初日|新入社員/.test(e.text.ja) && !has(e, 'career')) add(e, 'career<=1');
+  // 自分の作品が前提の話は、作品を 1 本以上出してから(作品 0 本なのに「自分の作品で…」が出ていた)
+  if (/自分の作品|あなたの作品|自分のゲーム|あなたのゲーム|昔作った|発売された箱|自分が作った|自作の/.test(e.text.ja) && !has(e, 'works')) add(e, 'works>=1');
+  // 仕事の書類の話は、無職の間は出さない(独立中は出してよい)
+  if (/仕様書|企画書|本業|会社にばれ|勤め先|定時/.test(e.text.ja) && !has(e, 'status') && !has(e, 'pos')) add(e, 'status!=left');
+  // 会社が潰れる・営業停止の話は、実在の会社にいる時は出さない(史実に無い倒産)
+  if (/営業を停止|倒産|事務所が空っぽ|会社が潰れ|会社がつぶれ/.test(e.text.ja) && !has(e, 'flag.real_co')) add(e, '!flag.real_co');
   // 2020〜21 年は即売会がほぼ開かれなかった
   if (/即売会/.test(e.text.ja) && e.years[0] <= 2021 && e.years[1] >= 2020) add(e, 'year!=2020'), add(e, 'year!=2021');
   // 昔の作品の話は、2 年以上前の作品がある時だけ(出したばかりの作品に「リマスター」が来ない)
   if (/\{work\}/.test(e.text.ja) && /リマスター|復刻|昔の|移植版|再販/.test(e.text.ja) && !e.tag?.includes('afterlife')) e.tag = [...(e.tag ?? []), 'afterlife'];
+}
+
+// ソシャゲへの移籍は 1 回だけ(ハードの選択と時代の話の両方で出ていた)
+{
+  const tr = EVENTS.find((e) => e.id === 'ev_era4_social_transfer');
+  if (tr) { tr.when = [...(tr.when ?? []), '!flag.hw_dv_mobile']; for (const c of tr.choices ?? []) if (c.id === 'ch_era4_social_go') c.effect = { ...c.effect, flag: { ...(c.effect.flag ?? {}), hw_dv_mobile: true } }; }
+  const hw = EVENTS.find((e) => e.id === 'ev_hw_mobile_or_console');
+  if (hw) hw.when = [...(hw.when ?? []), '!flag.hw_dv_mobile'];
 }
 
 /** 普通に抽選されるイベント(system と weight 0 は除く) */

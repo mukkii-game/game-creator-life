@@ -322,28 +322,6 @@
   "once": true
  },
  {
-  "id": "ev_vo_blackout",
-  "years": [
-   2011,
-   2011
-  ],
-  "text": {
-   "ja": "計画停電の夜、ビルドサーバーの UPS を囲んで、懐中電灯でデバッグした。誰も帰ろうと言わなかった。",
-   "en": "During the rolling blackouts, you debugged by flashlight, huddled around the build server's UPS. Nobody suggested going home."
-  },
-  "when": [
-   "status=employed"
-  ],
-  "effect": {
-   "passion": 3
-  },
-  "tag": [
-   "aruaru"
-  ],
-  "weight": 3,
-  "once": true
- },
- {
   "id": "ev_vo_special_thanks",
   "years": [
    1990,

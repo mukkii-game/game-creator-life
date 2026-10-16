@@ -26,7 +26,11 @@ function causeOf(s: State, id: EndingId): Text {
     case 'end_pen_down': return { ja: `${a} 歳、筆を置く。開発者として大往生`, en: `At ${a}, you put down the pen. A full developer's life` };
     case 'end_arrest': return { ja: `${a} 歳、魔が差して逮捕。取り調べで「好きなゲームは?」と聞かれ、3 時間しゃべった`, en: `At ${a}, a moment of weakness and an arrest. Asked about your favorite game in custody, you talked for three hours` };
     case 'end_switch': return { ja: `${a} 歳、ゲームの外の仕事へ転身`, en: `At ${a}, you moved on to work outside games` };
-    case 'end_restart': return { ja: `${a} 歳、AI の時代の入り口で、もう一度スタートラインに立つ`, en: `At ${a}, at the dawn of the AI age, back on the starting line` };
+    case 'end_restart':
+      if (s.flags.in_prison) return { ja: `${a} 歳、塀の中で AI の時代のニュースを聞き、出たら何を作るか考え始める`, en: `At ${a}, hearing about the AI age from behind bars, you start planning what to make when you get out` };
+      if (s.flags.shift_partner) return { ja: `${a} 歳、AI を相棒に、もう 1 本作り始める`, en: `At ${a}, you start one more game, with AI as your partner` };
+      if (s.flags.shift_play) return { ja: `${a} 歳、遊ぶ側に回る。それでも、作る側の目で遊んでいる`, en: `At ${a}, you switch to playing — still with a maker's eye` };
+      return { ja: `${a} 歳、自分の手で、AI に作れないものを作り始める`, en: `At ${a}, you start making, by hand, what AI can't` };
     case 'end_ai_seat': return { ja: `${a} 歳、AI に席を譲った。引き継ぎ資料も AI が書いた`, en: `At ${a}, you gave your seat to an AI. The AI wrote the handover doc too` };
   }
 }
@@ -55,7 +59,12 @@ const AFTER: Partial<Record<EndingId, Text[]>> = {
 };
 function epitaphOf(s: State, id: EndingId): Text {
   const r = s.rng;
-  const after = AFTER[id] ? r.pick(AFTER[id]!) : { ja: '', en: '' };
+  const restartAfter: Text | null = id !== 'end_restart' ? null
+    : s.flags.shift_partner ? { ja: 'AI に最初に読ませたのは、30 年分のボツ企画書だった。', en: 'The first thing I showed the AI was thirty years of rejected proposals.' }
+    : s.flags.shift_play ? { ja: '遊ぶ側に回っても、ついクリア後のスタッフロールを最後まで見てしまう。', en: 'Even as a player, I still watch every credits roll to the very end.' }
+    : null;
+  const prisonAfter: Text | null = s.flags.ex_prison || s.flags.in_prison ? { ja: '塀の中で方眼紙に描いた迷宮は、今も引き出しの奥にある。', en: 'The maze I drew on graph paper behind bars is still at the back of my drawer.' } : null;
+  const after = prisonAfter ?? restartAfter ?? (AFTER[id] ? r.pick(AFTER[id]!) : { ja: '', en: '' });
   const hs = s.inner.highs;
   if (!hs.length) return { ja: `大きな事件は何も無かった。${after.ja}それでも、いいゲーム人生だった。`, en: `Nothing big ever happened. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') };
   const best = hs.reduce((a, b) => (b.w >= a.w ? b : a));

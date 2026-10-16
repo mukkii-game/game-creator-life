@@ -100,6 +100,7 @@ const SEGA = () => COMPANIES.real.find((c) => c.id === 'co_sega');
 function syncCompany(s: State) {
   const row = COMPANIES.real.find((c) => c.id === s.company.id);
   if (row) s.company.name = nameAt(row, s.year);
+  s.flags.real_co = !!row;
   if (s.company.id === 'co_sega') s.flags.sega = true;
   else if (s.flags.sega) { s.flags.sega = false; s.flags.ex_sega = true; }
 }
@@ -149,6 +150,7 @@ export function init(seed: number, options: InitOptions = {}): State {
     const [y0, a0] = [s.year, s.age];
     s.age = age <= 18 ? 16 : Math.min(20, age - 2);
     s.year = year - (age - s.age);
+    const base = { y: s.year, a: s.age };
     const path = wpick(r, ['st_dev', 'st_arbeit', 'st_gamer', 'st_school'], (p) => (p === 'st_dev' ? 3 : p === 'st_school' && age <= 18 ? 0.3 : 2));
     const ok = (e: GameEvent) => e.tag?.includes('prologue') && eligible(s, e);
     const inPath = (e: GameEvent) => (path === 'st_dev' ? !e.tag?.includes('student') || e.tag.includes('st_dev') : !!e.tag?.includes(path));
@@ -157,8 +159,9 @@ export function init(seed: number, options: InitOptions = {}): State {
     const rest = EVENTS_ALL().filter((e) => ok(e) && !picked.includes(e) && !inPath(e));
     if (rest.length && (picked.length < 2 || r.chance(0.5))) picked.push(...draw(r, rest, picked.length ? 1 : 2)); // その道の話が無い年は別の道から
     s.flags[path] = true;
+    const off = Math.max(0, picked.length - (year - base.y)); // 入社の年にはみ出さない
     picked.forEach((ev, i) => {
-      s.log.push({ year: s.year + i, age: s.age + i, text: fill(s, ev.text), kind: 'event', tag: ev.tag });
+      s.log.push({ year: base.y - off + i, age: base.a - off + i, text: fill(s, ev.text), kind: 'event', tag: ev.tag });
       applyInner(s, ev.effect ?? {}, ev.id, []);
       s.inner.used.push(ev.id);
     });
@@ -282,7 +285,7 @@ function end(s: State, id: EndingId, out: string[], custom?: Text) {
   s.status = 'ended';
   s.choice = undefined;
   s.inner.queue = [];
-  log(s, s.ending.cause, 'event', ['ending']);
+  if (s.inner.isPeer) log(s, s.ending.cause, 'event', ['ending']); // 本人の死因は結果画面に大きく出るので、ログには重ねない
   out.push('ended');
 }
 function checkEnd(s: State, out: string[]) {
@@ -333,7 +336,7 @@ function beginYear(s: State, out: string[]) {
       const lastOffer = Math.max(s.inner.seen.ev_sys_offer ?? -99, s.inner.seen.ev_sys_offer_b ?? -99, s.inner.seen.ev_sys_offer_c ?? -99);
       if (!s.flags.age60 && s.inner.companyYears >= 2 && s.age >= 20 && s.year - lastOffer >= 6 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(vary(s, ['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
       // 昇進: 半分は「受けるか、現場に残るか」の選択(ev_wk_promote_ask)。残りはそのまま辞令
-      else if (canPromote(s) && r.chance(tune('job.promote'))) sys.push(r.chance(0.5) && !s.inner.used.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : vary(s, ['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
+      else if (canPromote(s) && !s.flags.promo_declined && r.chance(tune('job.promote'))) sys.push(r.chance(0.5) && !s.inner.used.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : vary(s, ['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
       if (s.year >= 2027 && !s.inner.used.includes('ev_sys_ai_seat') && r.chance(Math.min(0.6, tune('ai.seat') * (1 + 2 * Math.min(1, (s.year - 2027) / 8)) + Math.max(0, s.year - 2035) * 0.12))) sys.push('ev_sys_ai_seat');
     }
   } else if (s.status === 'indie') {
@@ -387,7 +390,7 @@ function beginYear(s: State, out: string[]) {
   // 歴史の事件(その年の業界の大事件が、今の立場で自分に降ってくる)
   const hist = pickHist(s);
   // データのイベント
-  const n = r.int(tune('life.eventsMin'), tune('life.eventsMax')) - (q.length > 0 ? 1 : 0) - hist.length;
+  const n = (s.flags.in_prison ? 1 : r.int(tune('life.eventsMin'), tune('life.eventsMax'))) - (q.length > 0 ? 1 : 0) - hist.length;
   const sysChoice = [...sys, ...q, ...hist, ...turning].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
   const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && (!e.tag?.includes('quote') || (s.inner.counts.quote ?? 0) < 2) && (!s.flags.in_prison || (e.when ?? []).some((c) => c.includes('prison'))) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware', 'worklife'].some((t) => e.tag?.includes(t)));
@@ -498,7 +501,7 @@ function runItem(s: State, id: string, out: string[]) {
   count(s, ev);
   if (ev.id.startsWith('ev_sys_promote')) promote(s);
   if (ev.id.startsWith('ev_sys_bankrupt')) (s.inner.deadCos ??= []).push(s.company.id);
-  if (ev.id === 'ev_sys_prison_out') s.stat.money = Math.max(s.stat.money, 50); // 出所したら借金は帳消しで再起(罰金・没収は判決で済んでいる)
+  if (ev.id === 'ev_sys_prison_out') { s.stat.money = Math.max(s.stat.money, 50); s.flags.ex_prison = true; } // 出所したら借金は帳消しで再起(罰金・没収は判決で済んでいる)
   if (ev.id.startsWith('ev_sys_offer')) s.inner.seen.ev_sys_offer = s.year; // 言い回し違いの版も同じ 4 年の間隔に数える
   if (ev.choices) {
     s.choice = { eventId: ev.id, choices: ev.choices.map((c) => ({ ...c, label: fill(s, c.label) })), text: fill(s, ev.text) };
@@ -727,7 +730,9 @@ function vary(s: State, ids: string[]): string {
 /** どの終わり方でも、最後は同期との掛け合い(キッズ・リターンのパロディ)。場面だけ終わり方で変える */
 function kidsReturn(s: State, id: EndingId) {
   // 相方: まだ業界にいて塀の外の同期。会社に入らず始めた人生なら「昔の仲間」
-  const bud = s.inner.peerStates.find((x) => !x.ending && !x.flags.in_prison) ?? s.inner.peerStates.find((x) => !x.flags.in_prison) ?? s.inner.peerStates[0];
+  const seenName = (x: State) => s.log.some((l) => l.text.ja.includes(x.name.ja.split(' ')[0]));
+  const outside = s.inner.peerStates.filter((x) => !x.flags.in_prison);
+  const bud = outside.find((x) => !x.ending && seenName(x)) ?? outside.find(seenName) ?? outside.find((x) => !x.ending) ?? outside[0] ?? s.inner.peerStates[0];
   const indieStart = s.companies[0]?.company.size === 'indie';
   const rel = indieStart ? { ja: '昔の仲間の', en: 'your old friend' } : { ja: '同期の', en: 'your old peer' };
   const p = `${rel.ja}${bud?.name.ja.split(' ')[0] ?? '相棒'}`, pe = `${rel.en} ${bud?.name.en.split(' ').slice(-1)[0] ?? ''}`.trim();

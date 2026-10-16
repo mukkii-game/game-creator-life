@@ -165,7 +165,8 @@
     "effect": {
      "passion": 10,
      "flag": {
-      "do_restart": true
+      "do_restart": true,
+      "shift_partner": true
      }
     },
     "result": {
@@ -183,7 +184,8 @@
      "passion": 12,
      "skill": 3,
      "flag": {
-      "do_restart": true
+      "do_restart": true,
+      "shift_hand": true
      }
     },
     "result": {
@@ -200,7 +202,8 @@
     "effect": {
      "passion": 8,
      "flag": {
-      "do_restart": true
+      "do_restart": true,
+      "shift_play": true
      }
     },
     "result": {

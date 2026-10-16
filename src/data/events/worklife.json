@@ -38,7 +38,10 @@
     },
     "effect": {
      "passion": 8,
-     "skill": 3
+     "skill": 3,
+     "flag": {
+      "promo_declined": true
+     }
     },
     "result": {
      "ja": "断った。「作る人でいたいんです」と言ったら、部長は少しだけ羨ましそうな顔をした。",
