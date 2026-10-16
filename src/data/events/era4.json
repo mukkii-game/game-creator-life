@@ -190,7 +190,7 @@
   { "id": "ev_era4_free_engine", "years": [2009, 2011],
     "text": { "ja": "無料のゲームエンジンを試した。自社エンジンで 3 か月かかった仕組みが、午後だけで動いた。", "en": "You tried a free game engine. A system that took three months in the in-house engine ran by afternoon." },
     "when": ["job=programmer"], "effect": { "skill": 6, "passion": 2 }, "tag": ["gag"] },
-  { "id": "ev_era4_child", "weight": 2, "years": [2006, 2011], "once": true,
+  { "id": "ev_era4_child", "weight": 8, "years": [2006, 2011], "once": true,
     "text": { "ja": "子どもが生まれた。名前の候補を、つい表計算でバグ票のように管理してしまった。優先度「高」。", "en": "Your child is born. You caught yourself tracking name candidates in a bug-tracker spreadsheet. Priority: HIGH." },
     "when": ["flag.partner", "!flag.child"], "effect": { "passion": 10, "hp": -3, "flag": { "child": true } }, "tag": ["family"] },
   { "id": "ev_era4_child_rival", "years": [2008, 2011],
