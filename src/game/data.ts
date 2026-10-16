@@ -79,6 +79,7 @@ for (const e of EVENTS) {
   const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join('');
   const t = tx + (e.choices ?? []).map((c) => c.label.ja + (c.result?.ja ?? '') + (c.alt ?? []).map((x) => x.ja).join('')).join('');
   { const m = /(?<![\d.])(\d{1,2}) 年(かけ|がかり)|置き傘を (\d) 年/.exec(tx); const n = m ? Number(m[1] ?? m[3]) : 0; if (n >= 2 && n <= 10 && !e.tag?.some((x) => x === 'prologue' || x === 'student' || x === 'afterlife') && !(e.when ?? []).some((c) => c.startsWith('career'))) add(e, `career>=${n}`); } // 入って 1 年目に「3 年かけた作品」を言わせない(第 50 回)
+  if (/子ども(が|に|は|と).{0,6}(就職|社会人|ゲーム会社に入|成人|大学)/.test(tx) && !(e.when ?? []).includes('flag.child')) add(e, 'flag.child');
   if ((e.when ?? []).includes('flag.child') && !(e.when ?? []).some((c) => c.startsWith('kid')) && /子ども(が|に|は|と)/.test(tx) && /就職|社会人|ゲーム会社に入|成人|大学/.test(tx) && !(e.when ?? []).some((c) => c.startsWith('kid'))) add(e, 'kid>=18'); // 子の就職は 18 歳から(第 62 回: 5 歳の子が「ゲーム会社に入った」)
   if ((e.when ?? []).includes('flag.child') && !(e.when ?? []).some((c) => c.startsWith('kid')) && /子ども(が|に|は|と)/.test(tx) && !/大人|成人|社会人|就職|結婚|孫|大学|上京/.test(tx)) { add(e, 'kid<=16'); if (/子ども(が|に|は|と).{0,30}(「|言|話|聞)/.test(tx)) add(e, 'kid>=5'); } // しゃべる子は 5 歳から(第 57 回: 2 歳が「ここ作った人、性格悪い」) // 子どもの話は 16 歳まで(第 56 回: 22 歳の子が「ゾンビが来ると布団に入る」)
   // 家族: 恋人の話は結婚前だけ / 籍を入れる話は結婚前だけ / 義理の親・配偶者の話は結婚後だけ
@@ -105,7 +106,7 @@ for (const e of EVENTS) {
   // 会社が無くなる話は、本当に会社を移る(第 18 回ペルソナ: 事務所が空っぽの翌年も同じ会社で焼肉)
   if (/事務所が空っぽ|シャッターが下り|鍵が替わっていた|リストラされた|クビになった/.test(tx) && !e.choices && !e.effect?.flag) e.effect = { ...(e.effect ?? {}), flag: { do_change_company: true } };
   // 日本の会社・暮らしの話は、海外の会社にいる間は出さない
-  if (/元請け|下請け|即売会|節電|社員旅行|忘年会|役員会|朝礼|社内報|電車|新幹線|地元|広報誌|コミケ|居酒屋|定食屋|カスタマーセンター|希望退職|判子|働き方改革|社長賞|帰省/.test(tx) && !has(e, 'company.size') && !has(e, 'pos')) { add(e, 'company.size!=abroad'); if (!has(e, 'flag.life_abroad')) add(e, '!flag.life_abroad'); }
+  if (/元請け|下請け|即売会|節電|社員旅行|忘年会|役員会|朝礼|社内報|電車|新幹線|地元|広報誌|コミケ|居酒屋|定食屋|カスタマーセンター|希望退職|判子|働き方改革|社長賞|帰省/.test(tx) && !has(e, 'company.size')) { if (!has(e, 'pos')) add(e, 'company.size!=abroad'); if (!has(e, 'flag.life_abroad')) add(e, '!flag.life_abroad'); }
   // 1〜3 月の社内の出来事は、その年の 4 月に入った新人には起きない(第 21 回: 2001 年入社なのに 1 月 31 日の朝礼にいる)
   if (/(^|[^0-9])[1-3] 月 \d+ 日/.test(tx) && /朝礼|社内|会社|先輩|上司/.test(tx) && !has(e, 'career')) add(e, 'career>=1');
   // 後輩がいるのは入って 2 年目から(第 24 回: 入社した年に「後輩が叫ぶ」)

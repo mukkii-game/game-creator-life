@@ -1292,6 +1292,7 @@
    }
   ],
   "when": [
+   "status=employed",
    "pos!=teacher",
    "pos!=prison",
    "pos!=outside"

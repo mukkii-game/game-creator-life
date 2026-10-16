@@ -1728,7 +1728,8 @@
   ]
  },
  {
-  "id": "ev_tn_fu_work", "when": ["flag.child"],
+  "id": "ev_tn_fu_work", "when": [
+   "kid>=18","flag.child"],
   "years": [
    1977,
    2040
