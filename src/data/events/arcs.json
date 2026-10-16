@@ -758,5 +758,146 @@
     }
    }
   ]
+ },
+ {
+  "id": "ev_fa_1c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。字が大きくて、紙の半分は主人公の絵だった。もう半分に「つづきをつくってください」とだけあった。",
+   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}. Big handwriting; half the page was a drawing of the hero. The other half said only: \"Please make a sequel.\""
+  },
+  "effect": {
+   "passion": 7
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_fa_2c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{fan}からまた{fanmsg}が来た。もう高校生だという。「文化祭で{fanwork}のまねをした迷路を作ったら、行列ができました」。写真の列は、うちの発売日の列より長かった。",
+   "en": "Another {fanmsg} from {fan}, in high school now: \"I made a maze copying {fanwork} for the school festival, and there was a queue.\" The queue in the photo was longer than your launch-day one."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_fa_3c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{fan}から長い{fanmsg}が来た。「ゲームを作る仕事って、本当に楽しいですか」。正直に書くと長くなる。短く書くと嘘になる。",
+   "en": "A long {fanmsg} from {fan}: \"Is making games really fun as a job?\" The honest answer would be long. A short one would be a lie."
+  },
+  "effect": {},
+  "weight": 0,
+  "tag": [
+   "fan",
+   "choice"
+  ],
+  "choices": [
+   {
+    "id": "ch_fa_3c_go",
+    "label": {
+     "ja": "「好きなら、やってみろ」と書く",
+     "en": "Write: \"If you love it, go for it\""
+    },
+    "effect": {
+     "passion": 4,
+     "flag": {
+      "fan_pushed": true
+     }
+    },
+    "result": {
+     "ja": "「好きなら、やってみろ。ただし、ちゃんと寝ろ」と書いた。自分に一番言いたい言葉だった。",
+     "en": "You wrote: \"If you love it, go for it. But get some sleep.\" It was what you most needed to hear yourself."
+    }
+   },
+   {
+    "id": "ch_fa_3c_wait",
+    "label": {
+     "ja": "「一度、親とちゃんと話せ」と書く",
+     "en": "Write: \"Talk to your parents properly first\""
+    },
+    "effect": {
+     "network": 3
+    },
+    "result": {
+     "ja": "「一度、親とちゃんと話せ。それでも作りたかったら、それが答えだ」と書いた。書いてから、自分の親に電話した。",
+     "en": "You wrote: \"Talk it through with your parents. If you still want to make games, that's your answer.\" Then you called your own parents."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_fa_4d",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "新卒の面接の部屋に入ってきた若者が、座る前に深く頭を下げた。「{fanmsg}を、何度も読み返しました」。{fan}だった。",
+   "en": "A young applicant entered the interview room and bowed deeply before sitting. \"I reread your {fanmsg} so many times.\" It was {fan}."
+  },
+  "effect": {},
+  "weight": 0,
+  "tag": [
+   "fan",
+   "choice"
+  ],
+  "choices": [
+   {
+    "id": "ch_fa_4d_push",
+    "label": {
+     "ja": "採用を強く推す",
+     "en": "Push hard to hire"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "fan_hired": true
+     }
+    },
+    "result": {
+     "ja": "強く推した。「身内びいきでは?」と言われ、「身内じゃない。ファンだ」と答えた。会議室が少し笑った。採用が決まった。",
+     "en": "You pushed hard. \"Isn't that favouritism?\" \"Not family. A fan.\" The room laughed a little. The hire went through."
+    }
+   },
+   {
+    "id": "ch_fa_4d_fair",
+    "label": {
+     "ja": "公平に、他の面接官に任せる",
+     "en": "Stay fair and let the others decide"
+    },
+    "effect": {
+     "skill": 2,
+     "passion": 5,
+     "flag": {
+      "fan_hired": true
+     }
+    },
+    "result": {
+     "ja": "黙って、他の面接官に任せた。{fan}は自分の力で受かった。廊下ですれ違った時、深くお辞儀をされた。",
+     "en": "You stayed quiet and let the others judge. {fan} got in on merit. Passing in the hall, they bowed deeply."
+    }
+   }
+  ]
  }
 ]

@@ -23,7 +23,7 @@ function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | nul
   const byGenre = genres?.length && s.rng.chance(0.7) ? [fit].map((p) => p.filter((t) => t.genre && genres.includes(t.genre.ja))) : [];
   // 機種の合わない題名は使わない(『おえかきペットDS』がケータイで出ていた)。合う物が無ければ作った名前
   for (const pool of [...byGenre.slice(0, 1), fit]) {
-    const cands = pool.flatMap((t) => (t.coined ?? (t.name ? [t.name] : [])).filter((n) => !used.has(`『${n.ja}』`) && !used.has(n.ja) && nameFits(n.ja, platform)).map((n) => ({ n, t })));
+    const cands = pool.flatMap((t) => (t.coined ?? (t.name ? [t.name] : [])).filter((n) => !used.has(`『${n.ja}』`) && !used.has(n.ja) && nameFits(n.ja, platform) && !s.inner.recent?.includes(`title:${n.ja}`)).map((n) => ({ n, t })));
     if (!cands.length) continue;
     const { n, t } = s.rng.pick(cands);
     const gags = t.gag ? (Array.isArray(t.gag) ? t.gag : [t.gag]) : [];
@@ -67,15 +67,21 @@ function roll(s: State, role: Role): WorkResult {
 
 const RESULT_LINES: Record<WorkResult, Text[]> = {
   flop: [
+    { ja: '発売日、店に見に行った。棚の同じ場所に、帰りも同じ本数が並んでいた。', en: 'Launch day, you went to the shop. On the way home, the same number of copies sat on the same shelf.' },
+    { ja: '売れなかった。社長が「次がある」と言った。次の企画の予算は半分だった。', en: 'It didn\'t sell. The CEO said "there\'s always next time." The next budget was half.' },
     { ja: '発売初週、ワゴンに直行。店頭で 3 本 1000 円。', en: 'Week one: straight to the bargain bin. Three for 1,000 yen.' },
     { ja: '雑誌のレビューは「操作性 2 点」。打ち上げは中止になった。', en: 'Magazine review: "Controls: 2/10." The wrap party was cancelled.' },
     { ja: '在庫の山が倉庫を埋めた。社長が「これは文化だ」と言った。', en: 'Unsold stock fills the warehouse. The boss calls it "culture."' },
   ],
   ok: [
     { ja: '可もなく不可もなく。打ち上げは居酒屋で 2 時間。', en: 'Neither good nor bad. The wrap party: two hours at an izakaya.' },
+    { ja: '売上はちょうど損益分岐点。社長が電卓を 3 回叩き直して、うなずいた。', en: 'Sales hit break-even exactly. The CEO re-ran the calculator three times, then nodded.' },
+    { ja: '雑誌の評価は「良作」。良作という言葉の温度が、いまいち分からなかった。', en: 'The magazine called it "a solid game." You never quite worked out how warm "solid" is.' },
     { ja: '売上は予定どおり。誰も褒めないが、誰も怒らない。', en: 'Sales on target. Nobody praises you; nobody yells.' },
   ],
   hit: [
+    { ja: 'ヒット! 店頭から在庫が消えた。自分の分を買い損ねて、親戚に譲ってもらった。', en: 'A hit! Shelves emptied. You missed your own copy and had to get one from a relative.' },
+    { ja: 'ヒット! 電車の中で、知らない人が自分のゲームの話をしていた。降りる駅を過ぎても聞いていた。', en: 'A hit! On the train, strangers were talking about your game. You rode past your stop to keep listening.' },
     { ja: 'ヒット! 社長賞が出た。中身は金一封 5000 円。社員なので印税は 1 円も無い。', en: 'A hit! A company award: 5,000 yen. You\'re salaried, so royalties: zero.' },
     { ja: '増産が決まった。あなたの机には次の企画書が 3 冊積まれた。', en: 'More copies ordered. Three new proposals land on your desk.' },
   ],
@@ -118,7 +124,9 @@ export function release(s: State): { work: Work; line: Text } {
   const said = (s.inner.saidLines ??= []);
   const digital = /スマホ|ケータイ|ソシャゲ|Steam|itch|AI クラウド/.test(platform);
   const lines = digital && DIGITAL_LINES[result] ? DIGITAL_LINES[result]! : RESULT_LINES[result];
-  const fresh = lines.filter((t) => !said.includes(t.ja));
+  const fresh0 = lines.filter((t) => !said.includes(t.ja));
+  const fresh1 = fresh0.filter((t) => !s.inner.recent?.includes(`line:${t.ja}`));
+  const fresh = fresh1.length ? fresh1 : fresh0;
   const pickLine = fresh.length ? r.pick(fresh) : { ja: '', en: '' };
   const solo = role === 'solo' && SOLO_LINES[result] && !said.includes(SOLO_LINES[result]!.ja) ? SOLO_LINES[result]! : null;
   const gag = solo ?? (titled?.gag && r.chance(0.5) ? titled.gag : pickLine);

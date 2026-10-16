@@ -212,5 +212,53 @@
     }
    }
   ]
+ },
+ {
+  "id": "ev_sys_start_b",
+  "years": [
+   1970,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "{year} 年、{age} 歳。{company} に入社。最初に渡されたのは仕様書ではなく、先輩の分の弁当の注文票だった。",
+   "en": "{year}, age {age}. You join {company}. The first thing you're handed isn't a spec but the seniors' lunch order sheet."
+  },
+  "tag": [
+   "system",
+   "milestone"
+  ]
+ },
+ {
+  "id": "ev_sys_start_c",
+  "years": [
+   1970,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "{year} 年、{age} 歳。{company} に入社。入館証の写真を撮る係の人が、ゲームの話をしたそうにしていた。",
+   "en": "{year}, age {age}. You join {company}. The person taking your ID photo clearly wanted to talk about games."
+  },
+  "tag": [
+   "system",
+   "milestone"
+  ]
+ },
+ {
+  "id": "ev_sys_start_d",
+  "years": [
+   1970,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "{year} 年、{age} 歳。{company} に入社。歓迎会の自己紹介で好きなゲームを 3 本言ったら、2 本がうちの会社の作品ではなかった。",
+   "en": "{year}, age {age}. You join {company}. At the welcome party you named three favourite games. Two weren't made by this company."
+  },
+  "tag": [
+   "system",
+   "milestone"
+  ]
  }
 ]
