@@ -184,7 +184,7 @@ export function init(seed: number, options: InitOptions = {}): State {
     picked.forEach((ev, i) => {
       s.log.push({ year: base.y - off + i, age: base.a - off + i, text: fill(s, evText(s, ev)), kind: 'event', tag: ev.tag });
       applyInner(s, ev.effect ?? {}, ev.id, []);
-      s.inner.used.push(ev.id); s.inner.seen[ev.id] = base.y - off + i; // seen に入れないと、次の人生で「直近に見た話」として避けられない(第 21 回: 学生時代の同じ文が 3 人生とも)
+      s.inner.used.push(ev.id); s.inner.seen[ev.id] = base.y - off + i; if (ev.motif) (s.inner.motifs ??= []).push(ev.motif); // 学生時代の話の型も覚える(第 40 回: 「最初に買ってくれた人の顔」が学生時代と 11 年後に) // seen に入れないと、次の人生で「直近に見た話」として避けられない(第 21 回: 学生時代の同じ文が 3 人生とも)
     });
     [s.year, s.age] = [y0, a0];
   }
@@ -619,7 +619,7 @@ function runItem(s: State, id: string, out: string[]) {
     // 箱のある話(未開封・見本盤・中古・ワゴン …)は、配信だけの作品には付けない(第 11 回ペルソナ: ケータイアプリの未開封品が 80 万円)
     const boxed = /未開封|見本盤|中古|ワゴン|カートリッジ|押し入れ|箱|棚|パッケージ|説明書/.test(ev.text.ja);
     const digital = (w: { platform: string }) => /スマホ|ケータイ|ソシャゲ|ブラウザ|オンライン|AI クラウド|Steam|itch|Flash|iPhone/.test(w.platform);
-    const bad = /クソゲー|爆死|ワゴン|投げ売り/.test(ev.text.ja), good = /名作|大ヒット|伝説|殿堂(?!入りを果たし)|同じハードに|続編|リマスター/.test(ev.text.ja) && !bad; // 爆死した作品を新しいハードに出し直さない(第 38 回)
+    const bad = /クソゲー|爆死|ワゴン|投げ売り/.test(ev.text.ja), good = /名作|大ヒット|伝説|殿堂(?!入りを果たし)|同じハードに|続編|リマスター|父と遊んだ|親子で/.test(ev.text.ja) && !bad; // 爆死した作品を新しいハードに出し直さない(第 38 回)
     const hitW = (w: { result: string }) => w.result === 'hit' || w.result === 'legend';
     const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= (bad ? 4 : 2) && (!online || digital(w)) && (!boxed || !digital(w)) && (!bad || !hitW(w)) && (!good || hitW(w)) && !(/サービス終了|配信を止め|配信停止/.test(ev.text.ja) && w.history.some((h) => (h as { key?: string }).key === 'eos'))); // ヒット作をクソゲー扱いしない・普通の作品を名作扱いしない(第 21 回)
     if (!old.length) return;
@@ -658,7 +658,7 @@ function runItem(s: State, id: string, out: string[]) {
 /** テンションが上がった瞬間を覚えておく(最後の 1 行に使う)。ファン・ライバルの筋の結末がいちばん(第 21 回: 筋を回収せずにテレビに 4 秒映った話で締めた) */
 function remember(s: State, ev: GameEvent, memory?: Text) {
   const t = ev.tag ?? [];
-  const w = /^ev_(fa|rv)_5/.test(ev.id) ? 7 : t.includes('peak') ? 6 : t.includes('bond') ? 5 : t.includes('warm') ? 4 : t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
+  const w = /^ev_(fa|rv)_5/.test(ev.id) ? 7 : /^ev_(fa|me)_4/.test(ev.id) ? 6 : t.includes('peak') ? 6 : t.includes('bond') ? 5 : t.includes('warm') ? 4 : t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
   if (!w && !memory) return;
   const first = (x: string, sep: RegExp) => x.split(sep)[0];
   const text = memory ? fill(s, memory) : (() => { const f = s.log[s.log.length - 1]?.text ?? fill(s, ev.text); return { ja: first(f.ja, /。/), en: first(f.en, /\. /) }; })();
@@ -876,6 +876,7 @@ function mentorArcs(s: State, r: Rng, out: string[]) {
       a.used.push(ev.id);
       s.inner.seen[ev.id] = s.year;
       log(s, fill(s, evText(s, ev)), 'event', ev.tag);
+      if (a.step >= 3) remember(s, { ...ev, tag: [...(ev.tag ?? []), 'bond'] }, ev.memory); // 先輩・後輩の筋の終わりの方は、結果画面の山場の候補に(第 40 回)
       apply(s, ev.effect, ev.id, out);
     }
     if (a.step < 4) { const [lo, hi] = ARC_GAP[kind][a.step]; a.next = s.year + r.int(lo, hi); }

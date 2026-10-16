@@ -223,7 +223,7 @@ export function release(s: State): { work: Work; line: Text } {
     ...(digital ? [] : [[`${work.name.ja}が店に並んだ(${work.platform}、あなたは${rj})。${resJ}。${gj}`, `${work.name.en} hit the shelves (${work.platform}; you were ${re}). ${resE}. ${ge}`] as [string, string]]),
     [`${work.name.ja}、発売日。${work.platform}、${rj}。結果は${resJ}。${gj}`, `${work.name.en}: release day. ${work.platform}, ${re}. Result: ${resE}. ${ge}`],
   ];
-  const fi = s.works.length <= 1 ? 0 : r.int(0, forms.length - 1);
+  const fi = s.works.length <= 1 || role === 'solo' ? 0 : r.int(0, forms.length - 1); // ひとりの作品は今の形だけ(「ひとりとして関わった」にしない)
   const line: Text = { ja: forms[fi][0], en: forms[fi][1] };
   const fx = { flop: { passion: -12, fame: 0 }, ok: { passion: 4, fame: 1 }, hit: { passion: 20, fame: 8 }, legend: { passion: 30, fame: 20 } }[result];
   const roleFame = { junior: 0.3, core: 0.7, lead: 1, solo: 1 }[role];
