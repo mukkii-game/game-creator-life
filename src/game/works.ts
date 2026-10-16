@@ -306,7 +306,7 @@ export function tickWorks(s: State): { work: Work; text: Text }[] {
       const unsaid = texts.filter((t) => !said.includes(t.ja));
       const fresh = unsaid.filter((t) => !s.inner.recent?.includes(`line:${t.ja}`));
       if (!fresh.length && s.rng.chance(0.7)) continue;
-      if (fresh.length < texts.length && s.rng.chance(0.6)) continue; // 同じ種類の後日談を直近の人生で見ていたら、今回はたいてい起こさない(第 29 回: 続編から外される話が 3 人生とも) // 直近の人生で全部の言い回しを見ていたら、たいてい今回は起こさない
+      if (fresh.length < texts.length && s.rng.chance(['sequel', 'rta'].includes(f.key) ? 0.85 : 0.6)) continue; // 続編から外される・RTA は特に骨組みに見える(第 46 回) // 同じ種類の後日談を直近の人生で見ていたら、今回はたいてい起こさない(第 29 回: 続編から外される話が 3 人生とも) // 直近の人生で全部の言い回しを見ていたら、たいてい今回は起こさない
       const ft = s.rng.pick(fresh.length ? fresh : unsaid.length ? unsaid : texts);
       said.push(ft.ja);
       fc[f.key] = (fc[f.key] ?? 0) + 1;
