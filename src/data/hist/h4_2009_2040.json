@@ -957,7 +957,7 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "外注のテストで、自社のパズルの消える音を 3000 回聞いた。目標は「パズドラより気持ちよく」。気持ちよかったのは定時だった。",
+     "ja": "テスト担当として、パズルの消える音を 3000 回聞いた。目標は「パズドラより気持ちよく」。気持ちよかったのは定時だった。",
      "en": "Contract testing: 3,000 listens to your team's match sound. The goal: \"more satisfying than Puzzle & Dragons.\" The satisfying part was going home."
     },
     "effect": {
@@ -1505,7 +1505,7 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "外注のテストで、自社の引っぱるゲームの角度を 1 度ずつ試した。壁で跳ね返らない穴を見つけ、「1 度の人」と呼ばれた。",
+     "ja": "バグ探しの係で、引っぱるゲームの角度を 1 度ずつ試した。壁で跳ね返らない穴を見つけ、「1 度の人」と呼ばれた。",
      "en": "Contract testing your team's slingshot game, one degree at a time. You found the angle where shots skip the wall. They call you \"One-Degree.\""
     },
     "effect": {
@@ -2410,7 +2410,7 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "外注のテストで、自社のオープンワールドの壁を全部登ろうとした。ブレス オブ ザ ワイルドの後なので、登れない壁 214 か所を報告した。",
+     "ja": "テストの席で、オープンワールドの壁を全部登ろうとした。ブレス オブ ザ ワイルドの後なので、登れない壁 214 か所を報告した。",
      "en": "Contract testing your team's open world, you tried to climb every wall. After Breath of the Wild, you reported all 214 that wouldn't let you."
     },
     "effect": {
@@ -4599,7 +4599,7 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "外注のテストで、自社のサバイバルの穴を毎日見つけた。早期アクセスでもここまで売れる例を見て、社長は穴を「味」と呼び始めた。",
+     "ja": "検証チームで、サバイバルの穴を毎日見つけた。早期アクセスでもここまで売れる例を見て、社長は穴を「味」と呼び始めた。",
      "en": "Contract testing your team's survival game, you found bugs every day. Seeing an early-access game sell like that, the boss started calling bugs \"character.\""
     },
     "effect": {

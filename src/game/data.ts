@@ -52,6 +52,8 @@ for (const e of EVENTS) {
 const JOB_WORDS: [RegExp, import('./types').Job[]][] = [
   [/自分の描いた|あなたの描いた|自分が描いた|あなたの絵|自分の絵|描き直し|ドット絵を|原画を/, ['artist', 'director']],
   [/あなたの曲|自分の曲|あなたの昔の曲|作曲|効果音を作/, ['sound', 'director']],
+  [/昔のバグ表|バグ票を書|再現手順を/, ['qa', 'programmer', 'director']],
+  [/キャラを 1 人作|キーボードをなで|1 日 14 時間ゲームを作/, ['planner', 'programmer', 'artist', 'sound', 'director', 'producer']],
   [/自分のコード|あなたのコード|コードを見た|自分の書いたコード|ソースを読|バグを直した夜/, ['programmer', 'director']],
   [/あなたの企画書|自分の企画書|企画書を見せ|企画書を書/, ['planner', 'director', 'producer', 'programmer', 'artist', 'sound']],
 ];
@@ -59,7 +61,7 @@ const jobWord = (e: GameEvent) => { const tx = [e.text, ...(e.alt ?? [])].map((x
 // 職種と話のずれを防ぐ(ペルソナ通読: サウンドなのに絵の話ばかり)。job_hints.json = 本文が特定の職種の作業を前提にしている話 → 出してよい職種
 const jhMod = import.meta.glob('../data/job_hints.json', { eager: true, import: 'default' }) as Record<string, Record<string, string[] | string>>;
 const JOB_HINTS = Object.values(jhMod)[0] ?? {};
-for (const e of EVENTS) { const j = JOB_HINTS[e.id]; if (Array.isArray(j) && j.length) e.jobs = j as import('./types').Job[]; else if (!e.id.startsWith('ev_sys_') && !e.jobs) { const w = jobWord(e); if (w) e.jobs = w; } }
+for (const e of EVENTS) { const j = JOB_HINTS[e.id]; if (Array.isArray(j) && j.length) e.jobs = j as import('./types').Job[]; if (e.id.startsWith('ev_sys_')) continue; const w = jobWord(e); if (w) e.jobs = e.jobs ? (e.jobs.filter((x) => w.includes(x)).length ? e.jobs.filter((x) => w.includes(x)) : w) : w; } // 本文の言葉が決める職種は、手で付けた職種と重ねて絞る(第 21 回: QA に「あなたの描いた丸いキャラ」)
 
 // 文の中身から、出してよい時を自動で絞る(ペルソナ 3 回目の通読: 家族の順番・無職なのに社内・入社 1 年目に「10 年前」など)。
 // データに同じ種類の条件がもう書いてあれば足さない
@@ -94,6 +96,8 @@ for (const e of EVENTS) {
   if (/事務所が空っぽ|シャッターが下り|鍵が替わっていた/.test(tx) && !e.choices && !e.effect?.flag) e.effect = { ...(e.effect ?? {}), flag: { do_change_company: true } };
   // 日本の会社・暮らしの話は、海外の会社にいる間は出さない
   if (/元請け|下請け|即売会|節電|社員旅行|忘年会|役員会|朝礼|社内報|電車|新幹線|地元|広報誌|コミケ|居酒屋|定食屋/.test(tx) && !has(e, 'company.size') && !has(e, 'pos')) add(e, 'company.size!=abroad');
+  // 1〜3 月の社内の出来事は、その年の 4 月に入った新人には起きない(第 21 回: 2001 年入社なのに 1 月 31 日の朝礼にいる)
+  if (/(^|[^0-9])[1-3] 月 \d+ 日/.test(tx) && /朝礼|社内|会社|先輩|上司/.test(tx) && !has(e, 'career')) add(e, 'career>=1');
   // 会社の中の話は、会社にいる時だけ
   if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み|ボーナス|人事に呼ばれ|辞令|うちのチーム|チームの|部下|社員証|社内報|配属|入社以来|新人が|新人の|定時|チャイム|社員食堂|総務|経理|社員旅行|忘年会|送別会|歓迎会|会社の照明|会社のドア|会社の椅子|入館証|隣の部署|隣の島|仕事帰り|同期の|社長は|営業は|営業が|プランナー同士|チーム全員|ヒットのボーナス/.test(tx) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
   // 年数: 「N 年前」「N 年ぶり」はキャリアが N 年以上 / 入社直後の話はキャリア 1 年目まで

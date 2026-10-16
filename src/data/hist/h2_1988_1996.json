@@ -1506,7 +1506,7 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "外注のテストで、自社の格闘ゲームの技を 1 つずつ試した。ストIIみたいにつながる組み合わせを見つけ、仕様書が 1 枚増えた。",
+     "ja": "テストの席で、格闘ゲームの技を 1 つずつ試した。ストIIみたいにつながる組み合わせを見つけ、仕様書が 1 枚増えた。",
      "en": "Contract testing your team's fighter, move by move. You found a combo that chained like Street Fighter II. The spec grew a page."
     },
     "effect": {
@@ -1800,7 +1800,7 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "外注のテストで、自社のアクションの速さを測った。目標は「ソニックより速く」。先に目が回ったのはテスト係だった。",
+     "ja": "検証チームで、アクションの速さを測った。目標は「ソニックより速く」。先に目が回ったのはテスト係だった。",
      "en": "Contract testing your team's action game. The goal: \"faster than Sonic.\" The testers got dizzy before the game did."
     },
     "effect": {
@@ -2427,7 +2427,7 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "外注のテストで、自社のポリゴンの格闘ゲームを担当。キャラが壁に消える穴を 41 個見つけ、「消える男」と呼ばれた。",
+     "ja": "テスト担当として、ポリゴンの格闘ゲームを担当。キャラが壁に消える穴を 41 個見つけ、「消える男」と呼ばれた。",
      "en": "Contract testing your team's polygon fighter. You found 41 ways for fighters to vanish into walls. They called you \"the vanishing man.\""
     },
     "effect": {
@@ -3319,7 +3319,7 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "外注のテストで、自社の恋愛ゲームの告白を全部見た。報告書の最後に「全員かわいいです」と書き、課長に消された。",
+     "ja": "バグ探しの係で、恋愛ゲームの告白を全部見た。報告書の最後に「全員かわいいです」と書き、課長に消された。",
      "en": "Contract testing your team's dating sim, you saw every confession. You ended the report with \"They're all lovely.\" The chief deleted it."
     },
     "effect": {
@@ -4186,7 +4186,7 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "外注のテストで、自社のゲームの交換機能を 2 台で 1000 回試した。ケーブルを抜く瞬間の致命的な穴を見つけ、元請けに名前を覚えられた。",
+     "ja": "テストの席で、ゲームの交換機能を 2 台で 1000 回試した。ケーブルを抜く瞬間の致命的な穴を見つけ、ディレクターに名前を覚えられた。",
      "en": "Contract testing a trade feature: a thousand trades on two handhelds. You found the fatal bug when the cable is pulled. The client learned your name."
     },
     "effect": {

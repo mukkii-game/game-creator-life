@@ -176,7 +176,7 @@ export function init(seed: number, options: InitOptions = {}): State {
     picked.forEach((ev, i) => {
       s.log.push({ year: base.y - off + i, age: base.a - off + i, text: fill(s, evText(s, ev)), kind: 'event', tag: ev.tag });
       applyInner(s, ev.effect ?? {}, ev.id, []);
-      s.inner.used.push(ev.id);
+      s.inner.used.push(ev.id); s.inner.seen[ev.id] = base.y - off + i; // seen に入れないと、次の人生で「直近に見た話」として避けられない(第 21 回: 学生時代の同じ文が 3 人生とも)
     });
     [s.year, s.age] = [y0, a0];
   }
@@ -188,7 +188,7 @@ export function init(seed: number, options: InitOptions = {}): State {
 function fill(s: State, t: Text): Text {
   const w = s.inner.workTarget >= 0 ? s.works[s.inner.workTarget] : s.works[s.works.length - 1];
   const rivalP = s.inner.rival ? s.inner.peerStates[1] : undefined;
-  const live = s.inner.peerStates.filter((p) => !p.ending && !p.flags.in_prison && p !== rivalP); // 引退・服役した同期、ライバルは出さない
+  const live = s.inner.peerStates.filter((p) => !p.ending && !p.flags.in_prison && !p.flags.ex_prison && p !== rivalP); // 捕まった同期は、出てきた後も普通の話には出さない(第 21 回: 逮捕の 26 年後に次の企画のリーダー) // 引退・服役した同期、ライバルは出さない
   const peer = live.length ? live[s.year % live.length].name : { ja: '同期', en: 'a peer' };
   const other = s.inner.otherJob ?? { ja: '別の仕事', en: 'another job' };
   const rep = (str: string, l: 'ja' | 'en') => (l === 'ja' ? str.replace(/ ?\{(peer|company|work|name)\} ?/g, '{$1}') : str)
@@ -451,8 +451,8 @@ function beginYear(s: State, out: string[]) {
   if (trait?.lines?.length && s.status === 'employed' && !(s.inner.coShown ??= []).includes(s.company.id)) {
     s.inner.coShown.push(s.company.id);
     // 年代に合わない社風の一言は出さない(第 14 回ペルソナ: 1991 年に「スマホの画面に収まる剣と魔法」)
-    const fits = trait.lines.filter((l) => !(s.year < 2008 && /スマホ|SNS|アプリ|ガチャ|配信/.test(l.ja)) && !(s.year < 1999 && /ケータイ/.test(l.ja)));
-    if (fits.length) log(s, r.pick(fits), 'event', ['company']);
+    const fits = trait.lines.filter((l) => !(s.year < 2008 && /スマホ|SNS|アプリ|ガチャ|配信/.test(l.ja)) && !(s.year < 1999 && /ケータイ/.test(l.ja)) && !(/描いた|あなたの絵/.test(l.ja) && !['artist', 'director'].includes(s.job)) && !(/あなたのコード|書いたコード/.test(l.ja) && s.job !== 'programmer') && !(/あなたの曲/.test(l.ja) && s.job !== 'sound') && !(s.inner.recent?.includes(`line:${l.ja}`) && r.chance(0.8))); // 職種に合わない社風の一言は出さない(第 21 回)、直近の人生で見た一言は避ける
+    if (fits.length) { const t = r.pick(fits); (s.inner.saidLines ??= []).push(t.ja); log(s, t, 'event', ['company']); }
   }
   // 他の人の人生(名前を入れて遊んだ誰か)が、先輩・同期・後輩・記事として顔を出す
   if (s.inner.others?.length && (s.status === 'employed' || s.status === 'indie') && (s.inner.othersShown ?? 0) < tune<number>('others.max') && r.chance(tune('others.chance'))) {
@@ -566,7 +566,7 @@ function runItem(s: State, id: string, out: string[]) {
   if (ev.years && (s.year < ev.years[0] || s.year > ev.years[1])) return;
   if (ev.once && s.inner.used.includes(ev.id)) return;
   // 爆死した作品を、てっぺんの話で急にヒットにしない(第 13 回ペルソナ: 中古 50 円の作品が 2 年後に社会現象)
-  if (ev.effect?.work?.last?.result && s.works[s.works.length - 1]?.result === 'flop') return;
+  if (ev.effect?.work?.last?.result && (s.works[s.works.length - 1]?.result === 'flop' || s.year - (s.works[s.works.length - 1]?.year ?? s.year) > 1)) return; // 何年も前の作品を、理由もなく急にヒットにしない(第 21 回)
   // 1 年に会社が 2 回変わらない(第 13 回ペルソナ: 地元に帰って会社を作った同じ年に、別の会社に拾われる)
   const moves = (x: { flag?: Record<string, boolean> } | undefined) => Object.keys(x?.flag ?? {}).some((f) => ['do_change_company', 'do_go_indie', 'do_join_sega', 'life_abroad', 'went_abroad'].includes(f));
   if ((moves(ev.effect) || ev.choices?.some((c) => moves(c.effect))) && s.companies.length > 1 && s.companies[s.companies.length - 1].year === s.year) return;
@@ -587,7 +587,9 @@ function runItem(s: State, id: string, out: string[]) {
     // 箱のある話(未開封・見本盤・中古・ワゴン …)は、配信だけの作品には付けない(第 11 回ペルソナ: ケータイアプリの未開封品が 80 万円)
     const boxed = /未開封|見本盤|中古|ワゴン|カートリッジ|押し入れ|箱|棚|パッケージ|説明書/.test(ev.text.ja);
     const digital = (w: { platform: string }) => /スマホ|ケータイ|ソシャゲ|ブラウザ|オンライン|AI クラウド|Steam|itch|Flash|iPhone/.test(w.platform);
-    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= 2 && (!online || digital(w)) && (!boxed || !digital(w)));
+    const bad = /クソゲー|爆死|ワゴン|投げ売り/.test(ev.text.ja), good = /名作|大ヒット|伝説|殿堂(?!入りを果たし)/.test(ev.text.ja) && !bad;
+    const hitW = (w: { result: string }) => w.result === 'hit' || w.result === 'legend';
+    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= (bad ? 4 : 2) && (!online || digital(w)) && (!boxed || !digital(w)) && (!bad || !hitW(w)) && (!good || hitW(w))); // ヒット作をクソゲー扱いしない・普通の作品を名作扱いしない(第 21 回)
     if (!old.length) return;
     s.inner.workTarget = r.pick(old)[1];
   }
@@ -618,10 +620,10 @@ function runItem(s: State, id: string, out: string[]) {
   s.inner.workTarget = -1;
 }
 
-/** テンションが上がった瞬間を覚えておく(最後の 1 行に使う) */
+/** テンションが上がった瞬間を覚えておく(最後の 1 行に使う)。ファン・ライバルの筋の結末がいちばん(第 21 回: 筋を回収せずにテレビに 4 秒映った話で締めた) */
 function remember(s: State, ev: GameEvent, memory?: Text) {
   const t = ev.tag ?? [];
-  const w = t.includes('peak') ? 6 : t.includes('bond') ? 5 : t.includes('warm') ? 4 : t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
+  const w = /^ev_(fa|rv)_5/.test(ev.id) ? 7 : t.includes('peak') ? 6 : t.includes('bond') ? 5 : t.includes('warm') ? 4 : t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
   if (!w && !memory) return;
   const first = (x: string, sep: RegExp) => x.split(sep)[0];
   const text = memory ? fill(s, memory) : (() => { const f = s.log[s.log.length - 1]?.text ?? fill(s, ev.text); return { ja: first(f.ja, /。/), en: first(f.en, /\. /) }; })();
@@ -698,6 +700,7 @@ function peersYear(s: State, out: string[]) {
     ];
     if (pe && pe.id === 'end_restart' && !ok('restart', 1)) line = null; // 2027 年の区切りで同期が一斉に終わるのは 1 人だけ伝える
     else if (pe && pe.id === 'end_restart') { said1('restart'); line = freshLine(s, [{ ja: `同期の${nm}も、AI の騒ぎの中で次の一歩を決めたらしい。年賀状に「まだやる」とだけあった。`, en: `Your peer ${en} chose a next step amid the AI upheaval too. Their New Year card said only: "Still at it."` }, { ja: `同期の${nm}から久しぶりに電話。「お前はどうする」。答える前に、向こうが自分の答えを 30 分しゃべった。`, en: `A call from your peer ${en}, first in ages: "What are you doing?" Before you could answer, they talked about their own plan for thirty minutes.` }], 'peerrestart'); }
+    else if ((pe && /arrest|prison/.test(pe.id) || p.status !== before.status && p.flags.in_prison) && ok('prison', 1) && s.inner.recent?.some((x) => x.startsWith('line:peerprison')) && s.rng.chance(0.8)) { said1('prison'); line = null; } // 直近の人生で同期の逮捕を伝えていたら、今回はたいてい伝えない(第 21 回: 3 人生とも同期が逮捕)
     else if (pe && /arrest|prison/.test(pe.id) && !ok('prison', 1)) line = null; // 第 19 回: 同期が捕まった知らせが 2 回
     else if (pe) { if (/arrest|prison/.test(pe.id)) said1('prison'); line = { ja: `同期の${nm}の知らせ。${pe.cause.ja.replace(/^\d+ 歳、/, '')}。`, en: `News of your peer ${en}: ${pe.cause.en.replace(/^At \d+, /, '')}.` }; }
     else if (newHit && ok('hit', 2) && !p.flags.in_prison && !p.flags.ex_prison && !s.works.some((w) => w.name.ja === newHit.name.ja) && (newHit.result === 'legend' || s.rng.chance(0.4))) { line = freshLine(s, hitL.map(([ja, enT]) => ({ ja, en: enT })), 'peerhit'); said1('hit'); }
@@ -708,6 +711,7 @@ function peersYear(s: State, out: string[]) {
     s.peers[i].summary = peerSummary(p);
     if (s.inner.rival && i === 1) line = null; // ライバルの筋は arcs.json だけで語る(同期の知らせが混ざると筋が壊れる)
     if (s.flags.in_prison) line = null;
+    if (line && (p.flags.in_prison || p.flags.ex_prison) && !/塀|捕ま|逮捕|差し入れ/.test(line.ja)) line = null; // 捕まった同期のその後は、何事も無かったようには語らない
     if (line && (!said || pe)) { said = true; log(s, line, 'peer'); out.push('peer'); }
   });
 }
