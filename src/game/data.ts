@@ -52,7 +52,8 @@ for (const e of EVENTS) {
 const JOB_WORDS: [RegExp, import('./types').Job[]][] = [
   [/自分の描いた|あなたの描いた|自分が描いた|あなたの絵|自分の絵|描き直し|ドット絵を|原画を/, ['artist', 'director']],
   [/あなたの曲|自分の曲|あなたの昔の曲|作曲|効果音を作/, ['sound', 'director']],
-  [/昔のバグ表|バグ票を書|再現手順を/, ['qa', 'programmer', 'director']],
+  [/昔のバグ表|バグ票を書|再現手順を/, ['qa']],
+  [/自分の作った(ステージ|敵|ボス|キャラ|面|ダンジョン)|調合表を作|あなたの作った(ステージ|敵|ボス|面)/, ['planner', 'programmer', 'artist', 'director']], // 第 24 回: QA・営業に「自分の作った敵キャラ」
   [/キャラを 1 人作|キーボードをなで|1 日 14 時間ゲームを作/, ['planner', 'programmer', 'artist', 'sound', 'director', 'producer']],
   [/自分のコード|あなたのコード|コードを見た|自分の書いたコード|ソースを読|バグを直した夜/, ['programmer', 'director']],
   [/あなたの企画書|自分の企画書|企画書を見せ|企画書を書/, ['planner', 'director', 'producer', 'programmer', 'artist', 'sound']],
@@ -98,10 +99,16 @@ for (const e of EVENTS) {
   if (/元請け|下請け|即売会|節電|社員旅行|忘年会|役員会|朝礼|社内報|電車|新幹線|地元|広報誌|コミケ|居酒屋|定食屋/.test(tx) && !has(e, 'company.size') && !has(e, 'pos')) add(e, 'company.size!=abroad');
   // 1〜3 月の社内の出来事は、その年の 4 月に入った新人には起きない(第 21 回: 2001 年入社なのに 1 月 31 日の朝礼にいる)
   if (/(^|[^0-9])[1-3] 月 \d+ 日/.test(tx) && /朝礼|社内|会社|先輩|上司/.test(tx) && !has(e, 'career')) add(e, 'career>=1');
+  // 後輩がいるのは入って 2 年目から(第 24 回: 入社した年に「後輩が叫ぶ」)
+  if (/後輩/.test(tx) && !/^ev_(me|mt|fa|rv)_/.test(e.id) && !has(e, 'career')) add(e, 'career>=2');
+  // 同期と同じ社内にいる前提の話は、最初の会社にいる間だけ(第 24 回: 怪しい会社に移った後に「同期の堀内と最終面談」)
+  if (/\{peer\}/.test(tx) && /面談|会議|社内|隣の|チーム|飲み会|椅子|揺り起こ/.test(tx) && !has(e, 'cos')) add(e, 'cos<=1');
+  // 「まだ一度も稼いでいない」はヒットが無い時だけ
+  if (/(稼いだ|売れた|ヒットした)ことは、?まだ一度も/.test(tx) && !has(e, 'hits')) add(e, 'hits<1');
   // 会社の中の話は、会社にいる時だけ
-  if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み|ボーナス|人事に呼ばれ|辞令|うちのチーム|チームの|部下|社員証|社内報|配属|入社以来|新人が|新人の|定時|チャイム|社員食堂|総務|経理|社員旅行|忘年会|送別会|歓迎会|会社の照明|会社のドア|会社の椅子|入館証|隣の部署|隣の島|仕事帰り|同期の|社長は|営業は|営業が|プランナー同士|チーム全員|ヒットのボーナス/.test(tx) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
+  if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み|ボーナス|人事に呼ばれ|辞令|うちのチーム|チームの|部下|社員証|社内報|配属|入社以来|新人が|新人の|定時|チャイム|社員食堂|総務|経理|社員旅行|忘年会|送別会|歓迎会|会社の照明|会社のドア|会社の椅子|入館証|採用の権限|隣の部署|隣の島|仕事帰り|同期の|社長は|営業は|営業が|プランナー同士|チーム全員|ヒットのボーナス/.test(tx) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
   // 年数: 「N 年前」「N 年ぶり」はキャリアが N 年以上 / 入社直後の話はキャリア 1 年目まで
-  const ago = /(\d+) 年(前|ぶり|分|越し|間ずっと)/.exec(tx);
+  const ago = /(\d+) 年(前|ぶり|分|越し|間ずっと|磨いた|借り続け|続けてきた|使い続け)/.exec(tx); // 第 24 回: 入社 6 年で「10 年磨いたドット絵」
   if (ago && +ago[1] >= 5 && !has(e, 'career')) add(e, `career>=${+ago[1]}`);
   if (/入社 ?\d+ ?日目|新人研修|配属初日|入社初日|新入社員/.test(tx) && !has(e, 'career')) add(e, 'career<=1');
   // 自分の作品が前提の話は、作品を 1 本以上出してから(作品 0 本なのに「自分の作品で…」が出ていた)
@@ -149,6 +156,7 @@ const MOTIFS: [string, RegExp][] = [
   ['hd_shift', /HD 化|ハイビジョン|テクスチャ 4 倍/],
   ['gacha_rate', /排出率|確率表記|確率表|小数点を 1 つ/], // 第 23 回: ガチャの確率ネタが 1 人生に 3 回
   ['gym', /ジムに入会|ジムの会員/],
+  ['ai_ban', /生成 ?AI 禁止|AI の使用を禁止|AI 禁止の通達/], ['atami', /熱海/],   ['sleeping_bag', /寝袋/], ['floor_sleep', /床で寝ていたら|床で段ボール|段ボールを敷いて/], ['boss_lookalike', /昔の自分のボスにそっくり|自分の作ったボスにそっくり/], // 第 24 回: 寝袋・床で寝る・ボスにそっくりが何度も
   ['parent_save', /セーブデータ.*(名前|「)|「(とうちゃん|おかん)」/],
 ];
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; else if (e.tag?.includes('crime') && e.choices) e.motif = 'crime'; if (e.tag?.includes('early_exit') && e.choices) e.motif = 'early_exit'; if (e.choices && !e.id.startsWith('ev_sys_') && !e.motif) { if (/AI/.test(tx) && e.years[1] >= 2022) e.motif = 'ai_choice'; else if (/ケータイ(の)?部署|ソシャゲ(に|へ)(行|移)/.test(tx + (e.choices ?? []).map((c) => c.label.ja).join(''))) e.motif = 'mobile_move'; } } // AI をどう使うか・ケータイへ移るかの選択は 1 人生 1 回 // 早くに去る選択は 1 人生 1 回 // 犯罪の入口(選択)は続けて遊ぶと出にくく

@@ -80,7 +80,7 @@ function epitaphOf(s: State, id: EndingId): Text {
   const best = hs.reduce((a, b) => (b.w >= a.w ? b : a));
   const f = freshPick(s, FEELING[best.kind ?? 'high'] ?? FEELING.high);
   return {
-    ja: `${best.year} 年、${best.age} 歳。${best.text.ja}。${f.ja}。${after.ja}いいゲーム人生だった。`,
+    ja: `${best.year} 年、${best.age} 歳。${best.text.ja}。${f.ja}。${after.ja}${s.year - s.startYear <= 4 ? '短かったが、' : ''}いいゲーム人生だった。`, // 数年で去った人生は「短かったが」(第 24 回)
     en: `${best.year}, age ${best.age}: ${best.text.en.replace(/\.$/, '')}. ${f.en[0].toUpperCase() + f.en.slice(1)}. ${after.en} It was a good game life.`.replace(/  +/g, ' '),
   };
 }
