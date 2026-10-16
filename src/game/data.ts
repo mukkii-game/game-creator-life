@@ -147,6 +147,8 @@ const MOTIFS: [string, RegExp][] = [
   ['shortage', /品薄|売り切れ続き|家電(店|量販店)に並|抽選に/],
   ['fc_end', /ファミコン.*(終わ|製造を終)/],
   ['hd_shift', /HD 化|ハイビジョン|テクスチャ 4 倍/],
+  ['gacha_rate', /排出率|確率表記|確率表|小数点を 1 つ/], // 第 23 回: ガチャの確率ネタが 1 人生に 3 回
+  ['gym', /ジムに入会|ジムの会員/],
   ['parent_save', /セーブデータ.*(名前|「)|「(とうちゃん|おかん)」/],
 ];
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; else if (e.tag?.includes('crime') && e.choices) e.motif = 'crime'; if (e.tag?.includes('early_exit') && e.choices) e.motif = 'early_exit'; if (e.choices && !e.id.startsWith('ev_sys_') && !e.motif) { if (/AI/.test(tx) && e.years[1] >= 2022) e.motif = 'ai_choice'; else if (/ケータイ(の)?部署|ソシャゲ(に|へ)(行|移)/.test(tx + (e.choices ?? []).map((c) => c.label.ja).join(''))) e.motif = 'mobile_move'; } } // AI をどう使うか・ケータイへ移るかの選択は 1 人生 1 回 // 早くに去る選択は 1 人生 1 回 // 犯罪の入口(選択)は続けて遊ぶと出にくく

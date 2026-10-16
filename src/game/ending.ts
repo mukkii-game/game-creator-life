@@ -30,7 +30,7 @@ function causeOf(s: State, id: EndingId): Text {
       if (s.flags.in_prison) return { ja: `${a} 歳、塀の中で AI の時代のニュースを聞き、出たら何を作るか考え始める`, en: `At ${a}, hearing about the AI age from behind bars, you start planning what to make when you get out` };
       if (s.flags.shift_partner) return { ja: `${a} 歳、AI を相棒に、もう 1 本作り始める`, en: `At ${a}, you start one more game, with AI as your partner` };
       if (s.flags.shift_play) return { ja: `${a} 歳、遊ぶ側に回る。それでも、作る側の目で遊んでいる`, en: `At ${a}, you switch to playing — still with a maker's eye` };
-      return { ja: `${a} 歳、自分の手で、AI に作れないものを作り始める`, en: `At ${a}, you start making, by hand, what AI can't` };
+      { const v = freshPick(s, [{ ja: '自分の手で、AI に作れないものを作り始める', en: "you start making, by hand, what AI can't" }, { ja: '手で作ると決めた。最初の 1 行は、AI より 3 時間遅く書いた', en: 'you decided to make it by hand. Your first line of code came three hours after the AI would have' }, { ja: '自分の手で作り始める。遅いが、間違え方だけは自分のものだ', en: 'you start making it by hand. Slow, but the mistakes are all yours' }]); return { ja: `${a} 歳、${v.ja}`, en: `At ${a}, ${v.en}` }; } // 第 23 回: 3 人生とも同じ文
     case 'end_ai_seat': return { ja: `${a} 歳、AI に席を譲った。引き継ぎ資料も AI が書いた`, en: `At ${a}, you gave your seat to an AI. The AI wrote the handover doc too` };
   }
 }
@@ -54,7 +54,7 @@ const AFTER: Partial<Record<EndingId, Text[]>> = {
   end_switch: [{ ja: '名刺の肩書きは変わっても、机の引き出しには今もコントローラが入っている。', en: 'The title on my card changed, but there is still a controller in my desk drawer.' }],
   end_ai_seat: [{ ja: '引き継ぎ資料の最後に、AI が「ありがとうございました」と書いていた。', en: 'At the end of the handover doc, the AI had written "Thank you."' }],
   end_retire: [{ ja: '送別会の帰り道、コンビニでゲーム雑誌を買った。', en: 'On the way home from the farewell party, I bought a game magazine.' }, { ja: '退職の日、机の寝袋を初めて持ち帰った。', en: 'On my last day, I finally took the sleeping bag home.' }],
-  end_restart: [{ ja: '翌朝、新しい企画書のファイルを作った。名前は「新規ドキュメント(2)」。', en: 'Next morning I made a new proposal file. Its name: "New Document (2)".' }, { ja: 'エンディングの後には、2 周目がある。ゲームの作り手なら、みんな知っている。', en: 'After the ending comes New Game+. Every game maker knows that.' }],
+  end_restart: [{ ja: '翌朝、新しい企画書のファイルを作った。名前は「新規ドキュメント(2)」。', en: 'Next morning I made a new proposal file. Its name: "New Document (2)".' }, { ja: 'エンディングの後には、2 周目がある。ゲームの作り手なら、みんな知っている。', en: 'After the ending comes New Game+. Every game maker knows that.' }, { ja: '翌朝、方眼紙を 1 枚だけ買った。店員に「何に使うんですか」と聞かれ、30 分しゃべった。', en: 'The next morning I bought a single sheet of graph paper. The clerk asked what it was for. I talked for thirty minutes.' }, { ja: 'その夜、昔の企画書の束から 1 枚だけ抜いて、冷蔵庫に貼った。', en: 'That night I pulled one page from my old pile of proposals and stuck it on the fridge.' }],
   end_pen_down: [{ ja: '70 年分のセーブデータは、全部ちゃんと残っている。', en: 'Seventy years of save data, all still there.' }],
 };
 /** 結果画面の締めの言葉: 直近の人生で使っていないものから(第 8 回ペルソナ: 締めの文が 3 回とも同じ) */
