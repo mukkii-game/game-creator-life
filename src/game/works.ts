@@ -214,10 +214,17 @@ export function release(s: State): { work: Work; line: Text } {
   const gagOk = titled?.gag && !said.includes(titled.gag.ja) && !s.inner.recent?.includes(`line:${titled.gag.ja}`); // 題名の小ネタも直近の人生と被らせない
   const gag = solo ?? (gagOk && r.chance(0.5) ? titled!.gag! : pickLine);
   if (gag.ja) said.push(gag.ja);
-  const line: Text = {
-    ja: `${work.name.ja}(${work.platform})発売。あなたは${roleText(s, role).ja}。結果は${RESULT_TEXT[result].ja}。${gag.ja.replace(/^(大?ヒット|伝説(になった)?|爆死|普通)[!!。]\s*/, '')}`, // 「結果はヒット。ヒット!」と 2 回言わない(第 20 回)
-    en: `${work.name.en} (${work.platform}) ships. You were ${roleText(s, role).en}. Result: ${RESULT_TEXT[result].en}. ${gag.en.replace(/^(A (big )?hit|A legend|Legend|A flop|Flop)[!.]\s*/i, '')}`,
-  };
+  const gj = gag.ja.replace(/^(大?ヒット|伝説(になった)?|爆死|普通)[!!。]\s*/, ''), ge = gag.en.replace(/^(A (big )?hit|A legend|Legend|A flop|Flop)[!.]\s*/i, ''); // 「結果はヒット。ヒット!」と 2 回言わない(第 20 回)
+  const rj = roleText(s, role).ja, re = roleText(s, role).en, resJ = RESULT_TEXT[result].ja, resE = RESULT_TEXT[result].en;
+  // 発売の行の形を散らす(第 37 回: 「あなたはリード。結果は普通。」が 1 人生に 20 回)
+  const forms: [string, string][] = [
+    [`${work.name.ja}(${work.platform})発売。あなたは${rj}。結果は${resJ}。${gj}`, `${work.name.en} (${work.platform}) ships. You were ${re}. Result: ${resE}. ${ge}`],
+    [`${work.platform}で${work.name.ja}が出た。${rj}として関わった。${resJ}。${gj}`, `${work.name.en} came out on ${work.platform}. You worked on it as ${re}. ${resE}. ${ge}`],
+    ...(digital ? [] : [[`${work.name.ja}が店に並んだ(${work.platform}、あなたは${rj})。${resJ}。${gj}`, `${work.name.en} hit the shelves (${work.platform}; you were ${re}). ${resE}. ${ge}`] as [string, string]]),
+    [`${work.name.ja}、発売日。${work.platform}、${rj}。結果は${resJ}。${gj}`, `${work.name.en}: release day. ${work.platform}, ${re}. Result: ${resE}. ${ge}`],
+  ];
+  const fi = s.works.length <= 1 ? 0 : r.int(0, forms.length - 1);
+  const line: Text = { ja: forms[fi][0], en: forms[fi][1] };
   const fx = { flop: { passion: -12, fame: 0 }, ok: { passion: 4, fame: 1 }, hit: { passion: 20, fame: 8 }, legend: { passion: 30, fame: 20 } }[result];
   const roleFame = { junior: 0.3, core: 0.7, lead: 1, solo: 1 }[role];
   s.stat.passion = clamp(s.stat.passion + fx.passion);
