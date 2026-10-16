@@ -135,14 +135,27 @@ export function init(seed: number, options: InitOptions = {}): State {
   }
   if (entry.segaSub) s.flags.sega_sub = true;
   syncCompany(s);
-  // 前日譚: 業界に入る前の学生時代(黎明期は雑誌への投稿から始まる)。tag "prologue" の話を 1〜2 本
-  if (!peerOf) {
-    const pro = EVENTS_ALL().filter((e) => e.tag?.includes('prologue') && eligible(s, e));
-    for (const ev of draw(r, pro, pro.length && r.chance(0.5) ? 2 : 1)) {
-      log(s, fill(s, ev.text), 'event', ev.tag);
+  // 前日譚: 業界に入る前の学生時代(2026-10-16 Mukkii: 基本は 22 歳で入社、それまでは学生として何かしている)。
+  // 道をひとつ引く(自主制作 = 雑誌への投稿など / バイト / ただのゲーマー / 学業)→ その道の話 2 本 + 別の道から 0〜1 本。
+  // 選ぶ時だけ年と年齢を学生の頃に戻す(その頃にあった物しか出さない)。50 すぎの業界入りには無い
+  if (!peerOf && age < 50) {
+    const [y0, a0] = [s.year, s.age];
+    s.age = age <= 18 ? 16 : Math.min(20, age - 2);
+    s.year = year - (age - s.age);
+    const path = wpick(r, ['st_dev', 'st_arbeit', 'st_gamer', 'st_school'], (p) => (p === 'st_dev' ? 3 : p === 'st_school' && age <= 18 ? 0.3 : 2));
+    const ok = (e: GameEvent) => e.tag?.includes('prologue') && eligible(s, e);
+    const inPath = (e: GameEvent) => (path === 'st_dev' ? !e.tag?.includes('student') || e.tag.includes('st_dev') : !!e.tag?.includes(path));
+    const mine = EVENTS_ALL().filter((e) => ok(e) && inPath(e));
+    const picked = draw(r, mine, 2);
+    const rest = EVENTS_ALL().filter((e) => ok(e) && !picked.includes(e) && !inPath(e));
+    if (rest.length && (picked.length < 2 || r.chance(0.5))) picked.push(...draw(r, rest, picked.length ? 1 : 2)); // その道の話が無い年は別の道から
+    s.flags[path] = true;
+    picked.forEach((ev, i) => {
+      s.log.push({ year: s.year + i, age: s.age + i, text: fill(s, ev.text), kind: 'event', tag: ev.tag });
       applyInner(s, ev.effect ?? {}, ev.id, []);
       s.inner.used.push(ev.id);
-    }
+    });
+    [s.year, s.age] = [y0, a0];
   }
   logEvent(s, s.status === 'indie' ? 'ev_sys_start_indie' : 'ev_sys_start', 'event');
   return s;

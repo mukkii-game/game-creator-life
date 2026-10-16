@@ -24,9 +24,9 @@ export const KNOBS: Knob[] = [
   { key: 'choice.hwMin', label: 'ハード選択の間隔(最短)', value: 4, min: 1, max: 15, step: 1, unit: '年', aim: 'セガか他か・据え置きか携帯か・ゲーセンか家庭用か・スマホかコンシューマか、を時々迷う' },
   { key: 'choice.hwMax', label: 'ハード選択の間隔(最長)', value: 6, min: 1, max: 20, step: 1, unit: '年' },
   // 業界入り
-  { key: 'gacha.age18', label: '18 歳で入る割合', value: 0.3, min: 0, max: 1, step: 0.05 },
+  { key: 'gacha.age18', label: '18 歳で入る割合(基本は 22 歳。2026-10-16 Mukkii)', value: 0.08, min: 0, max: 1, step: 0.05 },
   { key: 'gacha.age50', label: '50 すぎ(50〜57 歳)で入る割合', value: 0.06, min: 0, max: 0.5, step: 0.01, aim: 'ひいひい言いながらついていく人生' },
-  { key: 'gacha.lateBloomer', label: '遅咲き(26〜35 歳)の割合', value: 0.2, min: 0, max: 1, step: 0.05 },
+  { key: 'gacha.lateBloomer', label: '遅咲き(26〜35 歳)の割合', value: 0.12, min: 0, max: 1, step: 0.05 },
   // 毎年の変化
   { key: 'year.hp', label: '体力の上限の年ごとの下がり', value: 0.8, min: 0, max: 3, step: 0.1, unit: '点/年', aim: '40 歳からは 1.5 倍。70 歳で上限が 50 前後' },
   { key: 'year.hpRegen', label: '1 年で戻る体力', value: 0.08, min: 0, max: 1, step: 0.02, unit: '上限までの割合', aim: '徹夜 1 回は 1 年で半分くらい戻る。続くと倒れる' },
@@ -55,6 +55,6 @@ export const KNOBS: Knob[] = [
   // 画面と音
   { key: 'ui.lineMin', label: '1 行を読む最短の時間(1 倍速)', value: 2.4, min: 0.5, max: 6, step: 0.1, unit: '秒', aim: '目が追いつく速さ(Mukkii 2026-10-15「もう少しだけ遅く」)。2 倍速なら半分' },
   { key: 'ui.fast', label: '「一気に」の 1 年', value: 0.4, min: 0.05, max: 2, step: 0.05, unit: '秒' },
-  { key: 'audio.sfx', label: '効果音の音量', value: 0.45, min: 0, max: 1, step: 0.05, unit: '倍', aim: '控えめから。AI は音を聴かずに大きめを選びがち' },
-  { key: 'audio.bgm', label: 'BGM の音量', value: 0.45, min: 0, max: 1, step: 0.05, unit: '倍' },
+  { key: 'audio.sfx', label: '効果音の音量', value: 0.3, min: 0, max: 1, step: 0.05, unit: '倍', aim: '控えめから。AI は音を聴かずに大きめを選びがち(2026-10-16 Mukkii: BGM も SE も数割控えめに → 0.45 から 0.3)' },
+  { key: 'audio.bgm', label: 'BGM の音量', value: 0.3, min: 0, max: 1, step: 0.05, unit: '倍' },
 ];
