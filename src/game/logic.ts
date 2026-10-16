@@ -24,7 +24,8 @@ export function eraOf(year: number): Era {
 // ---- 業界入りガチャ(PLAN §4) ----
 // 業界入りの年: 一番早くて 1977 年(のちに世界的なデザイナーになる人が任天堂に入った年)、一番遅くて 2000 年(PlayStation 2 発売)。
 // 重み = 1 年あたりの出やすさ(全部同じ。Mukkii 指定 2026-10-15)
-const ERA_SPAN: [number, number, number][] = [[1977, 1985, 1], [1986, 1994, 1], [1995, 2000, 1]];
+// 業界入りの年(2026-10-16 Mukkii: いま 40 歳くらいの人も遊べるよう、いちばん遅くて 2010 年)
+const ERA_SPAN: [number, number, number][] = [[1977, 1985, 1], [1986, 1994, 1], [1995, 2000, 1], [2001, 2010, 1]];
 function gachaYear(r: Rng, era?: Era): number {
   const last = 2000;
   const spans = ERA_SPAN.map(([a, b, w]) => [a, Math.min(b, last), w] as const).filter(([a, b], i) => a <= b && (!era || `era${i + 1}` === era));

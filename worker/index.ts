@@ -24,7 +24,7 @@ async function save(req: Request, env: Env) {
   const client = clean(b.client, 40);
   const family = clean(b.family, 10), given = clean(b.given, 12);
   const named = b.named ? 1 : 0;
-  const sy = int(b.startYear, 1977, 2000), ey = int(b.endYear, 1977, 2045), sa = int(b.startAge, 15, 70), ea = int(b.endAge, 15, 90);
+  const sy = int(b.startYear, 1977, 2010), ey = int(b.endYear, 1977, 2045), sa = int(b.startAge, 15, 70), ea = int(b.endAge, 15, 90);
   const job = clean(b.job, 20), company = clean(b.company, 30), work = clean(b.work, 40), ending = clean(b.ending, 60);
   if (!/^[a-z0-9-]{8,40}$/.test(client) || (!family && !given) || sy === null || ey === null || sa === null || ea === null || ey < sy) return json({ ok: false, why: 'bad' }, 400);
   if (![family, given, company, work, ending].every(okName)) return json({ ok: false, why: 'ng' }, 400);

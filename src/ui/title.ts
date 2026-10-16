@@ -12,7 +12,7 @@ import { YEAR_MIN, YEAR_MAX, type StartPick } from './start';
 
 export interface TitleScreen { onCmd: (c: Cmd) => void }
 
-const ERAS: (Era | '')[] = ['', 'era1', 'era2', 'era3'];
+const ERAS: (Era | '')[] = ['', 'era1', 'era2', 'era3', 'era4'];
 
 export function showTitle(app: HTMLElement, era: StartPick, onStart: (era: StartPick) => void, onChronicle: () => void): TitleScreen {
   let cur: TitleScreen = render(app, era, onStart, onChronicle, (e) => { cur = showTitleInner(e); });

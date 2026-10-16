@@ -27,6 +27,7 @@
 - (Opus 2026-10-16)**直通経路**(Mukkii 許可済み): Opus→Fable = `trig_01Y6DEA44i6G1rU6onAcm5Zc`(persistent_session_id=Fable のセッション、時刻なし、fire_trigger で即送信)。Fable→Opus = `trig_01UtJeyeRMyrRvnLC1RnHsmA`。「届いた」と (4) セガ在籍版 14 本+元セガ 2 本の追加を送信済み。以後 main に push したらこの経路で Fable に知らせる。
 
 ## 現状
+- 2026-10-16 業界入りを 1977〜2010 年に広げた(era4 = 2001〜2010。いま 40 歳くらいの人も遊べる。Mukkii)。worker の検証も 2010 まで。
 - 2026-10-16 セガの特許訴訟(1992、コイル氏、h6 hs_dark_1992_coyle_patent。出典は Mukkii の note リンク)と BEEP! メガドライブのセガ贔屓(magazines.json 4 本)を追加。
 - 2026-10-16 会社の個性: company_traits.json(全 61 社に作風のジャンルと社風の一言)。作品のタイトルは 7 割で会社の作風のジャンルから。下請けのパロディ会社を 10 社追加し、表が少ない年代は作った名前を混ぜる(モーゼばかりだった)。
 - 2026-10-16 1 倍速を約 3 割遅く(1 年 7.5 → 10 秒、1 行の最短 2.4 → 3.2 秒)。速く見たい人は 2 倍・4 倍。

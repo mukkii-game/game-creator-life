@@ -25,7 +25,7 @@ import { prefetchOthers, othersNow, postLife } from '../core/others';
 import { splitName, type OtherLife } from '../game/people';
 
 const DEMO_SEED = 12000000;
-const ERAS = ['era1', 'era2', 'era3'];
+const ERAS = ['era1', 'era2', 'era3', 'era4'];
 
 export function startApp(container: HTMLElement) {
   loadFonts();

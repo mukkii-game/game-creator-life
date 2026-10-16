@@ -14,7 +14,7 @@ const TABLE: Record<string, { ja: string; en: string }> = {
   era1: { ja: '1977〜85 黎明', en: '1977–85 Dawn' },
   era2: { ja: '1986〜94 ファミコン', en: '1986–94 8/16-bit' },
   era3: { ja: '1995〜2000 ポリゴン', en: '1995–2000 Polygons' },
-  era4: { ja: '2004–11 ケータイ', en: '2004–11 Feature phones' },
+  era4: { ja: '2001〜2010 携帯機とケータイ', en: '2001–2010 Handhelds & phones' },
   era5: { ja: '2012–19 ソシャゲ', en: '2012–19 Gacha games' },
   era6: { ja: '2020–35 AI', en: '2020–35 AI' },
   soundCredit: { ja: '音楽・効果音: 魔王魂 / 絵: ぴぽや', en: 'Music & SFX: MaouDamashii (maou.audio) / Art: Pipoya (pipoya.net)' },

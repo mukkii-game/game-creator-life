@@ -1,11 +1,11 @@
-// 始まりの指定: '' = おまかせ / 'era1'〜'era3' = 時代 / 'y1985' = 年を指定(1977〜2000)
+// 始まりの指定: '' = おまかせ / 'era1'〜'era4' = 時代 / 'y1985' = 年を指定(1977〜2010)
 // URL の ?era=・replay の先頭(era:…)・共有リンクでも同じ文字列を使う
 import type { Era } from '../game/types';
 
 export type StartPick = string;
 export const YEAR_MIN = 1977;
-export const YEAR_MAX = 2000;
-const ERAS = ['era1', 'era2', 'era3'];
+export const YEAR_MAX = 2010;
+const ERAS = ['era1', 'era2', 'era3', 'era4'];
 
 export function validPick(p: string | null | undefined): p is StartPick {
   if (!p) return false;
