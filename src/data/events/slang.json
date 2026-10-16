@@ -1,0 +1,546 @@
+[
+ {
+  "id": "ev_sl_nau",
+  "years": [
+   1979,
+   1985
+  ],
+  "text": {
+   "ja": "新しい開発機を見た課長が「ナウいねえ」と言った。翌週、別の部署で同じ言葉を聞いた。社内で流行っているらしい。",
+   "en": "Seeing the new dev kit, the section chief said it was \"real now.\" A week later you heard the same phrase in another department. It was catching on."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_neakura",
+  "years": [
+   1982,
+   1987
+  ],
+  "text": {
+   "ja": "昼休みにゲームの話ばかりしていたら、「ネクラ」と言われた。言った本人は、夜中までゲーセンにいた。",
+   "en": "You talked games all lunch break and got called a gloomy indoor type. The person who said it stayed at the arcade till midnight."
+  },
+  "when": [],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_burikko",
+  "years": [
+   1980,
+   1986
+  ],
+  "text": {
+   "ja": "新人がぶりっ子のポーズで「できませ〜ん」と言った。課長は一瞬固まって、仕様を半分にした。",
+   "en": "A new hire struck a cutesy pose and chirped, \"I can't do it~.\" The chief froze for a second, then halved the spec."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_hanakin",
+  "years": [
+   1986,
+   1991
+  ],
+  "text": {
+   "ja": "花金だった。課の全員がディスコに行った。あなたは開発室に残った。月曜、全員があなたのバグ票を読んでいた。",
+   "en": "It was Flower Friday. The whole section went to the disco. You stayed in the dev room. On Monday everyone was reading your bug reports."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_asshi",
+  "years": [
+   1989,
+   1993
+  ],
+  "text": {
+   "ja": "同期が「アッシーくん」をやっていると自慢した。迎えに行く相手は、毎回ちがう人だった。あなたは終電の運転士と顔なじみになった。",
+   "en": "A peer bragged about being somebody's on-call chauffeur — a different somebody each time. You, meanwhile, got on first-name terms with the last-train driver."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_ojigal",
+  "years": [
+   1990,
+   1993
+  ],
+  "text": {
+   "ja": "経理の人が「オヤジギャル」を名乗り、焼き鳥屋で一番大きな声を出していた。ゲームの売上の話を、誰よりも正確に知っていた。",
+   "en": "Someone in accounting proudly called herself a \"dad gal\" and was the loudest at the yakitori bar. She knew the sales figures better than anyone."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_choberiba",
+  "years": [
+   1996,
+   1998
+  ],
+  "text": {
+   "ja": "女子高生のモニターがテストプレイの感想に「チョベリバ」と書いた。開発室の全員で辞書を引いた。載っていなかった。",
+   "en": "A high-school girl on the test panel wrote \"choberiba\" in her feedback. The whole dev room checked the dictionary. It wasn't there."
+  },
+  "when": [],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_mk5",
+  "years": [
+   1996,
+   1999
+  ],
+  "text": {
+   "ja": "若手に「マジでキレる 5 秒前」と言われた。略して「MK5」。何が 5 秒前なのか、略されるとかえって怖かった。",
+   "en": "A junior said they were five seconds from snapping — \"MK5\" for short. Somehow the abbreviation made it scarier."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_millennium",
+  "years": [
+   1999,
+   2000
+  ],
+  "text": {
+   "ja": "会議の資料という資料に「ミレニアム」と書いてあった。中身は去年と同じだった。",
+   "en": "Every meeting document said \"MILLENNIUM\" on it. The contents were the same as last year's."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_itkakumei",
+  "years": [
+   2000,
+   2001
+  ],
+  "text": {
+   "ja": "社長が「IT 革命だ」と言って、全員にメールアドレスを配った。最初の全社メールは「件名なし」だった。",
+   "en": "The CEO declared an \"IT revolution\" and gave everyone an email address. The first company-wide email had no subject line."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_choiwaru",
+  "years": [
+   2005,
+   2008
+  ],
+  "text": {
+   "ja": "ちょいワル風のプロデューサーが現れた。打ち合わせのたびにジャケットの色が変わり、仕様も変わった。",
+   "en": "A \"slightly bad boy\" style producer arrived. His jacket colour changed every meeting, and so did the spec."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_ky",
+  "years": [
+   2007,
+   2009
+  ],
+  "text": {
+   "ja": "仕様会議で正直に「面白くない」と言ったら、「KY」と言われた。半年後、発売されたゲームは本当に面白くなかった。",
+   "en": "In the spec meeting you honestly said it wasn't fun and got called someone who can't read the room. Six months later, the game shipped and really wasn't fun."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_arafo",
+  "years": [
+   2008,
+   2011
+  ],
+  "text": {
+   "ja": "アラフォーという言葉が流行った。開発室の平均年齢を計算したら、ちょうど当てはまった。誰も言い出さなかった。",
+   "en": "\"Around-forty\" became a buzzword. You calculated the dev room's average age: right on the nose. Nobody brought it up."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_soushoku",
+  "years": [
+   2009,
+   2012
+  ],
+  "text": {
+   "ja": "後輩が自分は草食系だと言った。昼ごはんは毎日カツ丼だった。",
+   "en": "A junior described himself as an \"herbivore\" type. He had a pork-cutlet bowl for lunch every single day."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_riajuu",
+  "years": [
+   2010,
+   2016
+  ],
+  "text": {
+   "ja": "同期の結婚式の写真が SNS に上がった。後輩が小さく「リア充…」とつぶやいた。その後輩は、その夜の 2 次会の幹事だった。",
+   "en": "Wedding photos of a peer went up on social media. A junior muttered \"normie...\" — then ran the after-party that night."
+  },
+  "when": [],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_baigaeshi",
+  "years": [
+   2013,
+   2014
+  ],
+  "text": {
+   "ja": "打ち切られた企画の担当が、送別会で「倍返しだ」と言った。翌年、倍の予算で戻ってきた。",
+   "en": "At his send-off, the guy whose project got axed vowed to pay them back double. The next year he came back with double the budget."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_gekioko",
+  "years": [
+   2013,
+   2015
+  ],
+  "text": {
+   "ja": "若手がバグ票に「激おこ」と書いた。重要度の欄だった。以来、社内の重要度に「激おこ」が正式に足された。",
+   "en": "A junior wrote \"super-mad\" on a bug report — in the severity field. From then on, \"super-mad\" became an official severity level."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_kamitteru",
+  "years": [
+   2016,
+   2017
+  ],
+  "text": {
+   "ja": "新人が 3 日でバグを 100 個見つけた。課長が「神ってる」と言った。その言い方が、少し古かった。",
+   "en": "A new hire found 100 bugs in three days. The chief said he was \"godlike,\" in a way that already sounded a bit dated."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_instabae",
+  "years": [
+   2017,
+   2019
+  ],
+  "text": {
+   "ja": "会社のロビーに、インスタ映えするゲームのキャラの像が置かれた。社員は誰も撮らなかった。取引先が毎回撮っていった。",
+   "en": "An Instagram-worthy statue of a game character went up in the lobby. Employees never photographed it. Every visiting client did."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_emoi",
+  "years": [
+   2017,
+   2025
+  ],
+  "text": {
+   "ja": "若手がタイトル画面を見て「エモい」と言った。褒められたのか分からず、とりあえず色を少し濃くした。",
+   "en": "A young staffer looked at the title screen and called it \"emo.\" Unsure if that was praise, you made the colours a little deeper anyway."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_kusa",
+  "years": [
+   2016,
+   2025
+  ],
+  "text": {
+   "ja": "チャットで渾身のギャグを送ったら、「草」とだけ返ってきた。辞書を引いて、喜んでいいと分かった。",
+   "en": "You sent your best joke in chat. The reply was just \"grass.\" After looking it up, you learned you were allowed to be happy."
+  },
+  "when": [],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_pien",
+  "years": [
+   2019,
+   2021
+  ],
+  "text": {
+   "ja": "締め切りの延長を頼んだら、若手のチャットに「ぴえん」と返ってきた。延長は通った。理由は誰にも分からない。",
+   "en": "You asked for a deadline extension and a junior replied in chat with a tiny crying \"pien.\" The extension went through. Nobody knows why."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_shikakatan",
+  "years": [
+   2020,
+   2023
+  ],
+  "text": {
+   "ja": "若手が自分の作ったキャラについて「この子しか勝たん」と言った。会議で一番通る企画の言い方だった。",
+   "en": "A junior said of their character, \"Only this one wins.\" It turned out to be the most persuasive pitch line in any meeting."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ },
+ {
+  "id": "ev_sl_gachizei",
+  "years": [
+   2015,
+   2025
+  ],
+  "text": {
+   "ja": "テストプレイに「ガチ勢」が来た。開発者より上手かった。報告書の最後に「この難易度、ぬるいです」とあった。",
+   "en": "\"Hardcore\" testers came in. They were better than the developers. The report ended: \"This difficulty is soft.\""
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 2
+  },
+  "tag": [
+   "slang",
+   "gag"
+  ],
+  "once": true,
+  "weight": 7
+ }
+]
