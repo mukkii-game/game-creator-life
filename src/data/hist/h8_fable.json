@@ -1,0 +1,124 @@
+[
+ {
+  "id": "hs_1989_md_tetris_cancel",
+  "year": 1989,
+  "month": 4,
+  "kind": "incident",
+  "weight": 3,
+  "title": {
+   "ja": "メガドライブ版『テトリス』、発売直前に中止",
+   "en": "Mega Drive Tetris cancelled on the eve of release"
+  },
+  "news": {
+   "ja": "前年末にセガが出した業務用『テトリス』はゲームセンターで大ヒット。その勢いでメガドライブ版が 1989 年春に出る予定だったが、家庭用の権利は任天堂が押さえていたことが分かり、発売直前に中止になった。作り終えていたカートリッジはごく少数しか残らず、「幻のメガドライブ版テトリス」と呼ばれる。6 月にはゲームボーイ版が出て、任天堂の携帯機を押し上げた。",
+   "en": "Sega's arcade Tetris, released late the previous year, was a smash in the arcades. A Mega Drive version was due in spring 1989, but it turned out Nintendo held the home-console rights, and the release was cancelled at the last moment. Only a handful of finished cartridges survive: the \"phantom Mega Drive Tetris\". In June the Game Boy version arrived and lifted Nintendo's handheld."
+  },
+  "src": "セガ 業務用『テトリス』(1988)/ メガドライブ版(1989 年発売中止、のちにメガドライブミニ 2 に収録)",
+  "variants": [
+   {
+    "id": "ev_hs_1989_mdtetris_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "「メガドライブのテトリス、出ない」と社内に回った。ゲーセンで一番人気のうちのテトリスが、うちの機械で出ない。権利は任天堂にあった。倉庫の箱を見に行った人が、黙って戻ってきた。",
+     "en": "Word went round: Mega Drive Tetris isn't coming out. The arcade's most popular Tetris, ours, won't ship on our own machine. Nintendo held the rights. Someone went to look at the boxes in the warehouse and came back without a word."
+    },
+    "effect": {
+     "passion": -6,
+     "network": 2
+    },
+    "tag": [
+     "sega"
+    ],
+    "memory": {
+     "ja": "幻のメガドライブ版テトリスの箱を見た",
+     "en": "saw the boxes of the phantom Mega Drive Tetris"
+    }
+   },
+   {
+    "id": "ev_hs_1989_mdtetris_mdcamp",
+    "when": [
+     "flag.hw_mk_sega",
+     "!flag.sega"
+    ],
+    "text": {
+     "ja": "メガドライブに賭けた年に、メガドライブのテトリスが消えた。ゲーセンで並んだあのテトリスが、家では任天堂のもの。発売予定表の 1 行に赤い線。あなたの作品の隣の行だった。",
+     "en": "The year you bet on the Mega Drive, Mega Drive Tetris vanished. The Tetris you queued for in the arcade would belong to Nintendo at home. A red line went through one row of the release schedule. The row next to your game."
+    },
+    "effect": {
+     "passion": -4,
+     "network": 1
+    },
+    "tag": [
+     "sega",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_mdtetris_lead",
+    "when": [
+     "pos=client_lead"
+    ],
+    "text": {
+     "ja": "「テトリスの権利、誰が持ってるか分かってなかったらしい」。会議でその話が出た翌日、自分の企画の契約書を初めて最後のページまで読んだ。難しい言葉が 40 個あった。",
+     "en": "\"Apparently nobody knew who held the Tetris rights.\" The day after that came up in a meeting, you read your own project's contract to the last page for the first time. It had forty words you didn't know."
+    },
+    "effect": {
+     "skill": 3,
+     "passion": -1
+    },
+    "tag": [
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_mdtetris_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "出来上がったゲームが権利で出なくなる。そんなことがあるのかと知った夜、作りかけのパズルの企画書を引き出しの奥にしまった。落ちるブロック以外の遊びを 1 週間考えた。",
+     "en": "A finished game, killed by rights. The night you learned that could happen, you pushed your own half-built puzzle proposal to the back of the drawer, and spent a week thinking of any mechanic other than falling blocks."
+    },
+    "effect": {
+     "skill": 2,
+     "passion": -2
+    },
+    "tag": [
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_mdtetris_outside",
+    "when": [
+     "pos=outside"
+    ],
+    "text": {
+     "ja": "ゲーセンで 100 円玉を積んで遊んだテトリスが、家でも遊べると聞いて貯金していた。出なかった。代わりに 6 月、ゲームボーイを買った。貯金はぴったり足りた。",
+     "en": "You'd been saving up because the Tetris you fed 100-yen coins at the arcade was coming home. It didn't. In June you bought a Game Boy instead. Your savings covered it exactly."
+    },
+    "effect": {
+     "passion": 3,
+     "money": -3
+    },
+    "tag": [
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1989_mdtetris_any",
+    "text": {
+     "ja": "ゲーセンで一番人気のテトリスの家庭用版が、発売直前に消えた。権利は別の会社にあった。「作れる」と「出せる」は別だと、業界の全員がその週に覚えた。",
+     "en": "The home version of the arcade's most popular Tetris vanished days before release. The rights belonged to someone else. That week the whole industry learned that \"can build it\" and \"can ship it\" are different things."
+    },
+    "effect": {
+     "skill": 1
+    },
+    "tag": [
+     "gag"
+    ]
+   }
+  ]
+ }
+]
