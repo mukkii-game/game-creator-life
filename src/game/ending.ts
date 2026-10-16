@@ -26,6 +26,7 @@ function causeOf(s: State, id: EndingId): Text {
     case 'end_pen_down': return { ja: `${a} 歳、筆を置く。開発者として大往生`, en: `At ${a}, you put down the pen. A full developer's life` };
     case 'end_arrest': return { ja: `${a} 歳、魔が差して逮捕。取り調べで「好きなゲームは?」と聞かれ、3 時間しゃべった`, en: `At ${a}, a moment of weakness and an arrest. Asked about your favorite game in custody, you talked for three hours` };
     case 'end_switch': return { ja: `${a} 歳、ゲームの外の仕事へ転身`, en: `At ${a}, you moved on to work outside games` };
+    case 'end_restart': return { ja: `${a} 歳、AI の時代の入り口で、もう一度スタートラインに立つ`, en: `At ${a}, at the dawn of the AI age, back on the starting line` };
     case 'end_ai_seat': return { ja: `${a} 歳、AI に席を譲った。引き継ぎ資料も AI が書いた`, en: `At ${a}, you gave your seat to an AI. The AI wrote the handover doc too` };
   }
 }
@@ -49,6 +50,7 @@ const AFTER: Partial<Record<EndingId, Text[]>> = {
   end_switch: [{ ja: '名刺の肩書きは変わっても、机の引き出しには今もコントローラが入っている。', en: 'The title on my card changed, but there is still a controller in my desk drawer.' }],
   end_ai_seat: [{ ja: '引き継ぎ資料の最後に、AI が「ありがとうございました」と書いていた。', en: 'At the end of the handover doc, the AI had written "Thank you."' }],
   end_retire: [{ ja: '送別会の帰り道、コンビニでゲーム雑誌を買った。', en: 'On the way home from the farewell party, I bought a game magazine.' }, { ja: '退職の日、机の寝袋を初めて持ち帰った。', en: 'On my last day, I finally took the sleeping bag home.' }],
+  end_restart: [{ ja: '翌朝、新しい企画書のファイルを作った。名前は「新規ドキュメント(2)」。', en: 'Next morning I made a new proposal file. Its name: "New Document (2)".' }, { ja: 'エンディングの後には、2 周目がある。ゲームの作り手なら、みんな知っている。', en: 'After the ending comes New Game+. Every game maker knows that.' }],
   end_pen_down: [{ ja: '70 年分のセーブデータは、全部ちゃんと残っている。', en: 'Seventy years of save data, all still there.' }],
 };
 function epitaphOf(s: State, id: EndingId): Text {

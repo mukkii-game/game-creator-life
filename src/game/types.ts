@@ -47,7 +47,7 @@ export type Pos = 'client_lead' | 'client' | 'dev_lead' | 'dev' | 'sub' | 'qa' |
 export interface Stat { hp: number; passion: number; skill: number; network: number; money: number; fame: number }
 export interface Work { id: string; name: Text; year: number; platform: string; role: Role; result: WorkResult; history: { year: number; text: Text }[] }
 export interface Peer { name: string; bot: string; summary: Text }
-export type EndingId = 'end_burnout' | 'end_body' | 'end_debt' | 'end_blacklist' | 'end_retire' | 'end_pen_down' | 'end_ai_seat' | 'end_arrest' | 'end_switch';
+export type EndingId = 'end_burnout' | 'end_body' | 'end_debt' | 'end_blacklist' | 'end_retire' | 'end_pen_down' | 'end_ai_seat' | 'end_arrest' | 'end_switch' | 'end_restart';
 export interface Ending { id: EndingId; age: number; year: number; cause: Text; summary: Text; /** 最後の 1 行(一番テンションが上がった瞬間 +「いいゲーム人生だった」) */ epitaph: Text; /** 引退時の最後の台詞(有名な台詞のパロディ。lastwords.json) */ lastWord?: Text }
 export type LogKind = 'event' | 'timeline' | 'choice' | 'work' | 'peer';
 export interface LogLine { year: number; age: number; text: Text; kind: LogKind; tag?: string[]; hist?: string }

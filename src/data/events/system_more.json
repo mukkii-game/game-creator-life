@@ -137,5 +137,77 @@
    "choice",
    "indie"
   ]
+ },
+ {
+  "id": "ev_sys_shift",
+  "years": [
+   2027,
+   2040
+  ],
+  "weight": 0,
+  "tag": [
+   "system",
+   "finale",
+   "choice",
+   "big"
+  ],
+  "text": {
+   "ja": "{year} 年。AI が企画もプログラムも絵も音も、一晩で作るようになった。朝のニュースは「ゲーム開発のパラダイムシフト」。昨日までのやり方が、全部「昔のやり方」になった。……どうする?",
+   "en": "{year}. AI now designs, codes, draws and scores a game overnight. The morning news calls it \"a paradigm shift in game development.\" Everything you did until yesterday became \"the old way.\" ... What now?"
+  },
+  "choices": [
+   {
+    "id": "ch_sys_shift_partner",
+    "label": {
+     "ja": "AI を相棒にして、もう 1 本作る",
+     "en": "Make one more, with AI as a partner"
+    },
+    "effect": {
+     "passion": 10,
+     "flag": {
+      "do_restart": true
+     }
+    },
+    "result": {
+     "ja": "AI に昔の企画書を全部読ませた。「この 3 本目、面白いですね」と言われた。30 年前にボツになったやつだった。",
+     "en": "You fed the AI every old proposal. \"This third one is interesting,\" it said. It was rejected thirty years ago."
+    }
+   },
+   {
+    "id": "ch_sys_shift_hand",
+    "label": {
+     "ja": "自分の手で、AI に作れないものを作る",
+     "en": "Make, by hand, what AI can't"
+    },
+    "effect": {
+     "passion": 12,
+     "skill": 3,
+     "flag": {
+      "do_restart": true
+     }
+    },
+    "result": {
+     "ja": "手で作ることにした。AI に作れないものが何かは、まだ分からない。分からないから、作ってみるしかない。",
+     "en": "You'll make it by hand. What AI can't make, you don't know yet. So the only way is to make it and see."
+    }
+   },
+   {
+    "id": "ch_sys_shift_play",
+    "label": {
+     "ja": "若い連中に任せて、遊ぶ側に回る",
+     "en": "Leave it to the young ones and play"
+    },
+    "effect": {
+     "passion": 8,
+     "flag": {
+      "do_restart": true
+     }
+    },
+    "result": {
+     "ja": "遊ぶ側に回った。若い連中が AI で作ったゲームを遊んだら、昔あなたが作ったボスにそっくりなやつが出てきた。",
+     "en": "You switched to playing. In a game the young ones made with AI, there was a boss that looked just like one you made long ago."
+    }
+   }
+  ]
  }
 ]

@@ -247,6 +247,14 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
     } else if (f === 'do_prison') { // 服役(3 年)。明けたら個人開発者として再起する
       s.inner.prevJob = s.job; s.flags.in_prison = true; s.inner.prisonUntil = s.year + 3;
       setStatus(s, 'left'); s.job = 'other'; s.inner.otherJob = { ja: '塀の中', en: 'prison' };
+    } else if (f === 'do_restart') { // 2027 年の区切り。同期と「まだ始まっちゃいねえよ」
+      if (!s.inner.isPeer) {
+        const bud = s.inner.peerStates.find((x) => !x.ending) ?? s.inner.peerStates[0]; // まだ業界にいる同期を優先
+        const p = bud?.name.ja.split(' ')[0] ?? '相棒', pe = bud?.name.en.split(' ').slice(-1)[0] ?? 'buddy';
+        log(s, { ja: `帰り道、同期の${p}がぽつりと言った。「なあ、俺たち、もう終わっちゃったのかな」`, en: `On the way home, your old peer ${pe} said quietly: "Hey... are we finished?"` }, 'event', ['finale']);
+        log(s, { ja: '「バカヤロー、まだ始まっちゃいねえよ」', en: '"Idiot. We haven\'t even started yet."' }, 'event', ['finale', 'high']);
+      }
+      end(s, 'end_restart', out);
     } else if (f === 'do_promote') { // 管理職への昇進を受ける(選択肢から)
       promote(s);
     } else if (f === 'do_join_sega' && SEGA()) { // セガに入る(PLAN §11)
@@ -304,6 +312,8 @@ function beginYear(s: State, out: string[]) {
   // 年表は 1 年 2 行まで(3〜4 行並ぶと自分の話が押し流される、とペルソナ通読で指摘)
   for (const t of (TIMELINE_BY_YEAR.get(s.year) ?? []).slice(0, 2)) log(s, t.text, 'timeline', [t.kind]);
   if ((TIMELINE_BY_YEAR.get(s.year) ?? []).length) out.push('timeline');
+  // 2027 年: AI のパラダイムシフトで人生の区切り(2026-10-16 Mukkii)。その年は「どうする?」の選択だけ → キッズ・リターンのパロディで前向きに終わる
+  if (s.year >= tune<number>('life.finalYear') && s.age < 70) { s.inner.queue = ['ev_sys_shift']; return; }
   const q: string[] = [];
   const sys: string[] = [];
   // 予約(later)
