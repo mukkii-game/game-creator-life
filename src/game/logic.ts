@@ -404,7 +404,7 @@ function beginYear(s: State, out: string[]) {
   // 2026 年: AI 時代の衝撃の事件が立て続けに 3 本(2026-10-16 Mukkii: どのプレイでも 2026 年に)。直近の人生で見ていないものから
   if (s.year === 2026 && !s.flags.ai26 && !s.inner.isPeer) {
     s.flags.ai26 = true;
-    const pool = EVENTS_ALL().filter((e) => e.id.startsWith('ev_ai26_') && (!e.jobs || e.jobs.includes(s.job)) && (e.when ?? []).every((c) => test(s, c))); // 職種も見る(第 56 回: グラフィッカーに「昔のバグ表を読み返した」)
+    const pool = EVENTS_ALL().filter((e) => e.id.startsWith('ev_ai26_') && (!e.jobs || e.jobs.includes(s.job)) && ![e.motif, ...(e.motifAll ?? [])].some((m) => m && s.inner.motifs?.includes(m)) && (e.when ?? []).every((c) => test(s, c))); // 職種も見る(第 56 回: グラフィッカーに「昔のバグ表を読み返した」)
     const fresh = pool.filter((e) => !s.inner.recent?.includes(e.id));
     const nAi = s.inner.recent?.length ? 2 : 3; // 2 回目からは 2 本(第 38 回: 2026 年に AI の行が 4〜5 行並ぶ。立て続けは保つ)
     const pick = draw(r, fresh.length >= nAi ? fresh : pool, nAi, () => 1);
@@ -680,7 +680,7 @@ function remember(s: State, ev: GameEvent, memory?: Text) {
 function promote(s: State) {
   const to: Partial<Record<Job, Job>> = { qa: 'planner', programmer: 'director', planner: 'director', artist: 'director', sound: 'director', sales: 'producer', director: 'producer' };
   const next = to[s.job];
-  if (next) { s.job = next; log(s, { ja: `名刺の職種の欄が「${JOB_TEXT[next].ja}」になった。`, en: `Your business card now says "${JOB_TEXT[next].en}."` }, 'event'); } // 職種が変わったことを書く(第 60 回: 営業なのに「あなたはリード」)
+  if (next) { s.job = next; const jn = JOB_TEXT[next]; log(s, freshLine(s, [{ ja: `名刺の職種の欄が「${jn.ja}」になった。`, en: `Your business card now says "${jn.en}."` }, { ja: `今日から「${jn.ja}」。肩書きの練習で、電話に 2 回噛んだ。`, en: `From today, you're a ${jn.en}. You stumbled over the new title twice on the phone.` }, { ja: `職種が「${jn.ja}」に変わった。机はそのまま、引き出しの中身だけ増えた。`, en: `Your role changed to ${jn.en}. Same desk; only the drawer got fuller.` }, { ja: `社内の名簿で、自分の職種が「${jn.ja}」になっていた。本人より名簿が先に知っていた。`, en: `The staff list now had you as ${jn.en}. The list knew before you did.` }], 'jobchange'), 'event'); } // 職種が変わったことを書く(第 60 回: 営業なのに「あなたはリード」)
   s.flags.promoted = true;
 }
 

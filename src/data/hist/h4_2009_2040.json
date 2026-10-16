@@ -4815,7 +4815,8 @@
    {
     "id": "ev_hs_2025_switch2_client_lead",
     "when": [
-     "pos=client_lead"
+     "pos=client_lead",
+     "co!=co_sony"
     ],
     "text": {
      "ja": "「ロンチに間に合わせろ」。この業界で何度聞いた言葉だろう。カレンダーの 6 月に赤い丸が付いた。",

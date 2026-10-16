@@ -229,6 +229,7 @@
    "en": "Two months before launch, the title clashed with a small overseas trademark. You tacked an exclamation mark on the end. Every sequel has had one since."
   },
   "when": [
+   "works>=2",
    "works>=1",
    "status=employed",
    "!flag.in_prison"
@@ -420,6 +421,7 @@
    "en": "The next game in your series died in a meeting. The reason: \"The hero's name is hard to remember.\" After three games, now they say it."
   },
   "when": [
+   "works>=3",
    "works>=3",
    "status=employed",
    "!flag.in_prison"

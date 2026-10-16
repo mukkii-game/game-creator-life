@@ -30,7 +30,7 @@ export const PROPS = {
   '生成AI': 2022, '生成 AI': 2022, 'ChatGPT': 2022, 'AI': 2022, 'プロンプト': 2022, 'prompt': 2022,
 };
 const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other', 'mentor', 'mentee', 'fan', 'fanwork', 'fanmsg', 'rival']);
-const COND = /^!?(age|year|era|job|status|works|hits|cos|kid|career|pos|company\.size|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z0-9_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
+const COND = /^!?(age|year|era|job|status|works|hits|cos|kid|career|pos|company\.size|co|lastres|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z0-9_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
 const JOBS = ['programmer', 'planner', 'artist', 'sound', 'qa', 'sales', 'director', 'producer', 'teacher', 'other'];
 const STATUS = ['employed', 'indie', 'left', 'retired', 'ended'];
 const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow', 'cause', 'memory', 'needs', 'alt', 'jobs']);

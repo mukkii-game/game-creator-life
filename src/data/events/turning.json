@@ -1641,6 +1641,7 @@
    "en": "Master-up day and your kid's sports day fell on the same date. Both sides say it's \"once in a lifetime.\""
   },
   "when": [
+   "kid<=12",
    "flag.child"
   ],
   "choices": [

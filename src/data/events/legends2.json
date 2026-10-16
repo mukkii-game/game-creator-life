@@ -12,6 +12,8 @@
    "en": "December 1994: the PlayStation, led by Ken Kutaragi, came out. You bought one on day one and bowed to the box at your desk for ten minutes before opening it."
   },
   "when": [
+   "status=employed",
+   "career>=1",
    "status=employed"
   ],
   "effect": {
