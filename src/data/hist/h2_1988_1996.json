@@ -1952,8 +1952,8 @@
      "pos=qa"
     ],
     "text": {
-     "ja": "デバッグ用の試作 CD が山ほど余った。1 枚もらってベランダに吊るし、カラスよけにした。今もそこで回っている。",
-     "en": "Test discs piled up from debugging. You hung one on your balcony to scare off crows. It's still spinning there."
+     "ja": "デバッグ用の試作 CD が段ボールに 1 箱余った。1 枚もらってベランダに吊るし、カラスよけにした。今もそこで回っている。",
+     "en": "A box of test discs was left over from debugging. You hung one on your balcony to scare off crows. It's still spinning there."
     },
     "effect": {
      "passion": 2

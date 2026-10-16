@@ -68,7 +68,7 @@
     "text": { "ja": "VR 部署が解散。最後の日、全員がゴーグルを外して「やっと酔わずに帰れる」と言った。", "en": "The VR team is dissolved. On the last day, everyone removed their headsets: 'Finally, a commute without nausea.'" },
     "effect": { "passion": -5, "skill": 3, "hp": 3 }, "tag": ["gag"] },
   { "id": "ev_era5_vr_peer_star", "years": [2020, 2024], "weight": 0,
-    "text": { "ja": "VR 部署に行った {peer} が、今では海外の展示会で講演している。酔い止めのスポンサー付きで。", "en": "{peer}, who joined the VR team, now gives talks at overseas expos. Sponsored by a motion-sickness pill brand." },
+    "text": { "ja": "昔 VR に賭けた元同僚が、今では海外の展示会で講演している。酔い止めのスポンサー付きで。", "en": "A former coworker who bet on VR now gives talks at overseas expos. Sponsored by a motion-sickness pill brand." },
     "effect": { "passion": -4, "network": 3 }, "tag": ["peer", "gag"] },
   { "id": "ev_era5_crowdfund", "years": [2013, 2019], "once": true, "weight": 2,
     "text": { "ja": "クラウドファンディングで新作の資金を募る。ストレッチゴールに「サントラ」と書いた。", "en": "Crowdfunding your next game. You listed 'soundtrack' as a stretch goal." },

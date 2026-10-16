@@ -2301,8 +2301,8 @@
    {
     "id": "ch_lv_fl_dot", "alt": [{"ja": "スタッフロールの最後、1 秒だけ親友の名前を出した。気づいた人は 3 人いた。", "en": "At the very end of the credits, your friend's name appeared for one second. Three people noticed."}, {"ja": "相棒のアイテム欄の説明文に、親友の口癖を 1 行入れた。誰にも言わなかった。", "en": "You put your friend's catchphrase into one item description for the partner. You told no one."}],
     "label": {
-     "ja": "名前だけ、1 ドットで残す",
-     "en": "Just leave their name, in one pixel row"
+     "ja": "こっそり、親友の跡だけ残す",
+     "en": "Quietly leave a trace of your friend"
     },
     "effect": {
       "flag": {

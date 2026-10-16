@@ -404,7 +404,7 @@ function beginYear(s: State, out: string[]) {
   // 2026 年: AI 時代の衝撃の事件が立て続けに 3 本(2026-10-16 Mukkii: どのプレイでも 2026 年に)。直近の人生で見ていないものから
   if (s.year === 2026 && !s.flags.ai26 && !s.inner.isPeer) {
     s.flags.ai26 = true;
-    const pool = EVENTS_ALL().filter((e) => e.id.startsWith('ev_ai26_') && (e.when ?? []).every((c) => test(s, c)));
+    const pool = EVENTS_ALL().filter((e) => e.id.startsWith('ev_ai26_') && (!e.jobs || e.jobs.includes(s.job)) && (e.when ?? []).every((c) => test(s, c))); // 職種も見る(第 56 回: グラフィッカーに「昔のバグ表を読み返した」)
     const fresh = pool.filter((e) => !s.inner.recent?.includes(e.id));
     const nAi = s.inner.recent?.length ? 2 : 3; // 2 回目からは 2 本(第 38 回: 2026 年に AI の行が 4〜5 行並ぶ。立て続けは保つ)
     const pick = draw(r, fresh.length >= nAi ? fresh : pool, nAi, () => 1);
@@ -427,7 +427,7 @@ function beginYear(s: State, out: string[]) {
       const lastOffer = Math.max(s.inner.seen.ev_sys_offer ?? -99, s.inner.seen.ev_sys_offer_b ?? -99, s.inner.seen.ev_sys_offer_c ?? -99);
       if (!s.flags.age60 && s.inner.companyYears >= 2 && s.age >= 20 && s.year - lastOffer >= 6 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(vary(s, ['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
       // 昇進: 半分は「受けるか、現場に残るか」の選択(ev_wk_promote_ask)。残りはそのまま辞令
-      else if (canPromote(s) && !s.flags.promo_declined && r.chance(tune('job.promote'))) sys.push(r.chance(0.5) && !s.inner.used.includes('ev_wk_promote_ask') && !s.inner.recent?.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : vary(s, ['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
+      else if (canPromote(s) && !s.flags.promo_declined && r.chance(tune('job.promote'))) sys.push(r.chance(0.5) && !s.flags.promoted && !s.inner.used.includes('ev_wk_promote_ask') && !s.inner.recent?.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : vary(s, ['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
       if (s.year >= 2027 && !s.inner.used.includes('ev_sys_ai_seat') && r.chance(Math.min(0.6, tune('ai.seat') * (1 + 2 * Math.min(1, (s.year - 2027) / 8)) + Math.max(0, s.year - 2035) * 0.12))) sys.push('ev_sys_ai_seat');
     }
   } else if (s.status === 'indie') {
@@ -634,7 +634,7 @@ function runItem(s: State, id: string, out: string[]) {
   }
   if (/\{other\}/.test(ev.text.ja) && !s.inner.others?.length) return; // 他の人の名前が無い時に「知人が」で出さない(第 28 回)
   if ((s.flags.callcenter || s.status === 'left') && !/^ev_(sys|fa|rv|mt|me)_/.test(ev.id) && !ev.tag?.some((t) => t === 'system' || t === 'hist' || t === 'chain' || t === 'big_after' || t === 'followup') && !(ev.when ?? []).some((c) => /callcenter|status|pos=/.test(c)) && /マスターアップ|締め切り|隣の席|社内|会議室|会議で|続編を|カード絵|(?<!元)課長|(?<!元)部長|(?<!元)上司|仕様書|企画会議|チームの/.test(ev.text.ja)) return; // 電話の窓口・失業中に開発の席の話を出さない(第 49 回: カスタマーセンターで「今の作品はマスターアップ直前」、失業中に「隣の席の 4 人」)
-  if (s.status === 'indie' && !/^ev_(sys|fa|rv|mt|me)_/.test(ev.id) && !ev.tag?.some((t) => t === 'chain' || t === 'followup' || t === 'big_after') && !(ev.when ?? []).some((c) => /status|pos=|own_co/.test(c)) && /出社|送別会|定年|会社に着|通勤|社員証|人事|社長は|おかえり|隣の部署|うちの部長|課長/.test(ev.text.ja)) return; // ひとりで作っている間に「最後の出社」「送別会」を出さない(第 51 回)
+  if (s.status === 'indie' && !/^ev_(sys|fa|rv|mt|me)_/.test(ev.id) && !ev.tag?.some((t) => t === 'chain' || t === 'followup' || t === 'big_after') && !(ev.when ?? []).some((c) => /status|pos=|own_co/.test(c)) && /出社|送別会|定年|会社に着|通勤|社員証|人事|社長は|おかえり|隣の部署|うちの部長|課長|チーム全員|法務の|絵描きが/.test(ev.text.ja)) return; // ひとりで作っている間に「最後の出社」「送別会」を出さない(第 51 回)
   if (s.job === 'teacher' && !ev.tag?.some((t) => t === 'teach' || t === 'teacher' || t === 'system') && !ev.id.startsWith('ev_sys_') && !(ev.when ?? []).some((c) => c.includes('teacher')) && /発売|作品|開発|マスター|チーム|社内|会議|企画|締め切り|仕様/.test(ev.text.ja)) return; // 先生になった後に開発の話を出さない(第 36 回: 塾の講師になって 5 年「開発者の幽霊」)
   if (ev.choices && isHwChoice(ev)) { if (s.inner.lastHwChoice !== undefined && s.year - s.inner.lastHwChoice < 2) return; s.inner.lastHwChoice = s.year; } // どの機械に付くかの選択は 2 年に 1 回まで(第 23 回: DS か PSP かが同じ年に 2 回、ドリキャスが 2 年続けて)
   if (ev.choices && ev.motif && s.inner.motifs?.includes(ev.motif)) return; // 年の初めに積んだ選択でも、同じ年に同じ型の選択が先に出ていたら出さない(第 20 回: ソシャゲに行くかが 1 年に 2 回)
