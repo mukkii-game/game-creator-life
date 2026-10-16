@@ -55,6 +55,7 @@ const JOB_WORDS: [RegExp, import('./types').Job[]][] = [
   [/自分の描いた|あなたの描いた|自分が描いた|あなたの絵|自分の絵|描き直し|ドット絵を|原画を/, ['artist', 'director']],
   [/あなたの曲|自分の曲|あなたの昔の曲|作曲|効果音を作/, ['sound', 'director']],
   [/昔のバグ表|バグ票を書|再現手順を/, ['qa']],
+  [/営業の人|営業が「|営業は「|営業が言う/, ['planner', 'programmer', 'artist', 'sound', 'director', 'producer', 'qa']], // 第 43 回: 営業の人生に「営業が『子どもに売れない』と言うので」
   [/音の担当が|音の担当の|音担当に|音担当の|サウンド担当は|サウンド担当が/, ['planner', 'programmer', 'artist', 'director', 'producer', 'qa', 'sales']], // 第 38 回: サウンドの人生に「曲は全部、音の担当が一人で作った」
   [/自分の作った(ステージ|敵|ボス|キャラ|面|ダンジョン)|調合表を作|あなたの作った(ステージ|敵|ボス|面)/, ['planner', 'programmer', 'artist', 'director']], // 第 24 回: QA・営業に「自分の作った敵キャラ」
   [/キャラを 1 人作|キーボードをなで|1 日 14 時間ゲームを作/, ['planner', 'programmer', 'artist', 'sound', 'director', 'producer']],

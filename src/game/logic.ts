@@ -621,7 +621,8 @@ function runItem(s: State, id: string, out: string[]) {
     const digital = (w: { platform: string }) => /スマホ|ケータイ|ソシャゲ|ブラウザ|オンライン|AI クラウド|Steam|itch|Flash|iPhone/.test(w.platform);
     const bad = /クソゲー|爆死|ワゴン|投げ売り/.test(ev.text.ja), good = /名作|大ヒット|伝説|殿堂(?!入りを果たし)|同じハードに|続編|リマスター|父と遊んだ|親子で/.test(ev.text.ja) && !bad; // 爆死した作品を新しいハードに出し直さない(第 38 回)
     const hitW = (w: { result: string }) => w.result === 'hit' || w.result === 'legend';
-    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= (bad ? 4 : 2) && (!online || digital(w)) && (!boxed || !digital(w)) && (!bad || !hitW(w)) && (!good || hitW(w)) && !(/サービス終了|配信を止め|配信停止/.test(ev.text.ja) && w.history.some((h) => (h as { key?: string }).key === 'eos'))); // ヒット作をクソゲー扱いしない・普通の作品を名作扱いしない(第 21 回)
+    const gen = /父と遊んだ|親子で|いまは息子|いまは娘/.test(ev.text.ja); // 親子二代の話は 15 年以上前の作品だけ(第 43 回: 1 年前の作品で「父と遊んだ」)
+    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= (gen ? 15 : bad ? 4 : 2) && (!online || digital(w)) && (!boxed || !digital(w)) && (!bad || !hitW(w)) && (!good || hitW(w)) && !(/サービス終了|配信を止め|配信停止/.test(ev.text.ja) && w.history.some((h) => (h as { key?: string }).key === 'eos'))); // ヒット作をクソゲー扱いしない・普通の作品を名作扱いしない(第 21 回)
     if (!old.length) return;
     s.inner.workTarget = r.pick(old)[1];
   }
