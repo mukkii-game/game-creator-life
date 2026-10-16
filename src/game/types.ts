@@ -37,6 +37,8 @@ export interface GameEvent {
   motif?: string;
   /** 本文に当たる型すべて(motif 以外も。1 人生 1 回の判定に使う) */
   motifAll?: string[];
+  /** 自分で企画書を書く話(企画の職種か、業界 8 年目から) */
+  planOnly?: boolean;
   /** この話を出してよい職種(job_hints.json から読み込み時に入る。本文が特定の職種の作業を前提にしている話) */
   jobs?: Job[];
 }

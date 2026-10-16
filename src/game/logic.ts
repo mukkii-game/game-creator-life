@@ -883,7 +883,7 @@ function mentorArcs(s: State, r: Rng, out: string[]) {
     if ((a.step === 1 || a.step === 2) && (s.status !== 'employed' || (a.co && a.co !== s.company.id))) { a.step++; continue; }
     const pre = kind === 'mentor' ? 'ev_mt_' : 'ev_me_';
     const used = [...(s.inner.mentor?.used ?? []), ...(s.inner.mentee?.used ?? [])];
-    const vs0 = ['a', 'b', 'c', 'd', 'e', 'f'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)) && (!e.jobs || e.jobs.includes(s.job)) && (!(SAME_CO.has(e.id) || /上司|社内|会議|隣の席|部署|チーム|配属|社員食堂|異動/.test(e.text.ja)) || (s.status === 'employed' && a.co === s.company.id))); // 会社の中の話は同じ会社にいる間だけ(第 11 回ペルソナ: 潰れた会社の上司がずっと出てくる)
+    const vs0 = ['a', 'b', 'c', 'd', 'e', 'f'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)) && (!e.jobs || e.jobs.includes(s.job)) && (!e.planOnly || ['planner', 'director', 'producer'].includes(s.job) || s.year - s.startYear >= 8) && (!(SAME_CO.has(e.id) || /上司|社内|会議|隣の席|部署|チーム|配属|社員食堂|異動/.test(e.text.ja)) || (s.status === 'employed' && a.co === s.company.id))); // 会社の中の話は同じ会社にいる間だけ(第 11 回ペルソナ: 潰れた会社の上司がずっと出てくる)
     const freshV = vs0.filter((e) => !s.inner.recent?.includes(e.id));
     const vs = freshV.length ? freshV : vs0;
     if (vs.length) {
@@ -1038,7 +1038,7 @@ function wOf(s: State): (e: GameEvent) => number {
   // 人生ごとの色(第 33 回: 3 回続けると「同じ骨組みの色違い」→ 1 人生ごとに出やすい話の種類を 1 つ決める。直近の人生と同じ色は避ける)
   const th = (s.inner.theme ??= (() => { const ok = THEMES.filter((t) => !rec?.includes(`theme:${t}`)); return s.inner.isPeer ? '' : s.rng.pick(ok.length ? ok : THEMES); })());
   const p = tune<number>('life.recentPenalty');
-  return (e) => (e.weight ?? 1) * (th && e.tag?.includes(th) ? 2.5 : 1) * (e.jobs && e.jobs.length <= 2 && e.jobs.includes(s.job) ? 2 : 1) /* 職種の味(第 38 回: サウンドなのに音の話がほぼ無い) */ * (rec?.includes(e.id) ? p : 1) * (e.motif && rec?.includes(`line:motif:${e.motif}`) ? 0.2 : 1) * (e.tag?.includes('insider') ? 0.4 : 1);
+  return (e) => (e.weight ?? 1) * (th && e.tag?.includes(th) ? 2.5 : 1) * (e.jobs && e.jobs.length <= 2 && e.jobs.includes(s.job) ? (s.year - s.startYear <= 7 ? 4 : 2) : 1) /* 職種の味(第 38 回: サウンドなのに音の話がほぼ無い) */ * (rec?.includes(e.id) ? p : 1) * (e.motif && rec?.includes(`line:motif:${e.motif}`) ? 0.2 : 1) * (e.tag?.includes('insider') ? 0.4 : 1);
 }
 
 /** 直近の人生で見ていない話だけ(続けて遊んだ時に、人生の大きな筋が被らないように) */
