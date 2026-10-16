@@ -5,7 +5,8 @@ import { LASTWORDS } from './data';
 import { test } from './select';
 
 function causeOf(s: State, id: EndingId): Text {
-  const a = s.age, c = s.inner.counts;
+  const c = s.inner.counts;
+  const a = id === 'end_burnout' && s.inner.leftYear ? s.age - (s.year - s.inner.leftYear) : s.age; // 心が折れたのは辞めた年(第 45 回: 37 歳でタクシー会社へ移ったのに「42 歳、仕様変更で心が折れ」)
   const other = s.inner.otherJob ?? { ja: '別の仕事', en: 'another job' };
   switch (id) {
     case 'end_burnout': {
