@@ -536,7 +536,8 @@
     "result": {
      "ja": "最終面談で自分の企画を通した。廊下に出ると、{rival}が缶コーヒーをもう 1 本買って、黙ってあなたに投げてよこした。",
      "en": "You won the final interview with your own pitch. In the hall, {rival} bought one more canned coffee and tossed it to you without a word."
-    }
+    },
+    "alt": [{"ja": "最終面談で自分の企画を通した。翌朝、{rival}の机に「おめでとう」の付箋。裏に小さく「次はこっち」。", "en": "You won the final interview. Next morning, a sticky note on {rival}'s desk said \"Congrats.\" On the back, small: \"Next one's mine.\""}, {"ja": "最終面談で自分の企画を通した。{rival}は何も言わず、帰りのエレベーターで「開」を押して待っていてくれた。", "en": "You won the final interview. {rival} said nothing, but held the elevator for you on the way out."}]
    },
    {
     "id": "ch_rv_1b_merge",
@@ -554,7 +555,8 @@
     "result": {
      "ja": "面談の場で「二人でやらせてください」と言った。役員はあきれて、許した。帰りの居酒屋で、コースターの裏に画面の割り振りを描いた。",
      "en": "\"Let us do it together,\" you said in the interview. The executives sighed and agreed. At the bar after, you sketched the screen layout on a coaster."
-    }
+    },
+    "alt": [{"ja": "面談の場で「二人でやらせてください」と言った。役員は笑って許した。企画書の作者欄の順番は、じゃんけんで決めた。", "en": "In the interview you said, \"Let us do it together.\" The executives laughed and agreed. You settled the author order on the proposal with rock-paper-scissors."}]
    }
   ]
  },
