@@ -261,8 +261,8 @@
    2009
   ],
   "text": {
-   "ja": "「SPU を使い切れ」と言われた。使い切った人を、社内で一度も見なかった。",
-   "en": "\"Use every SPU,\" they said. You never once met anyone in the company who had."
+   "ja": "PS3 の時代。「SPU を使い切れ」と言われた。使い切った人を、社内で一度も見なかった。",
+   "en": "The PS3 years. \"Use every SPU,\" they said. You never once met anyone in the company who had."
   },
   "when": [
    "status=employed",
@@ -377,8 +377,8 @@
    2011
   ],
   "text": {
-   "ja": "ドコモ、au、ソフトバンク。1 枚の絵を 3 回、別の大きさに縮めた。3 枚とも同じに見えた。",
-   "en": "Docomo, au, SoftBank. You shrank one picture three times to three different sizes. All three looked the same."
+   "ja": "ケータイのゲームは 3 社分作る。ドコモ、au、ソフトバンク。1 枚の絵を 3 回、別の大きさに縮めた。3 枚とも同じに見えた。",
+   "en": "Phone games shipped for three carriers: Docomo, au, SoftBank. You shrank one picture three times to three different sizes. All three looked the same."
   },
   "when": [
    "status=employed"
@@ -399,8 +399,8 @@
    2040
   ],
   "text": {
-   "ja": "DAU、ARPPU、継続率。会議で「面白い」という言葉が出たのは、3 か月で 1 回だけだった。言ったのは新人だった。",
-   "en": "DAU, ARPPU, retention. In three months of meetings, the word \"fun\" came up once. The new hire said it."
+   "ja": "運営会議の資料は DAU、ARPPU、継続率ばかり。会議で「面白い」という言葉が出たのは、3 か月で 1 回だけだった。言ったのは新人だった。",
+   "en": "The live-ops decks were all DAU, ARPPU, retention. In three months of meetings, the word \"fun\" came up once. The new hire said it."
   },
   "when": [
    "flag.hw_dv_mobile"
