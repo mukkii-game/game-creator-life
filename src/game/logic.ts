@@ -377,7 +377,8 @@ function beginYear(s: State, out: string[]) {
   // 会社の中の大作の結末(tag mega)は、同じ会社にいる時だけ(第 7 回ペルソナ: 潰れた会社の巨大作が「やっと出た」)
   // 2023〜2025 年: AI の現場あるあるを毎年 1 本、2024 年には「生成 AI をどう使うか」(第 16 回ペルソナ: 1 人生に 1〜2 個しか無く、2026 年が唐突)
   if (s.year >= 2023 && s.year <= 2025 && s.status === 'employed' && !s.flags.in_prison && !s.inner.isPeer) {
-    if (s.year >= 2024 && !s.flags.aiq_asked && EVENT_BY_ID.get('ev_aiq_use') && eligible(s, EVENT_BY_ID.get('ev_aiq_use')!)) { s.flags.aiq_asked = true; q.push('ev_aiq_use'); }
+    const aiqY = (s.inner.aiqYear ??= s.inner.recent?.length ? 2023 + r.int(0, 2) : 2024); // 2 回目からは 2023〜25 年のどこか(第 25 回まで: 毎回 2024 年で骨組みが見える。仮決め・QUESTIONS.md)
+    if (s.year >= aiqY && !s.flags.aiq_asked && EVENT_BY_ID.get('ev_aiq_use') && eligible(s, EVENT_BY_ID.get('ev_aiq_use')!)) { s.flags.aiq_asked = true; q.push('ev_aiq_use'); }
     else {
       const pool = EVENTS_ALL().filter((e) => e.id.startsWith('ev_aia_') && eligible(s, e, 99, 1));
       const fresh = pool.filter((e) => !s.inner.recent?.includes(e.id));
@@ -918,9 +919,17 @@ function kidsReturn(s: State, id: EndingId) {
   const said = (s.inner.saidLines ??= []);
   const okF = FINALES.map((f, i) => [f, i] as const).filter(([f]) => (!f.fit || f.fit(s, id)) && !(f.parody && s.log.some((l) => f.parody!.test(l.text.ja))));
   const freshF = okF.filter(([, i]) => !s.inner.recent?.includes(`line:finale:${i}`));
-  const [fin, fi] = !s.inner.recent?.length ? okF[0] : s.rng.pick(freshF.length ? freshF : okF);
-  said.push(`finale:${fi}`);
-  const finale = fin.t;
+  // 2 回目からは、直近に名台詞で締めていたら半分は普通の掛け合いで(第 25 回まで: 毎回名台詞で 3 回目に読める。仮決め・QUESTIONS.md)
+  const plainOk = !!s.inner.recent?.some((x) => x.startsWith('line:finale:')) && s.rng.chance(0.5);
+  let finale: Text;
+  if (plainOk) finale = freshLine(s, [
+    { ja: '「次、何作る?」\n「まだ決めてない。決めてないのが、いちばん楽しい」', en: '"What are you making next?"\n"Haven\'t decided. That\'s the best part."' },
+    { ja: '「後悔してる?」\n「セーブデータは、全部残してある」', en: '"Any regrets?"\n"I kept every save file."' },
+    { ja: '「疲れたな」\n「ああ。でも、もう 1 面だけ」', en: '"Tired?"\n"Yeah. Just one more stage."' },
+    { ja: '「お前のゲーム、まだ実家にあるぞ」\n「電池、切れてないといいな」', en: '"Your game\'s still at my parents\' place."\n"Hope the battery\'s still alive."' },
+    { ja: '「また一緒にやるか」\n「次は、締め切りを守る方で」', en: '"Want to do it again sometime?"\n"Sure. The kind where we hit the deadline."' },
+  ], 'plainfin');
+  else { const [fin, fi] = !s.inner.recent?.length ? okF[0] : s.rng.pick(freshF.length ? freshF : okF); said.push(`finale:${fi}`); finale = fin.t; }
   s.inner.kr = { ja: `${w.ja}\n${finale.ja}`, en: `${w.en}\n${finale.en}` };
 }
 
