@@ -330,7 +330,8 @@
   "weight": 0,
   "tag": [
    "mentee"
-  ]
+  ],
+  "needs": "ev_mt_1c"
  },
  {
   "id": "ev_me_2a",
@@ -556,5 +557,434 @@
   "tag": [
    "mentee"
   ]
+ },
+ {
+  "id": "ev_mt_1d",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}が教育係に。初日の昼休み、社員食堂で「ここのカレーは水曜だけ食べろ」と教わった。仕様書より先に覚えた、この会社の最初のルール。",
+   "en": "{mentor} became your trainer. First lunch: \"Only eat the cafeteria curry on Wednesdays.\" The first rule you learned here, before any spec."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_1e",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "直属の先輩は{mentor}。机の上にゲームが 1 本だけ置いてあり、「全部遊んでから話そう」と言われた。クリアに 2 週間かかった。",
+   "en": "Your direct senior was {mentor}. One game sat on your desk: \"Finish it, then we talk.\" It took two weeks."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_1f",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}の下についた。最初の仕事は、{mentor}の書いたコードのコメントを読むこと。コメントの半分が愚痴だった。全部、後で当たっていた。",
+   "en": "You were placed under {mentor}. First task: read the comments in {mentor}'s code. Half were complaints. All of them turned out right."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_2d",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}に企画書を見せた。「面白い」の後に「で、どこが?」。答えられなかった。以来、企画書の 1 行目はその答えになった。",
+   "en": "You showed {mentor} a proposal. \"Interesting.\" Then: \"Which part?\" You couldn't answer. Ever since, that answer is line one of every proposal."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_2e",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}の口癖は「迷ったら遊ぶ側に立て」。仕様で揉めた会議で、黙ってコントローラを渡された。遊んだら、揉める理由が消えた。",
+   "en": "{mentor}'s motto: \"When in doubt, stand where the player stands.\" In a spec fight they silently handed you a controller. After playing, the fight was gone."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_2f",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "徹夜明けに{mentor}から「帰れ」と言われた。「疲れたやつが書いた仕様は、疲れたゲームになる」。帰って寝たら、バグの場所が夢に出た。",
+   "en": "After an all-nighter {mentor} said, \"Go home. Tired people write tired games.\" You slept, and the bug's location came to you in a dream."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_3d",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "納期の前日、{mentor}が「自分の担当は終わった」と言って隣に座った。終わっていなかった。2 人で朝までやった。",
+   "en": "The day before the deadline, {mentor} said \"my part's done\" and sat down next to you. It wasn't done. You both worked till morning."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_3e",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "会議で自分の案が笑われた日、{mentor}が何も言わずにホワイトボードを消して、あなたの案を描き直した。少し良くなっていた。",
+   "en": "The day the meeting laughed at your idea, {mentor} silently erased the whiteboard and redrew it. It was a little better than yours."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_3f",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "大きなミスで始末書。{mentor}が自分の分も一緒に書いた。「自分も見落とした」。見落としていないのは、2 人とも知っていた。",
+   "en": "A big mistake, a written apology. {mentor} wrote one too: \"I missed it as well.\" You both knew they hadn't."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_4d",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}が異動になった。最終日、机の引き出しの中身を全部あなたの机に移した。のど飴と胃薬と、見たことのない企画書が 3 本。",
+   "en": "{mentor} was transferred. On the last day, everything in their drawer moved to yours: lozenges, antacids, and three proposals you'd never seen."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_4e",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}が「海外に行く」と言った。送別会で初めて、{mentor}の下の名前を知った。10 年近く、苗字でしか呼んでいなかった。",
+   "en": "{mentor} announced a move overseas. At the farewell you learned their first name for the first time. Nearly ten years of surnames."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_4f",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}が体を壊して休職した。見舞いに行くと、病室でゲームの雑誌を読んでいた。「お前のやつ、載ってるぞ」。4 行だった。",
+   "en": "{mentor} went on leave with health trouble. In the hospital room they were reading a game magazine. \"Yours is in here.\" Four lines."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_5d",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "業界のイベントで、{mentor}が若手に囲まれていた。あなたを見つけて一言、「こいつが一番手がかかった」。一番の褒め言葉だった。",
+   "en": "At an industry event, {mentor} was surrounded by young developers. They spotted you: \"This one was the most trouble.\" The highest praise."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_5e",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentor}からハガキ。「お前のゲーム、クリアした。難しい」。裏に、昔の赤ペンの字で、1 か所だけ丸が付いていた。「ここはいい」。",
+   "en": "A postcard from {mentor}: \"Finished your game. Hard.\" On the back, in the old red pen, one circle: \"this is good.\""
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_mt_5f",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "同窓会で、{mentor}の口癖を誰かが真似した。全員が笑って、全員が同じ人の下で育ったのだと分かった。",
+   "en": "At a reunion someone imitated {mentor}'s catchphrase. Everyone laughed, and everyone realized they'd grown up under the same person."
+  },
+  "tag": [
+   "mentor"
+  ]
+ },
+ {
+  "id": "ev_me_1d",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "新人の{mentee}を任された。初日の昼、社員食堂で「カレーは水曜だけ」と教えた。{mentor}の言葉だったと、言ってから気づいた。",
+   "en": "You were handed the new hire {mentee}. First lunch: \"Curry only on Wednesdays.\" Only after saying it did you realize it was {mentor}'s line."
+  },
+  "tag": [
+   "mentee"
+  ],
+  "needs": "ev_mt_1d"
+ },
+ {
+  "id": "ev_me_1e",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}が直属についた。机にゲームを 1 本置いて「全部遊んでから話そう」。自分が 2 週間かかった作品を、{mentee}は 3 日でクリアした。",
+   "en": "{mentee} joined under you. You put one game on their desk: \"Finish it, then we talk.\" It took you two weeks once. {mentee} did it in three days."
+  },
+  "tag": [
+   "mentee"
+  ],
+  "needs": "ev_mt_1e"
+ },
+ {
+  "id": "ev_me_1f",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}の教育係に。何から教えるか考えて、結局「分からないことはすぐ聞け」にした。自分が聞けなかった分を取り返すように。",
+   "en": "You became {mentee}'s trainer. After thinking it over you settled on \"ask the moment you're stuck\", as if to make up for everything you never asked."
+  },
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_2d",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}の企画書に「面白い」と書いて、「で、どこが?」と足した。{mentee}は 1 週間後、1 行目に答えを書いて持ってきた。",
+   "en": "You wrote \"interesting\" on {mentee}'s proposal, then added \"which part?\" A week later they came back with the answer as line one."
+  },
+  "tag": [
+   "mentee"
+  ],
+  "needs": "ev_mt_2d"
+ },
+ {
+  "id": "ev_me_2e",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "仕様で揉めた{mentee}に、黙ってコントローラを渡した。遊び終えた{mentee}が「分かりました」と言った。何が分かったかは聞かなかった。",
+   "en": "{mentee} was stuck in a spec fight. You handed them a controller without a word. Afterwards: \"I get it.\" You didn't ask what."
+  },
+  "tag": [
+   "mentee"
+  ],
+  "needs": "ev_mt_2e"
+ },
+ {
+  "id": "ev_me_2f",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "徹夜明けの{mentee}に「帰れ」と言った。言った後で、自分も 2 日寝ていないことに気づいた。2 人で帰った。",
+   "en": "You told {mentee} to go home after their all-nighter. Then you realized you hadn't slept in two days either. You both went home."
+  },
+  "tag": [
+   "mentee"
+  ],
+  "needs": "ev_mt_2f"
+ },
+ {
+  "id": "ev_me_3d",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}が自分のやり方を疑ってきた。説明しているうちに、自分でも疑わしくなった。翌週、{mentee}のやり方に変えた。",
+   "en": "{mentee} questioned your method. Explaining it, you started doubting it too. Next week you switched to theirs."
+  },
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_3e",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}の始末書を一緒に書いた。「自分も見落とした」。{mentee}は「見てないですよね」と小声で言った。見ていなかった。",
+   "en": "You co-signed {mentee}'s apology: \"I missed it too.\" {mentee} whispered, \"You didn't even look.\" You hadn't."
+  },
+  "tag": [
+   "mentee"
+  ],
+  "needs": "ev_mt_3f"
+ },
+ {
+  "id": "ev_me_3f",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}の初めての企画が会議で笑われた。ホワイトボードを消して描き直そうとして、やめた。{mentee}が自分で描き直した。",
+   "en": "{mentee}'s first proposal got laughed at. You reached to erase the whiteboard and redraw it, then stopped. {mentee} redrew it themselves."
+  },
+  "tag": [
+   "mentee"
+  ],
+  "needs": "ev_mt_3e"
+ },
+ {
+  "id": "ev_me_4d",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}が異動した。机の引き出しに、のど飴と胃薬を入れておいた。「要るようになったら」と書いた付箋つき。",
+   "en": "{mentee} was transferred. You'd slipped lozenges and antacids into their drawer, with a note: \"For when you need them.\""
+  },
+  "tag": [
+   "mentee"
+  ],
+  "needs": "ev_mt_4d"
+ },
+ {
+  "id": "ev_me_4e",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}が海外のスタジオに移った。送別会で、{mentee}があなたの下の名前を知らないと判明した。ずっと肩書きでしか呼ばれていなかった。",
+   "en": "{mentee} moved to an overseas studio. At the farewell it emerged they didn't know your first name. Years of \"boss.\""
+  },
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_4f",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}の作品が賞を取った。受賞の挨拶で「教えてくれた人がいます」。会場の全員が最前列の有名人を見た。あなたは後ろの席で拍手した。",
+   "en": "{mentee}'s game won an award. \"Someone taught me,\" they said. The whole room looked at the famous person in the front row. You clapped from the back."
+  },
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_5d",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}の下の名前を、{mentee}の子どもの名前で初めて知った。年賀状の写真に、あなたのゲームのぬいぐるみが写っていた。",
+   "en": "You learned {mentee}'s first name from their child's name on a New Year card. In the photo: a plush toy from your game."
+  },
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_5e",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{mentee}が講演で「尊敬する先輩」の話をした。エピソードが 3 つ。2 つは覚えていない。1 つは別の人の話だった。それでも嬉しかった。",
+   "en": "{mentee} gave a talk about \"a senior I respect.\" Three stories. Two you don't remember. One was about someone else. You were happy anyway."
+  },
+  "tag": [
+   "mentee"
+  ]
+ },
+ {
+  "id": "ev_me_5f",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "引退の日、{mentee}から封筒。中身は、昔あなたが赤ペンで直した{mentee}のコードの印刷。丸は 1 か所。「ここはいい」。",
+   "en": "On your last day, an envelope from {mentee}: a printout of their old code with your red-pen marks. One circle: \"this is good.\""
+  },
+  "tag": [
+   "mentee"
+  ],
+  "needs": "ev_me_2b"
  }
 ]
