@@ -2135,5 +2135,95 @@
   "tag": [
    "magazine"
   ]
+ },
+ {
+  "id": "ev_mg_beepmd_love",
+  "years": [
+   1989,
+   1995
+  ],
+  "when": [
+   "status=employed",
+   "flag.sega"
+  ],
+  "text": {
+   "ja": "BEEP! メガドライブに自社の新作が載った。他の雑誌が 2 行のところ、見開き 2 ページ。編集部のセガ愛は、社内の誰よりも濃かった。",
+   "en": "BEEP! Mega Drive covered your new game: a two-page spread where other magazines gave it two lines. The editors loved Sega more than anyone in the building."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "magazine",
+   "sega",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_mg_beepmd_hw",
+  "years": [
+   1989,
+   1995
+  ],
+  "when": [
+   "flag.hw_mk_sega",
+   "!flag.sega"
+  ],
+  "text": {
+   "ja": "メガドラで出したゲームが、BEEP! メガドライブで大きく扱われた。他誌では小さかったのに。セガのハードを選んだ人間には、ちゃんと味方がいた。",
+   "en": "Your Mega Drive game got big coverage in BEEP! Mega Drive, though other magazines barely noticed. If you bet on Sega's hardware, you had allies."
+  },
+  "effect": {
+   "passion": 6,
+   "network": 2
+  },
+  "tag": [
+   "magazine",
+   "sega",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_mg_beepmd_race",
+  "years": [
+   1990,
+   1995
+  ],
+  "when": [
+   "flag.hw_mk_sega"
+  ],
+  "text": {
+   "ja": "BEEP! メガドライブの読者レース(読者の採点で順位が付くページ)で、自分たちのゲームが順位を 1 つ上げた。社内の誰より先に、毎月そのページを開くようになった。",
+   "en": "In BEEP! Mega Drive's reader rankings, your game climbed one place. Every month after that, you were the first in the office to open that page."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "magazine",
+   "sega"
+  ]
+ },
+ {
+  "id": "ev_mg_beepmd_reader",
+  "years": [
+   1989,
+   1995
+  ],
+  "when": [
+   "age>=15"
+  ],
+  "text": {
+   "ja": "BEEP! メガドライブの読者ページは、メガドラへの愛と、ほかの機種へのやっかみでできていた。読んでいるうちに、持っていないメガドラが欲しくなった。",
+   "en": "BEEP! Mega Drive's reader pages were made of love for the Mega Drive and envy of every other machine. Reading them, you wanted a Mega Drive you didn't own."
+  },
+  "effect": {
+   "passion": 3
+  },
+  "tag": [
+   "magazine",
+   "sega",
+   "gag"
+  ]
  }
 ]
