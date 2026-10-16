@@ -208,7 +208,7 @@
     "text": { "ja": "子どもが AI で作ったゲームを見せてくれた。30 分で作ったらしい。あなたの 3 年分と同じくらい面白い。", "en": "Your kid shows you a game they made with AI in 30 minutes. It's about as fun as your last three years." },
     "when": ["flag.child"], "effect": { "passion": 4, "skill": 1 }, "tag": ["ai", "family", "gag"] },
   { "id": "ev_era6_spec_2025", "years": [2025, 2026], "once": true, "weight": 3,
-    "text": { "ja": "件名「仕様変更のお知らせ」。1985 年と同じ件名が、今度は AI の要約付きで届いた。要約は「変更。」", "en": "Subject: 'Spec change notice.' The same subject line as 1985, now with an AI summary. Summary: 'Changed.'" },
+    "text": { "ja": "件名「仕様変更のお知らせ」。新人の頃と同じ件名が、今度は AI の要約付きで届いた。要約は「変更。」", "en": "Subject: 'Spec change notice.' The same subject line as 1985, now with an AI summary. Summary: 'Changed.'" },
     "when": ["status=employed"], "effect": { "passion": -10 }, "tag": ["spec", "ai", "gag"] },
   { "id": "ev_era6_spec_any", "years": [2020, 2035],
     "text": { "ja": "仕様変更のお知らせが、カレンダー招待で来た。タイトルは「軽い相談(15 分)」。2 時間続いた。", "en": "The spec change arrived as a calendar invite: 'Quick chat (15 min).' It lasted two hours." },

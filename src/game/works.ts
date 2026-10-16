@@ -23,7 +23,7 @@ const STYLED: Record<string, Text[]> = {
 function styledName(s: State): Text | null {
   for (const k of Object.keys(STYLED)) if (s.flags[k]) {
     delete s.flags[k];
-    const used = new Set(s.works.map((w) => w.name.ja));
+    const used = new Set([...s.works, ...s.inner.peerStates.flatMap((p) => p.works)].map((w) => w.name.ja)); // 同期の作品と同じ題名にしない(第 27 回)
     const c = STYLED[k].filter((t) => !used.has(t.ja) && !s.inner.recent?.includes(`title:${t.ja.replace(/^『|』$/g, '')}`));
     return s.rng.pick(c.length ? c : STYLED[k]);
   }
@@ -36,7 +36,7 @@ function fitName(r: State["rng"], year: number, platform: string): Text {
   return n;
 }
 function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | null {
-  const used = new Set(s.works.map((w) => w.name.ja));
+  const used = new Set([...s.works, ...s.inner.peerStates.flatMap((p) => p.works)].map((w) => w.name.ja)); // 同期の作品と同じ題名にしない(第 27 回)
   const near = TITLES.filter((t) => t.years[0] <= s.year && s.year <= t.years[1]); // 発売前の年には出さない。一言に「同じ年」が多いので、終わりの年も延ばさない
   const fit = near.filter((t) => !t.platforms || t.platforms.some((p) => platform.includes(p) || p.includes(platform)));
   // 会社の作風(company_traits.json の genres)に合うタイトルを 7 割で優先する(シューティングの会社はシューティングを出しがち)

@@ -35,6 +35,8 @@ const KIN: [RegExp, string, string[]][] = [
   // 第 7 回ペルソナ: 祖父の危篤・墓参りの翌年に「祖父に聞かれた」
   [/祖父/, 'grandpa_gone', ['ev_lv_big_grandpa', 'ev_lv_grandpa_funeral_brag', 'ev_lv_grandpa_grave']],
 ];
+// 「両親」の話は、どちらかを見送った後には出さない(第 27 回: 父を見送った 2 年後に「両親が会社見学」)
+for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(''); if (/両親|親が(?!倒れ)|父母/.test(tx) && (e.weight ?? 1) > 0) for (const f of ['!flag.father_gone', '!flag.mother_gone']) if (!(e.when ?? []).includes(f)) e.when = [...(e.when ?? []), f]; }
 for (const e of EVENTS) for (const [re, flag, deaths] of KIN) {
   if (deaths.includes(e.id)) { const put = (x?: import('./types').Effect) => ({ ...(x ?? {}), flag: { ...(x?.flag ?? {}), [flag]: true } }); e.effect = put(e.effect); for (const c of e.choices ?? []) c.effect = put(c.effect); continue; } // 選択のある話は話そのものの effect が使われないので、選択ごとにも立てる(第 19 回: 危篤の祖父が生き返った)
   if ((e.weight ?? 1) > 0 && re.test([e.text, ...(e.alt ?? [])].map((x) => x.ja).join('')) && !(e.when ?? []).includes(`!flag.${flag}`)) e.when = [...(e.when ?? []), `!flag.${flag}`];

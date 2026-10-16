@@ -76,7 +76,7 @@ function epitaphOf(s: State, id: EndingId): Text {
   const after = prisonAfter ?? restartAfter ?? shortAfter ?? (AFTER[id] ? freshPick(s, AFTER[id]!) : { ja: '', en: '' });
   const hs = s.inner.highs;
   if (!hs.length && ['end_arrest', 'end_body', 'end_debt', 'end_blacklist'].includes(id)) return { ja: `いい時期は短かった。${after.ja}それでも、いいゲーム人生だった。`, en: `The good part was short. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') }; // 捕まった・倒れた人生に「大きな事件は何も無かった」と言わない(第 22 回)
-  if (!hs.length) return { ja: `大きな事件は何も無かった。${after.ja}それでも、いいゲーム人生だった。`, en: `Nothing big ever happened. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') };
+  if (!hs.length) return { ja: `一生の自慢と呼べる 1 本は無かった。${after.ja}それでも、いいゲーム人生だった。`, en: `No single thing to brag about forever. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') };
   const best = hs.reduce((a, b) => (b.w >= a.w ? b : a));
   const f = freshPick(s, FEELING[best.kind ?? 'high'] ?? FEELING.high);
   return {
@@ -108,7 +108,7 @@ export function makeEnding(s: State, id: EndingId, custom?: Text): Ending {
   const fatesJa = fv?.ja ?? '';
   const ja = `${s.startYear} 年、${s.startAge} 歳で${s.entry.ja}の${job0.ja}として業界入り。` +
     (w.length ? `${w.length} 本に関わり、ヒット ${hit} 本・爆死 ${flop} 本。` : '作品は 1 本も世に出なかった。') +
-    (fates ? `${fates} 本は${fatesJa}。` : '') + `${cause.ja}。`;
+    (fates ? `${fates} 本は${fatesJa}。` : '') + (s.flags.ex_prison && !s.flags.in_prison ? '途中で一度、塀の中を通った。' : '') + `${cause.ja}。`; // 第 27 回: 服役が結果画面に出てこない
   const en = `Entered the industry in ${s.startYear} at ${s.startAge} as a ${job0.en} (${s.entry.en}). ` +
     (w.length ? `Worked on ${w.length} games: ${hit} hits, ${flop} flops. ` : 'Not a single game shipped. ') +
     (fates ? `${fates} of them ${fv!.en}. ` : '') + `${cause.en}.`;

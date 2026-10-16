@@ -201,7 +201,9 @@ function fill(s: State, t: Text): Text {
   const w = s.inner.workTarget >= 0 ? s.works[s.inner.workTarget] : s.works[s.works.length - 1];
   const rivalP = s.inner.rival ? s.inner.peerStates[1] : undefined;
   const live = s.inner.peerStates.filter((p) => !p.ending && !p.flags.in_prison && !p.flags.ex_prison && p !== rivalP); // 捕まった同期は、出てきた後も普通の話には出さない(第 21 回: 逮捕の 26 年後に次の企画のリーダー) // 引退・服役した同期、ライバルは出さない
-  const peer = live.length ? live[s.year % live.length].name : { ja: '同期', en: 'a peer' };
+  const sameCo = live.filter((p) => p.company.id === s.company.id); // 同じ会社にいる同期を先に(第 27 回: 転職した同期が「次の企画のリーダー」)
+  const pool = sameCo.length ? sameCo : live;
+  const peer = pool.length ? pool[s.year % pool.length].name : { ja: '同期', en: 'a peer' };
   const other = s.inner.otherJob ?? { ja: '別の仕事', en: 'another job' };
   const rep = (str: string, l: 'ja' | 'en') => (l === 'ja' ? str.replace(/ ?\{(peer|company|work|name)\} ?/g, '{$1}') : str)
     .replace(/\{name\}/g, s.name[l]).replace(/\{company\}/g, s.company.name[l])
