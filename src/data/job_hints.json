@@ -1,0 +1,532 @@
+{
+  "_readme": "本文が特定の職種の作業を前提にしている話の id → その話を出してよい職種。data.ts が読み込んで条件にする。",
+  "ev_cr_inv_eyes": [
+    "artist",
+    "director"
+  ],
+  "ev_era1_rom_capacity": [
+    "artist",
+    "director"
+  ],
+  "ev_era2_dot_last": [
+    "artist",
+    "director"
+  ],
+  "ev_era3_new_year_card": [
+    "artist",
+    "director"
+  ],
+  "ev_era3_wk_remake": [
+    "artist",
+    "director"
+  ],
+  "ev_era4_keitai_100kb": [
+    "artist",
+    "director"
+  ],
+  "ev_era4_wk_keitai_port": [
+    "artist",
+    "director"
+  ],
+  "ev_era4_wk_slot": [
+    "artist",
+    "director"
+  ],
+  "ev_era5_wk_remaster": [
+    "artist",
+    "director"
+  ],
+  "ev_era6_style_clone": [
+    "artist",
+    "director"
+  ],
+  "ev_era6_handmade_sells": [
+    "artist",
+    "director"
+  ],
+  "ev_era6_wk_training_data": [
+    "artist",
+    "director"
+  ],
+  "ev_hw_fu_home_color": [
+    "artist",
+    "director"
+  ],
+  "ev_l2_nagoshi_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_lf_bond_legend_pixel": [
+    "artist",
+    "director"
+  ],
+  "ev_lv_reading_glasses": [
+    "artist",
+    "director"
+  ],
+  "ev_mg_pro_gamest_art": [
+    "artist",
+    "director"
+  ],
+  "ev_mo_tv_cm": [
+    "artist",
+    "director"
+  ],
+  "ev_mo_doujin_cover": [
+    "artist",
+    "director"
+  ],
+  "ev_sega_bond_vf": [
+    "artist",
+    "director"
+  ],
+  "ev_st_art_school": [
+    "artist",
+    "director"
+  ],
+  "ev_tool_mac_bomb": [
+    "artist",
+    "director"
+  ],
+  "ev_tool_mac_bomb_after": [
+    "artist",
+    "director"
+  ],
+  "ev_tn_big_rights": [
+    "artist",
+    "director"
+  ],
+  "ev_tn_late_dots": [
+    "artist",
+    "director"
+  ],
+  "ev_vo_three_carriers": [
+    "artist",
+    "director"
+  ],
+  "ev_wm_ms_left_friend": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_1980_game_watch_dev": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_1981_donkey_kong_dev": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_1981_cassette_vision_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_1984_lode_runner_hit_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_1984_xevious_fc_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_1993_vf_hit_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_1994_pcfx_high": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_1996_pokemon_hit_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_1998_gbcolor_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_1990_gg_sega": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_2004_monhan_hit_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_2009_socialgame_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_2012_kompu_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_2000_wsc_bet": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_dark_2001_saga_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_hit_2002_kingdom_hearts_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_hs_hit_2015_fgo_sub": [
+    "artist",
+    "director"
+  ],
+  "ev_l2_inafune_onimusha": [
+    "artist",
+    "director"
+  ],
+  "ev_mg_sub_staff_credit": [
+    "artist",
+    "director"
+  ],
+  "ev_cr_oldcode": [
+    "programmer",
+    "director"
+  ],
+  "ev_era1_magazine_listing": [
+    "programmer",
+    "director"
+  ],
+  "ev_era6_wk_rta_charity": [
+    "programmer",
+    "director"
+  ],
+  "ev_era6_ai_sorry": [
+    "programmer",
+    "director"
+  ],
+  "ev_lf_bond_president": [
+    "programmer",
+    "director"
+  ],
+  "ev_lf_bond_legend_programmer": [
+    "programmer",
+    "director"
+  ],
+  "ev_mg_pro_io_worker": [
+    "programmer",
+    "director"
+  ],
+  "ev_mg_pro_bemaga_highschool": [
+    "programmer",
+    "director"
+  ],
+  "ev_mg_pro_ohx": [
+    "programmer",
+    "director"
+  ],
+  "ev_mg_io_reader_interview": [
+    "programmer",
+    "director"
+  ],
+  "ev_mt_2a": [
+    "programmer",
+    "director"
+  ],
+  "ev_mt_3a": [
+    "programmer",
+    "director"
+  ],
+  "ev_me_2b": [
+    "programmer",
+    "director"
+  ],
+  "ev_mo_take_credit": [
+    "programmer",
+    "director"
+  ],
+  "ev_mo_speedrun_bug": [
+    "programmer",
+    "director"
+  ],
+  "ev_st_mainframe": [
+    "programmer",
+    "director"
+  ],
+  "ev_tr_pr_visit_bug": [
+    "programmer",
+    "director"
+  ],
+  "ev_hs_1985_caravan_celeb": [
+    "programmer",
+    "director"
+  ],
+  "ev_era4_wk_letsplay": [
+    "programmer",
+    "director"
+  ],
+  "ev_lv_wedding_bug": [
+    "programmer",
+    "director"
+  ],
+  "ev_mg_pro_io_bugletter": [
+    "programmer",
+    "director"
+  ],
+  "ev_mg_pro_bemaga_reject": [
+    "programmer",
+    "director"
+  ],
+  "ev_mo_bug_trick": [
+    "programmer",
+    "director"
+  ],
+  "ev_wm_pr_speedrun": [
+    "programmer",
+    "director"
+  ],
+  "ev_tn_big_magazine": [
+    "programmer",
+    "director"
+  ],
+  "ev_hs_1988_cdrom2_high": [
+    "programmer",
+    "director"
+  ],
+  "ev_hs_1990_sfc_high": [
+    "programmer",
+    "director"
+  ],
+  "ev_hs_1993_vf_high": [
+    "programmer",
+    "director"
+  ],
+  "ev_era6_wk_sfx_meme": [
+    "sound",
+    "director"
+  ],
+  "ev_l2_kamiya_sub": [
+    "sound",
+    "director"
+  ],
+  "ev_lf_bond_legend_composer": [
+    "sound",
+    "director"
+  ],
+  "ev_st_music_school": [
+    "sound",
+    "director"
+  ],
+  "ev_era2_wk_soundtrack": [
+    "sound",
+    "director"
+  ],
+  "ev_lf_bond_rpg_composer": [
+    "sound",
+    "director"
+  ],
+  "ev_hs_1991_megacd_sub": [
+    "sound",
+    "director"
+  ],
+  "ev_cr_inv_passion": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era2_ch_rpg_or_action": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era3_sawariman": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era3_sawariman_after": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_era3_ch_sequel": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_l2_endo_hidden": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_l2_iino_wind": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lf_bond_rpg_writer": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lf_bond_spy": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lf_bond_monster": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lf_bond_sound_novel": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lv_hospital_idea": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_mt_2c": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_og_sequel_choice": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_st_convenience": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tool_win31": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tr_pr_letter_censor": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tr_pr_pencils": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tr_c_kill_char": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tn_pit_reject30": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_tn_late_grandkid": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_wm_jr_critique": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_1980_pacman_celeb": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_1983_xevious_hit_client": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_1979_galaxian_hit_client": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_1979_galaxian_sekoi": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_1986_dragon_quest_hit_child": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_1991_sf2_client_lead": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_1992_mk_client": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_2016_pokemongo_hit_dev_lead": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_2005_brain_age_hit_sub": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_2013_monst_hit_client": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_hs_hit_2009_angry_birds_dev": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lf_bond_horror": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_lf_bond_rhythm": [
+    "planner",
+    "director",
+    "producer"
+  ],
+  "ev_cr_bugrace": [
+    "qa",
+    "programmer",
+    "planner"
+  ],
+  "ev_lv_net_meet": [
+    "qa",
+    "programmer",
+    "planner"
+  ],
+  "ev_hs_1983_portopia_indie": [
+    "programmer",
+    "planner",
+    "sound",
+    "qa",
+    "sales",
+    "director",
+    "producer",
+    "teacher"
+  ],
+  "ev_hs_2022_imagegen_indie": [
+    "programmer",
+    "planner",
+    "sound",
+    "qa",
+    "sales",
+    "director",
+    "producer",
+    "teacher"
+  ]
+}
