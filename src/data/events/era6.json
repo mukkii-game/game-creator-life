@@ -32,7 +32,7 @@
     "choices": [
       { "id": "ch_era6_web3_ride", "label": { "ja": "乗る", "en": "Get on board" }, "effect": { "money": 50, "passion": -6, "flag": { "nft_rider": true } },
         "later": [{ "after": 1, "event": "ev_era6_nft_404" }],
-        "result": { "ja": "企画書の表紙にもロケットを足した。もう 1 本足すと通った。", "en": "You added a rocket to the cover. Added one more and it got approved." } },
+        "result": { "ja": "チームの企画書の表紙にロケットが足された。もう 1 本足すと通った。", "en": "Someone added a rocket to the pitch cover. One more and it got approved." } },
       { "id": "ch_era6_web3_pass", "label": { "ja": "乗らない", "en": "Sit it out" }, "effect": { "passion": 4, "network": -3 },
         "result": { "ja": "会議で 1 人だけロケットを押さなかった。視線が熱かった。", "en": "You were the only one who didn't react with a rocket. The stares were warm." } }
     ], "tag": ["choice", "money"] },
@@ -85,7 +85,7 @@
         "later": [{ "after": 2, "event": "ev_era6_ai_voice_meme" }],
         "result": { "ja": "3 万行が 1 時間で揃った。全員、同じ温度で泣いていた。", "en": "All 30,000 lines in an hour. Every character cries at the exact same temperature." } },
       { "id": "ch_era6_voice_human", "label": { "ja": "人が演じる", "en": "Hire actors" }, "effect": { "hp": -8, "passion": 6, "network": 6 },
-        "result": { "ja": "収録 18 日目、役者より先にあなたの喉が枯れた。指示を出しすぎた。", "en": "Day 18 of recording, your voice gave out before the actors'. Too much direction." } }
+        "result": { "ja": "収録 18 日目、役者より先に、見学のあなたの喉が枯れた。口を出しすぎた。", "en": "Day 18 of recording, your voice gave out before the actors'. You were only observing. Too many opinions." } }
     ], "tag": ["choice", "ai"] },
   { "id": "ev_era6_ai_voice_meme", "years": [2025, 2033], "weight": 0,
     "text": { "ja": "AI 音声の「ありがとうございまし。」という読み間違いがネットで流行し、公式グッズになった。", "en": "An AI voice's flubbed 'thank you verry much' became an internet craze—and official merch." },

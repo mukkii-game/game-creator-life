@@ -102,7 +102,7 @@
     "choices": [
       { "id": "ch_era5_stream_yes", "label": { "ja": "出る", "en": "Do it" }, "effect": { "fame": 8, "passion": -3 },
         "later": [{ "after": 1, "event": "ev_era5_stream_clip" }],
-        "result": { "ja": "本番で手が震え、自分の作ったボスに 14 回負けた。", "en": "Your hands shook on air. You lost to your own boss 14 times." } },
+        "result": { "ja": "本番で手が震え、自分たちの作ったボスに 14 回負けた。", "en": "Your hands shook on air. You lost to your own team's boss 14 times." } },
       { "id": "ch_era5_stream_no", "label": { "ja": "断る", "en": "Decline" }, "effect": { "network": -3, "hp": 2 },
         "result": { "ja": "代わりに出た新人がうまくて、今では社内の顔になっている。", "en": "The rookie who went on instead was great. Now they're the face of the company." } }
     ], "tag": ["choice"] },

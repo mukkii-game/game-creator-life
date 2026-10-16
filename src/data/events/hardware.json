@@ -187,8 +187,8 @@
      }
     },
     "result": {
-     "ja": "任天堂を待つことにした。待っている間に企画書を 4 回書き直した。",
-     "en": "You waited for Nintendo. While waiting, you rewrote the proposal four times."
+     "ja": "任天堂を待つことにした。待っている間にチームの企画書が 4 回書き直された。",
+     "en": "You waited for Nintendo. While waiting, the team's proposal got rewritten four times."
     },
     "later": [
      {
@@ -316,8 +316,8 @@
      }
     },
     "result": {
-     "ja": "据え置きに残った。色数の多い画面でドット絵を打ちながら「緑の画面はちょっと…」と言っていた。",
-     "en": "You stayed on home consoles, drawing pixels in glorious colour and muttering \"green screens, though...\""
+     "ja": "据え置きに残った。色数の多い画面を眺めながら「緑の画面はちょっと…」と言っていた。",
+     "en": "You stayed on home consoles, basking in glorious colour and muttering \"green screens, though...\""
     },
     "later": [
      {
@@ -359,8 +359,8 @@
    2040
   ],
   "text": {
-   "ja": "据え置きのドット職人として腕が上がった。色を 1 色節約するために 2 日悩む人間になった。誰にも褒められないが、絶対に誰かが気づいていると信じた。",
-   "en": "Your home-console pixel art got sharper. You became the kind of person who agonises for two days to save one colour. Nobody praised it. Someone must have noticed."
+   "ja": "据え置きの職人として腕が上がった。色を 1 色節約する会議で 2 日粘る人間になった。誰にも褒められないが、絶対に誰かが気づいていると信じた。",
+   "en": "Your home-console craft got sharper. You became the kind of person who argues two days in a meeting to save one colour. Nobody praised it. Someone must have noticed."
   },
   "effect": {
    "skill": 6
@@ -676,8 +676,8 @@
      }
     },
     "result": {
-     "ja": "ドリキャスに付いた。ネットに繋がるゲーム機。夢が詰まりすぎて、企画書が 80 ページになった。",
-     "en": "Dreamcast. A console on the internet. So many dreams the proposal hit 80 pages."
+     "ja": "ドリキャスに付いた。ネットに繋がるゲーム機。夢が詰まりすぎて、チームの企画書が 80 ページになった。",
+     "en": "Dreamcast. A console on the internet. So many dreams the team's proposal hit 80 pages."
     },
     "later": [
      {
@@ -784,8 +784,8 @@
      }
     },
     "result": {
-     "ja": "ワンダースワンにした。縦にも横にも持てる。説明書の図を描くのに 1 週間かかった。",
-     "en": "WonderSwan: hold it upright or sideways. Drawing the manual diagrams took a week."
+     "ja": "ワンダースワンにした。縦にも横にも持てる。説明書の図が決まるまで 1 週間かかった。",
+     "en": "WonderSwan: hold it upright or sideways. The manual diagrams took a week to settle."
     },
     "later": [
      {
@@ -1001,8 +1001,8 @@
      }
     },
     "result": {
-     "ja": "ソシャゲに行った。ガチャの確率表を Excel で組んだ夜、少しだけ自分が怖くなった。",
-     "en": "You went social. The night you built the gacha odds in Excel, you scared yourself a little."
+     "ja": "ソシャゲに行った。ガチャの確率表がチームの Excel に載った夜、少しだけ自分が怖くなった。",
+     "en": "You went social. The night the gacha odds landed in the team's Excel, you scared yourself a little."
     },
     "later": [
      {
@@ -1049,8 +1049,8 @@
    2040
   ],
   "text": {
-   "ja": "スマホのゲームは運営が続く限り終わらない。正月もお盆もイベントを回した。帰省の新幹線の中でサーバーを再起動した。実家の猫だけが労ってくれた。",
-   "en": "A mobile game never ends while it runs. New Year, Obon: events. You rebooted a server from the bullet train home. Only the family cat comforted you."
+   "ja": "スマホのゲームは運営が続く限り終わらない。正月もお盆もイベントを回した。帰省の新幹線の中でも障害の電話が鳴った。実家の猫だけが労ってくれた。",
+   "en": "A mobile game never ends while it runs. New Year, Obon: events. Even on the bullet train home, the outage call came. Only the family cat comforted you."
   },
   "effect": {
    "money": 40,

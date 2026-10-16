@@ -243,8 +243,8 @@
      "money": -10
     },
     "result": {
-     "ja": "新作にした。企画書の 1 行目に「誰も見たことのないゲーム」と書いた。2 行目は空白だった。",
-     "en": "Something new. Line one of the proposal: \"A game no one has ever seen.\" Line two was blank."
+     "ja": "新作にした。会議のホワイトボードの 1 行目に「誰も見たことのないゲーム」と書かれた。2 行目は空白だった。",
+     "en": "Something new. Line one on the meeting whiteboard: \"A game no one has ever seen.\" Line two was blank."
     },
     "later": [
      {
@@ -326,8 +326,8 @@
      "money": 20
     },
     "result": {
-     "ja": "大作チームに入った。自分の担当は、宝箱の開く音の 0.3 秒だった。その 0.3 秒に半年かけた。",
-     "en": "You joined the blockbuster. Your job: the 0.3 seconds of a treasure chest opening. You spent six months on those 0.3 seconds."
+     "ja": "大作チームに入った。あなたの担当分は、宝箱が開く 0.3 秒だった。その 0.3 秒に半年かけた。",
+     "en": "You joined the blockbuster. Your share: the 0.3 seconds of a treasure chest opening. You spent six months on those 0.3 seconds."
     }
    },
    {
@@ -355,8 +355,8 @@
      "skill": 6
     },
     "result": {
-     "ja": "移植チームに入った。人のコードを読む毎日。3 か月で、知らない誰かの癖がすっかり分かるようになった。",
-     "en": "You joined porting. Reading other people's code all day. In three months you knew a stranger's habits by heart."
+     "ja": "移植チームに入った。人の仕事の跡をたどる毎日。3 か月で、知らない誰かの癖がすっかり分かるようになった。",
+     "en": "You joined porting. Tracing other people's work all day. In three months you knew a stranger's habits by heart."
     }
    }
   ],

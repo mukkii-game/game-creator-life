@@ -159,7 +159,7 @@
     "choices": [
       { "id": "ch_era3_mobile_go", "label": { "ja": "行く", "en": "Go" }, "effect": { "skill": 3, "network": 3, "passion": -3, "flag": { "mobile_pioneer": true } },
         "later": [{ "after": 6, "event": "ev_era3_mobile_payoff" }],
-        "result": { "ja": "初めての作品は 100 キロバイト以内。ドット絵の時代の腕が戻ってきた。", "en": "Your first game has to fit in 100 KB. Your pixel-era instincts come back." } },
+        "result": { "ja": "初めての作品は 100 キロバイト以内。ファミコン時代の勘が、チームごと戻ってきた。", "en": "Your first game has to fit in 100 KB. The whole team's Famicom-era instincts come back." } },
       { "id": "ch_era3_mobile_no", "label": { "ja": "家庭用に残る", "en": "Stay on consoles" }, "effect": { "passion": 4 },
         "later": [{ "after": 5, "event": "ev_era3_mobile_regret" }],
         "result": { "ja": "「大きい画面で作りたい」と言った。上司は小さくうなずいた。", "en": "\"I want to make games for the big screen,\" you said. Your boss gave a small nod." } }

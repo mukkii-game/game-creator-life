@@ -418,8 +418,8 @@
      "skill": 3
     },
     "result": {
-     "ja": "新幹線の中でバグ票を書く技を覚えた。車内販売の人に顔を覚えられた。",
-     "en": "You learned to write bug reports on the train. The snack cart lady learned your face."
+     "ja": "新幹線の中で仕事を片付ける技を覚えた。車内販売の人に顔を覚えられた。",
+     "en": "You learned to get work done on the train. The snack cart lady learned your face."
     }
    }
   ],
@@ -695,8 +695,8 @@
      }
     },
     "result": {
-     "ja": "店番の合間に企画書を書いた。包装紙の裏が全部企画書になった。",
-     "en": "You wrote pitches between customers. Every sheet of wrapping paper got a pitch on the back."
+     "ja": "店番の合間にゲームのアイデアを書いた。包装紙の裏が全部アイデア帳になった。",
+     "en": "You jotted game ideas between customers. Every sheet of wrapping paper got an idea on the back."
     }
    }
   ],
@@ -1307,8 +1307,8 @@
    2040
   ],
   "text": {
-   "ja": "恋人から「仕事と私、どっちが大事?」。聞かれた時、手元ではちょうどビルドが走っていた。",
-   "en": "Your partner asks: \"Your work or me?\" At that exact moment, a build is running."
+   "ja": "恋人から「仕事と私、どっちが大事?」。聞かれた時、画面ではちょうどチームのビルドが走っていた。",
+   "en": "Your partner asks: \"Your work or me?\" At that exact moment, the team's build is running on your screen."
   },
   "when": [
    "flag.partner",
@@ -1334,8 +1334,8 @@
      }
     },
     "result": {
-     "ja": "消した瞬間、ビルドが失敗した音がした。恋人は笑って、その年に籍を入れた。",
-     "en": "The moment you did, the build-failed chime rang out. Your partner laughed. You married that year."
+     "ja": "消した瞬間、チームのビルドが失敗した音がした。恋人は笑って、その年に籍を入れた。",
+     "en": "The moment you did, the team's build-failed chime rang out. Your partner laughed. You married that year."
     },
     "memory": {
      "ja": "ビルドより恋人を選んだ",
@@ -1345,8 +1345,8 @@
    {
     "id": "ch_lv_dumped_wait",
     "label": {
-     "ja": "「ビルドが終わるまで待って」",
-     "en": "\"Wait till the build finishes\""
+     "ja": "「このビルドを見届けるまで待って」",
+     "en": "\"Wait till I see this build through\""
     },
     "effect": {
      "passion": -10,
@@ -2491,12 +2491,12 @@
      "passion": 5
     },
     "result": {
-     "ja": "スピーチは「本日のビルドは…」で始まり、会場が一瞬静まった。新郎新婦だけ笑っていた。",
-     "en": "Your speech opened with \"Today's build...\" The hall fell silent. Only the couple laughed."
+     "ja": "スピーチは「本日の進捗は…」で始まり、会場が一瞬静まった。新郎新婦だけ笑っていた。",
+     "en": "Your speech opened with \"Today's progress...\" The hall fell silent. Only the couple laughed."
     },
     "memory": {
-     "ja": "親友の結婚式でビルドの話をした",
-     "en": "talking about builds at your friend's wedding"
+     "ja": "親友の結婚式で進捗の話をした",
+     "en": "talking about progress at your friend's wedding"
     }
    },
    {
@@ -2911,8 +2911,8 @@
      "hp": 10
     },
     "result": {
-     "ja": "1 か月後、机の上に「お帰りなさい」の付箋と、バグ票 80 枚。",
-     "en": "A month later: a \"welcome back\" sticky note on your desk, and 80 bug reports."
+     "ja": "1 か月後、机の上に「お帰りなさい」の付箋と、やることリスト 80 件。",
+     "en": "A month later: a \"welcome back\" sticky note on your desk, and an 80-item to-do list."
     }
    }
   ],

@@ -390,8 +390,8 @@
         "en": "The staff argue baseball hotly. Even your proposal somehow has nine innings."
       },
       {
-        "ja": "パッケージの絵が派手だ。あなたの企画書の表紙も劇画調になった。",
-        "en": "The box art is loud. Even your proposal's cover went full comic-drama."
+        "ja": "パッケージの絵が派手だ。あなたの名刺まで劇画調になった。",
+        "en": "The box art is loud. Even your business card went full comic-drama."
       }
     ]
   },
@@ -598,11 +598,11 @@
     "lines": [
       {
         "ja": "社内の本棚には、推理小説と将棋の本ばかり並んでいた。あなたは 1 年で推理が少し得意になった。",
-        "en": "The dungeon changes every time. You fall at the same spot every time."
+        "en": "The office bookshelves held nothing but mystery novels and shogi books. In a year, you got a little better at deduction."
       },
       {
-        "ja": "読むゲームの効果音のため、ドアの音を 40 種類録った。",
-        "en": "For a game you read, you recorded 40 different door sounds."
+        "ja": "隣の席の人が、ドアの音を 40 種類録っていた。読むゲームのためだった。",
+        "en": "The person next to you recorded 40 kinds of door sounds. For a game you read."
       }
     ]
   },

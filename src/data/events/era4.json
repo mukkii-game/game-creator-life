@@ -88,7 +88,7 @@
     "choices": [
       { "id": "ch_era4_social_go", "label": { "ja": "異動する", "en": "Transfer" }, "effect": { "money": 60, "passion": -6, "flag": { "social_dev": true } },
         "later": [{ "after": 2, "event": "ev_era4_social_newyear" }],
-        "result": { "ja": "初日の仕事はカードの「キラキラ」の調整。8 時間キラキラさせた。", "en": "Day one: tuning the card sparkle. Eight hours of sparkle." } },
+        "result": { "ja": "初日の会議の議題はカードの「キラキラ」。8 時間キラキラの話をした。", "en": "Day one's meeting agenda: the card sparkle. Eight hours of sparkle talk." } },
       { "id": "ch_era4_social_stay", "label": { "ja": "据え置きに残る", "en": "Stay on console" }, "effect": { "passion": 6, "fame": 2 },
         "later": [{ "after": 2, "event": "ev_era4_console_cut" }],
         "result": { "ja": "「わかった」と部長。その日から、部長の机にカードの束が置かれた。", "en": "'Understood,' says your boss. From that day, a deck of cards sits on his desk." } }

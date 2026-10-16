@@ -1780,8 +1780,8 @@
      }
     ],
     "result": {
-     "ja": "ガチャを付けた。最初の確率表を作った夜、パズルのピースに謝った。",
-     "en": "You added gacha. The night you made the first odds table, you apologized to the puzzle pieces."
+     "ja": "ガチャを付けた。最初の確率表が回ってきた夜、パズルのピースに謝った。",
+     "en": "You added gacha. The night the first odds table came round, you apologized to the puzzle pieces."
     }
    },
    {
@@ -1902,8 +1902,8 @@
      }
     ],
     "result": {
-     "ja": "企画書の 1 行目に「移植ではありません」と書いた。",
-     "en": "Line one of the proposal: \"This is not a port.\""
+     "ja": "チームの企画書の 1 行目に「移植ではありません」と書かれた。",
+     "en": "Line one of the team's proposal: \"This is not a port.\""
     }
    }
   ],
