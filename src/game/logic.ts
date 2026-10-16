@@ -664,11 +664,11 @@ function runItem(s: State, id: string, out: string[]) {
 /** テンションが上がった瞬間を覚えておく(最後の 1 行に使う)。ファン・ライバルの筋の結末がいちばん(第 21 回: 筋を回収せずにテレビに 4 秒映った話で締めた) */
 function remember(s: State, ev: GameEvent, memory?: Text) {
   const t = ev.tag ?? [];
-  const w = /^ev_(fa|rv)_5/.test(ev.id) || (t.includes('chain') && t.includes('high')) ? 7 : /^ev_(fa|me)_4/.test(ev.id) ? 6 : t.includes('peak') ? 6 : t.includes('bond') ? 5 : t.includes('warm') ? 4 : t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
+  const w = /^ev_(fa|rv)_5/.test(ev.id) || (t.includes('chain') && t.includes('high')) ? 7 : /^ev_(fa|me)_4/.test(ev.id) ? 6 : t.includes('chain') && t.includes('followup') && !/whatif/.test(ev.id) ? 5 : /* 連鎖の途中の回も、その人生の柱として締めの候補に(第 48 回: 眠い村人・聖地の町が締めで拾われない) */ t.includes('peak') ? 6 : t.includes('bond') ? 5 : t.includes('warm') ? 4 : t.includes('celeb') ? 3 : t.includes('high') ? 2 : 0;
   if (!w && !memory) return;
   const first = (x: string, sep: RegExp) => x.split(sep)[0];
   const text = memory ? fill(s, memory) : (() => { const f = s.log[s.log.length - 1]?.text ?? fill(s, ev.text); return { ja: first(f.ja, /。/), en: first(f.en, /\. /) }; })();
-  const kind = t.includes('peak') ? 'peak' : t.includes('bond') || t.includes('celeb') ? 'celeb' : t.includes('warm') || t.includes('life') ? 'warm' : 'high';
+  const kind = w === 7 ? 'arc' : t.includes('peak') ? 'peak' : t.includes('bond') || t.includes('celeb') ? 'celeb' : t.includes('warm') || t.includes('life') ? 'warm' : 'high';
   s.inner.highs.push({ year: s.year, age: s.age, text, w: (w || 2) + s.rng.next(), kind });
 }
 
