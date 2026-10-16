@@ -61,13 +61,15 @@ const JOB_WORDS: [RegExp, import('./types').Job[]][] = [
   [/自分の作った(ステージ|敵|ボス|キャラ|面|ダンジョン)|調合表を作|あなたの作った(ステージ|敵|ボス|面)/, ['planner', 'programmer', 'artist', 'director']], // 第 24 回: QA・営業に「自分の作った敵キャラ」
   [/キャラを 1 人作|キーボードをなで|1 日 14 時間ゲームを作/, ['planner', 'programmer', 'artist', 'sound', 'director', 'producer']],
   [/自分のコード|あなたのコード|コードを見た|自分の書いたコード|ソースを読|バグを直した夜/, ['programmer', 'director']],
-  [/あなたの企画書|自分の企画書|企画書を見せ|企画書を書/, ['planner', 'director', 'producer', 'programmer', 'artist', 'sound']],
+  [/あなたの企画書|自分の企画書|企画書を見せ|企画書を書|企画書を出|企画書で勝負|企画書が通|自分の企画|あなたの企画|企画を出(す|し|そう)|企画を通/, ['planner', 'director', 'producer']], // 企画書で勝負するのは企画の人だけ(2026-10-16 Mukkii「グラフィッカーでも企画書書いて勝負してるのが気になる」)
 ];
-const jobWord = (e: GameEvent) => { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(''); for (const [re, j] of JOB_WORDS) if (re.test(tx)) return j; return undefined; };
+const jobWord = (e: GameEvent) => { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join('') + (e.choices ?? []).map((c) => c.label.ja).join(' '); /* 選択肢の文も見る(「企画書を書いて勝負する」が選択肢にある) */ for (const [re, j] of JOB_WORDS) if (re.test(tx)) return j; return undefined; };
 // 職種と話のずれを防ぐ(ペルソナ通読: サウンドなのに絵の話ばかり)。job_hints.json = 本文が特定の職種の作業を前提にしている話 → 出してよい職種
 const jhMod = import.meta.glob('../data/job_hints.json', { eager: true, import: 'default' }) as Record<string, Record<string, string[] | string>>;
 const JOB_HINTS = Object.values(jhMod)[0] ?? {};
 for (const e of EVENTS) { const j = JOB_HINTS[e.id]; if (Array.isArray(j) && j.length) e.jobs = j as import('./types').Job[]; if (e.id.startsWith('ev_sys_')) continue; const w = jobWord(e); if (w) e.jobs = e.jobs ? (e.jobs.filter((x) => w.includes(x)).length ? e.jobs.filter((x) => w.includes(x)) : w) : w; } // 本文の言葉が決める職種は、手で付けた職種と重ねて絞る(第 21 回: QA に「あなたの描いた丸いキャラ」)
+const PLAN_JOBS: import('./types').Job[] = ['planner', 'director', 'producer'];
+for (const e of EVENTS) { if (e.id.startsWith('ev_sys_') || e.id === 'ev_og_qa_pitch' || e.id.startsWith('ev_cr_') || e.tag?.some((t) => ['prologue', 'student', 'teach', 'teacher'].includes(t))) continue; const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(''); if (!/企画書に「|企画書を ?(書|作|出|徹夜|AI に頼|ワープロ|感熱紙|清書)|あなたのオリジナルの企画|オリジナルの企画書|企画会議でまた落ち|自分たちの企画書|先輩の企画書|企画書 \d+ 枚|企画書の(「|文体|表づくり|「新しい」)|最初の企画書|続編の企画書が出てき|企画書は 3 日で|通った企画書/.test(tx)) continue; e.jobs = e.jobs ? (e.jobs.filter((x) => PLAN_JOBS.includes(x)).length ? e.jobs.filter((x) => PLAN_JOBS.includes(x)) : PLAN_JOBS) : PLAN_JOBS; } // 自分で企画書を書く話は企画の人だけ(2026-10-16 Mukkii「グラフィッカーでも企画書書いて勝負してるのが気になる」)
 
 // 文の中身から、出してよい時を自動で絞る(ペルソナ 3 回目の通読: 家族の順番・無職なのに社内・入社 1 年目に「10 年前」など)。
 // データに同じ種類の条件がもう書いてあれば足さない
