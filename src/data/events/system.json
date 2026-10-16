@@ -122,7 +122,7 @@
     "alt": [
       { "ja": "昇進した。椅子にひじ掛けが付いた。最初の 1 週間、ひじ掛けの置き場所に困った。", "en": "Promoted. Your chair got armrests. For the first week, you had no idea where to put your arms." },
       { "ja": "昇進した。最初に覚えた新しい仕事は、会議室の予約の取り方だった。", "en": "Promoted. The first new skill you learned: booking meeting rooms." },
-      { "ja": "昇進した。部下ができた。部下の書いたコードの方が、自分のより読みやすかった。", "en": "Promoted. Now you have reports. Their code is easier to read than yours." }
+      { "ja": "昇進した。部下ができた。最初の面談で、部下より自分の方が緊張していた。", "en": "Promoted. Now you have reports. At the first one-on-one, you were more nervous than they were." }
     ],
     "effect": {
       "fame": 5,
