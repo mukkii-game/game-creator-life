@@ -247,13 +247,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
     } else if (f === 'do_prison') { // 服役(3 年)。明けたら個人開発者として再起する
       s.inner.prevJob = s.job; s.flags.in_prison = true; s.inner.prisonUntil = s.year + 3;
       setStatus(s, 'left'); s.job = 'other'; s.inner.otherJob = { ja: '塀の中', en: 'prison' };
-    } else if (f === 'do_restart') { // 2027 年の区切り。同期と「まだ始まっちゃいねえよ」
-      if (!s.inner.isPeer) {
-        const bud = s.inner.peerStates.find((x) => !x.ending) ?? s.inner.peerStates[0]; // まだ業界にいる同期を優先
-        const p = bud?.name.ja.split(' ')[0] ?? '相棒', pe = bud?.name.en.split(' ').slice(-1)[0] ?? 'buddy';
-        log(s, { ja: `帰り道、同期の${p}がぽつりと言った。「なあ、俺たち、もう終わっちゃったのかな」`, en: `On the way home, your old peer ${pe} said quietly: "Hey... are we finished?"` }, 'event', ['finale']);
-        log(s, { ja: '「バカヤロー、まだ始まっちゃいねえよ」', en: '"Idiot. We haven\'t even started yet."' }, 'event', ['finale', 'high']);
-      }
+    } else if (f === 'do_restart') { // 2027 年の区切り(同期との掛け合いは end の中で)
       end(s, 'end_restart', out);
     } else if (f === 'do_promote') { // 管理職への昇進を受ける(選択肢から)
       promote(s);
@@ -280,6 +274,7 @@ function count(s: State, ev: GameEvent) {
 // ---- 終わり ----
 function end(s: State, id: EndingId, out: string[], custom?: Text) {
   if (s.ending) return;
+  if (!s.inner.isPeer) kidsReturn(s, id);
   s.ending = makeEnding(s, id, custom);
   s.status = 'ended';
   s.choice = undefined;
@@ -391,7 +386,7 @@ function beginYear(s: State, out: string[]) {
   const n = r.int(tune('life.eventsMin'), tune('life.eventsMax')) - (q.length > 0 ? 1 : 0) - hist.length;
   const sysChoice = [...sys, ...q, ...hist, ...turning].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
-  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && (!s.flags.in_prison || (e.when ?? []).some((c) => c.includes('prison'))) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware', 'worklife'].some((t) => e.tag?.includes(t)));
+  const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && (!e.tag?.includes('quote') || (s.inner.counts.quote ?? 0) < 2) && (!s.flags.in_prison || (e.when ?? []).some((c) => c.includes('prison'))) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware', 'worklife'].some((t) => e.tag?.includes(t)));
   let picked = draw(r, pool, Math.max(1, n));
   // 選択は 1 年に 1 本まで、作品の後日談も 1 年に 1 本まで
   let seenChoice = false, seenAfter = false;
@@ -703,7 +698,7 @@ function mentorArcs(s: State, r: Rng, out: string[]) {
     if ((a.step === 1 || a.step === 2) && s.status !== 'employed') { a.step++; continue; }
     const pre = kind === 'mentor' ? 'ev_mt_' : 'ev_me_';
     const used = [...(s.inner.mentor?.used ?? []), ...(s.inner.mentee?.used ?? [])];
-    const vs = ['a', 'b', 'c'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)));
+    const vs = ['a', 'b', 'c'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)) && (!e.jobs || e.jobs.includes(s.job)));
     if (vs.length) {
       const ev = r.pick(vs);
       a.used.push(ev.id);
@@ -719,4 +714,21 @@ function mentorArcs(s: State, r: Rng, out: string[]) {
 function vary(s: State, ids: string[]): string {
   const fresh = ids.filter((id) => EVENT_BY_ID.has(id) && !(s.inner.uses[id] ?? 0));
   return fresh.length ? fresh[0] : s.rng.pick(ids.filter((id) => EVENT_BY_ID.has(id)));
+}
+
+/** どの終わり方でも、最後は同期との掛け合い(キッズ・リターンのパロディ)。場面だけ終わり方で変える */
+function kidsReturn(s: State, id: EndingId) {
+  const bud = s.inner.peerStates.find((x) => !x.ending) ?? s.inner.peerStates[0]; // まだ業界にいる同期を優先
+  const p = bud?.name.ja.split(' ')[0] ?? '相棒', pe = bud?.name.en.split(' ').slice(-1)[0] ?? 'your old buddy';
+  const where: Partial<Record<EndingId, Text>> = {
+    end_restart: { ja: `帰り道、同期の${p}がぽつりと言った。`, en: `On the way home, ${pe}, from your year, said quietly:` },
+    end_arrest: { ja: `面会室で、同期の${p}がアクリル板ごしに言った。`, en: `In the visiting room, ${pe} said through the acrylic panel:` },
+    end_retire: { ja: `送別会の帰り、同期の${p}が言った。`, en: `Leaving the farewell party, ${pe} said:` },
+    end_pen_down: { ja: `70 歳の誕生日、同期の${p}から電話があった。`, en: `On your 70th birthday, ${pe} called:` },
+    end_body: { ja: `病院のベッドの横で、同期の${p}が言った。`, en: `By your hospital bed, ${pe} said:` },
+    end_debt: { ja: `店をたたんだ夜、同期の${p}が缶ビールを持って来て言った。`, en: `The night you closed shop, ${pe} came by with canned beer and said:` },
+  };
+  const w = where[id] ?? { ja: `最後の日、同期の${p}と並んで歩きながら、${p}が言った。`, en: `Walking side by side on your last day, ${pe} said:` };
+  log(s, { ja: `${w.ja}「なあ、俺たち、もう終わっちゃったのかな」`, en: `${w.en} "Hey... are we finished?"` }, 'event', ['finale']);
+  log(s, { ja: '「バカヤロー、まだ始まっちゃいねえよ」', en: '"Idiot. We haven\'t even started yet."' }, 'event', ['finale', 'high']);
 }

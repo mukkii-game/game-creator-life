@@ -1,0 +1,208 @@
+[
+ {
+  "id": "ev_qt_slamdunk",
+  "years": [
+   2004,
+   2040
+  ],
+  "when": [],
+  "text": {
+   "ja": "打ち切りが決まりかけた会議で、{mentor}が静かに言った。「あきらめたら、そこでサービス終了ですよ」。会議はもう 1 時間延びた。",
+   "en": "In the meeting where cancellation loomed, {mentor} said quietly: \"If you give up, that's the end of service.\" The meeting ran another hour."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "quote",
+   "gag"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_qt_bttf",
+  "years": [
+   1986,
+   2040
+  ],
+  "when": [
+   "status=employed"
+  ],
+  "text": {
+   "ja": "新しいプロジェクトの初日、ロードマップはどこかと聞いたら、プロデューサーが言った。「道? これから行く所に、道なんていらない」。本当に無かった。",
+   "en": "Day one of a new project, you asked where the roadmap was. The producer said: \"Roads? Where we're going, we don't need roads.\" There really wasn't one."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "quote",
+   "gag"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_qt_zeta",
+  "years": [
+   1986,
+   2040
+  ],
+  "when": [
+   "status=employed"
+  ],
+  "text": {
+   "ja": "マスターアップ前夜、もうだめだと誰かが言った。同期の{peer}が立ち上がった。「まだだ、まだマスターアップしとらんよ!」。朝には本当に終わっていた。",
+   "en": "The night before master-up, someone said it was hopeless. {peer} stood up: \"Not yet — we haven't hit master-up yet!\" By morning, it was actually done."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "quote",
+   "gag"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_qt_buzz",
+  "years": [
+   2012,
+   2040
+  ],
+  "when": [
+   "status=employed"
+  ],
+  "text": {
+   "ja": "運営の方針会議で、ディレクターが拳を突き上げた。「無限のアップデートの彼方へ、さあ行くぞ!」。会議室の全員が、自分の有給の残りを数えた。",
+   "en": "At the live-ops planning meeting, the director raised a fist: \"To infinite updates, and beyond!\" Everyone in the room counted their remaining paid leave."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "quote",
+   "gag"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_qt_terminator",
+  "years": [
+   1985,
+   2040
+  ],
+  "when": [
+   "status=employed"
+  ],
+  "text": {
+   "ja": "送別会で、辞めていく先輩がサングラスをかけて言った。「アイル・ビー・バック。次回作で」。3 年後、本当に外注として戻ってきた。",
+   "en": "At a farewell party, the departing senior put on sunglasses: \"I'll be back. In the sequel.\" Three years later, they actually came back as a contractor."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "quote",
+   "gag"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_qt_onepiece",
+  "years": [
+   1999,
+   2040
+  ],
+  "when": [
+   "status=employed",
+   "career>=5"
+  ],
+  "text": {
+   "ja": "入社式で新人が叫んだ。「ゲーム王に、おれはなる!」。会場が少し笑った。あなたは笑えなかった。昔、同じことを心の中で言っていた。",
+   "en": "At the entrance ceremony a new hire shouted, \"I'm gonna be King of the Games!\" The hall chuckled. You didn't. You once said the same thing, silently."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "quote",
+   "gag"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_qt_starwars",
+  "years": [
+   1990,
+   2040
+  ],
+  "when": [
+   "status=employed"
+  ],
+  "text": {
+   "ja": "海外スタジオの同僚が、帰国する日に握手しながら言った。「フレームレートと共にあらんことを」。最高の別れの言葉だった。",
+   "en": "On their last day, a colleague from an overseas studio shook your hand: \"May the frame rate be with you.\" The best goodbye you ever got."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "quote",
+   "gag"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_qt_shawshank",
+  "years": [
+   1995,
+   2040
+  ],
+  "when": [
+   "flag.in_prison"
+  ],
+  "text": {
+   "ja": "同じ房の男が、図書室の古いゲーム雑誌を読みながら言った。「希望はいいものだ。いいものは決して滅びない」。セーブデータもな、と心の中で付け足した。",
+   "en": "Your cellmate, reading an old game magazine from the prison library, said: \"Hope is a good thing, and no good thing ever dies.\" Neither does save data, you added silently."
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "quote",
+   "gag"
+  ],
+  "once": true,
+  "weight": 3
+ },
+ {
+  "id": "ev_qt_joe",
+  "years": [
+   1977,
+   2040
+  ],
+  "when": [
+   "status=employed"
+  ],
+  "text": {
+   "ja": "徹夜明け、床で寝ていたら同期の{peer}に揺り起こされた。「立て、立つんだ……」。続きは「デバッグの時間だ」だった。",
+   "en": "After an all-nighter you were asleep on the floor when {peer} shook you: \"Get up, get up...\" The rest was: \"...it's debugging time.\""
+  },
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "quote",
+   "gag"
+  ],
+  "once": true,
+  "weight": 3
+ }
+]
