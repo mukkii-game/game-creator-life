@@ -189,9 +189,9 @@
    "en": "{year}. AI now designs, codes, draws and scores a game overnight. The morning news calls it \"a paradigm shift in game development.\" Everything you did until yesterday became \"the old way.\" ... What now?"
   },
   "alt": [
-   { "ja": "{year} 年。AI が 1 本のゲームを一晩で作るようになった。ニュースは「開発のパラダイムシフト」。昨日までのやり方は、もう「昔のやり方」だ。……どうする?", "en": "{year}. AI now builds a whole game overnight. The news calls it \"a paradigm shift in development.\" Yesterday's way of working is now \"the old way.\" ... What now?" },
-   { "ja": "{year} 年。朝起きたら、AI が作ったゲームがランキングの上を全部埋めていた。昨日までの仕事のやり方が、一晩で昔話になった。……どうする?", "en": "{year}. You wake to find AI-made games filling the top of every chart. Overnight, the way you worked became a story about the old days. ... What now?" },
-   { "ja": "{year} 年。若手が「企画から音まで、AI で一晩でした」とゲームを見せてきた。ちゃんと面白かった。あなたのやり方が、全部「昔のやり方」になった。……どうする?", "en": "{year}. A junior shows you a game: \"Design to sound, one night with AI.\" It's genuinely fun. Your whole way of working just became \"the old way.\" ... What now?" }
+   { "ja": "朝のニュースの見出しが「開発のパラダイムシフト」。{year} 年、AI が 1 本のゲームを一晩で作るようになった。昨日までのやり方は、もう「昔のやり方」だ。……どうする?", "en": "{year}. AI now builds a whole game overnight. The news calls it \"a paradigm shift in development.\" Yesterday's way of working is now \"the old way.\" ... What now?" },
+   { "ja": "目が覚めたら、AI が作ったゲームがランキングの上を全部埋めていた。{year} 年、昨日までの仕事のやり方が、一晩で昔話になった。……どうする?", "en": "{year}. You wake to find AI-made games filling the top of every chart. Overnight, the way you worked became a story about the old days. ... What now?" },
+   { "ja": "若手が「企画から音まで、AI で一晩でした」とゲームを見せてきた。ちゃんと面白かった。{year} 年、あなたのやり方が、全部「昔のやり方」になった。……どうする?", "en": "{year}. A junior shows you a game: \"Design to sound, one night with AI.\" It's genuinely fun. Your whole way of working just became \"the old way.\" ... What now?" }
   ],
   "choices": [
    {

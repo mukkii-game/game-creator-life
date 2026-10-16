@@ -36,7 +36,7 @@ const KIN: [RegExp, string, string[]][] = [
   [/祖父/, 'grandpa_gone', ['ev_lv_big_grandpa', 'ev_lv_grandpa_funeral_brag', 'ev_lv_grandpa_grave']],
 ];
 for (const e of EVENTS) for (const [re, flag, deaths] of KIN) {
-  if (deaths.includes(e.id)) { e.effect = { ...(e.effect ?? {}), flag: { ...(e.effect?.flag ?? {}), [flag]: true } }; continue; }
+  if (deaths.includes(e.id)) { const put = (x?: import('./types').Effect) => ({ ...(x ?? {}), flag: { ...(x?.flag ?? {}), [flag]: true } }); e.effect = put(e.effect); for (const c of e.choices ?? []) c.effect = put(c.effect); continue; } // 選択のある話は話そのものの effect が使われないので、選択ごとにも立てる(第 19 回: 危篤の祖父が生き返った)
   if ((e.weight ?? 1) > 0 && re.test([e.text, ...(e.alt ?? [])].map((x) => x.ja).join('')) && !(e.when ?? []).includes(`!flag.${flag}`)) e.when = [...(e.when ?? []), `!flag.${flag}`];
 }
 
@@ -146,6 +146,8 @@ const MOTIFS: [string, RegExp][] = [
   ['parent_save', /セーブデータ.*(名前|「)|「(とうちゃん|おかん)」/],
 ];
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; else if (e.tag?.includes('crime') && e.choices) e.motif = 'crime'; if (e.tag?.includes('early_exit') && e.choices) e.motif = 'early_exit'; if (e.choices && !e.id.startsWith('ev_sys_') && !e.motif) { if (/AI/.test(tx) && e.years[1] >= 2022) e.motif = 'ai_choice'; else if (/ケータイ(の)?部署|ソシャゲ(に|へ)(行|移)/.test(tx + (e.choices ?? []).map((c) => c.label.ja).join(''))) e.motif = 'mobile_move'; } } // AI をどう使うか・ケータイへ移るかの選択は 1 人生 1 回 // 早くに去る選択は 1 人生 1 回 // 犯罪の入口(選択)は続けて遊ぶと出にくく
+// 家族の危機の大きな選択(危篤・倒れた・最後の願い)は 1 人生 1 回、続けて遊んでも出にくく(第 19 回: 3 人生で 5 回)
+for (const e of EVENTS) if (['ev_lv_big_grandpa', 'ev_lv_big_father', 'ev_lv_big_mother_last', 'ev_tn_big_care'].includes(e.id)) e.motif = 'family_crisis';
 // 選択の後日談(later で来る話)には印を付ける(同じ人生で 2 回出さない)
 for (const e of EVENTS) for (const c of e.choices ?? []) for (const l of c.later ?? []) { const t = EVENTS.find((x) => x.id === l.event); if (t && !t.tag?.includes('followup')) t.tag = [...(t.tag ?? []), 'followup']; }
 // ハードの選択の後日談は、その選択がまだ生きている時だけ(後で別の陣営を選んだら、前の選択の後日談は出さない)
