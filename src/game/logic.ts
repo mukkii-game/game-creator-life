@@ -356,6 +356,15 @@ function beginYear(s: State, out: string[]) {
   const due = s.pending.filter((p) => p.year <= s.year);
   s.pending = s.pending.filter((p) => p.year > s.year);
   // 会社の中の大作の結末(tag mega)は、同じ会社にいる時だけ(第 7 回ペルソナ: 潰れた会社の巨大作が「やっと出た」)
+  // 2023〜2025 年: AI の現場あるあるを毎年 1 本、2024 年には「生成 AI をどう使うか」(第 16 回ペルソナ: 1 人生に 1〜2 個しか無く、2026 年が唐突)
+  if (s.year >= 2023 && s.year <= 2025 && s.status === 'employed' && !s.flags.in_prison && !s.inner.isPeer) {
+    if (s.year >= 2024 && !s.flags.aiq_asked && EVENT_BY_ID.get('ev_aiq_use') && eligible(s, EVENT_BY_ID.get('ev_aiq_use')!)) { s.flags.aiq_asked = true; q.push('ev_aiq_use'); }
+    else {
+      const pool = EVENTS_ALL().filter((e) => e.id.startsWith('ev_aia_') && eligible(s, e, 99, 1));
+      const fresh = pool.filter((e) => !s.inner.recent?.includes(e.id));
+      if (pool.length) q.push(draw(r, fresh.length ? fresh : pool, 1, () => 1)[0].id);
+    }
+  }
   // 2026 年: AI 時代の衝撃の事件が立て続けに 3 本(2026-10-16 Mukkii: どのプレイでも 2026 年に)。直近の人生で見ていないものから
   if (s.year === 2026 && !s.flags.ai26 && !s.inner.isPeer) {
     s.flags.ai26 = true;
