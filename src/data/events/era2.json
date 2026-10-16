@@ -1,5 +1,5 @@
 [
-  { "id": "ev_era2_crunch_wedding", "years": [1986, 1994],
+  { "id": "ev_era2_crunch_wedding", "years": [1988, 1988],
     "text": { "ja": "『ドラゴンクエストIII』が発売日に行列。うちは「今週も泊まり」。土曜は妹の結婚式だ。", "en": "Dragon Quest III has lines around the block. Our studio: \"another all-nighter week.\" Saturday is your sister's wedding." },
     "when": ["status=employed", "age>=20"], "once": true, "weight": 3, "allow": ["RPG"],
     "choices": [

@@ -5,7 +5,7 @@
   { "id": "ev_era4_spec_2005", "years": [2004, 2008], "weight": 2,
     "text": { "ja": "件名「仕様変更のお知らせ」。時代は変わっても件名は変わらない。今回は 2 画面分ある。", "en": "Subject: 'Spec change notice.' Eras change, the subject line never does. This time it comes in two screens' worth." },
     "when": ["status=employed"], "effect": { "passion": -10 }, "tag": ["spec", "gag"] },
-  { "id": "ev_era4_hunt_after_hours", "years": [2004, 2010], "once": true, "weight": 2,
+  { "id": "ev_era4_hunt_after_hours", "years": [2006, 2010], "once": true, "weight": 2,
     "text": { "ja": "定時後、島じゅうで携帯機の通信プレイが始まった。「あと 1 狩りだけ」が 4 時間続く。", "en": "After hours, the whole floor links up handhelds. 'Just one more hunt' lasts four hours." },
     "when": ["status=employed"],
     "choices": [

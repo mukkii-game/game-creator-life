@@ -67,7 +67,7 @@ export function eligible(s: State, ev: GameEvent, gap = 0, maxRepeat = 99): bool
   if (s.year < ev.years[0] || s.year > ev.years[1]) return false;
   if (ev.once && s.inner.used.includes(ev.id)) return false;
   if (ev.jobs && !ev.jobs.includes(s.job)) return false;
-  if (ev.motif && ['insider', 'crime', 'early_exit', 'family_crisis', 'headhunt', 'mgmt_offer', 'sequel_out', 'mom_buys', 'oversleep', 'farewell_name', 'boss_fight', 'not_me', 'train', 'sales_graph'].includes(ev.motif) && !/^ev_(fa|rv|mt|me|hw_fu)_/.test(ev.id) && !ev.tag?.includes('followup') && s.inner.recent?.includes(`line:motif:${ev.motif}`)) return false; // 捕まる・去る・家族の危機の筋は、直近の人生で通っていたら今回は通らない(第 29 回: 2 人生続けて株→実刑→塀の中)
+  if (ev.motif && ['insider', 'crime', 'early_exit', 'family_crisis', 'headhunt', 'mgmt_offer', 'sequel_out', 'mom_buys', 'oversleep', 'farewell_name', 'boss_fight', 'not_me', 'train', 'sales_graph', 'muscle_box', 'photo_reuse'].includes(ev.motif) && !/^ev_(fa|rv|mt|me|hw_fu)_/.test(ev.id) && !ev.tag?.includes('followup') && s.inner.recent?.includes(`line:motif:${ev.motif}`)) return false; // 捕まる・去る・家族の危機の筋は、直近の人生で通っていたら今回は通らない(第 29 回: 2 人生続けて株→実刑→塀の中)
   if (ev.tag?.some((t) => t === 'quickquit' || t === 'early_exit') && !s.inner.recent?.length && !s.inner.isPeer) return false; // 初めての 1 回は 22 歳で終わらせない(第 20 回ペルソナ: 3 か月で本屋に転職して閉じる)
   if (ev.motif && s.inner.motifs?.includes(ev.motif)) return false; // 同じ型のネタは 1 人生 1 回 // 本文がほかの職種の作業(絵を描く・コードを書く …)
   // 同じ小ネタは 1 人生で maxRepeat 回まで(反復ネタは 2 回目で効き、3 回目から飽きる)
