@@ -37,6 +37,7 @@ const KIN: [RegExp, string, string[]][] = [
 ];
 // 「両親」の話は、どちらかを見送った後には出さない(第 27 回: 父を見送った 2 年後に「両親が会社見学」)
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(''); if (/両親|親が(?!倒れ)|父母/.test(tx) && (e.weight ?? 1) > 0) for (const f of ['!flag.father_gone', '!flag.mother_gone']) if (!(e.when ?? []).includes(f)) e.when = [...(e.when ?? []), f]; }
+for (const e of EVENTS) if (e.motif && ['mom_buys', 'oversleep', 'farewell_name', 'boss_fight', 'not_me'].includes(e.motif) && (/^ev_(fa|rv|mt|me)_/.test(e.id) || e.tag?.includes('chain') || e.tag?.includes('followup'))) delete e.motif; // 長い筋・続きの回は小ネタの型で止めない
 for (const e of EVENTS) for (const [re, flag, deaths] of KIN) {
   if (deaths.includes(e.id)) { const put = (x?: import('./types').Effect) => ({ ...(x ?? {}), flag: { ...(x?.flag ?? {}), [flag]: true } }); e.effect = put(e.effect); for (const c of e.choices ?? []) c.effect = put(c.effect); continue; } // 選択のある話は話そのものの effect が使われないので、選択ごとにも立てる(第 19 回: 危篤の祖父が生き返った)
   if ((e.weight ?? 1) > 0 && re.test([e.text, ...(e.alt ?? [])].map((x) => x.ja).join('')) && !(e.when ?? []).includes(`!flag.${flag}`)) e.when = [...(e.when ?? []), `!flag.${flag}`];
@@ -136,6 +137,7 @@ const MOTIFS: [string, RegExp][] = [
   ['train', /電車で.*(知らない人|隣の人|サラリーマン|学生).*(遊んで|遊んでいた|プレイ)|(知らない人|隣の人|サラリーマン).*電車.*(あなたの|自分の)ゲーム/], ['cupmen', /カップ麺/], // 第 25 回: 電車で自分のゲームを遊ぶ人が 5 回、カップ麺が 3 回
   ['train', /(電車|新幹線|車両).*(自分の|あなたの|うちの)(ゲーム|作品|作った)|(自分の|あなたの)(ゲーム|作品).*(電車|新幹線)/],
   ['hospital', /入院|病室/],
+  ['major', /専攻した|美大に通って|専門学校に通って/], ['mom_buys', /は母(だった|が買)|1 つは母|母が \d+ (部|本)|母の 1 件|本は母/], ['oversleep', /乗り過ごし/], ['farewell_name', /送別会.{0,40}下の名前|下の名前.{0,40}送別会/], ['boss_fight', /社長.{0,30}格ゲー|社長室に呼ばれた。用件は/], ['not_me', /違うと言うと.{0,10}がっかり|がっかりされた/], // 第 48 回: 母が買う・乗り過ごし・下の名前の送別会・社長と格ゲーが人生をまたいで続く
   ['readable_code', /コードの方が読みやすい|自分より読みやすかった/],
   ['vr_sick', /(VR|ゴーグル).*(酔|座り込|壁を探|床で)/],
   ['hunt', /一狩り|狩りに|狩場|狩りをして/],

@@ -80,7 +80,7 @@ function epitaphOf(s: State, id: EndingId): Text {
   if (!hs.length && ['end_arrest', 'end_body', 'end_debt', 'end_blacklist'].includes(id)) return { ja: `いい時期は短かった。${after.ja}それでも、いいゲーム人生だった。`, en: `The good part was short. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') }; // 捕まった・倒れた人生に「大きな事件は何も無かった」と言わない(第 22 回)
   if (!hs.length) return { ja: `一生の自慢と呼べる 1 本は無かった。${after.ja}それでも、いいゲーム人生だった。`, en: `No single thing to brag about forever. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') };
   const best = hs.reduce((a, b) => (b.w >= a.w ? b : a));
-  const f = freshPick(s, FEELING[best.kind ?? 'high'] ?? FEELING.high);
+  const f = freshPick(s, (FEELING[best.kind ?? 'high'] ?? FEELING.high).filter((x) => !(x.ja.includes('続けられた') && (s.inner.leftYear || s.year) - s.startYear <= 7))); // 4 年で去った人に「あれがあったから続けられた」は言わせない(第 48 回)
   return {
     ja: `${best.year} 年、${best.age} 歳。${best.text.ja}。${f.ja}。${after.ja}${s.year - s.startYear <= 7 ? '短かったが、' : ''}いいゲーム人生だった。`, // 数年で去った人生は「短かったが」(第 24 回)
     en: `${best.year}, age ${best.age}: ${best.text.en.replace(/\.$/, '')}. ${f.en[0].toUpperCase() + f.en.slice(1)}. ${after.en} It was a good game life.`.replace(/  +/g, ' '),

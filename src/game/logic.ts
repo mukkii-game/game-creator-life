@@ -284,7 +284,9 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
     if (f === 'do_change_company') {
       s.flags.changed_co = true; s.flags.callcenter = false;
       if (s.company.size === 'abroad' && !e.flag?.life_abroad && !e.flag?.went_abroad) { s.flags.life_abroad = false; s.flags.went_abroad = false; s.flags.came_home = true; s.inner.abroadUntil = 0; } // 海外から日本の会社へ移ったら、海外暮らしの話を止める(第 22 回: ナムコに入った後に「海外暮らしが 3 年」)
-      const size: CompanySize = s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small', 'sub'] as const);
+      const cev = EVENT_BY_ID.get(ctx); const ctxTx = cev ? [cev.text, ...(cev.alt ?? []), ...(cev.choices ?? []).map((c) => c.result ?? { ja: '', en: '' })].map((x) => x.ja).join(' ') : '';
+      const named = /外注先|下請け|元上司の会社|先輩の会社|友人の会社|知り合いの会社|小さな会社|同期の会社/.test(ctxTx); // 本文が行き先を決めている(第 48 回: 「外注先の会社に入った」の直後に「ナムコに移った」)
+      const size: CompanySize = named ? s.rng.pick(['small', 'sub'] as const) : s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small', 'sub'] as const);
       if (e.flag?.life_hometown) { // 地元へ帰ったら、幼なじみと始める小さな会社(第 20 回ペルソナ: 地元へ帰った同じ年に大手へ移った)
         s.company = { id: `co_home_${s.year}`, name: { ja: `${s.rng.pick(['ふるさと', 'みなと', 'やまびこ', 'たんぼ', 'ひだまり'])}ゲームス`, en: `${s.rng.pick(['Hometown', 'Harbor', 'Echo', 'Paddy', 'Sunspot'])} Games` }, size: 'small' };
         s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed');
@@ -293,7 +295,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
       }
       s.company = newCompany(s.rng, size, s.year, [...(s.inner.deadCos ?? []), ...s.companies.map((c) => c.company.id)]); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed'); // 潰れた会社・前にいた会社には移らない(第 34 回: 潰れた最初の会社に 15 年後に移った)
       // 次の勤め先を一言(第 9 回ペルソナ: 希望退職に応じた後、どこにいるのか分からない)
-      log(s, freshLine(s, [{ ja: `次の勤め先は ${s.company.name.ja}。`, en: `Next stop: ${s.company.name.en}.` }, { ja: `${s.company.name.ja} に移った。机の引き出しの位置が、前の会社と左右逆だった。`, en: `You moved to ${s.company.name.en}. The desk drawers were on the opposite side from the last place.` }, { ja: `${s.company.name.ja} に拾われた。初日に配られた社員証の写真は、前の会社のを使い回した。`, en: `${s.company.name.en} took you in. For the new ID card, you reused the photo from the last one.` }, { ja: `${s.company.name.ja} に入った。歓迎会で、前の会社の悪口を言うのをこらえた。`, en: `You joined ${s.company.name.en}. At the welcome party, you held back from badmouthing the old place.` }, { ja: `${s.company.name.ja} に移った。最初の 1 週間、前の会社の電話の出方で出てしまった。`, en: `You moved to ${s.company.name.en}. For the first week you kept answering the phone with your old company's greeting.` }, { ja: `${s.company.name.ja} で出直し。新しい机には、前の人の付箋が 1 枚だけ残っていた。「がんばれ」。`, en: `A fresh start at ${s.company.name.en}. The new desk had one sticky note left by the last person: "Hang in there."` }], 'nextco'), 'event');
+      if (named) log(s, { ja: `新しい名刺の社名は ${s.company.name.ja}。`, en: `The new business card says ${s.company.name.en}.` }, 'event'); else log(s, freshLine(s, [{ ja: `次の勤め先は ${s.company.name.ja}。`, en: `Next stop: ${s.company.name.en}.` }, { ja: `${s.company.name.ja} に移った。机の引き出しの位置が、前の会社と左右逆だった。`, en: `You moved to ${s.company.name.en}. The desk drawers were on the opposite side from the last place.` }, { ja: `${s.company.name.ja} に拾われた。初日に配られた社員証の写真は、前の会社のを使い回した。`, en: `${s.company.name.en} took you in. For the new ID card, you reused the photo from the last one.` }, { ja: `${s.company.name.ja} に入った。歓迎会で、前の会社の悪口を言うのをこらえた。`, en: `You joined ${s.company.name.en}. At the welcome party, you held back from badmouthing the old place.` }, { ja: `${s.company.name.ja} に移った。最初の 1 週間、前の会社の電話の出方で出てしまった。`, en: `You moved to ${s.company.name.en}. For the first week you kept answering the phone with your old company's greeting.` }, { ja: `${s.company.name.ja} で出直し。新しい机には、前の人の付箋が 1 枚だけ残っていた。「がんばれ」。`, en: `A fresh start at ${s.company.name.en}. The new desk had one sticky note left by the last person: "Hang in there."` }], 'nextco'), 'event');
       s.inner.nextWorkYear = s.year + s.rng.int(tune('work.everyMin'), tune('work.everyMax'));
     } else if (f === 'do_go_indie') {
       setStatus(s, 'indie'); s.flags.own_co = true; s.company = { id: 'co_indie_self', name: { ja: `${s.name.ja.split(' ')[0]}ゲームス`, en: `${s.name.en.split(' ').slice(-1)[0]} Games` }, size: 'indie' };
@@ -602,6 +604,7 @@ function runItem(s: State, id: string, out: string[]) {
   // 1 年に会社が 2 回変わらない(第 13 回ペルソナ: 地元に帰って会社を作った同じ年に、別の会社に拾われる)
   const moves = (x: { flag?: Record<string, boolean> } | undefined) => Object.keys(x?.flag ?? {}).some((f) => ['do_change_company', 'do_go_indie', 'do_join_sega', 'life_abroad', 'went_abroad'].includes(f));
   if ((moves(ev.effect) || ev.choices?.some((c) => moves(c.effect))) && s.companies.length > 1 && s.companies[s.companies.length - 1].year === s.year) return;
+  if (/^ev_(sys_promote|wk_promote_ask)/.test(ev.id) && (s.status !== 'employed' || s.companies[s.companies.length - 1].year === s.year)) return; // 辞めた・移った年に昇進しない(第 48 回: 独立した年に「人の給料を決める側に回った」)
   if (ev.id.startsWith('ev_sys_bankrupt') && (s.companies[s.companies.length - 1].year === s.year || COMPANIES.real.some((c) => c.id === s.company.id))) return; // 年の初めに決まった倒産でも、その年に移った先(セガなど)は潰さない(第 20 回)
   if (s.companies.length > 1 && s.companies[s.companies.length - 1].year === s.year && /に拾われ|に入った|に移った|に転職|社員 ?\d+ 人の会社を売/.test([ev.text, ...(ev.alt ?? [])].map((x) => x.ja).join(" "))) return; // 移った年に、本文だけでまた移る話を出さない(第 20 回: 1 年に 3 社)
   // 同じ後日談は 1 人生に 1 回(第 12 回ペルソナ: 「コンシューマに残った」が選択なしで 2 回)
@@ -623,7 +626,7 @@ function runItem(s: State, id: string, out: string[]) {
     const bad = /クソゲー|爆死|ワゴン|投げ売り/.test(allTx), good = /名作|大ヒット|伝説|殿堂(?!入りを果たし)|同じハードに|続編|リマスター|父と遊んだ|親子で/.test(allTx) && !bad; // 爆死した作品を新しいハードに出し直さない(第 38 回)
     const hitW = (w: { result: string }) => w.result === 'hit' || w.result === 'legend';
     const gen = /父と遊んだ|親子で|いまは息子|いまは娘/.test(allTx); // 親子二代の話は 15 年以上前の作品だけ(第 43 回: 1 年前の作品で「父と遊んだ」)
-    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= (gen ? 15 : bad ? 4 : 2) && (!online || digital(w)) && (!boxed || !digital(w)) && (!bad || !hitW(w)) && (!good || hitW(w)) && !(/サービス終了|配信を止め|配信停止/.test(ev.text.ja) && w.history.some((h) => (h as { key?: string }).key === 'eos'))); // ヒット作をクソゲー扱いしない・普通の作品を名作扱いしない(第 21 回)
+    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= (gen ? 15 : bad ? 4 : 2) && (!online || digital(w)) && (!boxed || !digital(w)) && (!bad || !hitW(w)) && (!good || hitW(w)) && !(/同じハードに/.test(allTx) && /スマホ|ケータイ|ソシャゲ|ブラウザ|iPhone/.test(w.platform)) && !(/日本で \d+ 本/.test(allTx) && hitW(w)) && !(/サービス終了|配信を止め|配信停止/.test(ev.text.ja) && w.history.some((h) => (h as { key?: string }).key === 'eos'))); // ヒット作をクソゲー扱いしない・普通の作品を名作扱いしない(第 21 回)
     if (!old.length) return;
     s.inner.workTarget = r.pick(old)[1];
   }

@@ -816,8 +816,8 @@
      "flag.bet_pippin"
     ],
     "text": {
-     "ja": "全力をかけた機械が撤退。うちの倉庫の試遊機を、社長が 1 人 3 台ずつ配った。帰りの電車で腕がちぎれそうだった。",
-     "en": "The machine you bet on is gone. The boss handed out the office demo units, three per person. Your arms nearly gave out on the train home."
+     "ja": "全力をかけたピピンが撤退。うちの倉庫の試遊機を、社長が 1 人 3 台ずつ配った。帰りの電車で腕がちぎれそうだった。",
+     "en": "The Pippin you bet on is gone. The boss handed out the office demo units, three per person. Your arms nearly gave out on the train home."
     },
     "effect": {
      "passion": -6,
@@ -915,7 +915,7 @@
      "flag.bet_pcfx"
     ],
     "text": {
-     "ja": "全力をかけた機械が生産終了。打ち上げにファンから色紙が届いた。寄せ書きは 4 人分で、4 人とも機種名を添えていた。",
+     "ja": "全力をかけた PC-FX が生産終了。打ち上げにファンから色紙が届いた。寄せ書きは 4 人分で、4 人とも機種名を添えていた。",
      "en": "Production ends on the machine you bet on. Fans sent a signed card to the wrap party. Four names, each with the console's name beside it."
     },
     "effect": {

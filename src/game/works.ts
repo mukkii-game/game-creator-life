@@ -85,6 +85,9 @@ function roll(s: State, role: Role): WorkResult {
   if (x < legend) return 'legend';
   if (x < legend + hit) return 'hit';
   if (x < legend + hit + flop) return 'flop';
+  // 「普通」が 2 本続いたら、半分は振り直す(第 48 回ペルソナ: 普通 10 本・ヒット 1 本で山が無い)
+  const tail2 = s.works.slice(-2);
+  if (tail2.length === 2 && tail2.every((w) => w.res0 === 'ok') && s.rng.chance(0.5)) return s.rng.next() * (hit + flop) < hit ? 'hit' : 'flop';
   return 'ok';
 }
 
