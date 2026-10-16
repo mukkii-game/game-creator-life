@@ -424,7 +424,7 @@ function beginYear(s: State, out: string[]) {
       const lastOffer = Math.max(s.inner.seen.ev_sys_offer ?? -99, s.inner.seen.ev_sys_offer_b ?? -99, s.inner.seen.ev_sys_offer_c ?? -99);
       if (!s.flags.age60 && s.inner.companyYears >= 2 && s.age >= 20 && s.year - lastOffer >= 6 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(vary(s, ['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
       // 昇進: 半分は「受けるか、現場に残るか」の選択(ev_wk_promote_ask)。残りはそのまま辞令
-      else if (canPromote(s) && !s.flags.promo_declined && r.chance(tune('job.promote'))) sys.push(r.chance(0.5) && !s.inner.used.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : vary(s, ['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
+      else if (canPromote(s) && !s.flags.promo_declined && r.chance(tune('job.promote'))) sys.push(r.chance(0.5) && !s.inner.used.includes('ev_wk_promote_ask') && !s.inner.recent?.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : vary(s, ['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
       if (s.year >= 2027 && !s.inner.used.includes('ev_sys_ai_seat') && r.chance(Math.min(0.6, tune('ai.seat') * (1 + 2 * Math.min(1, (s.year - 2027) / 8)) + Math.max(0, s.year - 2035) * 0.12))) sys.push('ev_sys_ai_seat');
     }
   } else if (s.status === 'indie') {
