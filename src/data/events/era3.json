@@ -36,7 +36,7 @@
     "text": { "ja": "ケータイの「待受画面だけ作る部署」に異動。1 枚の大きさはドット絵の時代に逆戻りした。", "en": "Transferred to the department that only makes phone wallpapers. Image sizes are back to the pixel-art days." },
     "when": ["status=employed", "job=artist"], "effect": { "skill": 3, "passion": -2 }, "tag": ["gag"] },
   { "id": "ev_era3_ringtone", "years": [1999, 2003],
-    "text": { "ja": "着メロの仕事が来た。和音は 3 つまで。15 年前のピコピコの腕が、急に役に立った。", "en": "Ringtone work arrives. Three-note polyphony max. Your old bleep-bloop skills are suddenly in demand." },
+    "text": { "ja": "着メロの仕事が来た。和音は 3 つまで。昔のピコピコの腕が、急に役に立った。", "en": "Ringtone work arrives. Three-note polyphony max. Your old bleep-bloop skills are suddenly in demand." },
     "when": ["job=sound"], "effect": { "skill": 4, "passion": 6, "money": 10 }, "tag": ["gag"] },
   { "id": "ev_era3_dvd_bugs", "years": [2000, 2003], "weight": 2,
     "text": { "ja": "容量が DVD 1 枚分に。何でも入るので何でも入れたら、バグ票が電話帳の厚さになった。", "en": "A whole DVD of space. We put everything in, so the bug reports are now as thick as a phone book." },

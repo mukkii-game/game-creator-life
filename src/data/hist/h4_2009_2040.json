@@ -267,7 +267,7 @@
      "stat.skill>=50"
     ],
     "text": {
-     "ja": "無料のエンジンで、週末に 1 本作った。月曜に見せると部長が「これ、うちで出そう」。初めて自分の企画が通った。",
+     "ja": "無料のエンジンで、週末に 1 本作った。月曜に見せると部長が「これ、うちで出そう」。週末の 1 本が、そのまま会社の企画になった。",
      "en": "You build a game over the weekend with the free engine. Monday, the manager says, \"Let's publish this.\" Your first approved pitch."
     },
     "effect": {
@@ -1269,7 +1269,7 @@
    },
    {
     "id": "ev_hs_2012_wiiu_client",
-    "when": [
+    "when": ["flag.child", 
      "pos=client"
     ],
     "text": {
@@ -1288,7 +1288,7 @@
     ]
    },
    {
-    "id": "ev_hs_2012_wiiu_any",
+    "id": "ev_hs_2012_wiiu_any", "when": ["flag.child"],
     "text": {
      "ja": "家族で手元の画面を取り合った。テレビは父、コントローラは子ども。家族会議は 2 画面で行われた。",
      "en": "The family fights over the controller screen. The TV for Dad, the controller for the kids. Family meetings now happen on two screens."
@@ -4558,7 +4558,7 @@
    },
    {
     "id": "ev_hs_2024_palworld_skill",
-    "when": [
+    "when": ["career>=15", 
      "stat.skill>=60"
     ],
     "text": {
@@ -4702,7 +4702,7 @@
    },
    {
     "id": "ev_hs_2024_patent_client_lead",
-    "when": [
+    "when": ["career>=20", 
      "pos=client_lead"
     ],
     "text": {
@@ -5293,7 +5293,7 @@
    },
    {
     "id": "ev_hs_2028_glass_war_outside",
-    "when": [
+    "when": ["career>=30", "flag.child", 
      "pos=outside"
     ],
     "text": {
@@ -5665,7 +5665,7 @@
      "pos=client_lead"
     ],
     "text": {
-     "ja": "新卒採用の面接で、全員が「自作が 30 本あります」と言った。自分は 20 年で 9 本だ。",
+     "ja": "新卒採用の面接で、全員が「自作が 30 本あります」と言った。自分はこれまでで 9 本だ。",
      "en": "At graduate interviews, every candidate says, \"I've made 30 games.\" You've made nine in twenty years."
     },
     "effect": {
@@ -5735,7 +5735,7 @@
   "variants": [
    {
     "id": "ev_hs_2033_ai_remake_outside",
-    "when": [
+    "when": ["flag.child", 
      "pos=outside",
      "works>=1"
     ],
@@ -5921,7 +5921,7 @@
    },
    {
     "id": "ev_hs_2035_glass_end_age",
-    "when": [
+    "when": ["flag.child", 
      "age>=60"
     ],
     "text": {
@@ -5974,7 +5974,7 @@
   "variants": [
    {
     "id": "ev_hs_2037_school_outside",
-    "when": [
+    "when": ["flag.child", 
      "pos=outside"
     ],
     "text": {

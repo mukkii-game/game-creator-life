@@ -1893,7 +1893,7 @@
     ]
    },
    {
-    "id": "ev_hs_2017_wiiu_end_any",
+    "id": "ev_hs_2017_wiiu_end_any", "when": ["flag.child"],
     "text": {
      "ja": "手元に画面のあるゲーム機の生産が終わった。家ではまだ、父がテレビ、子どもが手元の画面を取り合っている。",
      "en": "Production ends for the console with a screen in your hands. At home, Dad still gets the TV and the kids still fight over the pad."
@@ -2188,7 +2188,7 @@
    },
    {
     "id": "ev_hs_2021_retro_scv",
-    "when": [
+    "when": ["flag.child", 
      "flag.bet_scv"
     ],
     "text": {
@@ -2574,7 +2574,7 @@
    },
    {
     "id": "ev_hs_2034_scent_end_old",
-    "when": [
+    "when": ["flag.child", 
      "age>=60"
     ],
     "text": {

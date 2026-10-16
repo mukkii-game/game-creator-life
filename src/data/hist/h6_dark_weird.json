@@ -1928,7 +1928,7 @@
    {
     "id": "ev_hs_dark_2012_fish_any",
     "text": {
-     "ja": "一審と二審で結論が逆になった。うちの企画会議も、毎回そうだ。",
+     "ja": "釣りゲームの画面の裁判は、一審と二審で結論が逆になった。うちの企画会議も、毎回そうだ。",
      "en": "The first and second rulings come out opposite. So do your planning meetings, every time."
     },
     "effect": {
@@ -2220,7 +2220,7 @@
    {
     "id": "ev_hs_dark_2021_pat_any",
     "text": {
-     "ja": "33 億円の和解のニュースを、家計簿をつけながら読んだ。桁を数えているうちに、今月の赤字を忘れた。",
+     "ja": "任天堂とコロプラの裁判が 33 億円で和解した、というニュースを家計簿をつけながら読んだ。桁を数えているうちに、今月の赤字を忘れた。",
      "en": "You read about the 3.3-billion-yen settlement while doing the household budget. Counting the zeros, you forget this month's deficit."
     },
     "effect": {
@@ -2374,7 +2374,7 @@
      "flag.partner"
     ],
     "text": {
-     "ja": "恋人と洞窟のゲームを遊んだ。自分の主人公はすぐやられ、恋人に「あなたに似てる」と言われた。",
+     "ja": "パートナーと洞窟のゲームを遊んだ。自分の主人公はすぐやられ、パートナーに「あなたに似てる」と言われた。",
      "en": "You play the cave game with your partner. Your hero dies instantly. Your partner says, \"Just like you.\""
     },
     "effect": {
