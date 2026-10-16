@@ -33,7 +33,7 @@ const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other'
 const COND = /^!?(age|year|era|job|status|works|hits|cos|kid|career|pos|company\.size|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z0-9_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
 const JOBS = ['programmer', 'planner', 'artist', 'sound', 'qa', 'sales', 'director', 'producer', 'teacher', 'other'];
 const STATUS = ['employed', 'indie', 'left', 'retired', 'ended'];
-const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow', 'cause', 'memory', 'needs', 'alt']);
+const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow', 'cause', 'memory', 'needs', 'alt', 'jobs']);
 const TL_KEYS = new Set(['id', 'year', 'month', 'kind', 'text', 'use', 'src', 'unverified']);
 
 function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
