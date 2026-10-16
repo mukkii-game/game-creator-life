@@ -78,7 +78,7 @@ for (const e of EVENTS) {
   if (ago && +ago[1] >= 5 && !has(e, 'career')) add(e, `career>=${+ago[1]}`);
   if (/入社 ?\d+ ?日目|新人研修|配属初日|入社初日|新入社員/.test(tx) && !has(e, 'career')) add(e, 'career<=1');
   // 自分の作品が前提の話は、作品を 1 本以上出してから(作品 0 本なのに「自分の作品で…」が出ていた)
-  if (/自分の作品|あなたの作品|自分のゲーム|あなたのゲーム|昔作った|発売された箱|自分が作った|自作の/.test(tx) && !has(e, 'works')) add(e, 'works>=1');
+  if (/自分の作品|あなたの作品|自分のゲーム|あなたのゲーム|昔作った|発売された箱|自分が作った|自作の|自分の昔の|昔の作品|マスター ROM|過去作|自分の担当した/.test(tx) && !has(e, 'works')) add(e, 'works>=1');
   // 仕事の書類の話は、無職の間は出さない(独立中は出してよい)
   if (/仕様書|企画書|本業|会社にばれ|勤め先|定時/.test(tx) && !has(e, 'status') && !has(e, 'pos')) add(e, 'status!=left');
   // 親友を見送った後に、その親友が出てくる話は出さない
@@ -89,6 +89,20 @@ for (const e of EVENTS) {
   if (/即売会/.test(tx) && e.years[0] <= 2021 && e.years[1] >= 2020) add(e, 'year!=2020'), add(e, 'year!=2021');
   // 昔の作品の話は、2 年以上前の作品がある時だけ(出したばかりの作品に「リマスター」が来ない)
   if (/\{work\}/.test(tx) && /リマスター|復刻|昔の|移植版|再販/.test(tx) && !e.tag?.includes('afterlife')) e.tag = [...(e.tag ?? []), 'afterlife'];
+}
+
+// 業界を去る選択(do_end / do_switch)は、入って 5 年たってから(第 11 回ペルソナ: 22 歳のうちに玉の輿で退場、初めての人が「ゲームはどこ?」)
+for (const e of EVENTS) {
+  if (e.id.startsWith('ev_sys_') || has(e, 'career')) continue;
+  const fl = [e.effect, ...(e.choices ?? []).map((c) => c.effect)].flatMap((x) => Object.keys(x?.flag ?? {}));
+  if (fl.some((f) => f === 'do_end' || f === 'do_switch')) add(e, 'career>=5');
+}
+// てっぺんの話の「作品が」は作品名に(第 11 回ペルソナ: 「作品が 100 万本」がどの作品か分からない)
+for (const e of EVENTS) if (e.id.startsWith('ev_tn_pk_')) for (const t of [e.text, ...(e.alt ?? [])]) { if (t.ja.startsWith('作品が')) { t.ja = t.ja.replace(/^作品が/, '{work}が'); t.en = t.en.replace(/^(Your game|The game)/, '{work}'); } }
+// 題名の選択を、次の作品の名前に効かせる(第 11 回ペルソナ: 「漢字 4 文字」を選んだのに『ぷるぷるパネル』)
+for (const e of EVENTS) for (const c of e.choices ?? []) {
+  const st = ({ ch_wk_tt_kanji: 'tt_kanji', ch_wk_tt_ceo: 'tt_ceo', ch_wk_tn_long: 'tt_long' } as Record<string, string>)[c.id];
+  if (st) c.effect = { ...c.effect, flag: { ...(c.effect.flag ?? {}), [st]: true } };
 }
 
 // ヒットが前提の話(第 8 回ペルソナ: 「普通」の 1 本しか無いのに「作品が大ヒットし、父が全クリ」がてっぺんに)。

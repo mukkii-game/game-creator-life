@@ -58,7 +58,7 @@ const ENTRIES: Entry[] = [
   { size: 'big', sega: true, text: { ja: 'セガ', en: 'Sega' }, w: (a, y) => (a >= 50 ? 0.3 : y <= 1982 ? 1.3 : y <= 2001 ? 5 : y <= 2015 ? 2 : 1.3) },
   { size: 'sub', segaSub: true, text: { ja: 'セガの下請け', en: "Sega's contractor" }, w: (_a, y) => (y >= 1990 && y <= 2010 ? 0.8 : 0) },
 ];
-const JOBS: [Job, number][] = [['programmer', 30], ['planner', 20], ['artist', 20], ['sound', 7], ['qa', 15], ['sales', 6]];
+const JOBS: [Job, number][] = [['programmer', 30], ['planner', 20], ['artist', 22], ['sound', 11], ['qa', 12], ['sales', 5]];
 const REGIONS: Text[] = [{ ja: '東京', en: 'Tokyo' }, { ja: '東京', en: 'Tokyo' }, { ja: '京都', en: 'Kyoto' }, { ja: '大阪', en: 'Osaka' }, { ja: '福岡', en: 'Fukuoka' }, { ja: '地方', en: 'the countryside' }];
 
 function wpick<T>(r: Rng, items: T[], w: (t: T) => number): T {
@@ -69,6 +69,11 @@ function wpick<T>(r: Rng, items: T[], w: (t: T) => number): T {
 }
 
 /** 入力された名前があればそれ(乱数の並びは変えない = 同じ seed なら名前以外は同じ人生) */
+function freshName(r: Rng, born: number, recent?: string[]): Text {
+  let p = personName(r, born);
+  for (let i = 0; i < 6 && recent?.includes(`given:${p.ja.split(' ')[1]}`); i++) p = personName(r, born);
+  return p;
+}
 function nameOf(gacha: Text, typed?: string): Text {
   const t = (typed ?? '').trim().slice(0, 16);
   return t ? { ja: t, en: t } : gacha;
@@ -111,14 +116,15 @@ export function init(seed: number, options: InitOptions = {}): State {
   const year = options.year ?? peerOf?.year ?? gachaYear(r, options.era);
   const age = options.age ?? gachaAge(r);
   const entry = wpick(r, ENTRIES, (e) => e.w(age, year));
-  const job = wpick(r, JOBS, ([, w]) => w)[0];
+  // 直近の人生と同じ職種・同じ下の名前は引きにくく(第 11 回ペルソナ: プランナーの「まい」が 2 回続いた)
+  const job = wpick(r, JOBS, ([j, w]) => w * (options.recent?.includes(`job:${j}`) ? 0.25 : 1))[0];
   const base = age <= 18 ? [80, 90, 10, 5, 10] : age <= 24 ? [70, 80, 25, 15, 30] : age < 50 ? [60, 95, 15, 10, 100] : [50, 95, 10, 30, 600];
   const company: Company = entry.indie ? { id: 'co_indie_self', name: { ja: '自室', en: 'your bedroom' }, size: 'indie' }
     : peerOf && peerOf.company.size !== 'indie' ? peerOf.company
     : entry.sega && SEGA() ? { id: 'co_sega', name: nameAt(SEGA()!, year), size: 'big' } : newCompany(r, entry.size, year);
   const s: State = {
     seed, year, age, startAge: age, startYear: year, era: eraOf(year), job, status: entry.indie ? 'indie' : 'employed',
-    name: nameOf(personName(r, year - age), options.name), entry: entry.text, region: entry.size === 'abroad' ? { ja: '海外', en: 'abroad' } : r.pick(REGIONS),
+    name: nameOf(freshName(r, year - age, options.recent), options.name), entry: entry.text, region: entry.size === 'abroad' ? { ja: '海外', en: 'abroad' } : r.pick(REGIONS),
     company, companies: [{ company, year }], options: { era: options.era, year: options.year, age: options.age, seen: options.seen },
     stat: { hp: base[0], passion: base[1], skill: base[2], network: base[3], money: base[4], fame: 0 },
     flags: {}, works: [], peers: [], log: [], chronicle: [], pending: [], rng: r,
@@ -380,7 +386,8 @@ function beginYear(s: State, out: string[]) {
     if (pool.length) { if (fresh.length) turning.push(draw(r, fresh, 1, wOf(s))[0].id); s.inner.nextBig = s.year + r.int(tune<number>('choice.bigMin'), tune<number>('choice.bigMax')); }
   }
   // どのハードに賭けるか(hardware.json。大きな選択と同じ年には出さない)
-  if (s.year >= (s.inner.nextHw ?? 0) && !turning.length && (s.status === 'employed' || s.status === 'indie')) {
+  const holder = s.status === 'employed' && (s.company.id === 'co_sony' || s.company.id === 'co_nintendo' || (s.company.id === 'co_sega' && s.year < 2001)); // ハードを作る会社の社員は機種を選ばない
+  if (s.year >= (s.inner.nextHw ?? 0) && !turning.length && !holder && (s.status === 'employed' || s.status === 'indie')) {
     const pool = POOL.filter((e) => e.tag?.includes('hardware') && e.choices && eligible(s, e, 99));
     if (pool.length) { turning.push(draw(r, pool, 1, wOf(s))[0].id); s.inner.nextHw = s.year + r.int(tune<number>('choice.hwMin'), tune<number>('choice.hwMax')); }
   }
@@ -445,7 +452,7 @@ function pickHist(s: State): string[] {
   }
   // 直近の人生で見た小ネタしか残っていない年は、無理に出さない(年表には出る。第 9 回ペルソナ: 尽きた年は埋めない方が冷めない)
   if (cands.some((c) => !c.stale)) { for (let i = cands.length - 1; i >= 0; i--) if (cands[i].stale) cands.splice(i, 1); }
-  else if (cands.length && s.rng.chance(0.75)) return [];
+  else if (cands.length && s.rng.chance(0.9)) return [];
   if (!cands.length) return [];
   const n = Math.min(cands.length, s.rng.chance(tune<number>('hist.second')) ? 2 : 1);
   const out: string[] = [];
@@ -490,7 +497,8 @@ function runItem(s: State, id: string, out: string[]) {
   }
   if (id === '@check65') { if (s.stat.hp < 40) end(s, 'end_retire', out); return; }
   if (id === '@search') {
-    const p = tune('job.rehire') + (s.stat.skill + s.stat.network) / 250;
+    // 業界に入って数年は拾ってもらいやすい(第 11 回ペルソナ: 25 歳で作品ゼロのまま業界を去る人生が続いた)
+    const p = tune('job.rehire') + (s.stat.skill + s.stat.network) / 250 + (s.year - s.startYear < 6 ? 0.4 : 0);
     if (r.chance(p)) {
       const size: CompanySize = s.stat.skill >= 65 ? r.pick(['big', 'mid'] as const) : r.pick(['mid', 'small', 'sub', 'sub'] as const);
       s.company = newCompany(r, size, s.year, s.inner.deadCos); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0;
@@ -515,7 +523,10 @@ function runItem(s: State, id: string, out: string[]) {
   if (ev.tag?.includes('afterlife')) {
     // 運営型の話(サービス終了・ガチャ…)は、配信の作品にだけ(第 7 回ペルソナ: DS や Wii のパッケージに「排出率が全部 100%」)
     const online = /サービス終了|排出率|ガチャ|運営|ログイン/.test(ev.text.ja);
-    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= 2 && (!online || /スマホ|ケータイ|ソシャゲ|ブラウザ|オンライン|AI クラウド/.test(w.platform)));
+    // 箱のある話(未開封・見本盤・中古・ワゴン …)は、配信だけの作品には付けない(第 11 回ペルソナ: ケータイアプリの未開封品が 80 万円)
+    const boxed = /未開封|見本盤|中古|ワゴン|カートリッジ|押し入れ|箱|棚|パッケージ|説明書/.test(ev.text.ja);
+    const digital = (w: { platform: string }) => /スマホ|ケータイ|ソシャゲ|ブラウザ|オンライン|AI クラウド|Steam|itch|Flash|iPhone/.test(w.platform);
+    const old = s.works.map((w, i) => [w, i] as const).filter(([w]) => s.year - w.year >= 2 && (!online || digital(w)) && (!boxed || !digital(w)));
     if (!old.length) return;
     s.inner.workTarget = r.pick(old)[1];
   }
@@ -623,7 +634,8 @@ function peersYear(s: State, out: string[]) {
       [`同期の${nm}の${newHit?.name.ja}がヒット。こっそり買って、こっそり最後まで遊んだ。悔しいが、面白かった。`, `Your peer ${en}'s ${newHit?.name.en} was a hit. You bought it quietly and played it to the end quietly. Annoyingly, it was good.`],
     ];
     if (pe && pe.id === 'end_restart' && !ok('restart', 1)) line = null; // 2027 年の区切りで同期が一斉に終わるのは 1 人だけ伝える
-    else if (pe) { if (pe.id === 'end_restart') said1('restart'); line = { ja: `同期の${nm}の知らせ。${pe.cause.ja.replace(/^\d+ 歳、/, '')}。`, en: `News of your peer ${en}: ${pe.cause.en.replace(/^At \d+, /, '')}.` }; }
+    else if (pe && pe.id === 'end_restart') { said1('restart'); line = freshLine(s, [{ ja: `同期の${nm}も、AI の騒ぎの中で次の一歩を決めたらしい。年賀状に「まだやる」とだけあった。`, en: `Your peer ${en} chose a next step amid the AI upheaval too. Their New Year card said only: "Still at it."` }, { ja: `同期の${nm}から久しぶりに電話。「お前はどうする」。答える前に、向こうが自分の答えを 30 分しゃべった。`, en: `A call from your peer ${en}, first in ages: "What are you doing?" Before you could answer, they talked about their own plan for thirty minutes.` }], 'peerrestart'); }
+    else if (pe) { line = { ja: `同期の${nm}の知らせ。${pe.cause.ja.replace(/^\d+ 歳、/, '')}。`, en: `News of your peer ${en}: ${pe.cause.en.replace(/^At \d+, /, '')}.` }; }
     else if (newHit && ok('hit', 2) && !s.works.some((w) => w.name.ja === newHit.name.ja) && (newHit.result === 'legend' || s.rng.chance(0.4))) { line = freshLine(s, hitL.map(([ja, enT]) => ({ ja, en: enT })), 'peerhit'); said1('hit'); }
     else if (p.status !== before.status && p.status === 'indie' && ok('indie', 1)) { said1('indie'); line = freshLine(s, [{ ja: `同期の${nm}が独立した。名刺の肩書きは「CEO」。社員は本人だけ。`, en: `Your peer ${en} went indie. Business card: "CEO." Staff: one.` }, { ja: `同期の${nm}が会社を辞めて、自分のスタジオを作った。開業祝いに観葉植物を贈ったら、社員より大きかった。`, en: `Your peer ${en} quit to start a studio. The potted plant you sent as a gift was bigger than the staff.` }, { ja: `同期の${nm}が独立した。最初の作品の告知は、あなたにだけ 1 日早く届いた。`, en: `Your peer ${en} went indie. The announcement of their first game reached you a day before anyone else.` }], 'peerindie'); }
     else if (p.job !== before.job && (p.job === 'director' || p.job === 'producer') && ok('promo', 1)) { said1('promo'); line = freshLine(s, [{ ja: `同期の${nm}が${JOB_TEXT[p.job].ja}に昇進した。あなたより先に。`, en: `Your peer ${en} was promoted to ${JOB_TEXT[p.job].en}. Before you.` }, { ja: `同期の${nm}の名刺に「${JOB_TEXT[p.job].ja}」と入った。もらった名刺は、引き出しの一番奥にしまった。`, en: `Your peer ${en}'s new card read "${JOB_TEXT[p.job].en}." You filed it at the very back of your drawer.` }, { ja: `同期の${nm}が${JOB_TEXT[p.job].ja}になった。お祝いの寄せ書きに「次は俺」と書いた。誰も笑わなかった。`, en: `Your peer ${en} became ${JOB_TEXT[p.job].en}. On the congratulations card you wrote "I'm next." Nobody laughed.` }], 'peerpromo'); }
@@ -749,7 +761,7 @@ function mentorArcs(s: State, r: Rng, out: string[]) {
     if ((a.step === 1 || a.step === 2) && (s.status !== 'employed' || (a.co && a.co !== s.company.id))) { a.step++; continue; }
     const pre = kind === 'mentor' ? 'ev_mt_' : 'ev_me_';
     const used = [...(s.inner.mentor?.used ?? []), ...(s.inner.mentee?.used ?? [])];
-    const vs0 = ['a', 'b', 'c', 'd', 'e', 'f'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)) && (!e.jobs || e.jobs.includes(s.job)) && (!SAME_CO.has(e.id) || (s.status === 'employed' && a.co === s.company.id)));
+    const vs0 = ['a', 'b', 'c', 'd', 'e', 'f'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)) && (!e.jobs || e.jobs.includes(s.job)) && (!(SAME_CO.has(e.id) || /上司|社内|会議|隣の席|部署|チーム|配属|社員食堂/.test(e.text.ja)) || (s.status === 'employed' && a.co === s.company.id))); // 会社の中の話は同じ会社にいる間だけ(第 11 回ペルソナ: 潰れた会社の上司がずっと出てくる)
     const freshV = vs0.filter((e) => !s.inner.recent?.includes(e.id));
     const vs = freshV.length ? freshV : vs0;
     if (vs.length) {
@@ -773,16 +785,18 @@ function vary(s: State, ids: string[]): string {
 }
 
 /** 締めの名台詞(1 行目 = 相方の問い、2 行目 = 名台詞)。0 番はキッズ・リターン */
-const FINALES: Text[] = [
-  { ja: '「なあ、俺たち、もう終わっちゃったのかな」\n「バカヤロー、まだ始まっちゃいねえよ」', en: '"Hey... are we finished?"\n"Idiot. We haven\'t even started yet."' }, // キッズ・リターン
-  { ja: '「明日から、どうする?」\n「明日は明日の風が吹くさ」', en: '"So what about tomorrow?"\n"Tomorrow is another day."' }, // 風と共に去りぬ
-  { ja: '「まだ希望なんて持ってるのか」\n「希望はいいものだ。たぶん最高のものだ。いいものは決して滅びない」', en: '"You still have hope?"\n"Hope is a good thing, maybe the best of things, and no good thing ever dies."' }, // ショーシャンクの空に
-  { ja: '「この先、どうなるんだろうな」\n「未来は決まっていない。運命なんてない。自分で作るものだ」', en: '"Wonder what happens now."\n"The future\'s not set. There\'s no fate but what we make for ourselves."' }, // ターミネーター 2
-  { ja: '「人生って、何が出るか分からないな」\n「人生はチョコレートの箱みたいなもんさ。開けてみるまで中身は分からない」', en: '"You never know what life\'ll throw at you."\n"Life is like a box of chocolates. You never know what you\'re gonna get."' }, // フォレスト・ガンプ
-  { ja: '「まだ行く気か」\n「無限の彼方へ、さあ行くぞ!」', en: '"You\'re still going?"\n"To infinity and beyond!"' }, // トイ・ストーリー
-  { ja: '「元気でやってるか」\n「落ち込んだりもしたけれど、私はげんきです」', en: '"Doing okay?"\n"I\'ve had my ups and downs, but I\'m doing fine."' }, // 魔女の宅急便
-  { ja: '「もう、さすがに潮時かな」\n「あきらめたら、そこで試合終了ですよ」', en: '"Maybe it\'s time to call it."\n"If you give up, the game is over."' }, // SLAM DUNK
-  { ja: '「じゃあ、またどこかで」\n「フォースと共にあらんことを」', en: '"Well, see you around."\n"May the Force be with you."' }, // スター・ウォーズ
+type Finale = { t: Text; fit?: (s: State, id: EndingId) => boolean; parody?: RegExp };
+const bad = (id: EndingId) => id === 'end_debt' || id === 'end_burnout' || id === 'end_blacklist' || id === 'end_body';
+const FINALES: Finale[] = [
+  { t: { ja: '「なあ、俺たち、もう終わっちゃったのかな」\n「バカヤロー、まだ始まっちゃいねえよ」', en: '"Hey... are we finished?"\n"Idiot. We haven\'t even started yet."' } }, // キッズ・リターン(どの人生にも)
+  { t: { ja: '「明日から、どうする?」\n「明日は明日の風が吹くさ」', en: '"So what about tomorrow?"\n"Tomorrow is another day."' }, fit: (_s, id) => bad(id) || id === 'end_switch' }, // 風と共に去りぬ: うまくいかなかった人生に
+  { t: { ja: '「まだ希望なんて持ってるのか」\n「希望はいいものだ。たぶん最高のものだ。いいものは決して滅びない」', en: '"You still have hope?"\n"Hope is a good thing, maybe the best of things, and no good thing ever dies."' }, fit: (s) => !!(s.flags.ex_prison || s.flags.in_prison) }, // ショーシャンクの空に: 塀の中を通った人生に
+  { t: { ja: '「この先、どうなるんだろうな」\n「未来は決まっていない。運命なんてない。自分で作るものだ」', en: '"Wonder what happens now."\n"The future\'s not set. There\'s no fate but what we make for ourselves."' }, fit: (s) => !!(s.flags.shift_hand || s.flags.shift_partner) }, // ターミネーター 2: AI の時代にまだ作る人生に
+  { t: { ja: '「人生って、何が出るか分からないな」\n「人生はチョコレートの箱みたいなもんさ。開けてみるまで中身は分からない」', en: '"You never know what life\'ll throw at you."\n"Life is like a box of chocolates. You never know what you\'re gonna get."' }, fit: (s) => s.companies.length >= 4 || !!s.flags.ex_prison }, // フォレスト・ガンプ: 浮き沈みの多い人生に
+  { t: { ja: '「まだ行く気か」\n「無限の彼方へ、さあ行くぞ!」', en: '"You\'re still going?"\n"To infinity and beyond!"' }, fit: (s, id) => id === 'end_pen_down' || !!s.flags.shift_partner, parody: /無限の.*彼方/ }, // トイ・ストーリー: まだ作り続ける人生に
+  { t: { ja: '「元気でやってるか」\n「落ち込んだりもしたけれど、私はげんきです」', en: '"Doing okay?"\n"I\'ve had my ups and downs, but I\'m doing fine."' }, fit: (_s, id) => id === 'end_retire' || id === 'end_body' || id === 'end_switch' }, // 魔女の宅急便: 去った後も元気な人生に
+  { t: { ja: '「もう、さすがに潮時かな」\n「あきらめたら、そこで試合終了ですよ」', en: '"Maybe it\'s time to call it."\n"If you give up, the game is over."' }, fit: (s, id) => id === 'end_pen_down' || !!s.flags.shift_hand, parody: /あきらめたら/ }, // SLAM DUNK: あきらめなかった人生に
+  { t: { ja: '「じゃあ、またどこかで」\n「フォースと共にあらんことを」', en: '"Well, see you around."\n"May the Force be with you."' }, fit: (_s, id) => id === 'end_retire' || id === 'end_switch', parody: /と共にあらんことを/ }, // スター・ウォーズ: 送り出す人生に
 ];
 /** どの終わり方でも、最後は同期との掛け合い(キッズ・リターンのパロディ)。場面だけ終わり方で変える */
 function kidsReturn(s: State, id: EndingId) {
@@ -803,7 +817,7 @@ function kidsReturn(s: State, id: EndingId) {
     end_restart: s.rng.pick([
       { ja: `帰り道、${p}がぽつりと言った。`, en: `On the way home, ${pe} said quietly:` },
       { ja: `打ち上げの後の屋台で、${p}が湯気の向こうで言った。`, en: `At a food stall after the wrap party, ${pe} said through the steam:` },
-      { ja: `夜中の開発室に、ふたりだけ残っていた。${p}がモニターを見たまま言った。`, en: `Only the two of you were left in the dev room at night. ${pe} said, still staring at the monitor:` },
+      ...(s.flags.shift_play ? [{ ja: `ゲーセンの対戦台の向こうから、${p}が言った。`, en: `From across the arcade versus cabinet, ${pe} said:` }] : [{ ja: `夜中の開発室に、ふたりだけ残っていた。${p}がモニターを見たまま言った。`, en: `Only the two of you were left in the dev room at night. ${pe} said, still staring at the monitor:` }]), // 遊ぶ側に回った人生に開発室は出さない
       { ja: `終電を待つホームで、${p}が言った。`, en: `Waiting for the last train, ${pe} said:` },
     ]),
     end_retire: s.rng.pick([
@@ -818,8 +832,13 @@ function kidsReturn(s: State, id: EndingId) {
     : where[id] ?? { ja: `最後の日、${p}と並んで歩きながら、${p.replace(/^.*の/, '')}が言った。`, en: `Walking side by side on your last day, ${pe} said:` };
   // 締めの掛け合い: 希望のある名台詞をほぼそのまま(2026-10-16 Mukkii: キッズ・リターン 1 つだと 3 回目に「はいはい」になる → 何種類か)。
   // 初めて遊ぶ人はキッズ・リターン。続けて遊ぶ人には、直近の人生で出ていないものを
-  const finale = !s.inner.recent?.length ? FINALES[0] : freshLine(s, FINALES, 'finale');
-  if (!s.inner.recent?.length) (s.inner.saidLines ??= []).push('finale:0');
+  // その人生に合う台詞だけ(第 11 回ペルソナ: 合う時は鳥肌、合わないと「型」に見える)。途中で同じ台詞のもじりが出た人生では使わない
+  const said = (s.inner.saidLines ??= []);
+  const okF = FINALES.map((f, i) => [f, i] as const).filter(([f]) => (!f.fit || f.fit(s, id)) && !(f.parody && s.log.some((l) => f.parody!.test(l.text.ja))));
+  const freshF = okF.filter(([, i]) => !s.inner.recent?.includes(`line:finale:${i}`));
+  const [fin, fi] = !s.inner.recent?.length ? okF[0] : s.rng.pick(freshF.length ? freshF : okF);
+  said.push(`finale:${fi}`);
+  const finale = fin.t;
   s.inner.kr = { ja: `${w.ja}\n${finale.ja}`, en: `${w.en}\n${finale.en}` };
 }
 

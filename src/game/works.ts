@@ -14,6 +14,21 @@ function nameFits(name: string, platform: string): boolean {
   const tags: [RegExp, RegExp][] = [[/DS$|DS[^a-z]/, /^ニンテンドー DS$/], [/アドバンス/, /アドバンス/], [/ポータブル|ポケット/, /PSP|ゲームボーイ|DS|3DS|スマホ|ケータイ/], [/64/, /64/], [/3D$/, /3DS/]];
   return tags.every(([inName, okPf]) => !inName.test(name) || okPf.test(platform));
 }
+/** 題名の会議で選んだ型(worklife の ch_wk_tt_kanji / ch_wk_tt_ceo / ch_wk_tn_long)を、次の作品の名前にする */
+const STYLED: Record<string, Text[]> = {
+  tt_kanji: [{ ja: '『蒼穹戦記』', en: '"Azure Sky Chronicle"' }, { ja: '『鋼鉄要塞』', en: '"Iron Fortress"' }, { ja: '『幻影遊戯』', en: '"Phantom Games"' }, { ja: '『紅蓮剣舞』', en: '"Crimson Blade Dance"' }, { ja: '『星霜伝説』', en: '"Legend of Years"' }, { ja: '『雷鳴機甲』', en: '"Thunder Armor"' }],
+  tt_ceo: [{ ja: '『ドラゴン大作戦』', en: '"Operation Dragon"' }, { ja: '『ハムスター大作戦』', en: '"Operation Hamster"' }, { ja: '『社員旅行大作戦』', en: '"Operation Company Trip"' }, { ja: '『ラーメン屋台大作戦』', en: '"Operation Ramen Stall"' }],
+  tt_long: [{ ja: '『転生したら開発室の床で寝ていた件』', en: '"Reborn Asleep on the Dev Room Floor"' }, { ja: '『勇者をクビになったので村で道具屋を始めます』', en: '"Fired as the Hero, I Opened a Village Shop"' }, { ja: '『魔王城の締め切りが明日なので本気を出す』', en: '"The Demon Castle Deadline Is Tomorrow"' }],
+};
+function styledName(s: State): Text | null {
+  for (const k of Object.keys(STYLED)) if (s.flags[k]) {
+    delete s.flags[k];
+    const used = new Set(s.works.map((w) => w.name.ja));
+    const c = STYLED[k].filter((t) => !used.has(t.ja) && !s.inner.recent?.includes(`title:${t.ja.replace(/^『|』$/g, '')}`));
+    return s.rng.pick(c.length ? c : STYLED[k]);
+  }
+  return null;
+}
 /** 作った題名も機種に合わせる(第 8 回ペルソナ: 『伝説の釣りDS』が PS3 で出ていた) */
 function fitName(r: State["rng"], year: number, platform: string): Text {
   let n = workName(r, year);
@@ -178,8 +193,9 @@ export function release(s: State): { work: Work; line: Text } {
   const r = s.rng;
   const role = roleFor(s);
   const result = roll(s, role);
-  const platform = platformFor(r, s.year, role, s.flags);
-  const titled = role === 'solo' || !r.chance(0.8) ? null : pickTitle(s, platform);
+  const platform = platformFor(r, s.year, role, s.flags, s.status === 'employed' ? s.company.id : undefined);
+  const styled = styledName(s);
+  const titled = styled ? { name: styled } : role === 'solo' || !r.chance(0.8) ? null : pickTitle(s, platform);
   const work: Work = { id: `wk_${s.works.length + 1}`, name: titled?.name ?? fitName(r, s.year, platform), year: s.year, platform, role, result, history: [] };
   s.works.push(work);
   // 結果の一言は、この人生でまだ使っていないものから(ペルソナ通読: 社長賞 5000 円が 3 回)

@@ -77,9 +77,12 @@ const HW_PREF: [string, (p: string) => boolean][] = [
   ['hw_dv_console', (p) => !/ケータイ|スマホ|ソシャゲ|業務用/.test(p)],
 ];
 
-export function platformFor(r: Rng, year: number, role: Role, flags: Record<string, boolean> = {}): string {
+export function platformFor(r: Rng, year: number, role: Role, flags: Record<string, boolean> = {}, co?: string): string {
   const base = platformBase(r, year, role);
   if (role === 'solo') return base;
+  // ハードを作る会社の社員は、自社のハードで出す(第 11 回ペルソナ: SCE の社員がドリキャス、ソニーで 3DS)
+  const own = co === 'co_sony' ? /PlayStation|PSP|PS\d/ : co === 'co_nintendo' ? /ファミコン|NINTENDO64|ゲームボーイ|DS|Wii|Switch|3DS/ : null;
+  if (own) { const l = platformList(year).filter((p) => own.test(p)); if (l.length) return r.pick(l); }
   // セガの社員は、ハードから撤退する 2001 年まではセガのハード(と業務用)でしか出さない
   if (flags.sega && year < 2001) { const own = platformList(year).filter((p) => /メガドライブ|セガサターン|ドリームキャスト|業務用|ゲームギア/.test(p)); return own.length ? r.pick(own) : (year < 1988 ? '業務用' : 'メガドライブ'); }
   // 新しく選んだハードほど先に効かせる(第 8 回ペルソナ: Switch を選んだのに、前に選んだスマホで出ていた)
