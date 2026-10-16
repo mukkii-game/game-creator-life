@@ -174,6 +174,8 @@ for (const e of EVENTS) if (e.id.startsWith('ev_tn_pk_')) for (const t of [e.tex
   const extra: Record<string, Record<string, boolean>> = { 'ev_hw_switch_or_phone/0': { hw_mk_nintendo: true }, 'ev_hw_ds_or_psp/0': { hw_fm_handheld: true }, 'ev_hw_ds_or_psp/1': { hw_fm_handheld: true }, 'ev_hw_handheld_war/1': { hw_fm_handheld: true } };
   for (const [k, f] of Object.entries(extra)) { const [id, i] = k.split('/'); const c = EVENTS.find((e) => e.id === id)?.choices?.[+i]; if (c) c.effect = { ...c.effect, flag: { ...(c.effect.flag ?? {}), ...f } }; }
 }
+// 企画の判断(題名・続編か新作か・延期か削るか・海外版・エンジン・チーム)は、QA と営業には来ない(第 19 回ペルソナ: 社員 8 人の会社の QA が続編を 10 本決めていた)
+for (const e of EVENTS) if (e.tag?.includes('worklife') && e.choices && !e.jobs && !/restructure|promote/.test(e.id)) e.jobs = ['programmer', 'planner', 'artist', 'sound', 'director', 'producer'];
 // 題名の選択を、次の作品の名前に効かせる(第 11 回ペルソナ: 「漢字 4 文字」を選んだのに『ぷるぷるパネル』)
 for (const e of EVENTS) for (const c of e.choices ?? []) {
   const st = ({ ch_wk_tt_kanji: 'tt_kanji', ch_wk_tt_ceo: 'tt_ceo', ch_wk_tn_long: 'tt_long' } as Record<string, string>)[c.id];
