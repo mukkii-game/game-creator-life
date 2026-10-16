@@ -959,8 +959,8 @@
    {
     "id": "ch_fa_3c_go",
     "label": {
-     "ja": "「好きなら、やってみろ」と書く",
-     "en": "Write: \"If you love it, go for it\""
+     "ja": "「回り道でも、行きたい方へ行け」と書く",
+     "en": "Write: \"Even the long way, go where you want\""
     },
     "effect": {
      "passion": 4,
@@ -969,21 +969,21 @@
      }
     },
     "result": {
-     "ja": "「好きなら、やってみろ。遠回りしても、たどり着く人はたどり着く」と書いた。自分がまさに遠回りだった。",
+     "ja": "「回り道でも、行きたい方へ行け。たどり着く人はたどり着く」と書いた。自分がまさに遠回りだった。",
      "en": "You wrote: \"If you love it, try. Some people get there by the long road.\" You were living proof of the long road."
     }
    },
    {
     "id": "ch_fa_3c_wait",
     "label": {
-     "ja": "「一度、親とちゃんと話せ」と書く",
-     "en": "Write: \"Talk to your parents properly first\""
+     "ja": "「大学で 4 年、作りながら考えろ」と書く",
+     "en": "Write: \"Spend four years at university — and make games while you think\""
     },
     "effect": {
      "network": 3
     },
     "result": {
-     "ja": "「一度、親とちゃんと話せ。大学で作ってもいい」と書いた。業界にも、そういう人はいる。たいてい一番寝ない。",
+     "ja": "「大学で 4 年、作りながら考えろ」と書いた。業界にも、そういう人はいる。たいてい一番寝ない。",
      "en": "You wrote: \"Talk to your parents properly. You can make games at university, too.\" The industry has people like that. They tend to sleep the least."
     }
    }
