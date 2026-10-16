@@ -59,7 +59,7 @@
      }
     },
     "result": {
-     "ja": "孫(6 歳)が「これ、つよそう」と指した。誰も反論できず、それに決まった。",
+     "ja": "社長の孫(6 歳)が「これ、つよそう」と指した。誰も反論できず、それに決まった。",
      "en": "The six-year-old pointed and said, \"That one sounds strong.\" Nobody could argue. Done."
     },
     "later": [
@@ -363,7 +363,7 @@
    "ja": "引き出しの一番下から、15 年前の続編の企画書が出てきた。読み返すと、今の流行りにぴったり合っていた。予算の欄だけが古い。",
    "en": "The sequel pitch from fifteen years ago turned up in the bottom drawer. It fits today's trends perfectly. Only the budget is out of date."
   },
-  "when": [
+  "when": ["career>=15", 
    "!flag.in_prison"
   ],
   "weight": 0,
@@ -1216,7 +1216,7 @@
      "money": -100
     },
     "result": {
-     "ja": "企画書に初めて自分の名前が載った。会社の口座の残高も、初めて見た。",
+     "ja": "企画書の責任者の欄に、自分の名前が載った。会社の口座の残高も、初めて見た。",
      "en": "Your name went on a pitch for the first time. So did your first look at the company's bank balance."
     },
     "later": [

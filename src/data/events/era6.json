@@ -96,7 +96,7 @@
     "choices": [
       { "id": "ch_era6_train_sell", "label": { "ja": "売る", "en": "Sell" }, "effect": { "money": 40, "passion": -10 },
         "later": [{ "after": 3, "event": "ev_era6_style_clone" }],
-        "result": { "ja": "40 万円が振り込まれた。20 年分の絵の値段としては、だいぶ安い。", "en": "400,000 yen deposited. Cheap, for twenty years of drawings." } },
+        "result": { "ja": "40 万円が振り込まれた。これまで描いた絵の全部の値段としては、だいぶ安い。", "en": "400,000 yen deposited. Cheap, for twenty years of drawings." } },
       { "id": "ch_era6_train_refuse", "label": { "ja": "断る", "en": "Refuse" }, "effect": { "passion": 6, "network": 2 },
         "later": [{ "after": 4, "event": "ev_era6_handmade_sells" }],
         "result": { "ja": "断りの返事も AI が自動で受け取った。「承知しました」が 0.2 秒で来た。", "en": "An AI received your refusal. 'Understood' arrived in 0.2 seconds." } }
@@ -146,7 +146,7 @@
   { "id": "ev_era6_leap_bug", "years": [2025, 2034], "weight": 0,
     "text": { "ja": "2 年前の AI のコードが、うるう年の 2 月 29 日だけ全キャラを空へ飛ばした。動画は世界で流行した。", "en": "That AI code from two years ago launched every character into the sky—only on Feb. 29. The video went global." },
     "effect": { "passion": -3, "fame": 4 }, "tag": ["ai", "gag"] },
-  { "id": "ev_era6_four_hours", "years": [2026, 2026], "once": true, "weight": 5,
+  { "id": "ev_era6_four_hours", "when": ["career>=20"], "years": [2026, 2026], "once": true, "weight": 5,
     "text": { "ja": "AI で約 4 時間で作った人生ゲームが世界で流行。あなたの引き出しには 20 年寝かせた企画ノートがある。", "en": "A life sim made with AI in about four hours is a global hit. In your drawer: a design notebook aged twenty years." },
     "choices": [
       { "id": "ch_era6_4h_ai", "label": { "ja": "自分も 4 時間で作る", "en": "Make one in four hours too" }, "effect": { "passion": 6, "fame": 3, "skill": -2 },
@@ -160,7 +160,7 @@
     "text": { "ja": "4 時間で作った自作は、4 時間で忘れられた。ただ 1 人だけ毎日遊んでくれる人がいる。母だ。", "en": "Your four-hour game was forgotten in four hours. One person still plays daily: your mom." },
     "effect": { "passion": 3, "network": 1 }, "tag": ["ai", "family", "gag"] },
   { "id": "ev_era6_notebook_done", "years": [2029, 2032], "weight": 0,
-    "text": { "ja": "20 年分のノートを 3 年かけて形にした。レビューの 1 行目は「4 時間で作ったっぽい」。", "en": "Three years to build twenty years of notes. The first review: 'Feels like it was made in four hours.'" },
+    "text": { "ja": "寝かせていたノートを 3 年かけて形にした。レビューの 1 行目は「4 時間で作ったっぽい」。", "en": "Three years to build twenty years of notes. The first review: 'Feels like it was made in four hours.'" },
     "effect": { "fame": 6, "skill": 6, "passion": -2 }, "tag": ["ai", "gag"] },
   { "id": "ev_era6_human_label", "years": [2030, 2035], "once": true, "weight": 3,
     "text": { "ja": "「人間が作りました」ラベルが売り文句に。審査には、制作中の自分の顔を 2 年分録画して出す。", "en": "'Made by Humans' labels sell games now. To qualify, you submit two years of footage of your face while working." },

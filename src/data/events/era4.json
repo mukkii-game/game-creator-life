@@ -101,7 +101,7 @@
     "effect": { "skill": 5, "fame": 3, "passion": -3 }, "tag": ["job"] },
   { "id": "ev_era4_wedding_masterup", "years": [2005, 2011], "once": true, "weight": 2,
     "text": { "ja": "恋人との式場の予約日が、マスターアップ予定日と重なった。延期の確率は 90%(過去の実績)。", "en": "Your wedding date collides with the master-up date. Odds the schedule slips: 90% (historical data)." },
-    "when": ["status=employed", "!flag.partner", "age>=25"],
+    "when": ["!flag.lv_married", "status=employed", "!flag.partner", "age>=25"],
     "choices": [
       { "id": "ch_era4_wedding_go", "label": { "ja": "式を優先する", "en": "Prioritize the wedding" }, "effect": { "passion": 10, "network": 3, "fame": -2, "flag": { "partner": true, "family_first": true } },
         "result": { "ja": "式の最中、胸ポケットのケータイが 38 回震えた。誓いの言葉は 1 回で言えた。", "en": "Your phone buzzed 38 times during the ceremony. You said your vows in one take." } },

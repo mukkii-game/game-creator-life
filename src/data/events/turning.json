@@ -1727,7 +1727,7 @@
   ]
  },
  {
-  "id": "ev_tn_fu_work",
+  "id": "ev_tn_fu_work", "when": ["flag.child"],
   "years": [
    1977,
    2040

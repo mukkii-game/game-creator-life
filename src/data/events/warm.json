@@ -2156,7 +2156,7 @@
    "ja": "孫が友達に「うちの人が作ったゲーム」と自慢して、皆で遊び始めた。3 分後、「普通のゲームやろう」と言われた。",
    "en": "Your grandkid bragged to friends, \"My family made this game!\" They all played it. Three minutes later: \"Let's play a normal game.\""
   },
-  "when": [
+  "when": ["flag.child", 
    "age>=60",
    "works>=2"
   ],
@@ -3377,7 +3377,7 @@
    2040
   ],
   "text": {
-   "ja": "終電を逃した夜、後輩にラーメンをおごった。「お前もいつか後輩におごれ」。10 年前のメモを、そのまま読み上げた。",
+   "ja": "終電を逃した夜、後輩にラーメンをおごった。「お前もいつか後輩におごれ」。昔のメモを、そのまま読み上げた。",
    "en": "The night you missed the last train, you bought a junior ramen. \"Someday you treat a junior.\" You read it straight from a ten-year-old notebook."
   },
   "weight": 0,
