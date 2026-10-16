@@ -156,6 +156,8 @@ for (const e of EVENTS) if (['ev_lv_big_grandpa', 'ev_lv_big_father', 'ev_lv_big
 for (const e of EVENTS) if (e.choices?.some((c) => c.effect?.flag?.hiv_social)) { e.motif = 'mobile_move'; for (const c of e.choices) c.effect = { ...(c.effect ?? {}), flag: { ...(c.effect?.flag ?? {}), ...(c.effect?.flag?.hiv_social ? { hw_dv_mobile: true } : { hw_dv_console: true }) } }; }
 // もう海外にいる人に「海を渡るか」「初めての海外出張」を出さない(第 20 回: 海外で始めた人生の 1999 年に「海外のスタジオから誘い」)
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); if ((e.choices?.some((c) => c.effect?.flag?.life_abroad || c.effect?.flag?.went_abroad) || e.effect?.flag?.went_abroad || /初めての海外|海外出張|海外のスタジオから/.test(tx)) && !has(e, 'company.size')) add(e, 'company.size!=abroad'); }
+for (const e of EVENTS) if (e.tag?.includes('crime') && !has(e, 'career')) add(e, 'career>=2'); // 入って 1 年目に捕まって 22 歳で終わる人生にしない(第 22 回)
+for (const e of EVENTS) if (['ev_era5_vr_team', 'ev_tn_big_vr', 'ev_hs_2016_psvr_client_lead'].includes(e.id)) e.motif = 'vr_move'; // VR 部署に行くかは 1 人生 1 回(第 22 回: 2017 年に断って 2018 年に行く)
 for (const e of EVENTS) if (e.id.startsWith('ev_wk_restructure_')) e.motif = 'restructure'; // 希望退職かカスタマーセンターかは 1 人生 1 回(第 20 回: 2002 と 2009 に 2 回)
 // 選択の後日談(later で来る話)には印を付ける(同じ人生で 2 回出さない)
 for (const e of EVENTS) for (const c of e.choices ?? []) for (const l of c.later ?? []) { const t = EVENTS.find((x) => x.id === l.event); if (t && !t.tag?.includes('followup')) t.tag = [...(t.tag ?? []), 'followup']; }

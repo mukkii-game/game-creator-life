@@ -262,6 +262,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
     if (!v) continue;
     if (f === 'do_change_company') {
       s.flags.changed_co = true; s.flags.callcenter = false;
+      if (s.company.size === 'abroad' && !e.flag?.life_abroad && !e.flag?.went_abroad) { s.flags.life_abroad = false; s.flags.went_abroad = false; s.flags.came_home = true; s.inner.abroadUntil = 0; } // 海外から日本の会社へ移ったら、海外暮らしの話を止める(第 22 回: ナムコに入った後に「海外暮らしが 3 年」)
       const size: CompanySize = s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small', 'sub'] as const);
       if (e.flag?.life_hometown) { // 地元へ帰ったら、幼なじみと始める小さな会社(第 20 回ペルソナ: 地元へ帰った同じ年に大手へ移った)
         s.company = { id: `co_home_${s.year}`, name: { ja: `${s.rng.pick(['ふるさと', 'みなと', 'やまびこ', 'たんぼ', 'ひだまり'])}ゲームス`, en: `${s.rng.pick(['Hometown', 'Harbor', 'Echo', 'Paddy', 'Sunspot'])} Games` }, size: 'small' };
@@ -433,7 +434,7 @@ function beginYear(s: State, out: string[]) {
   const holder = s.status === 'employed' && (s.company.id === 'co_sony' || s.company.id === 'co_nintendo' || (s.company.id === 'co_sega' && s.year < 2001)); // ハードを作る会社の社員は機種を選ばない
   if (s.year >= (s.inner.nextHw ?? 0) && !turning.length && !holder && (s.status === 'employed' || s.status === 'indie')) {
     const pool0 = POOL.filter((e) => e.tag?.includes('hardware') && e.choices && eligible(s, e, 99, 1));
-    const fresh = freshOnly(s, pool0); const pool = fresh.length ? fresh : r.chance(0.35) ? pool0 : []; // 第 20 回ペルソナ: 3 人生とも「ソシャゲか残るか」「Switch かスマホか」。直近に見た選択だけなら 65% で今回は出さない
+    const fresh = freshOnly(s, pool0); const pool = fresh.length ? fresh : r.chance(0.2) ? pool0 : []; // 第 22 回: Switch かスマホかがまだ 3 人生とも → 0.35 から 0.2 // 第 20 回ペルソナ: 3 人生とも「ソシャゲか残るか」「Switch かスマホか」。直近に見た選択だけなら 65% で今回は出さない
     if (pool0.length && !pool.length) s.inner.nextHw = s.year + r.int(tune<number>('choice.hwMin'), tune<number>('choice.hwMax'));
     if (pool.length) { turning.push(draw(r, pool, 1, wOf(s))[0].id); s.inner.nextHw = s.year + r.int(tune<number>('choice.hwMin'), tune<number>('choice.hwMax')); }
   }

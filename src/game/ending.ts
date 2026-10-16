@@ -75,6 +75,7 @@ function epitaphOf(s: State, id: EndingId): Text {
   const shortAfter: Text | null = s.year - s.startYear <= 2 && id === 'end_retire' ? freshPick(s, [{ ja: '社員証は、返す前に 1 枚だけ写真を撮った。', en: 'Before handing back my staff ID, I took one photo of it.' }, { ja: '短い業界暮らしだったが、会社のビルの自販機の並びは今でも全部言える。', en: 'My time in the industry was short, but I can still name every drink in that office vending machine, in order.' }]) : null; // 入って数年で去った人に「机の寝袋」は無い
   const after = prisonAfter ?? restartAfter ?? shortAfter ?? (AFTER[id] ? freshPick(s, AFTER[id]!) : { ja: '', en: '' });
   const hs = s.inner.highs;
+  if (!hs.length && ['end_arrest', 'end_body', 'end_debt', 'end_blacklist'].includes(id)) return { ja: `いい時期は短かった。${after.ja}それでも、いいゲーム人生だった。`, en: `The good part was short. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') }; // 捕まった・倒れた人生に「大きな事件は何も無かった」と言わない(第 22 回)
   if (!hs.length) return { ja: `大きな事件は何も無かった。${after.ja}それでも、いいゲーム人生だった。`, en: `Nothing big ever happened. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') };
   const best = hs.reduce((a, b) => (b.w >= a.w ? b : a));
   const f = freshPick(s, FEELING[best.kind ?? 'high'] ?? FEELING.high);
