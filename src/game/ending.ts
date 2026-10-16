@@ -68,7 +68,7 @@ function epitaphOf(s: State, id: EndingId): Text {
 
 // 最後の台詞は、どの終わり方でも全部キッズ・リターン(2026-10-16 Mukkii: 有名台詞のパロディは冷める人もいるので、ラストではなく人生の途中で)
 export const KIDS_RETURN: Text = { ja: 'バカヤロー、まだ始まっちゃいねえよ', en: "Idiot. We haven't even started yet." };
-function lastWordOf(_s: State, _id: EndingId): Text | undefined { return KIDS_RETURN; }
+function lastWordOf(s: State, _id: EndingId): Text | undefined { return s.inner.kr ?? KIDS_RETURN; }
 // 前の版(lastwords.json から選ぶ)。今は使わない
 export function famousLastWordOf(s: State, id: EndingId): Text | undefined {
   const ok = LASTWORDS.filter((l) => l.endings.includes(id) && (l.when ?? []).every((c) => test(s, c)));

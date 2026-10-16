@@ -375,7 +375,7 @@
   "id": "ev_hw_32bit_war",
   "years": [
    1994,
-   1996
+   1994
   ],
   "text": {
    "ja": "次世代機戦争。一足先に 3DO が出て、3D とムービーの時代の幕開けを見せた。続いてセガサターン、プレイステーション、NEC の PC-FX。家庭用がついにアーケード並みの絵を出すらしい。どれに付くか。",
@@ -548,7 +548,8 @@
   "when": [
    "pos!=teacher",
    "pos!=prison",
-   "pos!=outside"
+   "pos!=outside",
+   "flag.hw_pl_arcade"
   ],
   "choices": [
    {
@@ -1094,7 +1095,8 @@
   "when": [
    "pos!=teacher",
    "pos!=prison",
-   "pos!=outside"
+   "pos!=outside",
+   "flag.hw_pl_arcade"
   ],
   "choices": [
    {
