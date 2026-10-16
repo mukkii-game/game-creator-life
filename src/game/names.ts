@@ -114,8 +114,9 @@ function platformBase(r: Rng, year: number, role: Role): string {
     if (year < 1984) return 'PC-8801';
     if (year < 1995) return r.pick(['PC-9801', 'MSX2', 'X68000']);
     if (year < 2008) return r.pick(['Windows', '同人 CD-R']);
-    if (year < 2016) return r.pick(['Steam', 'iPhone', 'Flash']);
-    return r.pick(['Steam', 'itch.io', 'Switch', 'スマホ']);
+    if (year < 2013) return r.pick(['iPhone', 'Flash', '同人 CD-R']); // 個人の Steam は Greenlight(2012 年 8 月)から(第 9 回ペルソナ)
+    if (year < 2017) return r.pick(['Steam', 'iPhone', 'スマホ']);
+    return r.pick(['Steam', 'itch.io', 'Switch', 'スマホ']); // Switch は 2017 年 3 月から
   }
   for (const [until, list] of TABLE) if (year < until) return r.pick(list);
   return r.pick(['AI クラウド', 'スマホ']);

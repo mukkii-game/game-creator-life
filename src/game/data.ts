@@ -56,10 +56,15 @@ for (const e of EVENTS) {
   const t = tx + (e.choices ?? []).map((c) => c.label.ja + (c.result?.ja ?? '') + (c.alt ?? []).map((x) => x.ja).join('')).join('');
   // 家族: 恋人の話は結婚前だけ / 籍を入れる話は結婚前だけ / 義理の親・配偶者の話は結婚後だけ
   if (/恋人/.test(t) && !has(e, 'flag.lv_married')) add(e, '!flag.lv_married');
+  if (/恋人/.test(t) && !/元恋人/.test(t) && !has(e, 'flag.child')) add(e, '!flag.child');
+  // 自分の子どもの話は、子どもの年齢に合う時だけ(第 9 回ペルソナ: 1 歳でケータイのゲーム、2 歳でナワバリバトル)
+  if ((/child|kid/.test(e.id) || /^子どもが|^子どもに|^子どもと/.test(tx)) && !/生まれ/.test(tx) && !/^ev_hs_.*_(any|abroad|client|client_lead)$|ev_sega|boss_kid|fan_parent/.test(e.id) && !has(e, 'kid')) {
+    add(e, /就職|内定|ゲーム会社に入|面接|成人|初任給/.test(tx) ? 'kid>=20' : /思春期/.test(tx) ? 'kid>=13' : /学校|作文|宿題|クラス|授業参観|運動会|ノート|定規/.test(tx) ? 'kid>=7' : 'kid>=4');
+  }
   if (/籍を入れ|プロポーズ/.test(t) && !has(e, 'flag.lv_married')) add(e, '!flag.lv_married');
   if (/義理の(母|父)|義母|義父|妻が|夫が|配偶者/.test(e.text.ja) && !has(e, 'flag.lv_married')) add(e, 'flag.lv_married');
   // 会社の中の話は、会社にいる時だけ
-  if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み|ボーナス|人事に呼ばれ|辞令/.test(tx) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
+  if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み|ボーナス|人事に呼ばれ|辞令|うちのチーム|チームの|部下|社員証|社内報|配属/.test(tx) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
   // 年数: 「N 年前」「N 年ぶり」はキャリアが N 年以上 / 入社直後の話はキャリア 1 年目まで
   const ago = /(\d+) 年(前|ぶり|分|越し|間ずっと)/.exec(tx);
   if (ago && +ago[1] >= 5 && !has(e, 'career')) add(e, `career>=${+ago[1]}`);
@@ -87,6 +92,9 @@ for (const e of EVENTS) {
     if (!e.effect?.work) { e.effect = { ...(e.effect ?? {}), work: { last: { result: 'hit' } } }; if (!has(e, 'works')) add(e, 'works>=1'); }
   } else if (!has(e, 'hits')) add(e, 'hits>=1');
 }
+
+// 海外の会社にいる時に「海外版を出すか」は聞かれない(第 9 回ペルソナ: 海を渡った後に社長が「英語が得意な社員はいない」)
+for (const id of ['ev_wk_overseas', 'ev_wk_fu_overseas']) { const e = EVENTS.find((x) => x.id === id); if (e) e.when = [...(e.when ?? []), 'company.size!=abroad']; }
 
 // ソシャゲへの移籍は 1 回だけ(ハードの選択と時代の話の両方で出ていた)
 {

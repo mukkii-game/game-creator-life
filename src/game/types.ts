@@ -117,6 +117,8 @@ export interface Inner {
   menteeAt?: number;
   /** 長い話をこの人生でやるか(arcOn) */
   arcOn?: Record<string, boolean>;
+  /** 子どもが生まれた年 */
+  childYear?: number;
   isPeer: boolean;
   bot: string;               // peer の時: 動かすボット名
   workTarget: number;        // afterlife のイベントが指す作品の番号(-1 = 直近)

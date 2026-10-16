@@ -230,6 +230,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
       if (g && v) for (const k of Object.keys(s.flags)) if (k.startsWith(`hw_${g[1]}_`)) delete s.flags[k];
       delete s.flags[f]; // 付け直して、新しい選択ほど後ろに並ぶように(platformFor は新しい選択を優先する)
       s.flags[f] = v;
+      if (f === 'child' && v && !s.inner.childYear) s.inner.childYear = s.year; // 子どもの年齢(select.ts の kid)
       continue;
     }
     if (!v) continue;
@@ -237,6 +238,8 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
       s.flags.changed_co = true;
       const size: CompanySize = s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small', 'sub'] as const);
       s.company = newCompany(s.rng, size, s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed');
+      // 次の勤め先を一言(第 9 回ペルソナ: 希望退職に応じた後、どこにいるのか分からない)
+      log(s, freshLine(s, [{ ja: `次の勤め先は ${s.company.name.ja}。`, en: `Next stop: ${s.company.name.en}.` }, { ja: `${s.company.name.ja} に移った。机の引き出しの位置が、前の会社と左右逆だった。`, en: `You moved to ${s.company.name.en}. The desk drawers were on the opposite side from the last place.` }, { ja: `${s.company.name.ja} に拾われた。初日に配られた社員証の写真は、前の会社のを使い回した。`, en: `${s.company.name.en} took you in. For the new ID card, you reused the photo from the last one.` }, { ja: `${s.company.name.ja} に入った。歓迎会で、前の会社の悪口を言うのをこらえた。`, en: `You joined ${s.company.name.en}. At the welcome party, you held back from badmouthing the old place.` }, { ja: `${s.company.name.ja} に移った。最初の 1 週間、前の会社の電話の出方で出てしまった。`, en: `You moved to ${s.company.name.en}. For the first week you kept answering the phone with your old company's greeting.` }, { ja: `${s.company.name.ja} で出直し。新しい机には、前の人の付箋が 1 枚だけ残っていた。「がんばれ」。`, en: `A fresh start at ${s.company.name.en}. The new desk had one sticky note left by the last person: "Hang in there."` }], 'nextco'), 'event');
       s.inner.nextWorkYear = s.year + s.rng.int(tune('work.everyMin'), tune('work.everyMax'));
     } else if (f === 'do_go_indie') {
       setStatus(s, 'indie'); s.flags.own_co = true; s.company = { id: 'co_indie_self', name: { ja: `${s.name.ja.split(' ')[0]}ゲームス`, en: `${s.name.en.split(' ').slice(-1)[0]} Games` }, size: 'indie' };
@@ -421,7 +424,7 @@ function beginYear(s: State, out: string[]) {
 function pickHist(s: State): string[] {
   const seen = new Set(s.options.seen ?? []);
   const seenHist = new Set([...seen].map((k) => k.split(':')[0]));
-  const cands: { id: string; w: number }[] = [];
+  const cands: { id: string; w: number; stale?: boolean }[] = [];
   for (const h of HIST) {
     if (h.year > s.year) break;
     if (s.year > (h.until ?? h.year) || s.inner.histDone.includes(h.id)) continue;
@@ -434,8 +437,11 @@ function pickHist(s: State): string[] {
     const novelty = !seenHist.has(h.id) ? tune<number>('hist.newBoost') : !seen.has(`${h.id}:${v.id}`) ? tune<number>('hist.newPosBoost') : 0.5;
     // 前に選んだこと(flag)を回収する版なら、ほぼ必ず出す(陣営・全力・闇の誘いの結末)
     const callback = (v.when ?? []).some((c) => c.startsWith('flag.')) ? tune<number>('hist.callbackBoost') : 1;
-    cands.push({ id: v.id, w: (h.weight ?? 1) * novelty * callback * (callback > 1 ? 1 : stale) });
+    cands.push({ id: v.id, w: (h.weight ?? 1) * novelty * callback * (callback > 1 ? 1 : stale), stale: !freshV && callback === 1 });
   }
+  // 直近の人生で見た小ネタしか残っていない年は、無理に出さない(年表には出る。第 9 回ペルソナ: 尽きた年は埋めない方が冷めない)
+  if (cands.some((c) => !c.stale)) { for (let i = cands.length - 1; i >= 0; i--) if (cands[i].stale) cands.splice(i, 1); }
+  else if (cands.length && s.rng.chance(0.75)) return [];
   if (!cands.length) return [];
   const n = Math.min(cands.length, s.rng.chance(tune<number>('hist.second')) ? 2 : 1);
   const out: string[] = [];
@@ -496,7 +502,8 @@ function runItem(s: State, id: string, out: string[]) {
   if (!ev) return;
   if (ev.years && (s.year < ev.years[0] || s.year > ev.years[1])) return;
   if (ev.once && s.inner.used.includes(ev.id)) return;
-  if ((ev.weight ?? 1) === 0 && ev.tag?.includes('big_after') && s.inner.recent?.includes(ev.id) && r.chance(0.7)) return;
+  // 選択の後日談(weight 0 で later から来る話)は、直近の人生で見ていたら 7 割で出さない(長い話の続き・大作の結末は除く)
+  if ((ev.weight ?? 1) === 0 && !ev.tag?.some((t) => t === 'mega' || t === 'rival') && !/^ev_(fa|rv|mt|me)_/.test(ev.id) && s.inner.recent?.includes(ev.id) && r.chance(0.7)) return;
   if (ev.when && !ev.when.every((c) => test(s, c))) return; // 同じ年のうちに独立・転職・服役した時は出さない
   if (s.flags.in_prison && ev.id !== 'ev_sys_shift' && !ev.id.includes('prison') && !(ev.when ?? []).some((c) => c.includes('prison'))) return; // 塀の中に社内の話は届かない
   // 後日談: 発売から 2 年以上たった作品を 1 本選ぶ
@@ -764,12 +771,16 @@ function vary(s: State, ids: string[]): string {
 function kidsReturn(s: State, id: EndingId) {
   // 相方: まだ業界にいて塀の外の同期。会社に入らず始めた人生なら「昔の仲間」
   const seenName = (x: State) => s.log.some((l) => l.text.ja.includes(x.name.ja.split(' ')[0]));
-  const outside = s.inner.peerStates.filter((x) => !x.flags.in_prison);
+  const outside = s.inner.peerStates.filter((x) => !x.flags.in_prison && !x.flags.ex_prison && x.ending?.id !== 'end_arrest'); // 捕まった同期は相方にしない(第 9 回ペルソナ)
   const rivalSt = s.inner.rival && s.inner.rival.step >= 2 ? outside.find((x) => s.inner.rival!.name.ja.startsWith(x.name.ja.split(' ')[0])) : undefined; // ライバルの同期がいれば、その人と
-  const bud = rivalSt ?? outside.find((x) => !x.ending && seenName(x)) ?? outside.find(seenName) ?? outside.find((x) => !x.ending) ?? outside[0] ?? s.inner.peerStates[0];
+  const bud = rivalSt ?? outside.find((x) => !x.ending && seenName(x)) ?? outside.find(seenName);
   const indieStart = s.companies[0]?.company.size === 'indie';
-  const rel = indieStart ? { ja: '昔の仲間の', en: 'your old friend' } : { ja: '同期の', en: 'your old peer' };
-  const p = `${rel.ja}${bud?.name.ja.split(' ')[0] ?? '相棒'}`, pe = `${rel.en} ${bud?.name.en.split(' ').slice(-1)[0] ?? ''}`.trim();
+  // 一度も出てこなかった同期の名前で締めない(第 9 回ペルソナ: 最後の相方が知らない人)。先輩・後輩がいればその人、いなければ名前を出さない
+  const arc = !bud ? (s.inner.mentee ?? s.inner.mentor) : undefined;
+  const rel = arc ? (arc === s.inner.mentee ? { ja: '後輩の', en: 'your old junior' } : { ja: '先輩の', en: 'your old mentor' }) : indieStart ? { ja: '昔の仲間の', en: 'your old friend' } : { ja: '同期の', en: 'your old peer' };
+  const nmJa = bud ? bud.name.ja.split(' ')[0] : arc ? arc.name.ja : '';
+  const nmEn = bud ? bud.name.en.split(' ').slice(-1)[0] : arc ? arc.name.en : '';
+  const p = nmJa ? `${rel.ja}${nmJa}` : rel.ja.replace(/の$/, ''), pe = `${rel.en} ${nmEn}`.trim();
   const jail = s.flags.in_prison || id === 'end_arrest';
   const where: Partial<Record<EndingId, Text>> = {
     end_restart: s.rng.pick([

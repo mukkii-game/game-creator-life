@@ -28,6 +28,7 @@ function value(s: State, key: string): string | number | boolean | undefined {
     case 'status': return s.status;
     case 'works': return s.works.length;
     case 'hits': return s.works.filter((w) => w.result === 'hit' || w.result === 'legend').length;
+    case 'kid': return s.inner.childYear ? s.year - s.inner.childYear : -1; // 子どもの年齢(いなければ -1)
     case 'cos': return s.companies.length; // 勤めた会社の数(転職・再就職で増える)
     case 'career': return s.year - s.startYear; // 業界に入って何年目(0 = 入った年)
     case 'company.size': return s.company.size;

@@ -192,8 +192,9 @@ export function release(s: State): { work: Work; line: Text } {
   const fresh1 = fresh0.filter((t) => !s.inner.recent?.includes(`line:${t.ja}`));
   const fresh = fresh1.length ? fresh1 : fresh0;
   const pickLine = fresh.length ? r.pick(fresh) : { ja: '', en: '' };
-  const solo = role === 'solo' && SOLO_LINES[result] && !said.includes(SOLO_LINES[result]!.ja) ? SOLO_LINES[result]! : null;
-  const gag = solo ?? (titled?.gag && r.chance(0.5) ? titled.gag : pickLine);
+  const solo = role === 'solo' && SOLO_LINES[result] && !said.includes(SOLO_LINES[result]!.ja) && !s.inner.recent?.includes(`line:${SOLO_LINES[result]!.ja}`) ? SOLO_LINES[result]! : null;
+  const gagOk = titled?.gag && !said.includes(titled.gag.ja) && !s.inner.recent?.includes(`line:${titled.gag.ja}`); // 題名の小ネタも直近の人生と被らせない
+  const gag = solo ?? (gagOk && r.chance(0.5) ? titled!.gag! : pickLine);
   if (gag.ja) said.push(gag.ja);
   const line: Text = {
     ja: `${work.name.ja}(${work.platform})発売。あなたは${roleText(s, role).ja}。結果は${RESULT_TEXT[result].ja}。${gag.ja}`,
