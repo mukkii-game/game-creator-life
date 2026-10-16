@@ -337,5 +337,426 @@
   "tag": [
    "fan"
   ]
+ },
+ {
+  "id": "ev_fa_1f",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「みんなはつまらないって言うけど、ぼくは 3 回クリアしました。3 回目が一番おもしろかったです」。",
+   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}: \"Everyone says it's boring, but I beat it three times. The third time was the most fun.\""
+  },
+  "effect": {
+   "passion": 8
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_fa_1h",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「クラスで一番うまいのはぼくです。作った人より、たぶんうまいです」。",
+   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}: \"I'm the best at it in my class. Probably better than the people who made it.\""
+  },
+  "effect": {
+   "passion": 6
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_fa_2b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{fan}からまた{fanmsg}が来た。もう高校生だという。{fanwork}の手書きの攻略ノートが添えてあった。あなたも知らない近道が、3 つ書いてあった。",
+   "en": "Another {fanmsg} from {fan} — in high school now — with a handwritten strategy notebook for {fanwork}. It listed three shortcuts even you didn't know."
+  },
+  "effect": {
+   "passion": 5
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_rv_1b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "新作の企画の椅子は 1 つ。同期の{rival}と最終面談に呼ばれた。待合室で、二人とも同じ缶コーヒーを買っていた。",
+   "en": "One seat to lead the new project. You and {rival} from your year were both called to the final interview. In the waiting room you'd both bought the same canned coffee."
+  },
+  "effect": {},
+  "weight": 0,
+  "tag": [
+   "rival",
+   "choice"
+  ],
+  "choices": [
+   {
+    "id": "ch_rv_1b_fight",
+    "label": {
+     "ja": "自分の企画で勝負する",
+     "en": "Fight with your own pitch"
+    },
+    "effect": {
+     "passion": 8,
+     "flag": {
+      "rv_won": true
+     }
+    },
+    "result": {
+     "ja": "自分の企画で押し切った。勝った。打ち上げで{rival}が「次は負けない」と言って、あなたのグラスにだけビールを注いだ。",
+     "en": "You pushed your own pitch through and won. At the party, {rival} said \"next time I win\" and poured beer only into your glass."
+    }
+   },
+   {
+    "id": "ch_rv_1b_merge",
+    "label": {
+     "ja": "二人の企画を合わせて出す",
+     "en": "Merge the two pitches"
+    },
+    "effect": {
+     "network": 5,
+     "skill": 3,
+     "flag": {
+      "rv_merged": true
+     }
+    },
+    "result": {
+     "ja": "二人の企画を合わせて出し直した。部長は「最初からそうしろ」と言った。その夜、{rival}と朝まで仕様の話をした。",
+     "en": "You merged the pitches and resubmitted. The boss said, \"Should've done that from the start.\" That night you and {rival} talked specs until dawn."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ev_rv_2b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{rival}がディレクターに抜擢された。あなたより 2 年早く。お祝いの席で乾杯の音頭を頼まれた。声は震えなかった。たぶん。",
+   "en": "{rival} was promoted to director — two years ahead of you. At the celebration you were asked to lead the toast. Your voice didn't shake. Probably."
+  },
+  "effect": {
+   "passion": -3,
+   "skill": 3
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_rv_2c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "業界誌の「注目の若手」のページに{rival}の顔が載った。あなたは同じ号の、隅の求人広告の集合写真に写っていた。",
+   "en": "{rival}'s face appeared in a trade magazine's \"rising stars\" page. You were in the same issue — in the group photo of a tiny recruitment ad."
+  },
+  "effect": {
+   "passion": -3,
+   "skill": 3
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_rv_3b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "あなたが体を壊して休んだ週、{rival}があなたのタスクを全部片付けていた。机のメモには「借りは返せよ」とだけあった。",
+   "en": "The week you were out sick, {rival} quietly cleared all your tasks. The note on your desk said only: \"You owe me.\""
+  },
+  "effect": {
+   "passion": 8,
+   "network": 4
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ],
+  "memory": {
+   "ja": "休んだ週、{rival}が全部片付けていた",
+   "en": "the week {rival} covered everything for you"
+  }
+ },
+ {
+  "id": "ev_rv_3c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "大事な発表の前の晩、資料のデータが飛んだ。{rival}が自分の分のバックアップを黙って差し出した。なぜ持っていたのかは、聞かなかった。",
+   "en": "The night before the big presentation, your data vanished. {rival} silently handed over a backup. You never asked why they had one."
+  },
+  "effect": {
+   "passion": 8,
+   "network": 4
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ],
+  "memory": {
+   "ja": "{rival}が黙って差し出したバックアップ",
+   "en": "the backup {rival} handed you without a word"
+  }
+ },
+ {
+  "id": "ev_rv_4b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{rival}が独立して会社を作った。最初の求人票に「経験者歓迎。特に同期」と書いてあった。",
+   "en": "{rival} went independent and founded a company. The first job ad read: \"Experienced hires welcome. Especially from my year.\""
+  },
+  "effect": {
+   "passion": 6
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_rv_4c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{rival}が海外のスタジオに移った。空港で「向こうで、お前のゲームの悪口を言いふらしてやる」と言われた。あとで動画を見たら、英語で褒めていた。",
+   "en": "{rival} moved to an overseas studio. At the airport: \"I'll trash-talk your games over there.\" Later you saw a video — they were praising them, in English."
+  },
+  "effect": {
+   "passion": 7
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ]
+ },
+ {
+  "id": "ev_rv_5b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{rival}から荷物が届いた。中身は、二人が新人の頃に出した没企画の紙の束。一番上の付箋に「まだ面白い」と書いてあった。",
+   "en": "A package from {rival}: the stack of rejected proposals you both wrote as rookies. A sticky note on top: \"Still fun.\""
+  },
+  "effect": {
+   "passion": 10
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ],
+  "memory": {
+   "ja": "{rival}の付箋「まだ面白い」",
+   "en": "{rival}'s sticky note: \"Still fun\""
+  }
+ },
+ {
+  "id": "ev_rv_5c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "年末、{rival}から電話。「今年もお前のゲームが一番だった。2 番目は俺のだ」。毎年同じことを言う。毎年うれしい。",
+   "en": "Year's end, {rival} called: \"Your game was the best this year again. Mine was second.\" Same words every year. Welcome every year."
+  },
+  "effect": {
+   "passion": 10
+  },
+  "weight": 0,
+  "tag": [
+   "rival"
+  ],
+  "memory": {
+   "ja": "毎年の{rival}の電話",
+   "en": "{rival}'s phone call every year"
+  }
+ },
+ {
+  "id": "ev_fa_3b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{fan}から{fanmsg}。「専門学校の課題で、{fanwork}のボスを作り直しました。先生に、元のほうが怖いと言われました」。少しうれしかった。",
+   "en": "A {fanmsg} from {fan}: \"For a school assignment I remade the boss from {fanwork}. My teacher said the original was scarier.\" That made you a little happy."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_fa_5c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "{fan}が業界の賞を取った。受賞のことばの最後は「小学生の時に返事をくれた人へ」。名前は出ていなかった。でも、分かった。",
+   "en": "{fan} won an industry award. The speech ended: \"To the person who wrote back when I was in grade school.\" No name was given. But you knew."
+  },
+  "effect": {
+   "passion": 12
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ],
+  "memory": {
+   "ja": "{fan}の受賞のことばの最後の 1 行",
+   "en": "the last line of {fan}'s award speech"
+  }
+ },
+ {
+  "id": "ev_fa_1b",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「宿題が終わってからと言われているので、宿題を早くやるようになりました。先生にほめられました」。",
+   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}: \"I'm only allowed to play after homework, so now I do my homework fast. My teacher praised me.\""
+  },
+  "effect": {
+   "passion": 6
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_fa_1fb",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「中古で 300 円でした。300 円よりずっとおもしろかったです」。",
+   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}: \"I got it used for 300 yen. It was way more fun than 300 yen.\""
+  },
+  "effect": {
+   "passion": 8
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_fa_1hb",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "小学生の{fan}から{fanmsg}が届いた。{fanwork}の感想だった。「友だちと 3 人で、ひとつのゲーム機を取り合いました。ぼくが一番長く遊びました」。",
+   "en": "A {fanmsg} from {fan}, a grade-schooler, about {fanwork}: \"Three of us fought over one console. I played the longest.\""
+  },
+  "effect": {
+   "passion": 6
+  },
+  "weight": 0,
+  "tag": [
+   "fan"
+  ]
+ },
+ {
+  "id": "ev_fa_4c",
+  "years": [
+   1977,
+   2040
+  ],
+  "text": {
+   "ja": "採用試験の作品審査で、ある応募作のタイトル画面に見覚えがあった。{fanwork}のボスが、少しだけ形を変えて立っていた。応募者の名前は、{fan}だった。",
+   "en": "Reviewing portfolios for hiring, one title screen looked familiar: the boss from {fanwork}, slightly reshaped. The applicant's name was {fan}."
+  },
+  "effect": {},
+  "weight": 0,
+  "tag": [
+   "fan",
+   "choice"
+  ],
+  "choices": [
+   {
+    "id": "ch_fa_4c_push",
+    "label": {
+     "ja": "採用を強く推す",
+     "en": "Push hard to hire"
+    },
+    "effect": {
+     "passion": 8,
+     "network": 3,
+     "flag": {
+      "fan_hired": true
+     }
+    },
+    "result": {
+     "ja": "強く推した。「身内びいきでは?」と言われ、「身内じゃない。ファンだ」と答えた。会議室が少し笑った。採用が決まった。",
+     "en": "You pushed hard. \"Isn't that favouritism?\" \"Not family. A fan.\" The room laughed a little. The hire went through."
+    }
+   },
+   {
+    "id": "ch_fa_4c_fair",
+    "label": {
+     "ja": "公平に、他の面接官に任せる",
+     "en": "Stay fair and let the others decide"
+    },
+    "effect": {
+     "skill": 2,
+     "passion": 5,
+     "flag": {
+      "fan_hired": true
+     }
+    },
+    "result": {
+     "ja": "黙って、他の面接官に任せた。{fan}は自分の力で受かった。廊下ですれ違った時、深くお辞儀をされた。",
+     "en": "You stayed quiet and let the others judge. {fan} got in on merit. Passing in the hall, they bowed deeply."
+    }
+   }
+  ]
  }
 ]

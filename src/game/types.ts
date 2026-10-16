@@ -105,6 +105,7 @@ export interface Inner {
   fateCount?: Record<string, number>;
   deadCos?: string[];
   kr?: Text;
+  recent?: string[];
   /** 直属の先輩(メンター)と、自分が面倒を見る後輩(メンティー)。人生に 1 人ずつ */
   mentor?: Arc;
   mentee?: Arc;
@@ -134,6 +135,8 @@ export interface Arc { name: Text; step: number; next: number; used: string[]; c
 export interface InitOptions {
   /** 他の人の人生(サーバーから。名前を入れた人だけ。URL で決まる人生には渡さない) */
   others?: import('./people').OtherLife[];
+  /** 直近の人生で見た話(端末に保存。URL で決まる人生では渡さない) */
+  recent?: string[];
   /** 業界入りの年(未指定はガチャ) */
   year?: number;
   /** 業界入りの年齢(未指定はガチャ) */

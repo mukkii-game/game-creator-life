@@ -431,29 +431,6 @@
   "weight": 7
  },
  {
-  "id": "ev_sl_emoi",
-  "years": [
-   2017,
-   2025
-  ],
-  "text": {
-   "ja": "若手がタイトル画面を見て「エモい」と言った。褒められたのか分からず、とりあえず色を少し濃くした。",
-   "en": "A young staffer looked at the title screen and called it \"emo.\" Unsure if that was praise, you made the colours a little deeper anyway."
-  },
-  "when": [
-   "status=employed"
-  ],
-  "effect": {
-   "passion": 2
-  },
-  "tag": [
-   "slang",
-   "gag"
-  ],
-  "once": true,
-  "weight": 7
- },
- {
   "id": "ev_sl_kusa",
   "years": [
    2016,

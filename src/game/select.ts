@@ -71,15 +71,15 @@ export function eligible(s: State, ev: GameEvent, gap = 0, maxRepeat = 99): bool
 }
 
 /** 重みつきで n 本を重複なしに引く。weight >= 100 は必ず入る */
-export function draw(r: Rng, pool: GameEvent[], n: number): GameEvent[] {
+export function draw(r: Rng, pool: GameEvent[], n: number, wf: (e: GameEvent) => number = (e) => e.weight ?? 1): GameEvent[] {
   const out: GameEvent[] = [];
   const rest = [...pool];
   for (const ev of pool) if ((ev.weight ?? 1) >= 100) { out.push(ev); rest.splice(rest.indexOf(ev), 1); }
   while (out.length < n && rest.length) {
-    const total = rest.reduce((a, e) => a + (e.weight ?? 1), 0);
+    const total = rest.reduce((a, e) => a + wf(e), 0);
     let x = r.next() * total;
     let i = 0;
-    for (; i < rest.length - 1; i++) { x -= rest[i].weight ?? 1; if (x < 0) break; }
+    for (; i < rest.length - 1; i++) { x -= wf(rest[i]); if (x < 0) break; }
     out.push(rest.splice(i, 1)[0]);
   }
   return out;

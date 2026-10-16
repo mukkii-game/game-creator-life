@@ -31,6 +31,8 @@ export interface PlayOptions {
   name?: string;
   /** 他の人の人生(サーバーから) */
   others?: OtherLife[];
+  /** 直近の人生で見た話 */
+  recent?: string[];
   omakase: boolean;
   speed: Speed;
   recorder: Recorder;
@@ -80,7 +82,7 @@ export function shapeOf(w: Work): 'cart' | 'cd' | 'dl' | 'app' {
 const initial = (w: Work) => (tx(w.name).replace(/^[『「"“\s]+/, '').charAt(0) || '?');
 
 export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
-  const s = init(o.seed, { ...pickOpts(o.era), ...(o.others?.length ? { others: o.others } : {}), ...(o.seen ? { seen: o.seen } : {}), ...(o.name ? { name: o.name } : {}) });
+  const s = init(o.seed, { ...pickOpts(o.era), ...(o.others?.length ? { others: o.others } : {}), ...(o.recent?.length ? { recent: o.recent } : {}), ...(o.seen ? { seen: o.seen } : {}), ...(o.name ? { name: o.name } : {}) });
   // 「NEW」「別の立場で」の印は、この端末の図鑑と比べる(URL で決まる人生でも印は出す。中身は変えない)
   const known = new Set(load().chronicle);
   const knownHist = new Set([...known].map((k) => k.split(':')[0]));

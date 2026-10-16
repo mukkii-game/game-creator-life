@@ -16,7 +16,8 @@ import { installInput, setHandler, onTap, type Cmd } from './input';
 import { installBuildId } from './build';
 import { showTitle } from './title';
 import { showChronicle } from './chronicle';
-import { load, save, addChronicle } from '../core/save';
+import { load, save, addChronicle, addRecent, recentIds } from '../core/save';
+import { HIST_OF } from '../game/data';
 import { startPlay, type PlayScreen, type Speed } from './play';
 import { h, tf, tx, setLook, lookOf, loadFonts } from './util';
 import { installArt } from './art';
@@ -95,7 +96,8 @@ export function startApp(container: HTMLElement) {
     const seen = seenFor(seed, player);
     const name = nameFor(player);
     const others = fixedLife(seed, player) ? undefined : othersNow();
-    const peek: State = init(seed, { ...pickOpts(era), ...(others?.length ? { others } : {}), ...(seen ? { seen } : {}), ...(name ? { name } : {}) });
+    const recent = fixedLife(seed, player) ? undefined : recentIds();
+    const peek: State = init(seed, { ...pickOpts(era), ...(others?.length ? { others } : {}), ...(recent?.length ? { recent } : {}), ...(seen ? { seen } : {}), ...(name ? { name } : {}) });
     recorder = new Recorder(seed);
     if (era) recorder.push(-1, `era:${era}`);
     app.innerHTML = '';
@@ -133,18 +135,18 @@ export function startApp(container: HTMLElement) {
       started = true;
       clearTimeout(tm);
       stopSe('drum');
-      run(seed, era, player, seen, name, others);
+      run(seed, era, player, seen, name, others, recent);
     };
     const tm = setTimeout(go, auto || player ? 1400 : 6000);
     setTimeout(() => onTap(ov, go), 300);
     onCmd = (c) => { if (c.type === 'ok' || c.type === 'pause') go(); };
   }
 
-  function run(seed: number, era: StartPick, player: Player | null, seen: string[] | undefined, name: string | undefined, others?: OtherLife[]) {
+  function run(seed: number, era: StartPick, player: Player | null, seen: string[] | undefined, name: string | undefined, others?: OtherLife[], recent?: string[]) {
     setScene('Play');
     const speed: Speed = query.auto ? 4 : demo ? 2 : player ? 4 : 1;
     play = startPlay(app, {
-      seed, era, seen, name, others, omakase: auto, speed, recorder, player,
+      seed, era, seen, name, others, recent, omakase: auto, speed, recorder, player,
       quick: auto || !!player,
       onEnd: (s) => { record(s, seed, player, name); result(s, era); },
     });
@@ -154,6 +156,8 @@ export function startApp(container: HTMLElement) {
   // 遊び終わった人生をサーバーに記録(自動・replay・URL で決まる人生は記録しない)。名前を自分で入れた人生だけ他の人のプレイに出る
   function record(s: State, seed: number, player: Player | null, name: string | undefined) {
     if (fixedLife(seed, player) || !s.ending) return;
+    // この人生で出た話(歴史の事件と system は除く)を「最近見た話」に
+    addRecent(Object.keys(s.inner.seen).filter((id) => !id.startsWith('ev_sys_') && !HIST_OF.has(id)));
     const typed = name ? splitName(name) : null;
     const parts = typed ?? splitName(s.name.ja);
     const best = [...s.works].sort((a, b) => rank(b.result) - rank(a.result))[0];

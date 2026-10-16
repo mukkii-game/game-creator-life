@@ -10,11 +10,13 @@ export interface SaveData {
   played: number;
   /** 年表図鑑: 触れた歴史の事件(`hs_id:ev_id`。重複なし) */
   chronicle: string[];
+  /** 直近 3 人生で出た話の id(新しい順。同じ小ネタが続けて遊んだ時に被らないように) */
+  recent: string[][];
   /** タイトルで入れた自分の名前(空 = おまかせ) */
   name: string;
 }
 
-const DEFAULTS: SaveData = { v: VERSION, best: 0, lang: 'ja', muted: false, played: 0, chronicle: [], name: '' };
+const DEFAULTS: SaveData = { v: VERSION, best: 0, lang: 'ja', muted: false, played: 0, chronicle: [], name: '', recent: [] };
 
 function key() { return `${NS}:save`; }
 
@@ -25,7 +27,8 @@ export function load(): SaveData {
     const data = JSON.parse(raw) as Partial<SaveData>;
     // 版が古い時の移行はここに書く
     const chronicle = Array.isArray(data.chronicle) ? data.chronicle.filter((k) => typeof k === 'string') : [];
-    return { ...DEFAULTS, ...data, chronicle, v: VERSION };
+    const recent = Array.isArray(data.recent) ? data.recent.filter((x) => Array.isArray(x)).slice(0, 3) : [];
+    return { ...DEFAULTS, ...data, chronicle, recent, v: VERSION };
   } catch {
     return { ...DEFAULTS };
   }
@@ -51,3 +54,9 @@ export function addChronicle(keys: string[]): { all: string[]; added: string[] }
   if (added.length) save({ chronicle: all });
   return { all, added };
 }
+
+/** この人生で出た話を「最近見た話」に足す(直近 3 人生分だけ残す) */
+export function addRecent(ids: string[]): void {
+  save({ recent: [ids, ...load().recent].slice(0, 3) });
+}
+export const recentIds = (): string[] => load().recent.flat();

@@ -128,7 +128,7 @@ export function init(seed: number, options: InitOptions = {}): State {
       workTarget: -1, startJob: job, prevJob: job, histDone: [], highs: [],
       // 人生に一度の大挫折と大成功(業界に入って何年目に来るか)
       pitAt: r.int(2, 10), peakAt: r.int(4, 16), pitDone: false, peakDone: false,
-      others: options.others?.filter((o) => o && (o.family || o.given)).slice(0, 40), othersShown: 0, menteeAt: r.int(6, 11),
+      recent: options.recent, others: options.others?.filter((o) => o && (o.family || o.given)).slice(0, 40), othersShown: 0, menteeAt: r.int(6, 11),
       bondAt: r.int(3, 18), bondDone: false, gravAt: r.int(2, 15), gravDone: false, nextBig: year + r.int(2, 4), nextHw: year + 2, prisonUntil: 0,
     },
   };
@@ -136,6 +136,7 @@ export function init(seed: number, options: InitOptions = {}): State {
     const bots = ['think', 'dreamer', 'stable'];
     for (let i = 0; i < 3; i++) {
       const p = init((seed * 31 + i * 7919 + 1) >>> 0, { peerOf: { year, company: s.company, bot: bots[i] }, age: r.pick([18, 22, 22, 24]) });
+      if (p.name.ja.split(' ')[0] === s.name.ja.split(' ')[0]) { const q = personName(r, year - p.age); p.name = { ja: `${q.ja.split(' ')[0]} ${p.name.ja.split(' ')[1] ?? ''}`.trim(), en: `${p.name.en.split(' ')[0]} ${q.en.split(' ').slice(-1)[0]}` }; } // 本人と同じ苗字の同期は紛らわしい
       s.inner.peerStates.push(p);
       s.peers.push({ name: p.name.ja, bot: bots[i], summary: peerSummary(p) });
     }
@@ -155,9 +156,9 @@ export function init(seed: number, options: InitOptions = {}): State {
     const ok = (e: GameEvent) => e.tag?.includes('prologue') && eligible(s, e);
     const inPath = (e: GameEvent) => (path === 'st_dev' ? !e.tag?.includes('student') || e.tag.includes('st_dev') : !!e.tag?.includes(path));
     const mine = EVENTS_ALL().filter((e) => ok(e) && inPath(e));
-    const picked = draw(r, mine, 2);
+    const picked = draw(r, mine, 2, wOf(s));
     const rest = EVENTS_ALL().filter((e) => ok(e) && !picked.includes(e) && !inPath(e));
-    if (rest.length && (picked.length < 2 || r.chance(0.5))) picked.push(...draw(r, rest, picked.length ? 1 : 2)); // その道の話が無い年は別の道から
+    if (rest.length && (picked.length < 2 || r.chance(0.5))) picked.push(...draw(r, rest, picked.length ? 1 : 2, wOf(s))); // その道の話が無い年は別の道から
     s.flags[path] = true;
     const off = Math.max(0, picked.length - (year - base.y)); // 入社の年にはみ出さない
     picked.forEach((ev, i) => {
@@ -174,7 +175,8 @@ export function init(seed: number, options: InitOptions = {}): State {
 // ---- 文の差し込み ----
 function fill(s: State, t: Text): Text {
   const w = s.inner.workTarget >= 0 ? s.works[s.inner.workTarget] : s.works[s.works.length - 1];
-  const live = s.inner.peerStates.filter((p) => !p.ending && !p.flags.in_prison); // 引退・服役した同期は出さない
+  const rivalP = s.inner.rival ? s.inner.peerStates[1] : undefined;
+  const live = s.inner.peerStates.filter((p) => !p.ending && !p.flags.in_prison && p !== rivalP); // 引退・服役した同期、ライバルは出さない
   const peer = live.length ? live[s.year % live.length].name : { ja: '同期', en: 'a peer' };
   const other = s.inner.otherJob ?? { ja: '別の仕事', en: 'another job' };
   const rep = (str: string, l: 'ja' | 'en') => (l === 'ja' ? str.replace(/ ?\{(peer|company|work|name)\} ?/g, '{$1}') : str)
@@ -185,7 +187,7 @@ function fill(s: State, t: Text): Text {
     .replace(/\{fanmsg\}/g, l === 'ja' ? (s.year < 1997 ? '手紙' : s.year < 2010 ? 'メール' : 'SNS のメッセージ') : (s.year < 1997 ? 'letter' : s.year < 2010 ? 'email' : 'social-media message'))
     .replace(/\{rival\}/g, s.inner.rival?.name[l] ?? (l === 'ja' ? '同期' : 'your rival'))
     .replace(/\{mentor\}/g, s.inner.mentor?.name[l] ?? (l === 'ja' ? '先輩' : 'your mentor')).replace(/\{mentee\}/g, s.inner.mentee?.name[l] ?? (l === 'ja' ? '後輩' : 'your junior'))
-    .replace(/\{peer\}/g, l === 'ja' ? peer.ja.split(' ')[0] : peer.en.split(' ').slice(-1)[0]).replace(/\{other\}/g, other[l]);
+    .replace(/\{peer\}/g, s.inner.rival && /負けたくない|ライバル/.test(t[l]) ? s.inner.rival.name[l] : l === 'ja' ? peer.ja.split(' ')[0] : peer.en.split(' ').slice(-1)[0]).replace(/\{other\}/g, other[l]);
   return { ja: rep(t.ja, 'ja'), en: rep(t.en, 'en') };
 }
 function log(s: State, text: Text, kind: LogLine['kind'], tag?: string[]) {
@@ -361,22 +363,22 @@ function beginYear(s: State, out: string[]) {
     const pool = POOL.filter((e) => e.tag?.includes(tag) && eligible(s, e));
     if (!pool.length) continue;
     s.inner[done] = true;
-    turning.push(draw(r, pool, 1)[0].id);
+    turning.push(draw(r, pool, 1, wOf(s))[0].id);
   }
   // 数年に一回の大きな選択(すごく悩むやつ)
   if (s.year >= s.inner.nextBig && s.status !== 'left') {
-    const pool = POOL.filter((e) => e.tag?.includes('big') && !e.tag.includes('hardware') && !e.tag.includes('worklife') && e.choices && eligible(s, e, 99));
-    if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextBig = s.year + r.int(tune<number>('choice.bigMin'), tune<number>('choice.bigMax')); }
+    const pool = POOL.filter((e) => e.tag?.includes('big') && !e.tag.includes('hardware') && !e.tag.includes('worklife') && (!e.tag.includes('insider') || !s.inner.counts.insider) && e.choices && eligible(s, e, 99));
+    if (pool.length) { turning.push(draw(r, pool, 1, wOf(s))[0].id); s.inner.nextBig = s.year + r.int(tune<number>('choice.bigMin'), tune<number>('choice.bigMax')); }
   }
   // どのハードに賭けるか(hardware.json。大きな選択と同じ年には出さない)
   if (s.year >= (s.inner.nextHw ?? 0) && !turning.length && (s.status === 'employed' || s.status === 'indie')) {
     const pool = POOL.filter((e) => e.tag?.includes('hardware') && e.choices && eligible(s, e, 99));
-    if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextHw = s.year + r.int(tune<number>('choice.hwMin'), tune<number>('choice.hwMax')); }
+    if (pool.length) { turning.push(draw(r, pool, 1, wOf(s))[0].id); s.inner.nextHw = s.year + r.int(tune<number>('choice.hwMin'), tune<number>('choice.hwMax')); }
   }
   // 仕事の選択(worklife.json: タイトル・続編か新作か・チーム・エンジン・延期かカットか・海外版・リストラ)。他の大きな選択と同じ年には出さない
   if (s.year >= (s.inner.nextWk ?? s.startYear + 3) && !turning.length && s.status === 'employed') {
     const pool = POOL.filter((e) => e.tag?.includes('worklife') && e.choices && eligible(s, e, 99));
-    if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextWk = s.year + r.int(tune<number>('choice.wkMin'), tune<number>('choice.wkMax')); }
+    if (pool.length) { turning.push(draw(r, pool, 1, wOf(s))[0].id); s.inner.nextWk = s.year + r.int(tune<number>('choice.wkMin'), tune<number>('choice.wkMax')); }
   }
   mentorArcs(s, r, out);
   const arcIds = storyArcs(s, r);
@@ -398,7 +400,7 @@ function beginYear(s: State, out: string[]) {
   const sysChoice = [...sys, ...q, ...hist, ...turning].some((id) => EVENT_BY_ID.get(id)?.choices);
   const allowChoice = !sysChoice && r.chance(tune('life.choiceEvery'));
   const pool = POOL.filter((e) => eligible(s, e, tune<number>('life.repeatGap'), tune<number>('life.maxRepeat')) && (allowChoice || !e.choices) && (!e.tag?.includes('afterlife') || hasOldWork(s)) && (!e.tag?.includes('crime') || !s.inner.counts.crime) && (!e.tag?.includes('quote') || (s.inner.counts.quote ?? 0) < 2) && (!e.tag?.includes('slang') || (s.inner.counts.slang ?? 0) < 4) && (!s.flags.in_prison || (e.when ?? []).some((c) => c.includes('prison'))) && !['pit', 'peak', 'bond', 'big', 'gravity', 'prologue', 'hardware', 'worklife'].some((t) => e.tag?.includes(t)));
-  let picked = draw(r, pool, Math.max(1, n));
+  let picked = draw(r, pool, Math.max(1, n), wOf(s));
   // 選択は 1 年に 1 本まで、作品の後日談も 1 年に 1 本まで
   let seenChoice = false, seenAfter = false;
   picked = picked.filter((e) => {
@@ -602,6 +604,8 @@ function peersYear(s: State, out: string[]) {
     else if (p.status !== before.status && p.flags.in_prison && ok('prison', 1)) { said1('prison'); line = { ja: `同期の${nm}が塀の中へ。差し入れにゲーム雑誌を送った。付箋だらけで返ってきた。`, en: `Your peer ${en} went to prison. You sent game magazines. They came back covered in sticky notes.` }; }
     else if (p.status !== before.status && p.status === 'left' && p.job === 'other' && !p.flags.in_prison) line = { ja: `同期の${nm}が業界を離れ、${p.inner.otherJob?.ja ?? '別の仕事'}へ。年賀状の写真が明るくなった。`, en: `Your peer ${en} left the industry for a ${p.inner.otherJob?.en ?? 'new job'}. Their New Year card looks happier.` };
     s.peers[i].summary = peerSummary(p);
+    if (s.inner.rival && i === 1) line = null; // ライバルの筋は arcs.json だけで語る(同期の知らせが混ざると筋が壊れる)
+    if (s.flags.in_prison) line = null;
     if (line && (!said || pe)) { said = true; log(s, line, 'peer'); out.push('peer'); }
   });
 }
@@ -713,10 +717,13 @@ function mentorArcs(s: State, r: Rng, out: string[]) {
     if ((a.step === 1 || a.step === 2) && (s.status !== 'employed' || (a.co && a.co !== s.company.id))) { a.step++; continue; }
     const pre = kind === 'mentor' ? 'ev_mt_' : 'ev_me_';
     const used = [...(s.inner.mentor?.used ?? []), ...(s.inner.mentee?.used ?? [])];
-    const vs = ['a', 'b', 'c'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)) && (!e.jobs || e.jobs.includes(s.job)) && (!SAME_CO.has(e.id) || (s.status === 'employed' && a.co === s.company.id)));
+    const vs0 = ['a', 'b', 'c', 'd', 'e', 'f'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)) && (!e.jobs || e.jobs.includes(s.job)) && (!SAME_CO.has(e.id) || (s.status === 'employed' && a.co === s.company.id)));
+    const freshV = vs0.filter((e) => !s.inner.recent?.includes(e.id));
+    const vs = freshV.length ? freshV : vs0;
     if (vs.length) {
       const ev = r.pick(vs);
       a.used.push(ev.id);
+      s.inner.seen[ev.id] = s.year;
       log(s, fill(s, ev.text), 'event', ev.tag);
       apply(s, ev.effect, ev.id, out);
     }
@@ -743,8 +750,16 @@ function kidsReturn(s: State, id: EndingId) {
   const p = `${rel.ja}${bud?.name.ja.split(' ')[0] ?? '相棒'}`, pe = `${rel.en} ${bud?.name.en.split(' ').slice(-1)[0] ?? ''}`.trim();
   const jail = s.flags.in_prison || id === 'end_arrest';
   const where: Partial<Record<EndingId, Text>> = {
-    end_restart: { ja: `帰り道、${p}がぽつりと言った。`, en: `On the way home, ${pe} said quietly:` },
-    end_retire: { ja: `送別会の帰り、${p}が言った。`, en: `Leaving the farewell party, ${pe} said:` },
+    end_restart: s.rng.pick([
+      { ja: `帰り道、${p}がぽつりと言った。`, en: `On the way home, ${pe} said quietly:` },
+      { ja: `打ち上げの後の屋台で、${p}が湯気の向こうで言った。`, en: `At a food stall after the wrap party, ${pe} said through the steam:` },
+      { ja: `夜中の開発室に、ふたりだけ残っていた。${p}がモニターを見たまま言った。`, en: `Only the two of you were left in the dev room at night. ${pe} said, still staring at the monitor:` },
+      { ja: `終電を待つホームで、${p}が言った。`, en: `Waiting for the last train, ${pe} said:` },
+    ]),
+    end_retire: s.rng.pick([
+      { ja: `送別会の帰り、${p}が言った。`, en: `Leaving the farewell party, ${pe} said:` },
+      { ja: `最後の出社の日、エレベーターの中で${p}が言った。`, en: `On your last day, in the elevator, ${pe} said:` },
+    ]),
     end_pen_down: { ja: `70 歳の誕生日、${p}から電話があった。`, en: `On your 70th birthday, ${pe} called:` },
     end_body: { ja: `病院のベッドの横で、${p}が言った。`, en: `By your hospital bed, ${pe} said:` },
     end_debt: { ja: `店をたたんだ夜、${p}が缶ビールを持って来て言った。`, en: `The night you closed shop, ${pe} came by with canned beer and said:` },
@@ -778,11 +793,13 @@ function storyArcs(s: State, r: Rng): string[] {
     if (!a || a.step >= 5 || s.year < a.next) continue;
     let id: string | null = null;
     if (kind === 'fan') {
-      const ids = ['ev_fa_1', 'ev_fa_2', 'ev_fa_3', s.status === 'employed' && s.company.size !== 'indie' ? 'ev_fa_4' : 'ev_fa_4b', r.chance(0.5) ? 'ev_fa_5' : 'ev_fa_5b'];
-      id = ids[a.step];
+      const fw = s.works.find((w) => w.name.ja === s.inner.fan?.work?.ja);
+      const first = fw?.result === 'flop' ? ['ev_fa_1f', 'ev_fa_1fb'] : fw?.result === 'hit' ? ['ev_fa_1h', 'ev_fa_1hb'] : ['ev_fa_1', 'ev_fa_1b'];
+      const steps: string[][] = [first, ['ev_fa_2', 'ev_fa_2b'], ['ev_fa_3', 'ev_fa_3b'], s.status === 'employed' && s.company.size !== 'indie' ? ['ev_fa_4', 'ev_fa_4c'] : ['ev_fa_4b'], ['ev_fa_5', 'ev_fa_5b', 'ev_fa_5c']];
+      id = pickFresh(s, r, steps[a.step]);
     } else {
       const sameCo = s.status === 'employed' && a.co === s.company.id; // 競う・隣に座る・引き抜かれるは同じ会社の時だけ
-      id = ['ev_rv_1', 'ev_rv_2', 'ev_rv_3', 'ev_rv_4', 'ev_rv_5'][a.step];
+      id = pickFresh(s, r, [['ev_rv_1', 'ev_rv_1b'], ['ev_rv_2', 'ev_rv_2b', 'ev_rv_2c'], ['ev_rv_3', 'ev_rv_3b', 'ev_rv_3c'], ['ev_rv_4', 'ev_rv_4b', 'ev_rv_4c'], ['ev_rv_5', 'ev_rv_5b', 'ev_rv_5c']][a.step]);
       if ((a.step === 0 || a.step === 2 || a.step === 3) && !sameCo) id = null;
     }
     const ev = id ? EVENT_BY_ID.get(id) : undefined;
@@ -794,4 +811,17 @@ function storyArcs(s: State, r: Rng): string[] {
     a.step++;
   }
   return outIds;
+}
+
+/** 選ぶ時の重み: 直近の人生で見た話は tune('life.recentPenalty') 倍(続けて遊んだ時に同じ小ネタが出ないように) */
+function wOf(s: State): (e: GameEvent) => number {
+  const rec = s.inner.recent;
+  const p = tune<number>('life.recentPenalty');
+  return (e) => (e.weight ?? 1) * (rec?.includes(e.id) ? p : 1) * (e.tag?.includes('insider') ? 0.4 : 1);
+}
+
+/** 版の中から、直近の人生で見ていないものを選ぶ(全部見ていたら乱数) */
+function pickFresh(s: State, r: Rng, ids: string[]): string {
+  const fresh = ids.filter((id) => !s.inner.recent?.includes(id));
+  return r.pick(fresh.length ? fresh : ids);
 }

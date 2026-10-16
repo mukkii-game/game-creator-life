@@ -13,6 +13,7 @@ export const KNOBS: Knob[] = [
   { key: 'life.eventsMax', label: '1 年のイベント数(最多)', value: 3, min: 1, max: 6, step: 1, unit: '本' },
   { key: 'life.choiceEvery', label: '選択イベントの出やすさ', value: 0.45, min: 0, max: 1, step: 0.05, unit: '1 年あたり', aim: '1 年に 1 回は多すぎる。2〜3 年に 1 回くらい悩む' },
   { key: 'life.finalYear', label: '人生の区切りの年', value: 2027, min: 2020, max: 2045, step: 1, unit: '年', aim: 'AI のパラダイムシフトで「どうする?」→「まだ始まっちゃいねえよ」で終わる(2026-10-16 Mukkii)' },
+  { key: 'life.recentPenalty', label: '直近の人生で見た話の出やすさ', value: 0.15, min: 0, max: 1, step: 0.05, unit: '倍', aim: '続けて遊んだ時に同じ小ネタが被らない(2026-10-16 Mukkii: 先輩の『3 回まで』が 2 回連続で出て興ざめ)' },
   { key: 'life.maxRepeat', label: '同じイベントは 1 人生で何回まで', value: 1, min: 1, max: 10, step: 1, unit: '回', aim: '2026-10-16 ペルソナ 4 人の通読で「同じ話が 1 人生に何度も出る」が最大の不満 → 2 から 1 に(反復させたい話は tag repeatable)' },
   { key: 'life.repeatGap', label: '同じイベントが再び出るまで', value: 6, min: 0, max: 20, step: 1, unit: '年', aim: '反復ネタは効くが、毎年は飽きる' },
   // 歴史の事件(src/data/hist/)

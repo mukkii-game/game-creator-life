@@ -629,5 +629,167 @@
   ],
   "once": true,
   "weight": 3
+ },
+ {
+  "id": "ev_vo_snd_psg",
+  "years": [
+   1983,
+   1990
+  ],
+  "text": {
+   "ja": "使える音は 3 和音とノイズ 1 つ。爆発音とドラムが同じノイズを取り合うので、爆発のたびに曲のドラムが消えた。",
+   "en": "Three tone channels and one noise channel. Explosions and drums fought over the noise, so the drums vanished every time something blew up."
+  },
+  "when": [
+   "status=employed",
+   "job=sound"
+  ],
+  "effect": {
+   "skill": 4
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 4
+ },
+ {
+  "id": "ev_vo_snd_fm",
+  "years": [
+   1987,
+   1996
+  ],
+  "text": {
+   "ja": "FM 音源の音色を 1 か月いじって、やっとトランペットらしくなった。上司に聞かせたら「いいね、そのクラリネット」と言われた。",
+   "en": "A month of tweaking FM parameters finally got you a trumpet. Your boss listened: \"Nice clarinet.\""
+  },
+  "when": [
+   "status=employed",
+   "job=sound"
+  ],
+  "effect": {
+   "skill": 4,
+   "passion": -2
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 4
+ },
+ {
+  "id": "ev_vo_snd_cdda",
+  "years": [
+   1994,
+   2000
+  ],
+  "text": {
+   "ja": "CD-ROM で生の音が使えるようになった。スタジオで本物のオーケストラを録った日、帰りの電車でずっとイヤホンを外せなかった。",
+   "en": "CD-ROM meant real recorded audio. The day you recorded a live orchestra, you couldn't take your earphones off the whole train ride home."
+  },
+  "when": [
+   "status=employed",
+   "job=sound"
+  ],
+  "effect": {
+   "passion": 10
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 4
+ },
+ {
+  "id": "ev_vo_snd_foley",
+  "years": [
+   1990,
+   2040
+  ],
+  "text": {
+   "ja": "足音の効果音のために、会社の廊下を 200 回歩いた。翌日から総務に「足音の人」と呼ばれた。",
+   "en": "For footstep effects you walked the office corridor 200 times. From the next day, admin called you \"the footsteps person.\""
+  },
+  "when": [
+   "status=employed",
+   "job=sound"
+  ],
+  "effect": {
+   "passion": 3
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 4
+ },
+ {
+  "id": "ev_vo_snd_mute",
+  "years": [
+   2008,
+   2040
+  ],
+  "text": {
+   "ja": "ユーザー調査で「音を消して遊んでいる」が 6 割と出た。その夜、自分の作った曲を自分のためだけに 3 回聴いた。",
+   "en": "A user survey said 60% play with the sound off. That night you played your own soundtrack three times, just for yourself."
+  },
+  "when": [
+   "status=employed",
+   "job=sound"
+  ],
+  "effect": {
+   "passion": -3
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 4
+ },
+ {
+  "id": "ev_vo_snd_concert",
+  "years": [
+   2005,
+   2040
+  ],
+  "text": {
+   "ja": "自分の曲がオーケストラのコンサートで演奏された。客席で、知らない人が泣いていた。あの曲は、締め切りの前の晩に 2 時間で書いたものだった。",
+   "en": "Your music was played at an orchestral concert. In the audience a stranger was crying. You had written that piece in two hours the night before a deadline."
+  },
+  "when": [
+   "status=employed",
+   "job=sound"
+  ],
+  "effect": {
+   "passion": 12
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 4
+ },
+ {
+  "id": "ev_vo_snd_sfxlib",
+  "years": [
+   1995,
+   2040
+  ],
+  "text": {
+   "ja": "効果音のライブラリを整理していたら、10 年前に録った自分の咳払いが「威嚇・小」という名前で入っていた。今もどこかのゲームで、敵が咳払いしている。",
+   "en": "Sorting the SFX library, you found your own throat-clearing from ten years ago, filed as \"intimidate_small.\" Somewhere, an enemy still clears its throat in your voice."
+  },
+  "when": [
+   "status=employed",
+   "job=sound"
+  ],
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "aruaru"
+  ],
+  "once": true,
+  "weight": 4
  }
 ]

@@ -2271,7 +2271,8 @@
     "effect": {
      "passion": 12,
      "flag": {
-      "lv_friend_partner": true
+      "lv_friend_partner": true,
+       "friend_gone": true
      }
     },
     "result": {
@@ -2296,6 +2297,9 @@
      "en": "Just leave their name, in one pixel row"
     },
     "effect": {
+      "flag": {
+       "friend_gone": true
+      },
      "passion": 8
     },
     "result": {
