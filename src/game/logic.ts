@@ -87,8 +87,13 @@ function nameAt(c: CoRow, year: number): Text {
   return n;
 }
 /** 勤め先を表から引く: 大手は実名、中堅・小さい会社・下請けはパロディ名(その年に存在した会社だけ)。無ければ名前を作る */
+/** 直近の人生で勤めた会社(init で入る。続けて遊んだ時に、毎回同じ会社に入らないように) */
+let RECENT_CO: string[] = [];
 function newCompany(r: Rng, size: CompanySize, year: number, avoid?: string | string[]): Company {
-  const av = Array.isArray(avoid) ? avoid : avoid ? [avoid] : [];
+  const av0 = Array.isArray(avoid) ? avoid : avoid ? [avoid] : [];
+  const rows0 = size === 'big' ? COMPANIES.real : COMPANIES.parody.filter((c) => c.size === size);
+  // 直近の人生で勤めた会社は、他に候補があれば避ける(第 14 回ペルソナ: 3 回とも転職先がバンダイナムコ)
+  const av = rows0.filter((c) => c.years[0] <= year && year <= c.years[1] && !av0.includes(c.id) && !RECENT_CO.includes(c.id)).length ? [...av0, ...RECENT_CO] : av0;
   const rows = size === 'big' ? COMPANIES.real : ['mid', 'small', 'sub'].includes(size) ? COMPANIES.parody.filter((c) => c.size === size) : [];
   const ok = rows.filter((c) => c.years[0] <= year && year <= c.years[1] && !av.includes(c.id));
   // 表に 1 社でもあれば表から(Mukkii が決めた名前を見たい。作った名前は表が空の時だけの保険。2026-10-16 Fable 経由)
@@ -113,6 +118,7 @@ function syncCompany(s: State) {
 export function init(seed: number, options: InitOptions = {}): State {
   const r = new Rng(seed);
   const peerOf = options.peerOf;
+  if (!peerOf) RECENT_CO = (options.recent ?? []).filter((x) => x.startsWith('co:')).map((x) => x.slice(3));
   const year = options.year ?? peerOf?.year ?? gachaYear(r, options.era);
   const age = options.age ?? gachaAge(r);
   const entry = wpick(r, ENTRIES, (e) => e.w(age, year));
@@ -341,7 +347,7 @@ function beginYear(s: State, out: string[]) {
   for (const t of (TIMELINE_BY_YEAR.get(s.year) ?? []).slice(0, 2)) log(s, t.text, 'timeline', [t.kind]);
   if ((TIMELINE_BY_YEAR.get(s.year) ?? []).length) out.push('timeline');
   // 2027 年: AI のパラダイムシフトで人生の区切り(2026-10-16 Mukkii)。その年は「どうする?」の選択だけ → キッズ・リターンのパロディで前向きに終わる
-  if (s.year >= tune<number>('life.finalYear') && s.age < 70) { s.inner.queue = ['ev_sys_shift']; return; }
+  if (s.year >= tune<number>('life.finalYear') && s.age < 70 && !s.flags.in_prison) { s.inner.queue = ['ev_sys_shift']; return; } // 塀の中の間は、出てから(第 14 回ペルソナ: 服役中に「発売日に並ぶ」)
   const q: string[] = [];
   const sys: string[] = [];
   // 予約(later)
@@ -409,12 +415,12 @@ function beginYear(s: State, out: string[]) {
   // どのハードに賭けるか(hardware.json。大きな選択と同じ年には出さない)
   const holder = s.status === 'employed' && (s.company.id === 'co_sony' || s.company.id === 'co_nintendo' || (s.company.id === 'co_sega' && s.year < 2001)); // ハードを作る会社の社員は機種を選ばない
   if (s.year >= (s.inner.nextHw ?? 0) && !turning.length && !holder && (s.status === 'employed' || s.status === 'indie')) {
-    const pool = POOL.filter((e) => e.tag?.includes('hardware') && e.choices && eligible(s, e, 99));
+    const pool = POOL.filter((e) => e.tag?.includes('hardware') && e.choices && eligible(s, e, 99, 1));
     if (pool.length) { turning.push(draw(r, pool, 1, wOf(s))[0].id); s.inner.nextHw = s.year + r.int(tune<number>('choice.hwMin'), tune<number>('choice.hwMax')); }
   }
   // 仕事の選択(worklife.json: タイトル・続編か新作か・チーム・エンジン・延期かカットか・海外版・リストラ)。他の大きな選択と同じ年には出さない
   if (s.year >= (s.inner.nextWk ?? s.startYear + 3) && !turning.length && s.status === 'employed') {
-    const pool = POOL.filter((e) => e.tag?.includes('worklife') && e.choices && eligible(s, e, 99));
+    const pool = POOL.filter((e) => e.tag?.includes('worklife') && e.choices && eligible(s, e, 99, 1));
     if (pool.length) { turning.push(draw(r, pool, 1, wOf(s))[0].id); s.inner.nextWk = s.year + r.int(tune<number>('choice.wkMin'), tune<number>('choice.wkMax')); }
   }
   mentorArcs(s, r, out);
@@ -423,7 +429,9 @@ function beginYear(s: State, out: string[]) {
   const trait = CO_TRAITS[s.company.id];
   if (trait?.lines?.length && s.status === 'employed' && !(s.inner.coShown ??= []).includes(s.company.id)) {
     s.inner.coShown.push(s.company.id);
-    log(s, r.pick(trait.lines), 'event', ['company']);
+    // 年代に合わない社風の一言は出さない(第 14 回ペルソナ: 1991 年に「スマホの画面に収まる剣と魔法」)
+    const fits = trait.lines.filter((l) => !(s.year < 2008 && /スマホ|SNS|アプリ|ガチャ|配信/.test(l.ja)) && !(s.year < 1999 && /ケータイ/.test(l.ja)));
+    if (fits.length) log(s, r.pick(fits), 'event', ['company']);
   }
   // 他の人の人生(名前を入れて遊んだ誰か)が、先輩・同期・後輩・記事として顔を出す
   if (s.inner.others?.length && (s.status === 'employed' || s.status === 'indie') && (s.inner.othersShown ?? 0) < tune<number>('others.max') && r.chance(tune('others.chance'))) {
@@ -668,8 +676,8 @@ function peersYear(s: State, out: string[]) {
     else if (pe && pe.id === 'end_restart') { said1('restart'); line = freshLine(s, [{ ja: `同期の${nm}も、AI の騒ぎの中で次の一歩を決めたらしい。年賀状に「まだやる」とだけあった。`, en: `Your peer ${en} chose a next step amid the AI upheaval too. Their New Year card said only: "Still at it."` }, { ja: `同期の${nm}から久しぶりに電話。「お前はどうする」。答える前に、向こうが自分の答えを 30 分しゃべった。`, en: `A call from your peer ${en}, first in ages: "What are you doing?" Before you could answer, they talked about their own plan for thirty minutes.` }], 'peerrestart'); }
     else if (pe) { line = { ja: `同期の${nm}の知らせ。${pe.cause.ja.replace(/^\d+ 歳、/, '')}。`, en: `News of your peer ${en}: ${pe.cause.en.replace(/^At \d+, /, '')}.` }; }
     else if (newHit && ok('hit', 2) && !s.works.some((w) => w.name.ja === newHit.name.ja) && (newHit.result === 'legend' || s.rng.chance(0.4))) { line = freshLine(s, hitL.map(([ja, enT]) => ({ ja, en: enT })), 'peerhit'); said1('hit'); }
-    else if (p.status !== before.status && p.status === 'indie' && ok('indie', 1)) { said1('indie'); line = freshLine(s, [{ ja: `同期の${nm}が独立した。名刺の肩書きは「CEO」。社員は本人だけ。`, en: `Your peer ${en} went indie. Business card: "CEO." Staff: one.` }, { ja: `同期の${nm}が会社を辞めて、自分のスタジオを作った。開業祝いに観葉植物を贈ったら、社員より大きかった。`, en: `Your peer ${en} quit to start a studio. The potted plant you sent as a gift was bigger than the staff.` }, { ja: `同期の${nm}が独立した。最初の作品の告知は、あなたにだけ 1 日早く届いた。`, en: `Your peer ${en} went indie. The announcement of their first game reached you a day before anyone else.` }], 'peerindie'); }
-    else if (p.job !== before.job && (p.job === 'director' || p.job === 'producer') && ok('promo', 1)) { said1('promo'); line = freshLine(s, [{ ja: `同期の${nm}が${JOB_TEXT[p.job].ja}に昇進した。あなたより先に。`, en: `Your peer ${en} was promoted to ${JOB_TEXT[p.job].en}. Before you.` }, { ja: `同期の${nm}の名刺に「${JOB_TEXT[p.job].ja}」と入った。もらった名刺は、引き出しの一番奥にしまった。`, en: `Your peer ${en}'s new card read "${JOB_TEXT[p.job].en}." You filed it at the very back of your drawer.` }, { ja: `同期の${nm}が${JOB_TEXT[p.job].ja}になった。お祝いの寄せ書きに「次は俺」と書いた。誰も笑わなかった。`, en: `Your peer ${en} became ${JOB_TEXT[p.job].en}. On the congratulations card you wrote "I'm next." Nobody laughed.` }], 'peerpromo'); }
+    else if (p.status !== before.status && p.status === 'indie' && !p.flags.ex_prison && ok('indie', 1)) { said1('indie'); line = freshLine(s, [{ ja: `同期の${nm}が独立した。名刺の肩書きは「CEO」。社員は本人だけ。`, en: `Your peer ${en} went indie. Business card: "CEO." Staff: one.` }, { ja: `同期の${nm}が会社を辞めて、自分のスタジオを作った。開業祝いに観葉植物を贈ったら、社員より大きかった。`, en: `Your peer ${en} quit to start a studio. The potted plant you sent as a gift was bigger than the staff.` }, { ja: `同期の${nm}が独立した。最初の作品の告知は、あなたにだけ 1 日早く届いた。`, en: `Your peer ${en} went indie. The announcement of their first game reached you a day before anyone else.` }], 'peerindie'); }
+    else if (p.job !== before.job && (p.job === 'director' || p.job === 'producer') && !p.flags.ex_prison && !p.flags.in_prison && ok('promo', 1)) { said1('promo'); line = freshLine(s, [{ ja: `同期の${nm}が${JOB_TEXT[p.job].ja}に昇進した。あなたより先に。`, en: `Your peer ${en} was promoted to ${JOB_TEXT[p.job].en}. Before you.` }, { ja: `同期の${nm}の名刺に「${JOB_TEXT[p.job].ja}」と入った。もらった名刺は、引き出しの一番奥にしまった。`, en: `Your peer ${en}'s new card read "${JOB_TEXT[p.job].en}." You filed it at the very back of your drawer.` }, { ja: `同期の${nm}が${JOB_TEXT[p.job].ja}になった。お祝いの寄せ書きに「次は俺」と書いた。誰も笑わなかった。`, en: `Your peer ${en} became ${JOB_TEXT[p.job].en}. On the congratulations card you wrote "I'm next." Nobody laughed.` }], 'peerpromo'); }
     else if (p.status !== before.status && p.flags.in_prison && ok('prison', 1)) { said1('prison'); line = freshLine(s, [{ ja: `同期の${nm}が塀の中へ。差し入れにゲーム雑誌を送った。付箋だらけで返ってきた。`, en: `Your peer ${en} went to prison. You sent game magazines. They came back covered in sticky notes.` }, { ja: `同期の${nm}が捕まったとニュースで知った。写真が新人研修の時のものだった。あの頃の顔だった。`, en: `You learned from the news that ${en} had been arrested. The photo was from your rookie training days.` }], 'peerprison'); }
     else if (p.status !== before.status && p.status === 'left' && p.job === 'other' && !p.flags.in_prison) line = { ja: `同期の${nm}が業界を離れ、${p.inner.otherJob?.ja ?? '別の仕事'}へ。年賀状の写真が明るくなった。`, en: `Your peer ${en} left the industry for a ${p.inner.otherJob?.en ?? 'new job'}. Their New Year card looks happier.` };
     s.peers[i].summary = peerSummary(p);
@@ -926,7 +934,7 @@ function wOf(s: State): (e: GameEvent) => number {
 
 /** 直近の人生で見ていない話だけ(続けて遊んだ時に、人生の大きな筋が被らないように) */
 function freshOnly(s: State, pool: GameEvent[]): GameEvent[] {
-  return pool.filter((e) => !s.inner.recent?.includes(e.id));
+  return pool.filter((e) => !s.inner.recent?.includes(e.id) && !(e.motif && s.inner.recent?.includes(`line:motif:${e.motif}`)));
 }
 /** 版の中から、直近の人生で見ていないものを選ぶ(全部見ていたら乱数) */
 function pickFresh(s: State, r: Rng, ids: string[]): string {

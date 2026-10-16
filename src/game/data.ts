@@ -123,7 +123,7 @@ const MOTIFS: [string, RegExp][] = [
   ['no_home', /家に帰らなかった|鍵の形/],
   ['bug_trick', /バグ.*裏技|裏技.*バグ/],
 ];
-for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; }
+for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; else if (e.tag?.includes('crime') && e.choices) e.motif = 'crime'; } // 犯罪の入口(選択)は続けて遊ぶと出にくく
 // ハードの選択の後日談は、その選択がまだ生きている時だけ(後で別の陣営を選んだら、前の選択の後日談は出さない)
 {
   const need = new Map<string, Set<string>>();
