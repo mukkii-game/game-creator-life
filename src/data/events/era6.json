@@ -180,7 +180,7 @@
   { "id": "ev_era6_ai_sorry", "years": [2023, 2035], "weight": 2,
     "text": { "ja": "AI に「このバグを直して」と頼んだら、とても丁寧に謝られた。直ってはいない。", "en": "You asked AI to fix a bug. It apologized beautifully. The bug is still there." },
     "effect": { "passion": -2, "skill": 1 }, "tag": ["ai", "gag"] },
-  { "id": "ev_era6_ai_history", "years": [2023, 2030],
+  { "id": "ev_era6_ai_history", "years": [2023, 2030], "when": ["hits<1"],
     "text": { "ja": "AI に業界の歴史を聞いたら、あなたが伝説の名作を作ったことになっていた。そうだったらよかった。", "en": "You asked AI about industry history. It says you made a legendary classic. If only." },
     "effect": { "passion": 3 }, "tag": ["ai", "gag"] },
   { "id": "ev_era6_ai_jam", "years": [2023, 2035],

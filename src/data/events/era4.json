@@ -112,7 +112,7 @@
   { "id": "ev_era4_wedding_again", "years": [2007, 2016], "weight": 0,
     "text": { "ja": "延期した式の日に、また納期が重なった。結局、式は会社の会議室で挙げた。拍手は 40 人分。", "en": "The postponed wedding hit another deadline. You held it in the company meeting room. Forty coworkers applauded." },
     "effect": { "passion": 6, "network": 6, "flag": { "lv_married": true } }, "tag": ["family", "gag"] },
-  { "id": "ev_era4_quake_blackout", "years": [2011, 2011], "once": true,
+  { "id": "ev_era4_quake_blackout", "years": [2011, 2011], "once": true, "when": ["co!=co_nintendo", "co!=co_capcom", "co!=co_snk"],
     "text": { "ja": "計画停電の時間割が、そのまま開発の時間割になった。電気が来た瞬間、全員が一斉にビルドを押す。", "en": "The rolling-blackout schedule became the dev schedule. The instant the power returns, everyone hits build at once." },
     "when": ["status=employed"], "effect": { "skill": 2, "hp": -3, "network": 3 }, "tag": ["work"] },
   { "id": "ev_era4_wii_wrist", "years": [2006, 2010],

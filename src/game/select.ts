@@ -33,6 +33,7 @@ function value(s: State, key: string): string | number | boolean | undefined {
     case 'cos': return s.companies.length; // 勤めた会社の数(転職・再就職で増える)
     case 'career': return s.year - s.startYear; // 業界に入って何年目(0 = 入った年)
     case 'company.size': return s.company.size;
+    case 'co': return s.company.id; // 今の会社(実在の会社ごとの条件。第 59 回: 京都の任天堂に計画停電)
     case 'pos': return positionOf(s);
   }
   return undefined;
@@ -67,10 +68,10 @@ export function eligible(s: State, ev: GameEvent, gap = 0, maxRepeat = 99): bool
   if (s.year < ev.years[0] || s.year > ev.years[1]) return false;
   if (ev.once && s.inner.used.includes(ev.id)) return false;
   if (ev.jobs && !ev.jobs.includes(s.job)) return false;
-  { const ms = [ev.motif, ...(ev.motifAll ?? [])]; if (ms.some((mo) => mo && ['insider', 'crime', 'early_exit', 'family_crisis', 'headhunt', 'mgmt_offer', 'sequel_out', 'mom_buys', 'oversleep', 'farewell_name', 'boss_fight', 'not_me', 'train', 'sales_graph', 'muscle_box', 'photo_reuse', 'ai_ban', 'game_wedding', 'title_meeting', 'sakurai', 'rta', 'zero_yen', 'fukkoku', 'window_seat', 'chatgpt_paste'].includes(mo)) && !/^ev_(fa|rv|mt|me|hw_fu)_/.test(ev.id) && !ev.tag?.includes('followup') && ms.some((mo) => s.inner.recent?.includes(`line:motif:${mo}`))) return false; } // 捕まる・去る・家族の危機の筋や、決まった小ネタは、直近の人生で通っていたら今回は通らない(第 29 回・第 48 回〜)
+  { const ms = [ev.motif, ...(ev.motifAll ?? [])]; if (ms.some((mo) => mo && ['insider', 'crime', 'early_exit', 'family_crisis', 'headhunt', 'mgmt_offer', 'sequel_out', 'mom_buys', 'oversleep', 'farewell_name', 'boss_fight', 'not_me', 'train', 'sales_graph', 'muscle_box', 'photo_reuse', 'ai_ban', 'game_wedding', 'title_meeting', 'sakurai', 'rta', 'zero_yen', 'fukkoku', 'window_seat', 'chatgpt_paste'].includes(mo)) && !/^ev_(fa|rv|mt|me|hw_fu)_/.test(ev.id) && !ev.tag?.some((t) => t === 'followup' || t === 'chain') && ms.some((mo) => s.inner.recent?.includes(`line:motif:${mo}`))) return false; } // 捕まる・去る・家族の危機の筋や、決まった小ネタは、直近の人生で通っていたら今回は通らない(第 29 回・第 48 回〜)
   if (ev.tag?.some((t) => t === 'quickquit' || t === 'early_exit') && !s.inner.recent?.length && !s.inner.isPeer) return false; // 初めての 1 回は 22 歳で終わらせない(第 20 回ペルソナ: 3 か月で本屋に転職して閉じる)
   if (ev.motif && s.inner.motifs?.includes(ev.motif)) return false;
-  if (ev.motifAll?.some((m) => s.inner.motifs?.includes(m))) return false; // 同じ型のネタは 1 人生 1 回 // 本文がほかの職種の作業(絵を描く・コードを書く …)
+  if (ev.motifAll?.some((m) => s.inner.motifs?.includes(m)) && !/^ev_(fa|rv|mt|me)_/.test(ev.id) && !ev.tag?.some((t) => t === 'chain' || t === 'followup')) return false; // 長い筋・連鎖・続きの回は型で止めない(型は覚える) // 同じ型のネタは 1 人生 1 回 // 本文がほかの職種の作業(絵を描く・コードを書く …)
   // 同じ小ネタは 1 人生で maxRepeat 回まで(反復ネタは 2 回目で効き、3 回目から飽きる)
   if ((s.inner.uses[ev.id] ?? 0) >= maxRepeat && !ev.tag?.includes('repeatable')) return false;
   const last = s.inner.seen[ev.id];
