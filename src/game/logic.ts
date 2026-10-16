@@ -263,6 +263,12 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
     if (f === 'do_change_company') {
       s.flags.changed_co = true; s.flags.callcenter = false;
       const size: CompanySize = s.stat.skill >= 60 ? s.rng.pick(['big', 'mid'] as const) : s.rng.pick(['mid', 'small', 'sub'] as const);
+      if (e.flag?.life_hometown) { // 地元へ帰ったら、幼なじみと始める小さな会社(第 20 回ペルソナ: 地元へ帰った同じ年に大手へ移った)
+        s.company = { id: `co_home_${s.year}`, name: { ja: `${s.rng.pick(['ふるさと', 'みなと', 'やまびこ', 'たんぼ', 'ひだまり'])}ゲームス`, en: `${s.rng.pick(['Hometown', 'Harbor', 'Echo', 'Paddy', 'Sunspot'])} Games` }, size: 'small' };
+        s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed');
+        s.inner.nextWorkYear = s.year + s.rng.int(tune('work.everyMin'), tune('work.everyMax'));
+        continue;
+      }
       s.company = newCompany(s.rng, size, s.year); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed');
       // 次の勤め先を一言(第 9 回ペルソナ: 希望退職に応じた後、どこにいるのか分からない)
       log(s, freshLine(s, [{ ja: `次の勤め先は ${s.company.name.ja}。`, en: `Next stop: ${s.company.name.en}.` }, { ja: `${s.company.name.ja} に移った。机の引き出しの位置が、前の会社と左右逆だった。`, en: `You moved to ${s.company.name.en}. The desk drawers were on the opposite side from the last place.` }, { ja: `${s.company.name.ja} に拾われた。初日に配られた社員証の写真は、前の会社のを使い回した。`, en: `${s.company.name.en} took you in. For the new ID card, you reused the photo from the last one.` }, { ja: `${s.company.name.ja} に入った。歓迎会で、前の会社の悪口を言うのをこらえた。`, en: `You joined ${s.company.name.en}. At the welcome party, you held back from badmouthing the old place.` }, { ja: `${s.company.name.ja} に移った。最初の 1 週間、前の会社の電話の出方で出てしまった。`, en: `You moved to ${s.company.name.en}. For the first week you kept answering the phone with your old company's greeting.` }, { ja: `${s.company.name.ja} で出直し。新しい机には、前の人の付箋が 1 枚だけ残っていた。「がんばれ」。`, en: `A fresh start at ${s.company.name.en}. The new desk had one sticky note left by the last person: "Hang in there."` }], 'nextco'), 'event');
@@ -426,12 +432,16 @@ function beginYear(s: State, out: string[]) {
   // どのハードに賭けるか(hardware.json。大きな選択と同じ年には出さない)
   const holder = s.status === 'employed' && (s.company.id === 'co_sony' || s.company.id === 'co_nintendo' || (s.company.id === 'co_sega' && s.year < 2001)); // ハードを作る会社の社員は機種を選ばない
   if (s.year >= (s.inner.nextHw ?? 0) && !turning.length && !holder && (s.status === 'employed' || s.status === 'indie')) {
-    const pool = POOL.filter((e) => e.tag?.includes('hardware') && e.choices && eligible(s, e, 99, 1));
+    const pool0 = POOL.filter((e) => e.tag?.includes('hardware') && e.choices && eligible(s, e, 99, 1));
+    const fresh = freshOnly(s, pool0); const pool = fresh.length ? fresh : r.chance(0.35) ? pool0 : []; // 第 20 回ペルソナ: 3 人生とも「ソシャゲか残るか」「Switch かスマホか」。直近に見た選択だけなら 65% で今回は出さない
+    if (pool0.length && !pool.length) s.inner.nextHw = s.year + r.int(tune<number>('choice.hwMin'), tune<number>('choice.hwMax'));
     if (pool.length) { turning.push(draw(r, pool, 1, wOf(s))[0].id); s.inner.nextHw = s.year + r.int(tune<number>('choice.hwMin'), tune<number>('choice.hwMax')); }
   }
   // 仕事の選択(worklife.json: タイトル・続編か新作か・チーム・エンジン・延期かカットか・海外版・リストラ)。他の大きな選択と同じ年には出さない
   if (s.year >= (s.inner.nextWk ?? s.startYear + 3) && !turning.length && s.status === 'employed') {
-    const pool = POOL.filter((e) => e.tag?.includes('worklife') && e.choices && eligible(s, e, 99, 1));
+    const pool0 = POOL.filter((e) => e.tag?.includes('worklife') && e.choices && eligible(s, e, 99, 1));
+    const fresh = freshOnly(s, pool0); const pool = fresh.length ? fresh : r.chance(0.35) ? pool0 : [];
+    if (pool0.length && !pool.length) s.inner.nextWk = s.year + r.int(tune<number>('choice.wkMin'), tune<number>('choice.wkMax'));
     if (pool.length) { turning.push(draw(r, pool, 1, wOf(s))[0].id); s.inner.nextWk = s.year + r.int(tune<number>('choice.wkMin'), tune<number>('choice.wkMax')); }
   }
   mentorArcs(s, r, out);
@@ -560,6 +570,8 @@ function runItem(s: State, id: string, out: string[]) {
   // 1 年に会社が 2 回変わらない(第 13 回ペルソナ: 地元に帰って会社を作った同じ年に、別の会社に拾われる)
   const moves = (x: { flag?: Record<string, boolean> } | undefined) => Object.keys(x?.flag ?? {}).some((f) => ['do_change_company', 'do_go_indie', 'do_join_sega', 'life_abroad', 'went_abroad'].includes(f));
   if ((moves(ev.effect) || ev.choices?.some((c) => moves(c.effect))) && s.companies.length > 1 && s.companies[s.companies.length - 1].year === s.year) return;
+  if (ev.id.startsWith('ev_sys_bankrupt') && (s.companies[s.companies.length - 1].year === s.year || COMPANIES.real.some((c) => c.id === s.company.id))) return; // 年の初めに決まった倒産でも、その年に移った先(セガなど)は潰さない(第 20 回)
+  if (s.companies.length > 1 && s.companies[s.companies.length - 1].year === s.year && /に拾われ|に入った|に移った|に転職|社員 ?\d+ 人の会社を売/.test([ev.text, ...(ev.alt ?? [])].map((x) => x.ja).join(" "))) return; // 移った年に、本文だけでまた移る話を出さない(第 20 回: 1 年に 3 社)
   // 同じ後日談は 1 人生に 1 回(第 12 回ペルソナ: 「コンシューマに残った」が選択なしで 2 回)
   if (((ev.weight ?? 1) === 0 || ev.tag?.includes('followup')) && s.inner.seen[ev.id] !== undefined && !ev.tag?.includes('repeatable') && !/^ev_(fa|rv|mt|me|sys)_/.test(ev.id)) return;
   if (ev.id === 'ev_wk_fu_callcenter') s.flags.callcenter = false; // 開発に戻る
@@ -579,6 +591,7 @@ function runItem(s: State, id: string, out: string[]) {
     if (!old.length) return;
     s.inner.workTarget = r.pick(old)[1];
   }
+  if (ev.choices && ev.motif && s.inner.motifs?.includes(ev.motif)) return; // 年の初めに積んだ選択でも、同じ年に同じ型の選択が先に出ていたら出さない(第 20 回: ソシャゲに行くかが 1 年に 2 回)
   const hs = HIST_OF.get(ev.id);
   if (hs) { if (s.inner.histDone.includes(hs)) return; s.inner.histDone.push(hs); s.chronicle.push(`${hs}:${ev.id}`); }
   if (ev.once || ev.id.startsWith('ev_sys_')) s.inner.used.push(ev.id);
@@ -690,7 +703,7 @@ function peersYear(s: State, out: string[]) {
     else if (newHit && ok('hit', 2) && !p.flags.in_prison && !p.flags.ex_prison && !s.works.some((w) => w.name.ja === newHit.name.ja) && (newHit.result === 'legend' || s.rng.chance(0.4))) { line = freshLine(s, hitL.map(([ja, enT]) => ({ ja, en: enT })), 'peerhit'); said1('hit'); }
     else if (p.status !== before.status && p.status === 'indie' && !p.flags.ex_prison && ok('indie', 1)) { said1('indie'); line = freshLine(s, [{ ja: `同期の${nm}が独立した。名刺の肩書きは「CEO」。社員は本人だけ。`, en: `Your peer ${en} went indie. Business card: "CEO." Staff: one.` }, { ja: `同期の${nm}が会社を辞めて、自分のスタジオを作った。開業祝いに観葉植物を贈ったら、社員より大きかった。`, en: `Your peer ${en} quit to start a studio. The potted plant you sent as a gift was bigger than the staff.` }, { ja: `同期の${nm}が独立した。最初の作品の告知は、あなたにだけ 1 日早く届いた。`, en: `Your peer ${en} went indie. The announcement of their first game reached you a day before anyone else.` }], 'peerindie'); }
     else if (p.job !== before.job && (p.job === 'director' || p.job === 'producer') && !p.flags.ex_prison && !p.flags.in_prison && ok('promo', 1)) { said1('promo'); line = freshLine(s, [{ ja: `同期の${nm}が${JOB_TEXT[p.job].ja}に昇進した。あなたより先に。`, en: `Your peer ${en} was promoted to ${JOB_TEXT[p.job].en}. Before you.` }, { ja: `同期の${nm}の名刺に「${JOB_TEXT[p.job].ja}」と入った。もらった名刺は、引き出しの一番奥にしまった。`, en: `Your peer ${en}'s new card read "${JOB_TEXT[p.job].en}." You filed it at the very back of your drawer.` }, { ja: `同期の${nm}が${JOB_TEXT[p.job].ja}になった。お祝いの寄せ書きに「次は自分」と書いた。誰も笑わなかった。`, en: `Your peer ${en} became ${JOB_TEXT[p.job].en}. On the congratulations card you wrote "I'm next." Nobody laughed.` }], 'peerpromo'); }
-    else if (p.status !== before.status && p.flags.in_prison && ok('prison', 1)) { said1('prison'); line = freshLine(s, [{ ja: `同期の${nm}が塀の中へ。差し入れにゲーム雑誌を送った。付箋だらけで返ってきた。`, en: `Your peer ${en} went to prison. You sent game magazines. They came back covered in sticky notes.` }, { ja: `同期の${nm}が捕まったとニュースで知った。写真が新人研修の時のものだった。あの頃の顔だった。`, en: `You learned from the news that ${en} had been arrested. The photo was from your rookie training days.` }], 'peerprison'); }
+    else if (p.status !== before.status && p.flags.in_prison && ok('prison', 1)) { said1('prison'); line = freshLine(s, [{ ja: `同期の${nm}が塀の中へ。差し入れにゲーム雑誌を送った。付箋だらけで返ってきた。`, en: `Your peer ${en} went to prison. You sent game magazines. They came back covered in sticky notes.` }, { ja: `同期の${nm}が捕まったとニュースで知った。写真が新人研修の時のものだった。あの頃の顔だった。`, en: `You learned from the news that ${en} had been arrested. The photo was from your rookie training days.` }, { ja: `同期の${nm}が逮捕された。同期のグループチャットが 3 日だけ静かになり、4 日目に誰かが「差し入れ、何がいい?」と書いた。`, en: `Your peer ${en} was arrested. The peer group chat went quiet for three days. On the fourth, someone wrote: "What should we send them?"` }], 'peerprison'); }
     else if (p.status !== before.status && p.status === 'left' && p.job === 'other' && !p.flags.in_prison && !p.flags.ex_prison && p.inner.otherJob?.ja !== '塀の中') line = { ja: `同期の${nm}が業界を離れ、${p.inner.otherJob?.ja ?? '別の仕事'}へ。年賀状の写真が明るくなった。`, en: `Your peer ${en} left the industry for a ${p.inner.otherJob?.en ?? 'new job'}. Their New Year card looks happier.` };
     s.peers[i].summary = peerSummary(p);
     if (s.inner.rival && i === 1) line = null; // ライバルの筋は arcs.json だけで語る(同期の知らせが混ざると筋が壊れる)
@@ -795,7 +808,7 @@ function arcName(s: State, r: Rng, lo: number, hi: number, born: number): Text {
 /** 一人の人の長い話(ファン・ライバル・先輩・後輩)をこの人生でやるか。直近の人生でやった話は出にくく(第 8 回ペルソナ: 3 回とも同じ筋で先が読めた) */
 function arcOn(s: State, r: Rng, kind: string, pre: string): boolean {
   const k = (s.inner.arcOn ??= {});
-  if (k[kind] === undefined) k[kind] = !r.chance(s.inner.recent?.some((id) => id.startsWith(pre)) ? 0.8 : 0.1); // 第 15 回ペルソナ: まだ続けて来る → 0.6 から 0.8
+  if (k[kind] === undefined) k[kind] = !r.chance(s.inner.recent?.some((id) => id.startsWith(pre)) ? 0.9 : 0.1); // 第 20 回: ファンの子の筋が 2 人生続けて → 0.9 // 第 15 回ペルソナ: まだ続けて来る → 0.6 から 0.8
   return k[kind];
 }
 function mentorArcs(s: State, r: Rng, out: string[]) {

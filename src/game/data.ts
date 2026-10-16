@@ -95,7 +95,7 @@ for (const e of EVENTS) {
   // 日本の会社・暮らしの話は、海外の会社にいる間は出さない
   if (/元請け|下請け|即売会|節電|社員旅行|忘年会|役員会|朝礼|社内報|電車|新幹線|地元|広報誌|コミケ|居酒屋|定食屋/.test(tx) && !has(e, 'company.size') && !has(e, 'pos')) add(e, 'company.size!=abroad');
   // 会社の中の話は、会社にいる時だけ
-  if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み|ボーナス|人事に呼ばれ|辞令|うちのチーム|チームの|部下|社員証|社内報|配属|入社以来|新人が|新人の|定時|チャイム|社員食堂|総務|経理|社員旅行|忘年会|送別会|歓迎会|会社の照明|会社のドア|会社の椅子|入館証/.test(tx) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
+  if (/社内|会議|上司|部長|出社|同僚|課長|朝礼|昼休み|ボーナス|人事に呼ばれ|辞令|うちのチーム|チームの|部下|社員証|社内報|配属|入社以来|新人が|新人の|定時|チャイム|社員食堂|総務|経理|社員旅行|忘年会|送別会|歓迎会|会社の照明|会社のドア|会社の椅子|入館証|隣の部署|隣の島|仕事帰り|同期の|社長は|営業は|営業が|プランナー同士|チーム全員|ヒットのボーナス/.test(tx) && !has(e, 'status') && !has(e, 'pos') && !has(e, 'job=teacher')) add(e, 'status=employed');
   // 年数: 「N 年前」「N 年ぶり」はキャリアが N 年以上 / 入社直後の話はキャリア 1 年目まで
   const ago = /(\d+) 年(前|ぶり|分|越し|間ずっと)/.exec(tx);
   if (ago && +ago[1] >= 5 && !has(e, 'career')) add(e, `career>=${+ago[1]}`);
@@ -148,6 +148,11 @@ const MOTIFS: [string, RegExp][] = [
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); const m = MOTIFS.find(([, re]) => re.test(tx)); if (m && !e.id.startsWith('ev_sys_')) e.motif = m[0]; else if (e.tag?.includes('crime') && e.choices) e.motif = 'crime'; if (e.tag?.includes('early_exit') && e.choices) e.motif = 'early_exit'; if (e.choices && !e.id.startsWith('ev_sys_') && !e.motif) { if (/AI/.test(tx) && e.years[1] >= 2022) e.motif = 'ai_choice'; else if (/ケータイ(の)?部署|ソシャゲ(に|へ)(行|移)/.test(tx + (e.choices ?? []).map((c) => c.label.ja).join(''))) e.motif = 'mobile_move'; } } // AI をどう使うか・ケータイへ移るかの選択は 1 人生 1 回 // 早くに去る選択は 1 人生 1 回 // 犯罪の入口(選択)は続けて遊ぶと出にくく
 // 家族の危機の大きな選択(危篤・倒れた・最後の願い)は 1 人生 1 回、続けて遊んでも出にくく(第 19 回: 3 人生で 5 回)
 for (const e of EVENTS) if (['ev_lv_big_grandpa', 'ev_lv_big_father', 'ev_lv_big_mother_last', 'ev_tn_big_care'].includes(e.id)) e.motif = 'family_crisis';
+// 歴史の事件の「ケータイ部署を引き受けるか」も、ハードの選択と同じ型・同じ印に(第 20 回: 引き受けた後に「ソシャゲに行く?」と聞かれた)
+for (const e of EVENTS) if (e.choices?.some((c) => c.effect?.flag?.hiv_social)) { e.motif = 'mobile_move'; for (const c of e.choices) c.effect = { ...(c.effect ?? {}), flag: { ...(c.effect?.flag ?? {}), ...(c.effect?.flag?.hiv_social ? { hw_dv_mobile: true } : { hw_dv_console: true }) } }; }
+// もう海外にいる人に「海を渡るか」「初めての海外出張」を出さない(第 20 回: 海外で始めた人生の 1999 年に「海外のスタジオから誘い」)
+for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); if ((e.choices?.some((c) => c.effect?.flag?.life_abroad || c.effect?.flag?.went_abroad) || e.effect?.flag?.went_abroad || /初めての海外|海外出張|海外のスタジオから/.test(tx)) && !has(e, 'company.size')) add(e, 'company.size!=abroad'); }
+for (const e of EVENTS) if (e.id.startsWith('ev_wk_restructure_')) e.motif = 'restructure'; // 希望退職かカスタマーセンターかは 1 人生 1 回(第 20 回: 2002 と 2009 に 2 回)
 // 選択の後日談(later で来る話)には印を付ける(同じ人生で 2 回出さない)
 for (const e of EVENTS) for (const c of e.choices ?? []) for (const l of c.later ?? []) { const t = EVENTS.find((x) => x.id === l.event); if (t && !t.tag?.includes('followup')) t.tag = [...(t.tag ?? []), 'followup']; }
 // ハードの選択の後日談は、その選択がまだ生きている時だけ(後で別の陣営を選んだら、前の選択の後日談は出さない)
@@ -191,7 +196,7 @@ for (const e of EVENTS) {
   if (!/大ヒット|ヒットし|ヒット記念|段ボール 3 箱|ヒットのボーナス/.test(t) || /他社|脳トレ|パズル&|ELDEN|パルワールド|横スクロールの|そっくりなゲーム|大ヒット作の開発者/.test(t)) continue;
   if (e.id.startsWith('ev_tn_pk_')) {
     if (!e.effect?.work) { e.effect = { ...(e.effect ?? {}), work: { last: { result: 'hit' } } }; if (!has(e, 'works')) add(e, 'works>=1'); }
-  } else if (!has(e, 'hits')) add(e, 'hits>=1');
+  } else if (!has(e, 'hits')) { add(e, 'hits>=1'); if (/ボーナス|ヒット記念|段ボール 3 箱/.test(t)) add(e, 'lastres=hit'); } // ボーナスは直近の作品がヒットの時(第 20 回: 爆死の翌年にヒットのボーナス)
 }
 
 // 海外の会社にいる時に「海外版を出すか」は聞かれない(第 9 回ペルソナ: 海を渡った後に社長が「英語が得意な社員はいない」)

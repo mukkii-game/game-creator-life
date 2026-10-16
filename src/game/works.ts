@@ -11,7 +11,7 @@ const tMod = import.meta.glob('../data/titles.json', { eager: true, import: 'def
 const TITLES: TitleRow[] = Object.values(tMod)[0]?.titles ?? [];
 /** 題名に機種名が入っていたら、その機種の時だけ使う(『〇〇DS』が PS3 で出ていた) */
 function nameFits(name: string, platform: string): boolean {
-  const tags: [RegExp, RegExp][] = [[/DS$|DS[^a-z]/, /^ニンテンドー DS$/], [/アドバンス/, /アドバンス/], [/ポータブル|ポケット/, /PSP|ゲームボーイ|DS|3DS|スマホ|ケータイ/], [/64/, /64/], [/3D$/, /3DS/]];
+  const tags: [RegExp, RegExp][] = [[/DS$|DS[^a-z]/, /^ニンテンドー DS$/], [/アドバンス/, /アドバンス/], [/ポータブル|ポケット/, /PSP|ゲームボーイ|DS|3DS|スマホ|ケータイ/], [/64/, /64/], [/3D$/, /3DS/], [/脳を鍛える|でもいっしょ/, /DS|3DS|Wii|スマホ|Switch/], [/オンライン/, /^(?!アーケード|ゲームボーイ)/]]; // 業務用に「脳を鍛える」は付けない(第 20 回)
   return tags.every(([inName, okPf]) => !inName.test(name) || okPf.test(platform));
 }
 /** 題名の会議で選んだ型(worklife の ch_wk_tt_kanji / ch_wk_tt_ceo / ch_wk_tn_long)を、次の作品の名前にする */
@@ -213,8 +213,8 @@ export function release(s: State): { work: Work; line: Text } {
   const gag = solo ?? (gagOk && r.chance(0.5) ? titled!.gag! : pickLine);
   if (gag.ja) said.push(gag.ja);
   const line: Text = {
-    ja: `${work.name.ja}(${work.platform})発売。あなたは${roleText(s, role).ja}。結果は${RESULT_TEXT[result].ja}。${gag.ja}`,
-    en: `${work.name.en} (${work.platform}) ships. You were ${roleText(s, role).en}. Result: ${RESULT_TEXT[result].en}. ${gag.en}`,
+    ja: `${work.name.ja}(${work.platform})発売。あなたは${roleText(s, role).ja}。結果は${RESULT_TEXT[result].ja}。${gag.ja.replace(/^(大?ヒット|伝説(になった)?|爆死|普通)[!!。]\s*/, '')}`, // 「結果はヒット。ヒット!」と 2 回言わない(第 20 回)
+    en: `${work.name.en} (${work.platform}) ships. You were ${roleText(s, role).en}. Result: ${RESULT_TEXT[result].en}. ${gag.en.replace(/^(A (big )?hit|A legend|Legend|A flop|Flop)[!.]\s*/i, '')}`,
   };
   const fx = { flop: { passion: -12, fame: 0 }, ok: { passion: 4, fame: 1 }, hit: { passion: 20, fame: 8 }, legend: { passion: 30, fame: 20 } }[result];
   const roleFame = { junior: 0.3, core: 0.7, lead: 1, solo: 1 }[role];
@@ -290,12 +290,13 @@ export function tickWorks(s: State): { work: Work; text: Text }[] {
       // 同じ運命は 1 人生で言い回しの数まで(ペルソナ通読: 「ログイン 41 人」が 5 回)
       const fc = (s.inner.fateCount ??= {});
       const texts = [f.text, ...(f.more ?? [])];
-      if ((fc[f.key] ?? 0) >= Math.min(2, texts.length)) continue; // 1 人生に同じ運命は 2 回まで(第 8 回ペルソナ: 「続編が自分抜きで決まる」が 4 回)
+      if ((fc[f.key] ?? 0) >= 1) continue; // 第 20 回ペルソナ: 「続編から外される」「RTA」「サービス終了」が 1 人生に 2 回 → 1 回まで // 1 人生に同じ運命は 2 回まで(第 8 回ペルソナ: 「続編が自分抜きで決まる」が 4 回)
       if (!s.rng.chance(f.chance * base / 0.06)) continue;
       // 言い回しは、この人生と直近の人生で使っていないものから(第 7 回ペルソナ: 「41 人」が 3 回続けて出た)
       const said = (s.inner.saidLines ??= []);
       const unsaid = texts.filter((t) => !said.includes(t.ja));
       const fresh = unsaid.filter((t) => !s.inner.recent?.includes(`line:${t.ja}`));
+      if (!fresh.length && s.rng.chance(0.7)) continue; // 直近の人生で全部の言い回しを見ていたら、たいてい今回は起こさない
       const ft = s.rng.pick(fresh.length ? fresh : unsaid.length ? unsaid : texts);
       said.push(ft.ja);
       fc[f.key] = (fc[f.key] ?? 0) + 1;

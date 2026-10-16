@@ -72,7 +72,8 @@ function epitaphOf(s: State, id: EndingId): Text {
     : s.flags.shift_play ? freshPick(s, [{ ja: '遊ぶ側に回っても、ついクリア後のスタッフロールを最後まで見てしまう。', en: 'Even as a player, I still watch every credits roll to the very end.' }, { ja: '遊ぶ側に回っても、バグを見つけると、つい再現手順をメモしてしまう。', en: 'Even as a player, when I find a bug I still write down the repro steps.' }])
     : null;
   const prisonAfter: Text | null = s.flags.ex_prison || s.flags.in_prison ? { ja: '塀の中で方眼紙に描いた迷宮は、今も引き出しの奥にある。', en: 'The maze I drew on graph paper behind bars is still at the back of my drawer.' } : null;
-  const after = prisonAfter ?? restartAfter ?? (AFTER[id] ? freshPick(s, AFTER[id]!) : { ja: '', en: '' });
+  const shortAfter: Text | null = s.year - s.startYear <= 2 && id === 'end_retire' ? freshPick(s, [{ ja: '社員証は、返す前に 1 枚だけ写真を撮った。', en: 'Before handing back my staff ID, I took one photo of it.' }, { ja: '短い業界暮らしだったが、会社のビルの自販機の並びは今でも全部言える。', en: 'My time in the industry was short, but I can still name every drink in that office vending machine, in order.' }]) : null; // 入って数年で去った人に「机の寝袋」は無い
+  const after = prisonAfter ?? restartAfter ?? shortAfter ?? (AFTER[id] ? freshPick(s, AFTER[id]!) : { ja: '', en: '' });
   const hs = s.inner.highs;
   if (!hs.length) return { ja: `大きな事件は何も無かった。${after.ja}それでも、いいゲーム人生だった。`, en: `Nothing big ever happened. ${after.en} Still, it was a good game life.`.replace(/  +/g, ' ') };
   const best = hs.reduce((a, b) => (b.w >= a.w ? b : a));
@@ -102,11 +103,13 @@ export function makeEnding(s: State, id: EndingId, custom?: Text): Ending {
   const flop = w.filter((x) => x.result === 'flop').length;
   const fates = w.filter((x) => x.history.length > 0).length;
   const job0 = JOB_TEXT[s.inner.startJob];
+  const fv = fates ? freshPick(s, [{ ja: '発売後も勝手に生き続けた', en: 'kept living on their own after release' }, { ja: '発売の後で、作った本人の知らない人生を送った', en: 'went on to lives their makers never planned' }, { ja: '店から消えた後も、どこかで遊ばれ続けた', en: 'kept being played somewhere long after leaving the shelves' }]) : null; // 第 20 回: 結果画面の同じ文
+  const fatesJa = fv?.ja ?? '';
   const ja = `${s.startYear} 年、${s.startAge} 歳で${s.entry.ja}の${job0.ja}として業界入り。` +
     (w.length ? `${w.length} 本に関わり、ヒット ${hit} 本・爆死 ${flop} 本。` : '作品は 1 本も世に出なかった。') +
-    (fates ? `${fates} 本は発売後も勝手に生き続けた。` : '') + `${cause.ja}。`;
+    (fates ? `${fates} 本は${fatesJa}。` : '') + `${cause.ja}。`;
   const en = `Entered the industry in ${s.startYear} at ${s.startAge} as a ${job0.en} (${s.entry.en}). ` +
     (w.length ? `Worked on ${w.length} games: ${hit} hits, ${flop} flops. ` : 'Not a single game shipped. ') +
-    (fates ? `${fates} of them kept living on after release. ` : '') + `${cause.en}.`;
+    (fates ? `${fates} of them ${fv!.en}. ` : '') + `${cause.en}.`;
   return { id, age: s.age, year: s.year, cause, summary: { ja, en }, epitaph: epitaphOf(s, id), lastWord: lastWordOf(s, id) };
 }

@@ -52,7 +52,7 @@ function tail(r: Rng, year: number): [string, string] {
   if (year < 1986) return r.pick([['', ''], ['II', ' II'], ['DX', ' DX']]);
   if (year < 1995) return r.pick([['II', ' II'], ['III', ' III'], ['外伝', ' Gaiden'], ['〜光と闇の序章〜', ': Prelude of Light and Dark']]);
   if (year < 2004) return r.pick([['2000', ' 2000'], ['〜永遠の約束〜', ': Eternal Promise'], ['X', ' X'], ['3D', ' 3D']]);
-  if (year < 2012) return r.pick([['DS', ' DS'], ['ポータブル', ' Portable'], ['オンライン', ' Online'], ['〜脳を鍛える〜', ': Brain Workout']]);
+  if (year < 2012) return r.pick([['DS', ' DS'], ['ポータブル', ' Portable'], ['オンライン', ' Online'], ['〜でもいっしょ〜', ': Together'], ...(year >= 2006 ? [['〜脳を鍛える〜', ': Brain Workout']] as [string, string][] : [])]); // 脳トレは 2005 年末から(第 20 回: 2004 年に「脳を鍛える」)
   if (year < 2020) return r.pick([['ドロップス', ' Drops'], ['〜ガチャ無料〜', ': Free Pulls'], ['ストライク', ' Strike'], ['リバース', ' Rebirth'], ['VR', ' VR']]);
   return r.pick([['リマスター', ' Remastered'], ['サバイバーズ', ' Survivors'], ['ライク', '-like'], ['AI エディション', ' AI Edition'], ['〜人間が作った〜', ': Made by Humans']]);
 }

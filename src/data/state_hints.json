@@ -1682,5 +1682,10 @@
   "jobs": [
    "artist"
   ]
+ },
+ "ev_tn_big_ports": {
+  "when": [
+   "works>=2"
+  ]
  }
 }

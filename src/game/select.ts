@@ -28,6 +28,7 @@ function value(s: State, key: string): string | number | boolean | undefined {
     case 'status': return s.status;
     case 'works': return s.works.length;
     case 'hits': return s.works.filter((w) => w.result === 'hit' || w.result === 'legend').length;
+    case 'lastres': { const w = s.works[s.works.length - 1]; return w ? (w.result === 'legend' ? 'hit' : w.result) : 'none'; } // 直近の作品の結果(legend は hit として扱う)
     case 'kid': return s.inner.childYear ? s.year - s.inner.childYear : -1; // 子どもの年齢(いなければ -1)
     case 'cos': return s.companies.length; // 勤めた会社の数(転職・再就職で増える)
     case 'career': return s.year - s.startYear; // 業界に入って何年目(0 = 入った年)
@@ -66,6 +67,7 @@ export function eligible(s: State, ev: GameEvent, gap = 0, maxRepeat = 99): bool
   if (s.year < ev.years[0] || s.year > ev.years[1]) return false;
   if (ev.once && s.inner.used.includes(ev.id)) return false;
   if (ev.jobs && !ev.jobs.includes(s.job)) return false;
+  if (ev.tag?.includes('quickquit') && !s.inner.recent?.length && !s.inner.isPeer) return false; // 初めての 1 回は 22 歳で終わらせない(第 20 回ペルソナ: 3 か月で本屋に転職して閉じる)
   if (ev.motif && s.inner.motifs?.includes(ev.motif)) return false; // 同じ型のネタは 1 人生 1 回 // 本文がほかの職種の作業(絵を描く・コードを書く …)
   // 同じ小ネタは 1 人生で maxRepeat 回まで(反復ネタは 2 回目で効き、3 回目から飽きる)
   if ((s.inner.uses[ev.id] ?? 0) >= maxRepeat && !ev.tag?.includes('repeatable')) return false;
