@@ -8,7 +8,7 @@ export type Knob =
 
 export const KNOBS: Knob[] = [
   // 時間
-  { key: 'life.yearSec', label: '1 年の長さ(1 倍速)', value: 10, min: 2, max: 20, step: 0.5, unit: '秒', aim: '1 倍速はゆっくり読む速さ(2026-10-16 Mukkii: もう数割遅く → 7.5 から 10)。速く見たい人は 2 倍・4 倍' },
+  { key: 'life.yearSec', label: '1 年の長さ(1 倍速)', value: 15, min: 2, max: 30, step: 0.5, unit: '秒', aim: '2026-10-16 Mukkii「ノーマルを今の 3 分の 2 の速さに」で 10 → 15。1 倍速はゆっくり読む速さ(2026-10-16 Mukkii: もう数割遅く → 7.5 から 10)。速く見たい人は 2 倍・4 倍' },
   { key: 'life.eventsMin', label: '1 年のイベント数(最少)', value: 2, min: 1, max: 5, step: 1, unit: '本', aim: 'あるあるの連打。少ないと間延びする' },
   { key: 'life.eventsMax', label: '1 年のイベント数(最多)', value: 3, min: 1, max: 6, step: 1, unit: '本' },
   { key: 'life.choiceEvery', label: '選択イベントの出やすさ', value: 0.45, min: 0, max: 1, step: 0.05, unit: '1 年あたり', aim: '1 年に 1 回は多すぎる。2〜3 年に 1 回くらい悩む' },
@@ -59,7 +59,7 @@ export const KNOBS: Knob[] = [
   { key: 'work.flop', label: '爆死の確率', value: 0.35, min: 0, max: 1, step: 0.01 },
   { key: 'work.afterlife', label: '作品の後日談の出やすさ', value: 0.06, min: 0, max: 0.5, step: 0.01, unit: '1 作 1 年あたり', aim: '棚が勝手に生きている感じ。多すぎるとうるさい' },
   // 画面と音
-  { key: 'ui.lineMin', label: '1 行を読む最短の時間(1 倍速)', value: 3.2, min: 0.5, max: 6, step: 0.1, unit: '秒', aim: '目が追いつく速さ(Mukkii 2026-10-15「もう少しだけ遅く」)。2026-10-16「もう数割遅く」で 2.4 → 3.2。2 倍速なら半分' },
+  { key: 'ui.lineMin', label: '1 行を読む最短の時間(1 倍速)', value: 4.8, min: 0.5, max: 8, step: 0.1, unit: '秒', aim: '2026-10-16 Mukkii「3 分の 2 の速さ」で 3.2 → 4.8。目が追いつく速さ(Mukkii 2026-10-15「もう少しだけ遅く」)。2026-10-16「もう数割遅く」で 2.4 → 3.2。2 倍速なら半分' },
   { key: 'ui.fast', label: '「一気に」の 1 年', value: 0.4, min: 0.05, max: 2, step: 0.05, unit: '秒' },
   { key: 'audio.sfx', label: '効果音の音量', value: 0.3, min: 0, max: 1, step: 0.05, unit: '倍', aim: '控えめから。AI は音を聴かずに大きめを選びがち(2026-10-16 Mukkii: BGM も SE も数割控えめに → 0.45 から 0.3)' },
   { key: 'audio.bgm', label: 'BGM の音量', value: 0.15, min: 0, max: 1, step: 0.05, unit: '倍', aim: '2026-10-16 Mukkii「半分くらいに」で 0.3 → 0.15' },
