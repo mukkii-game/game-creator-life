@@ -621,6 +621,7 @@ function runItem(s: State, id: string, out: string[]) {
     s.inner.workTarget = r.pick(old)[1];
   }
   if (/\{other\}/.test(ev.text.ja) && !s.inner.others?.length) return; // 他の人の名前が無い時に「知人が」で出さない(第 28 回)
+  if (s.job === 'teacher' && !ev.tag?.some((t) => t === 'teach' || t === 'teacher' || t === 'system') && !ev.id.startsWith('ev_sys_') && !(ev.when ?? []).some((c) => c.includes('teacher')) && /発売|作品|開発|マスター|チーム|社内|会議|企画|締め切り|仕様/.test(ev.text.ja)) return; // 先生になった後に開発の話を出さない(第 36 回: 塾の講師になって 5 年「開発者の幽霊」)
   if (ev.choices && isHwChoice(ev)) { if (s.inner.lastHwChoice !== undefined && s.year - s.inner.lastHwChoice < 2) return; s.inner.lastHwChoice = s.year; } // どの機械に付くかの選択は 2 年に 1 回まで(第 23 回: DS か PSP かが同じ年に 2 回、ドリキャスが 2 年続けて)
   if (ev.choices && ev.motif && s.inner.motifs?.includes(ev.motif)) return; // 年の初めに積んだ選択でも、同じ年に同じ型の選択が先に出ていたら出さない(第 20 回: ソシャゲに行くかが 1 年に 2 回)
   const hs = HIST_OF.get(ev.id);
