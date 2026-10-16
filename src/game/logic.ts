@@ -540,6 +540,7 @@ function pickHist(s: State): string[] {
   if (cands.some((c) => !c.stale)) { for (let i = cands.length - 1; i >= 0; i--) if (cands[i].stale) cands.splice(i, 1); }
   else if (cands.length && s.rng.chance(0.9)) return [];
   if (!cands.length) return [];
+  if (s.rng.chance(tune<number>('hist.skip')) && !cands.some((c) => c.w > 20)) return []; // 歴史の事件が自分に降ってこない年もある(回収の版は除く。2026-10-16 Mukkii「ちょっと長い」)
   const n = Math.min(cands.length, s.rng.chance(tune<number>('hist.second')) ? 2 : 1);
   const out: string[] = [];
   for (let i = 0; i < n; i++) {
@@ -636,11 +637,11 @@ function runItem(s: State, id: string, out: string[]) {
   }
   if (/\{other\}/.test(ev.text.ja) && !s.inner.others?.length) return; // 他の人の名前が無い時に「知人が」で出さない(第 28 回)
   if ((s.flags.callcenter || s.status === 'left') && !/^ev_(sys|fa|rv|mt|me)_/.test(ev.id) && !ev.tag?.some((t) => t === 'system' || t === 'hist' || t === 'chain' || t === 'big_after' || t === 'followup') && !(ev.when ?? []).some((c) => /callcenter|status|pos=/.test(c)) && /マスターアップ|締め切り|隣の席|社内|会議室|会議で|続編を|カード絵|(?<!元)課長|(?<!元)部長|(?<!元)上司|仕様書|企画会議|チームの/.test(ev.text.ja)) return; // 電話の窓口・失業中に開発の席の話を出さない(第 49 回: カスタマーセンターで「今の作品はマスターアップ直前」、失業中に「隣の席の 4 人」)
-  if (!/^ev_(sys|fa|rv|mt|me|ai26|aiq)_/.test(ev.id) && !ev.choices && !ev.tag?.some((t) => t === 'chain' || t === 'followup' || t === 'big_after') && s.log.filter((l) => l.year === s.year && l.kind !== 'timeline').length >= 8) return; // 1 年に 8 行まで(自動点検: 1 年に 9〜12 行の年が 1 組に 1.5 回)
+  if (!/^ev_(sys|fa|rv|mt|me|ai26|aiq)_/.test(ev.id) && !ev.choices && !ev.tag?.some((t) => t === 'chain' || t === 'followup' || t === 'big_after') && s.log.filter((l) => l.year === s.year && l.kind !== 'timeline').length >= 5) return; // 1 年に 5 行まで(2026-10-16 Mukkii「ちょっと長い」で 8 → 6)(自動点検: 1 年に 9〜12 行の年が 1 組に 1.5 回)
   if (s.status === 'indie' && !/^ev_(sys|fa|rv|mt|me)_/.test(ev.id) && !ev.tag?.some((t) => t === 'chain' || t === 'followup' || t === 'big_after' || t === 'timeline') && !(ev.when ?? []).some((c) => /status|pos=|own_co/.test(c)) && /出社|送別会|定年|会社に着|通勤|社員証|人事|社長は|おかえり|隣の部署|うちの部長|課長|チーム全員|法務の|絵描きが|休日出勤|会社の単三|会社の備品/.test(ev.text.ja)) return; // ひとりで作っている間に「最後の出社」「送別会」を出さない(第 51 回)
   if ((s.company.id === 'co_sony' || s.company.id === 'co_nintendo' || (s.company.id === 'co_sega' && s.year < 2001)) && (/^ev_hw_(?!fu)/.test(ev.id) || (ev.choices ?? []).some((c) => Object.keys(c.effect?.flag ?? {}).some((f) => /^(hw_|bet_)/.test(f))))) return; // ハードを作る会社の社員に、よその機械に賭ける選択を出さない(第 59 回: セガの社員がピピン、任天堂の社員が CD の陣営・Vita)
   if (s.job === 'teacher' && !ev.tag?.some((t) => t === 'teach' || t === 'teacher' || t === 'system') && !ev.id.startsWith('ev_sys_') && !(ev.when ?? []).some((c) => c.includes('teacher')) && /発売|作品|開発|マスター|チーム|社内|会議|企画|締め切り|仕様/.test(ev.text.ja)) return; // 先生になった後に開発の話を出さない(第 36 回: 塾の講師になって 5 年「開発者の幽霊」)
-  if (ev.choices && isHwChoice(ev)) { if (s.inner.lastHwChoice !== undefined && s.year - s.inner.lastHwChoice < 2) return; s.inner.lastHwChoice = s.year; } // どの機械に付くかの選択は 2 年に 1 回まで(第 23 回: DS か PSP かが同じ年に 2 回、ドリキャスが 2 年続けて)
+  if (ev.choices && isHwChoice(ev)) { if (s.inner.lastHwChoice !== undefined && s.year - s.inner.lastHwChoice < 3) return; s.inner.lastHwChoice = s.year; } // どの機械に付くかの選択は 3 年に 1 回まで(2026-10-16「ちょっと長い」で 2 → 3)(第 23 回: DS か PSP かが同じ年に 2 回、ドリキャスが 2 年続けて)
   if (ev.choices && ev.motif && s.inner.motifs?.includes(ev.motif)) return; // 年の初めに積んだ選択でも、同じ年に同じ型の選択が先に出ていたら出さない(第 20 回: ソシャゲに行くかが 1 年に 2 回)
   const hs = HIST_OF.get(ev.id);
   if (hs) { if (s.inner.histDone.includes(hs)) return; s.inner.histDone.push(hs); s.chronicle.push(`${hs}:${ev.id}`); }

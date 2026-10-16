@@ -9,15 +9,16 @@ export type Knob =
 export const KNOBS: Knob[] = [
   // 時間
   { key: 'life.yearSec', label: '1 年の長さ(1 倍速)', value: 15, min: 2, max: 30, step: 0.5, unit: '秒', aim: '2026-10-16 Mukkii「ノーマルを今の 3 分の 2 の速さに」で 10 → 15。1 倍速はゆっくり読む速さ(2026-10-16 Mukkii: もう数割遅く → 7.5 から 10)。速く見たい人は 2 倍・4 倍' },
-  { key: 'life.eventsMin', label: '1 年のイベント数(最少)', value: 2, min: 1, max: 5, step: 1, unit: '本', aim: 'あるあるの連打。少ないと間延びする' },
-  { key: 'life.eventsMax', label: '1 年のイベント数(最多)', value: 3, min: 1, max: 6, step: 1, unit: '本' },
-  { key: 'life.choiceEvery', label: '選択イベントの出やすさ', value: 0.45, min: 0, max: 1, step: 0.05, unit: '1 年あたり', aim: '1 年に 1 回は多すぎる。2〜3 年に 1 回くらい悩む' },
+  { key: 'life.eventsMin', label: '1 年のイベント数(最少)', value: 1, min: 1, max: 5, step: 1, unit: '本', aim: '2026-10-16 Mukkii「ちょっと長い」で 2 → 1。あるあるの連打。少ないと間延びする' },
+  { key: 'life.eventsMax', label: '1 年のイベント数(最多)', value: 2, min: 1, max: 6, step: 1, unit: '本', aim: '2026-10-16 Mukkii「ちょっと長い」で 3 → 2' },
+  { key: 'life.choiceEvery', label: '選択イベントの出やすさ', value: 0.35, min: 0, max: 1, step: 0.05, unit: '1 年あたり', aim: '1 年に 1 回は多すぎる。2〜3 年に 1 回くらい悩む' },
   { key: 'life.finalYear', label: '人生の区切りの年', value: 2027, min: 2020, max: 2045, step: 1, unit: '年', aim: 'AI のパラダイムシフトで「どうする?」→「まだ始まっちゃいねえよ」で終わる(2026-10-16 Mukkii)' },
   { key: 'life.recentPenalty', label: '直近の人生で見た話の出やすさ', value: 0.05, min: 0, max: 1, step: 0.05, unit: '倍', aim: '続けて遊んだ時に同じ小ネタが被らない(2026-10-16 Mukkii: 先輩の『3 回まで』が 2 回連続で出て興ざめ)。第 7 回ペルソナ「3 回続けると 4〜5 点」で 0.15 → 0.05' },
   { key: 'life.maxRepeat', label: '同じイベントは 1 人生で何回まで', value: 1, min: 1, max: 10, step: 1, unit: '回', aim: '2026-10-16 ペルソナ 4 人の通読で「同じ話が 1 人生に何度も出る」が最大の不満 → 2 から 1 に(反復させたい話は tag repeatable)' },
   { key: 'life.repeatGap', label: '同じイベントが再び出るまで', value: 6, min: 0, max: 20, step: 1, unit: '年', aim: '反復ネタは効くが、毎年は飽きる' },
   // 歴史の事件(src/data/hist/)
-  { key: 'hist.second', label: '歴史の事件が 1 年に 2 本来る確率', value: 0.35, min: 0, max: 1, step: 0.05, aim: '毎年 1 本は業界の大事件が自分に降ってくる' },
+  { key: 'hist.skip', label: '歴史の事件が自分に降ってこない年の確率', value: 0.35, min: 0, max: 1, step: 0.05, aim: '2026-10-16 Mukkii「ちょっと長い」で足した。年表には出る' },
+  { key: 'hist.second', label: '歴史の事件が 1 年に 2 本来る確率', value: 0.2, min: 0, max: 1, step: 0.05, aim: '毎年 1 本は業界の大事件が自分に降ってくる' },
   { key: 'hist.newBoost', label: 'まだ触れていない事件の出やすさ', value: 4, min: 1, max: 20, step: 0.5, unit: '倍', aim: '何周しても「また同じか」にならない' },
   { key: 'hist.callbackBoost', label: '前の選択を回収する事件の出やすさ', value: 12, min: 1, max: 50, step: 1, unit: '倍', aim: '選んだ陣営・全力・闇の誘いの結末を見逃さない' },
   { key: 'hist.newPosBoost', label: '触れた事件を別の立場で受ける出やすさ', value: 1.5, min: 0.5, max: 10, step: 0.5, unit: '倍', aim: '同じ事件でも立場が違えば別の話になる(適度に混ぜる)' },
