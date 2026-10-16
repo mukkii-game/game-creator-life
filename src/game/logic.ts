@@ -365,15 +365,19 @@ function beginYear(s: State, out: string[]) {
   for (const [tag, at, done] of [['pit', 'pitAt', 'pitDone'], ['peak', 'peakAt', 'peakDone'], ['bond', 'bondAt', 'bondDone'], ['gravity', 'gravAt', 'gravDone']] as const) {
     if (s.inner[done] || s.year - s.startYear < s.inner[at] || s.status === 'left') continue;
     if (tag === 'gravity' && (s.flags.sega || s.flags.ex_sega)) continue; // セガの引力はセガに入らなかった人生でだけ
-    const pool = POOL.filter((e) => e.tag?.includes(tag) && eligible(s, e));
-    if (!pool.length) continue;
+    const pool0 = POOL.filter((e) => e.tag?.includes(tag) && eligible(s, e));
+    if (!pool0.length) continue;
     s.inner[done] = true;
+    // 人生の山場は、直近の人生で見ていないものから。全部見ていたら、今回は山場なし(第 10 回ペルソナ: 毎回同じ年に同じ筋)
+    const pool = freshOnly(s, pool0);
+    if (!pool.length) continue;
     turning.push(draw(r, pool, 1, wOf(s))[0].id);
   }
   // 数年に一回の大きな選択(すごく悩むやつ)
   if (s.year >= s.inner.nextBig && s.status !== 'left') {
     const pool = POOL.filter((e) => e.tag?.includes('big') && !e.tag.includes('hardware') && !e.tag.includes('worklife') && (!e.tag.includes('insider') || !s.inner.counts.insider) && e.choices && eligible(s, e, 99));
-    if (pool.length) { turning.push(draw(r, pool, 1, wOf(s))[0].id); s.inner.nextBig = s.year + r.int(tune<number>('choice.bigMin'), tune<number>('choice.bigMax')); }
+    const fresh = freshOnly(s, pool);
+    if (pool.length) { if (fresh.length) turning.push(draw(r, fresh, 1, wOf(s))[0].id); s.inner.nextBig = s.year + r.int(tune<number>('choice.bigMin'), tune<number>('choice.bigMax')); }
   }
   // どのハードに賭けるか(hardware.json。大きな選択と同じ年には出さない)
   if (s.year >= (s.inner.nextHw ?? 0) && !turning.length && (s.status === 'employed' || s.status === 'indie')) {
@@ -618,7 +622,8 @@ function peersYear(s: State, out: string[]) {
       [`同期の${nm}の${newHit?.name.ja}が売れた。親戚の集まりで「あの子、すごいのね」と言われた。あなたの話は出なかった。`, `Your peer ${en}'s ${newHit?.name.en} sold well. At a family gathering, a relative said: "That one's really something." You didn't come up.`],
       [`同期の${nm}の${newHit?.name.ja}がヒット。こっそり買って、こっそり最後まで遊んだ。悔しいが、面白かった。`, `Your peer ${en}'s ${newHit?.name.en} was a hit. You bought it quietly and played it to the end quietly. Annoyingly, it was good.`],
     ];
-    if (pe) line = { ja: `同期の${nm}の知らせ。${pe.cause.ja.replace(/^\d+ 歳、/, '')}。`, en: `News of your peer ${en}: ${pe.cause.en.replace(/^At \d+, /, '')}.` };
+    if (pe && pe.id === 'end_restart' && !ok('restart', 1)) line = null; // 2027 年の区切りで同期が一斉に終わるのは 1 人だけ伝える
+    else if (pe) { if (pe.id === 'end_restart') said1('restart'); line = { ja: `同期の${nm}の知らせ。${pe.cause.ja.replace(/^\d+ 歳、/, '')}。`, en: `News of your peer ${en}: ${pe.cause.en.replace(/^At \d+, /, '')}.` }; }
     else if (newHit && ok('hit', 2) && !s.works.some((w) => w.name.ja === newHit.name.ja) && (newHit.result === 'legend' || s.rng.chance(0.4))) { line = freshLine(s, hitL.map(([ja, enT]) => ({ ja, en: enT })), 'peerhit'); said1('hit'); }
     else if (p.status !== before.status && p.status === 'indie' && ok('indie', 1)) { said1('indie'); line = freshLine(s, [{ ja: `同期の${nm}が独立した。名刺の肩書きは「CEO」。社員は本人だけ。`, en: `Your peer ${en} went indie. Business card: "CEO." Staff: one.` }, { ja: `同期の${nm}が会社を辞めて、自分のスタジオを作った。開業祝いに観葉植物を贈ったら、社員より大きかった。`, en: `Your peer ${en} quit to start a studio. The potted plant you sent as a gift was bigger than the staff.` }, { ja: `同期の${nm}が独立した。最初の作品の告知は、あなたにだけ 1 日早く届いた。`, en: `Your peer ${en} went indie. The announcement of their first game reached you a day before anyone else.` }], 'peerindie'); }
     else if (p.job !== before.job && (p.job === 'director' || p.job === 'producer') && ok('promo', 1)) { said1('promo'); line = freshLine(s, [{ ja: `同期の${nm}が${JOB_TEXT[p.job].ja}に昇進した。あなたより先に。`, en: `Your peer ${en} was promoted to ${JOB_TEXT[p.job].en}. Before you.` }, { ja: `同期の${nm}の名刺に「${JOB_TEXT[p.job].ja}」と入った。もらった名刺は、引き出しの一番奥にしまった。`, en: `Your peer ${en}'s new card read "${JOB_TEXT[p.job].en}." You filed it at the very back of your drawer.` }, { ja: `同期の${nm}が${JOB_TEXT[p.job].ja}になった。お祝いの寄せ書きに「次は俺」と書いた。誰も笑わなかった。`, en: `Your peer ${en} became ${JOB_TEXT[p.job].en}. On the congratulations card you wrote "I'm next." Nobody laughed.` }], 'peerpromo'); }
@@ -767,6 +772,18 @@ function vary(s: State, ids: string[]): string {
   return fresher.length ? s.rng.pick(fresher) : fresh.length ? s.rng.pick(fresh) : s.rng.pick(ok);
 }
 
+/** 締めの名台詞(1 行目 = 相方の問い、2 行目 = 名台詞)。0 番はキッズ・リターン */
+const FINALES: Text[] = [
+  { ja: '「なあ、俺たち、もう終わっちゃったのかな」\n「バカヤロー、まだ始まっちゃいねえよ」', en: '"Hey... are we finished?"\n"Idiot. We haven\'t even started yet."' }, // キッズ・リターン
+  { ja: '「明日から、どうする?」\n「明日は明日の風が吹くさ」', en: '"So what about tomorrow?"\n"Tomorrow is another day."' }, // 風と共に去りぬ
+  { ja: '「まだ希望なんて持ってるのか」\n「希望はいいものだ。たぶん最高のものだ。いいものは決して滅びない」', en: '"You still have hope?"\n"Hope is a good thing, maybe the best of things, and no good thing ever dies."' }, // ショーシャンクの空に
+  { ja: '「この先、どうなるんだろうな」\n「未来は決まっていない。運命なんてない。自分で作るものだ」', en: '"Wonder what happens now."\n"The future\'s not set. There\'s no fate but what we make for ourselves."' }, // ターミネーター 2
+  { ja: '「人生って、何が出るか分からないな」\n「人生はチョコレートの箱みたいなもんさ。開けてみるまで中身は分からない」', en: '"You never know what life\'ll throw at you."\n"Life is like a box of chocolates. You never know what you\'re gonna get."' }, // フォレスト・ガンプ
+  { ja: '「まだ行く気か」\n「無限の彼方へ、さあ行くぞ!」', en: '"You\'re still going?"\n"To infinity and beyond!"' }, // トイ・ストーリー
+  { ja: '「元気でやってるか」\n「落ち込んだりもしたけれど、私はげんきです」', en: '"Doing okay?"\n"I\'ve had my ups and downs, but I\'m doing fine."' }, // 魔女の宅急便
+  { ja: '「もう、さすがに潮時かな」\n「あきらめたら、そこで試合終了ですよ」', en: '"Maybe it\'s time to call it."\n"If you give up, the game is over."' }, // SLAM DUNK
+  { ja: '「じゃあ、またどこかで」\n「フォースと共にあらんことを」', en: '"Well, see you around."\n"May the Force be with you."' }, // スター・ウォーズ
+];
 /** どの終わり方でも、最後は同期との掛け合い(キッズ・リターンのパロディ)。場面だけ終わり方で変える */
 function kidsReturn(s: State, id: EndingId) {
   // 相方: まだ業界にいて塀の外の同期。会社に入らず始めた人生なら「昔の仲間」
@@ -799,7 +816,11 @@ function kidsReturn(s: State, id: EndingId) {
   };
   const w = jail ? { ja: `面会室で、${p}がアクリル板ごしに言った。`, en: `In the visiting room, ${pe} said through the acrylic panel:` }
     : where[id] ?? { ja: `最後の日、${p}と並んで歩きながら、${p.replace(/^.*の/, '')}が言った。`, en: `Walking side by side on your last day, ${pe} said:` };
-  s.inner.kr = { ja: `${w.ja}\n「なあ、俺たち、もう終わっちゃったのかな」\n「バカヤロー、まだ始まっちゃいねえよ」`, en: `${w.en}\n"Hey... are we finished?"\n"Idiot. We haven't even started yet."` };
+  // 締めの掛け合い: 希望のある名台詞をほぼそのまま(2026-10-16 Mukkii: キッズ・リターン 1 つだと 3 回目に「はいはい」になる → 何種類か)。
+  // 初めて遊ぶ人はキッズ・リターン。続けて遊ぶ人には、直近の人生で出ていないものを
+  const finale = !s.inner.recent?.length ? FINALES[0] : freshLine(s, FINALES, 'finale');
+  if (!s.inner.recent?.length) (s.inner.saidLines ??= []).push('finale:0');
+  s.inner.kr = { ja: `${w.ja}\n${finale.ja}`, en: `${w.en}\n${finale.en}` };
 }
 
 // ---- 一人のファンの一生 / ライバルの同期(arcs.json。2026-10-16 Mukkii: 感情移入できる相手を)----
@@ -853,6 +874,10 @@ function wOf(s: State): (e: GameEvent) => number {
   return (e) => (e.weight ?? 1) * (rec?.includes(e.id) ? p : 1) * (e.tag?.includes('insider') ? 0.4 : 1);
 }
 
+/** 直近の人生で見ていない話だけ(続けて遊んだ時に、人生の大きな筋が被らないように) */
+function freshOnly(s: State, pool: GameEvent[]): GameEvent[] {
+  return pool.filter((e) => !s.inner.recent?.includes(e.id));
+}
 /** 版の中から、直近の人生で見ていないものを選ぶ(全部見ていたら乱数) */
 function pickFresh(s: State, r: Rng, ids: string[]): string {
   const fresh = ids.filter((id) => !s.inner.recent?.includes(id));
