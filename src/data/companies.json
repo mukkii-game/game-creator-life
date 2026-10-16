@@ -914,6 +914,279 @@
         2060
       ],
       "based": "キャトルコール"
+    },
+    {
+      "id": "co_te_soft",
+      "name": {
+        "ja": "T&Gソフト",
+        "en": "T&G Soft"
+      },
+      "size": "small",
+      "years": [
+        1982,
+        2001
+      ],
+      "based": "T&E ソフト"
+    },
+    {
+      "id": "co_bothtec",
+      "name": {
+        "ja": "ボースーテック",
+        "en": "Bothtech"
+      },
+      "size": "small",
+      "years": [
+        1983,
+        2005
+      ],
+      "based": "ボーステック"
+    },
+    {
+      "id": "co_microcabin",
+      "name": {
+        "ja": "マイクロキャビネット",
+        "en": "MicroCabinet"
+      },
+      "size": "small",
+      "years": [
+        1982,
+        2060
+      ],
+      "based": "マイクロキャビン"
+    },
+    {
+      "id": "co_xain",
+      "name": {
+        "ja": "ザインザイン",
+        "en": "Xain Xain"
+      },
+      "size": "small",
+      "years": [
+        1983,
+        1999
+      ],
+      "based": "ザインソフト"
+    },
+    {
+      "id": "co_technosoft",
+      "name": {
+        "ja": "テクノソフトン",
+        "en": "Technosofton"
+      },
+      "size": "small",
+      "years": [
+        1980,
+        2001
+      ],
+      "based": "テクノソフト"
+    },
+    {
+      "id": "co_telenet",
+      "name": {
+        "ja": "日本テレネッツ",
+        "en": "Nihon Telenets"
+      },
+      "size": "small",
+      "years": [
+        1983,
+        2007
+      ],
+      "based": "日本テレネット"
+    },
+    {
+      "id": "co_dbsoft",
+      "name": {
+        "ja": "デービーソフ",
+        "en": "dB-Sof"
+      },
+      "size": "small",
+      "years": [
+        1983,
+        1998
+      ],
+      "based": "デービーソフト"
+    },
+    {
+      "id": "co_kogado",
+      "name": {
+        "ja": "工画堂スタジオス",
+        "en": "Kogado Studios"
+      },
+      "size": "small",
+      "years": [
+        1980,
+        2060
+      ],
+      "based": "工画堂スタジオ"
+    },
+    {
+      "id": "co_naxat",
+      "name": {
+        "ja": "ナグザッツ",
+        "en": "Naxats"
+      },
+      "size": "small",
+      "years": [
+        1987,
+        2003
+      ],
+      "based": "ナグザット"
+    },
+    {
+      "id": "co_packin",
+      "name": {
+        "ja": "パックアウトビデオ",
+        "en": "Pack-Out Video"
+      },
+      "size": "small",
+      "years": [
+        1985,
+        1998
+      ],
+      "based": "パックインビデオ"
+    },
+    {
+      "id": "co_gref",
+      "name": {
+        "ja": "グレフグレフ",
+        "en": "Gref Gref"
+      },
+      "size": "small",
+      "years": [
+        1997,
+        2060
+      ],
+      "based": "グレフ"
+    },
+    {
+      "id": "co_mistwalker",
+      "name": {
+        "ja": "ミストウォーカーズ",
+        "en": "Mistwalkers"
+      },
+      "size": "small",
+      "years": [
+        2004,
+        2060
+      ],
+      "based": "ミストウォーカー"
+    },
+    {
+      "id": "co_wolfteam",
+      "name": {
+        "ja": "ウルフチームズ",
+        "en": "Wolf Teams"
+      },
+      "size": "sub",
+      "years": [
+        1986,
+        1996
+      ],
+      "based": "ウルフチーム"
+    },
+    {
+      "id": "co_carrylab",
+      "name": {
+        "ja": "キャリーラボラボ",
+        "en": "Carry Lab Lab"
+      },
+      "size": "sub",
+      "years": [
+        1981,
+        1995
+      ],
+      "based": "キャリーラボ"
+    },
+    {
+      "id": "co_beta_system",
+      "name": {
+        "ja": "ベータ・システム",
+        "en": "Beta System"
+      },
+      "size": "sub",
+      "years": [
+        1988,
+        2060
+      ],
+      "based": "アルファ・システム"
+    },
+    {
+      "id": "co_gamestudios",
+      "name": {
+        "ja": "ゲームスタジオス",
+        "en": "Game Studios"
+      },
+      "size": "sub",
+      "years": [
+        1985,
+        2060
+      ],
+      "based": "ゲームスタジオ"
+    },
+    {
+      "id": "co_micronets",
+      "name": {
+        "ja": "マイクロネッツ",
+        "en": "Micronets"
+      },
+      "size": "sub",
+      "years": [
+        1985,
+        2060
+      ],
+      "based": "マイクロネット"
+    },
+    {
+      "id": "co_bigtokai",
+      "name": {
+        "ja": "ビッグ東海",
+        "en": "Big Tokai"
+      },
+      "size": "sub",
+      "years": [
+        1983,
+        1998
+      ],
+      "based": "ビック東海"
+    },
+    {
+      "id": "co_sacon",
+      "name": {
+        "ja": "システムサコン",
+        "en": "System Sacon"
+      },
+      "size": "sub",
+      "years": [
+        1980,
+        2003
+      ],
+      "based": "システムサコム"
+    },
+    {
+      "id": "co_ganbarion",
+      "name": {
+        "ja": "ガンバリオオン",
+        "en": "Ganbarioon"
+      },
+      "size": "sub",
+      "years": [
+        1999,
+        2060
+      ],
+      "based": "ガンバリオン"
+    },
+    {
+      "id": "co_toylogical",
+      "name": {
+        "ja": "トイロジカル",
+        "en": "Toylogical"
+      },
+      "size": "sub",
+      "years": [
+        2006,
+        2060
+      ],
+      "based": "トイロジック"
     }
   ]
 }
