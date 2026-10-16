@@ -874,7 +874,7 @@
   ]
  },
  {
-  "id": "ev_lv_big_birth",
+  "id": "ev_lv_big_birth", "weight": 3,
   "years": [
    1977,
    2040
@@ -1301,7 +1301,7 @@
   }
  },
  {
-  "id": "ev_lv_big_dumped",
+  "id": "ev_lv_big_dumped", "weight": 2,
   "years": [
    1977,
    2040
@@ -1521,7 +1521,7 @@
   }
  },
  {
-  "id": "ev_lv_net_gm",
+  "id": "ev_lv_net_gm", "weight": 2,
   "years": [
    1999,
    2040
@@ -1583,7 +1583,7 @@
   }
  },
  {
-  "id": "ev_lv_office_love",
+  "id": "ev_lv_office_love", "weight": 4,
   "years": [
    1977,
    2040
@@ -1645,7 +1645,7 @@
   ]
  },
  {
-  "id": "ev_lv_omiai",
+  "id": "ev_lv_omiai", "weight": 3,
   "years": [
    1988,
    2040
@@ -1707,7 +1707,7 @@
   ]
  },
  {
-  "id": "ev_lv_wedding_skit",
+  "id": "ev_lv_wedding_skit", "weight": 3,
   "years": [
    1985,
    2040
@@ -1741,7 +1741,7 @@
   }
  },
  {
-  "id": "ev_lv_wedding_bug",
+  "id": "ev_lv_wedding_bug", "weight": 2,
   "years": [
    2006,
    2040
@@ -1813,7 +1813,7 @@
   ]
  },
  {
-  "id": "ev_lv_propose_game",
+  "id": "ev_lv_propose_game", "weight": 3,
   "years": [
    1977,
    2040
@@ -2118,7 +2118,7 @@
   ]
  },
  {
-  "id": "ev_lv_remarry",
+  "id": "ev_lv_remarry", "weight": 2,
   "years": [
    1977,
    2040
@@ -2152,7 +2152,7 @@
   }
  },
  {
-  "id": "ev_lv_love50",
+  "id": "ev_lv_love50", "weight": 1,
   "years": [
    1977,
    2040

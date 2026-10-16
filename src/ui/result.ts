@@ -37,7 +37,7 @@ const S: Record<string, Text> = {
   thanks: { ja: '協力', en: 'SPECIAL THANKS' },
   thanksBody: { ja: '寝袋 / カップ麺 / 栄養ドリンク / 仕様書(第 14 版)', en: 'Sleeping bag / Cup noodles / Energy drinks / Spec doc (rev. 14)' },
   fin: { ja: '終', en: 'FIN' },
-  oneOf: { ja: '1200万人のうちの、1 人の人生でした', en: 'That was one life out of 12 million' },
+  oneOf: { ja: '5万人のうちの、1 人の人生でした', en: 'That was one life out of 50,000' },
   skip: { ja: 'タップで飛ばす', en: 'Tap to skip' },
   head: { ja: 'おつかれさまでした', en: 'Thanks for all your hard work' },
   share: { ja: '共有する', en: 'Share' },

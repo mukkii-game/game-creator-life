@@ -183,7 +183,7 @@
     "text": { "ja": "家庭用の部署の作品が 100 万本。あなたの名前はどこにも無いが、社員食堂にカツ丼が出た。", "en": "The home division's game sold a million. Your name isn't on it, but the cafeteria served pork cutlet bowls." },
     "effect": { "passion": 5, "fame": 2 }, "tag": ["gag"] },
 
-  { "id": "ev_era1_ch_omiai", "years": [1975, 1985], "once": true,
+  { "id": "ev_era1_ch_omiai", "weight": 2, "years": [1975, 1985], "once": true,
     "text": { "ja": "見合いの話が来た。写真の裏に「趣味: テレビゲーム」。会う日は、マスターアップの前日だ。", "en": "A matchmaking offer. On the back of the photo: \"Hobby: video games.\" The meeting is the day before master-up." },
     "when": ["age>=24", "!flag.partner"],
     "choices": [

@@ -1,4 +1,4 @@
-// タイトル画面: 題名・一言・時代を選ぶ・「業界入りガチャを引く」・1200 万人の注記
+// タイトル画面: 題名・一言・時代を選ぶ・「業界入りガチャを引く」・5 万人の注記
 import { t, toggleLang } from '../core/i18n';
 import { toggleMuted, isMuted, sfx } from '../core/audio';
 import type { Era } from '../game/types';
@@ -33,8 +33,8 @@ function render(app: HTMLElement, era: StartPick, onStart: (era: StartPick) => v
   let pick: StartPick = era;
   const wrap = h('div', 'title');
   const logo = h('div', 'title-logo');
-  logo.append(h('div', 'title-num', '12,000,000'), h('h1', 'title-main', t('title')));
-  // 1200 万人のうちの何人か(ぴぽやの人物。若手・中堅・ベテランを混ぜて並べる。並びは固定)
+  logo.append(h('div', 'title-num', '50,000'), h('h1', 'title-main', t('title')));
+  // 5 万人のうちの何人か(ぴぽやの人物。若手・中堅・ベテランを混ぜて並べる。並びは固定)
   const crowd = h('div', 'title-crowd');
   [0, 12, 3, 15, 7, 20, 10, 17].forEach((li, i) => crowd.append(personEl(LINEAGES[li][i % 3], 'person')));
   logo.append(crowd);

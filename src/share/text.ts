@@ -1,12 +1,12 @@
 // 共有の文と URL(PLAN §7 の型)。State と Ending だけ読む。
-// 例: 『1200万人のゲームクリエイター人生』1989 年、下請けのデバッガーとして業界入り。14 本に関わり、2 本はサ終、
-//     1 本は 2024 年に「配信で掘り起こされて再評価」。52 歳、仕様変更で心が折れて農業へ。#1200万人のゲームクリエイター人生 URL
+// 例: 『5万人のゲームクリエイター人生』1989 年、下請けのデバッガーとして業界入り。14 本に関わり、2 本はサ終、
+//     1 本は 2024 年に「配信で掘り起こされて再評価」。52 歳、仕様変更で心が折れて農業へ。#5万人のゲームクリエイター人生 URL
 import type { State, Work, Text } from '../game/types';
 import type { Lang } from '../core/i18n';
 import { JOB_TEXT } from '../game/names';
 
-export const TITLE: Text = { ja: '1200万人のゲームクリエイター人生', en: 'Life as One of 12 Million Game Creators' };
-export const HASHTAG: Text = { ja: '#1200万人のゲームクリエイター人生', en: '#12MillionGameCreators' };
+export const TITLE: Text = { ja: '5万人のゲームクリエイター人生', en: 'Life as One of 50,000 Game Creators' };
+export const HASHTAG: Text = { ja: '#5万人のゲームクリエイター人生', en: '#50kGameCreators' };
 /** 本番の URL。itch.io の埋め込み(itch.zone)やローカルファイルの時はこちらを共有する */
 export const PROD_URL = 'https://game-creator-life.mucky-totoro.workers.dev/';
 

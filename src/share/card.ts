@@ -1,4 +1,4 @@
-// 結果の 1 枚絵(PLAN §7 ②)。「社員証」+「作品棚」+ 死因の 1 行 + 1200万分の1。canvas に描いて PNG にする。
+// 結果の 1 枚絵(PLAN §7 ②)。「社員証」+「作品棚」+ 死因の 1 行 + 5万分の1。canvas に描いて PNG にする。
 // 縦長 1080×1350(SNS の投稿用)と OG 用 1200×630 の 2 つ。絵柄は元ネタに似せない(棚と社員証に寄せる)。
 // 乱数は core/rng(顔のドット絵とバーコードは seed から決まる。Math.random は使わない)。
 import { Rng } from '../core/rng';
@@ -50,7 +50,7 @@ export function ensureFont(): Promise<void> {
         document.head.appendChild(l);
       }
       const t = setTimeout(done, 2500);
-      const sample = '1200万人のゲームクリエイター人生 0123456789 社員証作品棚';
+      const sample = '5万人のゲームクリエイター人生 0123456789 社員証作品棚';
       const load = () => document.fonts.load(`32px "DotGothic16"`, sample).then(() => document.fonts.ready).then(() => { clearTimeout(t); done(); }, () => done());
       // link の CSS が届くまで少し待ってから読む
       setTimeout(load, 50);
@@ -148,7 +148,7 @@ function barcode(c: CanvasRenderingContext2D, seed: number, x: number, y: number
 }
 
 export function employeeNo(seed: number): string {
-  return String(seed % 12000000).padStart(8, '0').replace(/(\d{2})(\d{3})(\d{3})/, '$1,$2,$3');
+  return String(seed % 50000).padStart(5, '0').replace(/(\d{2})(\d{3})/, '$1,$2');
 }
 
 function lastCompany(s: State): Text {
@@ -193,19 +193,19 @@ function drawBadge(c: CanvasRenderingContext2D, s: State, l: Lang, x: number, y:
   c.fillText(roleLine, tx0, fy + 150 * k);
   c.fillStyle = C.sub; fitFont(c, entryLine(s, l), SANS, 18 * k, tw);
   c.fillText(entryLine(s, l), tx0, fy + 180 * k);
-  // 社員番号 = 1200万分の1
+  // 社員番号 = 5万分の1
   const ny = y + h - 118 * k;
   c.strokeStyle = '#d6d0bf'; c.lineWidth = 2 * k; c.beginPath(); c.moveTo(x + 26 * k, ny - 12 * k); c.lineTo(x + w - 26 * k, ny - 12 * k); c.stroke();
   c.fillStyle = C.sub; c.font = `${18 * k}px ${SANS}`;
-  c.fillText(l === 'ja' ? '社員番号(全世界のゲームを作る人の通し番号)' : 'ID No. (among everyone making games on Earth)', x + 26 * k, ny + 14 * k);
+  c.fillText(l === 'ja' ? '社員番号(日本でゲームを作る人の通し番号)' : 'ID No. (among everyone making games in Japan)', x + 26 * k, ny + 14 * k);
   c.fillStyle = C.ink; c.font = `${64 * k}px ${DOT}`;
   const no = `No.${employeeNo(s.seed)}`;
   c.fillText(no, x + 24 * k, ny + 80 * k);
   const nw = c.measureText(no).width;
   c.fillStyle = C.sub; c.font = `${28 * k}px ${DOT}`;
-  c.fillText('/ 12,000,000', x + 34 * k + nw, ny + 80 * k);
+  c.fillText('/ 50,000', x + 34 * k + nw, ny + 80 * k);
   barcode(c, s.seed, x + w - 190 * k, ny + 2 * k, 164 * k, 54 * k);
-  // ハンコ「1200万分の1」
+  // ハンコ「5万分の1」
   stamp(c, x + w - 120 * k, y + 170 * k, 78 * k, l, -0.22);
 }
 function cap(t: string) { return t.charAt(0).toUpperCase() + t.slice(1); }
@@ -220,11 +220,11 @@ function stamp(c: CanvasRenderingContext2D, cx: number, cy: number, r: number, l
   c.beginPath(); c.arc(0, 0, r * 0.86, 0, Math.PI * 2); c.lineWidth = r * 0.03; c.stroke();
   c.textAlign = 'center'; c.textBaseline = 'middle';
   if (l === 'ja') {
-    c.font = `${r * 0.5}px ${DOT}`; c.fillText('1200万', 0, -r * 0.24);
+    c.font = `${r * 0.5}px ${DOT}`; c.fillText('5万', 0, -r * 0.24);
     c.font = `${r * 0.42}px ${DOT}`; c.fillText('分の1', 0, r * 0.3);
   } else {
     c.font = `${r * 0.4}px ${DOT}`; c.fillText('1 in', 0, -r * 0.28);
-    c.font = `${r * 0.44}px ${DOT}`; c.fillText('12M', 0, r * 0.26);
+    c.font = `${r * 0.44}px ${DOT}`; c.fillText('50K', 0, r * 0.26);
   }
   c.restore();
 }
@@ -425,12 +425,12 @@ export async function drawCard(s: State, l: Lang, kind: CardKind = 'portrait', c
     drawCause(c, s, l, 600, 92, 556, 132, k);
     drawShelf(c, s, l, 612, 262, 532, 286, 0.62, 11);
     c.fillStyle = '#ffd34d'; c.font = `${54}px ${DOT}`; c.textBaseline = 'alphabetic';
-    c.fillText(l === 'ja' ? '1200万分の1' : '1 in 12,000,000', 44, 470);
+    c.fillText(l === 'ja' ? '5万分の1' : '1 in 50,000', 44, 470);
     const epi = s.ending?.epitaph?.[l];
     if (epi) drawEpitaph(c, epi, 46, 494, 530, 17, 2, 'left');
     else {
       c.fillStyle = '#cfd5e1'; c.font = `22px ${SANS}`;
-      c.fillText(l === 'ja' ? 'あなたのゲーム開発人生を 1 本、引く。' : 'Draw one game-dev life out of 12 million.', 46, 512);
+      c.fillText(l === 'ja' ? 'あなたのゲーム開発人生を 1 本、引く。' : 'Draw one game-dev life out of 50,000.', 46, 512);
     }
     drawLegend(c, l, 46, 556, k);
     footer(c, l, W - 44, 606, k, 'right');

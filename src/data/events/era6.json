@@ -262,7 +262,7 @@
     "text": { "ja": "「手で作れる人」が珍しくなり、講演に呼ばれた。会場からの質問は「どの AI を使ってます?」。", "en": "'People who can make things by hand' are rare now, so you're invited to speak. First question: 'Which AI do you use?'" },
     "when": ["age>=45"], "effect": { "fame": 5, "passion": 3 }, "tag": ["ai", "gag"] },
   { "id": "ev_era6_15m", "years": [2034, 2035], "once": true,
-    "text": { "ja": "ゲームを作る人が世界で 1500 万人に。1200 万分の 1 だったあなたは、今や 1500 万分の 1。持ち分が減った気がする。", "en": "Game creators worldwide hit 15 million. Once 1 in 12 million, you're now 1 in 15 million. Your share feels smaller." },
+    "text": { "ja": "日本でゲームを作る人が 8 万人に。5 万分の 1 だったあなたは、今や 8 万分の 1。持ち分が減った気がする。", "en": "Game creators in Japan hit 80,000. Once 1 in 50,000, you're now 1 in 80,000. Your share feels smaller." },
     "effect": { "passion": -1, "network": 2 }, "tag": ["gag"] },
   { "id": "ev_era6_contract_elder", "years": [2027, 2035],
     "text": { "ja": "嘱託 2 年目。若手に「伝説の人」と呼ばれるが、伝説の中身は誰も知らない。自分も覚えていない。", "en": "Second year on contract. Juniors call you 'the legend.' Nobody knows what the legend is. You don't remember either." },

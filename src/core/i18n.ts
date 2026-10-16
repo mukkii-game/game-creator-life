@@ -5,7 +5,7 @@ import { query } from './meta';
 export type Lang = 'ja' | 'en';
 
 const TABLE: Record<string, { ja: string; en: string }> = {
-  title: { ja: '1200万人のゲームクリエイター人生', en: 'Life as One of 12 Million Game Creators' },
+  title: { ja: '5万人のゲームクリエイター人生', en: 'Life as One of 50,000 Game Creators' },
   titleSub: { ja: 'ゲーム業界に入って、作って、ぶっ倒れるまで。', en: 'Join the game industry. Make games. Collapse.' },
   tagline: { ja: '18〜70 歳。史実の業界あるあるを浴びながら、開発者として死ぬまで。', en: 'Age 18 to 70. Survive real game-industry history until your career dies.' },
   gacha: { ja: '業界入りガチャを引く', en: 'Pull the Industry Gacha' },
@@ -18,7 +18,7 @@ const TABLE: Record<string, { ja: string; en: string }> = {
   era5: { ja: '2012–19 ソシャゲ', en: '2012–19 Gacha games' },
   era6: { ja: '2020–35 AI', en: '2020–35 AI' },
   soundCredit: { ja: '音楽・効果音: 魔王魂 / 絵: ぴぽや', en: 'Music & SFX: MaouDamashii (maou.audio) / Art: Pipoya (pipoya.net)' },
-  note12m: { ja: '1200 万人 = 世界でゲームを作っている人の推計(SlashData 2024 の 1110 万人から推定。趣味・学生を含む)', en: '12 million = estimated number of people making games worldwide (extrapolated from SlashData 2024: 11.1M, incl. hobbyists and students)' },
+  note12m: { ja: '5 万人 = 日本でゲームの開発・販売に直接携わる人の推計(CESA ゲーム産業レポート 2025 の 5.8〜8.3 万人から、きりのよい数に丸めた)', en: '50,000 = rough count of people working directly in game development and publishing in Japan (CESA Game Industry Report 2025: 58,000–83,000, rounded)' },
   controlsHelp: { ja: 'タップ / 1〜3 で選ぶ・Enter で進む・Space で一時停止 / パッド: 十字・A 決定・B 速度・START 停止', en: 'Tap / 1–3 to choose, Enter to skip, Space to pause / Pad: D-pad, A select, B speed, START pause' },
   revealYear: { ja: '{v} 年', en: '{v}' },
   revealAge: { ja: '{v} 歳', en: 'age {v}' },

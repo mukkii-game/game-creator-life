@@ -52,5 +52,5 @@
   { "id": "tl_2030_human_label", "year": 2030, "kind": "future", "text": { "ja": "(架空)「人間が作った」ラベルがゲームの売り文句になる。", "en": "(Fiction) 'Made by Humans' labels become a selling point for games." }, "use": "審査用に 2 年分の顔を録画", "src": "架空" },
   { "id": "tl_2031_all_ai_reappraisal", "year": 2031, "kind": "future", "text": { "ja": "(架空)炎上した「全部 AI」の大作が「逆にすごい」と再評価される。", "en": "(Fiction) The infamous all-AI blockbuster is reappraised as 'weirdly great.'" }, "use": "再評価の反復", "src": "架空" },
   { "id": "tl_2033_ai_remakes", "year": 2033, "kind": "future", "text": { "ja": "(架空)昔のゲームの AI リメイクが当たり前になる。原作者の欄は空欄のまま。", "en": "(Fiction) AI remakes of old games become routine. The original-creator field stays blank." }, "use": "定年後のあなたの作品が AI リメイクされる", "src": "架空" },
-  { "id": "tl_2035_15m", "year": 2035, "kind": "future", "text": { "ja": "(架空)ゲームを作る人が世界で 1500 万人に。", "en": "(Fiction) Game creators worldwide reach 15 million." }, "use": "1200 万分の 1 から 1500 万分の 1 へ", "src": "架空" }
+  { "id": "tl_2035_15m", "year": 2035, "kind": "future", "text": { "ja": "(架空)日本でゲームを作る人が 8 万人に。", "en": "(Fiction) Game creators in Japan reach 80,000." }, "use": "5 万分の 1 から 8 万分の 1 へ", "src": "架空" }
 ]

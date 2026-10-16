@@ -8,7 +8,8 @@
 | DotGothic16(Fontworks) | フォント | https://fonts.google.com/specimen/DotGothic16 | SIL Open Font License 1.1 | DotGothic16 © Fontworks Inc.(OFL 1.1) | 結果画面・共有の 1 枚絵・OG 画像の見出しと数字(Google Fonts から読み込み) | |
 | コード・文章・図形の絵(社員証の枠・作品棚の形・ハンコ・予備の顔) | AI 生成 | — | 本作の一部 | — | 全体。AI: Claude(Anthropic)。社員証の枠・作品棚の形・ハンコは canvas / CSS の図形。顔のドット絵(図形)は、ぴぽやの絵が読めなかった時の予備だけ | |
 | 史実の年表 | 参照 | https://ja.wikipedia.org/ | CC BY-SA 4.0(事実の参照のみ。文は書き下ろし) | 「Wikipedia 日本語版を参照」 | 年表ティッカーと時代ロック(各行の src に項目名) | |
-| 「1200 万人」の数 | 出典 | https://www.slashdata.co/post/there-are-11-1-million-game-developers-in-the-world | 引用(数値のみ) | SlashData(2024-06、11.1M。趣味・学生を含む)から 2026 年を推定 | タイトルと注記 | |
+| 「5 万人」の数 | 出典 | https://www.famitsu.com/article/202512/60804 (CESA『ゲーム産業レポート 2025』の紹介記事) | 引用(数値のみ) | CESA 2025: ゲーム基幹産業の就業者 5.8〜8.3 万人を丸めた | タイトルと注記 |
+| (旧)「1200 万人」の数 | 出典 | https://www.slashdata.co/post/there-are-11-1-million-game-developers-in-the-world | 引用(数値のみ) | SlashData(2024-06、11.1M。趣味・学生を含む)から 2026 年を推定 | タイトルと注記 | |
 | 魔王魂 8bit01「たびだちのむら」(ループ版)(作曲: 森田交一)→ public/audio/maoudamashii_bgm_8bit01_loop.mp3 | BGM | https://maou.audio/bgm_8bit01/ | 魔王魂 素材利用規約(https://maou.audio/rule/ 。CC BY 4.0 でも可)。商用可・報告不要・加工可・クレジット必須 | 音楽:魔王魂 | タイトル画面。選んだ理由: タグ: タイトル・オープニング・ピコピコ音。ファミコン風 3 和音。人生の旅立ち | |
 | 魔王魂 8bit03「くじけぬもの」(ループ版)(作曲: 森田交一)→ public/audio/maoudamashii_bgm_8bit03_loop.mp3 | BGM | https://maou.audio/bgm_8bit03/ | 魔王魂 素材利用規約(https://maou.audio/rule/ 。CC BY 4.0 でも可)。商用可・報告不要・加工可・クレジット必須 | 音楽:魔王魂 | 業界入りガチャの発表。選んだ理由: タグ: オープニング・演出。説明「汎用的に扱える演出BGM」。題名が業界入りに合う | |
 | 魔王魂 8bit02「こうだいなせかい」(ループ版)(作曲: 森田交一)→ public/audio/maoudamashii_bgm_8bit02_loop.mp3 | BGM | https://maou.audio/bgm_8bit02/ | 魔王魂 素材利用規約(https://maou.audio/rule/ 。CC BY 4.0 でも可)。商用可・報告不要・加工可・クレジット必須 | 音楽:魔王魂 | プレイ中 〜1985 年。選んだ理由: タグ: フィールド・ピコピコ音。「3和音以内で作ったレトロ曲」= 8 ビット機の頃。長く聞いても疲れないフィールド曲 | |

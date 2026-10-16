@@ -11,7 +11,7 @@
         "result": { "ja": "マスター ROM は間に合った。妹からの電話は 10 年来ない。", "en": "The master ROM shipped on time. Your sister won't call for ten years." } }
     ], "tag": ["crunch", "family", "choice"] },
   { "id": "ev_era2_promotion_skipped", "years": [1986, 2000], "weight": 0,
-    "text": { "ja": "昇進の名簿に名前が無かった。人事いわく「結婚式の日、いなかったので」。", "en": "Your name wasn't on the promotion list. HR: \"You weren't here the day of the wedding.\"" },
+    "text": { "ja": "昇進の名簿に名前が無かった。人事いわく「部長の娘さんの結婚式の日、いなかったので」。", "en": "Your name wasn't on the promotion list. HR: \"You weren't at the department head's daughter's wedding.\"" },
     "effect": { "passion": -8 }, "tag": ["job"] },
   { "id": "ev_era2_bonus_bookcard", "years": [1986, 1994],
     "text": { "ja": "「今期はボーナスが出る」と社長。封筒を開けると図書カード 500 円分だった。", "en": "\"Bonuses this term,\" says the boss. Inside the envelope: a 500-yen book voucher." },
