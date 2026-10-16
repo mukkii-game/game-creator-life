@@ -29,11 +29,11 @@ export const PROPS = {
   '添付': 1995, '.doc': 1995, 'Slack': 2014, '既読': 2011, 'ウィッシュリスト': 2010, 'Discord': 2015, 'クラウドファンディング': 2012, 'ストアページ': 2010,
   '生成AI': 2022, '生成 AI': 2022, 'ChatGPT': 2022, 'AI': 2022, 'プロンプト': 2022, 'prompt': 2022,
 };
-const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other']);
+const SLOTS = new Set(['name', 'company', 'work', 'age', 'year', 'peer', 'other', 'mentor', 'mentee']);
 const COND = /^!?(age|year|era|job|status|works|career|pos|company\.size|stat\.(hp|passion|skill|network|money|fame)|flag\.[a-z0-9_]+)(\s*(=|!=|<|<=|>|>=)\s*[a-z0-9_-]+)?$/;
 const JOBS = ['programmer', 'planner', 'artist', 'sound', 'qa', 'sales', 'director', 'producer', 'teacher', 'other'];
 const STATUS = ['employed', 'indie', 'left', 'retired', 'ended'];
-const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow', 'cause', 'memory']);
+const EV_KEYS = new Set(['id', 'years', 'text', 'when', 'weight', 'once', 'effect', 'later', 'choices', 'tag', 'allow', 'cause', 'memory', 'needs']);
 const TL_KEYS = new Set(['id', 'year', 'month', 'kind', 'text', 'use', 'src', 'unverified']);
 
 function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
@@ -106,7 +106,7 @@ function checkEvent(ev, w, needYears, histYear) {
     const strs = [ev.text?.ja, ev.text?.en];
     if (ev.choices) {
       nChoice++;
-      if (ev.choices.length < 2 || ev.choices.length > 3) err(w, 'choices は 2〜3 個');
+      if (ev.choices.length < 2 || ev.choices.length > 4) err(w, 'choices は 2〜4 個(キーは 1〜4)');
       for (const c of ev.choices) {
         const cw = `${w}/${c.id}`;
         if (!/^ch_[a-z0-9_]+$/.test(c.id || '')) err(cw, 'choice id は ch_');

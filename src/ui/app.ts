@@ -21,6 +21,8 @@ import { startPlay, type PlayScreen, type Speed } from './play';
 import { h, tf, tx, setLook, lookOf, loadFonts } from './util';
 import { installArt } from './art';
 import { validPick, pickOpts, type StartPick } from './start';
+import { prefetchOthers, othersNow, postLife } from '../core/others';
+import { splitName, type OtherLife } from '../game/people';
 
 const DEMO_SEED = 12000000;
 const ERAS = ['era1', 'era2', 'era3'];
@@ -73,6 +75,7 @@ export function startApp(container: HTMLElement) {
     play = null;
     expose('score', 0);
     playBgm('title');
+    void prefetchOthers(); // 他の人の人生を先読み(届かなくても遊べる)
     const scr = showTitle(app, lastEra, (era) => begin(newSeed(), era), () => chronicle());
     onCmd = scr.onCmd;
   }
@@ -91,7 +94,8 @@ export function startApp(container: HTMLElement) {
     // 発表に出す中身は、同じ seed・時代で作った state から読む(play でも同じ seed で init するので同じ人生になる)
     const seen = seenFor(seed, player);
     const name = nameFor(player);
-    const peek: State = init(seed, { ...pickOpts(era), ...(seen ? { seen } : {}), ...(name ? { name } : {}) });
+    const others = fixedLife(seed, player) ? undefined : othersNow();
+    const peek: State = init(seed, { ...pickOpts(era), ...(others?.length ? { others } : {}), ...(seen ? { seen } : {}), ...(name ? { name } : {}) });
     recorder = new Recorder(seed);
     if (era) recorder.push(-1, `era:${era}`);
     app.innerHTML = '';
@@ -129,23 +133,39 @@ export function startApp(container: HTMLElement) {
       started = true;
       clearTimeout(tm);
       stopSe('drum');
-      run(seed, era, player, seen, name);
+      run(seed, era, player, seen, name, others);
     };
     const tm = setTimeout(go, auto || player ? 1400 : 6000);
     setTimeout(() => onTap(ov, go), 300);
     onCmd = (c) => { if (c.type === 'ok' || c.type === 'pause') go(); };
   }
 
-  function run(seed: number, era: StartPick, player: Player | null, seen: string[] | undefined, name: string | undefined) {
+  function run(seed: number, era: StartPick, player: Player | null, seen: string[] | undefined, name: string | undefined, others?: OtherLife[]) {
     setScene('Play');
     const speed: Speed = query.auto ? 4 : demo ? 2 : player ? 4 : 1;
     play = startPlay(app, {
-      seed, era, seen, name, omakase: auto, speed, recorder, player,
+      seed, era, seen, name, others, omakase: auto, speed, recorder, player,
       quick: auto || !!player,
-      onEnd: (s) => result(s, era),
+      onEnd: (s) => { record(s, seed, player, name); result(s, era); },
     });
     onCmd = play.onCmd;
   }
+
+  // 遊び終わった人生をサーバーに記録(自動・replay・URL で決まる人生は記録しない)。名前を自分で入れた人生だけ他の人のプレイに出る
+  function record(s: State, seed: number, player: Player | null, name: string | undefined) {
+    if (fixedLife(seed, player) || !s.ending) return;
+    const typed = name ? splitName(name) : null;
+    const parts = typed ?? splitName(s.name.ja);
+    const best = [...s.works].sort((a, b) => rank(b.result) - rank(a.result))[0];
+    const co = s.companies.find((c) => c.company.size === 'big')?.company ?? s.companies[0]?.company ?? s.company;
+    postLife({
+      family: parts.family, given: parts.given, named: !!typed,
+      startYear: s.startYear, endYear: s.ending.year, startAge: s.startAge, endAge: s.ending.age,
+      job: JOB_TEXT[s.inner.startJob]?.ja ?? '', company: co.size === 'indie' ? '' : co.name.ja, work: best?.name.ja ?? '',
+      ending: s.ending.cause.ja.replace(/^\d+ 歳、/, ''),
+    });
+  }
+  const rank = (r: string) => ({ legend: 4, hit: 3, ok: 2, flop: 1 } as Record<string, number>)[r] ?? 0;
 
   function result(s: State, era: StartPick) {
     setScene('Result');

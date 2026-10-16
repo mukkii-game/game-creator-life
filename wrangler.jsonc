@@ -1,6 +1,9 @@
 // Cloudflare Workers + Static Assets の設定。Worker の名前は deploy 時に repo 名で上書きされる(--name)。
+// /api/* だけ worker/index.ts が受ける(他の人の人生の記録。D1「game-creator-life-lives」)。それ以外は dist の静的ファイル。
 {
   "name": "game-creator-life",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-10-01",
-  "assets": { "directory": "./dist", "not_found_handling": "single-page-application" }
+  "assets": { "directory": "./dist", "binding": "ASSETS", "not_found_handling": "single-page-application", "run_worker_first": ["/api/*"] },
+  "d1_databases": [{ "binding": "DB", "database_name": "game-creator-life-lives", "database_id": "8cd243b9-da00-4803-b45b-953d19993b81" }]
 }

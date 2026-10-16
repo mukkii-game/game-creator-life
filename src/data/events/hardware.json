@@ -164,8 +164,8 @@
      }
     },
     "result": {
-     "ja": "PC エンジンにした。小さくて CD-ROM² まで付く。「これが未来だ」と言ったら、未来は値段が高かった。",
-     "en": "PC Engine it was. Tiny, and it took CD-ROM². You said \"this is the future\"; the future was expensive."
+     "ja": "PC エンジンで戦うことにした。中身は 8 ビットでも、絵は 16 ビット機と張り合える。CD-ROM² まで付く。「これが未来だ」と言ったら、未来は値段が高かった。",
+     "en": "You'd fight on with the PC Engine: 8-bit inside, but its graphics could stand up to the 16-bit machines, and it took CD-ROM². You said \"this is the future\"; the future was expensive."
     },
     "later": [
      {
@@ -378,8 +378,8 @@
    1996
   ],
   "text": {
-   "ja": "次世代機戦争。セガサターンとプレイステーション、どっちに付くか。家庭用がついにアーケード並みの絵を出すらしい。ゲーセン組が少しだけ焦っていた。",
-   "en": "The next-gen war: Sega Saturn or PlayStation? Home consoles would finally match arcade graphics, they said. The arcade team looked just a little nervous."
+   "ja": "次世代機戦争。一足先に 3DO が出て、3D とムービーの時代の幕開けを見せた。続いてセガサターン、プレイステーション、NEC の PC-FX。家庭用がついにアーケード並みの絵を出すらしい。どれに付くか。",
+   "en": "The next-gen war. 3DO arrived first, showing the dawn of 3D and full-motion video. Then came the Sega Saturn, the PlayStation and NEC's PC-FX. Home consoles would finally match arcade graphics. Which side are you on?"
   },
   "when": [
    "pos!=teacher",
@@ -437,25 +437,54 @@
     ]
    },
    {
-    "id": "ch_hw_32_n64",
+    "id": "ch_hw_32_3do",
     "label": {
-     "ja": "任天堂の次を待つ",
-     "en": "Wait for Nintendo's next"
+     "ja": "3DO(一番乗り)",
+     "en": "3DO (first to market)"
     },
     "effect": {
-     "skill": 4,
+     "passion": 8,
+     "skill": 3,
      "flag": {
-      "hw_mk_nintendo": true
+      "hw_mk_3do": true
      }
     },
     "result": {
-     "ja": "任天堂を待った。ロムカセットの続投と聞いて、少しだけ天井を見上げた。",
-     "en": "You waited for Nintendo. Hearing it would stay on cartridges, you stared at the ceiling for a bit."
+     "ja": "3DO に付いた。誰より先に、3D とムービーの時代を見た。本体の値段を聞いた親戚は、黙ってお茶を飲んだ。",
+     "en": "You went 3DO and saw the 3D and video era before anyone. Hearing the console's price, your relatives sipped their tea in silence."
     },
     "later": [
      {
+      "after": 2,
+      "event": "ev_hw_fu_3do"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_32_pcfx",
+    "label": {
+     "ja": "PC-FX(NEC)",
+     "en": "PC-FX (NEC)"
+    },
+    "effect": {
+     "passion": 6,
+     "money": -10,
+     "flag": {
+      "hw_mk_nec": true
+     }
+    },
+    "result": {
+     "ja": "PC-FX に付いた。アニメの絵がそのまま動く。ポリゴンは、出ない。「うちは動画で勝負する」と言い切った。",
+     "en": "You went PC-FX. Anime footage moved like the real thing. Polygons? None. \"We'll win on video,\" you declared."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_pcfx_hard"
+     },
+     {
       "after": 3,
-      "event": "ev_hw_fu_n64_party"
+      "event": "ev_hw_fu_pcfx_pride"
      }
     ]
    }
@@ -499,26 +528,6 @@
   "effect": {
    "money": 40,
    "passion": 5
-  },
-  "weight": 0,
-  "tag": [
-   "big_after",
-   "hardware"
-  ]
- },
- {
-  "id": "ev_hw_fu_n64_party",
-  "years": [
-   1997,
-   2040
-  ],
-  "text": {
-   "ja": "任天堂の新しい機械には、コントローラの差し込み口が 4 つあった。4 人対戦のテストプレイで、開発室の友情が 2 回壊れて 3 回直った。",
-   "en": "Nintendo's new machine had four controller ports. Four-player test sessions broke the team's friendships twice and fixed them three times."
-  },
-  "effect": {
-   "passion": 7,
-   "network": 3
   },
   "weight": 0,
   "tag": [
@@ -1288,5 +1297,176 @@
    "big_after",
    "hardware"
   ]
+ },
+ {
+  "id": "ev_hw_fc_or_pce",
+  "years": [
+   1987,
+   1989
+  ],
+  "text": {
+   "ja": "PC エンジンが出た。CPU は 8 ビットなのに、絵は 16 ビット並みにきれい。しかも本体が弁当箱より小さい。王者ファミコンで出すか、新顔に賭けるか。",
+   "en": "The PC Engine is out: an 8-bit CPU, but graphics like a 16-bit machine, in a box smaller than a lunchbox. Stick with the champion Famicom, or bet on the newcomer?"
+  },
+  "when": [
+   "pos!=teacher",
+   "pos!=prison",
+   "pos!=outside",
+   "!flag.sega"
+  ],
+  "tag": [
+   "choice",
+   "hardware"
+  ],
+  "choices": [
+   {
+    "id": "ch_hw_8_fc",
+    "label": {
+     "ja": "ファミコン(任天堂)",
+     "en": "Famicom (Nintendo)"
+    },
+    "effect": {
+     "money": 20,
+     "flag": {
+      "hw_mk_nintendo": true
+     }
+    },
+    "result": {
+     "ja": "ファミコンに残った。台数は正義。カセットの容量は足りない。いつも足りない。",
+     "en": "You stayed with the Famicom. Install base is king. Cartridge space was never enough. Never."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_fc_stay"
+     }
+    ]
+   },
+   {
+    "id": "ch_hw_8_pce",
+    "label": {
+     "ja": "PC エンジン(NEC・ハドソン)",
+     "en": "PC Engine (NEC/Hudson)"
+    },
+    "effect": {
+     "skill": 4,
+     "passion": 7,
+     "flag": {
+      "hw_mk_nec": true
+     }
+    },
+    "result": {
+     "ja": "PC エンジンにした。初めて開発機で絵を出した日、「これ、ゲーセンの絵じゃないか」と声が出た。",
+     "en": "You went PC Engine. The first time you put graphics on the dev kit, you blurted, \"That's an arcade picture!\""
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_hw_fu_pce_fight"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ev_hw_fu_fc_stay",
+  "years": [
+   1989,
+   2040
+  ],
+  "text": {
+   "ja": "ファミコンの最後の数年、容量の工夫だけで 1 冊の本が書けるくらいになった。誰も読まない本だが。",
+   "en": "In the Famicom's last years you could have written a book on squeezing cartridge space. A book nobody would read."
+  },
+  "effect": {
+   "skill": 5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_pce_fight",
+  "years": [
+   1989,
+   2040
+  ],
+  "text": {
+   "ja": "PC エンジンは 16 ビット機が出てきても、そこそこ戦った。シューティングとアーケード移植なら負けない。店頭で「これ 8 ビット?」と驚く客を見るのが、ひそかな楽しみだった。",
+   "en": "The PC Engine held its own even when 16-bit machines arrived — unbeatable for shooters and arcade ports. Your secret joy: shoppers gasping \"this is 8-bit?\""
+  },
+  "effect": {
+   "passion": 7
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_3do",
+  "years": [
+   1996,
+   2040
+  ],
+  "text": {
+   "ja": "3DO は台数が伸びないまま、静かに道を譲った。でも、ムービーと 3D が当たり前になった頃、「あれを最初に見たのは俺たちだ」と飲み会で 3 回言った。",
+   "en": "3DO never sold widely and quietly stepped aside. But once 3D and video were everywhere, you said \"we saw it first\" three times at one drinking party."
+  },
+  "effect": {
+   "passion": 6,
+   "network": 3
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_pcfx_hard",
+  "years": [
+   1996,
+   2040
+  ],
+  "text": {
+   "ja": "PC-FX はつらかった。ポリゴンの時代に、ポリゴンが出ない。店の棚はどんどん端へ追いやられ、営業は「アニメが好きな人には刺さるんです」と言い続けた。言い続けるしかなかった。",
+   "en": "The PC-FX years were hard. A machine without polygons, in the polygon age. Shelf space shrank toward the corner, and sales kept saying \"anime fans love it\". There was nothing else to say."
+  },
+  "effect": {
+   "money": -30,
+   "passion": -5
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ]
+ },
+ {
+  "id": "ev_hw_fu_pcfx_pride",
+  "years": [
+   1997,
+   2040
+  ],
+  "text": {
+   "ja": "それでも PC-FX には、アニメの映像を切り替えて戦う格闘ゲーム『バトルヒート』のような、ほかでは作れない一本があった。あの頃、あの機械で、あの映像を動かしていた側にいたこと。それだけは、ずっと誇りだ。",
+   "en": "Still, the PC-FX had things no other machine could do — like Battle Heat, a fighting game that cut between anime clips. Being on the side that made that machine move that footage, back then: that pride never left you."
+  },
+  "effect": {
+   "passion": 10
+  },
+  "weight": 0,
+  "tag": [
+   "big_after",
+   "hardware"
+  ],
+  "memory": {
+   "ja": "PC-FX で、ほかでは作れない映像を動かしていた",
+   "en": "making footage move on the PC-FX that no other machine could"
+  }
  }
 ]

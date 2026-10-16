@@ -64,7 +64,7 @@
     ]
   },
   {
-    "id": "hs_1980_game_watch", "year": 1980, "month": 4, "until": 1981, "kind": "hardware", "weight": 3, "title": {"ja": "任天堂「ゲーム&ウオッチ」発売", "en": "Nintendo releases Game & Watch"}, "news": {"ja": "任天堂の横井軍平が、電車で電卓をいじる会社員を見て思いついたとされる携帯ゲーム機。電卓の液晶の技術を使い、大ヒットする。", "en": "A palm-sized handheld Nintendo's Gunpei Yokoi is said to have imagined after seeing a commuter toying with a calculator. Built on calculator LCD tech, it becomes a huge hit."}, "src": "ゲーム&ウオッチ",
+    "id": "hs_1980_game_watch", "year": 1980, "month": 4, "kind": "hardware", "weight": 3, "title": {"ja": "任天堂「ゲーム&ウオッチ」発売", "en": "Nintendo releases Game & Watch"}, "news": {"ja": "任天堂の横井軍平が、電車で電卓をいじる会社員を見て思いついたとされる携帯ゲーム機。電卓の液晶の技術を使い、大ヒットする。", "en": "A palm-sized handheld Nintendo's Gunpei Yokoi is said to have imagined after seeing a commuter toying with a calculator. Built on calculator LCD tech, it becomes a huge hit."}, "src": "ゲーム&ウオッチ",
     "variants": [
       {"id": "ev_hs_1980_game_watch_sekoi", "when": ["pos=client_lead"], "text": {"ja": "試作品を 1 台、こっそり持ち帰った。翌朝の棚卸しで「1 台足りない」。あなたはこっそり戻した。電池だけ抜いて。", "en": "You quietly took a prototype home. Next morning's inventory: \"one missing.\" You quietly returned it. Minus the batteries."}, "effect": {"passion": 4, "money": 1}, "tag": ["hist", "hardware", "gag"]},
       {"id": "ev_hs_1980_game_watch_client", "when": ["pos=client"], "text": {"ja": "「電卓の液晶で遊べるもの」の企画会議。気づくと全員が試作品で遊んでいて、議事録は 0 行だった。", "en": "Meeting on \"games for calculator screens.\" Before long everyone was playing the prototype. The minutes: zero lines."}, "effect": {"passion": 4, "skill": 2}, "tag": ["hist", "hardware", "gag"]},
@@ -75,7 +75,7 @@
     ]
   },
   {
-    "id": "hs_1980_pacman", "year": 1980, "month": 5, "until": 1981, "kind": "hit", "weight": 3, "title": {"ja": "ナムコ「パックマン」稼働", "en": "Namco's Pac-Man hits arcades"}, "news": {"ja": "ナムコの岩谷徹が作った、迷路でエサを食べるかわいいキャラクターのゲームが、男女を問わず大人気に。", "en": "Toru Iwatani's cute maze game for Namco, about eating dots, becomes a hit with men and women alike."}, "src": "パックマン",
+    "id": "hs_1980_pacman", "year": 1980, "month": 5, "kind": "hit", "weight": 3, "title": {"ja": "ナムコ「パックマン」稼働", "en": "Namco's Pac-Man hits arcades"}, "news": {"ja": "ナムコの岩谷徹が作った、迷路でエサを食べるかわいいキャラクターのゲームが、男女を問わず大人気に。", "en": "Toru Iwatani's cute maze game for Namco, about eating dots, becomes a hit with men and women alike."}, "src": "パックマン",
     "variants": [
       {"id": "ev_hs_1980_pacman_client", "when": ["pos=client"], "text": {"ja": "「女の人も遊べるゲームを」の企画会議。男ばかり 12 人が 3 時間、女の人の好きなものを当てずっぽうで話した。", "en": "Meeting: \"games women will play.\" Twelve men spent three hours guessing what women like."}, "effect": {"passion": -3, "skill": 2}, "tag": ["hist", "hit", "gag"]},
       {"id": "ev_hs_1980_pacman_partner", "when": ["flag.partner"], "text": {"ja": "恋人が初めてゲーセンに付いてきた。あなたより上手で、帰りに「あなたの作るのも、これくらい?」と聞かれた。", "en": "Your partner came to the arcade for the first time, outscored you, and asked: \"Are yours this good?\""}, "effect": {"passion": 4}, "tag": ["hist", "hit", "family", "gag"]},
@@ -102,7 +102,7 @@
     ]
   },
   {
-    "id": "hs_1981_cassette_vision", "year": 1981, "month": 7, "until": 1982, "kind": "hardware", "weight": 2, "title": {"ja": "エポック社「カセットビジョン」発売", "en": "Epoch releases the Cassette Vision"}, "news": {"ja": "カセット交換式の家庭用ゲーム機が 13,500 円で登場し、ヒットする。", "en": "A cartridge-based home console arrives at 13,500 yen and becomes a hit."}, "src": "カセットビジョン",
+    "id": "hs_1981_cassette_vision", "year": 1981, "month": 7, "kind": "hardware", "weight": 2, "title": {"ja": "エポック社「カセットビジョン」発売", "en": "Epoch releases the Cassette Vision"}, "news": {"ja": "カセット交換式の家庭用ゲーム機が 13,500 円で登場し、ヒットする。", "en": "A cartridge-based home console arrives at 13,500 yen and becomes a hit."}, "src": "カセットビジョン",
     "variants": [
       {"id": "ev_hs_1981_cassette_vision_client_lead", "when": ["pos=client_lead"], "text": {"ja": "他社がカセット式を出した。「うちも出すか」の会議が 5 時間。結論は「様子を見る」で、様子だけ見て 1 年が過ぎた。", "en": "A rival launched a cartridge console. Five hours on \"should we too?\" Verdict: \"wait and see.\" A year of just watching passed."}, "effect": {"passion": -3}, "tag": ["hist", "hardware", "gag"]},
       {"id": "ev_hs_1981_cassette_vision_sub", "when": ["pos=sub"], "text": {"ja": "カセット 1 本分の仕事が来た。容量が足りずボスの絵を半分にしたら、ボスは半分のまま発売された。", "en": "A one-cartridge contract. Out of space, you cut the boss sprite in half. It shipped as half a boss."}, "effect": {"skill": 4, "passion": -2}, "tag": ["hist", "hardware", "spec", "gag"]},
@@ -111,7 +111,7 @@
     ]
   },
   {
-    "id": "hs_1982_pc9801", "year": 1982, "month": 10, "until": 1983, "kind": "hardware", "weight": 2, "title": {"ja": "NEC「PC-9801」発売", "en": "NEC releases the PC-9801"}, "news": {"ja": "NEC が 16 ビットのパソコン PC-9801 を発売。のちに国内のパソコンの標準になる。", "en": "NEC releases the 16-bit PC-9801, later the de facto standard PC in Japan."}, "src": "PC-9800シリーズ",
+    "id": "hs_1982_pc9801", "year": 1982, "month": 10, "kind": "hardware", "weight": 2, "title": {"ja": "NEC「PC-9801」発売", "en": "NEC releases the PC-9801"}, "news": {"ja": "NEC が 16 ビットのパソコン PC-9801 を発売。のちに国内のパソコンの標準になる。", "en": "NEC releases the 16-bit PC-9801, later the de facto standard PC in Japan."}, "src": "PC-9800シリーズ",
     "variants": [
       {"id": "ev_hs_1982_pc9801_programmer", "when": ["job=programmer", "status=employed"], "text": {"ja": "会社に 16 ビット機が 1 台来た。予約表ができ、あなたの番は毎週水曜の深夜 2 時だった。", "en": "The office gets one 16-bit machine. A sign-up sheet appears. Your slot: Wednesdays, 2 a.m."}, "effect": {"skill": 6, "hp": -6}, "tag": ["hist", "hardware", "crunch"]},
       {"id": "ev_hs_1982_pc9801_client", "when": ["pos=client"], "text": {"ja": "数十万円のパソコンに稟議書。用途の欄に「ゲーム」と書いたら、上司に「表計算」と直された。", "en": "A purchase request for a pricey PC. You wrote \"games\" under purpose. Your boss corrected it to \"spreadsheets.\""}, "effect": {"skill": 3, "passion": -2}, "tag": ["hist", "hardware", "gag"]},
@@ -120,7 +120,7 @@
     ]
   },
   {
-    "id": "hs_1982_enix_contest", "year": 1982, "month": 12, "until": 1983, "kind": "work", "weight": 2, "title": {"ja": "エニックスが賞金総額 300 万円のゲームコンテストを開催", "en": "Enix holds a game contest with 3 million yen in prizes"}, "news": {"ja": "エニックスの「ゲーム・ホビープログラムコンテスト」。堀井雄二の『ラブマッチテニス』、中村光一の『ドアドア』などが入賞し、製品として発売された。", "en": "Enix's Game Hobby Program Contest. Winners such as Yuji Horii's Love Match Tennis and Koichi Nakamura's Door Door are sold as real products."}, "src": "エニックス",
+    "id": "hs_1982_enix_contest", "year": 1982, "month": 12, "kind": "work", "weight": 2, "title": {"ja": "エニックスが賞金総額 300 万円のゲームコンテストを開催", "en": "Enix holds a game contest with 3 million yen in prizes"}, "news": {"ja": "エニックスの「ゲーム・ホビープログラムコンテスト」。堀井雄二の『ラブマッチテニス』、中村光一の『ドアドア』などが入賞し、製品として発売された。", "en": "Enix's Game Hobby Program Contest. Winners such as Yuji Horii's Love Match Tennis and Koichi Nakamura's Door Door are sold as real products."}, "src": "エニックス",
     "variants": [
       {"id": "ev_hs_1982_enix_contest_indie", "when": ["pos=indie"], "text": {"ja": "応募した。入賞には届かず、届いたのは「次回も期待しています」の葉書 1 枚。それを机の前に貼った。", "en": "You entered. No prize. Just a postcard: \"We look forward to your next entry.\" You pinned it above your desk."}, "effect": {"passion": 5, "skill": 3}, "tag": ["hist", "work", "indie"]},
       {"id": "ev_hs_1982_enix_contest_programmer", "when": ["job=programmer", "status=employed"], "text": {"ja": "新聞に「賞金総額 300 万円」の広告。会社に内緒で、夜に自分のゲームを作るか。", "en": "A newspaper ad: \"3 million yen in prizes.\" Do you secretly make your own game at night?"}, "choices": [{"id": "ch_h1_contest_enter", "label": {"ja": "内緒で応募する", "en": "Enter in secret"}, "effect": {"passion": 6, "skill": 4, "hp": -6}, "result": {"ja": "落選した。でも夜中の 3 時、自分だけのゲームが初めて動いた。", "en": "You didn't win. But at 3 a.m., a game that was all yours ran for the first time."}}, {"id": "ch_h1_contest_skip", "label": {"ja": "寝る", "en": "Get some sleep"}, "effect": {"hp": 5, "passion": -2}, "result": {"ja": "よく寝た。翌年、入賞作が店に並んでいるのを見て、少しだけ眠れなかった。", "en": "You slept well. A year later, seeing the winners on store shelves, you slept a little less."}}], "tag": ["hist", "work", "choice"]},
@@ -142,7 +142,7 @@
     ]
   },
   {
-    "id": "hs_1983_msx", "year": 1983, "month": 6, "until": 1984, "kind": "hardware", "weight": 2, "title": {"ja": "パソコンの統一規格 MSX が発表される", "en": "The MSX home-computer standard is announced"}, "news": {"ja": "どのメーカーの機械でも同じソフトが動く統一規格 MSX が発表され、家電各社が参入する。", "en": "MSX, a shared standard so the same software runs on any maker's machine, is announced; electronics firms join in."}, "src": "MSX",
+    "id": "hs_1983_msx", "year": 1983, "month": 6, "kind": "hardware", "weight": 2, "title": {"ja": "パソコンの統一規格 MSX が発表される", "en": "The MSX home-computer standard is announced"}, "news": {"ja": "どのメーカーの機械でも同じソフトが動く統一規格 MSX が発表され、家電各社が参入する。", "en": "MSX, a shared standard so the same software runs on any maker's machine, is announced; electronics firms join in."}, "src": "MSX",
     "variants": [
       {"id": "ev_hs_1983_msx_side", "when": ["flag.h1_side_msx"], "text": {"ja": "賭けた規格の機械が電気屋に並んだ。どれでも動くはずのうちのソフトが、1 台だけで動かなかった。", "en": "The standard you bet on fills electronics stores. Your game, which should run on all of them, fails on exactly one."}, "effect": {"skill": 5, "passion": 3}, "tag": ["hist", "hardware", "bug"]},
       {"id": "ev_hs_1983_msx_programmer", "when": ["job=programmer"], "text": {"ja": "「どのメーカーの機械でも動く」を確かめるため、机に 7 台並べた。7 台目でブレーカーが落ちた。", "en": "To confirm it really runs on every maker's machine, you lined up seven. The seventh tripped the breaker."}, "effect": {"skill": 4, "hp": -3}, "tag": ["hist", "hardware", "gag"]},
@@ -160,7 +160,7 @@
     ]
   },
   {
-    "id": "hs_1983_famicom", "year": 1983, "month": 7, "until": 1984, "kind": "hardware", "weight": 3, "title": {"ja": "ファミリーコンピュータ発売", "en": "The Famicom launches"}, "news": {"ja": "任天堂がファミリーコンピュータを 14,800 円で発売。", "en": "Nintendo releases the Family Computer for 14,800 yen."}, "src": "ファミリーコンピュータ",
+    "id": "hs_1983_famicom", "year": 1983, "month": 7, "kind": "hardware", "weight": 3, "title": {"ja": "ファミリーコンピュータ発売", "en": "The Famicom launches"}, "news": {"ja": "任天堂がファミリーコンピュータを 14,800 円で発売。", "en": "Nintendo releases the Family Computer for 14,800 yen."}, "src": "ファミリーコンピュータ",
     "variants": [
       {"id": "ev_hs_1983_famicom_bet_pyuta", "when": ["flag.bet_pyuta"], "text": {"ja": "16 ビットに全力の 1 年後、8 ビットの赤と白の箱が 14,800 円で出た。はっぴの背中の「16」を、そっと内側に折った。", "en": "A year after going all in on 16 bits, an 8-bit red-and-white box came out at 14,800 yen. You quietly folded the \"16\" on your happi coat inward."}, "effect": {"passion": -6, "skill": 3}, "later": [{"after": 38, "event": "ev_hs_2021_retro_pyuta"}], "tag": ["hist", "allin", "hardware", "gag"]},
       {"id": "ev_hs_1983_famicom_bet_pyuta_scoff", "when": ["flag.bet_pyuta_scoff"], "text": {"ja": "「ビットの数じゃない」と言った 1 年後、本当にビットの数じゃなかった。予言者と呼ばれ、昼飯を 3 回おごられた。", "en": "A year after \"it's not about the bits,\" it really wasn't. They called you a prophet and bought you lunch three times."}, "effect": {"network": 5, "passion": 4}, "tag": ["hist", "allin", "hardware", "high"], "memory": {"ja": "「ビットの数じゃない」が当たって予言者になった", "en": "became a prophet with \"it's not about the bits\""}},
@@ -173,7 +173,7 @@
     ]
   },
   {
-    "id": "hs_1983_sg1000", "year": 1983, "month": 7, "until": 1984, "kind": "hardware", "weight": 3, "title": {"ja": "ファミコンと同じ日にセガ「SG-1000」発売(ハード戦争の始まり)", "en": "Sega's SG-1000 launches the same day as the Famicom"}, "news": {"ja": "1983 年 7 月 15 日、セガが SG-1000 を発売。任天堂のファミリーコンピュータと同じ日だった。", "en": "On July 15, 1983, Sega releases the SG-1000—the very same day as Nintendo's Famicom."}, "src": "SG-1000",
+    "id": "hs_1983_sg1000", "year": 1983, "month": 7, "kind": "hardware", "weight": 3, "title": {"ja": "ファミコンと同じ日にセガ「SG-1000」発売(ハード戦争の始まり)", "en": "Sega's SG-1000 launches the same day as the Famicom"}, "news": {"ja": "1983 年 7 月 15 日、セガが SG-1000 を発売。任天堂のファミリーコンピュータと同じ日だった。", "en": "On July 15, 1983, Sega releases the SG-1000—the very same day as Nintendo's Famicom."}, "src": "SG-1000",
     "variants": [
       {"id": "ev_hs_1983_sg1000_sega", "when": ["flag.sega"], "text": {"ja": "発売日、おもちゃ屋へ偵察に行った。隣の赤と白の箱の前に行列。自分の会社の箱を 1 台買い、行列から見えるように抱えて帰った。", "en": "Launch day, you scout a toy store. There's a line for the red-and-white box next door. You buy one of yours and carry it home where the line can see."}, "effect": {"passion": 5, "network": 2, "flag": {"h1_side_sega": true}}, "tag": ["hist", "hardware", "war", "sega", "gag"]},
       {"id": "ev_hs_1983_sg1000_dev_lead", "when": ["pos=dev_lead"], "text": {"ja": "同じ日に 2 台のゲーム機が出た。次の 1 本をどれで出すか、決めるのはあなたの判子だ。", "en": "Two consoles launched on the same day. Which one gets your next game is up to your stamp."}, "choices": [{"id": "ch_h1_side_nintendo", "label": {"ja": "赤と白の箱(ファミコン)", "en": "The red-and-white box (Famicom)"}, "effect": {"skill": 5, "passion": 3, "flag": {"h1_side_nintendo": true}}, "result": {"ja": "資料が手に入らない。仕様は本体を分解して調べることにした。ねじが 1 本余った。", "en": "No documentation to be had. You'll learn the specs by taking one apart. One screw was left over."}}, {"id": "ch_h1_side_sega", "label": {"ja": "セガの SG-1000", "en": "Sega's SG-1000"}, "effect": {"network": 6, "passion": 2, "flag": {"h1_side_sega": true}}, "result": {"ja": "話は早かった。担当者は翌日、試作機を抱えて来て、そのまま夕飯も食べていった。", "en": "Things moved fast. Their rep showed up the next day with a dev unit and stayed for dinner."}}, {"id": "ch_h1_side_msx", "label": {"ja": "まだ店に無いパソコン(MSX)", "en": "The not-yet-released PC standard (MSX)"}, "effect": {"skill": 3, "fame": 2, "flag": {"h1_side_msx": true}}, "result": {"ja": "「これからはパソコンだ」。社長は満足げに、まだ誰も持っていない機械の話を 1 時間した。", "en": "\"Computers are the future.\" The boss spent an hour happily describing a machine nobody owns yet."}}], "tag": ["hist", "hardware", "choice", "war"]},
@@ -192,7 +192,7 @@
     ]
   },
   {
-    "id": "hs_1984_tetris", "year": 1984, "month": 6, "until": 1986, "kind": "hit", "weight": 2, "title": {"ja": "ソ連で『テトリス』が生まれる", "en": "Tetris is born in the Soviet Union"}, "news": {"ja": "ソ連科学アカデミーのアレクセイ・パジトノフが、研究所のコンピュータで落ちてくるブロックを積むパズルを作り、やがて世界へ広がる。", "en": "At the Soviet Academy of Sciences, Alexey Pajitnov creates a falling-block puzzle on a research computer. It gradually spreads around the world."}, "src": "テトリス",
+    "id": "hs_1984_tetris", "year": 1984, "month": 6, "kind": "hit", "weight": 2, "title": {"ja": "ソ連で『テトリス』が生まれる", "en": "Tetris is born in the Soviet Union"}, "news": {"ja": "ソ連科学アカデミーのアレクセイ・パジトノフが、研究所のコンピュータで落ちてくるブロックを積むパズルを作り、やがて世界へ広がる。", "en": "At the Soviet Academy of Sciences, Alexey Pajitnov creates a falling-block puzzle on a research computer. It gradually spreads around the world."}, "src": "テトリス",
     "variants": [
       {"id": "ev_hs_1984_tetris_abroad", "when": ["pos=abroad"], "text": {"ja": "知人から出所不明のフロッピーが回ってきた。四角が落ちるだけのゲーム。その晩、あなたは寝なかった。", "en": "A friend passes you a floppy of unknown origin. Just falling squares. You don't sleep that night."}, "effect": {"passion": 6, "hp": -4}, "tag": ["hist", "hit", "abroad"]},
       {"id": "ev_hs_1984_tetris_client_lead", "when": ["pos=client_lead"], "text": {"ja": "海外の展示会で、四角を積むゲームを見た。権利の窓口を尋ねたら、相手は国だった。", "en": "At an overseas trade show, you saw the block-stacking game. You asked who owns the rights. The answer: a country."}, "effect": {"network": 5, "passion": 2}, "tag": ["hist", "hit", "gag"]},
@@ -201,7 +201,7 @@
     ]
   },
   {
-    "id": "hs_1984_third_party", "year": 1984, "month": 7, "until": 1985, "kind": "work", "weight": 3, "title": {"ja": "ファミコンにサードパーティが参入", "en": "Third-party publishers come to the Famicom"}, "news": {"ja": "1984 年 7 月にハドソン、9 月にナムコがファミコン用ソフトを発売。他社が作る時代が始まる。", "en": "Hudson (July 1984) and Namco (September) release Famicom games, opening the platform to outside makers."}, "src": "ファミリーコンピュータ",
+    "id": "hs_1984_third_party", "year": 1984, "month": 7, "kind": "work", "weight": 3, "title": {"ja": "ファミコンにサードパーティが参入", "en": "Third-party publishers come to the Famicom"}, "news": {"ja": "1984 年 7 月にハドソン、9 月にナムコがファミコン用ソフトを発売。他社が作る時代が始まる。", "en": "Hudson (July 1984) and Namco (September) release Famicom games, opening the platform to outside makers."}, "src": "ファミリーコンピュータ",
     "variants": [
       {"id": "ev_hs_1984_third_party_nintendo", "when": ["flag.h1_side_nintendo", "status=employed"], "text": {"ja": "去年、赤と白の箱を選んだ。本体を分解して書いた資料の束が、今になって会社の宝になった。", "en": "Last year you bet on the red-and-white box. The notes you made by taking one apart are now the company's treasure."}, "effect": {"skill": 5, "fame": 5, "money": 30}, "tag": ["hist", "work", "war"]},
       {"id": "ev_hs_1984_third_party_sega", "when": ["flag.h1_side_sega", "status=employed"], "text": {"ja": "去年セガを選んだ。他社が次々ファミコンに並ぶ中、あなたの部署だけ静か。おかげで今年は毎日定時に帰れた。", "en": "Last year you chose Sega. Rivals rush to the Famicom; your team is quiet. On the bright side, you left on time all year."}, "effect": {"passion": -3, "hp": 5}, "tag": ["hist", "work", "war"]},
@@ -251,7 +251,7 @@
     ]
   },
   {
-    "id": "hs_1985_super_mario", "year": 1985, "month": 9, "until": 1986, "kind": "hit", "weight": 3, "title": {"ja": "『スーパーマリオブラザーズ』発売", "en": "Super Mario Bros. is released"}, "news": {"ja": "1985 年 9 月 13 日、任天堂が宮本茂らの作ったファミコン用『スーパーマリオブラザーズ』を発売。社会現象に。", "en": "On September 13, 1985, Nintendo releases Super Mario Bros., made by Shigeru Miyamoto's team, for the Famicom. It becomes a social phenomenon."}, "src": "スーパーマリオブラザーズ",
+    "id": "hs_1985_super_mario", "year": 1985, "month": 9, "kind": "hit", "weight": 3, "title": {"ja": "『スーパーマリオブラザーズ』発売", "en": "Super Mario Bros. is released"}, "news": {"ja": "1985 年 9 月 13 日、任天堂が宮本茂らの作ったファミコン用『スーパーマリオブラザーズ』を発売。社会現象に。", "en": "On September 13, 1985, Nintendo releases Super Mario Bros., made by Shigeru Miyamoto's team, for the Famicom. It becomes a social phenomenon."}, "src": "スーパーマリオブラザーズ",
     "variants": [
       {"id": "ev_hs_1985_super_mario_bet_scv", "when": ["flag.bet_scv"], "text": {"ja": "大きい新型のカセット式に全力の年、赤い帽子のおじさんが走り出した。うちの主人公も走ったが、誰も見ていなかった。", "en": "The year you went all in on the big cartridge console, a man in a red cap started running. Our hero ran too. Nobody was watching."}, "effect": {"passion": -6, "skill": 3}, "later": [{"after": 36, "event": "ev_hs_2021_retro_scv"}], "tag": ["hist", "allin", "hit", "gag"]},
       {"id": "ev_hs_1985_super_mario_sega", "when": ["flag.h1_side_sega"], "text": {"ja": "赤と白の箱が売れに売れる年。セガの売り場はレジ横の 1 段だけ。あなたは週末ごとに通い、その 1 段を前に詰めた。", "en": "The red-and-white box sells like crazy. Sega gets one shelf by the register. Every weekend you go and tidy that one shelf."}, "effect": {"passion": -8, "money": -10}, "tag": ["hist", "hit", "war"]},
@@ -298,7 +298,7 @@
     ]
   },
   {
-    "id": "hs_1986_dragon_quest", "year": 1986, "month": 5, "until": 1987, "kind": "hit", "weight": 3, "title": {"ja": "『ドラゴンクエスト』発売", "en": "Dragon Quest is released"}, "news": {"ja": "1986 年 5 月 27 日、エニックスが堀井雄二の RPG『ドラゴンクエスト』を発売。絵は鳥山明、音楽はすぎやまこういち。", "en": "On May 27, 1986, Enix releases Yuji Horii's RPG Dragon Quest, with art by Akira Toriyama and music by Koichi Sugiyama."}, "src": "ドラゴンクエスト",
+    "id": "hs_1986_dragon_quest", "year": 1986, "month": 5, "kind": "hit", "weight": 3, "title": {"ja": "『ドラゴンクエスト』発売", "en": "Dragon Quest is released"}, "news": {"ja": "1986 年 5 月 27 日、エニックスが堀井雄二の RPG『ドラゴンクエスト』を発売。絵は鳥山明、音楽はすぎやまこういち。", "en": "On May 27, 1986, Enix releases Yuji Horii's RPG Dragon Quest, with art by Akira Toriyama and music by Koichi Sugiyama."}, "src": "ドラゴンクエスト",
     "variants": [
       {"id": "ev_hs_1986_dragon_quest_sega", "when": ["flag.h1_side_sega"], "text": {"ja": "『ドラゴンクエスト』は赤と白の箱で出た。セガ陣営の会議で「うちにも RPG を」と決まり、開発費の欄に「?」と書かれた。", "en": "Dragon Quest came out on the red-and-white box. Your Sega camp decides it needs an RPG too. Budget field: \"?\""}, "effect": {"passion": -5, "skill": 2}, "tag": ["hist", "hit", "war"]},
       {"id": "ev_hs_1986_dragon_quest_client_lead", "when": ["pos=client_lead"], "text": {"ja": "「RPG を作れ」の号令が自分に来た。最初の会議は呪文の名前で 4 時間。主人公の名前は決まらなかった。", "en": "The order \"make an RPG\" lands on you. First meeting: four hours on spell names. The hero's name: undecided."}, "effect": {"passion": -3, "skill": 4, "hp": -5}, "tag": ["hist", "hit", "spec", "gag"]},
@@ -361,7 +361,7 @@
     ]
   },
   {
-    "id": "hs_1987_pc_engine", "year": 1987, "month": 10, "until": 1988, "kind": "hardware", "weight": 3, "title": {"ja": "NEC ホームエレクトロニクス「PC エンジン」発売", "en": "NEC Home Electronics releases the PC Engine"}, "news": {"ja": "1987 年 10 月 30 日、ハドソンと共同開発した小型の家庭用ゲーム機が登場。ファミコンを追う 3 つ目の陣営に。", "en": "On October 30, 1987, a compact console co-developed with Hudson arrives, a third camp chasing the Famicom."}, "src": "PCエンジン",
+    "id": "hs_1987_pc_engine", "year": 1987, "month": 10, "kind": "hardware", "weight": 3, "title": {"ja": "NEC ホームエレクトロニクス「PC エンジン」発売", "en": "NEC Home Electronics releases the PC Engine"}, "news": {"ja": "1987 年 10 月 30 日、ハドソンと共同開発した小型の家庭用ゲーム機が登場。ファミコンを追う 3 つ目の陣営に。", "en": "On October 30, 1987, a compact console co-developed with Hudson arrives, a third camp chasing the Famicom."}, "src": "PCエンジン",
     "variants": [
       {"id": "ev_hs_1987_pc_engine_sega", "when": ["flag.h1_side_sega", "status=employed"], "text": {"ja": "また陣営が増えた。セガに賭けて 4 年、売り場はずっとレジ横の 1 段だ。今度こそ乗り換えるか。", "en": "Another camp joins the war. Four years betting on Sega, and you still get one shelf by the register. Switch now?"}, "choices": [{"id": "ch_h1_pce_switch", "label": {"ja": "白くて小さい方に乗り換える", "en": "Switch to the small white one"}, "effect": {"passion": 5, "network": -3, "flag": {"h1_side_nec": true, "h1_side_sega": false}}, "result": {"ja": "セガの担当者に電話で伝えた。「そうですか」の一言が、4 年分の夕飯より重かった。", "en": "You told your Sega rep by phone. His \"I see\" weighed more than four years of dinners together."}}, {"id": "ch_h1_pce_loyal", "label": {"ja": "セガに残る", "en": "Stay with Sega"}, "effect": {"network": 5, "passion": -2}, "result": {"ja": "義理は通した。担当者がまた夕飯を食べに来た。売り場は、今年も 1 段だった。", "en": "Loyalty kept. The rep came for dinner again. The shelf space was, once again, one shelf."}}], "tag": ["hist", "hardware", "choice", "war"]},
       {"id": "ev_hs_1987_pc_engine_dev_lead", "when": ["pos=dev_lead"], "text": {"ja": "手のひらに乗る新しいゲーム機。名刺くらいのカードにゲームが入る。次の 1 本、どこで出すか。", "en": "A new console that fits in your palm, with games on cards the size of business cards. Where does your next game go?"}, "choices": [{"id": "ch_h1_pce_join", "label": {"ja": "新しい陣営に乗る", "en": "Join the new camp"}, "effect": {"skill": 5, "fame": 3, "flag": {"h1_side_nec": true}}, "result": {"ja": "開発機が届いた日、全員が小さな本体を手のひらに乗せて回した。誰も仕事をしなかった。", "en": "When the dev unit arrived, everyone passed the tiny console from palm to palm. No work got done."}}, {"id": "ch_h1_pce_stay", "label": {"ja": "赤と白の箱を続ける", "en": "Stick with the red-and-white box"}, "effect": {"network": 3, "money": 20, "flag": {"h1_side_nintendo": true}}, "result": {"ja": "「勝っている方に乗る」。社長は安心し、あなたは少しだけ退屈した。", "en": "\"Ride the winner.\" The boss was relieved. You were a little bored."}}], "tag": ["hist", "hardware", "choice", "war"]},

@@ -173,6 +173,7 @@
 .name-in:focus, .name-in.focus { outline: none; border-color: #0ff; }
 .name-in::placeholder { color: var(--muted); }
 .name-dice { flex: none; white-space: nowrap; }
+.name-note { margin: 4px 0 0; font-size: 11px; line-height: 1.5; color: var(--muted); text-align: left; }
 .name-in { background: #fff; color: #111; }
 .name-in::placeholder { color: #777; }
 .year-row { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }

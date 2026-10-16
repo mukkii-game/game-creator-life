@@ -2,19 +2,18 @@
 import type { Rng } from '../core/rng';
 import type { Text, CompanySize, Role, Job } from './types';
 
-const SURNAMES: [string, string][] = [
-  ['佐藤', 'Sato'], ['鈴木', 'Suzuki'], ['高橋', 'Takahashi'], ['田中', 'Tanaka'], ['渡辺', 'Watanabe'], ['伊藤', 'Ito'],
-  ['山本', 'Yamamoto'], ['中村', 'Nakamura'], ['小林', 'Kobayashi'], ['加藤', 'Kato'], ['吉田', 'Yoshida'], ['山田', 'Yamada'],
-  ['松本', 'Matsumoto'], ['井上', 'Inoue'], ['木村', 'Kimura'], ['林', 'Hayashi'], ['清水', 'Shimizu'], ['森', 'Mori'],
-  ['池田', 'Ikeda'], ['橋本', 'Hashimoto'], ['石川', 'Ishikawa'], ['前田', 'Maeda'], ['藤田', 'Fujita'], ['岡田', 'Okada'],
-];
-const GIVEN: [string, string][] = [
-  ['ひろし', 'Hiroshi'], ['まさと', 'Masato'], ['けんじ', 'Kenji'], ['ゆうこ', 'Yuko'], ['あきら', 'Akira'], ['みどり', 'Midori'],
-  ['たかし', 'Takashi'], ['なおみ', 'Naomi'], ['しんじ', 'Shinji'], ['えり', 'Eri'], ['だいすけ', 'Daisuke'], ['さやか', 'Sayaka'],
-  ['りょう', 'Ryo'], ['まい', 'Mai'], ['こうき', 'Koki'], ['あおい', 'Aoi'], ['はると', 'Haruto'], ['ゆい', 'Yui'],
-];
-export function personName(r: Rng): Text {
-  const s = r.pick(SURNAMES), g = r.pick(GIVEN);
+const SURNAMES: [string, string][] = [['佐藤', 'Sato'],['鈴木', 'Suzuki'],['高橋', 'Takahashi'],['田中', 'Tanaka'],['渡辺', 'Watanabe'],['伊藤', 'Ito'],['山本', 'Yamamoto'],['中村', 'Nakamura'],['小林', 'Kobayashi'],['加藤', 'Kato'],['吉田', 'Yoshida'],['山田', 'Yamada'],['佐々木', 'Sasaki'],['松本', 'Matsumoto'],['井上', 'Inoue'],['木村', 'Kimura'],['林', 'Hayashi'],['清水', 'Shimizu'],['山崎', 'Yamazaki'],['森', 'Mori'],['池田', 'Ikeda'],['橋本', 'Hashimoto'],['阿部', 'Abe'],['石川', 'Ishikawa'],['山下', 'Yamashita'],['中島', 'Nakajima'],['石井', 'Ishii'],['小川', 'Ogawa'],['前田', 'Maeda'],['岡田', 'Okada'],['長谷川', 'Hasegawa'],['藤田', 'Fujita'],['後藤', 'Goto'],['近藤', 'Kondo'],['村上', 'Murakami'],['遠藤', 'Endo'],['青木', 'Aoki'],['坂本', 'Sakamoto'],['斉藤', 'Saito'],['福田', 'Fukuda'],['太田', 'Ota'],['西村', 'Nishimura'],['藤井', 'Fujii'],['金子', 'Kaneko'],['岡本', 'Okamoto'],['藤原', 'Fujiwara'],['中野', 'Nakano'],['三浦', 'Miura'],['原田', 'Harada'],['中川', 'Nakagawa'],['松田', 'Matsuda'],['竹内', 'Takeuchi'],['小野', 'Ono'],['田村', 'Tamura'],['中山', 'Nakayama'],['和田', 'Wada'],['石田', 'Ishida'],['森田', 'Morita'],['上田', 'Ueda'],['原', 'Hara'],['内田', 'Uchida'],['柴田', 'Shibata'],['酒井', 'Sakai'],['宮崎', 'Miyazaki'],['横山', 'Yokoyama'],['高木', 'Takagi'],['安藤', 'Ando'],['宮本', 'Miyamoto'],['大野', 'Ono'],['小島', 'Kojima'],['谷口', 'Taniguchi'],['今井', 'Imai'],['工藤', 'Kudo'],['高田', 'Takada'],['増田', 'Masuda'],['丸山', 'Maruyama'],['杉山', 'Sugiyama'],['村田', 'Murata'],['大塚', 'Otsuka'],['新井', 'Arai'],['小山', 'Koyama'],['平野', 'Hirano'],['藤本', 'Fujimoto'],['河野', 'Kono'],['上野', 'Ueno'],['野口', 'Noguchi'],['武田', 'Takeda'],['松井', 'Matsui'],['千葉', 'Chiba'],['岩崎', 'Iwasaki'],['菅原', 'Sugawara'],['木下', 'Kinoshita'],['久保', 'Kubo'],['佐野', 'Sano'],['野村', 'Nomura'],['松尾', 'Matsuo'],['菊地', 'Kikuchi'],['杉本', 'Sugimoto'],['市川', 'Ichikawa'],['古川', 'Furukawa'],['大西', 'Onishi'],['島田', 'Shimada'],['水野', 'Mizuno'],['桜井', 'Sakurai'],['高野', 'Takano'],['渡部', 'Watanabe'],['吉川', 'Yoshikawa'],['山内', 'Yamauchi'],['西田', 'Nishida'],['飯田', 'Iida'],['菊池', 'Kikuchi'],['西川', 'Nishikawa'],['小松', 'Komatsu'],['北村', 'Kitamura'],['安田', 'Yasuda'],['五十嵐', 'Igarashi'],['川口', 'Kawaguchi'],['平田', 'Hirata'],['関', 'Seki'],['中田', 'Nakata'],['久保田', 'Kubota'],['服部', 'Hattori'],['東', 'Higashi'],['岩田', 'Iwata'],['土屋', 'Tsuchiya'],['川崎', 'Kawasaki'],['福島', 'Fukushima'],['本田', 'Honda'],['辻', 'Tsuji'],['樋口', 'Higuchi'],['秋山', 'Akiyama'],['田口', 'Taguchi'],['永井', 'Nagai'],['山中', 'Yamanaka'],['中西', 'Nakanishi'],['吉村', 'Yoshimura'],['川上', 'Kawakami'],['石原', 'Ishihara'],['大橋', 'Ohashi'],['松岡', 'Matsuoka'],['馬場', 'Baba'],['浅野', 'Asano'],['荒木', 'Araki'],['大久保', 'Okubo'],['野田', 'Noda'],['小池', 'Koike'],['星野', 'Hoshino'],['熊谷', 'Kumagai'],['須藤', 'Sudo'],['堀', 'Hori'],['片山', 'Katayama'],['宮下', 'Miyashita'],['黒田', 'Kuroda'],['望月', 'Mochizuki'],['篠原', 'Shinohara'],['堀内', 'Horiuchi']];
+// 下の名前は生まれた年代で変わる(昭和ひとけた〜平成生まれ)。同じ名前ばかりにならないよう多めに
+const GIVEN: Record<'old' | 'mid' | 'gen' | 'new', [string, string][]> = {
+  old: [['ひろし', 'Hiroshi'],['たかし', 'Takashi'],['あきら', 'Akira'],['まさお', 'Masao'],['しげる', 'Shigeru'],['かずお', 'Kazuo'],['よしお', 'Yoshio'],['ただし', 'Tadashi'],['おさむ', 'Osamu'],['すすむ', 'Susumu'],['つとむ', 'Tsutomu'],['まもる', 'Mamoru'],['のぼる', 'Noboru'],['いさむ', 'Isamu'],['ひでお', 'Hideo'],['てつお', 'Tetsuo'],['のりお', 'Norio'],['みのる', 'Minoru'],['けいこ', 'Keiko'],['ようこ', 'Yoko'],['かずこ', 'Kazuko'],['ひろこ', 'Hiroko'],['まさこ', 'Masako'],['のりこ', 'Noriko'],['さちこ', 'Sachiko'],['えつこ', 'Etsuko'],['じゅんこ', 'Junko'],['みちこ', 'Michiko'],['としこ', 'Toshiko'],['ゆみこ', 'Yumiko'],['きよし', 'Kiyoshi'],['こうじ', 'Koji'],['まさゆき', 'Masayuki'],['としお', 'Toshio']],
+  mid: [['まこと', 'Makoto'],['けんじ', 'Kenji'],['こうじ', 'Koji'],['ひでき', 'Hideki'],['てつや', 'Tetsuya'],['なおき', 'Naoki'],['ひろゆき', 'Hiroyuki'],['まさひろ', 'Masahiro'],['かずや', 'Kazuya'],['しんじ', 'Shinji'],['たかひろ', 'Takahiro'],['じゅん', 'Jun'],['さとし', 'Satoshi'],['ゆうじ', 'Yuji'],['やすし', 'Yasushi'],['あつし', 'Atsushi'],['のぶゆき', 'Nobuyuki'],['ともや', 'Tomoya'],['ゆうこ', 'Yuko'],['なおみ', 'Naomi'],['まゆみ', 'Mayumi'],['くみこ', 'Kumiko'],['ともこ', 'Tomoko'],['みどり', 'Midori'],['あけみ', 'Akemi'],['えみ', 'Emi'],['かおり', 'Kaori'],['ゆかり', 'Yukari'],['りえ', 'Rie'],['まき', 'Maki'],['ちえ', 'Chie'],['さとみ', 'Satomi'],['みき', 'Miki'],['なつこ', 'Natsuko']],
+  gen: [['だいすけ', 'Daisuke'],['たくや', 'Takuya'],['けんた', 'Kenta'],['しょうた', 'Shota'],['ゆうすけ', 'Yusuke'],['こうへい', 'Kohei'],['りょうすけ', 'Ryosuke'],['たつや', 'Tatsuya'],['まさき', 'Masaki'],['かずき', 'Kazuki'],['ゆうき', 'Yuki'],['なおと', 'Naoto'],['しゅんすけ', 'Shunsuke'],['とおる', 'Toru'],['ひろき', 'Hiroki'],['けいすけ', 'Keisuke'],['あい', 'Ai'],['まい', 'Mai'],['えり', 'Eri'],['さやか', 'Sayaka'],['あゆみ', 'Ayumi'],['めぐみ', 'Megumi'],['ゆか', 'Yuka'],['ちひろ', 'Chihiro'],['なつみ', 'Natsumi'],['あや', 'Aya'],['みほ', 'Miho'],['さおり', 'Saori'],['ともみ', 'Tomomi'],['えりか', 'Erika'],['りさ', 'Risa'],['のぞみ', 'Nozomi'],['かな', 'Kana'],['しおり', 'Shiori']],
+  new: [['はると', 'Haruto'],['そうた', 'Sota'],['ゆうと', 'Yuto'],['れん', 'Ren'],['はやと', 'Hayato'],['りく', 'Riku'],['こうき', 'Koki'],['たいが', 'Taiga'],['かいと', 'Kaito'],['そら', 'Sora'],['ゆうま', 'Yuma'],['だいき', 'Daiki'],['りょう', 'Ryo'],['しゅん', 'Shun'],['あおい', 'Aoi'],['ゆい', 'Yui'],['ひな', 'Hina'],['さくら', 'Sakura'],['みゆ', 'Miyu'],['りん', 'Rin'],['ここな', 'Kokona'],['ひかり', 'Hikari'],['あかり', 'Akari'],['ゆな', 'Yuna'],['みお', 'Mio'],['めい', 'Mei'],['ほのか', 'Honoka'],['まなみ', 'Manami'],['ななみ', 'Nanami'],['ちさと', 'Chisato'],['いつき', 'Itsuki'],['なぎさ', 'Nagisa']],
+};
+/** 生まれた年(わからなければ 1965 年生まれあたり) */
+export function personName(r: Rng, born = 1965): Text {
+  const band = born < 1955 ? 'old' : born < 1972 ? 'mid' : born < 1990 ? 'gen' : 'new';
+  const s = r.pick(SURNAMES), g = r.pick(GIVEN[band]);
   return { ja: `${s[0]} ${g[0]}`, en: `${g[1]} ${s[1]}` };
 }
 export function surname(n: Text): Text { return { ja: n.ja.split(' ')[0], en: n.en.split(' ').slice(-1)[0] }; }
@@ -70,7 +69,8 @@ const HW_PREF: [string, (p: string) => boolean][] = [
   ['hw_mk_sega', (p) => /メガドライブ|セガサターン|ドリームキャスト/.test(p)],
   ['hw_mk_nintendo', (p) => /ファミコン|NINTENDO64|ゲームボーイ|DS|Wii|Switch/.test(p)],
   ['hw_mk_sony', (p) => /PlayStation|PSP|PS\d/.test(p)],
-  ['hw_mk_nec', (p) => /PC エンジン/.test(p)],
+  ['hw_mk_nec', (p) => /PC エンジン|PC-FX/.test(p)],
+  ['hw_mk_3do', (p) => /3DO/.test(p)],
   ['hw_fm_handheld', (p) => /ゲームボーイ|DS|PSP|Switch/.test(p)],
   ['hw_fm_home', (p) => !/ゲームボーイ|DS|PSP|ケータイ|スマホ|ソシャゲ|業務用/.test(p)],
   ['hw_pl_arcade', (p) => p === '業務用'],
@@ -86,6 +86,10 @@ export function platformFor(r: Rng, year: number, role: Role, flags: Record<stri
   if (!prefs.length) return base; // 選んでいなければ乱数の使い方も前と同じ(古い replay が変わらない)
   let list = platformList(year);
   if (flags.hw_pl_arcade && year < 2030 && !list.includes('業務用')) list = [...list, '業務用']; // ゲーセン組は時代が進んでも業務用を作る
+  // 表に無いハード: PC エンジン(1987〜1994 は 16 ビット機と並んで戦う)・PC-FX(1995〜1998)・3DO(1994〜1996)
+  if (flags.hw_mk_nec && year >= 1987 && year < 1995 && !list.includes('PC エンジン')) list = [...list, 'PC エンジン'];
+  if (flags.hw_mk_nec && year >= 1995 && year < 1999) list = [...list, 'PC-FX'];
+  if (flags.hw_mk_3do && year >= 1994 && year < 1997) list = [...list, '3DO'];
   for (const [, ok] of prefs) { const f = list.filter(ok); if (f.length) list = f; }
   return r.chance(0.75) ? r.pick(list) : base;
 }

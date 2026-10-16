@@ -35,7 +35,8 @@ const browser = await chromium.launch({ executablePath });
 const page = await browser.newPage({ viewport: { width: VW, height: VH } });
 const errors = [];
 page.on('pageerror', e => errors.push(`pageerror: ${e.message}`));
-page.on('console', m => { if (m.type() === 'error') errors.push(`console: ${m.text()}`); });
+// /api/*(他の人の人生。本番の Worker だけにある)の 404 はローカル配信では正常なので数えない
+page.on('console', m => { if (m.type() === 'error' && !(m.location()?.url ?? '').includes('/api/')) errors.push(`console: ${m.text()}`); });
 
 await page.goto(url.replace('?auto=1', '?lang=en'), { waitUntil: 'load' });
 await page.waitForTimeout(1200);

@@ -29,6 +29,8 @@ export interface GameEvent {
   cause?: Text;
   /** 最後に思い出す時の短い 1 行(tag high / celeb の時。無ければ本文の 1 文目) */
   memory?: Text;
+  /** この版を出すのに先に出ている必要がある版(メンターの話の伏線回収) */
+  needs?: string;
 }
 export type TimelineKind = 'hardware' | 'hit' | 'incident' | 'work' | 'ai' | 'future';
 export interface TimelineEntry { id: string; year: number; month?: number; kind: TimelineKind; text: Text; use: string; src: string; unverified?: boolean }
@@ -90,6 +92,13 @@ export interface Inner {
   lastTag: string;           // 直近の悪いイベントのタグ
   choicesMade: number;       // 何番目の選択か(replay の frame)
   peerStates: State[];       // 同期 3 人の中身(peer 自身は空)
+  others?: import('./people').OtherLife[]; // 他の人の人生(先輩・同期・後輩・記事で出る)
+  othersShown?: number;
+  othersSeen?: string[];
+  /** 直属の先輩(メンター)と、自分が面倒を見る後輩(メンティー)。人生に 1 人ずつ */
+  mentor?: Arc;
+  mentee?: Arc;
+  menteeAt?: number;
   isPeer: boolean;
   bot: string;               // peer の時: 動かすボット名
   workTarget: number;        // afterlife のイベントが指す作品の番号(-1 = 直近)
@@ -106,7 +115,10 @@ export interface Inner {
   highs: { year: number; age: number; text: Text; w: number; kind?: string }[]; // テンションが上がった瞬間(最後に思い出す)        // この人生で起きた歴史の事件(hs_id)
 }
 
+export interface Arc { name: Text; step: number; next: number; used: string[] }
 export interface InitOptions {
+  /** 他の人の人生(サーバーから。名前を入れた人だけ。URL で決まる人生には渡さない) */
+  others?: import('./people').OtherLife[];
   /** 業界入りの年(未指定はガチャ) */
   year?: number;
   /** 業界入りの年齢(未指定はガチャ) */

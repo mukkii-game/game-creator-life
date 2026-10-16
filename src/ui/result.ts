@@ -232,6 +232,7 @@ export function showResult(root: HTMLElement, s: State, hooks: ResultHooks) {
     if (s.ending?.epitaph) pin.append(el('p', 'rs-epitaph rs-epitaph-panel', s.ending.epitaph[l]));
     pin.append(el('p', 'rs-sum', s.ending ? s.ending.summary[l] : ''));
     if (hooks.chronicle) pin.append(chronicleBox(s, hooks.chronicle));
+    pin.append(lifeLog(s, l));
     const img = el('img', 'rs-card');
     img.alt = s.ending ? s.ending.cause[l] : TITLE[l];
     pin.append(img);
@@ -345,4 +346,31 @@ export function showResult(root: HTMLElement, s: State, hooks: ResultHooks) {
   // root が差し替えられたら(D が画面を戻した等)後片付け
   const mo = new MutationObserver(() => { if (!wrap.isConnected) { cleanup(); mo.disconnect(); } });
   mo.observe(root, { childList: true });
+}
+
+/** 人生の記録をぜんぶ(開くとスクロールで読める。年ごとに見出し) */
+function lifeLog(s: State, l: 'ja' | 'en'): HTMLElement {
+  const d = document.createElement('details');
+  d.className = 'rs-log';
+  const sm = document.createElement('summary');
+  sm.textContent = l === 'ja' ? `📖 この人生の記録をぜんぶ読む(${s.log.length} 行)` : `📖 Read this whole life (${s.log.length} lines)`;
+  const list = document.createElement('div');
+  list.className = 'rs-log-list';
+  let last = '';
+  for (const line of s.log) {
+    const key = `${line.year}:${line.age}`;
+    if (key !== last) {
+      last = key;
+      const yh = document.createElement('div');
+      yh.className = 'rs-log-year';
+      yh.textContent = l === 'ja' ? `${line.year} 年(${line.age} 歳)` : `${line.year} (age ${line.age})`;
+      list.append(yh);
+    }
+    const p = document.createElement('p');
+    p.className = `rs-log-line rs-log-${line.kind}`;
+    p.textContent = line.text[l];
+    list.append(p);
+  }
+  d.append(sm, list);
+  return d;
 }

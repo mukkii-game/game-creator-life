@@ -901,5 +901,52 @@
       "choice",
       "big"
     ]
+  },
+  {
+    "id": "ev_sg_azel_inside",
+    "years": [
+      1997,
+      1997
+    ],
+    "when": [
+      "flag.sega"
+    ],
+    "tag": [
+      "sega",
+      "high"
+    ],
+    "text": {
+      "ja": "FF が PlayStation へ行ってしまった。サターンの RPG の切り札は、自社の大作『AZEL -パンツァードラグーン RPG-』。会議室で誰かがつぶやいた。「アゼルだけに、さすがにアセる」。誰も笑わなかった。全員、本当にアセっていたので。",
+      "en": "Final Fantasy had gone to PlayStation. Saturn's RPG trump card: Sega's own epic, Panzer Dragoon Saga (AZEL in Japan). In the meeting room someone muttered, \"AZEL? More like a-sweat.\" Nobody laughed. Everyone was genuinely sweating."
+    },
+    "memory": {
+      "ja": "『AZEL』で FF に立ち向かおうとしていたセガの会議室",
+      "en": "the Sega meeting room that hoped AZEL could stand up to FF"
+    },
+    "effect": {
+      "passion": 4
+    },
+    "weight": 3
+  },
+  {
+    "id": "ev_sg_azel_outside",
+    "years": [
+      1997,
+      1997
+    ],
+    "when": [
+      "!flag.sega"
+    ],
+    "tag": [
+      "sega"
+    ],
+    "text": {
+      "ja": "FF7 がプレステで出た年、雑誌に「セガの RPG 対策は自社の大作『AZEL』」と載っていた。「アゼルだけに、さすがにアセってるな」と言ったら、サターン派の同僚に 1 週間口をきいてもらえなかった。",
+      "en": "The year FF7 hit PlayStation, a magazine said Sega's answer was its own epic, AZEL. You quipped, \"AZEL? Sega's sweating.\" Your Saturn-loyal coworker didn't speak to you for a week."
+    },
+    "effect": {
+      "passion": 2
+    },
+    "weight": 3
   }
 ]

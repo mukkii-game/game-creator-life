@@ -3,7 +3,6 @@
   "id": "hs_1982_pyuta",
   "year": 1982,
   "month": 8,
-  "until": 1983,
   "kind": "hardware",
   "weight": 2,
   "title": {
@@ -330,7 +329,6 @@
   "id": "hs_1984_scv",
   "year": 1984,
   "month": 7,
-  "until": 1985,
   "kind": "hardware",
   "weight": 1,
   "title": {
@@ -1100,7 +1098,6 @@
   "id": "hs_1998_ngp",
   "year": 1998,
   "month": 10,
-  "until": 1999,
   "kind": "hardware",
   "weight": 1,
   "title": {
@@ -2013,7 +2010,6 @@
   "id": "hs_2021_retro_auction",
   "year": 2021,
   "month": 7,
-  "until": 2022,
   "kind": "incident",
   "weight": 2,
   "title": {

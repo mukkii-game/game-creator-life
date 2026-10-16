@@ -163,7 +163,6 @@
   "id": "hs_2009_unity_free",
   "year": 2009,
   "month": 10,
-  "until": 2010,
   "kind": "work",
   "weight": 2,
   "title": {
@@ -301,7 +300,6 @@
   "id": "hs_2010_mhp3",
   "year": 2010,
   "month": 12,
-  "until": 2011,
   "kind": "hit",
   "weight": 2,
   "title": {
@@ -833,7 +831,6 @@
   "id": "hs_2012_pazudora",
   "year": 2012,
   "month": 2,
-  "until": 2013,
   "kind": "hit",
   "weight": 3,
   "title": {
@@ -1311,7 +1308,6 @@
   "id": "hs_2013_kancolle",
   "year": 2013,
   "month": 4,
-  "until": 2014,
   "kind": "hit",
   "weight": 2,
   "title": {
@@ -1417,7 +1413,6 @@
   "id": "hs_2013_monst",
   "year": 2013,
   "month": 10,
-  "until": 2014,
   "kind": "hit",
   "weight": 3,
   "title": {
@@ -1831,7 +1826,6 @@
   "id": "hs_2015_undertale",
   "year": 2015,
   "month": 9,
-  "until": 2016,
   "kind": "hit",
   "weight": 2,
   "title": {
@@ -2303,7 +2297,6 @@
   "id": "hs_2017_switch",
   "year": 2017,
   "month": 3,
-  "until": 2018,
   "kind": "hardware",
   "weight": 3,
   "title": {
@@ -2496,7 +2489,6 @@
   "id": "hs_2017_steam_direct",
   "year": 2017,
   "month": 6,
-  "until": 2018,
   "kind": "work",
   "weight": 2,
   "title": {
@@ -2775,7 +2767,6 @@
   "id": "hs_2018_who",
   "year": 2018,
   "month": 6,
-  "until": 2019,
   "kind": "incident",
   "weight": 2,
   "title": {
@@ -2862,7 +2853,6 @@
   "id": "hs_2019_workstyle",
   "year": 2019,
   "month": 4,
-  "until": 2020,
   "kind": "work",
   "weight": 2,
   "title": {
@@ -2989,7 +2979,6 @@
   "id": "hs_2019_stadia",
   "year": 2019,
   "month": 11,
-  "until": 2020,
   "kind": "hardware",
   "weight": 1,
   "title": {
@@ -3448,7 +3437,6 @@
   "id": "hs_2020_ps5",
   "year": 2020,
   "month": 11,
-  "until": 2021,
   "kind": "hardware",
   "weight": 2,
   "title": {
@@ -3926,7 +3914,6 @@
   "id": "hs_2022_imagegen",
   "year": 2022,
   "month": 8,
-  "until": 2023,
   "kind": "ai",
   "weight": 3,
   "title": {
@@ -4087,7 +4074,6 @@
   "id": "hs_2022_chatgpt",
   "year": 2022,
   "month": 11,
-  "until": 2023,
   "kind": "ai",
   "weight": 3,
   "title": {
@@ -4684,7 +4670,6 @@
   "id": "hs_2024_patent",
   "year": 2024,
   "month": 9,
-  "until": 2025,
   "kind": "incident",
   "weight": 2,
   "title": {
@@ -4771,7 +4756,6 @@
   "id": "hs_2025_switch2",
   "year": 2025,
   "month": 6,
-  "until": 2026,
   "kind": "hardware",
   "weight": 3,
   "title": {

@@ -190,7 +190,6 @@
   "id": "hs_1988_megadrive",
   "year": 1988,
   "month": 10,
-  "until": 1989,
   "kind": "hardware",
   "weight": 3,
   "title": {
@@ -445,7 +444,6 @@
   "id": "hs_1988_cdrom2",
   "year": 1988,
   "month": 12,
-  "until": 1989,
   "kind": "hardware",
   "weight": 2,
   "title": {
@@ -618,7 +616,6 @@
   "id": "hs_1989_gameboy",
   "year": 1989,
   "month": 4,
-  "until": 1990,
   "kind": "hardware",
   "weight": 3,
   "title": {
@@ -1133,7 +1130,6 @@
   "id": "hs_1990_sfc",
   "year": 1990,
   "month": 11,
-  "until": 1991,
   "kind": "hardware",
   "weight": 3,
   "title": {
@@ -1298,7 +1294,6 @@
   "id": "hs_1990_gamegear",
   "year": 1990,
   "month": 10,
-  "until": 1991,
   "kind": "hardware",
   "weight": 1,
   "title": {
@@ -1707,7 +1702,6 @@
   "id": "hs_1991_sonic",
   "year": 1991,
   "month": 7,
-  "until": 1992,
   "kind": "hit",
   "weight": 2,
   "title": {
@@ -1880,7 +1874,6 @@
   "id": "hs_1991_megacd",
   "year": 1991,
   "month": 12,
-  "until": 1992,
   "kind": "hardware",
   "weight": 1,
   "title": {
@@ -2105,7 +2098,6 @@
   "id": "hs_1992_mariokart",
   "year": 1992,
   "month": 8,
-  "until": 1993,
   "kind": "hit",
   "weight": 2,
   "title": {
@@ -2336,7 +2328,6 @@
   "id": "hs_1993_vf",
   "year": 1993,
   "month": 12,
-  "until": 1994,
   "kind": "hit",
   "weight": 3,
   "title": {
@@ -2511,7 +2502,6 @@
   "id": "hs_1993_us_hearing",
   "year": 1993,
   "month": 12,
-  "until": 1994,
   "kind": "incident",
   "weight": 1,
   "title": {
@@ -2893,7 +2883,6 @@
   "id": "hs_1994_nextgen",
   "year": 1994,
   "month": 11,
-  "until": 1995,
   "kind": "hardware",
   "weight": 3,
   "title": {
@@ -3055,7 +3044,6 @@
   "id": "hs_1994_pcfx",
   "year": 1994,
   "month": 12,
-  "until": 1995,
   "kind": "hardware",
   "weight": 1,
   "title": {
@@ -3236,7 +3224,6 @@
   "id": "hs_1994_tokimemo",
   "year": 1994,
   "month": 5,
-  "until": 1995,
   "kind": "hit",
   "weight": 1,
   "title": {
@@ -3585,7 +3572,6 @@
   "id": "hs_1995_win95",
   "year": 1995,
   "month": 11,
-  "until": 1996,
   "kind": "hardware",
   "weight": 3,
   "title": {
@@ -3699,7 +3685,6 @@
   "id": "hs_1995_satellaview",
   "year": 1995,
   "month": 4,
-  "until": 1996,
   "kind": "hardware",
   "weight": 1,
   "title": {
@@ -3996,7 +3981,6 @@
   "id": "hs_1995_purikura",
   "year": 1995,
   "month": 7,
-  "until": 1996,
   "kind": "hit",
   "weight": 1,
   "title": {
@@ -4103,7 +4087,6 @@
   "id": "hs_1996_pokemon",
   "year": 1996,
   "month": 2,
-  "until": 1997,
   "kind": "hit",
   "weight": 3,
   "title": {
@@ -4284,7 +4267,6 @@
   "id": "hs_1996_n64",
   "year": 1996,
   "month": 6,
-  "until": 1997,
   "kind": "hardware",
   "weight": 3,
   "title": {
@@ -4518,7 +4500,6 @@
   "id": "hs_1996_ff7",
   "year": 1996,
   "month": 1,
-  "until": 1997,
   "kind": "hit",
   "weight": 3,
   "title": {
@@ -4674,7 +4655,6 @@
   "id": "hs_1996_biohazard",
   "year": 1996,
   "month": 3,
-  "until": 1997,
   "kind": "hit",
   "weight": 2,
   "title": {
@@ -4784,7 +4764,6 @@
   "id": "hs_1996_sakura",
   "year": 1996,
   "month": 9,
-  "until": 1997,
   "kind": "hit",
   "weight": 1,
   "title": {
@@ -4899,7 +4878,6 @@
   "id": "hs_1996_tamagotchi",
   "year": 1996,
   "month": 11,
-  "until": 1997,
   "kind": "hit",
   "weight": 2,
   "title": {

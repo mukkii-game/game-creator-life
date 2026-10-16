@@ -184,7 +184,6 @@
   "id": "hs_dark_1985_program_law",
   "year": 1985,
   "month": 6,
-  "until": 1986,
   "kind": "incident",
   "weight": 2,
   "title": {
@@ -511,7 +510,6 @@
   "id": "hs_dark_1999_used_split",
   "year": 1999,
   "month": 5,
-  "until": 2000,
   "kind": "incident",
   "weight": 2,
   "title": {
@@ -1417,7 +1415,6 @@
   "id": "hs_dark_2018_savedata_law",
   "year": 2018,
   "month": 11,
-  "until": 2019,
   "kind": "incident",
   "weight": 1,
   "title": {
@@ -1833,7 +1830,6 @@
   "id": "hs_dark_2012_fishing_suit",
   "year": 2012,
   "month": 2,
-  "until": 2013,
   "kind": "incident",
   "weight": 2,
   "title": {

@@ -10,13 +10,14 @@ import { load } from '../core/save';
 import type { State, LogLine, Work, Era, Choice } from '../game/types';
 import { tune } from '../core/tuning';
 import { t, lang } from '../core/i18n';
-import { sfx, playSe, playBgm, bgmOfYear, duckBgm, type SeId } from '../core/audio';
+import { sfx, playSe, playBgm, bgmOfYear, duckBgm, toggleMuted, isMuted, type SeId } from '../core/audio';
 import { expose } from '../core/demo';
 import type { Recorder, Player } from '../core/replay';
 import { h, tf, tx, lookOf, setLook, money, FocusRing } from './util';
 import { onTap, type Cmd } from './input';
 import { emo, faceEl, faceOf, type EmoName } from './art';
 import { pickOpts, type StartPick } from './start';
+import type { OtherLife } from '../game/people';
 
 export type Speed = 1 | 2 | 4 | 'fast';
 const SPEEDS: Speed[] = [1, 2, 4, 'fast'];
@@ -28,6 +29,8 @@ export interface PlayOptions {
   seen?: string[];
   /** 自分の名前(空・undefined = おまかせ) */
   name?: string;
+  /** 他の人の人生(サーバーから) */
+  others?: OtherLife[];
   omakase: boolean;
   speed: Speed;
   recorder: Recorder;
@@ -77,7 +80,7 @@ export function shapeOf(w: Work): 'cart' | 'cd' | 'dl' | 'app' {
 const initial = (w: Work) => (tx(w.name).replace(/^[『「"“\s]+/, '').charAt(0) || '?');
 
 export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
-  const s = init(o.seed, { ...pickOpts(o.era), ...(o.seen ? { seen: o.seen } : {}), ...(o.name ? { name: o.name } : {}) });
+  const s = init(o.seed, { ...pickOpts(o.era), ...(o.others?.length ? { others: o.others } : {}), ...(o.seen ? { seen: o.seen } : {}), ...(o.name ? { name: o.name } : {}) });
   // 「NEW」「別の立場で」の印は、この端末の図鑑と比べる(URL で決まる人生でも印は出す。中身は変えない)
   const known = new Set(load().chronicle);
   const knownHist = new Set([...known].map((k) => k.split(':')[0]));
@@ -108,7 +111,11 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   onTap(pauseB, () => togglePause());
   onTap(autoB, () => setOmakase(!omakase));
   const pausedTag = h('span', 'paused-tag', t('paused'));
-  bar.append(pauseB, ...speedBs, autoB);
+  // 音の入り切り(プレイ中もいつでも押せる)
+  const muteB = h('button', 'tb tb-mute', isMuted() ? '🔇' : '🔊');
+  muteB.title = t('mute');
+  onTap(muteB, () => { toggleMuted(); muteB.textContent = isMuted() ? '🔇' : '🔊'; });
+  bar.append(pauseB, ...speedBs, autoB, muteB);
 
   const chat = h('main', 'chat');
   const chatInner = h('div', 'chat-inner');
@@ -157,7 +164,9 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   }
 
   function setTicker(year: number, age: number) {
+    const wasStudent = curYear < s.startYear;
     curYear = year; curAge = age;
+    if (wasStudent !== curYear < s.startYear) paintCard(); // 就職前は学生証、入社の年から社員証
     yearEl.textContent = lang() === 'ja' ? `${year}` : `${year}`;
     yearEl.dataset.unit = t('yearUnit');
     ageEl.textContent = `${age}${lang() === 'ja' ? ' 歳' : ' y/o'}`;
@@ -188,6 +197,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
   }
   function paintCard() {
     card.innerHTML = '';
+    if (curYear < s.startYear) { paintStudent(); return; }
     const head = h('div', 'card-head');
     head.append(h('span', 'card-badge', t('idCard')), h('span', 'card-pos', tx(POS_TEXT[positionOf(s)])), h('span', 'card-co', tx(s.company.name)));
     const body = h('div', 'card-body');
@@ -204,6 +214,19 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const gs = h('div', 'gauges');
     for (const k of ['hp', 'passion', 'skill', 'network'] as const) gs.append(gauge(k, s.stat[k]));
     card.append(head, body, gs);
+  }
+  // 就職より前(学生時代の前日譚)は社員証ではなく学生証
+  function paintStudent() {
+    const head = h('div', 'card-head');
+    head.append(h('span', 'card-badge', t('studentCard')), h('span', 'card-pos', t(curAge <= 17 ? 'stHigh' : 'stCollege')), h('span', 'card-co', t('stBefore')));
+    const body = h('div', 'card-body');
+    const photo = h('div', 'card-photo');
+    photo.append(faceEl(faceOf(s.seed, curAge), 'face'));
+    const who = h('div', 'card-who');
+    const path = (['st_arbeit', 'st_dev', 'st_gamer', 'st_school'] as const).find((k) => s.flags[k]) ?? 'st_school';
+    who.append(h('div', 'card-name', tx(s.name)), h('div', 'card-job', t(path)));
+    body.append(photo, who);
+    card.append(head, body);
   }
   let shelfCount = -1;
   function paintShelf(force = false) {

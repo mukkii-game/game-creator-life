@@ -10,7 +10,7 @@ const tMod = import.meta.glob('../data/titles.json', { eager: true, import: 'def
 const TITLES: TitleRow[] = Object.values(tMod)[0]?.titles ?? [];
 function pickTitle(s: State, platform: string): { name: Text; gag?: Text } | null {
   const used = new Set(s.works.map((w) => w.name.ja));
-  const near = TITLES.filter((t) => t.years[0] - 1 <= s.year && s.year <= t.years[1] + 1);
+  const near = TITLES.filter((t) => t.years[0] <= s.year && s.year <= t.years[1] + 1); // 発売前の年には出さない(実名の一言が前年に出ていた)
   const fit = near.filter((t) => !t.platforms || t.platforms.some((p) => platform.includes(p) || p.includes(platform)));
   for (const pool of [fit, near]) {
     const cands = pool.flatMap((t) => (t.coined ?? (t.name ? [t.name] : [])).filter((n) => !used.has(`『${n.ja}』`) && !used.has(n.ja)).map((n) => ({ n, t })));

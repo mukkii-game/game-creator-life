@@ -3,6 +3,8 @@
 // 1 回の advance = 1 年。選択が出たら state.choice が埋まって止まり、choose で続きを進める。
 import { Rng } from '../core/rng';
 import { tune } from '../core/tuning';
+import { callName, fullName, type OtherLife } from './people';
+import type { Arc } from './types';
 import type { State, InitOptions, Text, Effect, GameEvent, Choice, Job, CompanySize, EndingId, Era, LogLine, Company } from './types';
 import { EVENTS, EVENT_BY_ID, POOL, TIMELINE_BY_YEAR, HIST, HIST_OF, COMPANIES, type CoRow } from './data';
 import { eligible, draw, positionOf } from './select';
@@ -112,7 +114,7 @@ export function init(seed: number, options: InitOptions = {}): State {
     : entry.sega && SEGA() ? { id: 'co_sega', name: nameAt(SEGA()!, year), size: 'big' } : newCompany(r, entry.size, year);
   const s: State = {
     seed, year, age, startAge: age, startYear: year, era: eraOf(year), job, status: entry.indie ? 'indie' : 'employed',
-    name: nameOf(personName(r), options.name), entry: entry.text, region: entry.size === 'abroad' ? { ja: '海外', en: 'abroad' } : r.pick(REGIONS),
+    name: nameOf(personName(r, year - age), options.name), entry: entry.text, region: entry.size === 'abroad' ? { ja: '海外', en: 'abroad' } : r.pick(REGIONS),
     company, companies: [{ company, year }], options: { era: options.era, year: options.year, age: options.age, seen: options.seen },
     stat: { hp: base[0], passion: base[1], skill: base[2], network: base[3], money: base[4], fame: 0 },
     flags: {}, works: [], peers: [], log: [], chronicle: [], pending: [], rng: r,
@@ -122,6 +124,7 @@ export function init(seed: number, options: InitOptions = {}): State {
       workTarget: -1, startJob: job, prevJob: job, histDone: [], highs: [],
       // 人生に一度の大挫折と大成功(業界に入って何年目に来るか)
       pitAt: r.int(2, 10), peakAt: r.int(4, 16), pitDone: false, peakDone: false,
+      others: options.others?.filter((o) => o && (o.family || o.given)).slice(0, 40), othersShown: 0, menteeAt: r.int(6, 11),
       bondAt: r.int(3, 18), bondDone: false, gravAt: r.int(2, 15), gravDone: false, nextBig: year + r.int(2, 4), nextHw: year + 2, prisonUntil: 0,
     },
   };
@@ -170,6 +173,7 @@ function fill(s: State, t: Text): Text {
     .replace(/\{name\}/g, s.name[l]).replace(/\{company\}/g, s.company.name[l])
     .replace(/\{work\}/g, w ? w.name[l] : (l === 'ja' ? '『まだ名前の無い作品』' : '"an untitled game"'))
     .replace(/\{age\}/g, String(s.age)).replace(/\{year\}/g, String(s.year))
+    .replace(/\{mentor\}/g, s.inner.mentor?.name[l] ?? (l === 'ja' ? '先輩' : 'your mentor')).replace(/\{mentee\}/g, s.inner.mentee?.name[l] ?? (l === 'ja' ? '後輩' : 'your junior'))
     .replace(/\{peer\}/g, l === 'ja' ? peer.ja.split(' ')[0] : peer.en.split(' ').slice(-1)[0]).replace(/\{other\}/g, other[l]);
   return { ja: rep(t.ja, 'ja'), en: rep(t.en, 'en') };
 }
@@ -346,6 +350,12 @@ function beginYear(s: State, out: string[]) {
   if (s.year >= (s.inner.nextHw ?? 0) && !turning.length && (s.status === 'employed' || s.status === 'indie')) {
     const pool = POOL.filter((e) => e.tag?.includes('hardware') && e.choices && eligible(s, e, 99));
     if (pool.length) { turning.push(draw(r, pool, 1)[0].id); s.inner.nextHw = s.year + r.int(tune<number>('choice.hwMin'), tune<number>('choice.hwMax')); }
+  }
+  mentorArcs(s, r, out);
+  // 他の人の人生(名前を入れて遊んだ誰か)が、先輩・同期・後輩・記事として顔を出す
+  if (s.inner.others?.length && (s.status === 'employed' || s.status === 'indie') && (s.inner.othersShown ?? 0) < tune<number>('others.max') && r.chance(tune('others.chance'))) {
+    const line = otherLine(s, r);
+    if (line) { log(s, line, 'event', ['other']); s.inner.othersShown = (s.inner.othersShown ?? 0) + 1; }
   }
   // 歴史の事件(その年の業界の大事件が、今の立場で自分に降ってくる)
   const hist = pickHist(s);
@@ -592,4 +602,75 @@ export function runToEnd(s: State, bot: (s: State, c: Choice[]) => string, limit
     while (s.choice && g++ < 10) choose(s, bot(s, s.choice.choices));
   }
   return s;
+}
+
+// ---- 他の人の人生(サーバーの記録)----
+/** その年に業界にいる誰かを 1 人選び、自分との関係(先輩・同期・後輩・記事・引退の噂)で 1 行にする */
+function otherLine(s: State, r: Rng): Text | null {
+  // 同じ人は 1 人生に 1 回だけ(引退の噂だけはもう 1 回)
+  const seen = (s.inner.othersSeen ??= []);
+  const live = (s.inner.others ?? []).filter((o) => o.startYear <= s.year && s.year <= o.endYear + 1 && seen.filter((x) => x === fullName(o)).length < (s.year >= o.endYear ? 2 : 1));
+  if (!live.length) return null;
+  const o: OtherLife = r.pick(live);
+  seen.push(fullName(o));
+  const d = o.startYear - s.startYear;
+  const c = callName(o), f = fullName(o), co = o.company || 'どこかの会社', job = o.job || '開発', w = o.work ? `『${o.work.replace(/^[『「]|[』」]$/g, '')}』` : '';
+  const cands: Text[] = [];
+  const add = (ja: string, en: string) => cands.push({ ja, en });
+  if (s.year >= o.endYear) add(`${c}が業界を去ったと聞いた。「${o.ending}」。いいゲーム人生だったらしい。少しだけ、自分の残り時間を数えた。`, `Word came that ${f} had left the industry: "${o.ending}". A good game life, by all accounts. You counted your own years for a moment.`);
+  else if (d < -1 && d >= -15) {
+    add(`先輩の${c}(${co}の${job})に飲みに連れて行かれた。説教は 2 時間、おごりは 1 杯だった。`, `Your senior ${f} (${job} at ${co}) took you drinking. Two hours of lecture, one drink on them.`);
+    if (w) add(`業界の先輩、${c}の噂を聞いた。${co}で${w}を作った人らしい。なぜか自分のことのように嬉しかった。`, `You heard about ${f}, an industry senior who made ${w} at ${co}. Somehow you felt proud of it yourself.`);
+  } else if (Math.abs(d) <= 1) {
+    add(`同期の${c}とイベントで再会した。${co}で${job}をやっているという。名刺交換の手つきが、2 人とも同じくらい下手だった。`, `You ran into ${f}, from your year, at an event — now ${job} at ${co}. You were both equally bad at exchanging business cards.`);
+    if (w) add(`同じ年に業界に入った${c}が${w}を出したと聞いた。悔しくて、その夜は眠れなかった。翌朝、買った。`, `${f}, who started the same year as you, shipped ${w}. Jealousy kept you up all night. Next morning, you bought it.`);
+  } else if (d > 1 && d <= 15) {
+    add(`後輩の${c}が入ってきた。最初の週に、あなたのバグを 3 つ見つけた。頼もしいが、少しむかついた。`, `${f} joined as a junior. In their first week they found three of your bugs. Reassuring. Also annoying.`);
+    if (w) add(`後輩の${c}が${w}に関わったと聞いた。昔あなたが貸した攻略本を、まだ返してもらっていない。`, `Your junior ${f} worked on ${w}. They still haven't returned the strategy guide you lent them.`);
+  }
+  if (s.year >= 1980) add(`ゲーム雑誌で${f}さんのインタビューを読んだ。${co}の${job}。写真の背景の散らかった机に、親近感がわいた。`, `You read an interview with ${f}, ${job} at ${co}, in a game magazine. The messy desk behind them felt like home.`);
+  if (s.year >= 1998 && w) add(`ネットの記事で${f}さんの名前を見かけた。${w}の裏話をしていた。いつか会ってみたい。`, `You spotted ${f} in an online article, telling stories behind ${w}. You'd like to meet them someday.`);
+  return cands.length ? r.pick(cands) : null;
+}
+
+// ---- メンター(直属の先輩)とメンティー(直属の後輩)。人生に 1 人ずつ、5 段の話(mentors.json)----
+// 名前を入れて遊んだ誰か(サーバーの記録)がちょうどいい年回りなら、その人が先輩・後輩になる
+const ARC_GAP: Record<'mentor' | 'mentee', [number, number][]> = {
+  mentor: [[1, 2], [2, 3], [3, 5], [8, 14]],
+  mentee: [[1, 2], [2, 3], [3, 6], [6, 10]],
+};
+function arcName(s: State, r: Rng, lo: number, hi: number, born: number): Text {
+  const fit = (s.inner.others ?? []).filter((o) => o.startYear >= lo && o.startYear <= hi && o.endYear >= s.year);
+  if (fit.length && r.chance(0.7)) {
+    const o = r.pick(fit);
+    s.inner.others = s.inner.others!.filter((x) => x !== o); // 同じ人が別の役で出ない
+    return { ja: callName(o), en: fullName(o) };
+  }
+  const p = personName(r, born);
+  return { ja: `${p.ja.split(' ')[0]}さん`, en: p.en.split(' ').slice(-1)[0] };
+}
+function mentorArcs(s: State, r: Rng, out: string[]) {
+  if (s.inner.isPeer) return;
+  const career = s.year - s.startYear;
+  if (!s.inner.mentor && s.status === 'employed' && career <= 3 && s.company.size !== 'indie')
+    s.inner.mentor = { name: arcName(s, r, s.startYear - 15, s.startYear - 3, s.year - s.age - r.int(5, 12)), step: 0, next: s.year, used: [] };
+  if (!s.inner.mentee && s.status === 'employed' && career >= (s.inner.menteeAt ?? 8) && s.age < 62)
+    s.inner.mentee = { name: arcName(s, r, s.year - 2, s.year + 1, s.year - 22), step: 0, next: s.year, used: [] };
+  for (const kind of ['mentor', 'mentee'] as const) {
+    const a: Arc | undefined = s.inner[kind];
+    if (!a || a.step >= 5 || s.year < a.next) continue;
+    // 2・3 段目は同じ職場にいる時だけ(いなければ飛ばす)
+    if ((a.step === 1 || a.step === 2) && s.status !== 'employed') { a.step++; continue; }
+    const pre = kind === 'mentor' ? 'ev_mt_' : 'ev_me_';
+    const used = [...(s.inner.mentor?.used ?? []), ...(s.inner.mentee?.used ?? [])];
+    const vs = ['a', 'b', 'c'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)));
+    if (vs.length) {
+      const ev = r.pick(vs);
+      a.used.push(ev.id);
+      log(s, fill(s, ev.text), 'event', ev.tag);
+      apply(s, ev.effect, ev.id, out);
+    }
+    if (a.step < 4) { const [lo, hi] = ARC_GAP[kind][a.step]; a.next = s.year + r.int(lo, hi); }
+    a.step++;
+  }
 }

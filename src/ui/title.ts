@@ -87,6 +87,7 @@ function render(app: HTMLElement, era: StartPick, onStart: (era: StartPick) => v
   onTap(diceB, () => { nameIn.value = ''; keep(); sfx.ui(); });
   nameBox.append(h('label', 'title-label', t('nameLabel')), h('div', 'name-row'));
   nameBox.lastElementChild!.append(nameIn, diceB);
+  nameBox.append(h('p', 'name-note', t('nameNote')));
 
   const go = h('button', 'gacha', t('gacha'));
   onTap(go, () => { keep(); onStart(pick); });
