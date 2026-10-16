@@ -390,7 +390,7 @@ function beginYear(s: State, out: string[]) {
   // 会社の中の大作の結末(tag mega)は、同じ会社にいる時だけ(第 7 回ペルソナ: 潰れた会社の巨大作が「やっと出た」)
   // 2023〜2025 年: AI の現場あるあるを毎年 1 本、2024 年には「生成 AI をどう使うか」(第 16 回ペルソナ: 1 人生に 1〜2 個しか無く、2026 年が唐突)
   if (s.year >= 2023 && s.year <= 2025 && s.status === 'employed' && !s.flags.in_prison && !s.inner.isPeer) {
-    const aiqY = (s.inner.aiqYear ??= s.inner.recent?.length ? 2023 + r.int(0, 2) : 2024); // 2 回目からは 2023〜25 年のどこか(第 25 回まで: 毎回 2024 年で骨組みが見える。仮決め・QUESTIONS.md)
+    const aiqY = (s.inner.aiqYear ??= s.inner.recent?.length ? (s.inner.recent.includes('ev_aiq_use') && r.chance(0.5) ? 9999 : 2023 + r.int(0, 2)) : 2024); // 2 回目からは、直近で見ていたら半分は出さない(第 40 回: 毎回同じ選択の並び。仮決め・QUESTIONS.md) // 2 回目からは 2023〜25 年のどこか(第 25 回まで: 毎回 2024 年で骨組みが見える。仮決め・QUESTIONS.md)
     if (s.year >= aiqY && !s.flags.aiq_asked && EVENT_BY_ID.get('ev_aiq_use') && eligible(s, EVENT_BY_ID.get('ev_aiq_use')!)) { s.flags.aiq_asked = true; q.push('ev_aiq_use'); }
     else {
       const pool = EVENTS_ALL().filter((e) => e.id.startsWith('ev_aia_') && eligible(s, e, 99, 1));
