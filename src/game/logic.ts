@@ -288,7 +288,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
         s.inner.nextWorkYear = s.year + s.rng.int(tune('work.everyMin'), tune('work.everyMax'));
         continue;
       }
-      s.company = newCompany(s.rng, size, s.year, [s.company.id]); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed');
+      s.company = newCompany(s.rng, size, s.year, [...(s.inner.deadCos ?? []), ...s.companies.map((c) => c.company.id)]); s.companies.push({ company: s.company, year: s.year }); s.inner.companyYears = 0; setStatus(s, 'employed'); // 潰れた会社・前にいた会社には移らない(第 34 回: 潰れた最初の会社に 15 年後に移った)
       // 次の勤め先を一言(第 9 回ペルソナ: 希望退職に応じた後、どこにいるのか分からない)
       log(s, freshLine(s, [{ ja: `次の勤め先は ${s.company.name.ja}。`, en: `Next stop: ${s.company.name.en}.` }, { ja: `${s.company.name.ja} に移った。机の引き出しの位置が、前の会社と左右逆だった。`, en: `You moved to ${s.company.name.en}. The desk drawers were on the opposite side from the last place.` }, { ja: `${s.company.name.ja} に拾われた。初日に配られた社員証の写真は、前の会社のを使い回した。`, en: `${s.company.name.en} took you in. For the new ID card, you reused the photo from the last one.` }, { ja: `${s.company.name.ja} に入った。歓迎会で、前の会社の悪口を言うのをこらえた。`, en: `You joined ${s.company.name.en}. At the welcome party, you held back from badmouthing the old place.` }, { ja: `${s.company.name.ja} に移った。最初の 1 週間、前の会社の電話の出方で出てしまった。`, en: `You moved to ${s.company.name.en}. For the first week you kept answering the phone with your old company's greeting.` }, { ja: `${s.company.name.ja} で出直し。新しい机には、前の人の付箋が 1 枚だけ残っていた。「がんばれ」。`, en: `A fresh start at ${s.company.name.en}. The new desk had one sticky note left by the last person: "Hang in there."` }], 'nextco'), 'event');
       s.inner.nextWorkYear = s.year + s.rng.int(tune('work.everyMin'), tune('work.everyMax'));
@@ -858,7 +858,7 @@ function mentorArcs(s: State, r: Rng, out: string[]) {
     if ((a.step === 1 || a.step === 2) && (s.status !== 'employed' || (a.co && a.co !== s.company.id))) { a.step++; continue; }
     const pre = kind === 'mentor' ? 'ev_mt_' : 'ev_me_';
     const used = [...(s.inner.mentor?.used ?? []), ...(s.inner.mentee?.used ?? [])];
-    const vs0 = ['a', 'b', 'c', 'd', 'e', 'f'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)) && (!e.jobs || e.jobs.includes(s.job)) && (!(SAME_CO.has(e.id) || /上司|社内|会議|隣の席|部署|チーム|配属|社員食堂/.test(e.text.ja)) || (s.status === 'employed' && a.co === s.company.id))); // 会社の中の話は同じ会社にいる間だけ(第 11 回ペルソナ: 潰れた会社の上司がずっと出てくる)
+    const vs0 = ['a', 'b', 'c', 'd', 'e', 'f'].map((x) => EVENT_BY_ID.get(`${pre}${a.step + 1}${x}`)).filter((e): e is GameEvent => !!e && (!e.needs || used.includes(e.needs)) && (!e.jobs || e.jobs.includes(s.job)) && (!(SAME_CO.has(e.id) || /上司|社内|会議|隣の席|部署|チーム|配属|社員食堂|異動/.test(e.text.ja)) || (s.status === 'employed' && a.co === s.company.id))); // 会社の中の話は同じ会社にいる間だけ(第 11 回ペルソナ: 潰れた会社の上司がずっと出てくる)
     const freshV = vs0.filter((e) => !s.inner.recent?.includes(e.id));
     const vs = freshV.length ? freshV : vs0;
     if (vs.length) {
