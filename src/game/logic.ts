@@ -904,7 +904,7 @@ const FINALES: Finale[] = [
   { t: { ja: '「まだ行く気か」\n「無限の彼方へ、さあ行くぞ!」', en: '"You\'re still going?"\n"To infinity and beyond!"' }, fit: (s, id) => id === 'end_pen_down' || !!s.flags.shift_partner, parody: /無限の.*彼方/ }, // トイ・ストーリー: まだ作り続ける人生に
   { t: { ja: '「で、これからどうするんだ」\n「落ち込んだりもしたけれど、私はげんきです」', en: '"So, what now?"\n"I\'ve had my ups and downs, but I\'m doing fine."' }, fit: (_s, id) => id === 'end_retire' || id === 'end_body' || id === 'end_switch' }, // 魔女の宅急便: 去った後も元気な人生に
   { t: { ja: '「もう、さすがに潮時かな」\n「あきらめたら、そこで試合終了ですよ」', en: '"Maybe it\'s time to call it."\n"If you give up, the game is over."' }, fit: (s, id) => id === 'end_pen_down' || !!s.flags.shift_hand, parody: /あきらめたら/ }, // SLAM DUNK: あきらめなかった人生に
-  { t: { ja: '「お前の次の 1 本、楽しみにしてるよ」\n「フォースと共にあらんことを」', en: '"Looking forward to your next one."\n"May the Force be with you."' }, fit: (_s, id) => id === 'end_retire' || id === 'end_switch', parody: /と共にあらんことを/ }, // スター・ウォーズ: 送り出す人生に
+  { t: { ja: '「じゃあ、元気でな。たまには連絡しろよ」\n「フォースと共にあらんことを」', en: '"Take care. Call once in a while."\n"May the Force be with you."' }, fit: (_s, id) => id === 'end_retire' || id === 'end_switch', parody: /と共にあらんことを/ }, // スター・ウォーズ: 送り出す人生に
 ];
 /** どの終わり方でも、最後は同期との掛け合い(キッズ・リターンのパロディ)。場面だけ終わり方で変える */
 function kidsReturn(s: State, id: EndingId) {
