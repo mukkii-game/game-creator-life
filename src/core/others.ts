@@ -22,7 +22,7 @@ export function prefetchOthers(): Promise<void> {
   const tm = setTimeout(() => ctl.abort(), 1500);
   loading = fetch(api(`lives?n=30&exclude=${encodeURIComponent(clientId())}`), { signal: ctl.signal })
     .then((r) => (r.ok ? r.json() : null))
-    .then((j) => { if (j?.ok && Array.isArray(j.lives)) cache = j.lives; })
+    .then((j) => { if (j?.ok && Array.isArray(j.lives)) { const seen = new Set<string>(); cache = (j.lives as OtherLife[]).filter((l) => { const k = `${l.family}\u0000${l.given}`; if (seen.has(k)) return false; seen.add(k); return true; }); } }) // 同じ名前は 1 件だけ(念のため手元でも)
     .catch(() => {})
     .finally(() => { clearTimeout(tm); loading = null; });
   return loading;

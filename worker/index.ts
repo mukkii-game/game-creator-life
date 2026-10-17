@@ -6,13 +6,17 @@ interface Env { DB?: any; ASSETS: { fetch: (r: Request) => Promise<Response> } }
 
 const NG = [
   // 差別・卑猥・暴力など、他の人のプレイに出したくない語(パイロットなので最小限。見つけたら足す)
-  'ちんこ', 'ちんぽ', 'まんこ', 'セックス', 'せっくす', 'レイプ', 'れいぷ', 'ファック', '死ね', '殺す', 'ころす', 'ガイジ', 'がいじ', 'キチガイ', 'きちがい', 'チョン', 'シナ人', 'ニガー', 'うんこ', 'ウンコ', '天皇', 'ヒトラー', 'オウム',
+  'ちんこ', 'ちんぽ', 'まんこ', 'おまんこ', 'ちんちん', 'きんたま', 'おっぱい', 'やりまん', 'やりちん', 'ぱいぱん', 'ふぇら', 'ぶっかけ', 'なかだし', 'どうてい', 'しょじょ', 'ばいた', 'ばいしゅん', 'ころすぞ', 'ぶっころ', 'じさつ', 'くたばれ', 'かたわ', 'めくら', 'つんぼ', 'びっこ', 'ちょうせんじん', 'ぶらく', 'しなじん', 'じっぷ', 'おかま',  'セックス', 'せっくす', 'レイプ', 'れいぷ', 'ファック', '死ね', '殺す', 'ころす', 'ガイジ', 'がいじ', 'キチガイ', 'きちがい', 'チョン', 'シナ人', 'ニガー', 'うんこ', 'ウンコ', '天皇', 'ヒトラー', 'オウム',
   'fuck', 'shit', 'cunt', 'nigg', 'fag', 'rape', 'nazi', 'hitler', 'porn', 'dick', 'penis', 'pussy', 'whore',
 ];
 const clean = (v: unknown, max: number) => String(v ?? '').replace(/[\u0000-\u001f\u007f<>]/g, '').trim().slice(0, max);
 const int = (v: unknown, lo: number, hi: number) => { const n = Math.round(Number(v)); return Number.isFinite(n) && n >= lo && n <= hi ? n : null; };
+// 表記ゆれをそろえてから NG 語と照らす(全角英数 → 半角、カタカナ → ひらがな、記号・空白を除く)。ひらがなの NG 語も、カタカナで書いた名前に当たる
+const norm = (s: string) => s.normalize('NFKC').toLowerCase().replace(/[\u30a1-\u30f6]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60)).replace(/[\s・_\-.,!?！？ー〜~*＊]/g, '');
+const NG_N = NG.map(norm);
 const okName = (s: string) => {
   const low = s.toLowerCase().replace(/\s/g, '');
+  if (NG_N.some((w) => norm(s).includes(w))) return false;
   if (/https?:|www\.|\.com|@|\d{3,}/.test(low)) return false;
   return !NG.some((w) => low.includes(w));
 };
@@ -40,7 +44,7 @@ async function save(req: Request, env: Env) {
 async function list(url: URL, env: Env) {
   const ex = clean(url.searchParams.get('exclude'), 40);
   const n = int(url.searchParams.get('n'), 1, 40) ?? 20;
-  const rows = await env.DB.prepare('SELECT family, given, start_year AS startYear, end_year AS endYear, start_age AS startAge, end_age AS endAge, job, company, work, ending FROM lives WHERE named = 1 AND hidden = 0 AND client != ? ORDER BY RANDOM() LIMIT ?')
+  const rows = await env.DB.prepare('SELECT family, given, start_year AS startYear, end_year AS endYear, start_age AS startAge, end_age AS endAge, job, company, work, ending, MAX(created) AS latest FROM lives WHERE named = 1 AND hidden = 0 AND client != ? GROUP BY family, given ORDER BY RANDOM() LIMIT ?' /* 同じ名前は最新の 1 件だけ(2026-10-17 Mukkii。SQLite は MAX と一緒に選んだ列をその行から返す) */)
     .bind(ex, n).all();
   return json({ ok: true, lives: rows.results ?? [] });
 }
