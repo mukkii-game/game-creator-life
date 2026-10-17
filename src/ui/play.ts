@@ -40,6 +40,8 @@ export interface PlayOptions {
   /** 自動で進める時(?auto / ?demo / replay)は短めの間 */
   quick: boolean;
   onEnd: (s: State) => void;
+  /** 1 年進むたび(途中でやめた人生も「最近見た話」に残すため) */
+  onYear?: (s: State) => void;
 }
 
 export interface PlayScreen {
@@ -375,7 +377,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
 
   function pull() {
     const before = s.log.length;
-    if (!s.ending && !s.choice) advance(s);
+    if (!s.ending && !s.choice) { advance(s); o.onYear?.(s); }
     for (; shown < s.log.length; shown++) queue.push(s.log[shown]);
     batchN = queue.filter((l) => l.kind !== 'timeline').length || 1;
     return s.log.length > before;

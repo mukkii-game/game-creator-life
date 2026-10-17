@@ -16,7 +16,7 @@ import { installInput, setHandler, onTap, type Cmd } from './input';
 import { installBuildId } from './build';
 import { showTitle } from './title';
 import { showChronicle } from './chronicle';
-import { load, save, addChronicle, addRecent, recentIds } from '../core/save';
+import { load, save, addChronicle, addRecent, recentIds, setRecentNow } from '../core/save';
 import { startPlay, type PlayScreen, type Speed } from './play';
 import { h, tf, tx, setLook, lookOf, loadFonts } from './util';
 import { installArt } from './art';
@@ -149,15 +149,19 @@ export function startApp(container: HTMLElement) {
       seed, era, seen, name, others, recent, omakase: auto, speed, recorder, player,
       quick: auto || !!player,
       onEnd: (s) => { record(s, seed, player, name); result(s, era); },
+      onYear: (s) => { if (!fixedLife(seed, player)) setRecentNow(memOf(s)); }, // 途中でやめた人生も避ける(2026-10-17: 途中で戻された人生の話が次の人生でも出た)
     });
     onCmd = play.onCmd;
   }
+
+  // この人生で出た話(歴史の事件と system は除く)。「最近見た話」として次の 3 人生で避ける
+  const memOf = (s: State): string[] => [...s.companies.map((c) => `co:${c.company.id}`), `job:${s.inner.startJob}`, `given:${s.name.ja.split(' ')[1] ?? ''}`, ...s.inner.peerStates.map((x) => `fam:${x.name.ja.split(' ')[0]}`), `fam:${s.name.ja.split(' ')[0]}`, `start:${s.startYear}`, `theme:${s.inner.theme ?? ''}`, ...s.inner.peerStates.flatMap((x) => x.works.map((w) => `title:${w.name.ja.replace(/^『|』$/g, '')}`)), ...Object.keys(s.inner.seen), ...(s.inner.saidLines ?? []).map((t) => `line:${t}`), ...s.works.map((w) => `title:${w.name.ja.replace(/^『|』$/g, '')}`)];
 
   // 遊び終わった人生をサーバーに記録(自動・replay・URL で決まる人生は記録しない)。名前を自分で入れた人生だけ他の人のプレイに出る
   function record(s: State, seed: number, player: Player | null, name: string | undefined) {
     if (fixedLife(seed, player) || !s.ending) return;
     // この人生で出た話(歴史の事件と system は除く)を「最近見た話」に
-    addRecent([...s.companies.map((c) => `co:${c.company.id}`), `job:${s.inner.startJob}`, `given:${s.name.ja.split(' ')[1] ?? ''}`, ...s.inner.peerStates.map((x) => `fam:${x.name.ja.split(' ')[0]}`), `fam:${s.name.ja.split(' ')[0]}`, `start:${s.startYear}`, `theme:${s.inner.theme ?? ''}`, ...s.inner.peerStates.flatMap((x) => x.works.map((w) => `title:${w.name.ja.replace(/^『|』$/g, '')}`)), ...Object.keys(s.inner.seen), ...(s.inner.saidLines ?? []).map((t) => `line:${t}`), ...s.works.map((w) => `title:${w.name.ja.replace(/^『|』$/g, '')}`)]);
+    addRecent(memOf(s));
     const typed = name ? splitName(name) : null;
     const parts = typed ?? splitName(s.name.ja);
     const best = [...s.works].sort((a, b) => rank(b.result) - rank(a.result))[0];

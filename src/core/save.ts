@@ -12,6 +12,7 @@ export interface SaveData {
   chronicle: string[];
   /** 直近 3 人生で出た話の id(新しい順。同じ小ネタが続けて遊んだ時に被らないように) */
   recent: string[][];
+  recentNow?: string[];
   /** タイトルで入れた自分の名前(空 = おまかせ) */
   name: string;
 }
@@ -57,6 +58,12 @@ export function addChronicle(keys: string[]): { all: string[]; added: string[] }
 
 /** この人生で出た話を「最近見た話」に足す(直近 3 人生分だけ残す) */
 export function addRecent(ids: string[]): void {
-  save({ recent: [ids, ...load().recent].slice(0, 3) });
+  save({ recent: [ids, ...load().recent].slice(0, 3), recentNow: [] });
 }
-export const recentIds = (): string[] => load().recent.flat();
+/** 遊んでいる途中の人生の分。最後まで遊ばずに次を始めたら、その時に recent へ繰り入れる */
+export function setRecentNow(ids: string[]): void { save({ recentNow: ids }); }
+export function recentIds(): string[] {
+  const d = load();
+  if (d.recentNow?.length) { save({ recent: [d.recentNow, ...d.recent].slice(0, 3), recentNow: [] }); return recentIds(); }
+  return d.recent.flat();
+}

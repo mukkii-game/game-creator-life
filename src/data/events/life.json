@@ -2268,6 +2268,7 @@
    "!flag.in_prison"
   ],
   "once": true,
+  "weight": 0.6,
   "effect": {},
   "choices": [
    {
