@@ -125,7 +125,7 @@
 .peers-sum::before { content: '▸'; }
 .peers[open] .peers-sum::before { content: '▾'; }
 .peers-lab { font-weight: 800; flex: none; }
-.peers-mini { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.peers-mini { color: var(--muted); line-height: 1.35; } /* 先輩・後輩が足されても、名前を省略せず折り返す(2026-10-17) */
 .peers-list { margin: 3px 0 0; padding: 0 0 0 14px; }
 .peers-list li { display: flex; gap: 8px; }
 .peers-list b { flex: none; }

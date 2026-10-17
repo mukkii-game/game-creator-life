@@ -86,6 +86,8 @@ export function platformFor(r: Rng, year: number, role: Role, flags: Record<stri
   // ハードを作る会社の社員は、自社のハードで出す(第 11 回ペルソナ: SCE の社員がドリキャス、ソニーで 3DS)
   const own = co === 'co_sony' ? /PlayStation|PSP|PS\d/ : co === 'co_nintendo' ? /ファミコン|NINTENDO64|ゲームボーイ|DS|Wii|Switch|3DS/ : null;
   if (own) { const l = platformList(year).filter((p) => own.test(p)); if (l.length) return r.pick(l); }
+  // 波動新聞社(元ネタ: 電波新聞社)は、パソコンへの移植の会社。X68000 の時代は X68000 で出す(2026-10-17 Mukkii)
+  if (co === 'co_hadou' && year < 1996) return year >= 1988 ? (r.chance(0.8) ? 'X68000' : 'PC エンジン') : r.pick(year >= 1983 ? ['PC-8801', 'MSX'] : ['PC-8801']);
   // セガの社員は、ハードから撤退する 2001 年まではセガのハード(と業務用)でしか出さない
   if (flags.sega && year < 2001) { const own = platformList(year).filter((p) => /メガドライブ|セガサターン|ドリームキャスト|業務用|ゲームギア/.test(p)); return own.length ? r.pick(own) : (year < 1988 ? '業務用' : 'メガドライブ'); }
   // 新しく選んだハードほど先に効かせる(第 8 回ペルソナ: Switch を選んだのに、前に選んだスマホで出ていた)
@@ -115,7 +117,7 @@ function platformList(year: number): string[] {
 
 // PS2 は 2000 年 3 月から(第 8 回ペルソナ: 1999 年に PS2)
 const TABLE: [number, string[]][] = [
-  [1978, ['業務用']], [1983, ['業務用', 'PC-8801']], [1986, ['ファミコン', '業務用']], [1988, ['ファミコン', 'PC エンジン', '業務用']], [1989, ['ファミコン', 'メガドライブ', 'PC エンジン']], [1990, ['ファミコン', 'メガドライブ', 'PC エンジン', 'ゲームボーイ']],
+  [1978, ['業務用']], [1981, ['業務用']], [1983, ['業務用', 'PC-8801']], /* PC-8801 は 1981 年から */ [1986, ['ファミコン', '業務用', 'MSX', 'PC-8801']], [1988, ['ファミコン', 'PC エンジン', '業務用', 'MSX2']], [1989, ['ファミコン', 'メガドライブ', 'PC エンジン', 'X68000']], [1990, ['ファミコン', 'メガドライブ', 'PC エンジン', 'ゲームボーイ', 'X68000']],
   [1995, ['スーパーファミコン', 'メガドライブ', 'ゲームボーイ']], [1996, ['PlayStation', 'セガサターン', 'スーパーファミコン']], [1998, ['PlayStation', 'セガサターン', 'NINTENDO64']],
   [2000, ['PlayStation', 'ドリームキャスト', 'NINTENDO64']], [2001, ['PlayStation', 'ドリームキャスト', 'PlayStation 2']], [2004, ['PlayStation 2', 'ゲームボーイアドバンス', 'ケータイ']],
   [2007, ['ニンテンドー DS', 'PSP', 'PlayStation 2', 'ケータイ']], [2011, ['ニンテンドー DS', 'Wii', 'PS3', 'ケータイ']],
@@ -141,6 +143,10 @@ export const JOB_TEXT: Record<Job, Text> = {
   sound: { ja: 'サウンド', en: 'sound designer' }, qa: { ja: 'デバッガー', en: 'QA tester' }, sales: { ja: '営業', en: 'sales rep' },
   director: { ja: 'ディレクター', en: 'director' }, producer: { ja: 'プロデューサー', en: 'producer' }, teacher: { ja: '講師', en: 'teacher' }, ta: { ja: 'テクニカルアーティスト', en: 'technical artist' }, other: { ja: '業界の外', en: 'outside the industry' },
 };
+/** 画面に出す職種。カスタマーセンターに移った人は、名刺の職種より今の仕事を出す(2026-10-17 Mukkii: 移った後もずっとプランナー) */
+export function jobLabel(s: { job: Job; flags: Record<string, boolean> }): Text {
+  return s.flags.callcenter ? { ja: 'カスタマーサポート', en: 'customer support' } : JOB_TEXT[s.job];
+}
 export const OTHER_JOBS: Text[] = [
   { ja: '実家の農業', en: 'family farm' }, { ja: 'ラーメン屋', en: 'ramen shop' }, { ja: '不動産屋', en: 'real-estate office' },
   { ja: '市役所', en: 'city hall' }, { ja: 'パン屋', en: 'bakery' }, { ja: '塾の講師', en: 'cram school' }, { ja: 'タクシー会社', en: 'taxi company' },

@@ -3,6 +3,7 @@
 // 選択(state.choice)が来たら止まってボタンを出す。終わったら(state.ending)死因を大きく出して onEnd。
 import { bondsOf } from '../game/bonds';
 import { init, advance, choose, JOB_TEXT } from '../game/logic';
+import { jobLabel } from '../game/names';
 import { BOTS } from '../game/bots';
 import { positionOf } from '../game/select';
 import { POS_TEXT } from '../game/names';
@@ -211,7 +212,7 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     photo.append(faceEl(faceOf(s.seed, s.age), 'face'));
     const who = h('div', 'card-who');
     const jobLine = h('div', 'card-job');
-    jobLine.append(emo((s.job in JOB_ICON ? s.job : 'other') as EmoName, JOB_ICON[s.job] ?? '', 'job-ic', 1.5), h('span', '', `${tx(JOB_TEXT[s.job])} · ${t(`st_${s.status}`)}`));
+    jobLine.append(emo((s.job in JOB_ICON ? s.job : 'other') as EmoName, JOB_ICON[s.job] ?? '', 'job-ic', 1.5), h('span', '', `${tx(jobLabel(s))} · ${t(`st_${s.status}`)}`));
     who.append(h('div', 'card-name', tx(s.name)), jobLine);
     const m = h('div', `card-money${s.stat.money < 0 ? ' neg' : ''}`);
     m.append(h('span', 'g-lab', t('money')), h('b', '', money(s.stat.money)));

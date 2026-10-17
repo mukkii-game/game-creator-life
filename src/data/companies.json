@@ -1278,6 +1278,19 @@
         2060
       ],
       "based": "トイロジック"
+    },
+    {
+      "id": "co_hadou",
+      "name": {
+        "ja": "波動新聞社",
+        "en": "Hadou Shimbun"
+      },
+      "based": "電波新聞社",
+      "size": "small",
+      "years": [
+        1978,
+        2005
+      ]
     }
   ]
 }

@@ -526,5 +526,27 @@
    "ja": "UPエルの『忍者さん』を、ゲームセンターで遊んだ。小さな忍者の動きに、ドットの気持ちよさが全部入っていた。",
    "en": "At the arcade you played UPL's Ninja-san. The little ninja's movements held all the joy of pixel art."
   }
+ },
+ {
+  "co": "co_hadou",
+  "years": [
+   1988,
+   1993
+  ],
+  "text": {
+   "ja": "波動新聞社が、ゲームセンターの名作を X68000 にほぼそのまま移植した。家でゲーセンの音が鳴った。本体の値段を思い出して、少し静かになった。",
+   "en": "Hadou Shimbun ported an arcade classic to the X68000 almost perfectly. The arcade sounds played at home. Then you remembered what the computer cost, and got quiet."
+  }
+ },
+ {
+  "co": "co_hadou",
+  "years": [
+   1983,
+   1987
+  ],
+  "text": {
+   "ja": "波動新聞社の雑誌に載っていたプログラムを、一晩かけて打ち込んだ。1 文字の打ち間違いで動かなかった。見つけたのは朝の 5 時だった。",
+   "en": "You spent a night typing in a program listing from a Hadou Shimbun magazine. One typo, and it wouldn't run. You found it at 5 a.m."
+  }
  }
 ]

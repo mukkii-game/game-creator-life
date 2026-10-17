@@ -809,6 +809,7 @@ function peerSummary(p: State): Text {
   if (p.flags.in_prison) return { ja: '服役中', en: 'Serving time' };
   if (p.job === 'other') return { ja: p.inner.otherJob ? `業界を離れ、${p.inner.otherJob.ja}で働いている` : '業界を離れ、別の仕事をしている', en: p.inner.otherJob ? `Left the industry; working at a ${p.inner.otherJob.en}` : 'Left the industry for other work' }; // 「ナツメグの業界の外」にならないように(2026-10-17)
   if (p.status === 'left') return { ja: '求職中', en: 'Job hunting' };
+  if (p.flags.callcenter) return { ja: `${p.company.name.ja}のカスタマーセンター`, en: `Customer support at ${p.company.name.en}` };
   return { ja: `${p.company.name.ja}の${j.ja}`, en: `${j.en} at ${p.company.name.en}` };
 }
 function peersYear(s: State, out: string[]) {
