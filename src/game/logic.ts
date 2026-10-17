@@ -918,7 +918,7 @@ function arcOn(s: State, r: Rng, kind: string, pre: string): boolean {
   // どの人生にも長い筋を 1 本は通す(第 34 回まで: 筋の通った人生は 8 点、無い人生は「部品の寄せ集め」)。直近で見ていない種類を優先
   if (k.must === undefined) { const all: [string, string][] = [['fan', 'ev_fa_'], ['rival', 'ev_rv_'], ['mentor', 'ev_mt_'], ['mentee', 'ev_me_']]; const fresh = all.filter(([, p]) => !s.inner.recent?.some((id) => id.startsWith(p))); const age = ([, p]: [string, string]) => { const i = s.inner.recent?.findIndex((id) => id.startsWith(p)) ?? -1; return i < 0 ? 1e9 : i; }; const oldest = [...all].sort((a, b) => age(b) - age(a))[0]; (k as Record<string, boolean | string>).must = fresh.length ? r.pick(fresh)[0] : (oldest && r.chance(0.1) ? oldest[0] : ''); } // 全部見ていたら決め打ちはたいてい無し(第 44 回: 一番前に見た種類を選ぶと 1 つおきに同じ筋。新しい連鎖が穴を埋める) // 全部見ていたら、いちばん前に見た種類(recent は新しい人生が先頭。第 41 回: ライバルの企画コンペが 3 人生とも)
   if ((k as Record<string, boolean | string>).must === kind) return true;
-  if (k[kind] === undefined) k[kind] = s.inner.recent?.some((id) => id.startsWith(pre)) ? false : !r.chance(0.1); // 直近の人生で通った筋は、決め打ちの 1 本でなければ通さない(第 36 回: ファンの子の筋が 2 人生続けて) // 第 20 回: ファンの子の筋が 2 人生続けて → 0.9 // 第 15 回ペルソナ: まだ続けて来る → 0.6 から 0.8
+  if (k[kind] === undefined) k[kind] = s.inner.recent?.some((id) => id.startsWith(pre)) ? false : !r.chance(kind === 'rival' ? 0.5 : 0.1); /* ライバルは決め打ちでない時は半々(2026-10-17: 4 人生ごとにほぼ必ず企画のコンペ) */ // 直近の人生で通った筋は、決め打ちの 1 本でなければ通さない(第 36 回: ファンの子の筋が 2 人生続けて) // 第 20 回: ファンの子の筋が 2 人生続けて → 0.9 // 第 15 回ペルソナ: まだ続けて来る → 0.6 から 0.8
   return k[kind];
 }
 function mentorArcs(s: State, r: Rng, out: string[]) {
@@ -1070,7 +1070,8 @@ function storyArcs(s: State, r: Rng): string[] {
       id = pickFresh(s, r, steps[a.step]);
     } else {
       const sameCo = s.status === 'employed' && a.co === s.company.id; // 競う・隣に座る・引き抜かれるは同じ会社の時だけ
-      id = pickFresh(s, r, [['ev_rv_1', 'ev_rv_1b'], ['ev_rv_2', 'ev_rv_2b', 'ev_rv_2c'], ['ev_rv_3', 'ev_rv_3b', 'ev_rv_3c'], ['ev_rv_4', 'ev_rv_4b', 'ev_rv_4c'], ['ev_rv_5', 'ev_rv_5b', 'ev_rv_5c']][a.step]);
+      const pitch = ['planner', 'director', 'producer'].includes(s.job) || s.year - s.startYear >= 8 || !EVENT_BY_ID.has(`ev_rv_1_${s.job}`); /* 企画で競うのは企画の人か 8 年目から。ほかは自分の職種で競う(2026-10-17 Mukkii: プランナーの時に企画のコンペが何度も) */
+      id = pickFresh(s, r, [pitch ? ['ev_rv_1', 'ev_rv_1b'] : [`ev_rv_1_${s.job}`], ['ev_rv_2', 'ev_rv_2b', 'ev_rv_2c'], ['ev_rv_3', 'ev_rv_3b', 'ev_rv_3c'], ['ev_rv_4', 'ev_rv_4b', 'ev_rv_4c'], ['ev_rv_5', 'ev_rv_5b', 'ev_rv_5c']][a.step]);
       if ((a.step === 0 || a.step === 2 || a.step === 3) && !sameCo) id = null;
     }
     const ev = id ? EVENT_BY_ID.get(id) : undefined;
