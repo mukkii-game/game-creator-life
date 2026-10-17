@@ -127,6 +127,8 @@ for (const e of EVENTS) {
   if (/自分の作品|あなたの作品|自分のゲーム|あなたのゲーム|昔作った|発売された箱|自分が作った|自作の|自分の昔の|昔の作品|マスター ROM|過去作|自分の担当した|あなたの作った|あなたの新作/.test(tx) && !has(e, 'works')) add(e, 'works>=1');
   // 仕事の書類の話は、無職の間は出さない(独立中は出してよい)
   if (/仕様書|企画書|本業|会社にばれ|勤め先|定時/.test(tx) && !has(e, 'status') && !has(e, 'pos')) add(e, 'status!=left');
+  // 嘱託(60 歳の再雇用)・デバッグのバイトの人に、早期退職・希望退職・退職金の話は出さない(退職金はもう出ている。2026-10-17 Mukkii)
+  if (/早期退職|希望退職|退職金/.test(tx)) { if (!has(e, 'flag.rehired')) add(e, '!flag.rehired'); if (!has(e, 'flag.parttime')) add(e, '!flag.parttime'); }
   // 親友を見送った後に、その親友が出てくる話は出さない
   if (/親友/.test(tx) && !has(e, 'flag.friend_gone')) add(e, '!flag.friend_gone');
   // 会社が潰れる・営業停止の話は、実在の会社にいる時は出さない(史実に無い倒産)
