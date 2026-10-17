@@ -1525,5 +1525,154 @@
    "celeb",
    "high"
   ]
+ },
+ {
+  "id": "ev_l2_meijin_suika",
+  "years": [
+   1985,
+   1989
+  ],
+  "weight": 1.5,
+  "once": true,
+  "text": {
+   "ja": "ハドソンのイベントで、高橋名人が 16 連射でスイカを割るのを見た。帰りの電車で、隣の子どもが指で窓をずっと叩いていた。自分も叩いていた。",
+   "en": "At a Hudson event you watched Takahashi Meijin split a watermelon with 16 shots a second. On the train home, the kid next to you kept tapping the window. So did you."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ],
+  "memory": {
+   "ja": "高橋名人がスイカを連射で割るのを見た",
+   "en": "saw Takahashi Meijin split a watermelon by rapid-fire"
+  }
+ },
+ {
+  "id": "ev_l2_meijin_1hour",
+  "years": [
+   1985,
+   1995
+  ],
+  "weight": 1.5,
+  "once": true,
+  "text": {
+   "ja": "高橋名人の「ゲームは 1 日 1 時間」がテレビで流れた。その日、あなたはテストで 14 時間遊んでいた。仕事なので、たぶん数に入らない。",
+   "en": "Takahashi Meijin's \"Games: one hour a day\" played on TV. That day you'd played 14 hours of testing. It's work, so it probably doesn't count."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 3,
+   "hp": -1
+  },
+  "tag": [
+   "celeb",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_l2_meijin_movie",
+  "years": [
+   1986,
+   1987
+  ],
+  "weight": 1,
+  "once": true,
+  "text": {
+   "ja": "映画『GAME KING 高橋名人 VS 毛利名人 激突!大決戦』を、会社の後輩と観に行った。客席は小学生だらけ。大人 2 人が一番大きな声を出していた。",
+   "en": "You saw the movie 'GAME KING: Takahashi Meijin vs. Mouri Meijin' with a junior coworker. The seats were full of grade-schoolers. The two adults cheered loudest."
+  },
+  "effect": {
+   "passion": 5,
+   "network": 1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ],
+  "memory": {
+   "ja": "名人の映画で、小学生より大きな声を出した",
+   "en": "cheered louder than the kids at the Meijin movie"
+  }
+ },
+ {
+  "id": "ev_l2_meijin_pce",
+  "years": [
+   1988,
+   1994
+  ],
+  "weight": 1.5,
+  "once": true,
+  "text": {
+   "ja": "PC エンジンの大会の舞台で、高橋名人がシューティングを実演した。あなたの会社のソフトではなかった。それでも最前列で、一番速く拍手した。",
+   "en": "On a PC Engine tournament stage, Takahashi Meijin demoed a shooter. Not your company's game. You still clapped fastest from the front row."
+  },
+  "when": [
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 5
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_meijin_card",
+  "years": [
+   1987,
+   1994
+  ],
+  "weight": 1,
+  "once": true,
+  "text": {
+   "ja": "仕事の打ち合わせで、ハドソンの人の隣に高橋名人がいた。名刺を渡す手が少し震えた。名人の名刺には、本名と「名人」の両方が書いてあった。",
+   "en": "At a work meeting, Takahashi Meijin was sitting next to the Hudson people. Your hand shook a little handing over your card. His card had both his real name and \"Meijin.\""
+  },
+  "when": [
+   "status=employed",
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 6,
+   "network": 3
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ],
+  "memory": {
+   "ja": "高橋名人と名刺を交換した",
+   "en": "swapped business cards with Takahashi Meijin"
+  }
+ },
+ {
+  "id": "ev_l2_meijin_later",
+  "years": [
+   2005,
+   2035
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "飲み会で年下の同僚が「高橋名人って本当に 16 連射できたんですか」と聞いた。あなたは机を指で叩いて見せた。7 回で指がつった。それでも場はいちばん盛り上がった。",
+   "en": "At drinks a younger coworker asked, \"Could Takahashi Meijin really do 16 a second?\" You demonstrated on the table. Your finger cramped at seven. It was still the best moment of the night."
+  },
+  "when": [
+   "career>=15"
+  ],
+  "effect": {
+   "passion": 3,
+   "network": 1
+  },
+  "tag": [
+   "celeb",
+   "gag"
+  ]
  }
 ]

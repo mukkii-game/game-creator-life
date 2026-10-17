@@ -189,6 +189,7 @@ for (const e of EVENTS) if (['ev_era5_vr_team', 'ev_tn_big_vr', 'ev_hs_2016_psvr
 for (const e of EVENTS) { const tx = [e.text, ...(e.alt ?? [])].map((x) => x.ja).join(' '); if (/\{work\}/.test(tx) && /父と遊んだ|親子で|いまは息子|いまは娘|復刻|リマスター|隠れた名作/.test(tx) && !e.tag?.includes('afterlife') && !e.choices) e.tag = [...(e.tag ?? []), 'afterlife']; }
 for (const e of EVENTS) if (e.tag?.includes('insider') && e.choices) e.motif = 'insider'; else if (e.tag?.includes('crime') && !e.motif) e.motif = 'crime'; // 選択の無い犯罪の小ネタも同じ型(第 37 回: 3 人生中 2 人生で逮捕)
 // 有名人の話は、同じ人は 1 人生 1 回(第 36 回: 上村雅之さんが 2 回、初対面のように出た)
+for (const e of EVENTS) if (!e.motif && /高橋名人/.test(e.text.ja) && (e.tag ?? []).some((t) => t === 'celeb' || t === 'bond')) e.motif = 'celeb:高橋名人'; /* 名人は「さん」が付かないので名前で拾う(2026-10-17) */
 for (const e of EVENTS) if (e.tag?.includes('celeb') && !e.motif) { const m = /([一-龥ァ-ヶー]{2,8}[一-龥ぁ-ん]{0,4})さん/.exec(e.text.ja); if (m) e.motif = `celeb:${m[1]}`; } // 株の選択は本文に「株」が無く型が付いていなかった(第 32 回: 3 人生中 2 人生で株→実刑)
 for (const e of EVENTS) if (['ev_tn_big_promotion', 'ev_tn_big_subsidiary', 'ev_wk_promote_ask'].includes(e.id)) e.motif = 'mgmt_offer'; // 管理職・子会社の社長の誘いは 1 人生 1 回、続けて遊ぶと出にくく(第 39 回: 管理職のカードが毎回)
 for (const e of EVENTS) if (e.id.startsWith('ev_wk_restructure_')) e.motif = 'restructure'; // 希望退職かカスタマーセンターかは 1 人生 1 回(第 20 回: 2002 と 2009 に 2 回)
