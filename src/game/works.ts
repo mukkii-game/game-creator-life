@@ -200,11 +200,17 @@ const SOLO_LINES: Partial<Record<WorkResult, Text>> = {
 /** 作品を 1 本出す。ログの文と効果を返す */
 export function release(s: State): { work: Work; line: Text } {
   const r = s.rng;
-  const role = roleFor(s);
-  const result = roll(s, role);
-  const platform = platformFor(r, s.year, role, s.flags, s.status === 'employed' ? s.company.id : undefined);
-  const styled = styledName(s);
-  const titled = styled ? { name: styled } : role === 'solo' || !r.chance(0.8) ? null : pickTitle(s, platform);
+  // 続編から外された後の最初の発売: 半分は、終盤で崩れた続編に助っ人で呼ばれ、リードとして仕上げて責任を負う。残りは続編とは別の企画(2026-10-17 Mukkii)
+  const so = s.inner.sequelOut;
+  const soOk = !!so && s.status === 'employed' && s.company.id === so.co && s.year - so.year <= 3 && roleFor(s) !== 'solo';
+  if (so && (soOk || s.year - so.year > 3 || s.company.id !== so.co)) s.inner.sequelOut = undefined;
+  const salvage = soOk && r.chance(0.5), aside = soOk && !salvage;
+  const role = salvage ? 'lead' : roleFor(s);
+  const result: WorkResult = salvage ? (r.chance(0.7) ? 'flop' : 'ok') : roll(s, role);
+  const platform = salvage ? so!.platform : platformFor(r, s.year, role, s.flags, s.status === 'employed' ? s.company.id : undefined);
+  const styled = salvage ? null : styledName(s);
+  const sqName: Text | null = salvage ? { ja: `『${so!.name.ja.replace(/^『|』$/g, '')} 2』`, en: `${so!.name.en.replace(/ 2$/, '')} 2` } : null;
+  const titled = sqName ? { name: sqName } : styled ? { name: styled } : role === 'solo' || !r.chance(0.8) ? null : pickTitle(s, platform);
   const work: Work = { id: `wk_${s.works.length + 1}`, name: titled?.name ?? fitName(r, s.year, platform, s.works.map((w) => w.name.ja)), year: s.year, platform, role, result, history: [], res0: result };
   s.works.push(work);
   // 結果の一言は、この人生でまだ使っていないものから(ペルソナ通読: 社長賞 5000 円が 3 回)
@@ -232,7 +238,13 @@ export function release(s: State): { work: Work; line: Text } {
   ];
   const lastF = (s.inner.relForms ??= []); const okF = forms.map((_, i) => i).filter((i) => !lastF.slice(-2).includes(i)); // 直前 2 本と同じ形は避ける(自動点検: 同じ書き出しが 1 人生に 3 回)
   const fi = s.works.length <= 1 || role === 'solo' ? 0 : (okF.length ? r.pick(okF) : r.int(0, forms.length - 1)); lastF.push(fi); // ひとりの作品は今の形だけ(「ひとりとして関わった」にしない)
-  const line: Text = { ja: forms[fi][0], en: forms[fi][1] };
+  let line: Text = { ja: forms[fi][0], en: forms[fi][1] };
+  if (salvage) { const rs = RESULT_TEXT[result]; const pickS = (c: Text[]) => { const f = c.map((_, i) => i).filter((i) => !s.inner.recent?.includes(`line:salvage:${i}`)); const i = r.pick(f.length ? f : c.map((_, k) => k)); said.push(`salvage:${i}`); return c[i]; }; /* 名前入りの文なので、番号で直近の人生と被らせない */ line = pickS([
+    { ja: `終盤で崩れた続編のチームに、助っ人で呼ばれた。${work.name.ja}(${work.platform})をなんとか仕上げた。結果は${rs.ja}。最後にリードだったのはあなたなので、責任もあなたのものになった。`, en: `The sequel team fell apart near the end, and you were called in to help. You got ${work.name.en} (${work.platform}) out the door. Result: ${rs.en}. You were the last lead, so the blame was yours too.` },
+    { ja: `外されたはずの続編${work.name.ja}に、発売 3 か月前に呼び戻された。残っていたのは仕様書の目次だけ。なんとか出した。${rs.ja}。反省会の資料の「責任者」の欄に、あなたの名前が入っていた。`, en: `Three months before launch, you were pulled back onto ${work.name.en}, the sequel you'd been left off. All that remained was the spec's table of contents. You shipped it. ${rs.en}. Your name was in the "responsible" box of the post-mortem.` },
+    { ja: `続編${work.name.ja}のチームが空中分解し、残り半年であなたに回ってきた。ボスを 2 体削って間に合わせた。${rs.ja}。雑誌の評には「前作の良さが消えた」。消したのは、前作を作ったあなただった。`, en: `The team on ${work.name.en} imploded, and with six months left it landed on you. You cut two bosses to make the date. ${rs.en}. A review said "it lost what made the first one good." The one who cut it was you, who made the first one.` },
+  ]); }
+  else if (aside) line = { ja: `続編の陰で、別の企画を任された。${line.ja}`, en: `While the sequel went ahead without you, you were handed a different project. ${line.en}` };
   const fx = { flop: { passion: -12, fame: 0 }, ok: { passion: 4, fame: 1 }, hit: { passion: 20, fame: 8 }, legend: { passion: 30, fame: 20 } }[result];
   const roleFame = { junior: 0.3, core: 0.7, lead: 1, solo: 1 }[role];
   s.stat.passion = clamp(s.stat.passion + fx.passion);
@@ -324,6 +336,7 @@ export function tickWorks(s: State): { work: Work; text: Text }[] {
       fc[f.key] = (fc[f.key] ?? 0) + 1;
       const h = { year: s.year, text: ft, key: f.key } as { year: number; text: Text; key?: string };
       w.history.push(h);
+      if (f.key === 'sequel' && s.status === 'employed' && !s.inner.sequelOut) s.inner.sequelOut = { name: w.name, platform: w.platform, year: s.year, co: s.company.id }; // 外された続編のその後は、次の発売で回収する
       if (f.result) w.result = f.result;
       if (f.fame) s.stat.fame = clamp(s.stat.fame + f.fame);
       out.push({ work: w, text: { ja: `${w.name.ja}: ${ft.ja}`, en: `${w.name.en}: ${ft.en}` } });
