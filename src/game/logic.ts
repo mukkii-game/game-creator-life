@@ -575,6 +575,26 @@ function moneyShock(s: State) {
     { ja: `引っ越した。敷金、礼金、新しい机、新しい椅子。気づけば ${m}。仕事は前と同じ机の上でした方がはかどった。`, en: `You moved. Deposit, key money, a new desk, a new chair: ${me} before you knew it. You worked better at the old desk.` },
     { ja: `自分のゲームを作るための機材を一式そろえた。${m}。1 年たって、主に動画を見る機械になっている。`, en: `You bought a full rig to make your own game. ${me}. A year later, it's mostly for watching videos.` },
   ];
+  // 半分は前向きな使い道(2026-10-17 Mukkii「損してばっかりは嫌。家を買った、豪華な結婚式、みたいなポジティブな出費も」)
+  const kid = s.inner.childYear ? s.year - s.inner.childYear : -1;
+  const good: [boolean, Text, (() => void)?][] = [
+    [s.age >= 30, { ja: `家を買った。頭金で ${m}。玄関の横に、ゲーム部屋だけは譲らなかった。`, en: `You bought a house. ${me} for the down payment. The game room by the entrance was non-negotiable.` }],
+    [!!s.flags.partner && !s.flags.lv_married, { ja: `結婚式をやった。豪華にやった。${m}。余興は同僚が作った専用ゲームで、新郎新婦がラスボスだった。`, en: `You had the wedding. A lavish one. ${me}. The entertainment was a game your coworkers made, with the couple as the final boss.` }, () => { s.flags.lv_married = true; }],
+    [kid >= 15 && kid <= 22, { ja: `子どもの学費を払った。${m}。入学式の帰り、子どもが「親のゲームで勉強した」と言った。受験に出たらしい。`, en: `You paid your kid's tuition. ${me}. After the ceremony, your kid said they'd studied with your game. It came up on the exam, apparently.` }],
+    [!s.flags.father_gone || !s.flags.mother_gone, { ja: `親を温泉旅行に連れていった。少しいい宿にした。${m}。親は宿のゲームコーナーで、あなたの昔のゲームを探していた。`, en: `You took your parents to a hot-spring inn. A nice one. ${me}. They spent the trip looking for your old game in the inn's arcade corner.` }],
+    [true, { ja: `ずっと欲しかった筐体を買った。${m}。リビングの真ん中に置いた。家族会議は 3 時間かかったが、勝った。`, en: `You finally bought the arcade cabinet you'd always wanted. ${me}. It sits in the middle of the living room. The family meeting took three hours. You won.` }],
+    [true, { ja: `仕事を 1 か月休んで、世界中のゲーム博物館を回った。${m}。帰りの飛行機で、次のゲームの案が 3 つできた。`, en: `You took a month off to visit game museums around the world. ${me}. Three ideas for your next game were ready by the flight home.` }],
+    [s.works.length >= 3, { ja: `母校に、生徒が自由に使える開発用のパソコンを 20 台寄付した。${m}。卒業生の欄に、自分の作品名が並んだ。`, en: `You donated 20 dev PCs to your old school. ${me}. Your game titles now hang under the alumni plaque.` }],
+    [true, { ja: `防音の作業部屋を作った。${m}。誰にも邪魔されない部屋で、最初にしたのは昼寝だった。`, en: `You built a soundproof workroom. ${me}. The first thing you did in it, undisturbed, was take a nap.` }],
+  ];
+  const goods = good.filter(([ok]) => ok);
+  if (goods.length && s.rng.chance(0.6)) {
+    const t = freshLine(s, goods.map((x) => x[1]), 'moneygood');
+    goods.find((x) => x[1] === t)?.[2]?.();
+    s.stat.passion = clamp(s.stat.passion + 6);
+    log(s, t, 'event', ['money', 'high']);
+    return;
+  }
   log(s, freshLine(s, pool, 'moneyshock'), 'event', ['money']);
 }
 
