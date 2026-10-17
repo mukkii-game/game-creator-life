@@ -873,6 +873,8 @@ function otherLine(s: State, r: Rng): Text | null {
   seen.push(fullName(o));
   const d = o.startYear - s.startYear;
   const c = callName(o), f = fullName(o), co = o.company || 'どこかの会社', job = o.job || '開発', w = o.work ? `『${o.work.replace(/^[『「]|[』」]$/g, '')}』` : '';
+  const mine = s.company.name.ja, coKey = (x: string) => (/セガ/.test(x) ? 'セガ' : x.replace(/[・\s]|株式会社|エンタープライゼス|ゲームス?$/g, ''));
+  const sameCo = s.status === 'employed' && !!o.company && (coKey(mine) === coKey(o.company) || mine.includes(o.company) || o.company.includes(mine)); /* 同じ会社の人(2026-10-17 Mukkii: セガなのにセガの同期と名刺交換 → 部署が違えば別会社のギャグに) */
   const cands: Text[] = [];
   const add = (ja: string, en: string) => cands.push({ ja, en });
   if (s.year >= o.endYear) add(`${c}が業界を去ったと聞いた。「${o.ending}」。いいゲーム人生だったらしい。少しだけ、自分の残り時間を数えた。`, `Word came that ${f} had left the industry: "${o.ending}". A good game life, by all accounts. You counted your own years for a moment.`);
@@ -880,13 +882,15 @@ function otherLine(s: State, r: Rng): Text | null {
     add(`先輩の${c}(${co}の${job})に飲みに連れて行かれた。説教は 2 時間、おごりは 1 杯だった。`, `Your senior ${f} (${job} at ${co}) took you drinking. Two hours of lecture, one drink on them.`);
     if (w) add(`業界の先輩、${c}の噂を聞いた。${co}で${w}を作った人らしい。なぜか自分のことのように嬉しかった。`, `You heard about ${f}, an industry senior who made ${w} at ${co}. Somehow you felt proud of it yourself.`);
   } else if (Math.abs(d) <= 1) {
-    add(`同期の${c}とイベントで再会した。${co}で${job}をやっているという。名刺交換の手つきが、2 人とも同じくらい下手だった。`, `You ran into ${f}, from your year, at an event — now ${job} at ${co}. You were both equally bad at exchanging business cards.`);
+    if (sameCo) add(`同期の${c}とイベントで再会した。同じ${co}で${job}をやっているという。部署が違えば別の会社と同じなので、名刺を交換した。2 人とも、自分の会社の住所を初めてちゃんと読んだ。`, `You ran into ${f}, from your year, at an event — also at ${co}, as ${job}. Different department, so basically a different company. You exchanged business cards. Both of you read your own company's address properly for the first time.`);
+    else add(`同期の${c}とイベントで再会した。${co}で${job}をやっているという。名刺交換の手つきが、2 人とも同じくらい下手だった。`, `You ran into ${f}, from your year, at an event — now ${job} at ${co}. You were both equally bad at exchanging business cards.`);
     if (w) add(`同じ年に業界に入った${c}が${w}を出したと聞いた。悔しくて、その夜は眠れなかった。翌朝、買った。`, `${f}, who started the same year as you, shipped ${w}. Jealousy kept you up all night. Next morning, you bought it.`);
   } else if (d > 1 && d <= 15) {
     add(`後輩の${c}が入ってきた。最初の週に、あなたのバグを 3 つ見つけた。頼もしいが、少しむかついた。`, `${f} joined as a junior. In their first week they found three of your bugs. Reassuring. Also annoying.`);
     if (w) add(`後輩の${c}が${w}に関わったと聞いた。昔あなたが貸した攻略本を、まだ返してもらっていない。`, `Your junior ${f} worked on ${w}. They still haven't returned the strategy guide you lent them.`);
   }
-  if (s.year >= 1980) add(`ゲーム雑誌で${f}さんのインタビューを読んだ。${co}の${job}。写真の背景の散らかった机に、親近感がわいた。`, `You read an interview with ${f}, ${job} at ${co}, in a game magazine. The messy desk behind them felt like home.`);
+  if (s.year >= 1980 && sameCo) add(`ゲーム雑誌で${f}さんのインタビューを読んだ。同じ${co}の${job}らしい。社内報より先に雑誌で知った。写真の背景の散らかった机は、たぶん 3 階のどこかだ。`, `You read an interview with ${f} in a game magazine — ${job}, at ${co}, same as you. You learned it from a magazine before the company newsletter. The messy desk in the photo is probably somewhere on the third floor.`);
+  else if (s.year >= 1980) add(`ゲーム雑誌で${f}さんのインタビューを読んだ。${co}の${job}。写真の背景の散らかった机に、親近感がわいた。`, `You read an interview with ${f}, ${job} at ${co}, in a game magazine. The messy desk behind them felt like home.`);
   if (s.year >= 1998 && w) add(`ネットの記事で${f}さんの名前を見かけた。${w}の裏話をしていた。いつか会ってみたい。`, `You spotted ${f} in an online article, telling stories behind ${w}. You'd like to meet them someday.`);
   return cands.length ? r.pick(cands) : null;
 }
