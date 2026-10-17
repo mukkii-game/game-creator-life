@@ -1833,15 +1833,17 @@
   "kind": "hit",
   "weight": 2,
   "title": {
-   "ja": "『Undertale』発売",
-   "en": "Undertale is released"
+   "ja": "インディーの衝撃『Undertale』『Downwell』",
+   "en": "The indie shock: Undertale and Downwell"
   },
   "news": {
-   "ja": "トビー・フォックスがほぼ 1 人で作った『Undertale』が 9 月 15 日に発売され、世界的なヒットになった。",
-   "en": "Undertale, made almost entirely by Toby Fox, is released on September 15 and becomes a worldwide hit."
+   "ja": "9 月にトビー・フォックスの『Undertale』、10 月にもっぴんの『Downwell』が立て続けに出て、世界的なヒットになった。日本の個人の作品が世界に届き、「日本からでも 1 人で世界に行ける」という空気が業界に広まった。",
+   "en": "Toby Fox's Undertale in September and moppin's Downwell in October hit one after another and become worldwide successes. A Japanese solo developer's game reaching the world spreads a feeling through the industry: you can go global alone, even from Japan."
   },
   "src": "Undertale",
   "variants": [
+   {"id": "ev_hs_2015_downwell_indie", "when": ["pos=indie"], "text": {"ja": "日本の個人の作品が、世界のストアの一番上にいた。同じ 1 人なのに、とは思わなかった。同じ 1 人だから、と思った。", "en": "A Japanese solo developer's game sat at the top of stores worldwide. You didn't think 'and I'm alone too.' You thought 'because I'm alone too.'"}, "effect": {"passion": 14}, "tag": ["hist", "indie", "high"]},
+   {"id": "ev_hs_2015_downwell_dev", "when": ["status=employed"], "text": {"ja": "井戸を落ちていくだけのゲームが、世界で売れていた。作ったのは日本の 1 人。昼休み、誰も口に出さなかったが、全員がストアの画面を開いていた。", "en": "A game about just falling down a well was selling worldwide, made by one person in Japan. At lunch nobody said it aloud, but everyone had the store page open."}, "effect": {"passion": 6}, "tag": ["hist", "indie"]},
    {
     "id": "ev_hs_2015_undertale_indie",
     "when": [

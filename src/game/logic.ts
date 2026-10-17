@@ -1090,7 +1090,7 @@ function wOf(s: State): (e: GameEvent) => number {
   // 人生ごとの色(第 33 回: 3 回続けると「同じ骨組みの色違い」→ 1 人生ごとに出やすい話の種類を 1 つ決める。直近の人生と同じ色は避ける)
   const th = (s.inner.theme ??= (() => { const ok = THEMES.filter((t) => !rec?.includes(`theme:${t}`)); return s.inner.isPeer ? '' : s.rng.pick(ok.length ? ok : THEMES); })());
   const p = tune<number>('life.recentPenalty');
-  return (e) => (e.weight ?? 1) * (th && e.tag?.includes(th) ? 2.5 : 1) * (e.jobs && e.jobs.length <= 2 && e.jobs.includes(s.job) ? (s.year - s.startYear <= 7 ? 4 : 2) : 1) /* 職種の味(第 38 回: サウンドなのに音の話がほぼ無い) */ * (rec?.includes(e.id) ? p : 1) * (e.motif && rec?.includes(`line:motif:${e.motif}`) ? 0.2 : 1) * (e.tag?.includes('insider') ? 0.4 : 1);
+  return (e) => (e.weight ?? 1) * (th && e.tag?.includes(th) ? 2.5 : 1) * (e.jobs && e.jobs.length <= 2 && e.jobs.includes(s.job) ? (s.year - s.startYear <= 7 ? 4 : 2) : 1) * (e.tag?.includes('indie') && s.year >= 2016 ? 2.5 : 1) /* 2015 年のインディーの衝撃の後は、独立の話が出やすい(2026-10-17 Mukkii) */ /* 職種の味(第 38 回: サウンドなのに音の話がほぼ無い) */ * (rec?.includes(e.id) ? p : 1) * (e.motif && rec?.includes(`line:motif:${e.motif}`) ? 0.2 : 1) * (e.tag?.includes('insider') ? 0.4 : 1);
 }
 
 /** 直近の人生で見ていない話だけ(続けて遊んだ時に、人生の大きな筋が被らないように) */
