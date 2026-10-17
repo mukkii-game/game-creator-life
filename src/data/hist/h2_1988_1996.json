@@ -4765,14 +4765,14 @@
   "year": 1996,
   "month": 9,
   "kind": "hit",
-  "weight": 2,
+  "weight": 30,
   "title": {
    "ja": "『サクラ大戦』発売",
    "en": "Sakura Wars launches"
   },
   "news": {
-   "ja": "セガサターンで発売。秋に出たので「コスモス(秋桜)大戦」と揶揄されたが、セガのイメージを変える作風で大ヒット。続編が続き、今に至る人気シリーズになる。",
-   "en": "Released on the Sega Saturn. Because it slipped to autumn, people mocked it as 'Cosmos (autumn sakura) Wars,' but its style changed Sega's image and it became a huge hit. Sequels followed, and it remains a popular series today."
+   "ja": "セガサターンで発売。秋に出たので「コスモス(秋桜)大戦」と揶揄されたが、セガのイメージを変える作風で大ヒット。翌年、第 1 回の日本ゲーム大賞(当時の CESA 大賞)で大賞を取り、今に至る人気シリーズになる。",
+   "en": "Released on the Sega Saturn. Because it slipped to autumn, people mocked it as 'Cosmos (autumn sakura) Wars,' but its style changed Sega's image and it became a huge hit. The next year it won the grand prize at the first Japan Game Awards (then the CESA Awards), and it remains a popular series today."
   },
   "src": "サクラ大戦",
   "group": "mukkii",
@@ -4784,7 +4784,7 @@
      "flag.w_two_side_ss"
     ],
     "text": {
-     "ja": "サターンの陣営に大ヒット。残ってよかったと泣いた。打ち上げのカラオケで、主題歌を 4 回歌った。",
+     "ja": "サターンの陣営に大当たり。残ってよかったと泣いた。打ち上げのカラオケで、主題歌を 4 回歌った。",
      "en": "A smash hit for the Saturn camp. You cried, glad you stayed. At the wrap party karaoke, you sang the theme four times."
     },
     "effect": {
@@ -4861,7 +4861,7 @@
    {
     "id": "ev_hs_1996_sakura_any",
     "text": {
-     "ja": "サターンから大ヒットが出た。陣営の勝ち負けの話は、ヒット 1 本でまた振り出しに戻った気がした。少しだけ。",
+     "ja": "サターンから大当たりが出た。陣営の勝ち負けの話は、たった 1 本でまた振り出しに戻った気がした。少しだけ。",
      "en": "A big hit on Saturn. For a moment, it felt like the console war had reset to zero. Only for a moment."
     },
     "effect": {
