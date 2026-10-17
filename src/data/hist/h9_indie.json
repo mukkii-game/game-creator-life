@@ -1,0 +1,50 @@
+[
+ {
+  "id": "hs_2013_bitsummit",
+  "year": 2013,
+  "month": 3,
+  "kind": "work",
+  "weight": 6,
+  "title": {
+   "ja": "京都で『BitSummit』が始まる",
+   "en": "BitSummit begins in Kyoto"
+  },
+  "news": {
+   "ja": "京都でインディーゲームの祭典『BitSummit』が初めて開かれた。日本中、世界中から同人・インディーの作り手が集まり、ムーブメントが始まった。以後、毎年続いている。",
+   "en": "BitSummit, a festival of indie games, is held in Kyoto for the first time. Doujin and indie creators gather from across Japan and the world, and a movement begins. It has been held every year since."
+  },
+  "src": "BitSummit",
+  "variants": [
+   {
+    "id": "ev_hs_2013_bitsummit_indie",
+    "when": ["pos=indie"],
+    "text": {
+     "ja": "京都の会場で、自分の机 1 つ分のブースを出した。隣も、その隣も、1 人か 2 人で作った人だった。初めて「同期」ができた気がした。",
+     "en": "In a hall in Kyoto you set up a booth the size of one desk. Next to you, and next to them, were people who'd made games alone or in pairs. For the first time, you felt you had peers."
+    },
+    "effect": { "passion": 12, "network": 6 },
+    "tag": ["hist", "indie", "high"],
+    "memory": { "ja": "BitSummit で隣のブースの人と夜まで話した", "en": "talking until night with the booth next door at BitSummit" }
+   },
+   {
+    "id": "ev_hs_2013_bitsummit_dev",
+    "when": ["status=employed"],
+    "text": {
+     "ja": "有給を取って京都へ行った。1 人で作ったゲームの列が、自社の新作の試遊より長かった。帰りの新幹線で、自分のアイデア帳を開いた。",
+     "en": "You took a day off and went to Kyoto. The line for a game made by one person was longer than for your company's new title. On the bullet train home, you opened your own idea notebook."
+    },
+    "effect": { "passion": 8 },
+    "tag": ["hist", "indie"]
+   },
+   {
+    "id": "ev_hs_2013_bitsummit_any",
+    "text": {
+     "ja": "京都でインディーゲームの祭典が始まったと聞いた。写真の中の作り手たちは、全員とても眠そうで、全員とても楽しそうだった。",
+     "en": "You heard an indie game festival had started in Kyoto. In the photos, every creator looked very sleepy and very happy."
+    },
+    "effect": { "passion": 4 },
+    "tag": ["hist", "indie"]
+   }
+  ]
+ }
+]

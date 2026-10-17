@@ -587,15 +587,21 @@ function moneyShock(s: State) {
     [s.works.length >= 3, { ja: `母校に、生徒が自由に使える開発用のパソコンを 20 台寄付した。${m}。卒業生の欄に、自分の作品名が並んだ。`, en: `You donated 20 dev PCs to your old school. ${me}. Your game titles now hang under the alumni plaque.` }],
     [true, { ja: `防音の作業部屋を作った。${m}。誰にも邪魔されない部屋で、最初にしたのは昼寝だった。`, en: `You built a soundproof workroom. ${me}. The first thing you did in it, undisturbed, was take a nap.` }],
   ];
-  const goods = good.filter(([ok]) => ok);
+  const said = (s.inner.saidLines ??= []);
+  const goods = good.map((g, i) => [g, i] as const).filter(([g, i]) => g[0] && !said.includes(`moneygood:${i}`)); // 番号で覚える(額が毎回違うので文では覚えられない)
   if (goods.length && s.rng.chance(0.6)) {
-    const t = freshLine(s, goods.map((x) => x[1]), 'moneygood');
-    goods.find((x) => x[1] === t)?.[2]?.();
+    const fresh = goods.filter(([, i]) => !s.inner.recent?.includes(`line:moneygood:${i}`));
+    const [g, i] = s.rng.pick(fresh.length ? fresh : goods);
+    said.push(`moneygood:${i}`); g[2]?.(); const t = g[1];
     s.stat.passion = clamp(s.stat.passion + 6);
     log(s, t, 'event', ['money', 'high']);
     return;
   }
-  log(s, freshLine(s, pool, 'moneyshock'), 'event', ['money']);
+  const bads = pool.map((t, i) => [t, i] as const).filter(([, i]) => !said.includes(`moneyshock:${i}`));
+  const bf = bads.filter(([, i]) => !s.inner.recent?.includes(`line:moneyshock:${i}`));
+  const [bt, bi] = s.rng.pick(bf.length ? bf : bads.length ? bads : pool.map((t, i) => [t, i] as const));
+  said.push(`moneyshock:${bi}`);
+  log(s, bt, 'event', ['money']);
 }
 
 function canPromote(s: State) {

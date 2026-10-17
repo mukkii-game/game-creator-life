@@ -1152,8 +1152,8 @@
     {
       "id": "co_sacon",
       "name": {
-        "ja": "システムサコン",
-        "en": "System Sacon"
+        "ja": "システム左近",
+        "en": "System Sakon"
       },
       "size": "sub",
       "years": [
@@ -1161,6 +1161,97 @@
         2003
       ],
       "based": "システムサコム"
+    },
+    {
+      "id": "co_ashitakey",
+      "name": {
+        "ja": "明日キー",
+        "en": "Ashita Key"
+      },
+      "size": "mid",
+      "years": [
+        1977,
+        2008
+      ],
+      "based": "アスキー"
+    },
+    {
+      "id": "co_sysoumu",
+      "name": {
+        "ja": "システム総務",
+        "en": "System Somu"
+      },
+      "size": "small",
+      "years": [
+        1979,
+        2004
+      ],
+      "based": "システムソフト"
+    },
+    {
+      "id": "co_hamigaki",
+      "name": {
+        "ja": "ハミガキバードソフト",
+        "en": "Toothbrush Bird Soft"
+      },
+      "size": "small",
+      "years": [
+        1982,
+        1998
+      ],
+      "based": "ハミングバードソフト"
+    },
+    {
+      "id": "co_ponykan",
+      "name": {
+        "ja": "ポニイ館",
+        "en": "Pony-kan"
+      },
+      "size": "small",
+      "years": [
+        1983,
+        1993
+      ],
+      "based": "ポニカ"
+    },
+    {
+      "id": "co_universaru",
+      "name": {
+        "ja": "ユニバーさる",
+        "en": "Univer-Monkey"
+      },
+      "size": "mid",
+      "years": [
+        1977,
+        1990
+      ],
+      "based": "ユニバーサル"
+    },
+    {
+      "id": "co_upel",
+      "name": {
+        "ja": "UPエル",
+        "en": "UP-El"
+      },
+      "size": "sub",
+      "years": [
+        1980,
+        1992
+      ],
+      "based": "UPL"
+    },
+    {
+      "id": "co_coreran",
+      "name": {
+        "ja": "コアランドセル",
+        "en": "Core Randoseru"
+      },
+      "size": "sub",
+      "years": [
+        1980,
+        1990
+      ],
+      "based": "コアランド"
     },
     {
       "id": "co_ganbarion",
