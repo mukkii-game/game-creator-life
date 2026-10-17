@@ -525,6 +525,7 @@ function pickHist(s: State): string[] {
   for (const h of HIST) {
     if (h.year > s.year) break;
     if (s.year > (h.until ?? h.year) || s.inner.histDone.includes(h.id)) continue;
+    if (h.group && s.inner.histDone.some((id) => HIST.find((x) => x.id === id)?.group === h.group)) continue; // 同じ組の事件は 1 人生 1 つ(2026-10-17 Mukkii の作品)
     const vs = h.variants.map((x) => EVENT_BY_ID.get(x.id)!).filter((ev) => eligible(s, ev) && (!s.flags.in_prison || (ev.when ?? []).some((c) => c.includes('prison'))));
     if (!vs.length) continue;
     // 事件そのものは何度出てもよいが、付いている小ネタの版は直近の人生で見ていないものを(第 8 回ペルソナ: 歴史の小ネタが 3 回続けて同じ文)

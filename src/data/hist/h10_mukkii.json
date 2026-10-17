@@ -1,0 +1,218 @@
+[
+ {
+  "id": "hs_1998_azel",
+  "year": 1998,
+  "month": 1,
+  "kind": "work",
+  "weight": 1,
+  "group": "mukkii",
+  "title": {
+   "ja": "『パンツァードラグーン AZEL』発売",
+   "en": "Panzer Dragoon Saga (AZEL) is released"
+  },
+  "news": {
+   "ja": "セガサターンで発売。独特すぎる世界とシステムでカルト的な人気に。しかし時はプレイステーションの流れにあり、販売は振るわなかった。",
+   "en": "Released on the Sega Saturn. Its utterly unique world and systems earned a cult following, but the tide had turned to PlayStation, and sales were weak."
+  },
+  "src": "パンツァードラグーンRPG AZEL",
+  "variants": [
+   {
+    "id": "ev_hs_1998_azel_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "社内の試遊台で、ドラゴンに乗った。誰も見たことのない世界だった。売上の数字を見た日も、あの世界の空の色だけは忘れなかった。",
+     "en": "On the in-house test unit you rode the dragon through a world no one had seen before. Even on the day the sales numbers came in, you never forgot the color of that sky."
+    },
+    "effect": {
+     "passion": 6
+    },
+    "tag": [
+     "hist",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_1998_azel_ps",
+    "when": [
+     "status=employed",
+     "!flag.sega"
+    ],
+    "text": {
+     "ja": "よその会社のドラゴンの RPG の評判を聞いた。会議で「うちも世界観で勝負を」と言ったら、「で、何本売れたの」と返された。",
+     "en": "You heard about another company's dragon RPG. When you said in a meeting 'let's compete on world-building too,' someone asked, 'And how many did it sell?'"
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1998_azel_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "売れなかったのに語り継がれるゲームがあると知った。数より、覚えている人の数で勝負する道もある。",
+     "en": "You learned some games are remembered even though they didn't sell. You can compete on how many people remember, not how many buy."
+    },
+    "effect": {
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "indie"
+    ]
+   },
+   {
+    "id": "ev_hs_1998_azel_any",
+    "text": {
+     "ja": "不思議な世界のドラゴンの RPG を遊んだ。周りに遊んでいる人はいなかった。20 年たって、遊んでいた人が思ったより多かったと知った。",
+     "en": "You played a strange dragon RPG. No one around you had. Twenty years later you learned more people had played it than you'd thought."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2001_hundred_swords",
+  "year": 2001,
+  "month": 6,
+  "kind": "work",
+  "weight": 1,
+  "group": "mukkii",
+  "title": {
+   "ja": "『ハンドレッドソード』発売",
+   "en": "Hundred Swords is released"
+  },
+  "news": {
+   "ja": "ドリームキャストで発売。重厚なシナリオと、家庭用で初めてのオンライン RTS としてカルト的な人気に。しかしドリームキャストの販売終了の影響もあり、販売は振るわなかった。",
+   "en": "Released on the Dreamcast. Its weighty story and status as the first online RTS on a home console earned a cult following, but with the Dreamcast discontinued, sales were weak."
+  },
+  "src": "ハンドレッドソード",
+  "variants": [
+   {
+    "id": "ev_hs_2001_hundred_swords_dev",
+    "when": [
+     "status=employed"
+    ],
+    "text": {
+     "ja": "家庭用でネット対戦の戦略ゲームが出たと聞き、サーバーの話で会議が 2 時間延びた。結論は「うちはまだ早い」だった。",
+     "en": "Hearing a home-console online strategy game had launched, a meeting ran two hours over on server talk. Conclusion: 'Too early for us.'"
+    },
+    "effect": {
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_2001_hundred_swords_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "撤退の年に出た、ドリキャスでネットにつなぐ戦略ゲーム。サーバーが止まるまで、毎晩だれかが戦っていた。",
+     "en": "An online strategy game for the Dreamcast, out the year Sega pulled out of hardware. Until the servers went dark, someone was fighting every night."
+    },
+    "effect": {
+     "passion": 5
+    },
+    "tag": [
+     "hist",
+     "high"
+    ]
+   },
+   {
+    "id": "ev_hs_2001_hundred_swords_any",
+    "text": {
+     "ja": "家庭用でネットにつないで戦う戦略ゲームを遊んだ。対戦相手は毎晩同じ 5 人だった。5 人とは今も年賀状のやりとりがある。",
+     "en": "You played an online strategy game on a home console. Every night your opponents were the same five people. You still exchange New Year's cards with all five."
+    },
+    "effect": {
+     "passion": 4,
+     "network": 2
+    },
+    "tag": [
+     "hist"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_2002_orta",
+  "year": 2002,
+  "month": 12,
+  "kind": "work",
+  "weight": 1,
+  "group": "mukkii",
+  "title": {
+   "ja": "『パンツァードラグーン オルタ』発売",
+   "en": "Panzer Dragoon Orta is released"
+  },
+  "news": {
+   "ja": "Xbox で発売。独特なシステムと美麗なグラフィックでカルト的な人気に。しかし Xbox の日本での不振もあり、販売は振るわなかった。",
+   "en": "Released on the Xbox. Its unique systems and beautiful graphics earned a cult following, but with the Xbox struggling in Japan, sales were weak."
+  },
+  "src": "パンツァードラグーンORTA",
+  "variants": [
+   {
+    "id": "ev_hs_2002_orta_dev",
+    "when": [
+     "status=employed"
+    ],
+    "text": {
+     "ja": "他社の新しい箱で出たシューティングの映像が、社内で回覧された。「どうやってるの、これ」。誰も答えられないまま、昼休みが終わった。",
+     "en": "Footage of a shooter on the new black box went around the office. 'How are they doing this?' No one could answer before lunch ended."
+    },
+    "effect": {
+     "skill": 3
+    },
+    "tag": [
+     "hist"
+    ]
+   },
+   {
+    "id": "ev_hs_2002_orta_indie",
+    "when": [
+     "pos=indie"
+    ],
+    "text": {
+     "ja": "売れなかった美しいゲームの話を聞いた。売れなくても美しいものを作る、という選択肢もあると思えた。",
+     "en": "You heard of a beautiful game that didn't sell. It made you think making something beautiful, sold or not, is also a choice."
+    },
+    "effect": {
+     "passion": 4
+    },
+    "tag": [
+     "hist",
+     "indie"
+    ]
+   },
+   {
+    "id": "ev_hs_2002_orta_any",
+    "text": {
+     "ja": "黒くて大きな箱の新作が、店でいちばんきれいな映像を流していた。足を止めたのは自分 1 人だった。家に帰って、その画面の色を思い出しながら仕事をした。",
+     "en": "In the store, the new game for the big black box was showing the most beautiful footage there. You were the only one who stopped. At home you worked remembering those colors."
+    },
+    "effect": {
+     "passion": 4
+    },
+    "tag": [
+     "hist"
+    ]
+   }
+  ]
+ }
+]

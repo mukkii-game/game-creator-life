@@ -131,7 +131,7 @@ function checkEvent(ev, w, needYears, histYear) {
   }
 
 // 歴史の事件(src/data/hist/*.json)
-const HS_KEYS = new Set(['id', 'year', 'month', 'until', 'kind', 'weight', 'title', 'news', 'src', 'unverified', 'variants']);
+const HS_KEYS = new Set(['id', 'year', 'month', 'until', 'kind', 'weight', 'title', 'news', 'src', 'unverified', 'variants', 'group']);
 const histDir = path.join(DIR, 'hist');
 let nHist = 0, nVar = 0;
 for (const f of fs.existsSync(histDir) ? fs.readdirSync(histDir).filter((x) => x.endsWith('.json')).map((x) => path.join(histDir, x)) : []) {

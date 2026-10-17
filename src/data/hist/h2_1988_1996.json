@@ -4765,16 +4765,17 @@
   "year": 1996,
   "month": 9,
   "kind": "hit",
-  "weight": 1,
+  "weight": 2,
   "title": {
    "ja": "『サクラ大戦』発売",
    "en": "Sakura Wars launches"
   },
   "news": {
-   "ja": "9 月 27 日、セガサターンで発売され、サターンを代表するヒット作になる。",
-   "en": "Released September 27 on the Sega Saturn, it becomes one of the console's signature hits."
+   "ja": "セガサターンで発売。秋に出たので「コスモス(秋桜)大戦」と揶揄されたが、セガのイメージを変える作風で大ヒット。続編が続き、今に至る人気シリーズになる。",
+   "en": "Released on the Sega Saturn. Because it slipped to autumn, people mocked it as 'Cosmos (autumn sakura) Wars,' but its style changed Sega's image and it became a huge hit. Sequels followed, and it remains a popular series today."
   },
   "src": "サクラ大戦",
+  "group": "mukkii",
   "variants": [
       {"id": "ev_hs_1996_sakura_sega", "when": ["flag.sega"], "text": {"ja": "自社の新作が大当たり。朝礼で主題歌が流れ、「歌えない者は昼までに覚えること」。昼休み、屋上から下手な合唱が聞こえた。", "en": "Your company's new game is a hit. The theme song plays at the morning meeting: \"Anyone who can't sing it, learn it by noon.\" At lunch, off-key singing drifted from the roof."}, "effect": {"passion": 8, "network": 2}, "memory": {"ja": "サクラ大戦の主題歌を昼までに覚えた", "en": "learned the Sakura Wars theme by noon"}, "tag": ["hist", "hit", "sega", "high", "gag"]},
    {

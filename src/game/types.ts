@@ -49,6 +49,8 @@ export interface TimelineEntry { id: string; year: number; month?: number; kind:
 export interface Hist {
   id: string; year: number; month?: number; until?: number; kind: TimelineKind; weight?: number;
   title: Text; news: Text; src: string; unverified?: boolean;
+  /** 同じ組の事件は 1 人生に 1 つだけ(例: mukkii = Mukkii の作品) */
+  group?: string;
   variants: Omit<GameEvent, 'years'>[];
 }
 /** 立場。歴史の事件の受け止め方が変わる */
