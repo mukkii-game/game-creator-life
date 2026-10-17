@@ -53,6 +53,7 @@ const TABLE: Record<string, { ja: string; en: string }> = {
   shelf: { ja: '作品棚', en: 'Shelf' },
   shelfEmpty: { ja: 'まだ何も無い', en: 'Nothing yet' },
   peers: { ja: '同期 3 人', en: '3 peers' },
+  peersPlus: { ja: '同期・先輩・後輩', en: 'Peers, senior, junior' },
   st_employed: { ja: '在籍', en: 'Employed' },
   st_indie: { ja: '独立', en: 'Indie' },
   st_left: { ja: '離職中', en: 'Out of work' },

@@ -1,6 +1,7 @@
 // 人生の画面(PLAN §7): 上 = 年表ティッカー / 中 = 社内チャット風のログ / 下 = 社員証カード + 作品棚 + 同期。
 // 進め方: advance(state) で 1 年分の行が増える → それを 1 行ずつ間隔をあけて吹き出しで出す(1 年 ÷ その年の行数)。
 // 選択(state.choice)が来たら止まってボタンを出す。終わったら(state.ending)死因を大きく出して onEnd。
+import { bondsOf } from '../game/bonds';
 import { init, advance, choose, JOB_TEXT } from '../game/logic';
 import { BOTS } from '../game/bots';
 import { positionOf } from '../game/select';
@@ -257,7 +258,8 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
     const open = peersBox.open;
     peersBox.innerHTML = '';
     const sum = h('summary', 'peers-sum');
-    sum.append(h('span', 'peers-lab', t('peers')), h('span', 'peers-mini', s.peers.map((p, i) => peerName(i, p.name).split(' ')[0]).join(' / ')));
+    const bonds = bondsOf(s);
+    sum.append(h('span', 'peers-lab', t(bonds.length ? 'peersPlus' : 'peers')), h('span', 'peers-mini', [...s.peers.map((p, i) => peerName(i, p.name).split(' ')[0]), ...bonds.map((b) => tx(b.name).split(' ')[0])].join(' / ')));
     peersBox.append(sum);
     const ul = h('ul', 'peers-list');
     s.peers.forEach((p, i) => {
@@ -265,6 +267,11 @@ export function startPlay(app: HTMLElement, o: PlayOptions): PlayScreen {
       li.append(h('b', '', peerName(i, p.name)), h('span', '', tx(p.summary)));
       ul.append(li);
     });
+    for (const b of bonds) { // 先輩・後輩(話に一度出たら載る。近況は最後に出た場面の要約)
+      const li = h('li');
+      li.append(h('b', '', `${tx(b.label)} ${tx(b.name)}`), h('span', '', tx(b.note)));
+      ul.append(li);
+    }
     peersBox.append(ul);
     peersBox.open = open;
   }
