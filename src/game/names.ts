@@ -71,7 +71,8 @@ const HW_PREF: [string, (p: string) => boolean][] = [
   ['hw_mk_sony', (p) => /PlayStation|PSP|PS\d/.test(p)],
   ['hw_mk_nec', (p) => /PC エンジン|PC-FX/.test(p)],
   ['hw_mk_3do', (p) => /3DO/.test(p)],
-  ['hw_fm_handheld', (p) => /ゲームボーイ|DS|PSP|Switch/.test(p)],
+  ['hw_ws', (p) => /ワンダースワン/.test(p)],
+  ['hw_fm_handheld', (p) => /ゲームボーイ|ワンダースワン|DS|PSP|Switch/.test(p)],
   ['hw_fm_home', (p) => !/ゲームボーイ|DS|PSP|ケータイ|スマホ|ソシャゲ|業務用/.test(p)],
   ['hw_pl_arcade', (p) => p === '業務用'],
   ['hw_pl_consumer', (p) => p !== '業務用'],
@@ -96,6 +97,13 @@ export function platformFor(r: Rng, year: number, role: Role, flags: Record<stri
   if (flags.hw_mk_nec && year >= 1987 && year < 1995 && !list.includes('PC エンジン')) list = [...list, 'PC エンジン'];
   if (flags.hw_mk_nec && (year >= 1995 || (flags.hw_pcfx && year >= 1994)) && year < 1999) list = flags.hw_pcfx ? [...list.filter((p) => p !== 'PC エンジン'), 'PC-FX'] : [...list, 'PC-FX']; // PC-FX を選んだら、その年(1994 年 12 月発売)から PC-FX で出す(2026-10-17 Mukkii: PC-FX を選んだのに PC エンジンで出た)
   if (flags.hw_mk_3do && year >= 1994 && year < 1997) list = [...list, '3DO'];
+  // 選んだ年に出たばかりのハードや、表から抜けている携帯機を足す(2026-10-17 Mukkii: 選んだハードがその後の作品に効いていない)
+  if (year === 1994 && flags.hw_mk_sony) list = [...list, 'PlayStation']; // 1994 年 12 月発売
+  if (year === 1994 && flags.hw_mk_sega) list = [...list, 'セガサターン']; // 1994 年 11 月発売
+  if (year === 1998 && flags.hw_mk_sega && !list.includes('ドリームキャスト')) list = [...list, 'ドリームキャスト']; // 1998 年 11 月発売
+  if (year === 2000 && flags.hw_mk_nintendo) list = [...list, 'NINTENDO64', 'ゲームボーイカラー'];
+  if (flags.hw_ws && year >= 2000 && year < 2004) list = [...list, 'ワンダースワン'];
+  if (flags.hw_fm_handheld && year >= 1995 && year < 2001 && !list.some((p) => /ゲームボーイ|ワンダースワン/.test(p))) list = [...list, year >= 1998 ? 'ゲームボーイカラー' : 'ゲームボーイ'];
   for (const [, ok] of prefs) { const f = list.filter(ok); if (f.length) list = f; }
   return r.chance(0.97) ? r.pick(list) : base; // 選んだハードで出す(同じ年に別のハードで出ていた、と通読で指摘。第 7 回ペルソナ: PSP を選んだのに DS → 0.9 から 0.97)
 }

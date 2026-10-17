@@ -1011,7 +1011,8 @@
     "effect": {
      "passion": 7,
      "flag": {
-      "hw_fm_handheld": true
+      "hw_fm_handheld": true,
+      "hw_ws": true
      }
     },
     "result": {
