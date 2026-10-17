@@ -255,7 +255,11 @@ function comeHome(s: State) {
 function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Text) {
   for (const k of ['hp', 'passion', 'skill', 'network', 'fame'] as const) if (e[k]) s.stat[k] = clamp(s.stat[k] + e[k]!);
   if (e.money) s.stat.money += e.money;
-  if (e.job) s.job = e.job;
+  if (e.job) {
+    const prev = s.job; crafts(s); s.job = e.job; crafts(s);
+    if (CRAFT.includes(prev) && CRAFT.includes(e.job) && prev !== e.job) { const a = JOB_TEXT[prev], b = JOB_TEXT[e.job]; s.inner.hist2Note = freshLine(s, [{ ja: `${a.ja}の経験が、${b.ja}の席でも思わぬところで役に立った。一番にはなれなくても、見える景色は広がる。`, en: `Your time as ${a.en} helped in unexpected ways as ${b.en}. Maybe not the best at either, but the view got wider.` }, { ja: `${b.ja}の新人の顔で、${a.ja}のころの癖が抜けなかった。その癖が、たまに一番いい案を出した。`, en: `New to being ${b.en}, you still had habits from your ${a.en} days. Now and then, those habits produced the best idea.` }], 'jobmove'); }
+    else if (e.job === 'director' || e.job === 'producer') s.inner.hist2Note = historyLine(s) ?? undefined;
+  }
   if (e.status && e.status !== s.status) setStatus(s, e.status);
   if (e.work?.add) {
     const { work, line } = release(s);
@@ -428,7 +432,7 @@ function beginYear(s: State, out: string[]) {
       const lastOffer = Math.max(s.inner.seen.ev_sys_offer ?? -99, s.inner.seen.ev_sys_offer_b ?? -99, s.inner.seen.ev_sys_offer_c ?? -99);
       if (!s.flags.age60 && s.inner.companyYears >= 2 && s.age >= 20 && s.year - lastOffer >= 6 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(vary(s, ['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
       // 昇進: 半分は「受けるか、現場に残るか」の選択(ev_wk_promote_ask)。残りはそのまま辞令
-      else if (canPromote(s) && !s.flags.promo_declined && r.chance(tune<number>('job.promote') * (s.job === 'planner' ? 0.3 : s.job === 'director' ? 0.15 : 0.1)) /* 2026-10-17 Mukkii: どの職種からも上に行けるが、いつもではない。プランナーは少し多め */) sys.push(r.chance(0.5) && !s.flags.promoted && !s.inner.used.includes('ev_wk_promote_ask') && !s.inner.recent?.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : vary(s, ['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
+      else if (canPromote(s) && !s.flags.promo_declined && r.chance(tune<number>('job.promote') * (s.job === 'planner' ? 0.3 : s.job === 'director' ? 0.15 : 0.1) * (crafts(s).length >= 2 && s.job !== 'director' ? 3.5 : 1)) /* 2026-10-17 Mukkii: どの職種からも上に行けるが、いつもではない。プランナーは少し多め */) sys.push(r.chance(0.5) && !s.flags.promoted && !s.inner.used.includes('ev_wk_promote_ask') && !s.inner.recent?.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : vary(s, ['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
       if (s.year >= 2027 && !s.inner.used.includes('ev_sys_ai_seat') && r.chance(Math.min(0.6, tune('ai.seat') * (1 + 2 * Math.min(1, (s.year - 2027) / 8)) + Math.max(0, s.year - 2035) * 0.12))) sys.push('ev_sys_ai_seat');
     }
   } else if (s.status === 'indie') {
@@ -746,6 +750,23 @@ function promote(s: State) {
   const next = to[s.job];
   if (next) { s.job = next; const jn = JOB_TEXT[next]; const last = s.log[s.log.length - 1]; if (last && last.year === s.year && last.kind !== 'timeline') last.text = { ja: `${last.text.ja}名刺の職種は「${jn.ja}」になった。`, en: `${last.text.en} Your card now says "${jn.en}."` }; else log(s, { ja: `名刺の職種の欄が「${jn.ja}」になった。`, en: `Your business card now says "${jn.en}."` }, 'event'); /* 昇進の行に職種を足す(第 62 回: 「職種が変わった」と「昇進した」の 2 行が毎回続いた) */ } // 職種が変わったことを書く(第 60 回: 営業なのに「あなたはリード」)
   s.flags.promoted = true;
+  if (next === 'director' || next === 'producer') { const h = historyLine(s), l = s.log[s.log.length - 1]; if (h && l && l.year === s.year && l.kind !== 'timeline') l.text = { ja: `${l.text.ja}${h.ja}`, en: `${l.text.en} ${h.en}` }; } // 経歴の一言を昇進の行に足す
+}
+/** 職人の職種(ディレクター・プロデューサー・先生などは数えない) */
+const CRAFT: Job[] = ['planner', 'programmer', 'artist', 'sound', 'qa', 'sales', 'ta'];
+const CRAFT_SKILL: Partial<Record<Job, Text>> = { planner: { ja: '企画力', en: 'planning sense' }, programmer: { ja: 'コーディングの腕', en: 'coding skill' }, artist: { ja: 'デザインのセンス', en: 'design sense' }, sound: { ja: '音作りの耳', en: 'ear for sound' }, qa: { ja: 'バグを見つける目', en: 'eye for bugs' }, sales: { ja: '売り込みの腕', en: 'knack for selling' }, ta: { ja: '絵と仕組みをつなぐ腕', en: 'knack for bridging art and tech' } };
+/** これまでに就いた職人の職種(就いた順) */
+function crafts(s: State): Job[] {
+  const l = (s.inner.crafts ??= []);
+  if (CRAFT.includes(s.job) && !l.includes(s.job)) l.push(s.job);
+  return l as Job[];
+}
+/** 経歴の一言(昇進・職種替えの時。目に見えない「貫いた/渡り歩いた」の効き目を実感させる) */
+function historyLine(s: State): Text | null {
+  const cr = crafts(s);
+  if (cr.length >= 2) { const a = JOB_TEXT[cr[0]], b = JOB_TEXT[cr[1]]; return freshLine(s, [{ ja: `${a.ja}も${b.ja}もやってきたおかげで、プロジェクトを広い目で見られるようになった気がする。`, en: `Having been both ${a.en} and ${b.en}, you feel you can see the whole project now.` }, { ja: `${a.ja}と${b.ja}の両方の苦労を知っている。会議で、どちらの言い分も分かってしまうのが強みで、弱みだった。`, en: `You've known the pain of both ${a.en} and ${b.en}. In meetings you understood both sides. A strength, and a weakness.` }], 'hist2'); }
+  if (cr.length === 1 && s.year - s.startYear >= 8) { const j = JOB_TEXT[cr[0]], k = CRAFT_SKILL[cr[0]]!; return freshLine(s, [{ ja: `${j.ja}一筋でやってきてよかった。誰にも負けない${k.ja}を身につけた自信がある。`, en: `Glad you stuck with being ${j.en} all the way. You're confident no one beats your ${k.en}.` }, { ja: `${j.ja}をやり抜いてきた。新しい席でも、最後に頼れるのは自分の${k.ja}だと思った。`, en: `You'd seen being ${j.en} through. Even in the new seat, the thing you trusted most was your ${k.en}.` }], 'hist1'); }
+  return null;
 }
 
 function endYear(s: State, out: string[]) {
@@ -759,8 +780,11 @@ function endYear(s: State, out: string[]) {
   if (s.status === 'employed' || s.status === 'indie') {
     s.stat.hp = clamp(s.stat.hp - tune('year.hpWork') * (s.age >= 45 ? 1.5 : 1));
     s.stat.passion = clamp(s.stat.passion - tune('year.passion'));
-    s.stat.skill = clamp(s.stat.skill + r.int(tune('year.skillMin'), tune('year.skillMax')) * (s.age >= 50 ? 0.5 : 1));
+    const cr = crafts(s), one = cr.length === 1 && CRAFT.includes(s.job), many = cr.length >= 2; // 1 つの職種を貫くと腕がトップまで伸びる。いくつも渡ると、どれもトップには届かない(2026-10-17 Mukkii)
+    const grow = r.int(tune('year.skillMin'), tune('year.skillMax')) * (s.age >= 50 ? 0.5 : 1) * (one && s.year - s.startYear >= 5 ? 1.3 : 1);
+    s.stat.skill = clamp(Math.min(many ? 85 : 100, s.stat.skill + grow));
   }
+  if (crafts(s).length >= 2 && s.stat.skill > 85) s.stat.skill = 85; // 話の効果で越えても、渡り歩いた人の腕は 85 で止まる
   if (s.status === 'employed') {
     const mult = { big: 1.5, mid: 1, small: 0.8, sub: 0.5, abroad: 1.6, indie: 0, school: 0.9, none: 0 }[s.company.size] * (s.job === 'director' || s.job === 'producer' ? 1.4 : 1) * (s.flags.rehired || s.flags.parttime ? 0.4 : 1);
     s.stat.money += Math.round(tune('year.salary') * mult);
@@ -853,6 +877,7 @@ export function choose(s: State, choiceId: string): string[] {
   const cev = EVENT_BY_ID.get(eventId);
   if (cev && (c.memory || cev.memory || (cev.tag ?? []).some((t) => t === 'high' || t === 'celeb'))) remember(s, cev, c.memory ?? cev.memory);
   apply(s, c.effect, eventId, out, c.cause ?? cev?.cause);
+  if (s.inner.hist2Note) { const n = s.inner.hist2Note, l = [...s.log].reverse().find((x) => x.kind === 'choice'); if (l) l.text = { ja: `${l.text.ja}${n.ja}`, en: `${l.text.en} ${n.en}` }; s.inner.hist2Note = undefined; } // 職種替え・昇進の選択の結果に、経歴の一言を足す
   schedule(s, c.later);
   s.inner.workTarget = -1;
   checkEnd(s, out);

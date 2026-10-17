@@ -202,7 +202,36 @@
   },
   "src": "メガドライブ",
   "variants": [
-      {"id": "ev_hs_1988_md_sega", "when": ["flag.sega"], "text": {"ja": "本体に金色の「16-BIT」。発売の夜、部署の飲み会で 16 回乾杯した。翌朝、ちょうど 16 人が遅刻した。", "en": "Gold letters on the case: \"16-BIT.\" On launch night the department toasted sixteen times. Next morning, exactly sixteen people were late."}, "effect": {"passion": 10, "network": 3, "hp": -4, "flag": {"w_two_side_md": true}}, "memory": {"ja": "メガドライブの発売の夜に 16 回乾杯した", "en": "toasted sixteen times on Mega Drive launch night"}, "tag": ["hist", "hardware", "war", "sega", "high", "gag"]},
+   {
+    "id": "ev_hs_1988_md_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "本体に金色の「16-BIT」。発売の夜、部署の飲み会で 16 回乾杯した。翌朝、ちょうど 16 人が遅刻した。",
+     "en": "Gold letters on the case: \"16-BIT.\" On launch night the department toasted sixteen times. Next morning, exactly sixteen people were late."
+    },
+    "effect": {
+     "passion": 10,
+     "network": 3,
+     "hp": -4,
+     "flag": {
+      "w_two_side_md": true
+     }
+    },
+    "memory": {
+     "ja": "メガドライブの発売の夜に 16 回乾杯した",
+     "en": "toasted sixteen times on Mega Drive launch night"
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war",
+     "sega",
+     "high",
+     "gag"
+    ]
+   },
    {
     "id": "ev_hs_1988_md_h1sega",
     "when": [
@@ -1714,7 +1743,31 @@
   },
   "src": "ソニック・ザ・ヘッジホッグ (1991年のゲーム)",
   "variants": [
-      {"id": "ev_hs_1991_sonic_sega", "when": ["flag.sega"], "text": {"ja": "青いハリネズミが海の向こうで大当たり。出張帰りの先輩が「向こうじゃマリオより有名」と言い、その日は全員が少し早歩きだった。", "en": "The blue hedgehog is a smash overseas. A senior back from a US trip says, \"Over there he's bigger than Mario.\" That day, everyone walked a little faster."}, "effect": {"passion": 10, "fame": 3}, "memory": {"ja": "ソニックが当たった日、全員が早歩きだった", "en": "everyone walked faster the day Sonic hit"}, "tag": ["hist", "hit", "sega", "high", "gag"]},
+   {
+    "id": "ev_hs_1991_sonic_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "青いハリネズミが海の向こうで大当たり。出張帰りの先輩が「向こうじゃマリオより有名」と言い、その日は全員が少し早歩きだった。",
+     "en": "The blue hedgehog is a smash overseas. A senior back from a US trip says, \"Over there he's bigger than Mario.\" That day, everyone walked a little faster."
+    },
+    "effect": {
+     "passion": 10,
+     "fame": 3
+    },
+    "memory": {
+     "ja": "ソニックが当たった日、全員が早歩きだった",
+     "en": "everyone walked faster the day Sonic hit"
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "sega",
+     "high",
+     "gag"
+    ]
+   },
    {
     "id": "ev_hs_1991_sonic_md",
     "when": [
@@ -1886,7 +1939,26 @@
   },
   "src": "メガCD",
   "variants": [
-      {"id": "ev_hs_1991_megacd_sega", "when": ["flag.sega"], "text": {"ja": "「CD の容量に何を入れる?」の会議。誰も答えず、課長が自分のカラオケを録音して持ってきた。満場一致でボツになった。", "en": "\"What do we fill the CD with?\" Nobody answered. The section chief brought a tape of himself doing karaoke. Rejected unanimously."}, "effect": {"passion": 2, "skill": 2}, "tag": ["hist", "hardware", "sega", "gag"]},
+   {
+    "id": "ev_hs_1991_megacd_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "「CD の容量に何を入れる?」の会議。誰も答えず、課長が自分のカラオケを録音して持ってきた。満場一致でボツになった。",
+     "en": "\"What do we fill the CD with?\" Nobody answered. The section chief brought a tape of himself doing karaoke. Rejected unanimously."
+    },
+    "effect": {
+     "passion": 2,
+     "skill": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "sega",
+     "gag"
+    ]
+   },
    {
     "id": "ev_hs_1991_megacd_md",
     "when": [
@@ -2340,7 +2412,31 @@
   },
   "src": "バーチャファイター",
   "variants": [
-      {"id": "ev_hs_1993_vf_sega", "when": ["flag.sega"], "text": {"ja": "自社の 3D 格闘にゲーセンの大行列。社員証を外して並んだら、後ろの高校生に「中の人?」と聞かれ、「違います」と嘘をついた。", "en": "Your company's 3D fighter has huge arcade lines. You hid your badge and queued up. A kid behind you asked, \"Do you work there?\" You lied: \"No.\""}, "effect": {"passion": 10, "fame": 2}, "memory": {"ja": "自社のバーチャの行列に、身分を隠して並んだ", "en": "queued incognito for my own company's Virtua Fighter"}, "tag": ["hist", "hit", "sega", "high", "gag"]},
+   {
+    "id": "ev_hs_1993_vf_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "自社の 3D 格闘にゲーセンの大行列。社員証を外して並んだら、後ろの高校生に「中の人?」と聞かれ、「違います」と嘘をついた。",
+     "en": "Your company's 3D fighter has huge arcade lines. You hid your badge and queued up. A kid behind you asked, \"Do you work there?\" You lied: \"No.\""
+    },
+    "effect": {
+     "passion": 10,
+     "fame": 2
+    },
+    "memory": {
+     "ja": "自社のバーチャの行列に、身分を隠して並んだ",
+     "en": "queued incognito for my own company's Virtua Fighter"
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "sega",
+     "high",
+     "gag"
+    ]
+   },
    {
     "id": "ev_hs_1993_vf_artist",
     "when": [
@@ -2895,7 +2991,29 @@
   },
   "src": "次世代ゲーム機戦争",
   "variants": [
-      {"id": "ev_hs_1994_nextgen_sega", "when": ["flag.sega"], "text": {"ja": "11 月 22 日、自社の新型の店頭応援に駆り出された。11 日後、同じ店でソニーの行列を偵察し、メモ 3 枚で黙って帰った。", "en": "November 22: drafted to cheer on your new console at a store. Eleven days later, same store, you scouted Sony's line, took three pages of notes, and left silently."}, "effect": {"passion": 6, "network": 3, "flag": {"w_two_side_ss": true}}, "tag": ["hist", "hardware", "war", "sega"]},
+   {
+    "id": "ev_hs_1994_nextgen_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "11 月 22 日、自社の新型の店頭応援に駆り出された。11 日後、同じ店でソニーの行列を偵察し、メモ 3 枚で黙って帰った。",
+     "en": "November 22: drafted to cheer on your new console at a store. Eleven days later, same store, you scouted Sony's line, took three pages of notes, and left silently."
+    },
+    "effect": {
+     "passion": 6,
+     "network": 3,
+     "flag": {
+      "w_two_side_ss": true
+     }
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "war",
+     "sega"
+    ]
+   },
    {
     "id": "ev_hs_1994_nextgen_lead",
     "when": [
@@ -4777,7 +4895,31 @@
   "src": "サクラ大戦",
   "group": "mukkii",
   "variants": [
-      {"id": "ev_hs_1996_sakura_sega", "when": ["flag.sega"], "text": {"ja": "自社の新作が大当たり。朝礼で主題歌が流れ、「歌えない者は昼までに覚えること」。昼休み、屋上から下手な合唱が聞こえた。", "en": "Your company's new game is a hit. The theme song plays at the morning meeting: \"Anyone who can't sing it, learn it by noon.\" At lunch, off-key singing drifted from the roof."}, "effect": {"passion": 8, "network": 2}, "memory": {"ja": "サクラ大戦の主題歌を昼までに覚えた", "en": "learned the Sakura Wars theme by noon"}, "tag": ["hist", "hit", "sega", "high", "gag"]},
+   {
+    "id": "ev_hs_1996_sakura_sega",
+    "when": [
+     "flag.sega"
+    ],
+    "text": {
+     "ja": "自社の新作が大当たり。朝礼で主題歌が流れ、「歌えない者は昼までに覚えること」。昼休み、屋上から下手な合唱が聞こえた。",
+     "en": "Your company's new game is a hit. The theme song plays at the morning meeting: \"Anyone who can't sing it, learn it by noon.\" At lunch, off-key singing drifted from the roof."
+    },
+    "effect": {
+     "passion": 8,
+     "network": 2
+    },
+    "memory": {
+     "ja": "サクラ大戦の主題歌を昼までに覚えた",
+     "en": "learned the Sakura Wars theme by noon"
+    },
+    "tag": [
+     "hist",
+     "hit",
+     "sega",
+     "high",
+     "gag"
+    ]
+   },
    {
     "id": "ev_hs_1996_sakura_ss",
     "when": [
@@ -4986,6 +5128,112 @@
      "hist",
      "hit",
      "family"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hs_1991_neogeo",
+  "year": 1991,
+  "month": 7,
+  "kind": "hardware",
+  "weight": 2,
+  "title": {
+   "ja": "ネオジオ 発売",
+   "en": "The Neo Geo launches"
+  },
+  "news": {
+   "ja": "SNK が、ゲームセンターと同じ中身を家で遊べるネオジオを一般に発売(前の年はレンタルだけだった)。本体 5 万 8 千円、ソフトは 1 本 3 万円前後。",
+   "en": "SNK puts the Neo Geo on general sale: the same hardware as its arcade machines, at home (the year before, it was rental only). The console: 58,000 yen. Games: about 30,000 yen each."
+  },
+  "src": "ネオジオ",
+  "variants": [
+   {
+    "id": "ev_hs_1991_neogeo_prog",
+    "when": [
+     "job=programmer"
+    ],
+    "text": {
+     "ja": "ゲームセンターの基板と同じものが、家庭用として売られる。あなたはその仕様書を 3 回読み、自分の会社の家庭用ソフトの容量を見て、そっと閉じた。",
+     "en": "The arcade board, sold for the home. You read its spec sheet three times, looked at the memory budget of your own home title, and quietly closed it."
+    },
+    "effect": {
+     "skill": 2,
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hardware"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_neogeo_dev",
+    "when": [
+     "pos=dev"
+    ],
+    "text": {
+     "ja": "隣の席の先輩が、ボーナスでネオジオを買った。ソフトは 1 本だけ。それを 1 年遊び続け、格闘ゲームの話になると誰より詳しかった。",
+     "en": "The senior next to you bought a Neo Geo with his bonus. Just one game. He played it all year and knew more about fighting games than anyone."
+    },
+    "effect": {
+     "passion": 3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_neogeo_sales",
+    "when": [
+     "job=sales"
+    ],
+    "text": {
+     "ja": "おもちゃ屋の店長に、ネオジオのソフトが 3 万円すると言うと「うちの店で一番高いのは、ネオジオのソフトの隣の値札」と言われた。隣は本体だった。",
+     "en": "You told a toy-store manager Neo Geo games cost 30,000 yen. \"The priciest thing here is the tag next to them,\" he said. Next to them was the console."
+    },
+    "effect": {
+     "network": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_neogeo_young",
+    "when": [
+     "age<=25"
+    ],
+    "text": {
+     "ja": "ネオジオのソフトの値札を見て、桁を 2 回数えた。ゲームセンターに 300 回行ける値段だった。結局、ゲームセンターに 300 回行った。",
+     "en": "You saw a Neo Geo game's price tag and counted the digits twice. It was 300 arcade visits. You ended up making the 300 visits."
+    },
+    "effect": {
+     "passion": 4,
+     "money": -3
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
+    ]
+   },
+   {
+    "id": "ev_hs_1991_neogeo_any",
+    "text": {
+     "ja": "ゲームセンターと同じゲームが家に来る機械が出た。値段を聞いて、家の方がゲームセンターより遠くなった。",
+     "en": "A machine that brings the arcade home came out. After hearing the price, home felt farther away than the arcade."
+    },
+    "effect": {
+     "passion": 2
+    },
+    "tag": [
+     "hist",
+     "hardware",
+     "gag"
     ]
    }
   ]
