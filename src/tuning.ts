@@ -26,6 +26,8 @@ export const KNOBS: Knob[] = [
   { key: 'choice.bigMax', label: '大きな選択の間隔(最長)', value: 5, min: 1, max: 15, step: 1, unit: '年' },
   { key: 'others.chance', label: '他の人の人生が顔を出す確率', value: 0.18, min: 0, max: 1, step: 0.02, unit: '/年', aim: '名前を入れて遊んだ誰かが、先輩・同期・後輩・記事で時々出る' },
   { key: 'others.max', label: '他の人の人生が出る上限', value: 4, min: 0, max: 20, step: 1, unit: '回/人生' },
+  { key: 'parody.chance', label: 'もじりメーカーの作品が出る確率', value: 0.3, min: 0, max: 1, step: 0.02, unit: '/年', aim: '入っていない会社の名前も、作品と一緒に時々目にして笑う' },
+  { key: 'parody.max', label: 'もじりメーカーの作品が出る上限', value: 4, min: 0, max: 20, step: 1, unit: '回/人生' },
   { key: 'choice.hwMin', label: 'ハード選択の間隔(最短)', value: 4, min: 1, max: 15, step: 1, unit: '年', aim: 'セガか他か・据え置きか携帯か・ゲーセンか家庭用か・スマホかコンシューマか、を時々迷う' },
   { key: 'choice.wkMin', label: '仕事の選択の間隔(最短)', value: 3, min: 1, max: 15, step: 1, unit: '年', aim: 'タイトル・続編か新作か・チーム・延期かカットか・リストラ … を時々迷う' },
   { key: 'choice.wkMax', label: '仕事の選択の間隔(最長)', value: 5, min: 1, max: 20, step: 1, unit: '年' },
