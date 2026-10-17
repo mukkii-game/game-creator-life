@@ -620,7 +620,8 @@
      "passion": 6,
      "money": -10,
      "flag": {
-      "hw_mk_nec": true
+      "hw_mk_nec": true,
+      "hw_pcfx": true
      }
     },
     "result": {

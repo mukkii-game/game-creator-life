@@ -94,7 +94,7 @@ export function platformFor(r: Rng, year: number, role: Role, flags: Record<stri
   if (flags.hw_pl_arcade && year < 2030 && !list.includes('業務用')) list = [...list, '業務用']; // ゲーセン組は時代が進んでも業務用を作る
   // 表に無いハード: PC エンジン(1987〜1994 は 16 ビット機と並んで戦う)・PC-FX(1995〜1998)・3DO(1994〜1996)
   if (flags.hw_mk_nec && year >= 1987 && year < 1995 && !list.includes('PC エンジン')) list = [...list, 'PC エンジン'];
-  if (flags.hw_mk_nec && year >= 1995 && year < 1999) list = [...list, 'PC-FX'];
+  if (flags.hw_mk_nec && (year >= 1995 || (flags.hw_pcfx && year >= 1994)) && year < 1999) list = flags.hw_pcfx ? [...list.filter((p) => p !== 'PC エンジン'), 'PC-FX'] : [...list, 'PC-FX']; // PC-FX を選んだら、その年(1994 年 12 月発売)から PC-FX で出す(2026-10-17 Mukkii: PC-FX を選んだのに PC エンジンで出た)
   if (flags.hw_mk_3do && year >= 1994 && year < 1997) list = [...list, '3DO'];
   for (const [, ok] of prefs) { const f = list.filter(ok); if (f.length) list = f; }
   return r.chance(0.97) ? r.pick(list) : base; // 選んだハードで出す(同じ年に別のハードで出ていた、と通読で指摘。第 7 回ペルソナ: PSP を選んだのに DS → 0.9 から 0.97)
