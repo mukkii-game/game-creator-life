@@ -554,6 +554,30 @@ function pickHist(s: State): string[] {
 }
 
 function hasOldWork(s: State) { return s.works.some((w) => s.year - w.year >= 2); }
+/** 貯金が貯まったころに来る、人生の出費(2026-10-17 Mukkii「増えたお金がどこかでボーンと減る。お金も一喜一憂のネタに」)。ヒットの多い人はたまにしか来ない */
+function moneyShock(s: State) {
+  if (s.inner.isPeer || s.flags.in_prison || s.stat.money < 200) return;
+  const hits = s.works.filter((w) => w.result === 'hit' || w.result === 'legend').length;
+  if (!s.rng.chance(tune<number>('money.shock') * (hits >= 3 ? 0.5 : 1) * (s.stat.money > 1500 ? 1.5 : 1))) return;
+  const loss = Math.round(s.stat.money * (tune<number>('money.shockMin') + s.rng.next() * (tune<number>('money.shockMax') - tune<number>('money.shockMin'))) / 10) * 10;
+  if (loss <= 0) return;
+  s.stat.money -= loss;
+  const m = `${loss.toLocaleString('ja-JP')} 万円`, me = `${loss.toLocaleString('en-US')}0,000 yen`;
+  const pool: Text[] = [
+    { ja: `実家の屋根が台風で飛んだ。直すのに ${m}。屋根屋さんは「ゲームの人? 儲かるんでしょ」と言った。`, en: `A typhoon took the roof off your parents' house. Repairs: ${me}. The roofer said, "Game guy? You must be rolling in it."` },
+    { ja: `「絶対に上がる」と言われた投資話に乗った。${m}が、ガチャより早く溶けた。`, en: `You bought into a "can't-lose" investment. ${me} melted faster than a gacha pull.` },
+    { ja: `友人の借金の保証人になっていた。友人は消え、請求書だけが届いた。${m}。`, en: `You had co-signed a friend's loan. The friend vanished; the bill did not. ${me}.` },
+    { ja: `歯医者で「全部やりましょう」と言われた。全部やった。${m}。噛み合わせは完璧になった。`, en: `The dentist said, "Let's do all of it." You did all of it. ${me}. Your bite is now perfect.` },
+    { ja: `車が止まった。直すより買う方が安いと言われ、買った。${m}。前の車にはまだ 3 年分のローンが残っていた。`, en: `The car died. Cheaper to buy than fix, they said. ${me}. The old car still had three years of loan on it.` },
+    { ja: `税務署から封筒。去年のヒットの分を、まとめて払うことになった。${m}。ヒットは 2 回来る。2 回目は請求書で。`, en: `An envelope from the tax office: last year's success, due all at once. ${me}. A hit comes twice. The second time, as a bill.` },
+    { ja: `親の入院と介護が重なった。${m}が出ていった。お金の話をしたのは、その年がいちばん多かった。`, en: `A parent's hospital stay and care came at once. ${me} went out. You never talked about money more than that year.` },
+    { ja: `昔のゲーム機を「資料」として集め始めたら止まらなくなった。${m}。押し入れはもう閉まらない。`, en: `You started collecting old consoles "for research" and couldn't stop. ${me}. The closet no longer closes.` },
+    { ja: `引っ越した。敷金、礼金、新しい机、新しい椅子。気づけば ${m}。仕事は前と同じ机の上でした方がはかどった。`, en: `You moved. Deposit, key money, a new desk, a new chair: ${me} before you knew it. You worked better at the old desk.` },
+    { ja: `自分のゲームを作るための機材を一式そろえた。${m}。1 年たって、主に動画を見る機械になっている。`, en: `You bought a full rig to make your own game. ${me}. A year later, it's mostly for watching videos.` },
+  ];
+  log(s, freshLine(s, pool, 'moneyshock'), 'event', ['money']);
+}
+
 function canPromote(s: State) {
   if (s.flags.sub_ceo || s.flags.own_co) return false; // 子会社の社長・自分の会社の人は昇進しない(第 62 回: 社長なのに「昇進した」)
   if (s.inner.companyYears < 3 || s.age < 26) return false;
@@ -707,6 +731,7 @@ function endYear(s: State, out: string[]) {
     s.inner.companyYears++;
   } else if (s.status === 'indie') s.stat.money -= tune('year.indieCost');
   else if (s.status === 'left' && s.job !== 'other') s.stat.money -= tune('year.leftCost');
+  moneyShock(s);
   checkEnd(s, out);
   // 同期
   if (!s.inner.isPeer) peersYear(s, out);

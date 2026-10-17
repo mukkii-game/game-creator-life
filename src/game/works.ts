@@ -235,7 +235,7 @@ export function release(s: State): { work: Work; line: Text } {
   s.stat.passion = clamp(s.stat.passion + fx.passion);
   s.stat.fame = clamp(s.stat.fame + Math.round(fx.fame * roleFame));
   s.stat.network = clamp(s.stat.network + 3);
-  if (role === 'solo') s.stat.money += { flop: -80, ok: 50, hit: 600, legend: 3000 }[result];
+  if (role === 'solo') s.stat.money += { flop: -80, ok: 30, hit: 300, legend: 1500 }[result]; // 2026-10-17 現実に寄せて半分
   return { work, line };
 }
 
