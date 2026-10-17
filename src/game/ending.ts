@@ -111,9 +111,11 @@ export function makeEnding(s: State, id: EndingId, custom?: Text): Ending {
   const fatesJa = fv?.ja ?? '';
   const ja = `${s.startYear} 年、${s.startAge} 歳で${s.entry.ja}の${job0.ja}として業界入り。` +
     (w.length ? `${w.length} 本に関わり、ヒット ${hit} 本・爆死 ${flop} 本。` : '作品は 1 本も世に出なかった。') +
+    (s.job !== s.inner.startJob && JOB_TEXT[s.job] ? `最後は${JOB_TEXT[s.job].ja}。` : '') + /* 途中で職種が変わったら最後の職種も書く(2026-10-17 Mukkii: 終わった瞬間、最初の職種のままに見える) */
     (fates ? `${fates} 本は${fatesJa}。` : '') + (s.flags.ex_prison && !s.flags.in_prison ? '途中で一度、塀の中を通った。' : '') + `${cause.ja}。`; // 第 27 回: 服役が結果画面に出てこない
   const en = `Entered the industry in ${s.startYear} at ${s.startAge} as a ${job0.en} (${s.entry.en}). ` +
     (w.length ? `Worked on ${w.length} games: ${hit} hits, ${flop} flops. ` : 'Not a single game shipped. ') +
+    (s.job !== s.inner.startJob && JOB_TEXT[s.job] ? `Ended as a ${JOB_TEXT[s.job].en}. ` : '') +
     (fates ? `${fates} of them ${fv!.en}. ` : '') + `${cause.en}.`;
   return { id, age: s.age, year: s.year, cause, summary: { ja, en }, epitaph: epitaphOf(s, id), lastWord: lastWordOf(s, id) };
 }
