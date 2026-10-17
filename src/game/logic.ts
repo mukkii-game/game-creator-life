@@ -498,7 +498,7 @@ function beginYear(s: State, out: string[]) {
     const said = s.inner.saidLines ?? [];
     const pw = (PARODY_WORKS as { co: string; years: [number, number]; text: Text }[]).filter((x) => x.years[0] <= s.year && s.year <= x.years[1] && x.co !== s.company.id && !said.includes(x.text.ja));
     const fresh = pw.filter((x) => !s.inner.recent?.includes(`line:${x.text.ja}`));
-    if (pw.length && (fresh.length || r.chance(0.2))) { const x = r.pick(fresh.length ? fresh : pw); (s.inner.saidLines ??= []).push(x.text.ja); log(s, x.text, 'event', ['parody']); s.inner.parodyShown = (s.inner.parodyShown ?? 0) + 1; }
+    if (fresh.length) { const x = r.pick(fresh); /* 直近の人生で見た作品は出さない(自動点検: モーゼ・カイロンが人生をまたいで同じ文) */ (s.inner.saidLines ??= []).push(x.text.ja); log(s, x.text, 'event', ['parody']); s.inner.parodyShown = (s.inner.parodyShown ?? 0) + 1; }
   }
   // 歴史の事件(その年の業界の大事件が、今の立場で自分に降ってくる)
   const hist = pickHist(s);
