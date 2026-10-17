@@ -65,6 +65,7 @@ export const RESULT_TEXT: Record<WorkResult, Text> = {
 
 function roleFor(s: State): Role {
   if (s.status === 'indie') return 'solo';
+  if (s.job === 'teacher') return 'junior'; // 先生になった年に出た作品は、少し手伝っただけ(2026-10-17 Mukkii: 専任講師なのにリード)
   if (s.job === 'director' || s.job === 'producer' || (s.stat.skill >= 75 && s.job !== 'qa' && s.job !== 'sales')) return 'lead';
   if (s.stat.skill >= 35) return 'core';
   return 'junior';
@@ -73,6 +74,7 @@ function roleFor(s: State): Role {
 function roleText(s: State, role: Role): Text {
   if (s.job === 'qa') return role === 'junior' ? { ja: 'テスト担当', en: 'a tester' } : { ja: 'テストのまとめ役', en: 'the test lead' };
   if (s.job === 'sales') return { ja: '営業担当', en: 'on sales' };
+  if (s.job === 'teacher') return { ja: '名前だけの監修', en: 'a supervisor in name only' };
   return ROLE_TEXT[role];
 }
 

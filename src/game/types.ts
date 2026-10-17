@@ -129,6 +129,7 @@ export interface Inner {
   childYear?: number;
   /** 海外から帰ってくる年 */
   abroadUntil?: number; lastHwChoice?: number; relForms?: number[]; aiqYear?: number; theme?: string; krNone?: boolean;
+    jobNow?: string; jobNow0?: string; jobFrom?: number;
   /** この人生で出たネタの型 */
   motifs?: string[];
   isPeer: boolean;

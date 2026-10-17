@@ -1,0 +1,645 @@
+[
+ {
+  "id": "ev_jf_snd_loop",
+  "jobs": [
+   "sound"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "BGM のループのつなぎ目で「プツッ」と鳴ると、テストから 40 件届いた。原因は 1 サンプルのずれ。直したら、誰も何も言わなくなった。それが正解の印だった。",
+   "en": "Testers filed 40 reports about a pop at the BGM loop point. The cause: one sample off. After the fix, nobody said anything. That's how you know it's right."
+  },
+  "when": [
+   "job=sound",
+   "career>=6",
+   "status=employed"
+  ],
+  "effect": {
+   "skill": 3,
+   "hp": -2
+  },
+  "tag": [
+   "pit",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_jf_snd_cut",
+  "jobs": [
+   "sound"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "容量が足りず、あなたの曲だけ音質を半分にすると決まった。夜中にこっそり楽器を 2 つ減らして、元の音質を守った。誰も気づかなかった。気づかれないように作ったのだ。",
+   "en": "Out of space, they decided to halve the quality of only your music. Late at night you quietly cut two instruments to keep the original quality. Nobody noticed. That was the point."
+  },
+  "when": [
+   "job=sound",
+   "career>=6",
+   "status=employed"
+  ],
+  "effect": {
+   "skill": 4,
+   "passion": 3
+  },
+  "tag": [
+   "pit",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_jf_snd_hum",
+  "jobs": [
+   "sound"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "電車で、知らない高校生があなたの曲を鼻歌で歌っていた。サビの手前で 1 音外した。直してあげたかったが、降りる駅だった。",
+   "en": "On the train, a high schooler you didn't know was humming your song. They missed one note before the chorus. You wanted to correct it, but it was your stop."
+  },
+  "when": [
+   "job=sound",
+   "career>=6",
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 8
+  },
+  "tag": [
+   "high",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_jf_snd_se",
+  "jobs": [
+   "sound"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "決定ボタンの音を 1 週間で 120 個作った。採用は 3 日目の 14 個目。部長は「最初のでよかった」と言った。最初のは、違う音だった。",
+   "en": "You made 120 confirm-button sounds in a week. They picked No. 14 from day three. The boss said, \"The first one was fine.\" The first one was a different sound."
+  },
+  "when": [
+   "job=sound",
+   "career>=6",
+   "status=employed"
+  ],
+  "effect": {
+   "skill": 2,
+   "passion": -1
+  },
+  "tag": [
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_jf_prog_heisen",
+  "jobs": [
+   "programmer"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "発売 1 か月前、10 回に 1 回だけ止まるバグ。デバッガーをつなぐと止まらない。3 日目の朝、原因は変数 1 つの初期化忘れだった。机に頭を 1 回だけぶつけた。",
+   "en": "A month before launch: a crash once in ten runs. Attach the debugger and it never crashes. On the third morning: one uninitialized variable. You hit your head on the desk exactly once."
+  },
+  "when": [
+   "job=programmer",
+   "career>=6",
+   "status=employed"
+  ],
+  "effect": {
+   "skill": 4,
+   "hp": -3
+  },
+  "tag": [
+   "pit",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_jf_prog_60fps",
+  "jobs": [
+   "programmer"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "ずっと 50 フレームだった画面を、夜中の 2 時に 60 に上げた。誰もいないフロアで、1 人で小さくガッツポーズした。翌朝、誰も気づかなかった。手触りが良くなったとだけ言われた。",
+   "en": "At 2 a.m. you got the screen that had been stuck at 50 frames up to 60. You did a small fist pump alone on the empty floor. Next morning nobody noticed. They just said it felt better."
+  },
+  "when": [
+   "job=programmer",
+   "career>=6",
+   "status=employed"
+  ],
+  "effect": {
+   "skill": 3,
+   "passion": 8
+  },
+  "tag": [
+   "high"
+  ]
+ },
+ {
+  "id": "ev_jf_prog_comment",
+  "jobs": [
+   "programmer"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "5 年前のコードに「ここは触るな。理由は聞くな」とコメントがあった。書いたのは、5 年前の自分だった。理由は、思い出せなかった。触らなかった。",
+   "en": "Five-year-old code had a comment: \"Don't touch this. Don't ask why.\" You wrote it, five years ago. You couldn't remember why. You didn't touch it."
+  },
+  "when": [
+   "job=programmer",
+   "career>=8",
+   "status=employed"
+  ],
+  "effect": {
+   "skill": 1
+  },
+  "tag": [
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_jf_prog_rta",
+  "jobs": [
+   "programmer"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "自分が書いた当たり判定の抜け道を、世界中のタイムアタックの人たちが使っていた。動画のコメント欄に「開発者は天才か、うっかりか」。答えは後者だ。黙っていた。",
+   "en": "Speedrunners worldwide were using a gap in a hitbox you wrote. A comment under the video: \"Was the dev a genius or careless?\" The latter. You stayed quiet."
+  },
+  "when": [
+   "job=programmer",
+   "career>=8",
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 6,
+   "fame": 2
+  },
+  "tag": [
+   "high",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_jf_art_palette",
+  "jobs": [
+   "artist"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "使える色が 16 色しかない。主人公の肌色を 1 色あきらめるか、空の青を 1 色あきらめるか。3 日悩んで、空を少し緑にした。誰も気づかなかった。",
+   "en": "Sixteen colors, total. Give up a skin tone on the hero, or a blue in the sky? After three days you made the sky slightly green. Nobody noticed."
+  },
+  "when": [
+   "job=artist",
+   "career>=6",
+   "status=employed"
+  ],
+  "effect": {
+   "skill": 3
+  },
+  "tag": [
+   "pit",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_jf_art_retake",
+  "jobs": [
+   "artist"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "徹夜で描いたキャラを、偉い人が 3 秒見て「もっと元気に」。元気の意味を 2 日考え、目を 2 ドット大きくした。「これだよ」と言われた。",
+   "en": "An executive glanced for three seconds at a character you'd drawn all night: \"More energetic.\" You spent two days on what that meant and made the eyes two pixels bigger. \"That's it.\""
+  },
+  "when": [
+   "job=artist",
+   "career>=6",
+   "status=employed"
+  ],
+  "effect": {
+   "skill": 2,
+   "passion": -2
+  },
+  "tag": [
+   "pit",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_jf_art_cosplay",
+  "jobs": [
+   "artist"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "イベントで、あなたの描いたキャラの衣装を着た人がいた。ボタンの数まで同じだった。あなたも数えていなかったのに。",
+   "en": "At an event, someone was cosplaying a character you designed. Even the number of buttons matched. You'd never counted them yourself."
+  },
+  "when": [
+   "job=artist",
+   "career>=6",
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 8
+  },
+  "tag": [
+   "high"
+  ]
+ },
+ {
+  "id": "ev_jf_art_fanart",
+  "jobs": [
+   "artist"
+  ],
+  "years": [
+   1980,
+   2040
+  ],
+  "once": true,
+  "weight": 1.5,
+  "text": {
+   "ja": "ネットで、あなたのキャラの絵が 1 晩で 300 枚描かれていた。あなたより上手い人が 40 人いた。全部保存した。参考にした。",
+   "en": "Overnight, people online drew 300 pictures of your character. Forty of them were better than you. You saved them all. For reference."
+  },
+  "when": [
+   "job=artist",
+   "career>=8",
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 2
+  },
+  "tag": [
+   "high",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_jf_dir_offer_artist",
+  "jobs": [
+   "artist"
+  ],
+  "years": [
+   1983,
+   2040
+  ],
+  "once": true,
+  "weight": 10,
+  "text": {
+   "ja": "「次の新作、ディレクターをやってみないか」。絵の人に声がかかるのは、この会社では珍しい。",
+   "en": "\"Want to direct the next new title?\" At this company, they rarely ask an artist."
+  },
+  "when": [
+   "job=artist",
+   "career>=12",
+   "status=employed",
+   "!flag.promo_declined"
+  ],
+  "choices": [
+   {
+    "id": "ch_jf_dir_artist_yes",
+    "label": {
+     "ja": "ディレクターを引き受ける",
+     "en": "Take the director job"
+    },
+    "effect": {
+     "job": "director",
+     "money": 20,
+     "flag": {
+      "promoted": true
+     }
+    },
+    "result": {
+     "ja": "引き受けた。最初の会議で、仕様より先にキャラの襟の形の話をしていた。",
+     "en": "You accepted. In the first meeting you talked about a character's collar before the specs."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_jf_dir_fu_artist"
+     }
+    ]
+   },
+   {
+    "id": "ch_jf_dir_artist_no",
+    "label": {
+     "ja": "あえて現場に残る",
+     "en": "Choose to stay hands-on"
+    },
+    "effect": {
+     "passion": 6,
+     "skill": 3,
+     "flag": {
+      "promo_declined": true
+     }
+    },
+    "result": {
+     "ja": "断った。「まだ描きたい絵があるので」。部長は「そう言うと思った」と言った。",
+     "en": "You declined: \"There are still things I want to draw.\" The boss said, \"Thought you'd say that.\""
+    }
+   }
+  ],
+  "tag": [
+   "choice",
+   "career"
+  ]
+ },
+ {
+  "id": "ev_jf_dir_fu_artist",
+  "years": [
+   1983,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "ディレクターになって 2 年。絵のチェックだけは誰より細かく、ほかは全部遅れた。最後の 1 か月、結局自分でドットを打っていた。",
+   "en": "Two years as director. You checked art more closely than anyone, and everything else slipped. In the last month you were placing pixels yourself."
+  },
+  "alt": [
+   {
+    "ja": "ディレクターの席で、つい背景の木の葉っぱの数を直させた。その間に、ゲームの方の締め切りが 2 回過ぎた。",
+    "en": "From the director's chair you made them fix the number of leaves on a background tree. Meanwhile, two game deadlines passed."
+   },
+   {
+    "ja": "ディレクターになって分かった。絵は 1 人でも描けるが、ゲームは 1 人では決まらない。会議で「いい感じに」と言いかけて、3 回飲み込んだ。",
+    "en": "As director you learned: you can draw alone, but a game isn't decided alone. You almost said \"make it nice\" in meetings, and swallowed it three times."
+   }
+  ],
+  "effect": {
+   "passion": -2,
+   "skill": 2
+  },
+  "tag": [
+   "followup",
+   "career",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_jf_dir_offer_programmer",
+  "jobs": [
+   "programmer"
+  ],
+  "years": [
+   1983,
+   2040
+  ],
+  "once": true,
+  "weight": 10,
+  "text": {
+   "ja": "「次のタイトル、ディレクターを頼めないか」。仕組みが一番分かっている人に、と部長は言った。",
+   "en": "\"Could you direct the next title?\" The boss said they wanted the person who understands the systems best."
+  },
+  "when": [
+   "job=programmer",
+   "career>=12",
+   "status=employed",
+   "!flag.promo_declined"
+  ],
+  "choices": [
+   {
+    "id": "ch_jf_dir_programmer_yes",
+    "label": {
+     "ja": "ディレクターを引き受ける",
+     "en": "Take the director job"
+    },
+    "effect": {
+     "job": "director",
+     "money": 20,
+     "flag": {
+      "promoted": true
+     }
+    },
+    "result": {
+     "ja": "引き受けた。最初の企画会議で、面白さの話より先にメモリの話をしていた。",
+     "en": "You accepted. In the first planning meeting you talked about memory before fun."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_jf_dir_fu_programmer"
+     }
+    ]
+   },
+   {
+    "id": "ch_jf_dir_programmer_no",
+    "label": {
+     "ja": "あえて現場に残る",
+     "en": "Choose to stay hands-on"
+    },
+    "effect": {
+     "passion": 6,
+     "skill": 3,
+     "flag": {
+      "promo_declined": true
+     }
+    },
+    "result": {
+     "ja": "断った。「まだ書きたいコードがあるので」。その夜、溜めていたリファクタリングを全部やった。",
+     "en": "You declined: \"There's still code I want to write.\" That night you did all the refactoring you'd been saving."
+    }
+   }
+  ],
+  "tag": [
+   "choice",
+   "career"
+  ]
+ },
+ {
+  "id": "ev_jf_dir_fu_programmer",
+  "years": [
+   1983,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "ディレクターになって 2 年。企画の案を聞くたびに「それは処理が重い」と言ってしまい、面白い案から先に消えていった。",
+   "en": "Two years as director. Every time you heard an idea, you said \"that's too heavy to process,\" and the fun ideas vanished first."
+  },
+  "alt": [
+   {
+    "ja": "ディレクターの席から、夜中にこっそりエンジンのコードを直していた。翌朝、プログラマーの後輩が黙って元に戻していた。",
+    "en": "From the director's seat you secretly patched the engine at night. The next morning, a junior programmer quietly reverted it."
+   },
+   {
+    "ja": "ディレクターになって、仕様書に「ここは後でうまくやる」と書かれると眠れなくなった。うまくやるのは、いつも自分だった。",
+    "en": "As director, you couldn't sleep when a spec said \"we'll handle this nicely later.\" The one handling it was always you."
+   }
+  ],
+  "effect": {
+   "passion": -2,
+   "skill": 2
+  },
+  "tag": [
+   "followup",
+   "career",
+   "gag"
+  ]
+ },
+ {
+  "id": "ev_jf_dir_offer_sound",
+  "jobs": [
+   "sound"
+  ],
+  "years": [
+   1983,
+   2040
+  ],
+  "once": true,
+  "weight": 10,
+  "text": {
+   "ja": "「次の作品、ディレクターをやってみないか」。音の人に声がかかったのは、社内で初めてらしい。",
+   "en": "\"Want to direct the next game?\" Apparently it's the first time anyone here has asked a sound person."
+  },
+  "when": [
+   "job=sound",
+   "career>=12",
+   "status=employed",
+   "!flag.promo_declined"
+  ],
+  "choices": [
+   {
+    "id": "ch_jf_dir_sound_yes",
+    "label": {
+     "ja": "ディレクターを引き受ける",
+     "en": "Take the director job"
+    },
+    "effect": {
+     "job": "director",
+     "money": 20,
+     "flag": {
+      "promoted": true
+     }
+    },
+    "result": {
+     "ja": "引き受けた。最初の会議で、ゲームの流れを曲の構成で説明した。半分の人には伝わらなかった。",
+     "en": "You accepted. In the first meeting you explained the game's flow as a song structure. Half the room didn't follow."
+    },
+    "later": [
+     {
+      "after": 2,
+      "event": "ev_jf_dir_fu_sound"
+     }
+    ]
+   },
+   {
+    "id": "ch_jf_dir_sound_no",
+    "label": {
+     "ja": "あえて現場に残る",
+     "en": "Choose to stay hands-on"
+    },
+    "effect": {
+     "passion": 6,
+     "skill": 3,
+     "flag": {
+      "promo_declined": true
+     }
+    },
+    "result": {
+     "ja": "断った。「まだ作りたい音があるので」。帰り道、断ったことを曲にした。",
+     "en": "You declined: \"There are still sounds I want to make.\" On the way home you turned declining into a song."
+    }
+   }
+  ],
+  "tag": [
+   "choice",
+   "career"
+  ]
+ },
+ {
+  "id": "ev_jf_dir_fu_sound",
+  "years": [
+   1983,
+   2040
+  ],
+  "weight": 0,
+  "text": {
+   "ja": "ディレクターになって 2 年。全部の場面に「ここは無音で」と注文し、テストで「バグですか」と 30 件届いた。",
+   "en": "Two years as director. You asked for silence in every scene, and testers filed 30 reports asking if it was a bug."
+  },
+  "alt": [
+   {
+    "ja": "ディレクターの席から、効果音の 0.1 秒のずればかり直させていた。その間に、ボス戦が 1 体まるごと間に合わなかった。",
+    "en": "From the director's chair you kept fixing 0.1-second sound offsets. Meanwhile, an entire boss fight missed the deadline."
+   },
+   {
+    "ja": "ディレクターになっても、会議中ずっと机を指でリズムよく叩いていた。議事録の係が、テンポを 128 と書き留めた。",
+    "en": "Even as director you tapped rhythms on the table through every meeting. The minutes-taker noted the tempo: 128."
+   }
+  ],
+  "effect": {
+   "passion": -2,
+   "skill": 2
+  },
+  "tag": [
+   "followup",
+   "career",
+   "gag"
+  ]
+ }
+]

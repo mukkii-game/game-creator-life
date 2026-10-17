@@ -627,6 +627,7 @@ function runItem(s: State, id: string, out: string[]) {
   if (id.startsWith('@end:')) return end(s, id.slice(5) as EndingId, out);
   if (id === '@release') {
     if (s.status !== 'employed' && s.status !== 'indie' || s.flags.in_prison || s.inner.queue.some((q) => !!EVENT_BY_ID.get(q)?.effect?.flag?.do_prison)) return; // 判決の年は発売しない(第 35 回: 実刑の年にリードで発売)
+    if (s.job === 'teacher' && r.chance(0.5)) return; // 先生になった年は、半分は関わらないまま
     if (s.flags.callcenter) { s.inner.nextWorkYear = s.year + 1; return; } // カスタマーセンターにいる間は作品を出さない(第 12 回ペルソナ)
     const { line, work } = release(s);
     log(s, line, 'work'); out.push('work');
@@ -1096,7 +1097,9 @@ function wOf(s: State): (e: GameEvent) => number {
   // 人生ごとの色(第 33 回: 3 回続けると「同じ骨組みの色違い」→ 1 人生ごとに出やすい話の種類を 1 つ決める。直近の人生と同じ色は避ける)
   const th = (s.inner.theme ??= (() => { const ok = THEMES.filter((t) => !rec?.includes(`theme:${t}`)); return s.inner.isPeer ? '' : s.rng.pick(ok.length ? ok : THEMES); })());
   const p = tune<number>('life.recentPenalty');
-  return (e) => (e.weight ?? 1) * (th && e.tag?.includes(th) ? 2.5 : 1) * (e.jobs && e.jobs.length <= 2 && e.jobs.includes(s.job) ? (s.year - s.startYear <= 7 ? 4 : 2) : 1) * (e.tag?.includes('indie') && s.year >= 2016 ? 2.5 : 1) /* 2015 年のインディーの衝撃の後は、独立の話が出やすい(2026-10-17 Mukkii) */ /* 職種の味(第 38 回: サウンドなのに音の話がほぼ無い) */ * (rec?.includes(e.id) ? p : 1) * (e.motif && rec?.includes(`line:motif:${e.motif}`) ? 0.2 : 1) * (e.tag?.includes('insider') ? 0.4 : 1);
+  if (s.inner.jobNow !== s.job) { s.inner.jobNow = s.job; s.inner.jobFrom = s.inner.jobNow0 === undefined ? s.startYear : s.year; s.inner.jobNow0 = s.job; }
+  const jobFrom = s.inner.jobFrom ?? s.startYear; // 職種の話は、その職種に就いてから 7 年は強め(2026-10-17 Mukkii: 転職後にその職種らしい話が出ない)
+  return (e) => (e.weight ?? 1) * (th && e.tag?.includes(th) ? 2.5 : 1) * (e.jobs && e.jobs.length <= 2 && e.jobs.includes(s.job) ? (s.year - jobFrom <= 7 ? 4 : 2) : 1) * (e.tag?.includes('indie') && s.year >= 2016 ? 2.5 : 1) /* 2015 年のインディーの衝撃の後は、独立の話が出やすい(2026-10-17 Mukkii) */ /* 職種の味(第 38 回: サウンドなのに音の話がほぼ無い) */ * (rec?.includes(e.id) ? p : 1) * (e.motif && rec?.includes(`line:motif:${e.motif}`) ? 0.2 : 1) * (e.tag?.includes('insider') ? 0.4 : 1);
 }
 
 /** 直近の人生で見ていない話だけ(続けて遊んだ時に、人生の大きな筋が被らないように) */
