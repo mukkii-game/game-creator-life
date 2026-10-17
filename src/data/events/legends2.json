@@ -1674,5 +1674,311 @@
    "celeb",
    "gag"
   ]
+ },
+ {
+  "id": "ev_l2_miyamoto_kyoto",
+  "years": [
+   1986,
+   2030
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "京都の任天堂で打ち合わせ。廊下の向こうを宮本茂さんが歩いていった。会議の内容は、あまり覚えていない。",
+   "en": "A meeting at Nintendo in Kyoto. Shigeru Miyamoto walked past at the end of the hallway. You don't remember much of the meeting."
+  },
+  "when": [
+   "status=employed",
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 6,
+   "network": 1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ],
+  "memory": {
+   "ja": "任天堂の廊下で宮本茂さんを見た",
+   "en": "saw Shigeru Miyamoto in a Nintendo hallway"
+  }
+ },
+ {
+  "id": "ev_l2_miyamoto_sign",
+  "years": [
+   1989,
+   2001
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "任天堂のスペースワールドで、宮本茂さんにサインをもらった。手が震えて、自分の名前の漢字を 1 つ間違えて伝えた。今もそのまま飾ってある。",
+   "en": "At Nintendo Space World you got Shigeru Miyamoto's autograph. Your hand shook and you told him one character of your name wrong. It's still framed that way."
+  },
+  "effect": {
+   "passion": 7
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ],
+  "memory": {
+   "ja": "宮本茂さんのサインに、自分の名前の字が 1 つ違う",
+   "en": "Miyamoto's autograph, with your name slightly wrong"
+  }
+ },
+ {
+  "id": "ev_l2_horii_enix",
+  "years": [
+   1987,
+   2030
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "エニックスとの打ち合わせの帰り、エレベーターに堀井雄二さんが乗ってきた。「お疲れさまです」しか言えなかった。返ってきたのも「お疲れさまです」だった。",
+   "en": "Leaving a meeting at Enix, Yuji Horii stepped into the elevator. All you managed was \"Good work today.\" He said the same back."
+  },
+  "when": [
+   "status=employed",
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 6,
+   "network": 1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ],
+  "memory": {
+   "ja": "堀井雄二さんと「お疲れさまです」を交わした",
+   "en": "swapped a \"good work today\" with Yuji Horii"
+  }
+ },
+ {
+  "id": "ev_l2_horii_tgs",
+  "years": [
+   1996,
+   2035
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "東京ゲームショウで、堀井雄二さんにサインをもらった。並んだのは 2 時間。書いてもらうのは 10 秒。帰り道、その 10 秒の話だけを 3 回した。",
+   "en": "At Tokyo Game Show you got Yuji Horii's autograph. Two hours in line, ten seconds of signing. On the way home you told the story of those ten seconds three times."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ],
+  "memory": {
+   "ja": "堀井雄二さんのサインに 2 時間並んだ",
+   "en": "waited two hours for Yuji Horii's autograph"
+  }
+ },
+ {
+  "id": "ev_l2_endo_meeting",
+  "years": [
+   1985,
+   2015
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "取引先の会議室に、『ゼビウス』の遠藤雅伸さんが座っていた。あなたの資料に赤ペンで 1 か所だけ丸が付いて返ってきた。その資料は捨てられない。",
+   "en": "Masanobu Endo of Xevious was in the client's meeting room. Your handout came back with a single red circle on it. You can't throw it away."
+  },
+  "when": [
+   "status=employed",
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ],
+  "memory": {
+   "ja": "遠藤雅伸さんに資料に丸を付けてもらった",
+   "en": "Masanobu Endo circled one spot on your handout"
+  }
+ },
+ {
+  "id": "ev_l2_endo_sign",
+  "years": [
+   1984,
+   2015
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "ゲームのイベントで、遠藤雅伸さんにサインをもらった。「ドルアーガ、60 階まで行きました」と言うと、「仲間と?」と聞かれた。正直に「はい」と答えた。",
+   "en": "At a game event you got Masanobu Endo's autograph. You said you'd made it to floor 60 of Druaga. \"With friends?\" he asked. You honestly said yes."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_iwatani_meeting",
+  "years": [
+   1981,
+   2006
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "ナムコとの打ち合わせ。お茶を運んでくれた人の後ろを、『パックマン』の岩谷徹さんが通った。その日の議事録の端に、パックマンの落書きが 4 つあった。",
+   "en": "A meeting at Namco. Behind the person bringing tea walked Toru Iwatani of Pac-Man. The edge of that day's minutes had four little Pac-Men doodled on it."
+  },
+  "when": [
+   "status=employed",
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 5,
+   "network": 1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_iwatani_student",
+  "years": [
+   2008,
+   2035
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "新人の履歴書に「大学で岩谷徹先生の授業を受けました」とあった。面接の半分は、その授業の話になった。採用した。",
+   "en": "A new hire's résumé said they'd taken Toru Iwatani's class at university. Half the interview was about that class. You hired them."
+  },
+  "when": [
+   "status=employed",
+   "career>=10"
+  ],
+  "effect": {
+   "passion": 4,
+   "network": 2
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_nishikado_taito",
+  "years": [
+   1979,
+   2000
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "タイトーとの仕事で、『スペースインベーダー』の西角友宏さんと同じ机を囲んだ。基板の話になると、急に声が大きくなる人だった。あなたもそうだった。",
+   "en": "Working with Taito, you sat at the same table as Tomohiro Nishikado of Space Invaders. He got louder whenever circuit boards came up. So did you."
+  },
+  "when": [
+   "status=employed",
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 6,
+   "skill": 1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ],
+  "memory": {
+   "ja": "西角友宏さんと基板の話で盛り上がった",
+   "en": "got loud about circuit boards with Tomohiro Nishikado"
+  }
+ },
+ {
+  "id": "ev_l2_nishikado_sign",
+  "years": [
+   1995,
+   2025
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "業界の集まりで、西角友宏さんに名刺の裏へサインをもらった。横に小さくインベーダーを 1 匹描いてくれた。その名刺だけ、財布に入れている。",
+   "en": "At an industry gathering, Tomohiro Nishikado signed the back of your card and drew one tiny invader beside it. That card lives in your wallet."
+  },
+  "effect": {
+   "passion": 6
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ],
+  "memory": {
+   "ja": "西角友宏さんがインベーダーを描いてくれた",
+   "en": "Tomohiro Nishikado drew you an invader"
+  }
+ },
+ {
+  "id": "ev_l2_ueda_tehkan",
+  "years": [
+   1984,
+   1990
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "テーカンとの打ち合わせ。向かいの静かな人が、『スターフォース』を手がけた上田和敏さんだと、帰りの電車で知った。もっと何か聞けばよかった。",
+   "en": "A meeting at Tehkan. On the train home you learned the quiet man across from you was Kazutoshi Ueda, who worked on Star Force. You wish you'd asked him something."
+  },
+  "when": [
+   "status=employed",
+   "pos=dev"
+  ],
+  "effect": {
+   "passion": 5,
+   "network": 1
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
+ },
+ {
+  "id": "ev_l2_ueda_mrdo",
+  "years": [
+   1983,
+   1995
+  ],
+  "weight": 0.8,
+  "once": true,
+  "text": {
+   "ja": "休憩室で『Mr.Do!』の話をしていたら、先輩が「あれ、上田和敏さんだよ。会ったことある」と言った。その日から先輩を少し尊敬した。",
+   "en": "You were talking about Mr. Do! in the break room when a senior said, \"That was Kazutoshi Ueda. I've met him.\" From that day you respected the senior a little more."
+  },
+  "when": [
+   "status=employed"
+  ],
+  "effect": {
+   "passion": 4
+  },
+  "tag": [
+   "celeb",
+   "high"
+  ]
  }
 ]
