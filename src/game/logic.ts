@@ -427,7 +427,7 @@ function beginYear(s: State, out: string[]) {
       const lastOffer = Math.max(s.inner.seen.ev_sys_offer ?? -99, s.inner.seen.ev_sys_offer_b ?? -99, s.inner.seen.ev_sys_offer_c ?? -99);
       if (!s.flags.age60 && s.inner.companyYears >= 2 && s.age >= 20 && s.year - lastOffer >= 6 && r.chance(tune('job.offer') + s.stat.network / 1500)) sys.push(vary(s, ['ev_sys_offer', 'ev_sys_offer_b', 'ev_sys_offer_c']));
       // 昇進: 半分は「受けるか、現場に残るか」の選択(ev_wk_promote_ask)。残りはそのまま辞令
-      else if (canPromote(s) && !s.flags.promo_declined && r.chance(tune('job.promote'))) sys.push(r.chance(0.5) && !s.flags.promoted && !s.inner.used.includes('ev_wk_promote_ask') && !s.inner.recent?.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : vary(s, ['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
+      else if (canPromote(s) && !s.flags.promo_declined && r.chance(tune<number>('job.promote') * (s.job === 'planner' ? 0.3 : s.job === 'director' ? 0.15 : 0.1)) /* 2026-10-17 Mukkii: どの職種からも上に行けるが、いつもではない。プランナーは少し多め */) sys.push(r.chance(0.5) && !s.flags.promoted && !s.inner.used.includes('ev_wk_promote_ask') && !s.inner.recent?.includes('ev_wk_promote_ask') ? 'ev_wk_promote_ask' : vary(s, ['ev_sys_promote', 'ev_sys_promote_b', 'ev_sys_promote_c']));
       if (s.year >= 2027 && !s.inner.used.includes('ev_sys_ai_seat') && r.chance(Math.min(0.6, tune('ai.seat') * (1 + 2 * Math.min(1, (s.year - 2027) / 8)) + Math.max(0, s.year - 2035) * 0.12))) sys.push('ev_sys_ai_seat');
     }
   } else if (s.status === 'indie') {
@@ -732,7 +732,7 @@ function remember(s: State, ev: GameEvent, memory?: Text) {
 }
 
 function promote(s: State) {
-  const to: Partial<Record<Job, Job>> = { qa: 'planner', programmer: 'director', planner: 'director', artist: 'director', sound: 'director', sales: 'producer', director: 'producer' };
+  const to: Partial<Record<Job, Job>> = { ta: 'director', qa: 'planner', programmer: 'director', planner: 'director', artist: 'director', sound: 'director', sales: 'producer', director: 'producer' };
   const next = to[s.job];
   if (next) { s.job = next; const jn = JOB_TEXT[next]; const last = s.log[s.log.length - 1]; if (last && last.year === s.year && last.kind !== 'timeline') last.text = { ja: `${last.text.ja}名刺の職種は「${jn.ja}」になった。`, en: `${last.text.en} Your card now says "${jn.en}."` }; else log(s, { ja: `名刺の職種の欄が「${jn.ja}」になった。`, en: `Your business card now says "${jn.en}."` }, 'event'); /* 昇進の行に職種を足す(第 62 回: 「職種が変わった」と「昇進した」の 2 行が毎回続いた) */ } // 職種が変わったことを書く(第 60 回: 営業なのに「あなたはリード」)
   s.flags.promoted = true;

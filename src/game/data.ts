@@ -53,7 +53,7 @@ for (const e of EVENTS) {
 // 本文から職種を読む(第 10 回ペルソナ: プログラマに「自分の描いた木」、営業に開発の話)。job_hints.json に無い話だけ
 const JOB_WORDS: [RegExp, import('./types').Job[]][] = [
   [/技術手当|のコードのコメント/, ['programmer', 'artist', 'sound', 'qa', 'planner', 'director']],
-  [/自分の描いた|あなたの描いた|自分が描いた|あなたの絵|自分の絵|描き直し|描き直した|塗り直した|ドット絵を|あなたのドット絵|原画を/, ['artist', 'director']],
+  [/自分の描いた|あなたの描いた|自分が描いた|あなたの絵|自分の絵|描き直し|描き直した|塗り直した|ドット絵を|あなたのドット絵|原画を/, ['artist', 'ta', 'director']],
   [/あなたの曲|自分の曲|あなたの昔の曲|作曲|効果音を作/, ['sound', 'director']],
   [/昔のバグ表|バグ票を書|再現手順を/, ['qa']],
   [/営業の人|営業が「|営業は「|営業が言う/, ['planner', 'programmer', 'artist', 'sound', 'director', 'producer', 'qa']], // 第 43 回: 営業の人生に「営業が『子どもに売れない』と言うので」

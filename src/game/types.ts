@@ -2,7 +2,7 @@
 import type { Rng } from '../core/rng';
 
 export interface Text { ja: string; en: string }
-export type Job = 'programmer' | 'planner' | 'artist' | 'sound' | 'qa' | 'sales' | 'director' | 'producer' | 'teacher' | 'other';
+export type Job = 'programmer' | 'planner' | 'artist' | 'sound' | 'qa' | 'sales' | 'director' | 'producer' | 'teacher' | 'other' | 'ta'; // ta = テクニカルアーティスト(2005 年ごろから。グラフィッカーから移る)
 export type Status = 'employed' | 'indie' | 'left' | 'retired' | 'ended';
 export type Era = 'era1' | 'era2' | 'era3' | 'era4' | 'era5' | 'era6';
 export type Role = 'junior' | 'core' | 'lead' | 'solo';

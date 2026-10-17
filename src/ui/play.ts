@@ -52,7 +52,7 @@ export interface PlayScreen {
   setOmakase: (on: boolean) => void;
 }
 
-const JOB_ICON: Record<string, string> = { programmer: '💻', planner: '📝', artist: '🎨', sound: '🎵', qa: '🐛', sales: '📞', director: '🎬', producer: '💼', other: '🌾' };
+const JOB_ICON: Record<string, string> = { programmer: '💻', planner: '📝', artist: '🎨', ta: '🛠️', sound: '🎵', qa: '🐛', sales: '📞', director: '🎬', producer: '💼', other: '🌾' };
 const KIND_ICON: Record<string, string> = { event: '💬', work: '📦', peer: '👥', choice: '🙋', ask: '❓' };
 const KIND_EMO: Record<string, EmoName> = { event: 'event', work: 'work', peer: 'peer', choice: 'choice', ask: 'ask' };
 const KIND_WHO: Record<string, string> = { event: 'fromEvent', work: 'fromWork', peer: 'fromPeer', choice: 'fromChoice', ask: 'fromAsk' };

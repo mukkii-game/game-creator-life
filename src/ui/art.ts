@@ -58,7 +58,7 @@ export const EMO = {
   // テンション・有名人・挫折
   high: [12, 9], celeb: [12, 7], pit: [7, 17],
   // 職種
-  programmer: [20, 14], planner: [20, 11], artist: [16, 7], sound: [12, 6], qa: [10, 16], sales: [20, 15], director: [20, 17], producer: [17, 8], other: [18, 3],
+  programmer: [20, 14], planner: [20, 11], artist: [16, 7], ta: [16, 7], sound: [12, 6], qa: [10, 16], sales: [20, 15], director: [20, 17], producer: [17, 8], other: [18, 3],
   // 作品の結果
   legend: [17, 2], star: [12, 7], flop: [7, 17],
   // 年表
