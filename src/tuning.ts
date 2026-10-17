@@ -33,9 +33,9 @@ export const KNOBS: Knob[] = [
   { key: 'choice.wkMax', label: '仕事の選択の間隔(最長)', value: 5, min: 1, max: 20, step: 1, unit: '年' },
   { key: 'choice.hwMax', label: 'ハード選択の間隔(最長)', value: 6, min: 1, max: 20, step: 1, unit: '年' },
   // 業界入り
-  { key: 'gacha.age18', label: '18 歳で入る割合(基本は 22 歳。2026-10-16 Mukkii)', value: 0.08, min: 0, max: 1, step: 0.05 },
-  { key: 'gacha.age50', label: '50 すぎ(50〜57 歳)で入る割合', value: 0.06, min: 0, max: 0.5, step: 0.01, aim: 'ひいひい言いながらついていく人生' },
-  { key: 'gacha.lateBloomer', label: '遅咲き(26〜35 歳)の割合', value: 0.12, min: 0, max: 1, step: 0.05 },
+  { key: 'gacha.age18', label: '18 歳で入る割合(基本は 22 歳。2026-10-17 Mukkii: 22 歳を 8 割に)', value: 0.06, min: 0, max: 1, step: 0.05 },
+  { key: 'gacha.age50', label: '50 すぎ(50〜57 歳)で入る割合', value: 0.04, min: 0, max: 0.5, step: 0.01, aim: 'ひいひい言いながらついていく人生' },
+  { key: 'gacha.lateBloomer', label: '遅咲き(26〜35 歳)の割合', value: 0.1, min: 0, max: 1, step: 0.05 },
   // 毎年の変化
   { key: 'year.hp', label: '体力の上限の年ごとの下がり', value: 0.8, min: 0, max: 3, step: 0.1, unit: '点/年', aim: '40 歳からは 1.5 倍。70 歳で上限が 50 前後' },
   { key: 'year.hpRegen', label: '1 年で戻る体力', value: 0.08, min: 0, max: 1, step: 0.02, unit: '上限までの割合', aim: '徹夜 1 回は 1 年で半分くらい戻る。続くと倒れる' },

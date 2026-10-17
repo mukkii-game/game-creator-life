@@ -14,7 +14,8 @@ export function validPick(p: string | null | undefined): p is StartPick {
   return !!y && +y[1] >= YEAR_MIN && +y[1] <= YEAR_MAX;
 }
 
-export function pickOpts(p: StartPick): { era?: Era; year?: number } {
+export function pickOpts(p: StartPick): { era?: Era; year?: number; age?: number } {
   if (!validPick(p)) return {};
-  return p.startsWith('y') ? { year: +p.slice(1) } : { era: p as Era };
+  // 年代を自分で選んだ人は、新卒で入った自分を重ねていることが多いので 22 歳で始める(2026-10-17 Mukkii)
+  return p.startsWith('y') ? { year: +p.slice(1), age: 22 } : { era: p as Era, age: 22 };
 }
