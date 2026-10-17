@@ -965,6 +965,7 @@ const FINALES: Finale[] = [
   { t: { ja: '「で、これからどうするんだ」\n「落ち込んだりもしたけれど、私はげんきです」', en: '"So, what now?"\n"I\'ve had my ups and downs, but I\'m doing fine."' }, fit: (_s, id) => id === 'end_retire' || id === 'end_body' || id === 'end_switch' }, // 魔女の宅急便: 去った後も元気な人生に
   { t: { ja: '「もう、さすがに潮時かな」\n「あきらめたら、そこで試合終了ですよ」', en: '"Maybe it\'s time to call it."\n"If you give up, the game is over."' }, fit: (s, id) => id === 'end_pen_down' || !!s.flags.shift_hand, parody: /あきらめたら/ }, // SLAM DUNK: あきらめなかった人生に
   { t: { ja: '「じゃあ、元気でな。たまには連絡しろよ」\n「フォースと共にあらんことを」', en: '"Take care. Call once in a while."\n"May the Force be with you."' }, fit: (_s, id) => id === 'end_retire' || id === 'end_switch', parody: /と共にあらんことを/ }, // スター・ウォーズ: 送り出す人生に
+  { t: { ja: '「AI が全部作る時代だぞ。まだやるのか」\n「オレはようやくのぼりはじめたばかりだからな　このはてしなく遠いゲーム坂をよ…」', en: '"AI makes everything now. You\'re still at it?"\n"I\'ve only just started climbing, you know. This endlessly long game-dev hill..."' }, fit: (s, id) => id === 'end_restart' && !s.flags.shift_play, parody: /はてしなく遠い|のぼりはじめたばかり/ }, // 2027 年に AI で挫折しかけても、まだ開発者のまま終わる人生(2026-10-17 Mukkii。男坂のもじり)
 ];
 /** どの終わり方でも、最後は同期との掛け合い(キッズ・リターンのパロディ)。場面だけ終わり方で変える */
 function kidsReturn(s: State, id: EndingId) {
@@ -1028,7 +1029,7 @@ function kidsReturn(s: State, id: EndingId) {
     { ja: '「お前のゲーム、まだ実家にあるぞ」\n「電池、切れてないといいな」', en: '"Your game\'s still at my parents\' place."\n"Hope the battery\'s still alive."' },
     { ja: '「また一緒にやるか」\n「次は、締め切りを守る方で」', en: '"Want to do it again sometime?"\n"Sure. The kind where we hit the deadline."' },
   ], 'plainfin');
-  else { const [fin, fi] = !s.inner.recent?.length ? okF[0] : s.rng.pick(freshF.length ? freshF : okF); said.push(`finale:${fi}`); finale = fin.t; }
+  else { const zaka = freshF.find(([f]) => f.parody?.source.includes('はてしなく遠い')); const [fin, fi] = !s.inner.recent?.length ? okF[0] : zaka && s.rng.chance(0.5) ? zaka : s.rng.pick(freshF.length ? freshF : okF); said.push(`finale:${fi}`); finale = fin.t; } // 2027 年にまだ開発者なら、ゲーム坂を半分の確率で(2026-10-17 Mukkii)
   s.inner.kr = { ja: `${w.ja}\n${finale.ja}`, en: `${w.en}\n${finale.en}` };
 }
 
