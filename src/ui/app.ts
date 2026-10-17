@@ -33,7 +33,7 @@ export function startApp(container: HTMLElement) {
   container.append(app);
   installArt(app);
   installInput(container);
-  installBuildId();
+  const reloadIfNew = installBuildId(() => scene === 'Title');
 
   const demo = query.get('demo') === '1';
   const rec0 = replayFromUrl();
@@ -72,6 +72,7 @@ export function startApp(container: HTMLElement) {
   // ---- タイトル ----
   function title() {
     setScene('Title');
+    reloadIfNew(); // 新しい版が出ていれば、ここで入れる(遊んでいる途中では読み直さない)
     play = null;
     expose('score', 0);
     playBgm('title');
