@@ -16,6 +16,6 @@ export function validPick(p: string | null | undefined): p is StartPick {
 
 export function pickOpts(p: StartPick): { era?: Era; year?: number; age?: number } {
   if (!validPick(p)) return {};
-  // 年代を自分で選んだ人は、新卒で入った自分を重ねていることが多いので 22 歳で始める(2026-10-17 Mukkii)
-  return p.startsWith('y') ? { year: +p.slice(1), age: 22 } : { era: p as Era, age: 22 };
+  // 年をじかに選んだ人は、新卒で入った自分を重ねていることが多いので 22 歳で始める。時代(era)を選んだ時はいつものガチャ(2026-10-17 Mukkii)
+  return p.startsWith('y') ? { year: +p.slice(1), age: 22 } : { era: p as Era };
 }
