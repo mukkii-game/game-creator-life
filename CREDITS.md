@@ -55,3 +55,5 @@
 - 素材を主にしたグッズの販売は不可(作品のグッズとしてなら事前連絡で可)。
 - 取り方: 配布の zip はダウンロードボタンの先が Google Drive(docs.google.com)で、この環境のプロキシでは 403(取れなかった)。代わりに配布ページに載っている見本画像(pipoya.net の wp-content/uploads)から切り出した: 人物は「出力画像+α」の見本(https://pipoya.net/sozai/wp-content/uploads/2022/04/image.png 。32×32 を約 3.1 倍で並べた一覧)を 1 倍に戻して背景色を透明にした。アイコンは「プチエモートアイコン」の見本(https://pipoya.net/sozai/wp-content/uploads/2021/07/pipofm-puchiemoteicon01_1a200p.png 。ちょうど 2 倍)を 1 倍に戻した。どちらも無料素材の配布ページの見本で、中身は zip と同じ素材(画素単位で崩れていないことを確かめた)。人間が zip を取れる環境なら、zip の元ファイルに差し替えてよい。
 - 使わなかったもの: ウィンドウ・ボタンベース画像(光沢のある RPG 風で時代のテーマに合わない)、背景画像(ファンタジーの戦闘背景で合わない)、ぴぽやフレンズの出力済みキャラチップ(支援サイト限定素材で無料ではない)。時代の画面の枠・背景は今の CSS のまま。
+
+- 名前の NG 語の一部: List of Dirty, Naughty, Obscene and Otherwise Bad Words(LDNOOBW、日本語版、CC BY 4.0)https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words から選んで使用。
