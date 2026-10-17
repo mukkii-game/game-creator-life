@@ -340,6 +340,7 @@ function applyInner(s: State, e: Effect, ctx: string, out: string[], cause?: Tex
 function setStatus(s: State, st: State['status']) {
   if (st === 'left' && s.status !== 'left') { s.inner.leftYear = s.year; s.inner.searchFails = 0; s.company = { id: 'co_none', name: { ja: '無職', en: 'unemployed' }, size: 'none' }; }
   s.status = st;
+  if ((st === 'employed' || st === 'indie') && s.job === 'other') { s.job = s.inner.prevJob && s.inner.prevJob !== 'other' ? s.inner.prevJob : s.inner.startJob; s.inner.otherJob = null; } // 業界に戻ったら元の職種に(「ナツメグの業界の外」の元)
 }
 function schedule(s: State, later: { after: number; event: string }[] | undefined) {
   for (const l of later ?? []) s.pending.push({ year: s.year + l.after, event: l.event, co: s.company.id });
@@ -805,7 +806,9 @@ function peerSummary(p: State): Text {
   if (p.ending) return p.ending.cause;
   const j = JOB_TEXT[p.job];
   if (p.status === 'indie') return { ja: `独立して${p.company.name.ja}`, en: `Indie: ${p.company.name.en}` };
-  if (p.status === 'left') return { ja: p.job === 'other' ? `${p.inner.otherJob?.ja ?? '別の仕事'}で働いている` : '求職中', en: p.job === 'other' ? `Working at a ${p.inner.otherJob?.en ?? 'job'}` : 'Job hunting' };
+  if (p.flags.in_prison) return { ja: '服役中', en: 'Serving time' };
+  if (p.job === 'other') return { ja: p.inner.otherJob ? `業界を離れ、${p.inner.otherJob.ja}で働いている` : '業界を離れ、別の仕事をしている', en: p.inner.otherJob ? `Left the industry; working at a ${p.inner.otherJob.en}` : 'Left the industry for other work' }; // 「ナツメグの業界の外」にならないように(2026-10-17)
+  if (p.status === 'left') return { ja: '求職中', en: 'Job hunting' };
   return { ja: `${p.company.name.ja}の${j.ja}`, en: `${j.en} at ${p.company.name.en}` };
 }
 function peersYear(s: State, out: string[]) {
